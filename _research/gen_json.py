@@ -1,9 +1,16 @@
 # -*- coding: utf-8 -*-
-"""从 rules.ini + csf 中文名生成机器可读的关键单位数据 RA2-UNITS.json。"""
-import re, os, io, json, collections
+"""从 rules.ini + csf 中文名生成机器可读的关键单位数据 RA2-UNITS.json。
 
-D = __file__.rsplit("\\", 1)[0]
-OUTDIR = os.path.dirname(D)  # gonghui-bot/
+用法: python gen_json.py [输出目录]     # 缺省写 repo 根的 knowledge/
+"""
+import re, os, io, json, collections, sys
+
+D = os.path.dirname(os.path.abspath(__file__))
+# 输出目录：优先 repo 根的 knowledge/（归档布局），否则与本脚本同级；可用 argv[1] 覆盖
+_root = os.path.dirname(D)
+OUTDIR = os.path.join(_root, "knowledge") if os.path.isdir(os.path.join(_root, "knowledge")) else _root
+if len(sys.argv) > 1:
+    OUTDIR = sys.argv[1]
 ini = io.open(os.path.join(D, "rules.ini"), "r", encoding="utf-8", errors="ignore").read()
 
 sec, cur = collections.OrderedDict(), None

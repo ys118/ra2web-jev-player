@@ -47,6 +47,7 @@ tail -f logs/jev-events.jsonl              # 逐决策审计（若桥接从项�
 2. **官方策略本地化调参**：官方玩家源码在 `refs/examples/jev/`（只读参考；如需改策略，改本地副本并在 `JEV-INTEGRATION.md` 记录改动理由与效果）。
 3. **桥接增强（可选）**：`/status` 持久化多局统计；把 `jev-events.jsonl` 的结构化指标（决策/置信度/拒绝原因）做成小结工具。
 4. **对照实验（可选）**：同一局面下 legacy-bot vs 官方体系的行为差异记录，为策略库沉淀证据。
+5. **数据刷新（游戏更新后必做）**：按 `_research/README.md` 重抓 `rules.ini`/`ra2.csf` → `decode_csf.py` → `gen_json.py` → `verify.py`；数值若有变化，同步检查 `knowledge/RA2-UNITS.json` 驱动的反制/选兵规则与阈值。
 
 ## 四、红线（不要越过）
 
@@ -63,5 +64,6 @@ tail -f logs/jev-events.jsonl              # 逐决策审计（若桥接从项�
 | 所有引擎/环境坑 | `docs/ENGINEERING-NOTES.md` |
 | 桥接协议 / 参数来历 | `docs/JEV-INTEGRATION.md` |
 | 官方 API 原文 | `refs/player-console-api.md`、`refs/jev-player-local.md` |
-| 攻略/数值真值 | `knowledge/RA2-BIBLE.md`、`knowledge/RA2-UNITS.json` |
+| 攻略/数值真值 | `knowledge/RA2-BIBLE.md`、`knowledge/RA2-UNITS.json`（用法与版本绑定见 `knowledge/README.md`） |
+| 数值/攻略的复现与刷新 | `_research/README.md`（流水线照抄、CSF 解码坑、43 篇来源索引、校验记录） |
 | 游戏历史数据 | `logs/bot.log`（自研 20 局）、`logs/jev-events.jsonl`（官方体系审计） |
