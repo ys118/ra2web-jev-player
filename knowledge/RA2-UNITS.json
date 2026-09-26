@@ -1,0 +1,3498 @@
+{
+ "meta": {
+  "game": "王二火大网页红警2 (mod id=gonghui)",
+  "source": "client rules.ini @ game.gongheguozhihui.com/res/overlay/rules.ini, fetched 2026-09-20",
+  "armor_classes": [
+   "none",
+   "flak",
+   "plate",
+   "light",
+   "medium",
+   "heavy",
+   "wood",
+   "steel",
+   "concrete",
+   "special_1",
+   "special_2"
+  ],
+  "notes": "verses 为弹头对 11 种护甲的伤害倍率, 顺序同 armor_classes; 伤害=damage*burst*倍率"
+ },
+ "groups": {
+  "soviet_infantry": {
+   "E2": {
+    "code": "E2",
+    "name": "Conscript",
+    "cn": "动员兵",
+    "cost": 90,
+    "hp": 130,
+    "armor": "flak",
+    "speed": 4,
+    "sight": 5,
+    "tech": 1,
+    "prereq": "NAHAND",
+    "owner": "Russians,Africans,Arabs",
+    "primary": {
+     "code": "M1Carbine",
+     "damage": 15,
+     "rof": 25,
+     "range": 4,
+     "warhead": "SA",
+     "verses": {
+      "none": "100%",
+      "flak": "80%",
+      "plate": "70%",
+      "light": "50%",
+      "medium": "25%",
+      "heavy": "25%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "M1CarbineE",
+     "damage": 20,
+     "rof": 25,
+     "range": 5,
+     "warhead": "SA",
+     "verses": {
+      "none": "100%",
+      "flak": "80%",
+      "plate": "70%",
+      "light": "50%",
+      "medium": "25%",
+      "heavy": "25%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Occupier"
+    ]
+   },
+   "SHK": {
+    "code": "SHK",
+    "name": "Shock Trooper",
+    "cn": "磁爆步兵",
+    "cost": 500,
+    "hp": 200,
+    "armor": "Plate",
+    "speed": 4,
+    "sight": 6,
+    "tech": 5,
+    "prereq": "NAHAND",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "ElectricBolt",
+     "damage": 50,
+     "rof": 60,
+     "range": 4,
+     "warhead": "Shock",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "85%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "50%",
+      "steel": "50%",
+      "concrete": "50%",
+      "special_1": "200%",
+      "special_2": "100%"
+     }
+    },
+    "secondary": {
+     "code": "AssaultBolt",
+     "damage": 10,
+     "rof": 25,
+     "range": 1.83,
+     "warhead": "ElectricAssault",
+     "verses": {
+      "none": "0%",
+      "flak": "0",
+      "plate": "0%",
+      "light": "0%",
+      "medium": "0%",
+      "heavy": "0%",
+      "wood": "100%",
+      "steel": "100%",
+      "concrete": "100%",
+      "special_1": "50%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "ElectricBoltE",
+     "damage": 50,
+     "rof": 40,
+     "range": 6,
+     "warhead": "Shock",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "85%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "50%",
+      "steel": "50%",
+      "concrete": "50%",
+      "special_1": "200%",
+      "special_2": "100%"
+     }
+    }
+   },
+   "FLAKT": {
+    "code": "FLAKT",
+    "name": "Flak Trooper",
+    "cn": "防空步兵",
+    "cost": 250,
+    "hp": 125,
+    "armor": "flak",
+    "speed": 4,
+    "sight": 5,
+    "tech": 1,
+    "prereq": "NAHAND,NARADR",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "FlakGuyGun",
+     "damage": 20,
+     "rof": 20,
+     "range": 5,
+     "warhead": "FlakTWH",
+     "verses": {
+      "none": "150%",
+      "flak": "100%",
+      "plate": "50%",
+      "light": "60%",
+      "medium": "10%",
+      "heavy": "10%",
+      "wood": "30%",
+      "steel": "20%",
+      "concrete": "10%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "secondary": {
+     "code": "FlakGuyAAGun",
+     "damage": 30,
+     "rof": 25,
+     "range": 9,
+     "warhead": "FlakGuyWH",
+     "verses": {
+      "none": "150%",
+      "flak": "100%",
+      "plate": "50%",
+      "light": "80%",
+      "medium": "20%",
+      "heavy": "20%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "150%"
+     }
+    },
+    "elite_primary": {
+     "code": "FlakGuyGunE",
+     "damage": 40,
+     "rof": 15,
+     "range": 7,
+     "burst": 2,
+     "warhead": "FlakTWH",
+     "verses": {
+      "none": "150%",
+      "flak": "100%",
+      "plate": "50%",
+      "light": "60%",
+      "medium": "10%",
+      "heavy": "10%",
+      "wood": "30%",
+      "steel": "20%",
+      "concrete": "10%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_secondary": {
+     "code": "FlakGuyAAGunE",
+     "damage": 20,
+     "rof": 15,
+     "range": 9,
+     "burst": 2,
+     "warhead": "FlakGuyWH",
+     "verses": {
+      "none": "150%",
+      "flak": "100%",
+      "plate": "50%",
+      "light": "80%",
+      "medium": "20%",
+      "heavy": "20%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "150%"
+     }
+    }
+   },
+   "IVAN": {
+    "code": "IVAN",
+    "name": "Crazy Ivan",
+    "cn": "疯狂伊文",
+    "cost": 800,
+    "hp": 125,
+    "armor": "none",
+    "speed": 4,
+    "sight": 6,
+    "tech": 5,
+    "prereq": "NAHAND,NARADR",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "IvanBomber",
+     "damage": 400,
+     "rof": 50,
+     "range": 5,
+     "warhead": "IvanBomb"
+    },
+    "elite_primary": {
+     "code": "IvanBomberE",
+     "damage": 800,
+     "rof": 50,
+     "range": 7,
+     "warhead": "IvanBomb"
+    },
+    "flags": [
+     "SelfHealing",
+     "Explodes"
+    ]
+   },
+   "DESO": {
+    "code": "DESO",
+    "name": "Desolater",
+    "cn": "辐射工兵",
+    "cost": 600,
+    "hp": 150,
+    "armor": "plate",
+    "speed": 4,
+    "sight": 6,
+    "tech": 8,
+    "prereq": "NAHAND,RADAR",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "RadBeamWeapon",
+     "damage": 125,
+     "rof": 50,
+     "range": 6,
+     "warhead": "RadBeamWarhead",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "20%",
+      "medium": "15%",
+      "heavy": "10%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "secondary": {
+     "code": "RadEruptionWeapon",
+     "damage": 1,
+     "rof": 60,
+     "range": 4,
+     "warhead": "RadEruptionWarhead",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "20%",
+      "medium": "10%",
+      "heavy": "10%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "RadBeamWeaponE",
+     "damage": 200,
+     "rof": 50,
+     "range": 8,
+     "warhead": "RadBeamWarhead",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "20%",
+      "medium": "15%",
+      "heavy": "10%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Deployer",
+     "SelfHealing"
+    ]
+   },
+   "ADOG": {
+    "code": "ADOG",
+    "name": "Allied Attack Dog",
+    "cn": "警犬",
+    "cost": 200,
+    "hp": 80,
+    "armor": "none",
+    "speed": 8,
+    "sight": 9,
+    "tech": 2,
+    "prereq": "Barracks",
+    "owner": "Russians,Confederation,Africans,Arabs,British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "GoodTeeth",
+     "damage": 30,
+     "rof": 30,
+     "range": 1.5,
+     "warhead": "ParasiteDog",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "0%",
+      "medium": "0%",
+      "heavy": "0%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "0%",
+      "special_2": "0%"
+     }
+    },
+    "secondary": {
+     "code": "VirtualScanner",
+     "damage": 1,
+     "range": 5,
+     "warhead": "SA",
+     "verses": {
+      "none": "100%",
+      "flak": "80%",
+      "plate": "70%",
+      "light": "50%",
+      "medium": "25%",
+      "heavy": "25%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "ImmuneToPsionics"
+    ]
+   },
+   "SENGINEER": {
+    "code": "SENGINEER",
+    "name": "Soviet Engineer",
+    "cn": "工程师",
+    "cost": 500,
+    "hp": 75,
+    "armor": "none",
+    "speed": 4,
+    "sight": 4,
+    "tech": 1,
+    "prereq": "Barracks",
+    "owner": "Russians,Confederation,Africans,Arabs,British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "DefuseKit",
+     "damage": 1,
+     "rof": 20,
+     "range": 5,
+     "warhead": "BombDisarm"
+    },
+    "secondary": {
+     "code": "VirtualScanner",
+     "damage": 1,
+     "range": 5,
+     "warhead": "SA",
+     "verses": {
+      "none": "100%",
+      "flak": "80%",
+      "plate": "70%",
+      "light": "50%",
+      "medium": "25%",
+      "heavy": "25%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    }
+   },
+   "YURI": {
+    "code": "YURI",
+    "name": "Yuri",
+    "cn": "尤里",
+    "cost": 1200,
+    "hp": 100,
+    "armor": "none",
+    "speed": 4,
+    "sight": 12,
+    "tech": 10,
+    "prereq": "NAHAND,NATECH",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "MindControl",
+     "damage": 10,
+     "rof": 200,
+     "range": 7,
+     "warhead": "Controller",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "secondary": {
+     "code": "PsiWave",
+     "damage": 250,
+     "rof": 50,
+     "range": 1,
+     "warhead": "PsiPulse",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "0%",
+      "medium": "0%",
+      "heavy": "0%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "0%",
+      "special_2": "0%"
+     }
+    },
+    "flags": [
+     "Deployer",
+     "ImmuneToPsionics"
+    ]
+   },
+   "SPY": {
+    "code": "SPY",
+    "name": "Spy",
+    "cn": "间谍",
+    "cost": 1000,
+    "hp": 100,
+    "armor": "flak",
+    "speed": 4,
+    "sight": 9,
+    "tech": 5,
+    "prereq": "Barracks,TECH",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "MakeupKit",
+     "damage": 1,
+     "rof": 100,
+     "range": -2,
+     "warhead": "Snapshot",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "0%",
+      "medium": "0%",
+      "heavy": "0%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    }
+   }
+  },
+  "soviet_vehicles": {
+   "HTNK": {
+    "code": "HTNK",
+    "name": "Rhino Heavy Tank",
+    "cn": "犀牛坦克",
+    "cost": 900,
+    "hp": 400,
+    "armor": "heavy",
+    "speed": 6,
+    "rot": 5,
+    "sight": 8,
+    "tech": 2,
+    "prereq": "NAWEAP",
+    "owner": "Russians,Africans,Arabs",
+    "primary": {
+     "code": "120mm",
+     "damage": 90,
+     "rof": 65,
+     "range": 5.75,
+     "warhead": "AP",
+     "verses": {
+      "none": "25%",
+      "flak": "25%",
+      "plate": "25%",
+      "light": "75%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "65%",
+      "steel": "45%",
+      "concrete": "60%",
+      "special_1": "60%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "120mmE",
+     "damage": 85,
+     "rof": 80,
+     "range": 5.75,
+     "burst": 2,
+     "warhead": "RHINAPE",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "65%",
+      "steel": "45%",
+      "concrete": "60%",
+      "special_1": "60%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Crusher",
+     "Turret"
+    ]
+   },
+   "APOC": {
+    "code": "APOC",
+    "name": "Apocalypse",
+    "cn": "天启坦克",
+    "cost": 1700,
+    "hp": 800,
+    "armor": "heavy",
+    "speed": 5,
+    "rot": 5,
+    "sight": 6,
+    "tech": 7,
+    "prereq": "NAWEAP,NATECH",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "120mmx",
+     "damage": 100,
+     "rof": 80,
+     "range": 5.75,
+     "burst": 2,
+     "warhead": "ApocAP",
+     "verses": {
+      "none": "25%",
+      "flak": "25%",
+      "plate": "25%",
+      "light": "75%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "100%",
+      "steel": "100%",
+      "concrete": "70%",
+      "special_1": "60%",
+      "special_2": "100%"
+     }
+    },
+    "secondary": {
+     "code": "MammothTusk",
+     "damage": 50,
+     "rof": 80,
+     "range": 8,
+     "burst": 2,
+     "warhead": "HE",
+     "verses": {
+      "none": "100%",
+      "flak": "90%",
+      "plate": "80%",
+      "light": "70%",
+      "medium": "65%",
+      "heavy": "45%",
+      "wood": "75%",
+      "steel": "40%",
+      "concrete": "20%",
+      "special_1": "80%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "120mmxE",
+     "damage": 100,
+     "rof": 80,
+     "range": 5.75,
+     "burst": 4,
+     "warhead": "ApocAPE",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "75%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "100%",
+      "steel": "100%",
+      "concrete": "70%",
+      "special_1": "60%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Crusher",
+     "SelfHealing",
+     "Turret",
+     "Explodes"
+    ]
+   },
+   "TTNK": {
+    "code": "TTNK",
+    "name": "Tesla Tank",
+    "cn": "磁能坦克",
+    "cost": 1200,
+    "hp": 330,
+    "armor": "heavy",
+    "speed": 6,
+    "rot": 5,
+    "sight": 8,
+    "tech": 10,
+    "prereq": "NAWEAP,NARADR",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "TankBolt",
+     "damage": 135,
+     "rof": 60,
+     "range": 4,
+     "warhead": "Electric",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "85%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "50%",
+      "steel": "50%",
+      "concrete": "50%",
+      "special_1": "200%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "TankBoltE",
+     "damage": 150,
+     "rof": 50,
+     "range": 6,
+     "warhead": "Electric",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "85%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "50%",
+      "steel": "50%",
+      "concrete": "50%",
+      "special_1": "200%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Crusher",
+     "Turret"
+    ]
+   },
+   "DRON": {
+    "code": "DRON",
+    "name": "Terror Drone",
+    "cn": "恐怖机器人",
+    "cost": 400,
+    "hp": 50,
+    "armor": "special_1",
+    "speed": 12,
+    "rot": 40,
+    "sight": 4,
+    "tech": 4,
+    "prereq": "NAWEAP",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "DroneJump",
+     "damage": 50,
+     "rof": 60,
+     "range": 1.83,
+     "warhead": "Parasite",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "0%",
+      "special_2": "0%"
+     }
+    },
+    "secondary": {
+     "code": "VirtualScanner",
+     "damage": 1,
+     "range": 5,
+     "warhead": "SA",
+     "verses": {
+      "none": "100%",
+      "flak": "80%",
+      "plate": "70%",
+      "light": "50%",
+      "medium": "25%",
+      "heavy": "25%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "ImmuneToPsionics"
+    ]
+   },
+   "V3": {
+    "code": "V3",
+    "name": "V3 Launcher",
+    "cn": "V3 火箭发射车",
+    "cost": 800,
+    "hp": 150,
+    "armor": "light",
+    "speed": 4,
+    "rot": 5,
+    "sight": 7,
+    "tech": 3,
+    "prereq": "NAWEAP,NARADR",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "V3Launcher",
+     "damage": 1,
+     "rof": 150,
+     "range": 18,
+     "warhead": "Special"
+    },
+    "flags": [
+     "Crusher"
+    ]
+   },
+   "HTK": {
+    "code": "HTK",
+    "name": "Flak Track",
+    "cn": "防空履带车",
+    "cost": 500,
+    "hp": 180,
+    "armor": "heavy",
+    "speed": 8,
+    "rot": 5,
+    "sight": 8,
+    "tech": 3,
+    "prereq": "NAWEAP",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "FlakTrackGun",
+     "damage": 25,
+     "rof": 40,
+     "range": 5,
+     "warhead": "FlakTWH",
+     "verses": {
+      "none": "150%",
+      "flak": "100%",
+      "plate": "50%",
+      "light": "60%",
+      "medium": "10%",
+      "heavy": "10%",
+      "wood": "30%",
+      "steel": "20%",
+      "concrete": "10%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "secondary": {
+     "code": "FlakTrackAAGun",
+     "damage": 35,
+     "rof": 25,
+     "range": 10,
+     "warhead": "FlakWH",
+     "verses": {
+      "none": "150%",
+      "flak": "80%",
+      "plate": "50%",
+      "light": "100%",
+      "medium": "20%",
+      "heavy": "20%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "150%"
+     }
+    },
+    "elite_primary": {
+     "code": "FlakTrackGunE",
+     "damage": 25,
+     "rof": 40,
+     "range": 5,
+     "burst": 2,
+     "warhead": "FlakTWH",
+     "verses": {
+      "none": "150%",
+      "flak": "100%",
+      "plate": "50%",
+      "light": "60%",
+      "medium": "10%",
+      "heavy": "10%",
+      "wood": "30%",
+      "steel": "20%",
+      "concrete": "10%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_secondary": {
+     "code": "FlakTrackAAGunE",
+     "damage": 35,
+     "rof": 25,
+     "range": 10,
+     "burst": 2,
+     "warhead": "FlakWH",
+     "verses": {
+      "none": "150%",
+      "flak": "80%",
+      "plate": "50%",
+      "light": "100%",
+      "medium": "20%",
+      "heavy": "20%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "150%"
+     }
+    },
+    "flags": [
+     "Crusher",
+     "Turret"
+    ]
+   },
+   "HARV": {
+    "code": "HARV",
+    "name": "War Miner",
+    "cn": "武装采矿车",
+    "cost": 1400,
+    "hp": 1000,
+    "armor": "medium",
+    "speed": 6,
+    "rot": 5,
+    "sight": 5,
+    "storage": 45,
+    "tech": 1,
+    "prereq": "NAWEAP,PROC",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "20mmRapid",
+     "damage": 30,
+     "rof": 20,
+     "range": 5.5,
+     "warhead": "HARVWH",
+     "verses": {
+      "none": "100%",
+      "flak": "80%",
+      "plate": "70%",
+      "light": "50%",
+      "medium": "20%",
+      "heavy": "20%",
+      "wood": "20%",
+      "steel": "15%",
+      "concrete": "10%",
+      "special_1": "200%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "20mmRapidE",
+     "damage": 50,
+     "rof": 50,
+     "range": 5.75,
+     "warhead": "HowitzerWH",
+     "verses": {
+      "none": "100%",
+      "flak": "90%",
+      "plate": "80%",
+      "light": "60%",
+      "medium": "40%",
+      "heavy": "40%",
+      "wood": "50%",
+      "steel": "40%",
+      "concrete": "25%",
+      "special_1": "80%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Crusher",
+     "SelfHealing",
+     "Harvester",
+     "ImmuneToPsionics",
+     "Turret"
+    ]
+   },
+   "SMCV": {
+    "code": "SMCV",
+    "name": "Soviet Construction Vehicle",
+    "cn": "苏联机动基地车",
+    "cost": 3000,
+    "hp": 1000,
+    "armor": "heavy",
+    "speed": 4,
+    "rot": 5,
+    "sight": 6,
+    "tech": 10,
+    "prereq": "NAWEAP,NADEPT",
+    "owner": "Russians,Africans,Arabs",
+    "flags": [
+     "Crusher"
+    ]
+   },
+   "ZEP": {
+    "code": "ZEP",
+    "name": "Kirov Airship",
+    "cn": "基洛夫空艇",
+    "cost": 2000,
+    "hp": 1600,
+    "armor": "light",
+    "speed": 6,
+    "rot": 10,
+    "sight": 8,
+    "tech": 10,
+    "prereq": "NAWEAP,NATECH",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "BlimpBomb",
+     "damage": 250,
+     "rof": 50,
+     "range": 1.5,
+     "burst": 1,
+     "warhead": "BlimpHE",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "70%",
+      "medium": "35%",
+      "heavy": "35%",
+      "wood": "85%",
+      "steel": "75%",
+      "concrete": "50%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "BlimpBombE",
+     "damage": 250,
+     "rof": 50,
+     "range": 1.5,
+     "burst": 1,
+     "warhead": "KTSTLEXP",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "70%",
+      "medium": "35%",
+      "heavy": "35%",
+      "wood": "85%",
+      "steel": "75%",
+      "concrete": "50%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "SelfHealing"
+    ]
+   },
+   "LTNK": {
+    "code": "LTNK",
+    "name": "Light Tank",
+    "cn": "轻坦克",
+    "cost": 860,
+    "hp": 330,
+    "armor": "heavy",
+    "speed": 7,
+    "rot": 7,
+    "sight": 8,
+    "tech": 2,
+    "prereq": "CAWEAP",
+    "owner": "Confederation",
+    "primary": {
+     "code": "120mm",
+     "damage": 90,
+     "rof": 65,
+     "range": 5.75,
+     "warhead": "AP",
+     "verses": {
+      "none": "25%",
+      "flak": "25%",
+      "plate": "25%",
+      "light": "75%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "65%",
+      "steel": "45%",
+      "concrete": "60%",
+      "special_1": "60%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "120mmE",
+     "damage": 85,
+     "rof": 80,
+     "range": 5.75,
+     "burst": 2,
+     "warhead": "RHINAPE",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "65%",
+      "steel": "45%",
+      "concrete": "60%",
+      "special_1": "60%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Crusher",
+     "Turret"
+    ]
+   }
+  },
+  "soviet_navy": {
+   "SUB": {
+    "code": "SUB",
+    "name": "Typhoon Attack Sub",
+    "cn": "台风级攻击潜艇",
+    "cost": 1000,
+    "hp": 600,
+    "armor": "heavy",
+    "speed": 4,
+    "rot": 2,
+    "sight": 6,
+    "tech": 2,
+    "prereq": "NAYARD",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "SubTorpedo",
+     "damage": 100,
+     "rof": 120,
+     "range": 7,
+     "warhead": "APSplash",
+     "verses": {
+      "none": "25%",
+      "flak": "25%",
+      "plate": "25%",
+      "light": "75%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "65%",
+      "steel": "65%",
+      "concrete": "60%",
+      "special_1": "25%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "SubTorpedoE",
+     "damage": 100,
+     "rof": 120,
+     "range": 7,
+     "burst": 2,
+     "warhead": "APSplash",
+     "verses": {
+      "none": "25%",
+      "flak": "25%",
+      "plate": "25%",
+      "light": "75%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "65%",
+      "steel": "65%",
+      "concrete": "60%",
+      "special_1": "25%",
+      "special_2": "100%"
+     }
+    }
+   },
+   "DRED": {
+    "code": "DRED",
+    "name": "Dreadnought",
+    "cn": "无畏级战舰",
+    "cost": 2000,
+    "hp": 800,
+    "armor": "heavy",
+    "speed": 4,
+    "rot": 1,
+    "sight": 7,
+    "tech": 6,
+    "prereq": "NAYARD,NATECH",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "DredLauncher",
+     "damage": 50,
+     "rof": 50,
+     "range": 25,
+     "burst": 2,
+     "warhead": "Special"
+    }
+   },
+   "HYD": {
+    "code": "HYD",
+    "name": "Sea Scorpion",
+    "cn": "海蝎",
+    "cost": 600,
+    "hp": 400,
+    "armor": "heavy",
+    "speed": 8,
+    "rot": 6,
+    "sight": 8,
+    "tech": 6,
+    "prereq": "NAYARD,NARADR",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "FlakTrackGun",
+     "damage": 25,
+     "rof": 40,
+     "range": 5,
+     "warhead": "FlakTWH",
+     "verses": {
+      "none": "150%",
+      "flak": "100%",
+      "plate": "50%",
+      "light": "60%",
+      "medium": "10%",
+      "heavy": "10%",
+      "wood": "30%",
+      "steel": "20%",
+      "concrete": "10%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "secondary": {
+     "code": "FlakWeapon",
+     "damage": 40,
+     "rof": 20,
+     "range": 12,
+     "warhead": "FlakWH",
+     "verses": {
+      "none": "150%",
+      "flak": "80%",
+      "plate": "50%",
+      "light": "100%",
+      "medium": "20%",
+      "heavy": "20%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "150%"
+     }
+    },
+    "elite_primary": {
+     "code": "FlakTrackGunE",
+     "damage": 25,
+     "rof": 40,
+     "range": 5,
+     "burst": 2,
+     "warhead": "FlakTWH",
+     "verses": {
+      "none": "150%",
+      "flak": "100%",
+      "plate": "50%",
+      "light": "60%",
+      "medium": "10%",
+      "heavy": "10%",
+      "wood": "30%",
+      "steel": "20%",
+      "concrete": "10%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_secondary": {
+     "code": "FlakWeaponE",
+     "damage": 40,
+     "rof": 20,
+     "range": 12,
+     "burst": 2,
+     "warhead": "FlakWH",
+     "verses": {
+      "none": "150%",
+      "flak": "80%",
+      "plate": "50%",
+      "light": "100%",
+      "medium": "20%",
+      "heavy": "20%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "150%"
+     }
+    }
+   },
+   "SQD": {
+    "code": "SQD",
+    "name": "Giant Squid",
+    "cn": "巨型乌贼",
+    "cost": 1000,
+    "hp": 200,
+    "armor": "light",
+    "speed": 8,
+    "rot": 40,
+    "sight": 5,
+    "tech": 9,
+    "prereq": "NAYARD,NATECH",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "SquidGrab",
+     "damage": 15,
+     "rof": 99,
+     "range": 1.5,
+     "warhead": "ParasitePlus",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "100%",
+      "steel": "100%",
+      "concrete": "100%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "secondary": {
+     "code": "SquidPunch",
+     "damage": 50,
+     "rof": 32,
+     "range": 1.83,
+     "warhead": "HE",
+     "verses": {
+      "none": "100%",
+      "flak": "90%",
+      "plate": "80%",
+      "light": "70%",
+      "medium": "65%",
+      "heavy": "45%",
+      "wood": "75%",
+      "steel": "40%",
+      "concrete": "20%",
+      "special_1": "80%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "SquidGrabE",
+     "damage": 40,
+     "rof": 99,
+     "range": 1.5,
+     "warhead": "ParasitePlus",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "100%",
+      "steel": "100%",
+      "concrete": "100%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_secondary": {
+     "code": "SquidPunchE",
+     "damage": 200,
+     "rof": 32,
+     "range": 1.83,
+     "warhead": "HE",
+     "verses": {
+      "none": "100%",
+      "flak": "90%",
+      "plate": "80%",
+      "light": "70%",
+      "medium": "65%",
+      "heavy": "45%",
+      "wood": "75%",
+      "steel": "40%",
+      "concrete": "20%",
+      "special_1": "80%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "SelfHealing",
+     "ImmuneToPsionics"
+    ]
+   }
+  },
+  "allied_infantry": {
+   "E1": {
+    "code": "E1",
+    "name": "GI",
+    "cn": "美国大兵",
+    "cost": 180,
+    "hp": 125,
+    "armor": "none",
+    "speed": 4,
+    "sight": 5,
+    "tech": 1,
+    "prereq": "GAPILE",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "M60",
+     "damage": 15,
+     "rof": 20,
+     "range": 4,
+     "warhead": "SA",
+     "verses": {
+      "none": "100%",
+      "flak": "80%",
+      "plate": "70%",
+      "light": "50%",
+      "medium": "25%",
+      "heavy": "25%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "secondary": {
+     "code": "Para",
+     "damage": 15,
+     "rof": 15,
+     "range": 5,
+     "warhead": "SSA",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "70%",
+      "light": "60%",
+      "medium": "40%",
+      "heavy": "40%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "M60E",
+     "damage": 25,
+     "rof": 20,
+     "range": 4,
+     "warhead": "SA",
+     "verses": {
+      "none": "100%",
+      "flak": "80%",
+      "plate": "70%",
+      "light": "50%",
+      "medium": "25%",
+      "heavy": "25%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_secondary": {
+     "code": "ParaE",
+     "damage": 25,
+     "rof": 5,
+     "range": 7,
+     "warhead": "SSA",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "70%",
+      "light": "60%",
+      "medium": "40%",
+      "heavy": "40%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Deployer",
+     "Occupier"
+    ]
+   },
+   "JUMPJET": {
+    "code": "JUMPJET",
+    "name": "Rocketeer",
+    "cn": "火箭飞行兵",
+    "cost": 600,
+    "hp": 125,
+    "armor": "special_2",
+    "speed": 9,
+    "sight": 8,
+    "tech": 3,
+    "prereq": "GAPILE,RADAR",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "20mm",
+     "damage": 25,
+     "rof": 30,
+     "range": 5,
+     "warhead": "SSA",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "70%",
+      "light": "60%",
+      "medium": "40%",
+      "heavy": "40%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "20mmE",
+     "damage": 25,
+     "rof": 5,
+     "range": 5,
+     "warhead": "SSA",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "70%",
+      "light": "60%",
+      "medium": "40%",
+      "heavy": "40%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    }
+   },
+   "GGI": {
+    "code": "GGI",
+    "name": "Guardian GI",
+    "cn": "",
+    "cost": 550,
+    "hp": 125,
+    "armor": "Plate",
+    "speed": 3,
+    "sight": 6,
+    "tech": 7,
+    "prereq": "GAPILE",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "GuardianPara",
+     "damage": 10,
+     "rof": 20,
+     "range": 5,
+     "warhead": "SSA",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "70%",
+      "light": "60%",
+      "medium": "40%",
+      "heavy": "40%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "secondary": {
+     "code": "GuardianMissile",
+     "damage": 60,
+     "rof": 70,
+     "range": 7,
+     "warhead": "RPG",
+     "verses": {
+      "none": "10%",
+      "flak": "10%",
+      "plate": "10%",
+      "light": "60%",
+      "medium": "100%",
+      "heavy": "120%",
+      "wood": "30%",
+      "steel": "30%",
+      "concrete": "20%",
+      "special_1": "100%",
+      "special_2": "120%"
+     }
+    },
+    "elite_primary": {
+     "code": "GuardianParaE",
+     "damage": 15,
+     "rof": 5,
+     "range": 7,
+     "warhead": "SSA",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "70%",
+      "light": "60%",
+      "medium": "40%",
+      "heavy": "40%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_secondary": {
+     "code": "GuardianMissileE",
+     "damage": 80,
+     "rof": 35,
+     "range": 8,
+     "warhead": "RPG",
+     "verses": {
+      "none": "10%",
+      "flak": "10%",
+      "plate": "10%",
+      "light": "60%",
+      "medium": "100%",
+      "heavy": "120%",
+      "wood": "30%",
+      "steel": "30%",
+      "concrete": "20%",
+      "special_1": "100%",
+      "special_2": "120%"
+     }
+    },
+    "flags": [
+     "Deployer"
+    ]
+   },
+   "SNIPE": {
+    "code": "SNIPE",
+    "name": "Sniper",
+    "cn": "狙击手",
+    "cost": 650,
+    "hp": 125,
+    "armor": "none",
+    "speed": 4,
+    "sight": 9,
+    "tech": 1,
+    "prereq": "GAPILE,RADAR",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "AWP",
+     "damage": 125,
+     "rof": 150,
+     "range": 15,
+     "warhead": "HollowPoint",
+     "verses": {
+      "none": "200%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "1%",
+      "medium": "1%",
+      "heavy": "1%",
+      "wood": "1%",
+      "steel": "1%",
+      "concrete": "1%",
+      "special_1": "1%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "AWPE",
+     "damage": 125,
+     "rof": 60,
+     "range": 16,
+     "warhead": "HollowPoint",
+     "verses": {
+      "none": "200%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "1%",
+      "medium": "1%",
+      "heavy": "1%",
+      "wood": "1%",
+      "steel": "1%",
+      "concrete": "1%",
+      "special_1": "1%",
+      "special_2": "100%"
+     }
+    }
+   },
+   "TANY": {
+    "code": "TANY",
+    "name": "Tanya",
+    "cn": "谭雅",
+    "cost": 1400,
+    "hp": 220,
+    "armor": "flak",
+    "speed": 5,
+    "sight": 8,
+    "tech": 9,
+    "prereq": "GAPILE,GATECH",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "DoublePistols",
+     "damage": 180,
+     "rof": 10,
+     "range": 7,
+     "warhead": "HollowPoint2",
+     "verses": {
+      "none": "200%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "0%",
+      "medium": "0%",
+      "heavy": "0%",
+      "wood": "1%",
+      "steel": "1%",
+      "concrete": "1%",
+      "special_1": "1%",
+      "special_2": "100%"
+     }
+    },
+    "secondary": {
+     "code": "Sapper",
+     "damage": 2500,
+     "rof": 100,
+     "range": 1.5,
+     "warhead": "Super",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "100%",
+      "steel": "100%",
+      "concrete": "100%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "DoublePistolsE",
+     "damage": 220,
+     "rof": 10,
+     "range": 9,
+     "warhead": "HollowPoint2",
+     "verses": {
+      "none": "200%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "0%",
+      "medium": "0%",
+      "heavy": "0%",
+      "wood": "1%",
+      "steel": "1%",
+      "concrete": "1%",
+      "special_1": "1%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "SelfHealing",
+     "C4"
+    ]
+   },
+   "CLEG": {
+    "code": "CLEG",
+    "name": "Chrono Legionnaire",
+    "cn": "超时空军团兵",
+    "cost": 1200,
+    "hp": 125,
+    "armor": "none",
+    "speed": 5,
+    "sight": 8,
+    "tech": 10,
+    "prereq": "GAPILE,TECH",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "NeutronRifle",
+     "damage": 8,
+     "rof": 120,
+     "range": 5,
+     "warhead": "ChronoBeam",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "100%",
+      "steel": "100%",
+      "concrete": "100%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "NeutronRifleE",
+     "damage": 16,
+     "rof": 120,
+     "range": 5,
+     "warhead": "ChronoBeam",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "100%",
+      "steel": "100%",
+      "concrete": "100%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    }
+   },
+   "PTROOP": {
+    "code": "PTROOP",
+    "name": "Psi-Corp Trooper",
+    "cn": "心灵突击队",
+    "cost": 1200,
+    "hp": 100,
+    "armor": "none",
+    "speed": 5,
+    "sight": 8,
+    "tech": 9,
+    "prereq": "GAPILE",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "MindControl",
+     "damage": 10,
+     "rof": 200,
+     "range": 7,
+     "warhead": "Controller",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "MindControlE",
+     "damage": 10,
+     "rof": 200,
+     "range": 14,
+     "warhead": "Controller",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "ImmuneToPsionics",
+     "C4"
+    ]
+   }
+  },
+  "allied_vehicles": {
+   "MTNK": {
+    "code": "MTNK",
+    "name": "Grizzly Battle Tank",
+    "cn": "灰熊坦克",
+    "cost": 750,
+    "hp": 300,
+    "armor": "heavy",
+    "speed": 7,
+    "rot": 5,
+    "sight": 8,
+    "tech": 2,
+    "prereq": "GAWEAP",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "105mm",
+     "damage": 65,
+     "rof": 60,
+     "range": 5,
+     "warhead": "AP",
+     "verses": {
+      "none": "25%",
+      "flak": "25%",
+      "plate": "25%",
+      "light": "75%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "65%",
+      "steel": "45%",
+      "concrete": "60%",
+      "special_1": "60%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "105mmE",
+     "damage": 55,
+     "rof": 75,
+     "range": 5,
+     "burst": 2,
+     "warhead": "GRIZAPE",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "65%",
+      "steel": "45%",
+      "concrete": "60%",
+      "special_1": "60%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Crusher",
+     "Turret"
+    ]
+   },
+   "FV": {
+    "code": "FV",
+    "name": "IFV",
+    "cn": "多功能步兵战斗车",
+    "cost": 600,
+    "hp": 200,
+    "armor": "light",
+    "speed": 10,
+    "rot": 5,
+    "sight": 8,
+    "tech": 3,
+    "prereq": "GAWEAP",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "HoverMissile",
+     "damage": 25,
+     "rof": 50,
+     "range": 6,
+     "burst": 2,
+     "warhead": "HE",
+     "verses": {
+      "none": "100%",
+      "flak": "90%",
+      "plate": "80%",
+      "light": "70%",
+      "medium": "65%",
+      "heavy": "45%",
+      "wood": "75%",
+      "steel": "40%",
+      "concrete": "20%",
+      "special_1": "80%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "HoverMissileE",
+     "damage": 80,
+     "rof": 50,
+     "range": 6,
+     "burst": 4,
+     "warhead": "HE",
+     "verses": {
+      "none": "100%",
+      "flak": "90%",
+      "plate": "80%",
+      "light": "70%",
+      "medium": "65%",
+      "heavy": "45%",
+      "wood": "75%",
+      "steel": "40%",
+      "concrete": "20%",
+      "special_1": "80%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Turret"
+    ]
+   },
+   "MGTK": {
+    "code": "MGTK",
+    "name": "Mirage Tank",
+    "cn": "幻影坦克",
+    "cost": 1000,
+    "hp": 200,
+    "armor": "light",
+    "speed": 7,
+    "rot": 5,
+    "sight": 9,
+    "tech": 9,
+    "prereq": "GAWEAP,GATECH",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "MirageGun",
+     "damage": 100,
+     "rof": 70,
+     "range": 7,
+     "warhead": "MirageWH",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "80%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "30%",
+      "steel": "20%",
+      "concrete": "20%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_secondary": {
+     "code": "MirageGunE",
+     "damage": 150,
+     "rof": 80,
+     "range": 9,
+     "warhead": "MirageWH",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "80%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "30%",
+      "steel": "20%",
+      "concrete": "20%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Crusher",
+     "DisguiseWhenStill"
+    ]
+   },
+   "SREF": {
+    "code": "SREF",
+    "name": "Prism Tank",
+    "cn": "光棱坦克",
+    "cost": 1200,
+    "hp": 150,
+    "armor": "light",
+    "speed": 4,
+    "rot": 5,
+    "sight": 8,
+    "tech": 8,
+    "prereq": "GAWEAP,GATECH",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "Comet",
+     "damage": 100,
+     "rof": 100,
+     "range": 10,
+     "warhead": "CometWH",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "75%",
+      "medium": "50%",
+      "heavy": "50%",
+      "wood": "200%",
+      "steel": "200%",
+      "concrete": "200%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "SuperComet",
+     "damage": 150,
+     "rof": 100,
+     "range": 10,
+     "warhead": "CometWH",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "75%",
+      "medium": "50%",
+      "heavy": "50%",
+      "wood": "200%",
+      "steel": "200%",
+      "concrete": "200%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Crusher",
+     "Turret"
+    ]
+   },
+   "CMIN": {
+    "code": "CMIN",
+    "name": "Chrono Miner",
+    "cn": "超时空采矿车",
+    "cost": 1400,
+    "hp": 1000,
+    "armor": "medium",
+    "speed": 5,
+    "rot": 5,
+    "sight": 4,
+    "storage": 25,
+    "tech": 1,
+    "prereq": "GAWEAP,PROC",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "flags": [
+     "Crusher",
+     "SelfHealing",
+     "Harvester",
+     "ImmuneToPsionics"
+    ]
+   },
+   "AMCV": {
+    "code": "AMCV",
+    "name": "Allied Construction Vehicle",
+    "cn": "盟军机动基地车",
+    "cost": 3000,
+    "hp": 1000,
+    "armor": "heavy",
+    "speed": 4,
+    "rot": 5,
+    "sight": 6,
+    "tech": 10,
+    "prereq": "GAWEAP,GADEPT",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "flags": [
+     "Crusher"
+    ]
+   },
+   "SHAD": {
+    "code": "SHAD",
+    "name": "BlackHawk Transport",
+    "cn": "夜鹰直升机",
+    "cost": 1000,
+    "hp": 150,
+    "armor": "light",
+    "speed": 14,
+    "rot": 5,
+    "sight": 7,
+    "tech": 7,
+    "prereq": "GAWEAP,RADAR",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "BlackHawkCannon",
+     "damage": 35,
+     "rof": 40,
+     "range": 6,
+     "warhead": "SA",
+     "verses": {
+      "none": "100%",
+      "flak": "80%",
+      "plate": "70%",
+      "light": "50%",
+      "medium": "25%",
+      "heavy": "25%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "BlackHawkCannonE",
+     "damage": 40,
+     "rof": 40,
+     "range": 6,
+     "warhead": "SSA",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "70%",
+      "light": "60%",
+      "medium": "40%",
+      "heavy": "40%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    }
+   },
+   "ORCA": {
+    "code": "ORCA",
+    "name": "Intruder",
+    "cn": "入侵者战机",
+    "cost": 1000,
+    "hp": 150,
+    "armor": "light",
+    "speed": 12,
+    "rot": 3,
+    "sight": 8,
+    "tech": 3,
+    "prereq": "RADAR",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "Maverick",
+     "damage": 150,
+     "rof": 10,
+     "range": 6,
+     "burst": 2,
+     "warhead": "ORCAAP",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "100%",
+      "steel": "100%",
+      "concrete": "75%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "MaverickE",
+     "damage": 300,
+     "rof": 10,
+     "range": 9,
+     "burst": 4,
+     "warhead": "ORCAAP",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "100%",
+      "steel": "100%",
+      "concrete": "75%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "ImmuneToPsionics"
+    ]
+   }
+  },
+  "allied_navy": {
+   "DEST": {
+    "code": "DEST",
+    "name": "Destroyer",
+    "cn": "驱逐舰",
+    "cost": 900,
+    "hp": 600,
+    "armor": "heavy",
+    "speed": 6,
+    "rot": 5,
+    "sight": 7,
+    "tech": 4,
+    "prereq": "GAYARD",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "155mm",
+     "damage": 60,
+     "rof": 110,
+     "range": 8,
+     "warhead": "ARTYHE",
+     "verses": {
+      "none": "100%",
+      "flak": "80%",
+      "plate": "60%",
+      "light": "100%",
+      "medium": "60%",
+      "heavy": "60%",
+      "wood": "100%",
+      "steel": "80%",
+      "concrete": "60%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "secondary": {
+     "code": "ASWLauncher",
+     "damage": 1,
+     "rof": 150,
+     "range": -2,
+     "warhead": "Special"
+    },
+    "elite_primary": {
+     "code": "155mmE",
+     "damage": 60,
+     "rof": 110,
+     "range": 8,
+     "burst": 2,
+     "warhead": "ARTYHE",
+     "verses": {
+      "none": "100%",
+      "flak": "80%",
+      "plate": "60%",
+      "light": "100%",
+      "medium": "60%",
+      "heavy": "60%",
+      "wood": "100%",
+      "steel": "80%",
+      "concrete": "60%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    }
+   },
+   "AEGIS": {
+    "code": "AEGIS",
+    "name": "Aegis Cruiser",
+    "cn": "神盾巡洋舰",
+    "cost": 1200,
+    "hp": 800,
+    "armor": "light",
+    "speed": 4,
+    "rot": 1,
+    "sight": 8,
+    "tech": 7,
+    "prereq": "GAYARD,RADAR",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "Medusa",
+     "damage": 100,
+     "rof": 15,
+     "range": 12,
+     "warhead": "SAMWH",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "MedusaE",
+     "damage": 100,
+     "rof": 5,
+     "range": 14,
+     "burst": 2,
+     "warhead": "SAMWH",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    }
+   },
+   "CARRIER": {
+    "code": "CARRIER",
+    "name": "Aircraft Carrier",
+    "cn": "航空母舰",
+    "cost": 2000,
+    "hp": 800,
+    "armor": "heavy",
+    "speed": 4,
+    "rot": 1,
+    "sight": 7,
+    "tech": 7,
+    "prereq": "GAYARD,TECH",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "HornetLauncher",
+     "damage": 1,
+     "rof": 150,
+     "range": 25,
+     "warhead": "Special"
+    }
+   },
+   "DLPH": {
+    "code": "DLPH",
+    "name": "Dolphin",
+    "cn": "海豚",
+    "cost": 500,
+    "hp": 200,
+    "armor": "light",
+    "speed": 8,
+    "rot": 6,
+    "sight": 4,
+    "tech": 5,
+    "prereq": "GAYARD,GATECH",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "SonicZap",
+     "damage": 8,
+     "rof": 120,
+     "range": 4,
+     "warhead": "SonicWarhead",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "80%",
+      "heavy": "80%",
+      "wood": "100%",
+      "steel": "60%",
+      "concrete": "60%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "elite_primary": {
+     "code": "SonicZapE",
+     "damage": 10,
+     "rof": 80,
+     "range": 6,
+     "burst": 2,
+     "warhead": "SonicWarhead",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "80%",
+      "heavy": "80%",
+      "wood": "100%",
+      "steel": "60%",
+      "concrete": "60%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    }
+   },
+   "LCRF": {
+    "code": "LCRF",
+    "name": "Landing Craft",
+    "cn": "两栖运输艇",
+    "cost": 900,
+    "hp": 300,
+    "armor": "light",
+    "speed": 6,
+    "rot": 5,
+    "sight": 6,
+    "tech": 4,
+    "prereq": "GAYARD",
+    "owner": "British,French,Germans,Americans,Alliance"
+   }
+  },
+  "soviet_buildings": {
+   "NACNST": {
+    "code": "NACNST",
+    "name": "Soviet Construction Yard",
+    "cn": "苏联建造场",
+    "cost": 3000,
+    "hp": 1000,
+    "armor": "concrete",
+    "sight": 8,
+    "power": 0,
+    "tech": -1,
+    "owner": "Russians,Africans,Arabs"
+   },
+   "NAPOWR": {
+    "code": "NAPOWR",
+    "name": "Tesla Reactor",
+    "cn": "磁能反应炉",
+    "cost": 600,
+    "hp": 750,
+    "armor": "wood",
+    "sight": 4,
+    "power": 150,
+    "tech": 1,
+    "prereq": "NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs"
+   },
+   "NAREFN": {
+    "code": "NAREFN",
+    "name": "Soviet Ore Refinery",
+    "cn": "苏联矿石精炼场",
+    "cost": 2000,
+    "hp": 1000,
+    "armor": "wood",
+    "sight": 6,
+    "power": -50,
+    "storage": 200,
+    "tech": 1,
+    "prereq": "POWER,NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs"
+   },
+   "NAHAND": {
+    "code": "NAHAND",
+    "name": "Soviet Barracks",
+    "cn": "苏联兵营",
+    "cost": 500,
+    "hp": 500,
+    "armor": "steel",
+    "sight": 6,
+    "power": -10,
+    "tech": 2,
+    "prereq": "POWER,NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs"
+   },
+   "NAWEAP": {
+    "code": "NAWEAP",
+    "name": "Soviet War Factory",
+    "cn": "苏联战车工厂",
+    "cost": 2000,
+    "hp": 1000,
+    "armor": "wood",
+    "sight": 4,
+    "power": -25,
+    "tech": 2,
+    "prereq": "PROC,NAHAND,NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "flags": [
+     "WeaponsFactory"
+    ]
+   },
+   "NARADR": {
+    "code": "NARADR",
+    "name": "Radar Tower",
+    "cn": "雷达",
+    "cost": 800,
+    "hp": 1000,
+    "armor": "wood",
+    "sight": 10,
+    "power": -50,
+    "tech": 3,
+    "prereq": "NAREFN,NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "flags": [
+     "Radar"
+    ]
+   },
+   "NATECH": {
+    "code": "NATECH",
+    "name": "Soviet Battle Lab",
+    "cn": "苏联作战实验室",
+    "cost": 2000,
+    "hp": 500,
+    "armor": "wood",
+    "sight": 6,
+    "power": -100,
+    "tech": 7,
+    "prereq": "NAWEAP,RADAR,NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs"
+   },
+   "NADEPT": {
+    "code": "NADEPT",
+    "name": "Soviet Service Depot",
+    "cn": "苏联维修工厂　",
+    "cost": 800,
+    "hp": 1200,
+    "armor": "wood",
+    "sight": 5,
+    "power": -20,
+    "tech": 6,
+    "prereq": "NAWEAP,NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "flags": [
+     "UnitRepair"
+    ]
+   },
+   "NAYARD": {
+    "code": "NAYARD",
+    "name": "Soviet Shipyard",
+    "cn": "苏联船坞",
+    "cost": 1000,
+    "hp": 1500,
+    "armor": "concrete",
+    "sight": 10,
+    "power": -20,
+    "tech": 2,
+    "prereq": "PROC,POWER,NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "flags": [
+     "WeaponsFactory",
+     "UnitRepair",
+     "Explodes"
+    ]
+   },
+   "NANRCT": {
+    "code": "NANRCT",
+    "name": "Nuclear Reactor",
+    "cn": "核子反应炉",
+    "cost": 1100,
+    "hp": 1500,
+    "armor": "concrete",
+    "sight": 5,
+    "power": 2000,
+    "tech": 9,
+    "prereq": "NATECH,NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "flags": [
+     "Explodes"
+    ]
+   },
+   "NAMISL": {
+    "code": "NAMISL",
+    "name": "Nuclear Missile Silo",
+    "cn": "核弹发射井",
+    "cost": 5000,
+    "hp": 1000,
+    "armor": "concrete",
+    "sight": 4,
+    "power": -200,
+    "tech": 10,
+    "prereq": "TECH",
+    "owner": "Russians,Confederation,Africans,Arabs",
+    "build_limit": 1
+   },
+   "NAIRON": {
+    "code": "NAIRON",
+    "name": "Iron Curtain Device",
+    "cn": "铁幕装置",
+    "cost": 2500,
+    "hp": 750,
+    "armor": "concrete",
+    "sight": 4,
+    "power": -200,
+    "tech": 10,
+    "prereq": "NATECH,NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "build_limit": 1
+   },
+   "NAPSIS": {
+    "code": "NAPSIS",
+    "name": "Psychic Sensor",
+    "cn": "心灵探测器",
+    "cost": 1000,
+    "hp": 750,
+    "armor": "wood",
+    "sight": 10,
+    "power": -50,
+    "tech": 10,
+    "prereq": "NATECH,NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs"
+   }
+  },
+  "soviet_defense": {
+   "TESLA": {
+    "code": "TESLA",
+    "name": "Tesla Coil",
+    "cn": "磁爆线圈",
+    "cost": 1500,
+    "hp": 600,
+    "armor": "steel",
+    "sight": 8,
+    "power": -75,
+    "tech": 5,
+    "prereq": "RADAR,NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "CoilBolt",
+     "damage": 200,
+     "rof": 120,
+     "range": 7,
+     "warhead": "Electric",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "85%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "50%",
+      "steel": "50%",
+      "concrete": "50%",
+      "special_1": "200%",
+      "special_2": "100%"
+     }
+    },
+    "secondary": {
+     "code": "OPCoilBolt",
+     "damage": 300,
+     "rof": 100,
+     "range": 8,
+     "warhead": "Electric",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "85%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "50%",
+      "steel": "50%",
+      "concrete": "50%",
+      "special_1": "200%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Powered",
+     "IsBaseDefense"
+    ]
+   },
+   "NAFLAK": {
+    "code": "NAFLAK",
+    "name": "Flak Cannon",
+    "cn": "防空炮",
+    "cost": 1000,
+    "hp": 900,
+    "armor": "steel",
+    "rot": 8,
+    "sight": 5,
+    "power": -50,
+    "tech": 4,
+    "prereq": "BARRACKS,NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "FlakWeapon",
+     "damage": 40,
+     "rof": 20,
+     "range": 12,
+     "warhead": "FlakWH",
+     "verses": {
+      "none": "150%",
+      "flak": "80%",
+      "plate": "50%",
+      "light": "100%",
+      "medium": "20%",
+      "heavy": "20%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "150%"
+     }
+    },
+    "flags": [
+     "Powered",
+     "IsBaseDefense",
+     "Turret"
+    ]
+   },
+   "NALASR": {
+    "code": "NALASR",
+    "name": "Sentry Gun",
+    "cn": "哨戒炮",
+    "cost": 500,
+    "hp": 400,
+    "armor": "steel",
+    "rot": 10,
+    "sight": 7,
+    "power": 0,
+    "tech": 1,
+    "prereq": "BARRACKS,NACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "Vulcan",
+     "damage": 50,
+     "rof": 26,
+     "range": 5.5,
+     "warhead": "SA",
+     "verses": {
+      "none": "100%",
+      "flak": "80%",
+      "plate": "70%",
+      "light": "50%",
+      "medium": "25%",
+      "heavy": "25%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Powered",
+     "IsBaseDefense",
+     "Turret"
+    ]
+   },
+   "NAWALL": {
+    "code": "NAWALL",
+    "name": "Soviet Wall",
+    "cn": "苏联围墙",
+    "cost": 100,
+    "hp": 900,
+    "armor": "concrete",
+    "sight": 1,
+    "tech": 1,
+    "prereq": "NAHAND",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs"
+   }
+  },
+  "allied_buildings": {
+   "GACNST": {
+    "code": "GACNST",
+    "name": "Allied Construction Yard",
+    "cn": "盟军建造场",
+    "cost": 3000,
+    "hp": 1000,
+    "armor": "concrete",
+    "sight": 8,
+    "power": 0,
+    "tech": -1,
+    "owner": "British,French,Germans,Americans,Alliance"
+   },
+   "GAPOWR": {
+    "code": "GAPOWR",
+    "name": "Power Plant",
+    "cn": "发电厂",
+    "cost": 800,
+    "hp": 750,
+    "armor": "wood",
+    "sight": 4,
+    "power": 200,
+    "tech": 1,
+    "prereq": "GACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs"
+   },
+   "GAREFN": {
+    "code": "GAREFN",
+    "name": "Allied Ore Refinery",
+    "cn": "盟军矿石精炼场",
+    "cost": 2000,
+    "hp": 1000,
+    "armor": "wood",
+    "sight": 6,
+    "power": -50,
+    "storage": 200,
+    "tech": 1,
+    "prereq": "POWER,GACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs"
+   },
+   "GAPILE": {
+    "code": "GAPILE",
+    "name": "Allied Barracks",
+    "cn": "盟军兵营",
+    "cost": 500,
+    "hp": 500,
+    "armor": "steel",
+    "sight": 5,
+    "power": -10,
+    "tech": 2,
+    "prereq": "POWER,GACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs"
+   },
+   "GAWEAP": {
+    "code": "GAWEAP",
+    "name": "Allied War Factory",
+    "cn": "盟军战车工厂",
+    "cost": 2000,
+    "hp": 1000,
+    "armor": "wood",
+    "sight": 4,
+    "power": -25,
+    "tech": 2,
+    "prereq": "PROC,GAPILE,GACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "flags": [
+     "WeaponsFactory"
+    ]
+   },
+   "GAAIRC": {
+    "code": "GAAIRC",
+    "name": "Airforce Command Headquarters",
+    "cn": "空指部",
+    "cost": 1000,
+    "hp": 600,
+    "armor": "steel",
+    "sight": 5,
+    "power": -50,
+    "tech": 3,
+    "prereq": "GAREFN,GACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "flags": [
+     "Radar",
+     "Helipad"
+    ]
+   },
+   "GATECH": {
+    "code": "GATECH",
+    "name": "Allied Battle Lab",
+    "cn": "盟军作战实验室",
+    "cost": 2000,
+    "hp": 500,
+    "armor": "wood",
+    "sight": 6,
+    "power": -100,
+    "tech": 8,
+    "prereq": "GAWEAP,RADAR,GACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs"
+   },
+   "GAYARD": {
+    "code": "GAYARD",
+    "name": "Allied Shipyard",
+    "cn": "盟军造船厂",
+    "cost": 1000,
+    "hp": 1500,
+    "armor": "concrete",
+    "sight": 10,
+    "power": -25,
+    "tech": 4,
+    "prereq": "PROC,POWER,GACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "flags": [
+     "WeaponsFactory",
+     "UnitRepair",
+     "Explodes"
+    ]
+   },
+   "GADEPT": {
+    "code": "GADEPT",
+    "name": "Allied Service Depot",
+    "cn": "盟军维修厂",
+    "cost": 800,
+    "hp": 1200,
+    "armor": "wood",
+    "sight": 5,
+    "power": -25,
+    "tech": 6,
+    "prereq": "GAWEAP,GACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "flags": [
+     "UnitRepair"
+    ]
+   },
+   "GASPYSAT": {
+    "code": "GASPYSAT",
+    "name": "SpySat Uplink",
+    "cn": "间谍卫星",
+    "cost": 1500,
+    "hp": 1000,
+    "armor": "wood",
+    "sight": 5,
+    "power": -100,
+    "tech": 9,
+    "prereq": "GATECH,GACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "flags": [
+     "Radar"
+    ]
+   },
+   "GACSPH": {
+    "code": "GACSPH",
+    "name": "Chrono Sphere",
+    "cn": "超时空传送仪",
+    "cost": 2500,
+    "hp": 750,
+    "armor": "concrete",
+    "sight": 5,
+    "power": -200,
+    "tech": 10,
+    "prereq": "TECH",
+    "owner": "British,French,Germans,Americans,Alliance,Confederation",
+    "build_limit": 1
+   },
+   "GAWEAT": {
+    "code": "GAWEAT",
+    "name": "Weather Controller",
+    "cn": "天气控制机",
+    "cost": 5000,
+    "hp": 1000,
+    "armor": "concrete",
+    "sight": 5,
+    "power": -200,
+    "tech": 10,
+    "prereq": "GATECH,GACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "build_limit": 1
+   },
+   "GAOREP": {
+    "code": "GAOREP",
+    "name": "Allied Ore Processor",
+    "cn": "矿石精炼器",
+    "cost": 2500,
+    "hp": 900,
+    "armor": "wood",
+    "sight": 5,
+    "power": -200,
+    "tech": 10,
+    "prereq": "GATECH,PROC,GACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "build_limit": 1,
+    "flags": [
+     "OrePurifier"
+    ]
+   }
+  },
+  "allied_defense": {
+   "GAPILL": {
+    "code": "GAPILL",
+    "name": "Pill Box",
+    "cn": "机枪碉堡",
+    "cost": 500,
+    "hp": 400,
+    "armor": "steel",
+    "rot": 10,
+    "sight": 7,
+    "power": 0,
+    "tech": 1,
+    "prereq": "BARRACKS,GACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "Vulcan2",
+     "damage": 50,
+     "rof": 26,
+     "range": 5.5,
+     "warhead": "SA",
+     "verses": {
+      "none": "100%",
+      "flak": "80%",
+      "plate": "70%",
+      "light": "50%",
+      "medium": "25%",
+      "heavy": "25%",
+      "wood": "75%",
+      "steel": "50%",
+      "concrete": "25%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "IsBaseDefense"
+    ]
+   },
+   "NASAM": {
+    "code": "NASAM",
+    "name": "Patriot Missile",
+    "cn": "爱国者飞弹",
+    "cost": 1000,
+    "hp": 900,
+    "armor": "steel",
+    "sight": 10,
+    "power": -50,
+    "tech": 4,
+    "prereq": "BARRACKS,GACNST",
+    "owner": "British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs",
+    "primary": {
+     "code": "RedEye2",
+     "damage": 75,
+     "rof": 55,
+     "range": 12,
+     "warhead": "SAMWH",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "0%",
+      "steel": "0%",
+      "concrete": "0%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Powered",
+     "IsBaseDefense",
+     "Turret"
+    ]
+   },
+   "GTGCAN": {
+    "code": "GTGCAN",
+    "name": "Grand Cannon",
+    "cn": "巨炮",
+    "cost": 2000,
+    "hp": 900,
+    "armor": "steel",
+    "rot": 1,
+    "sight": 10,
+    "power": -200,
+    "tech": 7,
+    "prereq": "RADAR,GACNST",
+    "owner": "British,French,Germans,Americans,Alliance",
+    "primary": {
+     "code": "GrandCannonWeapon",
+     "damage": 150,
+     "rof": 120,
+     "range": 15,
+     "warhead": "GrandCannonWH",
+     "verses": {
+      "none": "100%",
+      "flak": "100%",
+      "plate": "100%",
+      "light": "100%",
+      "medium": "100%",
+      "heavy": "100%",
+      "wood": "50%",
+      "steel": "100%",
+      "concrete": "50%",
+      "special_1": "100%",
+      "special_2": "100%"
+     }
+    },
+    "flags": [
+     "Powered",
+     "Turret"
+    ]
+   }
+  }
+ },
+ "buildings": {},
+ "warheads": {
+  "AP": {
+   "none": "25%",
+   "flak": "25%",
+   "plate": "25%",
+   "light": "75%",
+   "medium": "100%",
+   "heavy": "100%",
+   "wood": "65%",
+   "steel": "45%",
+   "concrete": "60%",
+   "special_1": "60%",
+   "special_2": "100%"
+  },
+  "GRIZAPE": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "100%",
+   "medium": "100%",
+   "heavy": "100%",
+   "wood": "65%",
+   "steel": "45%",
+   "concrete": "60%",
+   "special_1": "60%",
+   "special_2": "100%"
+  },
+  "RHINAPE": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "100%",
+   "medium": "100%",
+   "heavy": "100%",
+   "wood": "65%",
+   "steel": "45%",
+   "concrete": "60%",
+   "special_1": "60%",
+   "special_2": "100%"
+  },
+  "ApocAP": {
+   "none": "25%",
+   "flak": "25%",
+   "plate": "25%",
+   "light": "75%",
+   "medium": "100%",
+   "heavy": "100%",
+   "wood": "100%",
+   "steel": "100%",
+   "concrete": "70%",
+   "special_1": "60%",
+   "special_2": "100%"
+  },
+  "CometWH": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "75%",
+   "medium": "50%",
+   "heavy": "50%",
+   "wood": "200%",
+   "steel": "200%",
+   "concrete": "200%",
+   "special_1": "100%",
+   "special_2": "100%"
+  },
+  "MirageWH": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "80%",
+   "light": "100%",
+   "medium": "100%",
+   "heavy": "100%",
+   "wood": "30%",
+   "steel": "20%",
+   "concrete": "20%",
+   "special_1": "100%",
+   "special_2": "100%"
+  },
+  "SA": {
+   "none": "100%",
+   "flak": "80%",
+   "plate": "70%",
+   "light": "50%",
+   "medium": "25%",
+   "heavy": "25%",
+   "wood": "75%",
+   "steel": "50%",
+   "concrete": "25%",
+   "special_1": "100%",
+   "special_2": "100%"
+  },
+  "SSA": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "70%",
+   "light": "60%",
+   "medium": "40%",
+   "heavy": "40%",
+   "wood": "75%",
+   "steel": "50%",
+   "concrete": "25%",
+   "special_1": "100%",
+   "special_2": "100%"
+  },
+  "RPG": {
+   "none": "10%",
+   "flak": "10%",
+   "plate": "10%",
+   "light": "60%",
+   "medium": "100%",
+   "heavy": "120%",
+   "wood": "30%",
+   "steel": "30%",
+   "concrete": "20%",
+   "special_1": "100%",
+   "special_2": "120%"
+  },
+  "HE": {
+   "none": "100%",
+   "flak": "90%",
+   "plate": "80%",
+   "light": "70%",
+   "medium": "65%",
+   "heavy": "45%",
+   "wood": "75%",
+   "steel": "40%",
+   "concrete": "20%",
+   "special_1": "80%",
+   "special_2": "100%"
+  },
+  "FlakWH": {
+   "none": "150%",
+   "flak": "80%",
+   "plate": "50%",
+   "light": "100%",
+   "medium": "20%",
+   "heavy": "20%",
+   "wood": "0%",
+   "steel": "0%",
+   "concrete": "0%",
+   "special_1": "100%",
+   "special_2": "150%"
+  },
+  "FlakTWH": {
+   "none": "150%",
+   "flak": "100%",
+   "plate": "50%",
+   "light": "60%",
+   "medium": "10%",
+   "heavy": "10%",
+   "wood": "30%",
+   "steel": "20%",
+   "concrete": "10%",
+   "special_1": "100%",
+   "special_2": "100%"
+  },
+  "FlakGuyWH": {
+   "none": "150%",
+   "flak": "100%",
+   "plate": "50%",
+   "light": "80%",
+   "medium": "20%",
+   "heavy": "20%",
+   "wood": "0%",
+   "steel": "0%",
+   "concrete": "0%",
+   "special_1": "100%",
+   "special_2": "150%"
+  },
+  "Electric": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "85%",
+   "medium": "100%",
+   "heavy": "100%",
+   "wood": "50%",
+   "steel": "50%",
+   "concrete": "50%",
+   "special_1": "200%",
+   "special_2": "100%"
+  },
+  "Shock": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "85%",
+   "medium": "100%",
+   "heavy": "100%",
+   "wood": "50%",
+   "steel": "50%",
+   "concrete": "50%",
+   "special_1": "200%",
+   "special_2": "100%"
+  },
+  "Parasite": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "100%",
+   "medium": "100%",
+   "heavy": "100%",
+   "wood": "0%",
+   "steel": "0%",
+   "concrete": "0%",
+   "special_1": "0%",
+   "special_2": "0%"
+  },
+  "V3HE": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "30%",
+   "medium": "5%",
+   "heavy": "5%",
+   "wood": "85%",
+   "steel": "50%",
+   "concrete": "30%",
+   "special_1": "100%",
+   "special_2": "0%"
+  },
+  "BlimpHE": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "70%",
+   "medium": "35%",
+   "heavy": "35%",
+   "wood": "85%",
+   "steel": "75%",
+   "concrete": "50%",
+   "special_1": "100%",
+   "special_2": "100%"
+  },
+  "RadBeamWarhead": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "20%",
+   "medium": "15%",
+   "heavy": "10%",
+   "wood": "0%",
+   "steel": "0%",
+   "concrete": "0%",
+   "special_1": "100%",
+   "special_2": "100%"
+  },
+  "HollowPoint": {
+   "none": "200%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "1%",
+   "medium": "1%",
+   "heavy": "1%",
+   "wood": "1%",
+   "steel": "1%",
+   "concrete": "1%",
+   "special_1": "1%",
+   "special_2": "100%"
+  },
+  "HollowPoint2": {
+   "none": "200%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "0%",
+   "medium": "0%",
+   "heavy": "0%",
+   "wood": "1%",
+   "steel": "1%",
+   "concrete": "1%",
+   "special_1": "1%",
+   "special_2": "100%"
+  },
+  "SAMWH": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "100%",
+   "medium": "100%",
+   "heavy": "100%",
+   "wood": "0%",
+   "steel": "0%",
+   "concrete": "0%",
+   "special_1": "100%",
+   "special_2": "100%"
+  },
+  "GrandCannonWH": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "100%",
+   "medium": "100%",
+   "heavy": "100%",
+   "wood": "50%",
+   "steel": "100%",
+   "concrete": "50%",
+   "special_1": "100%",
+   "special_2": "100%"
+  },
+  "ORCAAP": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "100%",
+   "medium": "100%",
+   "heavy": "100%",
+   "wood": "100%",
+   "steel": "100%",
+   "concrete": "75%",
+   "special_1": "100%",
+   "special_2": "100%"
+  },
+  "SonicWarhead": {
+   "none": "100%",
+   "flak": "100%",
+   "plate": "100%",
+   "light": "100%",
+   "medium": "80%",
+   "heavy": "80%",
+   "wood": "100%",
+   "steel": "60%",
+   "concrete": "60%",
+   "special_1": "100%",
+   "special_2": "100%"
+  },
+  "APSplash": {
+   "none": "25%",
+   "flak": "25%",
+   "plate": "25%",
+   "light": "75%",
+   "medium": "100%",
+   "heavy": "100%",
+   "wood": "65%",
+   "steel": "65%",
+   "concrete": "60%",
+   "special_1": "25%",
+   "special_2": "100%"
+  },
+  "ARTYHE": {
+   "none": "100%",
+   "flak": "80%",
+   "plate": "60%",
+   "light": "100%",
+   "medium": "60%",
+   "heavy": "60%",
+   "wood": "100%",
+   "steel": "80%",
+   "concrete": "60%",
+   "special_1": "100%",
+   "special_2": "100%"
+  }
+ },
+ "general": {
+  "BuildSpeed": ".7",
+  "MultipleFactory": "0.5",
+  "RefundPercent": "50%",
+  "RepairPercent": "15%",
+  "HarvestersPerRefinery": "2",
+  "PurifierBonus": ".25",
+  "SpyMoneyStealPercent": ".5",
+  "VeteranArmor": "1.5",
+  "VeteranCombat": "1.1",
+  "VeteranROF": "0.6",
+  "VeteranSight": "1.2",
+  "VeteranSpeed": "1.2",
+  "VeteranRatio": "3.0",
+  "VeteranCap": "2",
+  "CrewEscape": "50%",
+  "MaxLowPowerProductionSpeed": ".5",
+  "MinLowPowerProductionSpeed": ".3"
+ }
+}

@@ -1,0 +1,237 @@
+werhd jev bridge on http://127.0.0.1:5174  model=jev-latest  docs=D:/projects/ra2web.github.io/docs/examples/jev
+attach in game console: const {attachJevPlayer} = await import('http://127.0.0.1:5174/player.mjs'); window.werhdJev = await attachJevPlayer(window.werhd)
+[19:18:17] decide #1 groups=1 1000ms ans={'build': 'hold'}
+[19:23:34] {"kind": "start", "tick": 440, "maxDecisions": 600, "policy": "v8.3-recovery-naval"}
+[19:23:35] decide #2 groups=1 876ms ans={'construction': 'deploy_base'}
+[19:23:35] {"kind": "action", "tick": 454, "sourceTick": 440, "ageTicks": 14, "question": "construction", "choice": "deploy_base", "confidence": 0.93, "latencyMs": 876, "roundTripMs": 880, "executionMs": 0.6000000014901161, "action": {"type": "deploy", "ids": [1042]}, "accepted": true}
+[19:23:37] decide #3 groups=1 1383ms ans={'construction': 'deploy_base'}
+[19:23:37] {"kind": "action", "tick": 484, "sourceTick": 463, "ageTicks": 21, "question": "construction", "choice": "deploy_base", "confidence": 0.93, "latencyMs": 1383, "roundTripMs": 1387, "executionMs": 0.20000000298023224, "action": {"type": "deploy", "ids": [1042]}, "accepted": false, "reason": "unit_gone
+[19:23:38] decide #4 groups=1 927ms ans={'construction': 'produce_NAPOWR'}
+[19:23:38] {"kind": "action", "tick": 507, "sourceTick": 493, "ageTicks": 14, "question": "construction", "choice": "produce_NAPOWR", "confidence": 0.55, "latencyMs": 927, "roundTripMs": 930, "executionMs": 0.5, "action": {"type": "produce", "name": "NAPOWR", "queue": 0, "cost": 600, "minCredits": 500}, "accep
+[19:24:00] {"kind": "place", "tick": 831, "name": "NAPOWR", "x": 131, "y": 76, "purpose": "base_development"}
+[19:24:01] decide #5 groups=1 974ms ans={'construction': 'recover_NAREFN'}
+[19:24:01] {"kind": "action", "tick": 848, "sourceTick": 833, "ageTicks": 15, "question": "construction", "choice": "recover_NAREFN", "confidence": 0.35, "latencyMs": 974, "roundTripMs": 978, "executionMs": 0.29999999701976776, "action": {"type": "produce", "name": "NAREFN", "queue": 0, "cost": 2000, "minCredi
+[19:25:24] {"kind": "place", "tick": 2090, "name": "NAREFN", "x": 130, "y": 78, "purpose": "base_development"}
+[19:25:25] decide #6 groups=1 936ms ans={'construction': 'recover_NAREFN'}
+[19:25:25] {"kind": "action", "tick": 2113, "sourceTick": 2099, "ageTicks": 14, "question": "construction", "choice": "recover_NAREFN", "confidence": 0.81, "latencyMs": 936, "roundTripMs": 942, "executionMs": 0.20000000298023224, "action": {"type": "produce", "name": "NAREFN", "queue": 0, "cost": 2000, "minCre
+[19:26:48] {"kind": "place", "tick": 3356, "name": "NAREFN", "x": 134, "y": 76, "purpose": "base_development"}
+[19:26:50] decide #7 groups=1 1124ms ans={'construction': 'produce_NAHAND'}
+[19:26:50] {"kind": "action", "tick": 3381, "sourceTick": 3365, "ageTicks": 16, "question": "construction", "choice": "produce_NAHAND", "confidence": 0.47, "latencyMs": 1124, "roundTripMs": 1127, "executionMs": 0.09999999403953552, "action": {"type": "produce", "name": "NAHAND", "queue": 0, "cost": 500, "minCr
+[19:27:09] {"kind": "place", "tick": 3664, "name": "NAHAND", "x": 138, "y": 77, "purpose": "base_development"}
+[19:27:11] decide #8 groups=3 1139ms ans={'construction': 'produce_NAPOWR', 'defenses': 'produce_NALASR', 'infantry': 'produce_SHK'}
+[19:27:11] {"kind": "action", "tick": 3694, "sourceTick": 3679, "ageTicks": 15, "question": "defenses", "choice": "produce_NALASR", "confidence": 0.96, "latencyMs": 1139, "roundTripMs": 1146, "executionMs": 0.5999999940395355, "action": {"type": "produce", "name": "NALASR", "queue": 1, "cost": 500, "minCredits
+[19:27:11] {"kind": "action", "tick": 3694, "sourceTick": 3679, "ageTicks": 15, "question": "construction", "choice": "produce_NAPOWR", "confidence": 0.1, "latencyMs": 1139, "roundTripMs": 1148, "executionMs": 0.30000000447034836, "action": {"type": "produce", "name": "NAPOWR", "queue": 0, "cost": 600, "minCre
+[19:27:11] {"kind": "action", "tick": 3694, "sourceTick": 3679, "ageTicks": 15, "question": "infantry", "choice": "produce_SHK", "confidence": 0.5, "latencyMs": 1139, "roundTripMs": 1149, "executionMs": 0.20000000298023224, "action": {"type": "produce", "name": "SHK", "queue": 2, "cost": 500, "minCredits": 500
+[19:27:13] decide #9 groups=3 1343ms ans={'construction': 'produce_NAPOWR', 'defenses': 'produce_NALASR', 'infantry': 'produce_SHK'}
+[19:27:13] {"kind": "action", "tick": 3724, "sourceTick": 3694, "ageTicks": 30, "question": "defenses", "choice": "produce_NALASR", "confidence": 0.96, "latencyMs": 1343, "roundTripMs": 1349, "executionMs": 0.20000000298023224, "action": {"type": "produce", "name": "NALASR", "queue": 1, "cost": 500, "minCredit
+[19:27:13] {"kind": "action", "tick": 3724, "sourceTick": 3694, "ageTicks": 30, "question": "construction", "choice": "produce_NAPOWR", "confidence": 0.09, "latencyMs": 1343, "roundTripMs": 1351, "executionMs": 0, "action": {"type": "produce", "name": "NAPOWR", "queue": 0, "cost": 600, "minCredits": 500}, "acc
+[19:27:13] {"kind": "action", "tick": 3724, "sourceTick": 3694, "ageTicks": 30, "question": "infantry", "choice": "produce_SHK", "confidence": 0.65, "latencyMs": 1343, "roundTripMs": 1352, "executionMs": 0.10000000149011612, "action": {"type": "produce", "name": "SHK", "queue": 2, "cost": 500, "minCredits": 50
+[19:27:29] {"kind": "place", "tick": 3964, "name": "NALASR", "x": 131, "y": 81}
+[19:27:32] decide #10 groups=3 1069ms ans={'defenses': 'wait', 'scouting': 'explore_113_71', 'infantry': 'produce_SHK'}
+[19:27:32] {"kind": "action", "tick": 3994, "sourceTick": 3994, "ageTicks": 0, "question": "defenses", "choice": "wait", "confidence": 0.95, "latencyMs": 1069, "roundTripMs": 1073, "executionMs": 0.10000000149011612, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:27:32] {"kind": "action", "tick": 3994, "sourceTick": 3994, "ageTicks": 0, "question": "scouting", "choice": "explore_113_71", "confidence": 0.39, "latencyMs": 1069, "roundTripMs": 1074, "executionMs": 0.8999999985098839, "action": {"type": "mission", "mode": "explore", "label": "前沿侦察", "ids": [1071], "x":
+[19:27:32] {"kind": "action", "tick": 3994, "sourceTick": 3994, "ageTicks": 0, "question": "infantry", "choice": "produce_SHK", "confidence": 0.38, "latencyMs": 1069, "roundTripMs": 1075, "executionMs": 0.19999999552965164, "action": {"type": "produce", "name": "SHK", "queue": 2, "cost": 500, "minCredits": 500
+[19:27:33] {"kind": "place", "tick": 4024, "name": "NAPOWR", "x": 138, "y": 75, "purpose": "base_development"}
+[19:27:34] decide #11 groups=1 1171ms ans={'defenses': 'wait'}
+[19:27:34] {"kind": "action", "tick": 4024, "sourceTick": 4024, "ageTicks": 0, "question": "defenses", "choice": "wait", "confidence": 0.94, "latencyMs": 1171, "roundTripMs": 1174, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:27:36] decide #12 groups=2 901ms ans={'construction': 'produce_NAWEAP', 'defenses': 'wait'}
+[19:27:36] {"kind": "action", "tick": 4054, "sourceTick": 4054, "ageTicks": 0, "question": "construction", "choice": "produce_NAWEAP", "confidence": 0.5, "latencyMs": 901, "roundTripMs": 906, "executionMs": 0.19999999552965164, "action": {"type": "produce", "name": "NAWEAP", "queue": 0, "cost": 2000, "minCredi
+[19:27:36] {"kind": "action", "tick": 4054, "sourceTick": 4054, "ageTicks": 0, "question": "defenses", "choice": "wait", "confidence": 0.9, "latencyMs": 901, "roundTripMs": 908, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:27:37] decide #13 groups=1 863ms ans={'defenses': 'wait'}
+[19:27:37] {"kind": "action", "tick": 4084, "sourceTick": 4084, "ageTicks": 0, "question": "defenses", "choice": "wait", "confidence": 0.93, "latencyMs": 863, "roundTripMs": 866, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:27:39] decide #14 groups=1 855ms ans={'defenses': 'wait'}
+[19:27:39] {"kind": "action", "tick": 4114, "sourceTick": 4114, "ageTicks": 0, "question": "defenses", "choice": "wait", "confidence": 0.91, "latencyMs": 855, "roundTripMs": 858, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:27:42] decide #15 groups=1 1000ms ans={'defenses': 'wait'}
+[19:27:42] {"kind": "action", "tick": 4144, "sourceTick": 4144, "ageTicks": 0, "question": "defenses", "choice": "wait", "confidence": 0.93, "latencyMs": 1000, "roundTripMs": 1003, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:27:44] decide #16 groups=1 1011ms ans={'defenses': 'wait'}
+[19:27:44] {"kind": "action", "tick": 4174, "sourceTick": 4174, "ageTicks": 0, "question": "defenses", "choice": "wait", "confidence": 0.92, "latencyMs": 1011, "roundTripMs": 1015, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:27:46] decide #17 groups=1 914ms ans={'defenses': 'wait'}
+[19:27:46] {"kind": "action", "tick": 4204, "sourceTick": 4204, "ageTicks": 0, "question": "defenses", "choice": "wait", "confidence": 0.94, "latencyMs": 914, "roundTripMs": 918, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:27:48] decide #18 groups=1 1001ms ans={'defenses': 'wait'}
+[19:27:48] {"kind": "action", "tick": 4234, "sourceTick": 4234, "ageTicks": 0, "question": "defenses", "choice": "wait", "confidence": 0.94, "latencyMs": 1001, "roundTripMs": 1008, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:27:50] decide #19 groups=1 931ms ans={'defenses': 'wait'}
+[19:27:50] {"kind": "action", "tick": 4264, "sourceTick": 4264, "ageTicks": 0, "question": "defenses", "choice": "wait", "confidence": 0.93, "latencyMs": 931, "roundTripMs": 937, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:27:52] decide #20 groups=2 1155ms ans={'defenses': 'wait', 'infantry': 'produce_SHK'}
+[19:27:52] {"kind": "action", "tick": 4294, "sourceTick": 4294, "ageTicks": 0, "question": "defenses", "choice": "wait", "confidence": 0.94, "latencyMs": 1155, "roundTripMs": 1160, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:27:52] {"kind": "action", "tick": 4294, "sourceTick": 4294, "ageTicks": 0, "question": "infantry", "choice": "produce_SHK", "confidence": 0.54, "latencyMs": 1155, "roundTripMs": 1163, "executionMs": 0.7999999970197678, "action": {"type": "produce", "name": "SHK", "queue": 2, "cost": 500, "minCredits": 500}
+[19:28:22] decide #21 groups=2 1001ms ans={'scouting': 'explore_122_83', 'infantry': 'produce_SHK'}
+[19:28:22] {"kind": "action", "tick": 4744, "sourceTick": 4744, "ageTicks": 0, "question": "scouting", "choice": "explore_122_83", "confidence": 0.37, "latencyMs": 1001, "roundTripMs": 1005, "executionMs": 0.20000000298023224, "action": {"type": "mission", "mode": "explore", "label": "前沿侦察", "ids": [1071], "x"
+[19:28:22] {"kind": "action", "tick": 4744, "sourceTick": 4744, "ageTicks": 0, "question": "infantry", "choice": "produce_SHK", "confidence": 0.41, "latencyMs": 1001, "roundTripMs": 1005, "executionMs": 0.19999999552965164, "action": {"type": "produce", "name": "SHK", "queue": 2, "cost": 500, "minCredits": 500
+[19:28:37] decide #22 groups=1 995ms ans={'scouting': 'explore_143_83'}
+[19:28:37] {"kind": "action", "tick": 4985, "sourceTick": 4970, "ageTicks": 15, "question": "scouting", "choice": "explore_143_83", "confidence": 0.17, "latencyMs": 995, "roundTripMs": 1003, "executionMs": 0.20000000298023224, "action": {"type": "mission", "mode": "explore", "label": "前沿侦察", "ids": [1071], "x"
+[19:28:40] decide #23 groups=1 1031ms ans={'infantry': 'produce_SHK'}
+[19:28:40] {"kind": "action", "tick": 5030, "sourceTick": 5015, "ageTicks": 15, "question": "infantry", "choice": "produce_SHK", "confidence": 0.3, "latencyMs": 1031, "roundTripMs": 1034, "executionMs": 0.30000000447034836, "action": {"type": "produce", "name": "SHK", "queue": 2, "cost": 500, "minCredits": 500
+[19:28:58] {"kind": "place", "tick": 5300, "name": "NAWEAP", "x": 136, "y": 72, "purpose": "base_development"}
+[19:29:00] decide #24 groups=2 1113ms ans={'vehicles': 'produce_HTNK', 'infantry': 'wait'}
+[19:29:00] {"kind": "action", "tick": 5330, "sourceTick": 5315, "ageTicks": 15, "question": "vehicles", "choice": "produce_HTNK", "confidence": 0.8, "latencyMs": 1113, "roundTripMs": 1118, "executionMs": 0.5, "action": {"type": "produce", "name": "HTNK", "queue": 3, "cost": 900, "minCredits": 250}, "accepted":
+[19:29:00] {"kind": "action", "tick": 5330, "sourceTick": 5315, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.24, "latencyMs": 1113, "roundTripMs": 1119, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:29:02] decide #25 groups=2 1186ms ans={'vehicles': 'produce_HTNK', 'infantry': 'wait'}
+[19:29:02] {"kind": "action", "tick": 5360, "sourceTick": 5330, "ageTicks": 30, "question": "vehicles", "choice": "produce_HTNK", "confidence": 0.82, "latencyMs": 1186, "roundTripMs": 1189, "executionMs": 0.10000000149011612, "action": {"type": "produce", "name": "HTNK", "queue": 3, "cost": 900, "minCredits": 
+[19:29:02] {"kind": "action", "tick": 5360, "sourceTick": 5330, "ageTicks": 30, "question": "infantry", "choice": "wait", "confidence": 0.3, "latencyMs": 1186, "roundTripMs": 1189, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:29:03] decide #26 groups=1 916ms ans={'infantry': 'wait'}
+[19:29:03] {"kind": "action", "tick": 5375, "sourceTick": 5360, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.38, "latencyMs": 916, "roundTripMs": 921, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:29:05] decide #27 groups=1 937ms ans={'infantry': 'wait'}
+[19:29:05] {"kind": "action", "tick": 5405, "sourceTick": 5390, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.45, "latencyMs": 937, "roundTripMs": 942, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:29:08] decide #28 groups=1 1114ms ans={'infantry': 'wait'}
+[19:29:08] {"kind": "action", "tick": 5448, "sourceTick": 5405, "ageTicks": 43, "question": "infantry", "choice": "wait", "confidence": 0.38, "latencyMs": 1114, "roundTripMs": 1120, "executionMs": 0.10000000149011612, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:29:10] decide #29 groups=2 961ms ans={'scouting': 'explore_134_89', 'infantry': 'wait'}
+[19:29:10] {"kind": "action", "tick": 5463, "sourceTick": 5463, "ageTicks": 0, "question": "scouting", "choice": "explore_134_89", "confidence": 0.62, "latencyMs": 961, "roundTripMs": 970, "executionMs": 0.7999999970197678, "action": {"type": "mission", "mode": "explore", "label": "前沿侦察", "ids": [1071], "x": 1
+[19:29:10] {"kind": "action", "tick": 5463, "sourceTick": 5463, "ageTicks": 0, "question": "infantry", "choice": "wait", "confidence": 0.39, "latencyMs": 961, "roundTripMs": 972, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:29:12] decide #30 groups=1 972ms ans={'infantry': 'wait'}
+[19:29:12] {"kind": "action", "tick": 5508, "sourceTick": 5493, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.37, "latencyMs": 972, "roundTripMs": 998, "executionMs": 0.10000000149011612, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:29:14] decide #31 groups=1 985ms ans={'infantry': 'wait'}
+[19:29:14] {"kind": "action", "tick": 5538, "sourceTick": 5523, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.46, "latencyMs": 985, "roundTripMs": 998, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:29:16] decide #32 groups=1 965ms ans={'infantry': 'wait'}
+[19:29:16] {"kind": "action", "tick": 5553, "sourceTick": 5553, "ageTicks": 0, "question": "infantry", "choice": "wait", "confidence": 0.37, "latencyMs": 965, "roundTripMs": 971, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:29:18] decide #33 groups=1 1123ms ans={'infantry': 'wait'}
+[19:29:18] {"kind": "action", "tick": 5598, "sourceTick": 5583, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.36, "latencyMs": 1123, "roundTripMs": 1127, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:29:20] decide #34 groups=2 955ms ans={'scouting': 'explore_143_71', 'infantry': 'wait'}
+[19:29:20] {"kind": "action", "tick": 5613, "sourceTick": 5613, "ageTicks": 0, "question": "scouting", "choice": "explore_143_71", "confidence": 0.58, "latencyMs": 955, "roundTripMs": 963, "executionMs": 0.8999999985098839, "action": {"type": "mission", "mode": "explore", "label": "前沿侦察", "ids": [1071], "x": 1
+[19:29:20] {"kind": "action", "tick": 5613, "sourceTick": 5613, "ageTicks": 0, "question": "infantry", "choice": "wait", "confidence": 0.39, "latencyMs": 955, "roundTripMs": 965, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:29:22] decide #35 groups=1 959ms ans={'infantry': 'wait'}
+[19:29:22] {"kind": "action", "tick": 5643, "sourceTick": 5643, "ageTicks": 0, "question": "infantry", "choice": "wait", "confidence": 0.38, "latencyMs": 959, "roundTripMs": 965, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:29:36] decide #36 groups=1 1122ms ans={'infantry': 'wait'}
+[19:29:36] {"kind": "action", "tick": 5853, "sourceTick": 5853, "ageTicks": 0, "question": "infantry", "choice": "wait", "confidence": 0.28, "latencyMs": 1122, "roundTripMs": 1126, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:30:22] decide #37 groups=3 1151ms ans={'vehicles': 'produce_HTNK', 'scouting': 'explore_113_74', 'infantry': 'wait'}
+[19:30:22] {"kind": "action", "tick": 6543, "sourceTick": 6543, "ageTicks": 0, "question": "vehicles", "choice": "produce_HTNK", "confidence": 0.62, "latencyMs": 1151, "roundTripMs": 1156, "executionMs": 0.19999999552965164, "action": {"type": "produce", "name": "HTNK", "queue": 3, "cost": 900, "minCredits": 2
+[19:30:22] {"kind": "action", "tick": 6543, "sourceTick": 6543, "ageTicks": 0, "question": "scouting", "choice": "explore_113_74", "confidence": 0.43, "latencyMs": 1151, "roundTripMs": 1158, "executionMs": 0.8000000044703484, "action": {"type": "mission", "mode": "explore", "label": "前沿侦察", "ids": [1071], "x":
+[19:30:22] {"kind": "action", "tick": 6543, "sourceTick": 6543, "ageTicks": 0, "question": "infantry", "choice": "wait", "confidence": 0.49, "latencyMs": 1151, "roundTripMs": 1159, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:31:22] decide #38 groups=4 1145ms ans={'defenses': 'wait', 'vehicles': 'produce_HTNK', 'infantry': 'wait', 'scouting': 'explore_116_65'}
+[19:31:22] {"kind": "action", "tick": 7443, "sourceTick": 7443, "ageTicks": 0, "question": "defenses", "choice": "wait", "confidence": 0.91, "latencyMs": 1145, "roundTripMs": 1151, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:31:22] {"kind": "action", "tick": 7443, "sourceTick": 7443, "ageTicks": 0, "question": "vehicles", "choice": "produce_HTNK", "confidence": 0.67, "latencyMs": 1145, "roundTripMs": 1152, "executionMs": 0.4000000059604645, "action": {"type": "produce", "name": "HTNK", "queue": 3, "cost": 900, "minCredits": 25
+[19:31:22] {"kind": "action", "tick": 7443, "sourceTick": 7443, "ageTicks": 0, "question": "infantry", "choice": "wait", "confidence": 0.29, "latencyMs": 1145, "roundTripMs": 1152, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:31:22] {"kind": "action", "tick": 7443, "sourceTick": 7443, "ageTicks": 0, "question": "scouting", "choice": "explore_116_65", "confidence": 0.2, "latencyMs": 1145, "roundTripMs": 1153, "executionMs": 0.29999999701976776, "action": {"type": "mission", "mode": "explore", "label": "前沿侦察", "ids": [1071], "x":
+[19:32:12] decide #39 groups=4 980ms ans={'defenses': 'wait', 'vehicles': 'produce_HTNK', 'infantry': 'wait', 'scouting': 'explore_134_92'}
+[19:32:12] {"kind": "action", "tick": 8216, "sourceTick": 8200, "ageTicks": 16, "question": "defenses", "choice": "wait", "confidence": 0.93, "latencyMs": 980, "roundTripMs": 984, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:12] {"kind": "action", "tick": 8216, "sourceTick": 8200, "ageTicks": 16, "question": "vehicles", "choice": "produce_HTNK", "confidence": 0.71, "latencyMs": 980, "roundTripMs": 985, "executionMs": 0.20000000298023224, "action": {"type": "produce", "name": "HTNK", "queue": 3, "cost": 900, "minCredits": 25
+[19:32:12] {"kind": "action", "tick": 8216, "sourceTick": 8200, "ageTicks": 16, "question": "infantry", "choice": "wait", "confidence": 0.4, "latencyMs": 980, "roundTripMs": 985, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:12] {"kind": "action", "tick": 8216, "sourceTick": 8200, "ageTicks": 16, "question": "scouting", "choice": "explore_134_92", "confidence": 0.19, "latencyMs": 980, "roundTripMs": 986, "executionMs": 0.6999999955296516, "action": {"type": "mission", "mode": "explore", "label": "前沿侦察", "ids": [1071], "x": 
+[19:32:14] decide #40 groups=1 876ms ans={'infantry': 'wait'}
+[19:32:14] {"kind": "action", "tick": 8238, "sourceTick": 8225, "ageTicks": 13, "question": "infantry", "choice": "wait", "confidence": 0.43, "latencyMs": 876, "roundTripMs": 879, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:16] decide #41 groups=1 993ms ans={'infantry': 'wait'}
+[19:32:16] {"kind": "action", "tick": 8262, "sourceTick": 8247, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.5, "latencyMs": 993, "roundTripMs": 996, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:17] decide #42 groups=1 897ms ans={'infantry': 'wait'}
+[19:32:17] {"kind": "action", "tick": 8284, "sourceTick": 8271, "ageTicks": 13, "question": "infantry", "choice": "wait", "confidence": 0.46, "latencyMs": 897, "roundTripMs": 899, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:19] decide #43 groups=1 976ms ans={'infantry': 'wait'}
+[19:32:19] {"kind": "action", "tick": 8308, "sourceTick": 8293, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.36, "latencyMs": 976, "roundTripMs": 978, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:20] decide #44 groups=1 891ms ans={'infantry': 'wait'}
+[19:32:20] {"kind": "action", "tick": 8331, "sourceTick": 8317, "ageTicks": 14, "question": "infantry", "choice": "wait", "confidence": 0.52, "latencyMs": 891, "roundTripMs": 894, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:22] decide #45 groups=1 1399ms ans={'infantry': 'wait'}
+[19:32:22] {"kind": "action", "tick": 8361, "sourceTick": 8340, "ageTicks": 21, "question": "infantry", "choice": "wait", "confidence": 0.44, "latencyMs": 1399, "roundTripMs": 1403, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:24] decide #46 groups=1 927ms ans={'infantry': 'wait'}
+[19:32:24] {"kind": "action", "tick": 8384, "sourceTick": 8370, "ageTicks": 14, "question": "infantry", "choice": "wait", "confidence": 0.4, "latencyMs": 927, "roundTripMs": 933, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:25] decide #47 groups=1 916ms ans={'infantry': 'wait'}
+[19:32:25] {"kind": "action", "tick": 8407, "sourceTick": 8393, "ageTicks": 14, "question": "infantry", "choice": "wait", "confidence": 0.46, "latencyMs": 916, "roundTripMs": 918, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:27] decide #48 groups=1 973ms ans={'infantry': 'wait'}
+[19:32:27] {"kind": "action", "tick": 8430, "sourceTick": 8414, "ageTicks": 16, "question": "infantry", "choice": "wait", "confidence": 0.39, "latencyMs": 973, "roundTripMs": 975, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:28] decide #49 groups=1 941ms ans={'infantry': 'wait'}
+[19:32:28] {"kind": "action", "tick": 8445, "sourceTick": 8430, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.36, "latencyMs": 941, "roundTripMs": 945, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:30] decide #50 groups=1 1009ms ans={'infantry': 'wait'}
+[19:32:30] {"kind": "action", "tick": 8475, "sourceTick": 8460, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.4, "latencyMs": 1009, "roundTripMs": 1013, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:32] decide #51 groups=1 913ms ans={'infantry': 'wait'}
+[19:32:32] {"kind": "action", "tick": 8490, "sourceTick": 8475, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.4, "latencyMs": 913, "roundTripMs": 918, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:33] decide #52 groups=1 1003ms ans={'infantry': 'wait'}
+[19:32:33] {"kind": "action", "tick": 8520, "sourceTick": 8505, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.4, "latencyMs": 1003, "roundTripMs": 1010, "executionMs": 0.09999999403953552, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:35] decide #53 groups=1 1044ms ans={'infantry': 'wait'}
+[19:32:35] {"kind": "action", "tick": 8550, "sourceTick": 8535, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.36, "latencyMs": 1044, "roundTripMs": 1047, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:37] decide #54 groups=1 1065ms ans={'infantry': 'wait'}
+[19:32:37] {"kind": "action", "tick": 8565, "sourceTick": 8550, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.42, "latencyMs": 1065, "roundTripMs": 1073, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:38] decide #55 groups=1 972ms ans={'infantry': 'wait'}
+[19:32:38] {"kind": "action", "tick": 8595, "sourceTick": 8580, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.44, "latencyMs": 972, "roundTripMs": 977, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:40] decide #56 groups=1 927ms ans={'infantry': 'wait'}
+[19:32:40] {"kind": "action", "tick": 8610, "sourceTick": 8595, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.39, "latencyMs": 927, "roundTripMs": 934, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:41] decide #57 groups=1 1048ms ans={'infantry': 'wait'}
+[19:32:41] {"kind": "action", "tick": 8640, "sourceTick": 8625, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.32, "latencyMs": 1048, "roundTripMs": 1054, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:43] decide #58 groups=1 1302ms ans={'infantry': 'wait'}
+[19:32:43] {"kind": "action", "tick": 8670, "sourceTick": 8655, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.37, "latencyMs": 1302, "roundTripMs": 1308, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:32:45] decide #59 groups=3 1312ms ans={'tactics': 'defend_base', 'defenses': 'produce_NALASR', 'infantry': 'produce_SHK'}
+[19:32:45] {"kind": "action", "tick": 8700, "sourceTick": 8685, "ageTicks": 15, "question": "defenses", "choice": "produce_NALASR", "confidence": 0.92, "latencyMs": 1312, "roundTripMs": 1317, "executionMs": 0.29999999701976776, "action": {"type": "produce", "name": "NALASR", "queue": 1, "cost": 500, "minCredit
+[19:32:45] {"kind": "action", "tick": 8700, "sourceTick": 8685, "ageTicks": 15, "question": "tactics", "choice": "defend_base", "confidence": 0.97, "latencyMs": 1312, "roundTripMs": 1318, "executionMs": 0.29999999701976776, "action": {"type": "mission", "mode": "defend", "label": "保卫基地", "ids": [1097, 1107, 11
+[19:32:45] {"kind": "action", "tick": 8700, "sourceTick": 8685, "ageTicks": 15, "question": "infantry", "choice": "produce_SHK", "confidence": 0.31, "latencyMs": 1312, "roundTripMs": 1320, "executionMs": 0.6999999955296516, "action": {"type": "produce", "name": "SHK", "queue": 2, "cost": 500, "minCredits": 500
+[19:32:45] {"kind": "micro", "tick": 8700, "description": "集火 / 补发 7 条单位指令"}
+[19:32:47] decide #60 groups=1 1062ms ans={'tactics': 'defend_base'}
+[19:32:47] {"kind": "action", "tick": 8730, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.96}
+[19:32:48] decide #61 groups=1 884ms ans={'tactics': 'defend_base'}
+[19:32:48] {"kind": "action", "tick": 8745, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.95}
+[19:32:50] {"kind": "micro", "tick": 8775, "description": "集火 / 补发 1 条单位指令"}
+[19:32:50] decide #62 groups=2 1014ms ans={'construction': 'produce_NADEPT', 'tactics': 'defend_base'}
+[19:32:50] {"kind": "action", "tick": 8775, "sourceTick": 8760, "ageTicks": 15, "question": "construction", "choice": "produce_NADEPT", "confidence": 0.69, "latencyMs": 1014, "roundTripMs": 1021, "executionMs": 0.7999999970197678, "action": {"type": "produce", "name": "NADEPT", "queue": 0, "cost": 800, "minCre
+[19:32:50] {"kind": "action", "tick": 8775, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.95}
+[19:32:52] decide #63 groups=2 1107ms ans={'construction': 'produce_NADEPT', 'tactics': 'defend_base'}
+[19:32:52] {"kind": "action", "tick": 8790, "sourceTick": 8775, "ageTicks": 15, "question": "construction", "choice": "produce_NADEPT", "confidence": 0.63, "latencyMs": 1107, "roundTripMs": 1110, "executionMs": 0, "action": {"type": "produce", "name": "NADEPT", "queue": 0, "cost": 800, "minCredits": 600}, "acc
+[19:32:52] {"kind": "action", "tick": 8790, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.95}
+[19:32:53] decide #64 groups=1 959ms ans={'tactics': 'defend_base'}
+[19:32:53] {"kind": "action", "tick": 8820, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.94}
+[19:32:55] decide #65 groups=1 959ms ans={'tactics': 'defend_base'}
+[19:32:55] {"kind": "action", "tick": 8850, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.96}
+[19:32:56] decide #66 groups=1 920ms ans={'tactics': 'defend_base'}
+[19:32:56] {"kind": "action", "tick": 8865, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.96}
+[19:32:59] decide #67 groups=1 1094ms ans={'tactics': 'defend_base'}
+[19:32:59] {"kind": "action", "tick": 8907, "sourceTick": 8892, "ageTicks": 15, "question": "tactics", "choice": "defend_base", "confidence": 0.95, "latencyMs": 1094, "roundTripMs": 1099, "executionMs": 0.3999999985098839, "action": {"type": "mission", "mode": "defend", "label": "保卫基地", "ids": [1097, 1107, 111
+[19:33:01] decide #68 groups=2 1131ms ans={'tactics': 'defend_base', 'vehicles': 'produce_HTK'}
+[19:33:01] {"kind": "action", "tick": 8937, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.96}
+[19:33:01] {"kind": "action", "tick": 8937, "sourceTick": 8922, "ageTicks": 15, "question": "vehicles", "choice": "produce_HTK", "confidence": 0.96, "latencyMs": 1131, "roundTripMs": 1141, "executionMs": 0.7000000029802322, "action": {"type": "produce", "name": "HTK", "queue": 3, "cost": 500, "minCredits": 250
+[19:33:02] decide #69 groups=1 886ms ans={'tactics': 'defend_base'}
+[19:33:02] {"kind": "action", "tick": 8952, "sourceTick": 8952, "ageTicks": 0, "question": "tactics", "choice": "defend_base", "confidence": 0.96, "latencyMs": 886, "roundTripMs": 891, "executionMs": 0.7999999970197678, "action": {"type": "mission", "mode": "defend", "label": "保卫基地", "ids": [1097, 1107, 1110, 
+[19:33:04] {"kind": "place", "tick": 8982, "name": "NALASR", "x": 127, "y": 81}
+[19:33:05] {"kind": "micro", "tick": 8997, "description": "集火 / 补发 1 条单位指令"}
+[19:33:05] decide #70 groups=2 1296ms ans={'tactics': 'defend_base', 'infantry': 'wait'}
+[19:33:05] {"kind": "action", "tick": 8997, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.96}
+[19:33:05] {"kind": "action", "tick": 8997, "sourceTick": 8982, "ageTicks": 15, "question": "infantry", "choice": "wait", "confidence": 0.3, "latencyMs": 1296, "roundTripMs": 1304, "executionMs": 0.10000000149011612, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:33:07] decide #71 groups=2 1091ms ans={'tactics': 'defend_base', 'defenses': 'produce_NALASR'}
+[19:33:07] {"kind": "action", "tick": 9027, "sourceTick": 9012, "ageTicks": 15, "question": "defenses", "choice": "produce_NALASR", "confidence": 0.96, "latencyMs": 1091, "roundTripMs": 1096, "executionMs": 0.6000000014901161, "action": {"type": "produce", "name": "NALASR", "queue": 1, "cost": 500, "minCredits
+[19:33:07] {"kind": "action", "tick": 9027, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.97}
+[19:33:09] {"kind": "micro", "tick": 9057, "description": "维修 NALASR"}
+[19:33:09] decide #72 groups=1 1174ms ans={'tactics': 'defend_base'}
+[19:33:09] {"kind": "action", "tick": 9057, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.96}
+[19:33:10] {"kind": "micro", "tick": 9072, "description": "集火 / 补发 2 条单位指令"}
+[19:33:11] decide #73 groups=1 1011ms ans={'tactics': 'defend_base'}
+[19:33:11] {"kind": "action", "tick": 9087, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.95}
+[19:33:13] {"kind": "micro", "tick": 9117, "description": "维修 NALASR"}
+[19:33:13] decide #74 groups=1 1117ms ans={'tactics': 'defend_base'}
+[19:33:13] {"kind": "action", "tick": 9117, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.95}
+[19:33:15] {"kind": "micro", "tick": 9147, "description": "集火 / 补发 4 条单位指令"}
+[19:33:15] decide #75 groups=1 1388ms ans={'tactics': 'defend_base'}
+[19:33:15] {"kind": "action", "tick": 9147, "sourceTick": 9132, "ageTicks": 15, "question": "tactics", "choice": "defend_base", "confidence": 0.95, "latencyMs": 1388, "roundTripMs": 1394, "executionMs": 2, "action": {"type": "mission", "mode": "defend", "label": "保卫基地", "ids": [1097, 1107, 1110, 1119], "x": 12
+[19:33:18] decide #76 groups=1 1114ms ans={'tactics': 'defend_base'}
+[19:33:18] {"kind": "action", "tick": 9192, "sourceTick": 9162, "ageTicks": 30, "question": "tactics", "choice": "defend_base", "confidence": 0.88, "latencyMs": 1114, "roundTripMs": 1118, "executionMs": 0.29999999701976776, "action": {"type": "mission", "mode": "defend", "label": "保卫基地", "ids": [1097, 1107, 11
+[19:33:20] decide #77 groups=1 978ms ans={'tactics': 'defend_base'}
+[19:33:20] {"kind": "action", "tick": 9222, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.85}
+[19:33:22] decide #78 groups=1 1029ms ans={'tactics': 'defend_base'}
+[19:33:22] {"kind": "action", "tick": 9252, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.84}
+[19:33:24] decide #79 groups=1 984ms ans={'tactics': 'defend_base'}
+[19:33:24] {"kind": "action", "tick": 9282, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.85}
+[19:33:27] decide #80 groups=1 2122ms ans={'tactics': 'defend_base'}
+[19:33:27] {"kind": "action", "tick": 9312, "choice": "defend_base", "accepted": false, "reason": "mission_continues", "confidence": 0.84}
+[19:33:29] decide #81 groups=1 1818ms ans={'scouting': 'explore_122_89'}
+[19:33:29] {"kind": "action", "tick": 9312, "sourceTick": 9312, "ageTicks": 0, "question": "scouting", "choice": "explore_122_89", "confidence": 0.56, "latencyMs": 1818, "roundTripMs": 1824, "executionMs": 0.3999999985098839, "action": {"type": "mission", "mode": "explore", "label": "前沿侦察", "ids": [1077], "x":
+[19:34:22] {"kind": "place", "tick": 10137, "name": "NADEPT", "x": 138, "y": 80, "purpose": "base_development"}
+[19:34:23] decide #82 groups=3 1697ms ans={'tactics': 'defend_base', 'transport': 'load_1207', 'vehicles': 'produce_HTK'}
+[19:34:23] {"kind": "action", "tick": 10137, "sourceTick": 10137, "ageTicks": 0, "question": "tactics", "choice": "defend_base", "confidence": 0.99, "latencyMs": 1697, "roundTripMs": 1705, "executionMs": 1, "action": {"type": "mission", "mode": "defend", "label": "保卫基地", "ids": [1097, 1107, 1110, 1119, 1207], 
+[19:34:23] {"kind": "action", "tick": 10137, "sourceTick": 10137, "ageTicks": 0, "question": "transport", "choice": "load_1207", "confidence": 0.18, "latencyMs": 1697, "roundTripMs": 1709, "executionMs": 2.100000001490116, "action": {"type": "special", "kind": "load", "ids": [1137], "targetId": 1207, "order": 
+[19:34:23] {"kind": "action", "tick": 10137, "sourceTick": 10137, "ageTicks": 0, "question": "vehicles", "choice": "produce_HTK", "confidence": 0.98, "latencyMs": 1697, "roundTripMs": 1712, "executionMs": 0.20000000298023224, "action": {"type": "produce", "name": "HTK", "queue": 3, "cost": 500, "minCredits": 2
+[19:35:22] {"kind": "place", "tick": 11037, "name": "NALASR", "x": 128, "y": 80}
+[19:35:23] decide #83 groups=4 1193ms ans={'construction': 'produce_NARADR', 'infantry': 'wait', 'scouting': 'explore_116_62', 'transport': 'wait'}
+[19:35:23] {"kind": "action", "tick": 11037, "sourceTick": 11037, "ageTicks": 0, "question": "construction", "choice": "produce_NARADR", "confidence": 0.66, "latencyMs": 1193, "roundTripMs": 1199, "executionMs": 1, "action": {"type": "produce", "name": "NARADR", "queue": 0, "cost": 800, "minCredits": 600}, "ac
+[19:35:23] {"kind": "action", "tick": 11037, "sourceTick": 11037, "ageTicks": 0, "question": "infantry", "choice": "wait", "confidence": 0.38, "latencyMs": 1193, "roundTripMs": 1200, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:35:23] {"kind": "action", "tick": 11037, "sourceTick": 11037, "ageTicks": 0, "question": "scouting", "choice": "explore_116_62", "confidence": 0.23, "latencyMs": 1193, "roundTripMs": 1201, "executionMs": 0.29999999701976776, "action": {"type": "mission", "mode": "explore", "label": "前沿侦察", "ids": [1079], "
+[19:35:23] {"kind": "action", "tick": 11037, "sourceTick": 11037, "ageTicks": 0, "question": "transport", "choice": "wait", "confidence": 0.57, "latencyMs": 1193, "roundTripMs": 1202, "executionMs": 0.10000000149011612, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:36:21] {"kind": "place", "tick": 11937, "name": "NARADR", "x": 140, "y": 77, "purpose": "base_development"}
+[19:36:22] decide #84 groups=4 1177ms ans={'vehicles': 'produce_HTNK', 'infantry': 'produce_SHK', 'scouting': 'explore_119_92', 'transport': 'wait'}
+[19:36:22] {"kind": "action", "tick": 11937, "sourceTick": 11937, "ageTicks": 0, "question": "vehicles", "choice": "produce_HTNK", "confidence": 0.81, "latencyMs": 1177, "roundTripMs": 1180, "executionMs": 0.30000000447034836, "action": {"type": "produce", "name": "HTNK", "queue": 3, "cost": 900, "minCredits":
+[19:36:22] {"kind": "action", "tick": 11937, "sourceTick": 11937, "ageTicks": 0, "question": "infantry", "choice": "produce_SHK", "confidence": 0.59, "latencyMs": 1177, "roundTripMs": 1181, "executionMs": 0.19999999552965164, "action": {"type": "produce", "name": "SHK", "queue": 2, "cost": 500, "minCredits": 5
+[19:36:22] {"kind": "action", "tick": 11937, "sourceTick": 11937, "ageTicks": 0, "question": "scouting", "choice": "explore_119_92", "confidence": 0.27, "latencyMs": 1177, "roundTripMs": 1182, "executionMs": 0.3999999985098839, "action": {"type": "mission", "mode": "explore", "label": "前沿侦察", "ids": [1079], "x
+[19:36:22] {"kind": "action", "tick": 11937, "sourceTick": 11937, "ageTicks": 0, "question": "transport", "choice": "wait", "confidence": 0.25, "latencyMs": 1177, "roundTripMs": 1183, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:37:23] decide #85 groups=5 1283ms ans={'construction': 'wait', 'vehicles': 'produce_HTK', 'infantry': 'wait', 'scouting': 'explore_113_86'}
+[19:37:23] {"kind": "action", "tick": 12837, "sourceTick": 12837, "ageTicks": 0, "question": "construction", "choice": "wait", "confidence": 0.06, "latencyMs": 1283, "roundTripMs": 1290, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:37:23] {"kind": "action", "tick": 12837, "sourceTick": 12837, "ageTicks": 0, "question": "vehicles", "choice": "produce_HTK", "confidence": 0.97, "latencyMs": 1283, "roundTripMs": 1291, "executionMs": 0.30000000447034836, "action": {"type": "produce", "name": "HTK", "queue": 3, "cost": 500, "minCredits": 2
+[19:37:23] {"kind": "action", "tick": 12837, "sourceTick": 12837, "ageTicks": 0, "question": "infantry", "choice": "wait", "confidence": 0.14, "latencyMs": 1283, "roundTripMs": 1291, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:37:23] {"kind": "action", "tick": 12837, "sourceTick": 12837, "ageTicks": 0, "question": "scouting", "choice": "explore_113_86", "confidence": 0.37, "latencyMs": 1283, "roundTripMs": 1292, "executionMs": 0.5, "action": {"type": "mission", "mode": "explore", "label": "前沿侦察", "ids": [1079], "x": 113, "y": 86
+[19:37:23] {"kind": "action", "tick": 12837, "sourceTick": 12837, "ageTicks": 0, "question": "transport", "choice": "wait", "confidence": 0.32, "latencyMs": 1283, "roundTripMs": 1293, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:38:07] decide #86 groups=3 1164ms ans={'construction': 'produce_NAPOWR', 'scouting': 'explore_110_77', 'transport': 'wait'}
+[19:38:07] {"kind": "action", "tick": 13523, "sourceTick": 13505, "ageTicks": 18, "question": "construction", "choice": "produce_NAPOWR", "confidence": 0.17, "latencyMs": 1164, "roundTripMs": 1167, "executionMs": 0.20000000298023224, "action": {"type": "produce", "name": "NAPOWR", "queue": 0, "cost": 600, "min
+[19:38:07] {"kind": "action", "tick": 13523, "sourceTick": 13505, "ageTicks": 18, "question": "scouting", "choice": "explore_110_77", "confidence": 0.21, "latencyMs": 1164, "roundTripMs": 1168, "executionMs": 0.5, "action": {"type": "mission", "mode": "explore", "label": "装甲推进侦察", "ids": [1097, 1107, 1110, 111
+[19:38:07] {"kind": "action", "tick": 13523, "sourceTick": 13505, "ageTicks": 18, "question": "transport", "choice": "wait", "confidence": 0.42, "latencyMs": 1164, "roundTripMs": 1169, "executionMs": 0, "action": {"type": "wait"}, "accepted": false, "reason": "wait"}
+[19:38:15] decide #87 groups=1 1061ms ans={'scouting': 'explore_116_62'}
+[19:38:15] {"kind": "action", "tick": 13649, "sourceTick": 13633, "ageTicks": 16, "question": "scouting", "choice": "explore_116_62", "confidence": 0.31, "latencyMs": 1061, "roundTripMs": 1065, "executionMs": 0.5, "action": {"type": "mission", "mode": "explore", "label": "装甲推进侦察", "ids": [1097, 1107, 1110, 111
+[19:38:21] {"kind": "stop", "reason": "manual", "decisions": 86, "accepted": 49}

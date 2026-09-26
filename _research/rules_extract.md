@@ -1,0 +1,374 @@
+## 步兵
+- **E1** | Name=GI; UIName=Name:E1; Cost=180; Strength=125; Armor=none; Speed=4; Sight=5; Primary=M60; Secondary=Para; ElitePrimary=M60E; EliteSecondary=ParaE; Prerequisite=GAPILE; TechLevel=1; Owner=British,French,Germans,Americans,Alliance; Deployer=yes; Image=GI
+- **E2** | Name=Conscript; UIName=Name:E2; Cost=90; Strength=130; Armor=flak; Speed=4; Sight=5; Primary=M1Carbine; ElitePrimary=M1CarbineE; Prerequisite=NAHAND; TechLevel=1; Owner=Russians,Africans,Arabs; Image=CONS
+- **SHK** | Name=Shock Trooper; UIName=Name:SHK; Cost=500; Strength=200; Armor=Plate; Speed=4; Sight=6; Primary=ElectricBolt; Secondary=AssaultBolt; ElitePrimary=ElectricBoltE; Prerequisite=NAHAND; TechLevel=5; Owner=Russians,Confederation,Africans,Arabs
+- **FLAKT** | Name=Flak Trooper; UIName=Name:FLAKT; Cost=250; Strength=125; Armor=flak; Speed=4; Sight=5; Primary=FlakGuyGun; Secondary=FlakGuyAAGun; ElitePrimary=FlakGuyGunE; EliteSecondary=FlakGuyAAGunE; Prerequisite=NAHAND,NARADR; TechLevel=1; Owner=Russians,Confederation,Africans,Arabs
+- **ADOG** | Name=Allied Attack Dog; UIName=Name:DOG; Cost=200; Strength=80; Armor=none; Speed=8; Sight=9; Primary=GoodTeeth; Secondary=VirtualScanner; Prerequisite=Barracks; TechLevel=2; Owner=Russians,Confederation,Africans,Arabs,British,French,Germans,Americans,Alliance; ImmuneToPsionics=yes
+- **IVAN** | Name=Crazy Ivan; UIName=Name:IVAN; Cost=800; Strength=125; Armor=none; Speed=4; Sight=6; Primary=IvanBomber; ElitePrimary=IvanBomberE; Prerequisite=NAHAND,NARADR; TechLevel=5; Owner=Russians,Confederation,Africans,Arabs
+- **DESO** | Name=Desolater; UIName=Name:DESO; Cost=600; Strength=150; Armor=plate; Speed=4; Sight=6; Primary=RadBeamWeapon; Secondary=RadEruptionWeapon; ElitePrimary=RadBeamWeaponE; Prerequisite=NAHAND,RADAR; TechLevel=8; Owner=Russians,Confederation,Africans,Arabs; Deployer=yes
+- BORIS: **NOT FOUND**
+- SEAL: **NOT FOUND**
+- **TANY** | Name=Tanya; UIName=Name:TANYA; Cost=1400; Strength=220; Armor=flak; Speed=5; Sight=8; Primary=DoublePistols; Secondary=Sapper; ElitePrimary=DoublePistolsE; Prerequisite=GAPILE,GATECH; TechLevel=9; Owner=British,French,Germans,Americans,Alliance
+- **SNIPE** | Name=Sniper; UIName=Name:SNIPE; Cost=650; Strength=125; Armor=none; Speed=4; Sight=9; Primary=AWP; ElitePrimary=AWPE; Prerequisite=GAPILE,RADAR; TechLevel=1; Owner=British,French,Germans,Americans,Alliance
+- **GGI** | Name=Guardian GI; UIName=Name:GGIA; Cost=550; Strength=125; Armor=Plate; Speed=3; Sight=6; Primary=GuardianPara; Secondary=GuardianMissile; ElitePrimary=GuardianParaE; EliteSecondary=GuardianMissileE; Prerequisite=GAPILE; TechLevel=7; Owner=British,French,Germans,Americans,Alliance; Deployer=yes
+- **CLEG** | Name=Chrono Legionnaire; UIName=Name:CLEG; Cost=1200; Strength=125; Armor=none; Speed=5; Sight=8; Primary=NeutronRifle; ElitePrimary=NeutronRifleE; Prerequisite=GAPILE,TECH; TechLevel=10; Owner=British,French,Germans,Americans,Alliance
+- **SPY** | Name=Spy; UIName=Name:SPY; Cost=1000; Strength=100; Armor=flak; Speed=4; Sight=9; Primary=MakeupKit; Prerequisite=Barracks,TECH; TechLevel=5; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs
+- **JUMPJET** | Name=Rocketeer; UIName=Name:JUMPJET; Cost=600; Strength=125; Armor=special_2; Speed=9; Sight=8; Primary=20mm; ElitePrimary=20mmE; Prerequisite=GAPILE,RADAR; TechLevel=3; Owner=British,French,Germans,Americans,Alliance; Image=ROCK
+- **PTROOP** | Name=Psi-Corp Trooper; UIName=Name:PCOMMANDO; Cost=1200; Strength=100; Armor=none; Speed=5; Sight=8; Primary=MindControl; ElitePrimary=MindControlE; Prerequisite=GAPILE; TechLevel=9; Owner=British,French,Germans,Americans,Alliance; ImmuneToPsionics=yes
+- VIRUS: **NOT FOUND**
+- **YURI** | Name=Yuri; UIName=Name:YURI; Cost=1200; Strength=100; Armor=none; Speed=4; Sight=12; Primary=MindControl; Secondary=PsiWave; Prerequisite=NAHAND,NATECH; TechLevel=10; Owner=Russians,Confederation,Africans,Arabs; Deployer=yes; ImmuneToPsionics=yes
+- BRUTE: **NOT FOUND**
+- INIT: **NOT FOUND**
+
+## 载具
+- **MTNK** | Name=Grizzly Battle Tank; UIName=Name:MTNK; Cost=750; Strength=300; Armor=heavy; Speed=7; ROT=5; Sight=8; Primary=105mm; ElitePrimary=105mmE; Prerequisite=GAWEAP; TechLevel=2; Owner=British,French,Germans,Americans,Alliance; Turret=yes; Image=GTNK
+- **HTNK** | Name=Rhino Heavy Tank; UIName=Name:HTNK; Cost=900; Strength=400; Armor=heavy; Speed=6; ROT=5; Sight=8; Primary=120mm; ElitePrimary=120mmE; Prerequisite=NAWEAP; TechLevel=2; Owner=Russians,Africans,Arabs; Turret=yes
+- **LTNK** | Name=Light Tank; UIName=Name:LTNK; Cost=860; Strength=330; Armor=heavy; Speed=7; ROT=7; Sight=8; Primary=120mm; ElitePrimary=120mmE; Prerequisite=CAWEAP; TechLevel=2; Owner=Confederation; Turret=yes; Image=LTANK
+- **TTNK** | Name=Tesla Tank; UIName=Name:TTNK; Cost=1200; Strength=330; Armor=heavy; Speed=6; ROT=5; Sight=8; Primary=TankBolt; ElitePrimary=TankBoltE; Prerequisite=NAWEAP,NARADR; TechLevel=10; Owner=Russians,Confederation,Africans,Arabs; Turret=yes
+- **APOC** | Name=Apocalypse; UIName=Name:APOC; Cost=1700; Strength=800; Armor=heavy; Speed=5; ROT=5; Sight=6; Primary=120mmx; Secondary=MammothTusk; ElitePrimary=120mmxE; Prerequisite=NAWEAP,NATECH; TechLevel=7; Owner=Russians,Confederation,Africans,Arabs; Turret=yes; Image=MTNK
+- **FV** | Name=IFV; UIName=Name:FV; Cost=600; Strength=200; Armor=light; Speed=10; ROT=5; Sight=8; Primary=HoverMissile; ElitePrimary=HoverMissileE; Prerequisite=GAWEAP; TechLevel=3; Owner=British,French,Germans,Americans,Alliance; Turret=yes
+- **MGTK** | Name=Mirage Tank; UIName=Name:MGTK; Cost=1000; Strength=200; Armor=light; Speed=7; ROT=5; Sight=9; Primary=MirageGun; EliteSecondary=MirageGunE; Prerequisite=GAWEAP,GATECH; TechLevel=9; Owner=British,French,Germans,Americans,Alliance; Image=RTNK
+- **SREF** | Name=Prism Tank; UIName=Name:SREF; Cost=1200; Strength=150; Armor=light; Speed=4; ROT=5; Sight=8; Prerequisite=GAWEAP,GATECH; TechLevel=8; Owner=British,French,Germans,Americans,Alliance; Turret=yes
+- **DRON** | Name=Terror Drone; UIName=Name:DRON; Cost=400; Strength=50; Armor=special_1; Speed=12; ROT=40; Sight=4; Primary=DroneJump; Secondary=VirtualScanner; Prerequisite=NAWEAP; TechLevel=4; Owner=Russians,Confederation,Africans,Arabs; ImmuneToPsionics=yes
+- **V3** | Name=V3 Launcher; UIName=Name:V3; Cost=800; Strength=150; Armor=light; Speed=4; ROT=5; Sight=7; Primary=V3Launcher; Prerequisite=NAWEAP,NARADR; TechLevel=3; Owner=Russians,Confederation,Africans,Arabs
+- **HTK** | Name=Flak Track; UIName=Name:HTK; Cost=500; Strength=180; Armor=heavy; Speed=8; ROT=5; Sight=8; Primary=FlakTrackGun; Secondary=FlakTrackAAGun; ElitePrimary=FlakTrackGunE; EliteSecondary=FlakTrackAAGunE; Prerequisite=NAWEAP; TechLevel=3; Owner=Russians,Confederation,Africans,Arabs; Turret=yes
+- FTRK: **NOT FOUND**
+- **HARV** | Name=War Miner; UIName=Name:HARV; Cost=1400; Strength=1000; Armor=medium; Speed=6; ROT=5; Sight=5; Primary=20mmRapid; ElitePrimary=20mmRapidE; Prerequisite=NAWEAP,PROC; Storage=45; Harvester=yes; TechLevel=1; Owner=Russians,Confederation,Africans,Arabs; ImmuneToPsionics=yes; Turret=yes
+- **CMIN** | Name=Chrono Miner; UIName=Name:CMIN; Cost=1400; Strength=1000; Armor=medium; Speed=5; ROT=5; Sight=4; Primary=none; Prerequisite=GAWEAP,PROC; Storage=25; Harvester=yes; TechLevel=1; Owner=British,French,Germans,Americans,Alliance; ImmuneToPsionics=yes
+- **AMCV** | Name=Allied Construction Vehicle; UIName=Name:AMCV; Cost=3000; Strength=1000; Armor=heavy; Speed=4; ROT=5; Sight=6; Prerequisite=GAWEAP,GADEPT; TechLevel=10; Owner=British,French,Germans,Americans,Alliance; Crewed=yes; Image=MCV
+- **SMCV** | Name=Soviet Construction Vehicle; UIName=Name:SMCV; Cost=3000; Strength=1000; Armor=heavy; Speed=4; ROT=5; Sight=6; Prerequisite=NAWEAP,NADEPT; TechLevel=10; Owner=Russians,Africans,Arabs; Crewed=yes
+- PCV: **NOT FOUND**
+- **ZEP** | Name=Kirov Airship; UIName=Name:ZEP; Cost=2000; Strength=1600; Armor=light; Speed=6; ROT=10; Sight=8; Primary=BlimpBomb; ElitePrimary=BlimpBombE; Prerequisite=NAWEAP,NATECH; TechLevel=10; Owner=Russians,Confederation,Africans,Arabs
+- **SHAD** | Name=BlackHawk Transport; UIName=Name:SHAD; Cost=1000; Strength=150; Armor=light; Speed=14; ROT=5; Sight=7; Primary=BlackHawkCannon; ElitePrimary=BlackHawkCannonE; Prerequisite=GAWEAP,RADAR; TechLevel=7; Owner=British,French,Germans,Americans,Alliance; Crewed=yes
+- BPLN: **NOT FOUND**
+- **ORCA** | Name=Intruder; UIName=Name:ORCA; Cost=1000; Strength=150; Armor=light; Speed=12; ROT=3; Sight=8; Primary=Maverick; ElitePrimary=MaverickE; Prerequisite=RADAR; TechLevel=3; Owner=British,French,Germans,Americans,Alliance; Crewed=yes; ImmuneToPsionics=yes; Image=FALC
+- TELE: **NOT FOUND**
+
+## 海军
+- **DEST** | Name=Destroyer; UIName=Name:DEST; Cost=900; Strength=600; Armor=heavy; Speed=6; ROT=5; Sight=7; Primary=155mm; Secondary=ASWLauncher; ElitePrimary=155mmE; Prerequisite=GAYARD; TechLevel=4; Owner=British,French,Germans,Americans,Alliance
+- **AEGIS** | Name=Aegis Cruiser; UIName=Name:AEGIS; Cost=1200; Strength=800; Armor=light; Speed=4; ROT=1; Sight=8; Primary=Medusa; ElitePrimary=MedusaE; Prerequisite=GAYARD,RADAR; TechLevel=7; Owner=British,French,Germans,Americans,Alliance
+- **CARRIER** | Name=Aircraft Carrier; UIName=Name:CARRIER; Cost=2000; Strength=800; Armor=heavy; Speed=4; ROT=1; Sight=7; Primary=HornetLauncher; Prerequisite=GAYARD,TECH; TechLevel=7; Owner=British,French,Germans,Americans,Alliance
+- **DLPH** | Name=Dolphin; UIName=Name:DLPH; Cost=500; Strength=200; Armor=light; Speed=8; ROT=6; Sight=4; Primary=SonicZap; ElitePrimary=SonicZapE; Prerequisite=GAYARD,GATECH; TechLevel=5; Owner=British,French,Germans,Americans,Alliance
+- **LCRF** | Name=Landing Craft; UIName=Name:LCRF; Cost=900; Strength=300; Armor=light; Speed=6; ROT=5; Sight=6; Prerequisite=GAYARD; TechLevel=4; Owner=British,French,Germans,Americans,Alliance
+- **SUB** | Name=Typhoon Attack Sub; UIName=Name:SUB; Cost=1000; Strength=600; Armor=heavy; Speed=4; ROT=2; Sight=6; Primary=SubTorpedo; ElitePrimary=SubTorpedoE; Prerequisite=NAYARD; TechLevel=2; Owner=Russians,Confederation,Africans,Arabs
+- **DRED** | Name=Dreadnought; UIName=Name:DRED; Cost=2000; Strength=800; Armor=heavy; Speed=4; ROT=1; Sight=7; Primary=DredLauncher; Prerequisite=NAYARD,NATECH; TechLevel=6; Owner=Russians,Confederation,Africans,Arabs
+- **HYD** | Name=Sea Scorpion; UIName=Name:HYD; Cost=600; Strength=400; Armor=heavy; Speed=8; ROT=6; Sight=8; Primary=FlakTrackGun; Secondary=FlakWeapon; ElitePrimary=FlakTrackGunE; EliteSecondary=FlakWeaponE; Prerequisite=NAYARD,NARADR; TechLevel=6; Owner=Russians,Confederation,Africans,Arabs
+- **SQD** | Name=Giant Squid; UIName=Name:SQD; Cost=1000; Strength=200; Armor=light; Speed=8; ROT=40; Sight=5; Primary=SquidGrab; Secondary=SquidPunch; ElitePrimary=SquidGrabE; EliteSecondary=SquidPunchE; Prerequisite=NAYARD,NATECH; TechLevel=9; Owner=Russians,Confederation,Africans,Arabs; ImmuneToPsionics=yes
+- SECA: **NOT FOUND**
+
+## 苏军建筑
+- **NACNST** | Name=Soviet Construction Yard; UIName=Name:NACNST; Cost=3000; Strength=1000; Armor=concrete; Sight=8; TechLevel=-1; Owner=Russians,Africans,Arabs; Crewed=yes
+- **NAPOWR** | Name=Tesla Reactor; UIName=Name:NAPOWR; Cost=600; Strength=750; Armor=wood; Sight=4; Prerequisite=NACNST; Power=150; TechLevel=1; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- **NANRCT** | Name=Nuclear Reactor; UIName=Name:NANRCT; Cost=1100; Strength=1500; Armor=concrete; Sight=5; Prerequisite=NATECH,NACNST; Power=2000; TechLevel=9; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- **NAREFN** | Name=Soviet Ore Refinery; UIName=Name:NAREFN; Cost=2000; Strength=1000; Armor=wood; Sight=6; Prerequisite=POWER,NACNST; Power=-50; Storage=200; TechLevel=1; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- **NAHAND** | Name=Soviet Barracks; UIName=Name:NAHAND; Cost=500; Strength=500; Armor=steel; Sight=6; Prerequisite=POWER,NACNST; Power=-10; TechLevel=2; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- **NAWEAP** | Name=Soviet War Factory; UIName=Name:NAWEAP; Cost=2000; Strength=1000; Armor=wood; Sight=4; Prerequisite=PROC,NAHAND,NACNST; Power=-25; TechLevel=2; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- NAIRP: **NOT FOUND**
+- **NARADR** | Name=Radar Tower; UIName=Name:NARADR; Cost=800; Strength=1000; Armor=wood; Sight=10; Prerequisite=NAREFN,NACNST; Power=-50; TechLevel=3; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes; Powered=true
+- **NATECH** | Name=Soviet Battle Lab; UIName=Name:NATECH; Cost=2000; Strength=500; Armor=wood; Sight=6; Prerequisite=NAWEAP,RADAR,NACNST; Power=-100; TechLevel=7; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- **NAYARD** | Name=Soviet Shipyard; UIName=Name:NAYARD; Cost=1000; Strength=1500; Armor=concrete; Sight=10; Prerequisite=PROC,POWER,NACNST; Power=-20; TechLevel=2; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Powered=true
+- **NAMISL** | Name=Nuclear Missile Silo; UIName=Name:NAMISL; Cost=5000; Strength=1000; Armor=concrete; Sight=4; Prerequisite=TECH; Power=-200; TechLevel=10; Owner=Russians,Confederation,Africans,Arabs; Crewed=yes; BuildLimit=1
+- NATSLM: **NOT FOUND**
+- **TESLA** | Name=Tesla Coil; UIName=Name:TESLA; Cost=1500; Strength=600; Armor=steel; Sight=8; Primary=CoilBolt; Secondary=OPCoilBolt; Prerequisite=RADAR,NACNST; Power=-75; TechLevel=5; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Powered=yes; Image=NATSLA
+- **NAFLAK** | Name=Flak Cannon; UIName=Name:NAFLAK; Cost=1000; Strength=900; Armor=steel; ROT=8; Sight=5; Primary=FlakWeapon; Prerequisite=BARRACKS,NACNST; Power=-50; TechLevel=4; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Powered=yes; Turret=yes
+- **NALASR** | Name=Sentry Gun; UIName=Name:NALASR; Cost=500; Strength=400; Armor=steel; ROT=10; Sight=7; Primary=Vulcan; Prerequisite=BARRACKS,NACNST; TechLevel=1; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Powered=yes; Turret=yes
+- **NAWALL** | Name=Soviet Wall; UIName=Name:NAWALL; Cost=100; Strength=900; Armor=concrete; Sight=1; Prerequisite=NAHAND; TechLevel=1; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs
+- **NADEPT** | Name=Soviet Service Depot; UIName=Name:NADEPT; Cost=800; Strength=1200; Armor=wood; Sight=5; Prerequisite=NAWEAP,NACNST; Power=-20; TechLevel=6; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- **NASAM** | Name=Patriot Missile; UIName=Name:NASAM; Cost=1000; Strength=900; Armor=steel; Sight=10; Primary=RedEye2; Prerequisite=BARRACKS,GACNST; Power=-50; TechLevel=4; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Powered=yes; Turret=yes
+- **NAPSIS** | Name=Psychic Sensor; UIName=Name:NAPSIS; Cost=1000; Strength=750; Armor=wood; Sight=10; Prerequisite=NATECH,NACNST; Power=-50; TechLevel=10; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes; Powered=true
+- NAWEAP2: **NOT FOUND**
+- NABNKR: **NOT FOUND**
+- NAHOSP: **NOT FOUND**
+
+## 盟军建筑
+- **GACNST** | Name=Allied Construction Yard; UIName=Name:GACNST; Cost=3000; Strength=1000; Armor=concrete; Sight=8; TechLevel=-1; Owner=British,French,Germans,Americans,Alliance; Crewed=yes
+- **GAPOWR** | Name=Power Plant; UIName=Name:GAPOWR; Cost=800; Strength=750; Armor=wood; Sight=4; Prerequisite=GACNST; Power=200; TechLevel=1; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- **GAREFN** | Name=Allied Ore Refinery; UIName=Name:GAREFN; Cost=2000; Strength=1000; Armor=wood; Sight=6; Prerequisite=POWER,GACNST; Power=-50; Storage=200; TechLevel=1; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- **GAPILE** | Name=Allied Barracks; UIName=Name:GAPILE; Cost=500; Strength=500; Armor=steel; Sight=5; Prerequisite=POWER,GACNST; Power=-10; TechLevel=2; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- **GAWEAP** | Name=Allied War Factory; UIName=Name:GAWEAP; Cost=2000; Strength=1000; Armor=wood; Sight=4; Prerequisite=PROC,GAPILE,GACNST; Power=-25; TechLevel=2; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- **GAAIRC** | Name=Airforce Command Headquarters; UIName=Name:GAAIRC; Cost=1000; Strength=600; Armor=steel; Sight=5; Prerequisite=GAREFN,GACNST; Power=-50; TechLevel=3; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- GARADR: **NOT FOUND**
+- **GATECH** | Name=Allied Battle Lab; UIName=Name:GATECH; Cost=2000; Strength=500; Armor=wood; Sight=6; Prerequisite=GAWEAP,RADAR,GACNST; Power=-100; TechLevel=8; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- **GAYARD** | Name=Allied Shipyard; UIName=Name:GAYARD; Cost=1000; Strength=1500; Armor=concrete; Sight=10; Prerequisite=PROC,POWER,GACNST; Power=-25; TechLevel=4; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Powered=true
+- **GADEPT** | Name=Allied Service Depot; UIName=Name:GADEPT; Cost=800; Strength=1200; Armor=wood; Sight=5; Prerequisite=GAWEAP,GACNST; Power=-25; TechLevel=6; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes
+- **GAPILL** | Name=Pill Box; UIName=Name:GAPILL; Cost=500; Strength=400; Armor=steel; ROT=10; Sight=7; Primary=Vulcan2; Prerequisite=BARRACKS,GACNST; TechLevel=1; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs
+- GASAM: **NOT FOUND**
+- GAFWLL: **NOT FOUND**
+- GAPRIS: **NOT FOUND**
+- **GTGCAN** | Name=Grand Cannon; UIName=Name:GTGCAN; Cost=2000; Strength=900; Armor=steel; ROT=1; Sight=10; Primary=GrandCannonWeapon; Prerequisite=RADAR,GACNST; Power=-200; TechLevel=7; Owner=British,French,Germans,Americans,Alliance; Powered=yes; Turret=yes
+- **GASPYSAT** | Name=SpySat Uplink; UIName=Name:GASPYSAT; Cost=1500; Strength=1000; Armor=wood; Sight=5; Prerequisite=GATECH,GACNST; Power=-100; TechLevel=9; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes; Powered=true; Image=GASPST
+- **GACSPH** | Name=Chrono Sphere; UIName=Name:GACSPH; Cost=2500; Strength=750; Armor=concrete; Sight=5; Prerequisite=TECH; Power=-200; TechLevel=10; Owner=British,French,Germans,Americans,Alliance,Confederation; Crewed=yes; BuildLimit=1; Powered=true
+- **GAWEAT** | Name=Weather Controller; UIName=Name:GAWEAT; Cost=5000; Strength=1000; Armor=concrete; Sight=5; Prerequisite=GATECH,GACNST; Power=-200; TechLevel=10; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes; BuildLimit=1; Powered=true; Image=GAWETH
+- GAGATE: **NOT FOUND**
+- GATSLM: **NOT FOUND**
+- GAPOST: **NOT FOUND**
+- **GAOREP** | Name=Allied Ore Processor; UIName=Name:GAOREP; Cost=2500; Strength=900; Armor=wood; Sight=5; Prerequisite=GATECH,PROC,GACNST; Power=-200; TechLevel=10; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes; BuildLimit=1; Powered=true
+
+## 中国建筑
+- **CAREFN** | Name=china Ore Refinery; UIName=Name:CAREFN; Cost=2000; Strength=1000; Armor=wood; Sight=6; Prerequisite=POWER,CACNST; Power=-50; Storage=200; TechLevel=1; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes; Image=GAREFN
+- **CAPOWR** | Name=Tesla Reactor; UIName=Name:CAPOWR; Cost=600; Strength=750; Armor=wood; Sight=4; Prerequisite=CACNST; Power=150; TechLevel=1; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes; Image=NAPOWR
+- **CAHAND** | Name=CHINA Barracks; UIName=Name:CAHAND; Cost=500; Strength=500; Armor=steel; Sight=6; Prerequisite=POWER,CACNST; Power=-10; TechLevel=2; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes; Image=NAHAND
+- **CAWEAP** | Name=CHINA War Factory; UIName=Name:CAWEAP; Cost=2000; Strength=1000; Armor=wood; Sight=4; Prerequisite=PROC,CAHAND,CACNST; Power=-25; TechLevel=2; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes; Image=NAWEAP
+- **CATECH** | Name=CHINA Battle Lab; UIName=Name:CATECH; Cost=2000; Strength=500; Armor=wood; Sight=6; Prerequisite=CAWEAP,RADAR,CACNST; Power=-100; TechLevel=7; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Crewed=yes; Image=GATECH
+- CANCNST: **NOT FOUND**
+- **CAWALL** | Name=CHINA Wall; UIName=Name:NAWALL; Cost=150; Strength=2000; Armor=concrete; Sight=1; Prerequisite=CAHAND; TechLevel=1; Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs; Image=CWALL
+- CATESLA: **NOT FOUND**
+- CAPILE: **NOT FOUND**
+
+## [General] 关键参数
+- AIBuildsWalls = no
+- AIIonCannonHarvesterValue = 1,1,1
+- AIIonCannonPowerValue = 60,60,60
+- AlliedCrew = E1
+- ApproachTargetResetMultiplier = 1.5
+- BestLowPowerBuildRateCoefficient = .2
+- BuildSpeed = .7
+- BuildupTime = .06
+- ChronoRangeMinimum = 0
+- ChronoReinfDelay = 180
+- CrewEscape = 50%
+- DamagedBuildingSmokeSystem = SmallSmokeSys
+- DropPodSpeed = 75
+- GDIPowerPlant = GAPOWR
+- GDIPowerTurbine = GAPOWRUP
+- GameSpeedBias = 1.6
+- HarvesterTooFarDistance = 5
+- HarvesterUnit = HARV,CMIN,CHAR
+- HarvestersPerRefinery = 2
+- HunterSeekerAscentSpeed = 40
+- HunterSeekerDescentSpeed = 50
+- HunterSeekerEmergeSpeed = 6
+- IRepairRate = .001
+- IRepairStep = 20
+- InitialVeteran = no
+- LowPowerPenaltyModifier = 1
+- MaxLowPowerProductionSpeed = .5
+- MaximumBuildingPlacementFailures = 3
+- MinLowPowerProductionSpeed = .3
+- MissileSpeedVar = .25
+- MultiplayerAICM = 400,0,0
+- MultipleFactory = 0.5
+- NodAIBuildsWalls = no
+- NodAdvancedPower = NANRCT,CANRCT
+- NodRegularPower = NAPOWR
+- OKBuildingSmokeSystem = SmokeStackSys
+- PrerequisitePower = GAPOWR,NAPOWR,NANRCT,CAPOWR,CANRCT
+- RadarEventColorSpeed = .1
+- RadarEventRotationSpeed = .05
+- RadarEventSpeed = 1.2
+- RefundPercent = 50%
+- RepairBay = GADEPT,NADEPT,CADEPT
+- RepairPercent = 15%
+- RepairRate = .016
+- RepairStep = 8
+- SovietCrew = E2
+- SpotlightSpeed = .015
+- SpyPowerBlackout = 1000
+- TunnelSpeed = 1
+- URepairRate = .016
+- VeteranArmor = 1.5
+- VeteranCap = 2
+- VeteranCombat = 1.1
+- VeteranROF = 0.6
+- VeteranRatio = 3.0
+- VeteranSight = 1.2
+- VeteranSpeed = 1.2
+- WallBuildSpeedCoefficient = 3.0
+- WorstLowPowerBuildRateCoefficient = .1
+
+## 武器
+- **105mm** | Damage=65; ROF=60; Range=5; Warhead=AP; Projectile=Cannon; Speed=40; Report=GrizzlyTankAttack
+- **105mmE** | Damage=55; ROF=75; Range=5; Warhead=GRIZAPE; Burst=2; Projectile=Cannon; Speed=40; Report=GrizzlyTankAttack
+- **105mmLR** | Damage=65; ROF=60; Range=6; Warhead=AP; Projectile=Cannon; Speed=40; Report=GrizzlyTankAttack
+- **105mmLRE** | Damage=70; ROF=65; Range=6; Warhead=GRIZAPE; Burst=2; Projectile=Cannon; Speed=40; Report=GrizzlyTankAttack
+- **120mm** | Damage=90; ROF=65; Range=5.75; Warhead=AP; Projectile=Cannon; Speed=40; Report=RhinoTankAttack
+- **120mmE** | Damage=85; ROF=80; Range=5.75; Warhead=RHINAPE; Burst=2; Projectile=Cannon; Speed=40; Report=RhinoTankAttack
+- **120mmx** | Damage=100; ROF=80; Range=5.75; Warhead=ApocAP; Burst=2; Projectile=Cannon; Speed=40; Report=ApocalypseAttackGround
+- **120mmxE** | Damage=100; ROF=80; Range=5.75; Warhead=ApocAPE; Burst=4; Projectile=Cannon; Speed=40; Report=ApocalypseAttackGround
+- **120mmxl** | Damage=65; ROF=50; Range=6.75; Warhead=ApocAP; Burst=2; Projectile=Cannon; Speed=60; Report=ApocalypseAttackGround
+- **120mmxlE** | Damage=65; ROF=50; Range=6.75; Warhead=ApocAPE; Burst=4; Projectile=Cannon; Speed=60; Report=ApocalypseAttackGround
+- **155mm** | Damage=60; ROF=110; Range=8; Warhead=ARTYHE; Projectile=Ballistic; Speed=10; MinimumRange=0; Report=DestroyerAttack
+- **155mmE** | Damage=60; ROF=110; Range=8; Warhead=ARTYHE; Burst=2; Projectile=Ballistic; Speed=10; MinimumRange=0; Report=DestroyerAttack
+- **20mm** | Damage=25; ROF=30; Range=5; Warhead=SSA; Projectile=Invisible3; Speed=100; Report=RocketeerAttack
+- **20mmE** | Damage=25; ROF=5; Range=5; Warhead=SSA; Projectile=Invisible3; Speed=100; Report=RocketeerAttack
+- **20mmRapid** | Damage=30; ROF=20; Range=5.5; Warhead=HARVWH; Projectile=InvisibleLow; Speed=100; Report=WarMinerAttack
+- **20mmRapidE** | Damage=50; ROF=50; Range=5.75; Warhead=HowitzerWH; Projectile=Cannon; Speed=40; Report=RhinoTankAttack
+- **ASWBomb** | Damage=50; ROF=3; Range=3; Warhead=APSplash; Projectile=DepthCharge; Speed=30; Report=OspreyAttack
+- **ASWCollision** | Damage=100; ROF=20; Range=3; Warhead=AP; Projectile=AAHeatSeeker2; Speed=30; Report=OspreyCollision
+- **ASWLauncher** | Damage=1; ROF=150; Range=-2; Warhead=Special; Projectile=ASWVirt; Speed=10
+- **ASWLauncherPLC** | Damage=1; ROF=150; Range=16; Warhead=Special; Projectile=ASWVirtPLC; Speed=18
+- **AWP** | Damage=125; ROF=150; Range=15; Warhead=HollowPoint; Projectile=InvisibleLow; Speed=100; Report=SniperAttack
+- **AWPE** | Damage=125; ROF=60; Range=16; Warhead=HollowPoint; Projectile=InvisibleLow; Speed=100; Report=SniperAttack
+- **AlliedOccupyW** | Damage=30; ROF=15; Range=7; Warhead=SSAB; Projectile=InvisibleHigh; Speed=100; Report=AlliedOccupiedAttack
+- **AlligatorBite** | Damage=30; ROF=30; Range=1.5; Warhead=HollowPoint; Projectile=InvisibleLow; Speed=100; Report=AlligatorAttack; CellRangefinding=yes
+- **AssaultBolt** | Damage=10; ROF=25; Range=1.83; Warhead=ElectricAssault; Projectile=InvisibleLow; Speed=100; Report=TeslaTroopRechargeCoil
+- **BadTeeth** | Damage=30; ROF=30; Range=1.5; Warhead=ParasiteDog; Projectile=DOGJUMP; Speed=30; Report=DogAttack; CellRangefinding=yes
+- **BearBite** | Damage=30; ROF=30; Range=1.5; Warhead=HollowPoint; Projectile=InvisibleLow; Speed=100; Report=BearAttack; CellRangefinding=yes
+- **BlackHawkCannon** | Damage=35; ROF=40; Range=6; Warhead=SA; Projectile=QuadShell; Speed=100; Report=BlackOpsAttack
+- **BlackHawkCannonE** | Damage=40; ROF=40; Range=6; Warhead=SSA; Projectile=QuadShell; Speed=100; Report=BlackOpsAttack
+- **BlimpBomb** | Damage=250; ROF=50; Range=1.5; Warhead=BlimpHE; Burst=1; Projectile=BlimpBombP; Speed=20; Report=KirovAttack; CellRangefinding=yes
+- **BlimpBombE** | Damage=250; ROF=50; Range=1.5; Warhead=KTSTLEXP; Burst=1; Projectile=BlimpBombP; Speed=20; Report=KirovAttack; CellRangefinding=yes
+- **ChimpBite** | Damage=30; ROF=30; Range=1.5; Warhead=HollowPoint; Projectile=InvisibleLow; Speed=100; Report=ChimpAttack; CellRangefinding=yes
+- **ChronoMP5** | Damage=125; ROF=10; Range=7; Warhead=HollowPointNoBuilding; Projectile=InvisibleLow; Speed=100; Report=SealAttack
+- **ChronoMP5E** | Damage=125; ROF=10; Range=7; Warhead=HollowPointNoBuilding; Projectile=InvisibleLow; Speed=100; Report=SealAttack
+- **CoilBolt** | Damage=200; ROF=120; Range=7; Warhead=Electric; Projectile=Invisible; Speed=100; Report=TeslaCoilAttack
+- **CometFragment** | Damage=30; ROF=120; Range=3; Warhead=CometWH; Projectile=SmallCometP; Speed=10
+- **CowRadiation** | Damage=50; ROF=50; Range=2; Warhead=CowEruptionWarhead; Projectile=InvisibleLow; Speed=1; Report=DesolatorDeploy
+- **DefaultDeathWeapon** | Warhead=DeathWH; Projectile=Invisible
+- **DefuseKit** | Damage=1; ROF=20; Range=5; Warhead=BombDisarm; Projectile=InvisibleAll; Speed=100; Report=DefuseKit; CellRangefinding=yes
+- **Demobomb** | Damage=400; ROF=80; Range=2; Warhead=DemobombWH; Projectile=InvisibleLow; Speed=35; Report=DemoTruckDie
+- **DoublePistols** | Damage=180; ROF=10; Range=7; Warhead=HollowPoint2; Projectile=InvisibleLow; Speed=100; Report=TanyaAttack
+- **DoublePistolsE** | Damage=220; ROF=10; Range=9; Warhead=HollowPoint2; Projectile=InvisibleLow; Speed=100; Report=TanyaAttack
+- **DredLauncher** | Damage=50; ROF=50; Range=25; Warhead=Special; Burst=2; Projectile=InvisibleHigh; Speed=15; MinimumRange=8
+- **DroneJump** | Damage=50; ROF=60; Range=1.83; Warhead=Parasite; Projectile=JUMP; Speed=30; Report=TerrorDroneAttack
+- **EiffelBolt** | Damage=2000; ROF=20; Range=20; Warhead=Electric; Projectile=InvisibleHigh; Speed=100; Report=ParisTowerAttack
+- **ElectricBolt** | Damage=50; ROF=60; Range=4; Warhead=Shock; Projectile=InvisibleLow; Speed=100; Report=TeslaTroopAttack
+- **ElectricBoltE** | Damage=50; ROF=40; Range=6; Warhead=Shock; Projectile=Electricbounce; Speed=100; Report=TeslaTroopEliteAttack
+- **FakeC4** | Damage=5000; ROF=10; Range=1.5; Warhead=FakeC4WH; Projectile=InvisibleLow; Speed=100; Report=SealPlaceBomb; CellRangefinding=yes
+- **FlakGuyAAGun** | Damage=30; ROF=25; Range=9; Warhead=FlakGuyWH; Projectile=FlakProj; Speed=100; Report=FlakTrackAttackAir
+- **FlakGuyAAGunE** | Damage=20; ROF=15; Range=9; Warhead=FlakGuyWH; Burst=2; Projectile=FlakProj; Speed=100; Report=FlakTrackAttackAir
+- **FlakGuyGun** | Damage=20; ROF=20; Range=5; Warhead=FlakTWH; Projectile=FlakTProj; Speed=50; Report=FlakTrackAttackGround
+- **FlakGuyGunE** | Damage=40; ROF=15; Range=7; Warhead=FlakTWH; Burst=2; Projectile=FlakTProj; Speed=50; Report=FlakTrackAttackGround
+- **FlakTrackAAGun** | Damage=35; ROF=25; Range=10; Warhead=FlakWH; Projectile=FlakProj; Speed=100; Report=FlakTrackAttackAir
+- **FlakTrackAAGunE** | Damage=35; ROF=25; Range=10; Warhead=FlakWH; Burst=2; Projectile=FlakProj; Speed=100; Report=FlakTrackAttackAir
+- **FlakTrackGun** | Damage=25; ROF=40; Range=5; Warhead=FlakTWH; Projectile=FlakTProj; Speed=50; Report=FlakTrackAttackGround
+- **FlakTrackGunE** | Damage=25; ROF=40; Range=5; Warhead=FlakTWH; Burst=2; Projectile=FlakTProj; Speed=50; Report=FlakTrackAttackGround
+- **FlakWeapon** | Damage=40; ROF=20; Range=12; Warhead=FlakWH; Projectile=FlakProj; Speed=100; Report=FlakCannonAttack
+- **FlakWeaponE** | Damage=40; ROF=20; Range=12; Warhead=FlakWH; Burst=2; Projectile=FlakProj; Speed=100; Report=FlakCannonAttack
+- **GoodTeeth** | Damage=30; ROF=30; Range=1.5; Warhead=ParasiteDog; Projectile=ADOGJUMP; Speed=30; Report=DogAttack; CellRangefinding=yes
+- **GrandCannonWeapon** | Damage=150; ROF=120; Range=15; Warhead=GrandCannonWH; Projectile=GrandCannonBall; Speed=1; MinimumRange=3; Report=GrandCannonAttack
+- **GuardianMissile** | Damage=60; ROF=70; Range=7; Warhead=RPG; Projectile=SmallMissileSlowP; Speed=80; MinimumRange=1; Report=GuardianGiDeployedAttack
+- **GuardianMissileE** | Damage=80; ROF=35; Range=8; Warhead=RPG; Projectile=SmallMissileSlowP; Speed=120; MinimumRange=1; Report=GuardianGiDeployedAttack
+- **GuardianPara** | Damage=10; ROF=20; Range=5; Warhead=SSA; Projectile=InvisibleLow; Speed=100; Report=GIAttackDeployed
+- **GuardianParaE** | Damage=15; ROF=5; Range=7; Warhead=SSA; Projectile=InvisibleLow; Speed=100; Report=GIAttackDeployed
+- **HornetBomb** | Damage=40; ROF=3; Range=5; Warhead=ORCAAP; Projectile=NormalBomb; Speed=30; Report=HornetAttack
+- **HornetBombE** | Damage=80; ROF=3; Range=5; Warhead=ARTYHE; Projectile=NormalBomb; Speed=30; Report=HornetAttack
+- **HornetCollision** | Damage=100; ROF=20; Range=3; Warhead=AP; Projectile=AAHeatSeeker2; Speed=30; Report=HornetCollision
+- **HornetLauncher** | Damage=1; ROF=150; Range=25; Warhead=Special; Projectile=Invisible; Speed=10
+- **HoverMissile** | Damage=25; ROF=50; Range=6; Warhead=HE; Burst=2; Projectile=AAHeatSeeker2; Speed=40; MinimumRange=1; Report=SeawolfAttack
+- **HoverMissileE** | Damage=80; ROF=50; Range=6; Warhead=HE; Burst=4; Projectile=AAHeatSeeker2; Speed=40; MinimumRange=1; Report=SeawolfAttack
+- **IvanBomber** | Damage=400; ROF=50; Range=5; Warhead=IvanBomb; Projectile=Invisible
+- **IvanBomberE** | Damage=800; ROF=50; Range=7; Warhead=IvanBomb; Projectile=Invisible
+- **J5Missile** | Damage=130; ROF=30; Range=12; Warhead=J5SAMWH; Projectile=MedusaProjectile; Speed=360; Report=AegisAttack
+- **J5MissileE** | Damage=130; ROF=30; Range=16; Warhead=J5SAMWHE; Burst=2; Projectile=MedusaProjectile; Speed=360; Report=AegisAttack
+- **M1Carbine** | Damage=15; ROF=25; Range=4; Warhead=SA; Projectile=InvisibleLow; Speed=100; Report=ConscriptAttack
+- **M1CarbineE** | Damage=20; ROF=25; Range=5; Warhead=SA; Projectile=InvisibleLow; Speed=100; Report=ConscriptAttack
+- **M60** | Damage=15; ROF=20; Range=4; Warhead=SA; Projectile=InvisibleLow; Speed=100; Report=GIAttack
+- **M60E** | Damage=25; ROF=20; Range=4; Warhead=SA; Projectile=InvisibleLow; Speed=100; Report=GIAttack
+- **MP5** | Damage=125; ROF=10; Range=6; Warhead=HollowPoint; Projectile=InvisibleLow; Speed=100; Report=SealAttack
+- **MP5E** | Damage=125; ROF=10; Range=6; Warhead=HollowPoint; Projectile=InvisibleLow; Speed=100; Report=SealAttack
+- **MakeupKit** | Damage=1; ROF=100; Range=-2; Warhead=Snapshot; Projectile=InvisibleAll; Speed=100; Report=SpyAttack
+- **MammothTusk** | Damage=50; ROF=80; Range=8; Warhead=HE; Burst=2; Projectile=AAHeatSeeker; Speed=20; Report=ApocalypseAttackAir
+- **Maverick** | Damage=150; ROF=10; Range=6; Warhead=ORCAAP; Burst=2; Projectile=AirToGroundMissile; Speed=70; Report=IntruderAttack
+- **Maverick2** | Damage=200; ROF=10; Range=6; Warhead=ORCAAP; Burst=2; Projectile=AirToGroundMissile; Speed=70; Report=BlackEagleAttack
+- **Maverick2E** | Damage=400; ROF=10; Range=9; Warhead=ORCAAP; Burst=2; Projectile=AirToGroundMissile; Speed=70; Report=BlackEagleAttack
+- **Maverick3** | Damage=30; ROF=50; Range=6; Warhead=ORCAAP; Burst=2; Projectile=AAHeatSeeker2; Speed=50; Report=IntruderAttack
+- **Maverick3E** | Damage=50; ROF=45; Range=6; Warhead=ORCAAP; Burst=2; Projectile=AAHeatSeeker2; Speed=55; Report=IntruderAttack
+- **MaverickE** | Damage=300; ROF=10; Range=9; Warhead=ORCAAP; Burst=4; Projectile=AirToGroundMissile; Speed=70; Report=IntruderAttack
+- **MayanPrism** | Damage=1000; ROF=20; Range=12; Warhead=PrismWarhead; Projectile=InvisibleHigh; Speed=25; Report=PrismTowerAttack
+- **Medusa** | Damage=100; ROF=15; Range=12; Warhead=SAMWH; Projectile=MedusaProjectile; Speed=120; Report=AegisAttack
+- **MedusaE** | Damage=100; ROF=5; Range=14; Warhead=SAMWH; Burst=2; Projectile=MedusaProjectile; Speed=150; Report=AegisAttack
+- **MindControl** | Damage=10; ROF=200; Range=7; Warhead=Controller; Projectile=PsychicControl; Speed=100
+- **MindControlE** | Damage=10; ROF=200; Range=14; Warhead=Controller; Projectile=PsychicControl; Speed=100
+- **MirageGun** | Damage=100; ROF=70; Range=7; Warhead=MirageWH; Projectile=InvisibleLow; Speed=100; Report=MirageTankAttack
+- **MirageGunE** | Damage=150; ROF=80; Range=9; Warhead=MirageWH; Projectile=InvisibleLow; Speed=100; Report=MirageTankAttack
+- **NeutronRifle** | Damage=8; ROF=120; Range=5; Warhead=ChronoBeam; Projectile=InvisibleLow; Speed=100; Report=ChronoLegionAttack
+- **NeutronRifleE** | Damage=16; ROF=120; Range=5; Warhead=ChronoBeam; Projectile=InvisibleLow; Speed=100; Report=ChronoLegionAttack
+- **NukeCarrier** | Warhead=NukeMaker; Projectile=GiantNukeUp; Speed=100
+- **OPCoilBolt** | Damage=300; ROF=100; Range=8; Warhead=Electric; Projectile=InvisibleHigh; Speed=100; Report=TeslaCoilSuper
+- **Para** | Damage=15; ROF=15; Range=5; Warhead=SSA; Projectile=InvisibleLow; Speed=100; Report=GIAttackDeployed
+- **ParaDropWeapon** | Damage=60; ROF=130; Range=4; Warhead=MaverickHE; Burst=1; Projectile=AAHeatSeeker2; Speed=30
+- **ParaE** | Damage=25; ROF=5; Range=7; Warhead=SSA; Projectile=InvisibleLow; Speed=100; Report=GIAttackDeployed
+- **Pistola** | Damage=2; ROF=20; Range=3; Warhead=SA; Projectile=InvisibleLow; Speed=100; Report=CivAttack
+- **PrismShot** | Damage=120; ROF=60; Range=8; Warhead=PrismWarhead; Projectile=InvisibleHigh; Speed=100; Report=PrismTowerAttack
+- **PrismSupport** | Damage=200; ROF=60; Range=8; Warhead=DummyWarhead; Projectile=InvisibleHigh; Speed=100
+- **PsiWave** | Damage=250; ROF=50; Range=1; Warhead=PsiPulse; Projectile=Psychic; Speed=1; Report=YuriDeploy
+- **RadBeamWeapon** | Damage=125; ROF=50; Range=6; Warhead=RadBeamWarhead; Projectile=InvisibleLow; Speed=100; Report=DesolatorAttack
+- **RadBeamWeaponE** | Damage=200; ROF=50; Range=8; Warhead=RadBeamWarhead; Projectile=InvisibleLow; Speed=100; Report=DesolatorAttack
+- **RadEruptionWeapon** | Damage=1; ROF=60; Range=4; Warhead=RadEruptionWarhead; Projectile=InvisibleLow; Speed=1; Report=DesolatorDeploy
+- **RedEye2** | Damage=75; ROF=55; Range=12; Warhead=SAMWH; Projectile=AAHeatSeeker; Speed=100; Report=PatriotAttack
+- **RedEye3** | Damage=55; ROF=55; Range=6; Warhead=HE; Projectile=AAHeatSeeker2; Speed=160; Report=PatriotAttack
+- **RedEyePLC** | Damage=70; ROF=10; Range=9; Warhead=HE; Projectile=AAHeatSeeker2; Speed=120; Report=PatriotAttack
+- **SABOT** | Damage=150; ROF=70; Range=5; Warhead=UltraAP; Projectile=Cannon; Speed=60; Report=TankDestroyerAttack
+- **SABOTE** | Damage=175; ROF=60; Range=6.75; Warhead=UltraAPE; Burst=2; Projectile=Cannon; Speed=60; Report=TankDestroyerAttack
+- **Sapper** | Damage=2500; ROF=100; Range=1.5; Warhead=Super; Projectile=Invisible5; Report=SealPlaceBomb; CellRangefinding=yes
+- **SeaWolfMP5** | Damage=105; ROF=10; Range=6; Warhead=RifleBullet; Projectile=InvisibleLow; Speed=100; Report=SealAttack
+- **SeaWolfMP5E** | Damage=165; ROF=10; Range=6; Warhead=RifleBullet; Projectile=InvisibleLow; Speed=100; Report=SealAttack
+- **SonicZap** | Damage=8; ROF=120; Range=4; Warhead=SonicWarhead; Projectile=Sonic; Speed=100; Report=DolphinAttack
+- **SonicZapE** | Damage=10; ROF=80; Range=6; Warhead=SonicWarhead; Burst=2; Projectile=Sonic; Speed=100; Report=DolphinAttack
+- **SovietOccupyW** | Damage=20; ROF=20; Range=7; Warhead=SSAB; Projectile=InvisibleHigh; Speed=100; Report=SovietOccupiedAttack
+- **SquidGrab** | Damage=15; ROF=99; Range=1.5; Warhead=ParasitePlus; Projectile=SQDJUMP; Speed=30; Report=SquidAttack; CellRangefinding=yes
+- **SquidGrabE** | Damage=40; ROF=99; Range=1.5; Warhead=ParasitePlus; Projectile=SQDJUMP; Speed=30; Report=SquidAttack; CellRangefinding=yes
+- **SquidPunch** | Damage=50; ROF=32; Range=1.83; Warhead=HE; Projectile=InvisibleLow; Speed=30; Report=SquidAttackNonShip
+- **SquidPunchE** | Damage=200; ROF=32; Range=1.83; Warhead=HE; Projectile=InvisibleAll; Speed=30; Report=SquidAttackNonShip
+- **SubTorpedo** | Damage=100; ROF=120; Range=7; Warhead=APSplash; Projectile=Torpedo; Speed=25; Report=SubAttack
+- **SubTorpedoE** | Damage=100; ROF=120; Range=7; Warhead=APSplash; Burst=2; Projectile=Torpedo; Speed=18; Report=SubAttack
+- **SuperCometFragment** | Damage=50; ROF=100; Range=5; Warhead=CometWH; Projectile=SuperSmallCometP; Speed=10; Report=
+- **SuperMindControl** | Damage=10; ROF=200; Range=30; Warhead=Controller; Projectile=PsychicControl; Speed=100
+- **TankBolt** | Damage=135; ROF=60; Range=4; Warhead=Electric; Projectile=InvisibleLow; Speed=100; Report=TeslaTankAttack
+- **TankBoltE** | Damage=150; ROF=50; Range=6; Warhead=Electric; Projectile=Electricbounce; Speed=100; Report=TeslaTankAttack
+- **TerrorBomb** | Damage=225; ROF=10; Range=2; Warhead=TerrorBombWH; Projectile=Invisible
+- **TeslaFragment** | Damage=30; ROF=80; Range=3; Warhead=Electric; Projectile=SmallTeslaP; Speed=10; Report=TeslaCoilAttack
+- **V3Cluster** | Damage=80; ROF=80; Range=6; Warhead=V3HE; Projectile=ClusterBits; Speed=20
+- **V3Launcher** | Damage=1; ROF=150; Range=18; Warhead=Special; Projectile=InvisibleHigh; Speed=10; MinimumRange=5
+- **VirtualScanner** | Damage=1; Range=5; Warhead=SA; Projectile=InvisibleAll; Speed=100
+- **Vulcan** | Damage=50; ROF=26; Range=5.5; Warhead=SA; Projectile=InvisibleLow; Speed=100; Report=SentryGunAttack
+- **Vulcan2** | Damage=50; ROF=26; Range=5.5; Warhead=SA; Projectile=InvisibleLow; Speed=100; Report=PillboxAttack
+
+## 弹头 Verses (护甲倍率)
+顺序: none, flak, plate, light, medium, heavy, wood, steel, concrete, special_1, special_2
+- **AP** | 25%,25%,25%,75%,100%,100%,65%,45%,60%,60%,100%
+- **APSplash** | 25%,25%,25%,75%,100%,100%,65%,65%,60%,25%,100%
+- **ARTYHE** | 100%,80%,60%,100%,60%,60%,100%,80%,60%,100%,100%
+- **ApocAP** | 25%,25%,25%,75%,100%,100%,100%,100%,70%,60%,100%
+- **ApocAPE** | 100%,100%,100%,75%,100%,100%,100%,100%,70%,60%,100%
+- **BlimpHE** | 100%,100%,100%,70%,35%,35%,85%,75%,50%,100%,100%
+- **ChronoBeam** | 100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%
+- **CometWH** | 100%,100%,100%,75%,50%,50%,200%,200%,200%,100%,100%
+- **Controller** | 100%,100%,100%,100%,100%,100%,0%,0%,0%,100%,100%
+- **CowEruptionWarhead** | 100%,100%,100%,40%,20%,10%,80%,30%,10%,100%,100%
+- **DeathWH** | 100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%
+- **DemobombWH** | 100%,100%,100%,120%,60%,60%,100%,150%,10%,100%,100%
+- **DummyWarhead** | 0%,0%,0%,0%,0%,0%,0%,0%,0%,0%,0%
+- **Electric** | 100%,100%,100%,85%,100%,100%,50%,50%,50%,200%,100%
+- **ElectricAssault** | 0%,0,0%,0%,0%,0%,100%,100%,100%,50%,100%
+- **FakeC4WH** | 0%,0%,0%,0%,0%,0%,100%,100%,100%,0%,100%
+- **FlakGuyWH** | 150%,100%,50%,80%,20%,20%,0%,0%,0%,100%,150%
+- **FlakTWH** | 150%,100%,50%,60%,10%,10%,30%,20%,10%,100%,100%
+- **FlakWH** | 150%,80%,50%,100%,20%,20%,0%,0%,0%,100%,150%
+- **GRIZAPE** | 100%,100%,100%,100%,100%,100%,65%,45%,60%,60%,100%
+- **GrandCannonWH** | 100%,100%,100%,100%,100%,100%,50%,100%,50%,100%,100%
+- **HARVWH** | 100%,80%,70%,50%,20%,20%,20%,15%,10%,200%,100%
+- **HE** | 100%,90%,80%,70%,65%,45%,75%,40%,20%,80%,100%
+- **HollowPoint** | 200%,100%,100%,1%,1%,1%,1%,1%,1%,1%,100%
+- **HollowPoint2** | 200%,100%,100%,0%,0%,0%,1%,1%,1%,1%,100%
+- **HollowPointNoBuilding** | 200%,100%,75%,1%,1%,1%,0%,0%,0%,75%,100%
+- **HowitzerWH** | 100%,90%,80%,60%,40%,40%,50%,40%,25%,80%,100%
+- **J5SAMWH** | 100%,100%,100%,100%,100%,100%,0%,0%,0%,100%,100%
+- **J5SAMWHE** | 100%,100%,100%,100%,100%,100%,0%,0%,0%,100%,100%
+- **KTSTLEXP** | 100%,100%,100%,70%,35%,35%,85%,75%,50%,100%,100%
+- **MaverickHE** | 25%,25%,25%,100%,50%,50%,100%,75%,50%,25%,100%
+- **MirageWH** | 100%,100%,80%,100%,100%,100%,30%,20%,20%,100%,100%
+- **ORCAAP** | 100%,100%,100%,100%,100%,100%,100%,100%,75%,100%,100%
+- **Parasite** | 100%,100%,100%,100%,100%,100%,0%,0%,0%,0%,0%
+- **ParasiteDog** | 100%,100%,100%,0%,0%,0%,0%,0%,0%,0%,0%
+- **ParasitePlus** | 100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%
+- **PrismWarhead** | 200%,100%,100%,100%,100%,100%,50%,50%,50%,200%,100%
+- **PsiPulse** | 100%,100%,100%,0%,0%,0%,0%,0%,0%,0%,0%
+- **RHINAPE** | 100%,100%,100%,100%,100%,100%,65%,45%,60%,60%,100%
+- **RPG** | 10%,10%,10%,60%,100%,120%,30%,30%,20%,100%,120%
+- **RadBeamWarhead** | 100%,100%,100%,20%,15%,10%,0%,0%,0%,100%,100%
+- **RadEruptionWarhead** | 100%,100%,100%,20%,10%,10%,0%,0%,0%,100%,100%
+- **RifleBullet** | 100%,80%,30%,15%,5%,3%,1%,1%,1%,1%,100%
+- **SA** | 100%,80%,70%,50%,25%,25%,75%,50%,25%,100%,100%
+- **SAMWH** | 100%,100%,100%,100%,100%,100%,0%,0%,0%,100%,100%
+- **SSA** | 100%,100%,70%,60%,40%,40%,75%,50%,25%,100%,100%
+- **SSAB** | 100%,80%,70%,50%,25%,25%,75%,30%,20%,100%,100%
+- **Shock** | 100%,100%,100%,85%,100%,100%,50%,50%,50%,200%,100%
+- **Snapshot** | 100%,100%,100%,0%,0%,0%,0%,0%,0%,100%,100%
+- **SonicWarhead** | 100%,100%,100%,100%,80%,80%,100%,60%,60%,100%,100%
+- **Super** | 100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%
+- **TerrorBombWH** | 150%,100%,100%,90%,50%,50%,100%,150%,30%,100%,100%
+- **UltraAP** | 1%,1%,1%,100%,80%,100%,1%,1%,1%,1%,100%
+- **UltraAPE** | 2%,2%,2%,100%,50%,100%,2%,2%,2%,100%,100%
+- **V3HE** | 100%,100%,100%,30%,5%,5%,85%,50%,30%,100%,0%

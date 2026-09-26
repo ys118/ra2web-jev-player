@@ -1,0 +1,378 @@
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x000089ac (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x000008bc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1167 in _wait_for_tstate_lock
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1151 in join
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1628 in _communicate
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1209 in communicate
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 46 in tsj
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 574 in jev_decide
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 689 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00000168 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x0000701c (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1167 in _wait_for_tstate_lock
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1151 in join
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1628 in _communicate
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1209 in communicate
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 46 in tsj
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 574 in jev_decide
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 689 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00007838 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006c38 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1167 in _wait_for_tstate_lock
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1151 in join
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1628 in _communicate
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1209 in communicate
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 46 in tsj
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 574 in jev_decide
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 689 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1538 in _execute_child
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1026 in __init__
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 43 in tsj
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 574 in jev_decide
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 689 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00008378 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x000084e8 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1167 in _wait_for_tstate_lock
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1151 in join
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1628 in _communicate
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1209 in communicate
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 25 in js
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 139 in get_state
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 592 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00001d24 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00007754 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1167 in _wait_for_tstate_lock
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1151 in join
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1628 in _communicate
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1209 in communicate
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 46 in tsj
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 574 in jev_decide
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 689 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x0000609c (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00007684 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1167 in _wait_for_tstate_lock
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1151 in join
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1628 in _communicate
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1209 in communicate
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 46 in tsj
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 574 in jev_decide
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 689 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006774 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00007694 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1167 in _wait_for_tstate_lock
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1151 in join
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1628 in _communicate
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1209 in communicate
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 46 in tsj
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 574 in jev_decide
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 689 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006774 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00007694 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1167 in _wait_for_tstate_lock
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1151 in join
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1628 in _communicate
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1209 in communicate
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 46 in tsj
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 574 in jev_decide
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 689 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00007658 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x000077e0 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1167 in _wait_for_tstate_lock
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1151 in join
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1628 in _communicate
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1209 in communicate
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 46 in tsj
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 574 in jev_decide
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 689 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00007658 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x000077e0 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1167 in _wait_for_tstate_lock
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1151 in join
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1628 in _communicate
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1209 in communicate
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 46 in tsj
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 574 in jev_decide
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 689 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x000072f0 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00003b10 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1167 in _wait_for_tstate_lock
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1151 in join
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1628 in _communicate
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1209 in communicate
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 46 in tsj
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 574 in jev_decide
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 689 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00008464 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006bb4 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1167 in _wait_for_tstate_lock
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1151 in join
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1628 in _communicate
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1209 in communicate
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 46 in tsj
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 574 in jev_decide
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 689 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00000a9c (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00002648 (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1599 in _readerthread
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1010 in run
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1073 in _bootstrap_inner
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1030 in _bootstrap
+
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1167 in _wait_for_tstate_lock
+  File "C:\Users\15652\miniconda3\Lib\threading.py", line 1151 in join
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1628 in _communicate
+  File "C:\Users\15652\miniconda3\Lib\subprocess.py", line 1209 in communicate
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 46 in tsj
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 574 in jev_decide
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 689 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>
+Timeout (0:00:30)!
+Thread 0x00006afc (most recent call first):
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 745 in main
+  File "C:\Users\15652\.zcode\workspace\default\gonghui-bot\bot.py", line 748 in <module>

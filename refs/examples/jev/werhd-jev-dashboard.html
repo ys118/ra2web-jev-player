@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+  <title>Jev · 战场决策台</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101613;
+      --panel: #18211b;
+      --line: #304037;
+      --text: #e4eade;
+      --muted: #91a494;
+      --lime: #c8f277;
+      --blue: #85c8e6;
+      --red: #e69a83;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font:
+        14px/1.55 -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    }
+    main {
+      max-width: 1500px;
+      margin: auto;
+      padding: 30px 32px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 24px;
+      margin-bottom: 22px;
+    }
+    .eyebrow {
+      letter-spacing: 0.18em;
+      font-size: 11px;
+      color: var(--lime);
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 550;
+      margin: 5px 0 0;
+    }
+    h2 {
+      font-size: 15px;
+      font-weight: 550;
+      margin: 0;
+    }
+    h3 {
+      margin: 0;
+      font-size: 14px;
+    }
+    .muted {
+      color: var(--muted);
+    }
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    }
+    .live {
+      border: 1px solid var(--line);
+      padding: 7px 13px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-right: 12px;
+    }
+    .dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--lime);
+      border-radius: 100%;
+      margin-right: 7px;
+      box-shadow: 0 0 10px #c8f27760;
+    }
+    a {
+      color: var(--lime);
+      text-decoration: none;
+    }
+    button {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 6px 11px;
+      cursor: pointer;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .card,
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .card {
+      padding: 17px 19px;
+    }
+    .card .value {
+      font-size: 27px;
+      font-weight: 500;
+      margin-top: 7px;
+      letter-spacing: -0.03em;
+    }
+    .small {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(290px, 1fr);
+      gap: 18px;
+    }
+    .panel {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+    .panelhead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .badge {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: #2a3929;
+      color: var(--lime);
+    }
+    .statusline {
+      padding: 12px 15px;
+      background: #1e2c22;
+      border-left: 3px solid var(--lime);
+      margin-bottom: 18px;
+    }
+    .decision {
+      border-top: 1px solid var(--line);
+      padding: 16px 0;
+    }
+    .decision:first-child {
+      border-top: 0;
+    }
+    .decisionhead {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .choice {
+      font-size: 18px;
+      color: var(--lime);
+      margin: 5px 0;
+    }
+    .readiness {
+      margin: 10px 0;
+      padding: 10px 12px;
+      border-left: 2px solid var(--blue);
+      background: #121b16;
+      font-size: 12px;
+    }
+    .option {
+      display: grid;
+      grid-template-columns: minmax(120px, 1fr) 1.2fr 42px;
+      gap: 10px;
+      align-items: center;
+      margin: 6px 0;
+      font-size: 12px;
+    }
+    .option > span:first-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .track {
+      height: 5px;
+      background: #344237;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .bar {
+      height: 100%;
+      background: #728c6e;
+    }
+    .option.selected .bar {
+      background: var(--lime);
+    }
+    .option.selected {
+      color: var(--lime);
+    }
+    .stategrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .stat {
+      padding: 12px;
+      background: #121b16;
+      border-radius: 5px;
+    }
+    .stat b {
+      display: block;
+      font-size: 20px;
+      margin-top: 3px;
+    }
+    .inventory {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 17px;
+    }
+    .unit {
+      padding: 5px 8px;
+      background: #233127;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+    .timeline {
+      max-height: 350px;
+      overflow: auto;
+    }
+    .event {
+      display: grid;
+      grid-template-columns: 66px 1fr;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+    }
+    .eventtime {
+      color: var(--muted);
+      font-size: 11px;
+    }
+    .event .kind {
+      color: var(--blue);
+      margin-right: 7px;
+    }
+    .rejected {
+      color: var(--red);
+    }
+    .history {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .history th {
+      text-align: left;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .history td,
+    .history th {
+      padding: 9px 7px;
+      border-bottom: 1px solid var(--line);
+    }
+    .history tbody tr {
+      cursor: pointer;
+    }
+    .history tbody tr:hover {
+      background: #243429;
+    }
+    .chart {
+      width: 100%;
+      height: 100px;
+      display: block;
+    }
+    .empty {
+      color: var(--muted);
+      padding: 28px 0;
+      text-align: center;
+    }
+    .footer {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    .request {
+      color: var(--blue);
+    }
+    @media (max-width: 950px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      main {
+        padding: 18px;
+      }
+    }
+    @media (max-width: 600px) {
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+      header {
+        align-items: flex-start;
+        gap: 14px;
+      }
+      h1 {
+        font-size: 22px;
+      }
+      .option {
+        grid-template-columns: 1fr 1fr 35px;
+      }
+    }
+  </style>
+  <main>
+    <header>
+      <div>
+        <div class="eyebrow">WERHD / DECISION OBSERVATORY</div>
+        <h1>Jev 战场决策台</h1>
+        <div class="muted" id="model">等待模型接入</div>
+      </div>
+      <div>
+        <span class="live" id="connection"><i class="dot"></i>连接中</span
+        ><a href="http://127.0.0.1:5173/" target="_blank" rel="noopener"
+          >游戏 ↗</a
+        >
+      </div>
+    </header>
+    <div class="cards">
+      <div class="card">
+        <span class="muted">本次模型请求</span>
+        <div class="value mono" id="calls">0</div>
+        <span class="small" id="errors">0 次失败</span>
+      </div>
+      <div class="card">
+        <span class="muted">最近决策耗时</span>
+        <div class="value mono" id="latency">—</div>
+        <span class="small">模型请求至完整响应</span>
+      </div>
+      <div class="card">
+        <span class="muted">P50 / P95</span>
+        <div class="value mono" style="font-size: 23px" id="percentiles">—</div>
+        <span class="small">毫秒 · 当前服务会话</span>
+      </div>
+      <div class="card">
+        <span class="muted">当前模拟 Tick</span>
+        <div class="value mono" id="tick">—</div>
+        <span class="small" id="gameTime">等待对局</span>
+      </div>
+      <div class="card">
+        <span class="muted">输入 / 输出 Tokens</span>
+        <div class="value mono" style="font-size: 22px" id="tokens">0 / 0</div>
+        <span class="small" id="updated">尚未收到数据</span>
+      </div>
+    </div>
+    <div class="statusline" id="status">
+      等待玩家脚本接入。进局后即可看到真实决策。
+    </div>
+    <div class="grid">
+      <div>
+        <section class="panel">
+          <div class="panelhead">
+            <h2>当前决策 · 模型选择</h2>
+            <button id="follow">正在跟随实时</button>
+          </div>
+          <div id="current"><div class="empty">尚无决策</div></div>
+        </section>
+        <section class="panel">
+          <div class="panelhead">
+            <h2>决策耗时趋势</h2>
+            <span class="small">最近 60 次 · ms</span>
+          </div>
+          <svg
+            id="chart"
+            class="chart"
+            viewBox="0 0 700 100"
+            preserveAspectRatio="none"
+          ></svg>
+        </section>
+        <section class="panel">
+          <div class="panelhead">
+            <h2>决策历史</h2>
+            <span class="small">点击一行查看候选概率</span>
+          </div>
+          <div style="max-height: 290px; overflow: auto">
+            <table class="history">
+              <thead>
+                <tr>
+                  <th>时间 / Tick</th>
+                  <th>选择结果</th>
+                  <th>耗时</th>
+                </tr>
+              </thead>
+              <tbody id="history"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+      <div>
+        <section class="panel">
+          <div class="panelhead">
+            <h2>玩家战况</h2>
+            <span class="badge">仅公开可见信息</span>
+          </div>
+          <div class="stategrid" id="state"></div>
+          <div id="inventory" class="inventory"></div>
+        </section>
+        <section class="panel">
+          <div class="panelhead">
+            <h2>执行时间线</h2>
+            <span class="small">模型 / 执行器分开标记</span>
+          </div>
+          <div id="actions" class="timeline">
+            <div class="empty">尚无执行记录</div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="footer">
+      选项概率与置信度反映模型判断，不代表对局胜率。指令“已提交”不等于模拟已完成；右侧战况来自随后实际观察。
+    </div>
+  </main>
+  <script type="module">
+    const $ = (id) => document.getElementById(id),
+      esc = (v) =>
+        String(v ?? "").replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+    const time = (v) =>
+      v ? new Date(v).toLocaleTimeString("zh-CN", { hour12: false }) : "—";
+    const compact = (v) =>
+      new Intl.NumberFormat("en", {
+        notation: "compact",
+        maximumFractionDigits: 1,
+      }).format(v ?? 0);
+    const groupLabels = {
+      deployment: "单位展开 / 收起",
+      economy: "经济生产",
+      construction: "基地建设",
+      vehicles: "装甲 / 矿车",
+      infantry: "步兵补充",
+      tactics: "战术选择",
+      scouting: "侦察",
+      defense: "基地防御",
+      defenses: "防御反压",
+      garrison: "建筑驻扎",
+      transport: "运输与载员",
+      engineering: "桥梁工程",
+      aircraft: "空军行动",
+      navy: "海军行动",
+      salvage: "建筑变卖",
+    };
+    let latest,
+      selected = null;
+    $("follow").onclick = () => {
+      selected = null;
+      if (latest) render(latest);
+    };
+    function readiness(entry, id, choice) {
+      const s = entry.request.state, r = s.decisionReadiness?.[id];
+      if (!r) return "";
+      const reasons = [];
+      if (r.deficit === 0) reasons.push("兵力目标已达成");
+      if (!r.queueIdle) reasons.push("生产队列忙碌");
+      if (s.strategy?.recovery) reasons.push("优先恢复经济或建造能力");
+      if (s.harvesters < 2) reasons.push("优先补足基础采矿能力");
+      if (!r.affordableCandidates?.length) reasons.push("无可支付的生产候选（已扣除预留资金）");
+      const verdict = r.waitingSupported
+        ? `允许等待：${reasons.join("；") || "当前生产条件未满足"}`
+        : choice === "wait" ? "可生产且兵力未达目标，模型仍选择等待" : "可生产，正在补足兵力目标";
+      return `<div class="readiness ${!r.waitingSupported && choice === "wait" ? "rejected" : ""}"><div>${esc(verdict)}</div><div>现有 / 目标 ${r.current} / ${r.target} · 缺口 ${r.deficit} · 预留资金 ${r.reserve}</div><div class="small">用户侧条件检查，依据本次决策快照；不是模型返回的推理。</div></div>`;
+    }
+    function render(d) {
+      latest = d;
+      const last = d.decisions[0],
+        l = [...d.stats.latencies].sort((a, b) => a - b);
+      const pct = (p) => l[Math.max(0, Math.ceil(l.length * p) - 1)] ?? "—";
+      $("model").textContent =
+        `${last?.result.model ?? d.model} · 玩家 API 托管`;
+      $("calls").textContent = d.stats.calls;
+      $("errors").textContent = `${d.stats.failures} 次请求失败`;
+      $("latency").textContent = last ? `${last.latencyMs} ms` : "—";
+      $("percentiles").textContent = `${pct(0.5)} / ${pct(0.95)}`;
+      const o = d.observation,
+        s = o?.state ?? {};
+      $("tick").textContent = o?.tick ?? "—";
+      $("gameTime").textContent =
+        s.gameSeconds != null
+          ? `游戏时间 ${Math.floor(s.gameSeconds / 60)}:${String(Math.floor(s.gameSeconds % 60)).padStart(2, "0")}`
+          : "模拟时钟";
+      $("tokens").textContent =
+        `${compact(d.stats.inputTokens)} / ${compact(d.stats.outputTokens)}`;
+      $("updated").textContent = `更新于 ${time(d.lastUpdate)}`;
+      $("status").textContent = d.current
+        ? `模型正在评估 Tick ${d.current.tick} 的 ${Object.keys(d.current.questions).length} 个决策问题…`
+        : `${d.status} · ${last ? "最新决策 Tick " + last.request.state.tick : "等待首个决策"}`;
+      $("status").classList.toggle("request", !!d.current);
+      const entry = selected ?? last;
+      $("follow").textContent = selected ? "返回实时跟随" : "正在跟随实时";
+      $("current").innerHTML = entry
+        ? `<div class="small mono">${time(entry.at)} · Tick ${entry.request.state.tick} · ${entry.result.model} · ${entry.latencyMs} ms</div>` +
+          Object.entries(entry.result.answers)
+            .map(
+              ([id, a]) =>
+                `<div class="decision"><div class="decisionhead"><h3>${esc(groupLabels[id] ?? id)}</h3><span class="badge">置信度 ${(100 * a.confidence).toFixed(0)}%</span></div><div class="choice mono">${esc(a.choice)}</div><div class="small">${esc(entry.request.questions[id]?.criteria?.[a.choice])}</div>${readiness(entry, id, a.choice)}${Object.entries(
+                  a.probabilities ?? {},
+                )
+                  .sort((a, b) => b[1] - a[1])
+                  .slice(0, 8)
+                  .map(
+                    ([key, p]) =>
+                      `<div class="option ${key === a.choice ? "selected" : ""}" title="${esc(entry.request.questions[id]?.criteria?.[key])}"><span>${esc(key)}</span><div class="track"><div class="bar" style="width:${Math.max(0, Math.min(100, p * 100))}%"></div></div><span class="mono">${Math.round(p * 100)}%</span></div>`,
+                  )
+                  .join("")}</div>`,
+            )
+            .join("")
+        : '<div class="empty">尚无模型结果</div>';
+      const counts = o?.inventory ?? s.inventory ?? {},
+        army =
+          s.ownArmyCount ??
+          Object.entries(counts).reduce(
+            (n, [, v]) =>
+              n + (v.role === "AFV" || v.role === "Soldier" ? v.count : 0),
+            0,
+          );
+      const p = o?.power ?? s.self?.power,
+        credits = o?.credits ?? s.self?.credits ?? "—";
+      const values = [
+        ["资金", credits],
+        ["作战单位", army],
+        ["矿车", s.harvesters ?? "—"],
+        ["已展开单位", s.deployedCombatCount ?? 0],
+        ["防空单位", s.antiAirCount ?? 0],
+        ["可见敌方", (o?.visibleEnemies ?? s.visibleEnemies ?? []).length],
+        ["电力", p ? `${p.total} / ${p.drain}` : "—"],
+        ["当前任务", o?.mission ?? s.mission ?? "待命"],
+        ["战略", s.strategy?.intent ?? "观察中"],
+        ["预留资金", s.strategy?.reserve ?? 0],
+        ["下一项投资", s.strategy?.investment?.name ?? "—"],
+        ["受压时长", `${s.strategy?.pressureTicks ?? 0} tick`],
+      ];
+      const goal = last?.request.state.forceGoal;
+      if (goal) values.push(
+        ["装甲 / 集结目标", `${goal.groundCombatVehicles.current} / ${goal.groundCombatVehicles.target}`],
+        ["空军 / 编队目标", `${goal.aircraft.current} / ${goal.aircraft.target}`],
+      );
+      $("state").innerHTML = values
+        .map(
+          ([k, v]) =>
+            `<div class="stat"><span class="small">${k}</span><b class="mono">${esc(v)}</b></div>`,
+        )
+        .join("");
+      $("inventory").innerHTML = Object.entries(counts)
+        .map(
+          ([name, v]) =>
+            `<span class="unit" title="${esc(v.name)}">${esc(name)} <b>×${v.count}</b></span>`,
+        )
+        .join("");
+      $("actions").innerHTML = d.actions
+        .slice(0, 60)
+        .map(
+          (e) =>
+            `<div class="event"><div class="eventtime mono">${time(e.at)}<br>${e.tick ?? ""}</div><div><span class="kind">${e.kind === "camera" ? "观察镜头" : e.kind === "observed" ? "实际观察" : e.kind === "action" ? "模型指令" : e.kind === "micro" || e.kind === "place" ? "执行器" : esc(e.kind)}</span><span class="${e.accepted === false && e.reason !== "wait" ? "rejected" : ""}">${esc(e.choice ?? e.description ?? e.name ?? e.reason ?? e.result ?? "")}</span><div class="small">${esc(e.accepted === true ? "已提交" : (e.reason ?? ""))}${e.executionMs != null ? " · 执行 " + e.executionMs.toFixed(1) + " ms" : ""}${e.ageTicks != null ? " · 快照年龄 " + e.ageTicks + " tick" : ""}</div></div></div>`,
+        )
+        .join("");
+      $("history").innerHTML = d.decisions
+        .slice(0, 30)
+        .map(
+          (e, i) =>
+            `<tr data-i="${i}"><td class="mono">${time(e.at)}<br><span class="small">${e.request.state.tick}</span></td><td>${Object.values(
+              e.result.answers,
+            )
+              .map((a) => esc(a.choice))
+              .join(" / ")}</td><td class="mono">${e.latencyMs} ms</td></tr>`,
+        )
+        .join("");
+      for (const row of $("history").rows)
+        row.onclick = () => {
+          selected = d.decisions[Number(row.dataset.i)];
+          render(latest);
+        };
+      const ys = d.stats.latencies.slice(-60),
+        max = Math.max(1000, ...ys),
+        pts = ys
+          .map(
+            (v, i) =>
+              `${((i / Math.max(1, ys.length - 1)) * 690 + 5).toFixed(1)},${(94 - (v / max) * 85).toFixed(1)}`,
+          )
+          .join(" ");
+      $("chart").innerHTML =
+        `<line x1="0" y1="94" x2="700" y2="94" stroke="#304037"/><polyline points="${pts}" fill="none" stroke="#c8f277" stroke-width="2"/><text x="4" y="10" fill="#91a494" font-size="10">${max}ms</text>`;
+    }
+    const stream = new EventSource("/events");
+    stream.onmessage = (e) => {
+      render(JSON.parse(e.data));
+      $("connection").innerHTML = '<i class="dot"></i>实时连接';
+    };
+    stream.onerror = () => {
+      $("connection").textContent = "连接断开 · 正在重连";
+    };
+  </script>
+</html>
