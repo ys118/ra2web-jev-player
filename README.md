@@ -1,72 +1,67 @@
 # ra2web-jev-player
 
 > 网页版红色警戒2《王二火大 / Chrono Divide》的 **AI（Jev 模型）自动对战玩家**。
-> 用 TypeSafe 的 Jev 模型做战术决策，通过游戏官方的 `werhd` 玩家控制台 API 操作部队，
-> 自动完成基地建设、侦察、生产、防御与总攻。
+> 全自包含：自有 API 定义与页内客户端、全自动进局（浏览器驱动）、自有策略资产、
+> TypeSafe Jev 调用封装 —— 无 HTTP 桥接、无官方播放器依赖。
+> 一条命令从冷浏览器打到终局战报：`uv run ra2web-jev-play`。
 
 - **游戏**: https://gonghui.k0s.cn/ （网页版红警2引擎，v0.87.0）
-- **决策模型**: TypeSafe Jev（`jev-1.13.x`，经 `bridge.py` 接入，P50 ≈ 1s/批）
+- **决策模型**: TypeSafe Jev（`jev-latest`，Python 侧直调，P50 ≈ 0.8-1s/批）
 - **操作通道**: 游戏内 `window.werhd` 官方控制台 API（与鼠标同一条锁步指令队列）
-- **状态**: 已实跑 20+ 局（自研循环）→ 已切换到官方 werhd-jev-player 体系 + 自建桥接
+- **架构**: `docs/ARCHITECTURE.md`（去桥接化重构，2026-09-26 定稿）
 
 ## 一分钟上手
 
+> Python 环境用 [uv](https://docs.astral.sh/uv/) 管理（`pyproject.toml` + `uv.lock`）；
+> 首次或依赖变更后先 `uv sync`，之后所有命令用 `uv run`（uv 自管 CPython 3.12）。
+> 需要环境变量 `TYPESAFE_API_KEY`（已配用户级）。
+
 ```bash
-# 1. 启动本地桥接（持有 TYPESAFE_API_KEY 环境变量）
-python bridge/bridge.py            # 监听 127.0.0.1:5174
+uv sync                                  # 首次/依赖变更后
+uv run ra2web-jev-play                   # 全自动: 进局→注入→托管整局→战报
+#   ra2web-jev-launch                    # 只进局+注入（驱动层调试, --debug 每步截图）
+#   ra2web-jev-attach                    # 人工已开局时注入托管（兜底）
+# 常用参数: --faction 苏俄 --speed 2 --credits 10000 --headed --session <名>
 
-# 2. 打开游戏（agent-browser 无头会话推荐，见 docs/ENGINEERING-NOTES.md）
-#    https://gonghui.k0s.cn/ → 单机模式 → 遭遇战 → 开始游戏
-
-# 3. 对局内挂载官方 Jev 玩家（浏览器控制台 / 自动化 eval）
-const { attachJevPlayer } = await import('http://127.0.0.1:5174/player.mjs')
-window.werhdJev = await attachJevPlayer(window.werhd)
-
-# 4. 观察：GET http://127.0.0.1:5174/ （官方看板）
-#         GET http://127.0.0.1:5174/status （统计）
-#         logs/jev-events.jsonl （逐决策审计）
+tail -f logs/bot.log                     # 行日志（决策/建造/攻防）
+tail -f logs/jev-events.jsonl            # 逐决策审计（jsonl）
 ```
 
 ## 目录结构
 
 | 路径 | 内容 |
 |---|---|
-| `bridge/bridge.py` | **本机桥接**：向页面服务官方玩家模块（`/player.mjs`）、把候选组转发 TypeSafe jev（`/decide`）、事件审计（`/event`、SSE `/events`）、看板与统计 |
-| `legacy-bot/bot.py` | 前 20 局使用的自研 Python 主循环（"状态→jev→执行"快循环），保留作对照与备份 |
+| `src/ra2web_jev_player/` | Python 包（uv 管理，src 布局）：`werhd/`（自有 API 定义 api.md + 官方类型副本 d.ts + 页内客户端 client.js + 注入器）；`driver/`（agent-browser 封装 + 全自动进局状态机）；`jev/`（TypeSafe 调用封装）；`strategy/`（20 局复盘沉淀的 doctrine/planner/questions）；`game.py`（对局编排）；`cli.py`（三个入口）；`audit.py`；`config.py`；`legacy_bot.py`（第 1-20 局自研主循环，历史参照） |
+| `pyproject.toml` / `uv.lock` | uv 项目配置与锁文件；依赖组 `research`（`_research/` 抓取脚本用 requests） |
 | `knowledge/` | 攻略三件套 + 用法说明：`RA2-BIBLE.md`（全维度攻略+兵法）、`AI-OPERATING-CARD.md`（可执行的压缩操作卡，可直接当系统提示词）、`RA2-UNITS.json`（rules.ini 真值：单位/建筑/弹头×护甲矩阵）；`README.md` 讲清楚三者的分工、出处与**版本绑定关系** |
-| `refs/` | 游戏官方资料（从 `D:/projects/ra2web.github.io/docs` 复制）：`player-console-api.md`（werhd 完整 API）、`jev-player-local.md`（官方 Jev 玩家接入规格与实测）、`examples/`（官方玩家/策略/特殊行动/看板源码） |
-| `docs/` | `SESSION-REPORT.md` 二十局进化史 · `METHODOLOGY.md` 方法论 · `ENGINEERING-NOTES.md` 引擎/环境坑总集 · `JEV-INTEGRATION.md` Jev 接入与参数迭代 · `MEMORY-NOTES.md` 长期记忆快照 |
-| `logs/` | `bot.log`（自研 bot 决策日志）、`bridge.log`、`jev-events.jsonl`（逐决策审计）、`screenshots/`（全部过程截图证据） |
+| `refs/` | 游戏官方文档快照（从 `D:/projects/ra2web.github.io/docs` 复制）：`player-console-api.md`（werhd 完整 API 原文）、`jev-player-local.md`、`examples/`（官方播放器源码，作参考保留）。**运行时已不依赖**；本项目自有 API 定义在 `src/ra2web_jev_player/werhd/api.md` |
+| `docs/` | `ARCHITECTURE.md` 架构定稿 · `SESSION-REPORT.md` 二十局进化史 · `METHODOLOGY.md` 方法论 · `ENGINEERING-NOTES.md` 引擎/环境坑总集 · `JEV-INTEGRATION.md` Jev 接入与参数迭代 · `HANDOFF.md` 冷启动交接 |
+| `logs/` | `bot.log`（决策日志）、`jev-events.jsonl`（逐决策审计）、`screenshots/`（过程截图证据） |
 | `_research/` | 数值真值源与可复现流水线：`rules.ini` / `ra2.csf`、提取表、`decode_csf.py`（代号→中文名）、`gen_json.py`（生成 RA2-UNITS.json）、`verify.py`（56 项对账）、社区攻略原文（`pages/` 43 篇）；**复现/刷新照 `_research/README.md` 抄** |
 
-## 架构
+## 架构一瞥
 
 ```
-┌─────────────────────────── 游戏页（浏览器内）───────────────────────────┐
-│ 官方 werhd-jev-player.mjs                                              │
-│  ├─ micro()  每 150ms（零网络）: 集火/矿车恢复/维修/落位/姿态/镜头      │
-│  └─ decide() 每 600ms: 生成候选组 → POST 本机桥接 → 复查 → 执行        │
-└──────────────────────────────┬─────────────────────────────────────────┘
-                               │ HTTP (127.0.0.1:5174, CORS)
-┌──────────────────────────────▼─────────────────────────────────────────┐
-│ bridge.py                                                              │
-│  /player.mjs 服务官方模块 · /decide {state,groups} → TypeSafe /systemone│
-│  /event 审计 + SSE /events · / 看板 · /status 统计                     │
-└──────────────────────────────┬─────────────────────────────────────────┘
-                               │ HTTPS
-                     TypeSafe Jev（jev-1.13.x）
+浏览器（agent-browser 无头会话）
+  └─ 游戏页: window.werhd(官方 API) + window.__rj(自有页内客户端)
+       └─ micro() 每 150ms: 集火/矿车/维修/落位/镜头（零网络）
+Python (src/ra2web_jev_player/, uv)
+  ├─ driver: 冷浏览器→弹窗→菜单→配置→开局 全自动(~25s)
+  ├─ game.py 宏观 ~1.5s: 快照→感知→确定性清单→Jev 五问→机动
+  ├─ strategy: 20 局复盘的 doctrine/阈值/五态机（确定性管机制）
+  └─ jev: TypeSafe 直调（密钥不出 Python）
 ```
 
 **决策分工**（贯穿全项目的核心原则）：
 - **确定性代码管机制**：部署/落位/建造序列/产量保底/指令节流/集结与撤退阈值；
-- **Jev 管语义拍板**：态势转换、威胁评估、兵种搭配、进攻时机、侦察目标选择；
-- 判断置信度闸门（<0.45 不切换态势）、同批问题一次请求、防指令抖动（12s 节流、任务连续性）。
+- **Jev 管语义拍板**：态势转换、威胁评估、兵种搭配、进攻时机；
+- 置信度闸门（态势 ≥0.45 采信）、一次请求批量问全部问题、页内节流防指令抖动。
 
 ## 现状快照
 
-- **自研循环时代（第 1-20 局）**：从"开局 12 分钟被拆"进化到"27:15 拉锯、单局击杀 98 个 AI 单位"；期间沉淀了全部引擎坑（见 `docs/ENGINEERING-NOTES.md`）。
-- **官方体系时代（第 21 局起）**：接入官方 `werhd-jev-player.mjs` + 自建 `bridge.py`，实测单批决策 P50 1000ms / P95 1343ms、~1900 tokens/次、0 调用失败；微操回到页内 150ms 级。
-- **下一步**：完整跑通并记录官方体系整局结果；按 `docs/METHODOLOGY.md` 的复盘闭环继续迭代。
+- **自研循环时代（第 1-20 局）**：从"开局 12 分钟被拆"进化到"27:15 拉锯、单局击杀 98"；全部引擎坑沉淀在 `docs/ENGINEERING-NOTES.md`。
+- **官方体系时代（第 21-22 局）**：官方播放器 + 自建桥接验证了"页内微操 + 模型宏观"的分层（P50 1000ms、0 失败），但依赖 HTTP 桥接与官方脚本。
+- **自包含时代（2026-09-26 重构起）**：去桥接化——自有 API 层/页内客户端/全自动进局/自有策略；行为参数与决策核心原样平移，跑通整局后按 `docs/METHODOLOGY.md` 复盘闭环继续迭代。
 
 ## 红线与合规
 

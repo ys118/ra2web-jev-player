@@ -1,0 +1,416 @@
+# -*- coding: utf-8 -*-
+"""确定性决策层 —— Bible §10.1 清单 + 事件感知 + 五态机的确定性入口。
+
+从 legacy_bot 原样迁移（第 18-20 局复盘定稿版），只做了两处架构性改动：
+1. 纯函数化：函数吃 (state, home, mem) 吐 action 列表，由 game.py 经页内客户端执行，
+   离线可测；
+2. 职责去重：建筑落位/维修划归页内微操（150ms 级反应更快），本层不再做。
+
+行为参数零改动 —— 每条阈值都有局次复盘背书（doctrine.T / CONF / THREAT_FORCE_DEFEND）。
+"""
+from __future__ import annotations
+
+import math
+import time
+
+from .doctrine import (AIR_UNITS, CONF, HARVEST, MCV_CODES, SCOUT_DOGS,
+                       THREAT_FORCE_DEFEND, T, get_side)
+from .state import (available, buildings, combat_tanks, nm, pick_target,
+                    queues_by_type, ucost)
+
+
+class BattleMemory:
+    """单局记忆（进程内，对局结束即弃）。字段与 legacy_bot MEM 一致。"""
+
+    def __init__(self):
+        self.enemy_base = None          # 最近一次看见的敌建筑坐标
+        self.last_scout = 0.0           # 上次派坦克探图的真实时刻
+        self.dogs_queued = False
+        self.retreated: dict = {}       # unitId -> 游戏秒(每 300s 只撤一次)
+        self.events: list = []          # 事件流(新→旧渲染时反转)
+        self.bld_hp: dict = {}          # buildingId -> (name, hp, mhp, tl)
+        self.unit_ids: dict = {}        # unitId -> 中文名(损失检测)
+        self.seen_hostiles: set = set()
+        self.alarm_times: list = []     # 受袭时刻(真实时间), 120s 窗口
+        self.last_defend_order = 0.0    # ALARM 反击令时刻(8s 保护期)
+        self.last_t = None              # 停摆检测
+        self.stall_logged = False
+        self.stall_t = 0.0
+        self.wp = [0, 0.0, (), 0.0]     # 路标: 索引/切换时刻/当前目标/重发截止
+
+    def log_lines(self) -> list:
+        return list(self.events)
+
+
+# ================= 秒级战场感知 (第 13 局引入, 1 tick 内响应) =================
+
+def sense_events(s: dict, home, mem: BattleMemory):
+    """tick 间差分：建筑掉血/单位损失/敌逼近/新敌 → 事件流 + alarm。
+
+    建筑掉血是最早的被袭信号（比敌人进入半径更早）。返回 alarm 或 None。
+    """
+    ev = mem.events
+    alarm = None
+    # a) 我方建筑掉血
+    cur_hp = {}
+    for u in s["mine"]:
+        if u["o"] == 2:
+            cur_hp[u["id"]] = (u["n"], u["hp"], u["mhp"], tuple(u["tl"]))
+            prev = mem.bld_hp.get(u["id"])
+            if prev and u["hp"] < prev[1] - 1:
+                lost = int(prev[1] - u["hp"])
+                ev.append("受击: %s(%s) -%d血 剩%d/%d"
+                          % (u["n"], nm(u["n"]), lost, int(u["hp"]), int(u["mhp"])))
+                alarm = {"pos": list(u["tl"]), "what": "%s被攻击" % nm(u["n"])}
+    mem.bld_hp = cur_hp
+    # b) 战斗单位损失
+    alive = {u["id"] for u in s["mine"] if u["o"] in (3, 7)}
+    for uid, uname in list(mem.unit_ids.items()):
+        if uid not in alive:
+            ev.append("损失: %s" % uname)
+            del mem.unit_ids[uid]
+            if alarm is None:
+                alarm = {"pos": list(home) if home else [0, 0], "what": "单位损失"}
+    for u in s["mine"]:
+        if u["o"] in (3, 7) and u["id"] not in mem.unit_ids:
+            mem.unit_ids[u["id"]] = nm(u["n"])
+    # c) 敌逼近基地 + 受袭频率
+    if home:
+        near = [h for h in s["hostile"]
+                if math.hypot(h["tl"][0] - home[0], h["tl"][1] - home[1]) <= T["defend_radius"]]
+        if near:
+            comp = ",".join(nm(h["n"]) for h in near[:4])
+            d = min(math.hypot(h["tl"][0] - home[0], h["tl"][1] - home[1]) for h in near)
+            ev.append("敌逼近基地(%d格): %s" % (int(d), comp))
+            mem.alarm_times.append(time.time())
+            mem.alarm_times = [x for x in mem.alarm_times if time.time() - x < 120][-20:]
+            if alarm is None:
+                alarm = {"pos": list(near[0]["tl"]), "what": "敌军逼近"}
+    new_ids = {h["id"] for h in s["hostile"]}
+    fresh = new_ids - mem.seen_hostiles
+    if fresh:
+        fn = [h for h in s["hostile"] if h["id"] in fresh]
+        ev.append("发现敌军: " + ",".join("%s(%s)" % (nm(h["n"]), h["tl"]) for h in fn[:4]))
+        mem.seen_hostiles = new_ids
+    else:
+        mem.seen_hostiles |= new_ids
+    mem.events = ev[-6:]
+    return alarm
+
+
+def crisis_response(s: dict, home, alarm: dict, mem: BattleMemory) -> tuple:
+    """ALARM 危机速应（第 19/20 局复盘）：兵力 ≥1.2x 才反击，否则 TURTLE 守塔阵。
+
+    返回 (actions, logline)。不打野战的教训：37→0 匀速送人头。
+    """
+    defenders = [u["id"] for u in s["mine"]
+                 if u["o"] in (3, 7) and u["n"] not in HARVEST
+                 and u["n"] not in MCV_CODES          # 基地车不参与反击(送人头)
+                 and u["n"] not in ("SENGINEER",)
+                 and u["hp"] >= T["retreat_hp"] * (u["mhp"] or 1)]
+    n_en = max(1, len(s["hostile"]))
+    if not defenders or time.time() - mem.last_defend_order <= 8:
+        return [], None
+    mem.last_defend_order = time.time()
+    if len(defenders) >= 1.2 * n_en or n_en <= 2:
+        act = {"act": "attack_move", "ids": defenders,
+               "x": alarm["pos"][0], "y": alarm["pos"][1]}
+        return [act], ("t=%d ALARM %s -> counter %d vs %d -> %s"
+                       % (s["t"], alarm["what"], len(defenders), n_en, alarm["pos"]))
+    acts = []
+    if home:
+        acts.append({"act": "attack_move", "ids": defenders,
+                     "x": home[0], "y": home[1] + 3})
+    return acts, ("t=%d ALARM %s -> TURTLE (%d v %d, 守塔阵不打野战)"
+                  % (s["t"], alarm["what"], len(defenders), n_en))
+
+
+# ================= §10.1 确定性清单 =================
+
+def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
+    """按 §10.1 优先级产出确定性动作。返回 (stance, actions, logs)。"""
+    side = get_side(s)
+    cred = s["me"]["credits"]
+    pw = s["me"]["power"].get("total", 0)
+    drain = s["me"]["power"].get("drain", 0)
+    mine, hos = s["mine"], s["hostile"]
+    qs = queues_by_type(s["queues"])
+    bl = buildings(mine)
+    acts, logs = [], []
+
+    # 1) 基地受袭检测（确定性, 不等 jev）：敌人进入防御半径 → 强制 DEFEND
+    if home:
+        near = [h for h in hos
+                if math.hypot(h["tl"][0] - home[0], h["tl"][1] - home[1]) <= T["defend_radius"]]
+        if near and stance != "defend":
+            logs.append("t=%d DEFEND trigger: %d hostiles within r=%d"
+                        % (s["t"], len(near), T["defend_radius"]))
+            stance = "defend"
+
+    # 3) 部署基地车：仅 MCV 触发（页内 O.deploy 自带 type===7&&canDeploy 判别 +
+    #    45s 节流）。注意不能对"任意 canDeploy 载具"部署——防空履带车等也有
+    #    canDeploy 属性，反复 deploy 会白白 unload/load（第 1 局重构实测教训）。
+    if any(u["o"] == 7 and u.get("dep") and u["n"] in MCV_CODES for u in mine):
+        acts.append({"act": "deploy"})
+        logs.append("t=%d DEPLOY mcv" % s["t"])
+
+    # 4) 电力保底：余量 <30 → 电厂（排在大多数建造之前）
+    if pw - drain < T["power_reserve"] and cred >= 600 \
+            and side["powr"] in available(s["av"], 0) \
+            and qs.get(0, {}).get("s") == 0:
+        acts.append({"act": "produce", "name": side["powr"], "qty": 1, "q": 0})
+        logs.append("t=%d POWER plant (reserve %d)" % (s["t"], pw - drain))
+        cred -= 600
+
+    # 5) 矿车补员: 每精炼厂 2 车, 下限 2, 第 3 辆起资金门槛 2800 (第 17 局复盘)
+    n_harv = len([u for u in mine if u["n"] in HARVEST])
+    n_ref = bl.get(side["ref"], 0)
+    q3s = qs.get(3, {}).get("s", 0)
+    harv_target = min(3, T["harv_per_ref"] * n_ref)
+    harv_cost_gate = 1400 if n_harv < T["harv_min"] else 2800
+    if q3s == 0 and n_ref >= 1 and n_harv < harv_target \
+            and side["harv"] in available(s["av"], 3) and cred >= harv_cost_gate:
+        acts.append({"act": "produce", "name": side["harv"], "qty": 1, "q": 3})
+        logs.append("t=%d ECON harv#%d" % (s["t"], n_harv + 1))
+        cred -= 1400
+
+    # 8) 不攒钱: 产能线 (坦克预算保护, 第 20 局复盘: 防御支出让位坦克)
+    if q3s == 0 and bl.get(side["weap"], 0) >= 1:
+        tanks_av = [x for x in available(s["av"], 3)
+                    if x not in HARVEST and x not in MCV_CODES]
+        if tanks_av and cred >= T["tank_cash1"]:
+            prefer = [x for x in side["tank_pref"] if x in tanks_av]
+            pick = prefer[0] if prefer else tanks_av[0]
+            qty = 2 if cred >= T["tank_cash2"] else 1
+            if cred >= 2600:
+                qty = min(4, int(cred // 900))
+            acts.append({"act": "produce", "name": pick, "qty": qty, "q": 3})
+            logs.append("t=%d TANK %s x%d" % (s["t"], pick, qty))
+            cred -= ucost(pick) * qty
+
+    # 6) 防空保险: 有战车工厂即保证 ≥1 防空建筑; 有空军威胁且资金富余再 +1
+    #    (第 6 局: 美军火箭飞行兵掏家; 防空炮落地即造, 不等遇袭)
+    air = any(h["n"] in AIR_UNITS for h in hos)
+    if side["weap"] in bl and bl.get(side["aa_b"], 0) < 1 \
+            and qs.get(1, {}).get("s", 0) == 0 \
+            and side["aa_b"] in available(s["av"], 1) and cred >= 1000:
+        acts.append({"act": "produce", "name": side["aa_b"], "qty": 1, "q": 1})
+        logs.append("t=%d INSURE AA building" % s["t"])
+        cred -= 1000
+    elif air and bl.get(side["aa_b"], 0) < 2 \
+            and qs.get(1, {}).get("s", 0) == 0 \
+            and side["aa_b"] in available(s["av"], 1) and cred >= 1400:
+        acts.append({"act": "produce", "name": side["aa_b"], "qty": 1, "q": 1})
+        logs.append("t=%d AIR-DEFENSE 2nd AA" % s["t"])
+        cred -= 1000
+
+    # 6.5) 地面防御线: 有兵营即把哨戒炮补到 3 座 (第 20 局复盘 4→3 省 500 金)
+    if side["bar"] in bl and bl.get(side["gdef"], 0) < 3 \
+            and qs.get(1, {}).get("s", 0) == 0 \
+            and side["gdef"] in available(s["av"], 1) and cred >= 1500:
+        acts.append({"act": "produce", "name": side["gdef"], "qty": 1, "q": 1})
+        logs.append("t=%d DEFLINE %s (have %d)"
+                    % (s["t"], side["gdef"], bl.get(side["gdef"], 0)))
+        cred -= 500
+
+    # 7) 空军来袭 → 移动防空车 (苏军 HTK; 盟军靠防空建筑)
+    q3 = qs.get(3, {})
+    if air and side["aa_v"] and bl.get(side["weap"], 0) >= 1 and q3.get("s", 0) == 0 \
+            and side["aa_v"] in available(s["av"], 3) and cred >= 500:
+        acts.append({"act": "produce", "name": side["aa_v"], "qty": 2, "q": 3})
+        logs.append("t=%d AA %s x2 (enemy air)" % (s["t"], side["aa_v"]))
+        cred -= ucost(side["aa_v"]) * 2
+
+    # 11) 残血撤退: hp<40% → 拉回基地 (每 300s 每单位只撤一次, Move=0 逃跑不恋战)
+    if home:
+        rets = [u for u in mine if u["o"] in (3, 7) and u["n"] not in HARVEST
+                and u["hp"] < T["retreat_hp"] * (u["mhp"] or 1)
+                and mem.retreated.get(u["id"], 0) < s["t"] - 300]
+        for u in rets[:4]:
+            acts.append({"act": "move", "ids": [u["id"]],
+                         "x": home[0], "y": home[1] + 3})
+            mem.retreated[u["id"]] = s["t"]
+            logs.append("t=%d RETREAT %s(%d%%)"
+                        % (s["t"], u["n"], int(100 * u["hp"] / (u["mhp"] or 1))))
+    return stance, acts, logs
+
+
+# ================= 开局建造序列 (Bible §5.1/§5.2, 阵营感知) =================
+
+def opening_build(s: dict, mem: BattleMemory):
+    """开局确定性序列：电厂→精炼厂→兵营→战车工厂；工厂后立即补二矿（第 20 局复盘）；
+    t>500 且资金 >4500 补第二工厂。返回 action 或 None。"""
+    side = get_side(s)
+    qs = queues_by_type(s["queues"])
+    av0 = available(s["av"], 0)
+    bl0 = buildings(s["mine"])
+    opening_next = None
+    for want in side["opening"]:
+        if bl0.get(want, 0) == 0:
+            opening_next = want
+            break
+    if opening_next is None and bl0.get(side["weap"], 0) >= 1 \
+            and bl0.get(side["ref"], 0) < T["ref_cap"] and side["ref"] in av0:
+        opening_next = side["ref"]
+    if opening_next is None and s["t"] > 500:
+        if bl0.get(side["weap"], 0) < 2 and s["me"]["credits"] > T["factory2_cash"] \
+                and side["weap"] in av0:
+            opening_next = side["weap"]
+        elif bl0.get(side["ref"], 0) < T["ref_cap"] and side["ref"] in av0:
+            opening_next = side["ref"]
+    if opening_next and qs.get(0, {}).get("s") == 0 and opening_next in av0:
+        return {"act": "produce", "name": opening_next, "qty": 1, "q": 0,
+                "tag": "OPENING BUILD %s" % opening_next}
+    return None
+
+
+# ================= 侦察与敌基地定位 =================
+
+def update_enemy_base(s: dict, mem: BattleMemory) -> bool:
+    for h in s["hostile"]:
+        if h["o"] == 2:
+            if mem.enemy_base is None:
+                pass  # 首次发现的日志由 game.py 打（本层不持 logger）
+            mem.enemy_base = list(h["tl"])   # 持续更新到最新看见的建筑
+            return True
+    return False
+
+
+def scouting(s: dict, home, mem: BattleMemory):
+    """军犬侦察（兵营好后 3 条）+ 每 3 分钟派 1 辆坦克探镜像角。返回 (action, log)。"""
+    side = get_side(s)
+    seen = mem.enemy_base is not None
+    qs = queues_by_type(s["queues"])
+    av2 = available(s["av"], 2)
+    if side["bar"] in [u["n"] for u in s["mine"] if u["o"] == 2] \
+            and not mem.dogs_queued and "ADOG" in av2 and qs.get(2, {}).get("s", 0) == 0:
+        mem.dogs_queued = True
+        return ({"act": "produce", "name": "ADOG", "qty": 3},
+                "t=%d SCOUT dogs x3" % s["t"])
+    if time.time() - mem.last_scout > 180 and not seen:
+        tanks = combat_tanks(s["mine"])
+        if tanks and home:
+            mx, my = s["map"]["width"], s["map"]["height"]   # snapshot 的 map 是 {width,height}
+            mem.last_scout = time.time()
+            return ({"act": "attack_move", "ids": [tanks[0]["id"]],
+                     "x": mirror[0], "y": mirror[1]},
+                    "t=%d SCOUT tank->mirror %s" % (s["t"], mirror))
+    return None, None
+
+
+# ================= 五态机确定性入口 =================
+
+def stance_overrides(s: dict, stance: str, mem: BattleMemory) -> tuple:
+    """RECOVER/RUSH/ATTACK 的确定性入口（jev 投票之外的硬约束）。返回 (stance, logs)。"""
+    logs = []
+    n_tank = len(combat_tanks(s["mine"]))
+    if n_tank < 3 and s["t"] > 400 and stance in ("attack", "rush"):
+        stance = "recover"
+        logs.append("t=%d RECOVER (only %d tanks)" % (s["t"], n_tank))
+    if T["rush_t0"] <= s["t"] <= T["rush_t1"] and n_tank >= T["rush_tanks"] \
+            and stance in ("develop", "recover"):
+        stance = "rush"
+        logs.append("t=%d RUSH window (%d tanks)" % (s["t"], n_tank))
+    if n_tank >= T["attack_tanks"] and stance in ("develop", "rush", "recover"):
+        stance = "attack"
+        logs.append("t=%d ATTACK (tanks=%d)" % (s["t"], n_tank))
+    return stance, logs
+
+
+# ================= 进攻执行 (第 18-20 局定稿) =================
+
+def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
+    """按态势指挥机动部队。返回 (actions, log)。12s 重发节流（wp 状态在 mem）。"""
+    combat = combat_tanks(s["mine"], keep_wounded=False)   # 残血不参与进攻
+    if stance in ("attack", "rush") and len(combat) >= 6:
+        combat = combat[:-T["keep_home"]]                  # 留 2 守家
+    ids = [u["id"] for u in combat]
+    if not ids:
+        return [], "no-force"
+    wp = mem.wp
+    if stance not in ("attack", "rush"):
+        if not home:
+            return [], "no-home"
+        # 防守必须用攻击移动 (Move=0 站桩挨打的教训); 12s 节流防指令瘫痪
+        tgt_h = (home[0] + 3, home[1] + 3)
+        if wp[2] == tgt_h and wp[3] > time.time():
+            return [], "defend-rally (hold)"
+        wp[2] = tgt_h
+        wp[3] = time.time() + 12
+        return ([{"act": "attack_move", "ids": ids, "x": tgt_h[0], "y": tgt_h[1]}],
+                "defend-rally@base(%d)" % len(ids))
+    # 目标: 可见敌打分优先 → 已知敌基地 → 镜像/路标扫描
+    tgt_u = pick_target(s, home)
+    if tgt_u:
+        tgt = list(tgt_u["tl"])
+    elif mem.enemy_base:
+        tgt = list(mem.enemy_base)
+    else:
+        mx, my = s["map"]["width"], s["map"]["height"]
+        mirror = [max(mx - home[0], 8), max(my - home[1], 8)] if home else [mx // 2, my // 2]
+        corners = [mirror, [mx // 2, my // 2], [12, my // 2], [12, 12],
+                   [mx - 12, 12], [mx - 12, my - 12], [12, my - 12]]
+        tgt = list(corners[wp[0] % len(corners)])
+        if wp[1] <= time.time():
+            wp[0] += 1
+            wp[1] = time.time() + 40
+    if wp[2] == tuple(tgt) and wp[3] > time.time():
+        return [], "march->%s (hold)" % (tgt,)
+    wp[2] = tuple(tgt)
+    wp[3] = time.time() + 12
+    return [{"act": "attack_move", "ids": ids, "x": tgt[0], "y": tgt[1]}], \
+        "attack->%s x%d" % (tgt, len(ids))
+
+
+# ================= Jev 答案应用（闸门在 doctrine.CONF） =================
+
+def apply_jev(s: dict, ans: dict, stance: str, mem: BattleMemory,
+              used: dict | None = None) -> tuple:
+    """把 Jev 批量答案转成动作 + 态势采信。返回 (stance, actions, logs)。
+
+    used: 本 tick 确定性层已占用的队列 {0/1/2/3: bool} —— 生产指令异步生效,
+    快照里队列状态滞后一个 tick, 不查会双造(legacy 同款竞态)。
+    """
+    used = used or {}
+    side = get_side(s)
+    qs = queues_by_type(s["queues"])
+    acts, logs = [], []
+    # 建造（确定性清单没花的钱由 jev 决定花法）
+    b = (ans.get("build") or {}).get("choice")
+    if b and b != "hold" and not used.get(0) \
+            and qs.get(0, {}).get("s") == 0 and b in available(s["av"], 0):
+        n_ref = len([u for u in s["mine"] if u["n"] == side["ref"]])
+        n_bar = len([u for u in s["mine"] if u["n"] == side["bar"]])
+        if not (b == side["ref"] and n_ref >= T["ref_cap"]) \
+                and not (b == side["bar"] and n_bar >= 2):
+            acts.append({"act": "produce", "name": b, "qty": 1, "q": 0})
+            logs.append("t=%d jev BUILD %s (conf %.2f)"
+                        % (s["t"], b, (ans.get("build") or {}).get("confidence", -1)))
+    # 步兵
+    i = (ans.get("inf") or {}).get("choice")
+    if i and i != "hold" and not used.get(2) \
+            and qs.get(2, {}).get("s", 0) == 0 and i in available(s["av"], 2):
+        acts.append({"act": "produce", "name": i, "qty": 1, "q": 2})
+        logs.append("t=%d jev INF %s (conf %.2f)"
+                    % (s["t"], i, (ans.get("inf") or {}).get("confidence", -1)))
+    # 载具
+    v = (ans.get("veh") or {}).get("choice")
+    if v and v != "hold" and not used.get(3) \
+            and qs.get(3, {}).get("s", 0) == 0 and v in available(s["av"], 3):
+        acts.append({"act": "produce", "name": v, "qty": 1, "q": 3})
+        logs.append("t=%d jev VEH %s (conf %.2f)"
+                    % (s["t"], v, (ans.get("veh") or {}).get("confidence", -1)))
+    # 态势裁决: ≥0.45 采信（低置信保持原态势防摇摆）
+    st_raw = ans.get("stance") or {}
+    if st_raw.get("choice") and st_raw.get("confidence", 0) >= CONF["stance"]:
+        if st_raw["choice"] != stance:
+            logs.append("t=%d jev STANCE %s->%s (conf %.2f)"
+                        % (s["t"], stance, st_raw["choice"], st_raw.get("confidence", -1)))
+        stance = st_raw["choice"]
+    # 威胁概率强制回防
+    th = (ans.get("threat") or {})
+    th = th.get("noul", th.get("probability", 0)) if isinstance(th, dict) else 0
+    if isinstance(th, (int, float)) and th > THREAT_FORCE_DEFEND and stance != "defend":
+        logs.append("t=%d THREAT %.2f -> force defend" % (s["t"], th))
+        stance = "defend"
+    return stance, acts, logs

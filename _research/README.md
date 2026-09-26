@@ -25,7 +25,9 @@
 
 ## 二、复现 / 刷新流程（照抄即可）
 
-> 前提：本机只能访问国内站点；用 miniconda python（`C:/Users/15652/miniconda3/python.exe`），需要 `requests`。
+> 前提：本机只能访问国内站点。Python 统一走项目 uv 环境：repo 根 `uv sync --all-groups`
+> 之后，任意目录 `uv run python ...`（research 依赖组自带 requests）；miniconda python
+> （`C:/Users/15652/miniconda3/python.exe`）作后备。
 > 游戏版本变化后（首页可见，如 v0.87.0-r79e73e7）按此流程整体刷新。
 
 ```bash
@@ -37,21 +39,21 @@ curl -s -A "Mozilla/5.0" -o ra2.csf   https://game.gongheguozhihui.com/res/overl
 #    app.js / art.ini / version.json / config.json 同站（具体路径看首页 <script src>）
 
 # 2) 中文名表
-python decode_csf.py                 # ra2.csf -> csf_decoded.json（4523 条）
-python decode_csf.py --compare       # 与现有文件比对（自检）
+uv run python decode_csf.py                 # ra2.csf -> csf_decoded.json（4523 条）
+uv run python decode_csf.py --compare       # 与现有文件比对（自检）
 
 # 3) 数值提取表
-python extract_rules.py && python extract2.py      # -> rules_extract.md / rules_extract2.md
+uv run python extract_rules.py && uv run python extract2.py   # -> rules_extract.md / rules_extract2.md
 
 # 4) 机器可读表（写入 ../knowledge/RA2-UNITS.json；重生成应与归档逐字节一致）
-python gen_json.py
+uv run python gen_json.py
 
 # 5) 对账校验（56 项：单位/武器/建筑/弹头倍率/全局参数）
-python verify.py
+uv run python verify.py
 
 # 6) 战术抓取（可选，media 站点结构可能变）
-python web.py search "红警2 苏军 战术"      # 搜索（Bing RSS 通道）
-python fetch_pages.py                       # 按清单抓文章 -> pages/
+uv run python web.py search "红警2 苏军 战术"      # 搜索（Bing RSS 通道）
+uv run python fetch_pages.py                       # 按清单抓文章 -> pages/
 ```
 
 ## 三、本目录独有的坑（血泪）
@@ -112,6 +114,7 @@ python fetch_pages.py                       # 按清单抓文章 -> pages/
 | 2026-09-26 | `decode_csf.py` 重写并全量复验 | 4523/4523 覆盖；非空 4519（旧版 3315）；1204 条差异全为 `WRTS` 语音条目 |
 | 2026-09-26 | `gen_json.py` 重生成 `RA2-UNITS.json` | 与归档**逐字节一致**（管道可复现） |
 | 2026-09-26 | 路径适配 | `gen_json.py` / `verify.py` 已适配"repo 根 + knowledge/"布局 |
+| 2026-09-26 | `decode_csf.py --compare` NameError 修复（`v` 未定义，自检模式此前从未跑通） | 修复后比对：4523 共同键全部一致 |
 
 ## 六、与其它目录的关系
 
