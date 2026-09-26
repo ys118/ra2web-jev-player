@@ -1,9 +1,15 @@
 # -*- coding: utf-8 -*-
-"""对账: 文档关键数值 vs rules.ini 生成的 RA2-UNITS.json / 原始 ini。"""
+"""对账: 文档关键数值 vs rules.ini 生成的 RA2-UNITS.json / 原始 ini。
+
+RA2-UNITS.json 位置：优先 repo 根的 knowledge/（归档布局），其次 repo 根。
+"""
 import json, io, os, re, collections
 
 B = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-data = json.load(io.open(os.path.join(B, "RA2-UNITS.json"), encoding="utf-8"))
+_cand = [os.path.join(B, "knowledge", "RA2-UNITS.json"), os.path.join(B, "RA2-UNITS.json")]
+_path = next((p for p in _cand if os.path.exists(p)), _cand[0])
+data = json.load(io.open(_path, encoding="utf-8"))
+print("对账数据源:", _path)
 G = data["groups"]; W = data["warheads"]; GEN = data["general"]
 
 def u(code):
@@ -54,7 +60,7 @@ ck("作战实验室 造价/电力", (u("NATECH")["cost"], u("NATECH")["power"]),
 ck("磁暴线圈 造价/血/电力", (u("TESLA")["cost"], u("TESLA")["hp"], u("TESLA")["power"]), (1500, 600, -75))
 ck("防空炮 造价/血/电力", (u("NAFLAK")["cost"], u("NAFLAK")["hp"], u("NAFLAK")["power"]), (1000, 900, -50))
 ck("哨戒炮 造价/血", (u("NALASR")["cost"], u("NALASR")["hp"]), (500, 400))
-ck("哨戒炮 无耗电字段", "power" in (u("NALASR") or {}), False)
+ck("哨戒炮 不耗电(power=0)", (u("NALASR") or {}).get("power"), 0)
 ck("巨炮 造价/电力", (u("GTGCAN")["cost"], u("GTGCAN")["power"]), (2000, -200))
 ck("巨炮 射程/伤害", (u("GTGCAN")["primary"]["range"], u("GTGCAN")["primary"]["damage"]), (15, 150))
 ck("线圈 伤害/射程", (u("TESLA")["primary"]["damage"], u("TESLA")["primary"]["range"]), (200, 7))

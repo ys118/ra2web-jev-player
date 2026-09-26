@@ -33,11 +33,11 @@ window.werhdJev = await attachJevPlayer(window.werhd)
 |---|---|
 | `bridge/bridge.py` | **本机桥接**：向页面服务官方玩家模块（`/player.mjs`）、把候选组转发 TypeSafe jev（`/decide`）、事件审计（`/event`、SSE `/events`）、看板与统计 |
 | `legacy-bot/bot.py` | 前 20 局使用的自研 Python 主循环（"状态→jev→执行"快循环），保留作对照与备份 |
-| `knowledge/` | 攻略三件套：`RA2-BIBLE.md`（全维度攻略+兵法）、`AI-OPERATING-CARD.md`（可执行的压缩操作卡）、`RA2-UNITS.json`（rules.ini 真值：单位/建筑/弹头×护甲矩阵） |
+| `knowledge/` | 攻略三件套 + 用法说明：`RA2-BIBLE.md`（全维度攻略+兵法）、`AI-OPERATING-CARD.md`（可执行的压缩操作卡，可直接当系统提示词）、`RA2-UNITS.json`（rules.ini 真值：单位/建筑/弹头×护甲矩阵）；`README.md` 讲清楚三者的分工、出处与**版本绑定关系** |
 | `refs/` | 游戏官方资料（从 `D:/projects/ra2web.github.io/docs` 复制）：`player-console-api.md`（werhd 完整 API）、`jev-player-local.md`（官方 Jev 玩家接入规格与实测）、`examples/`（官方玩家/策略/特殊行动/看板源码） |
 | `docs/` | `SESSION-REPORT.md` 二十局进化史 · `METHODOLOGY.md` 方法论 · `ENGINEERING-NOTES.md` 引擎/环境坑总集 · `JEV-INTEGRATION.md` Jev 接入与参数迭代 · `MEMORY-NOTES.md` 长期记忆快照 |
 | `logs/` | `bot.log`（自研 bot 决策日志）、`bridge.log`、`jev-events.jsonl`（逐决策审计）、`screenshots/`（全部过程截图证据） |
-| `_research/` | 数值真值源：`rules.ini` 提取表、`csf_decoded.json`（代号→中文名）、社区攻略原文 |
+| `_research/` | 数值真值源与可复现流水线：`rules.ini` / `ra2.csf`、提取表、`decode_csf.py`（代号→中文名）、`gen_json.py`（生成 RA2-UNITS.json）、`verify.py`（56 项对账）、社区攻略原文（`pages/` 43 篇）；**复现/刷新照 `_research/README.md` 抄** |
 
 ## 架构
 
