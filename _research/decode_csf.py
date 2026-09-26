@@ -109,7 +109,7 @@ def main():
     if compare and os.path.exists(dst):
         old = json.load(io.open(dst, encoding="utf-8"))
         same = sum(1 for k, v in data.items() if old.get(k) == v)
-        diff = [(k, old.get(k), data.get(k)) for k in list(data)[:2000] if k in old and old[k] != v]
+        diff = [(k, old.get(k), data.get(k)) for k in list(data)[:2000] if k in old and old[k] != data.get(k)]
         print("对比现有文件: 共同键 %d, 完全一致 %d, 不一致 %d" % (
             len(set(data) & set(old)), same, len(diff)))
         for k, a, b in diff[:10]:

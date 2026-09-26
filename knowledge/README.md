@@ -17,7 +17,7 @@
 
 - **数值**：游戏客户端原文件 `rules.ini` + `ra2.csf`（抓取于 **2026-09-20**，客户端 **v0.87.0-r79e73e7**，`mod id = gonghui`）。中文名由 CSF 解码得到。
 - **战术**：社区攻略 43 篇（红警之家 uc129 / 游侠 / 贴吧 / 萌娘百科），原文在 `../_research/pages/`。
-- **工程约束**：自研直调 werhd 的 20 局实战复盘（`../legacy-bot/`、`../docs/SESSION-REPORT.md`、`../docs/ENGINEERING-NOTES.md`）。
+- **工程约束**：自研直调 werhd 的 20 局实战复盘（`../src/ra2web_jev_player/legacy_bot.py`、`../docs/SESSION-REPORT.md`、`../docs/ENGINEERING-NOTES.md`）。
 
 ⚠️ **数值与版本绑定**：游戏更新后（首页可看版本号）须按 `../_research/README.md` 的流程重抓重生成，再跑 `verify.py` 对账。
 

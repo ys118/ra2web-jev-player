@@ -1,0 +1,24 @@
+[project]
+name = "ra2web-jev-player"
+version = "0.1.0"
+description = "网页版红警2《王二火大/Chrono Divide》的 Jev 自动对战玩家：页内官方玩家 + 本机桥接 + TypeSafe Jev 决策"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+ra2web-jev-play = "ra2web_jev_player.cli:main_play"
+ra2web-jev-launch = "ra2web_jev_player.cli:main_launch"
+ra2web-jev-attach = "ra2web_jev_player.cli:main_attach"
+
+[dependency-groups]
+# _research/ 抓取脚本（web.py / fetch_pages.py 等）使用；bridge 与 legacy_bot 仅用标准库
+research = ["requests>=2.31"]
+
+[build-system]
+requires = ["uv_build>=0.12,<0.14"]
+build-backend = "uv_build"
+
+# uv 缓存(C:)与项目(D:)跨盘，硬链接不可用；固定 copy 模式免警告
+[tool.uv]
+link-mode = "copy"

@@ -75,16 +75,41 @@ secondaryWeapon/ammo(己方飞机)/transport(载员)/garrison(驻扎)/hasWrenchR
 ## 四、Windows 自动化进程的坑（agent-browser / subprocess）
 
 1. **`.cmd` shim 的 argv 切割**：`agent-browser.cmd` 经 cmd.exe 转发，多行/复杂引号的 JS 参数会被切碎。
-   → **base64 单行传输**：`eval(atob('<b64>'))`。
+   → **base64 传输**：`eval -b <base64>`（agent-browser 官方推荐）；>8KB 的整份脚本
+   （如 client.js 注入）超 cmd.exe 8191 字符 argv 上限 → **`eval --stdin`**（Popen stdin=PIPE）。
 2. **继承 stdin 导致永久挂死**：`Popen` 未设 `stdin=DEVNULL` 时，cmd.exe 解析含括号的参数会等 stdin → 永不返回。
-   → 一律 `stdin=subprocess.DEVNULL`。
+   → 一律 `stdin=subprocess.DEVNULL`（eval --stdin 例外：显式 PIPE+communicate）。
 3. **subprocess 超时杀不干净**：Windows 下孙进程持有管道会让 `subprocess.run(timeout=)` 永久卡死。
-   → 用 `Popen + communicate(timeout)`，超时后 `taskkill /PID <pid> /T /F` 连树强杀。
+   → 用 `Popen + communicate(timeout)`，超时后 `taskkill /PID <pid> /T /F` 连树强杀
+   （daemon 不在 CLI 子树里，杀 CLI 不会误伤已起的浏览器）。
 4. **bytes/str 混拼**：Popen+communicate 返回 bytes，拼接时须 `.decode()`（曾让 bot 每 tick 报错空转）。
 5. **中文编码**：Git Bash 发出的命令行参数可能按 GBK 编码 → 服务端 UTF-8 解码失败（0xcf）。
    → 服务端解码降级链 utf-8 → gbk → replace；测试用 `--data-binary @file`。
 6. **TypeSafe 返回 gzip**：urllib 不自动解压 → 加 `Accept-Encoding: identity` + gzip magic 兜底解压。
 7. **本机调试杀进程**：只杀自己拉起的（`CommandLine -like '*agent-browser*'`），绝不盲杀用户 Chrome。
+
+## 四点五、agent-browser eval/导航契约（2026-09-26 自包含重构实测）
+
+1. **eval 返回值一律 JSON 编码**：CLI 打印 `JSON.stringify(表达式值)`——字符串带引号、
+   对象是 JSON 文本。Python 侧统一 `json.loads` 一次还原；**JS 里不要再包
+   JSON.stringify**（会双重编码，isinstance(list) 判空这类静默 bug 极难查）。
+2. **`open <url>` / 赋值 location.href 会卡死**：CLI 等 window load 事件，新 profile 下
+   被墙的第三方资源把 load 卡到外网超时（实测 2 分钟+ 不返回）。
+   → 导航用 `eval("setTimeout(()=>{location.href=...},50)")` + 自轮询 readyState
+   （接受 interactive/complete）；同 URL 默认跳过，force=True 强制重载。
+3. **eval 触发导航会落在不同页面**：导航竞态下注入的几个 eval 可能分别命中旧页/新页
+   → 注入后必须验证 `typeof window.__rj`，失败重试（inject.py 已做）。
+4. **页面 setTimeout 默认被节流**（headless 后台页 ~1s/次）：微操 150ms 循环必须带
+   启动参数 `--disable-background-timer-throttling,--disable-backgrounding-occluded-windows`
+   （AGENT_BROWSER_ARGS；只在浏览器冷启动生效，改后需 `agent-browser close`）。
+5. **游戏 UI 滑条（设置屏）**：`input[type=range]` 真节点但 (a) 游戏在 input 事件后
+   **重渲染节点**——每步必须重新查询；(b) 不能用 `HTMLInputElement.prototype` 的 value
+   描述符 setter（Illegal invocation，brand 跨环境）——朴素 `s.value=v` 走元素自身原型链
+   永远合法，再补方向键逐档校准。
+6. **菜单点击在 SPA 初始化期会只 hover 不生效**：点击后必须断言下一屏文本出现，否则重试。
+7. **resign() 会弹 canvas 确认框**（DOM/a11y 树不可见）→ 弃局唯一可靠方式是刷新页面。
+8. **session 管理**：`--session <名>` 隔离；`--restore` 持久化 cookie/localStorage；
+   `--idle-timeout 0` 防 1h 空闲自动关浏览器（长局必需）。
 
 ## 五、本游戏 mod 的专属事实（共和国之辉体系）
 
@@ -97,5 +122,5 @@ secondaryWeapon/ammo(己方飞机)/transport(载员)/garrison(驻扎)/hasWrenchR
 ## 六、本机环境速查
 
 - `agent-browser`（Rust CLI，自带 Chrome for Testing）。技能入口 `agent-browser skills get core`。
-- Python 环境：`/c/Users/15652/miniconda3/python.exe`（默认 `python` 是 hermes venv，无 PIL 等依赖）。
+- Python 环境（2026-09-26 起）：项目统一 **uv**——repo 根 `uv sync` 后用 `uv run <命令>`（uv 自管 CPython 3.12.10，venv 在 `.venv/`，`.python-version` 已固定）。后备：`/c/Users/15652/miniconda3/python.exe`；裸 `python` 是 hermes venv（3.11，缺依赖），别用于本项目。
 - TypeSafe 判定 CLI：`python C:/Users/15652/.agents/bin/tsj.py`（stdin 传 `{state, questions}`，criteria 形状见 `docs/JEV-INTEGRATION.md`）。

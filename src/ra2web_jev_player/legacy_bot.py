@@ -2,11 +2,15 @@
 """王二火大(Chrono Divide) jev 自动对战驱动 v2 —— 攻略驱动版
 知识来源: RA2-BIBLE.md / AI-OPERATING-CARD.md / RA2-UNITS.json (rules.ini 真值)
 loop: eval拉状态 -> 确定性规则(兵法清单§10.1) -> jev语义决策 -> werhd原始order执行
+历史: 第 1-20 局的主循环（原 legacy-bot/bot.py），官方体系上线后保留作对照，见 docs/SESSION-REPORT.md
+运行: uv run python -m ra2web_jev_player.legacy_bot
 """
 import json, subprocess, time, sys, os, base64, math
 
-WS = "D:/projects/ra2web-jev-player/logs"
-TSJ = "C:/Users/15652/.agents/bin/tsj.py"
+from .paths import LOG_DIR, KNOWLEDGE_DIR
+
+WS = str(LOG_DIR)
+TSJ = os.environ.get("TSJ_SCRIPT", "C:/Users/15652/.agents/bin/tsj.py")
 AB = ["C:/Program Files/nodejs/agent-browser.cmd", "--session", "gonghui"]
 LOG = open(os.path.join(WS, "bot.log"), "a", buffering=1, encoding="utf-8")
 
@@ -56,7 +60,7 @@ def tsj(state, questions, timeout=40):
 
 # ================= 知识库: RA2-UNITS.json =================
 try:
-    _UDB_RAW = json.load(open(os.path.join(WS, "RA2-UNITS.json"), encoding="utf-8"))
+    _UDB_RAW = json.load(open(os.path.join(KNOWLEDGE_DIR, "RA2-UNITS.json"), encoding="utf-8"))
 except Exception as e:
     log("UNITS.json load fail: %s" % e); _UDB_RAW = {"groups": {}}
 UDB = {}
