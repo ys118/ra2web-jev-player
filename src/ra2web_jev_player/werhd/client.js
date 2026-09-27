@@ -12,6 +12,7 @@
     microMs: 150,             // 微操循环间隔
     stallSeconds: 30,         // 游戏时间冻结多少真实秒判停摆
     focusRadius: 10,          // 集火搜索半径(格)
+    engageRadius: 18,         // 空闲单位就近接敌半径(格)——射程外也压上去
     focusPerLoop: 16,         // 单轮最多扫描的己方单位数(控 150ms 预算)
     unitCdTicks: 18,          // per-unit 指令冷却(模拟拍, 官方同值)
     pairSeconds: 6,           // 同一"单位→目标"对的重发节流(秒)
@@ -179,9 +180,10 @@
     return r ? !!r.harvester : /HARV|CMIN/i.test(u.name);
   }
   function combatUnits() {
-    // 可机动战斗单位: 载具/步兵/飞机, 排除矿车
+    // 可机动战斗单位: 载具/步兵/飞机, 排除矿车与基地车(基地车追敌=自杀)
     return W.units('self').filter((u) =>
-      (u.type === 7 || u.type === 3 || u.type === 1) && !isHarvester(u));
+      (u.type === 7 || u.type === 3 || u.type === 1)
+      && !isHarvester(u) && !/^(SMCV|AMCV)$/.test(u.name));
   }
   function enemyScore(e, d) {
     let s = 30;
@@ -205,8 +207,10 @@
     for (const u of slice) {
       const ut = [u.tile.rx, u.tile.ry];
       let best = null, bestS = -Infinity;
+      let near = null, nearD = Infinity;
       for (const e of enemies) {
         const d = dist2(ut, [e.tile.rx, e.tile.ry]);
+        if (d < nearD) { nearD = d; near = e; }        // 最近敌(无论射程)
         if (d > CFG.focusRadius) continue;
         let inR = false;
         try { inR = W.inRange(u.id, e.id, 'current'); } catch (err) { inR = false; }
@@ -214,7 +218,15 @@
         const s = enemyScore(e, d);
         if (s > bestS) { bestS = s; best = e; }
       }
-      if (!best) continue;
+      if (!best) {
+        // 就近接敌(第26局迭代): 空闲单位向 18 格内最近敌人攻击移动——
+        // 原先只在武器射程内开火, 敌人离 8-15 格时单位永远站桩(用户实测观察)
+        if (u.isIdle && near && nearD <= CFG.engageRadius
+            && !throttled('eng:' + u.id, 8)) {
+          try { W.order([u.id], 4, near.tile.rx, near.tile.ry); } catch (e) {}
+        }
+        continue;
+      }
       const prev = st.unitTarget.get(u.id);
       if (prev === best.id && !u.isIdle) continue;          // 已在打正确目标
       st.unitTarget.set(u.id, best.id);

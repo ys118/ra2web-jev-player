@@ -10,6 +10,7 @@ dependencies = []
 ra2web-jev-play = "ra2web_jev_player.cli:main_play"
 ra2web-jev-launch = "ra2web_jev_player.cli:main_launch"
 ra2web-jev-attach = "ra2web_jev_player.cli:main_attach"
+ra2web-jev-review = "ra2web_jev_player.cli:main_review"
 
 [dependency-groups]
 # _research/ 抓取脚本（web.py / fetch_pages.py 等）使用；bridge 与 legacy_bot 仅用标准库

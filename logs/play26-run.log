@@ -1,0 +1,495 @@
+[22:03:46] 进局中(全自动)...
+[22:04:10] {"kind": "start", "policy": "ra2web-jev-player/1.0", "maxDecisions": 600, "micro": {"events": [{"kind": "micro", "t": 0, "what": "start"}], "loopN": 1, "on": true, "outcome": null, "stall": false}, "ts": "22:04:10"}
+[22:04:10] === ra2web-jev-player start (tick=1.5s, max_decisions=600) ===
+[22:04:11] t=0 DEPLOY mcv
+[22:04:11] {"kind": "action", "what": "deploy", "ids": [1042], "ts": "22:04:11"}
+[22:04:11] {"kind": "action", "what": "deploy", "name": null, "qty": null, "ts": "22:04:11"}
+[22:04:12] t=2 DEPLOY mcv
+[22:04:12] {"kind": "action", "what": "deploy", "ids": [1042], "ts": "22:04:12"}
+[22:04:12] {"kind": "action", "what": "deploy", "name": null, "qty": null, "ts": "22:04:12"}
+[22:04:14] t=3 POWER plant (reserve 0)
+[22:04:14] {"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "ts": "22:04:14"}
+[22:04:16] t=5 jev STANCE defend->develop (conf 0.80)
+[22:04:42] t=32 OPENING BUILD NAREFN
+[22:04:42] {"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "ts": "22:04:42"}
+[22:04:47] t=36 tick#25 credits=9293 stance=develop | jev 24 decisions p50=865ms
+[22:05:26] t=75 tick#50 credits=8372 stance=develop | jev 49 decisions p50=865ms
+[22:06:04] t=113 tick#75 credits=7449 stance=develop | jev 74 decisions p50=840ms
+[22:06:09] t=119 OPENING BUILD NAHAND
+[22:06:09] {"kind": "action", "what": "produce", "name": "NAHAND", "qty": 1, "ts": "22:06:09"}
+[22:06:33] t=143 DEFLINE NALASR (have 0)
+[22:06:33] {"kind": "action", "what": "produce", "name": "NALASR", "qty": 1, "ts": "22:06:33"}
+[22:06:33] t=143 OPENING BUILD NAWEAP
+[22:06:33] {"kind": "action", "what": "produce", "name": "NAWEAP", "qty": 1, "ts": "22:06:33"}
+[22:06:34] t=143 jev INF DOG (conf 0.31)
+[22:06:34] {"kind": "action", "what": "produce", "name": "DOG", "qty": 1, "ts": "22:06:34"}
+[22:06:42] t=151 tick#100 credits=6332 stance=develop | jev 99 decisions p50=840ms
+[22:06:43] t=152 jev INF DOG (conf 0.32)
+[22:06:43] {"kind": "action", "what": "produce", "name": "DOG", "qty": 1, "ts": "22:06:43"}
+[22:06:53] t=161 jev INF DOG (conf 0.34)
+[22:06:53] {"kind": "action", "what": "produce", "name": "DOG", "qty": 1, "ts": "22:06:53"}
+[22:06:58] t=167 DEFLINE NALASR (have 1)
+[22:06:58] {"kind": "action", "what": "produce", "name": "NALASR", "qty": 1, "ts": "22:06:58"}
+[22:07:02] t=170 jev INF DOG (conf 0.33)
+[22:07:02] {"kind": "action", "what": "produce", "name": "DOG", "qty": 1, "ts": "22:07:02"}
+[22:07:11] t=180 jev INF E2 (conf 0.34)
+[22:07:11] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:07:11"}
+[22:07:16] t=185 jev INF E2 (conf 0.33)
+[22:07:16] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:07:16"}
+[22:07:20] t=189 tick#125 credits=3813 stance=develop | jev 124 decisions p50=841ms
+[22:07:22] t=191 jev INF E2 (conf 0.35)
+[22:07:22] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:07:22"}
+[22:07:22] t=192 DEFLINE NALASR (have 2)
+[22:07:22] {"kind": "action", "what": "produce", "name": "NALASR", "qty": 1, "ts": "22:07:22"}
+[22:07:26] t=195 jev INF E2 (conf 0.31)
+[22:07:26] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:07:26"}
+[22:07:31] t=200 jev INF E2 (conf 0.41)
+[22:07:31] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:07:31"}
+[22:07:35] t=204 jev INF E2 (conf 0.38)
+[22:07:35] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:07:35"}
+[22:07:39] t=209 ALARM 敌军逼近 -> counter 10 vs 1 -> [80, 115]
+[22:07:39] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:07:39"}
+[22:07:47] t=216 jev INF E2 (conf 0.50)
+[22:07:47] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:07:47"}
+[22:07:52] t=221 jev INF E2 (conf 0.50)
+[22:07:52] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:07:52"}
+[22:07:57] t=226 jev INF E2 (conf 0.59)
+[22:07:57] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:07:57"}
+[22:07:58] t=227 tick#150 credits=1867 stance=defend | jev 144 decisions p50=832ms
+[22:08:00] t=230 ECON harv#2
+[22:08:00] {"kind": "action", "what": "produce", "name": "HARV", "qty": 1, "ts": "22:08:00"}
+[22:08:00] t=230 OPENING BUILD NAREFN
+[22:08:00] {"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "ts": "22:08:00"}
+[22:08:02] t=232 INSURE AA building
+[22:08:02] {"kind": "action", "what": "produce", "name": "NAFLAK", "qty": 1, "ts": "22:08:02"}
+[22:08:02] t=232 jev INF E2 (conf 0.40)
+[22:08:03] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:08:03"}
+[22:08:09] t=238 jev INF E2 (conf 0.38)
+[22:08:09] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:08:09"}
+[22:08:14] t=244 jev INF E2 (conf 0.34)
+[22:08:15] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:08:15"}
+[22:08:21] t=250 jev INF E2 (conf 0.47)
+[22:08:21] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:08:21"}
+[22:08:27] t=256 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:08:28] t=257 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:08:29] t=259 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:08:31] t=260 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:08:32] t=262 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:08:34] t=263 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:08:36] t=265 tick#175 credits=53 stance=defend | jev 169 decisions p50=831ms
+[22:09:14] t=303 tick#200 credits=0 stance=defend | jev 194 decisions p50=831ms
+[22:09:52] t=341 tick#225 credits=0 stance=defend | jev 219 decisions p50=830ms
+[22:09:53] t=342 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:09:55] t=344 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:09:56] t=345 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:09:57] t=347 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:09:59] t=348 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:10:00] t=350 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:10:02] t=351 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:10:03] t=353 ALARM 敌军逼近 -> counter 17 vs 4 -> [86, 110]
+[22:10:03] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:10:03"}
+[22:10:07] t=357 RETREAT DOG(7%)
+[22:10:07] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:10:07"}
+[22:10:12] t=362 jev INF DOG (conf 0.43)
+[22:10:12] {"kind": "action", "what": "produce", "name": "DOG", "qty": 1, "ts": "22:10:12"}
+[22:10:13] t=363 ALARM 单位损失 -> counter 14 vs 3 -> [70, 117]
+[22:10:13] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:10:13"}
+[22:10:15] t=365 RETREAT DOG(37%)
+[22:10:15] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:10:15"}
+[22:10:16] t=366 RETREAT DOG(6%)
+[22:10:16] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:10:16"}
+[22:10:29] t=378 tick#250 credits=0 stance=defend | jev 236 decisions p50=830ms
+[22:11:07] t=416 tick#275 credits=0 stance=defend | jev 261 decisions p50=828ms
+[22:11:43] t=452 jev VEH HTK (conf 0.26)
+[22:11:43] {"kind": "action", "what": "produce", "name": "HTK", "qty": 1, "ts": "22:11:43"}
+[22:11:44] t=454 tick#300 credits=790 stance=defend | jev 286 decisions p50=828ms
+[22:11:48] t=457 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:11:49] t=458 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:11:51] t=460 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:11:52] t=461 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:11:54] t=463 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:11:55] t=464 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:11:58] t=467 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:12:24] t=493 tick#325 credits=0 stance=defend | jev 311 decisions p50=828ms
+[22:13:02] t=531 tick#350 credits=0 stance=defend | jev 336 decisions p50=829ms
+[22:13:29] t=558 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:13:31] t=560 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:13:32] t=561 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:13:33] t=563 SCOUT #1163->[130, 83] (visit 1)
+[22:13:33] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:13:33"}
+[22:13:34] t=563 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:13:34] t=563 jev VEH HTK (conf 0.49)
+[22:13:34] {"kind": "action", "what": "produce", "name": "HTK", "qty": 1, "ts": "22:13:34"}
+[22:13:35] t=564 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:13:35] t=564 jev VEH HTK (conf 0.50)
+[22:13:35] {"kind": "action", "what": "produce", "name": "HTK", "qty": 1, "ts": "22:13:35"}
+[22:13:37] t=566 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:13:38] t=567 jev INF E2 (conf 0.38)
+[22:13:38] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "22:13:38"}
+[22:13:39] t=569 POWER plant (reserve -35)
+[22:13:39] {"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "ts": "22:13:39"}
+[22:13:41] t=569 tick#375 credits=1835 stance=defend | jev 361 decisions p50=828ms
+[22:14:02] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:14:24] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:14:24] t=614 ENEMY BASE spotted @[134, 79]
+[22:14:45] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:14:45] t=614 MOVE defend-rally@(73, 120)(1)
+[22:14:45] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:14:45"}
+[22:14:45] t=635 ALARM 单位损失 -> TURTLE (17 v 16, 守塔阵不打野战)
+[22:14:45] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:14:45"}
+[22:15:08] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:15:08] t=637 MOVE defend-rally@(73, 120)(2)
+[22:15:08] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:15:08"}
+[22:15:08] t=658 RETREAT DOG(7%)
+[22:15:08] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:15:08"}
+[22:15:29] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:15:29] t=658 MOVE defend-rally@(73, 120)(2)
+[22:15:29] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:15:29"}
+[22:15:30] t=680 ALARM 单位损失 -> TURTLE (17 v 19, 守塔阵不打野战)
+[22:15:30] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:15:30"}
+[22:15:30] t=680 TANK HTNK x1
+[22:15:30] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 1, "ts": "22:15:30"}
+[22:15:39] t=689 ALARM 敌军逼近 -> TURTLE (17 v 19, 守塔阵不打野战)
+[22:15:39] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:15:39"}
+[22:15:48] t=698 ALARM 哨戒炮被攻击 -> TURTLE (17 v 20, 守塔阵不打野战)
+[22:15:48] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:15:48"}
+[22:15:57] t=707 ALARM 敌军逼近 -> TURTLE (17 v 20, 守塔阵不打野战)
+[22:15:57] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:15:57"}
+[22:15:57] t=707 tick#400 credits=1833 stance=defend | jev 361 decisions p50=828ms
+[22:16:06] t=716 ALARM 哨戒炮被攻击 -> TURTLE (17 v 20, 守塔阵不打野战)
+[22:16:06] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:16:06"}
+[22:16:07] t=717 TANK HTNK x3
+[22:16:07] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 3, "ts": "22:16:07"}
+[22:16:09] t=719 DEFLINE NALASR (have 2)
+[22:16:09] {"kind": "action", "what": "produce", "name": "NALASR", "qty": 1, "ts": "22:16:09"}
+[22:16:15] t=725 ALARM 敌军逼近 -> TURTLE (17 v 19, 守塔阵不打野战)
+[22:16:15] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:16:15"}
+[22:16:15] t=725 RETREAT HTNK(24%)
+[22:16:15] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:16:15"}
+[22:16:24] t=734 ALARM 敌军逼近 -> TURTLE (17 v 19, 守塔阵不打野战)
+[22:16:24] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:16:24"}
+[22:16:25] t=735 RETREAT E2(32%)
+[22:16:25] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:16:25"}
+[22:16:33] t=743 ALARM 苏联战车工厂被攻击 -> TURTLE (16 v 17, 守塔阵不打野战)
+[22:16:33] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:16:33"}
+[22:16:34] t=744 tick#425 credits=1544 stance=defend | jev 361 decisions p50=828ms
+[22:16:42] t=752 ALARM 敌军逼近 -> TURTLE (16 v 18, 守塔阵不打野战)
+[22:16:42] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:16:42"}
+[22:16:51] t=761 ALARM 敌军逼近 -> TURTLE (17 v 19, 守塔阵不打野战)
+[22:16:51] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:16:51"}
+[22:17:00] t=770 ALARM 敌军逼近 -> TURTLE (17 v 17, 守塔阵不打野战)
+[22:17:00] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:17:00"}
+[22:17:03] t=773 RETREAT HTNK(35%)
+[22:17:03] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:17:03"}
+[22:17:09] t=779 ALARM 苏联矿石精炼场被攻击 -> TURTLE (16 v 16, 守塔阵不打野战)
+[22:17:09] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:17:09"}
+[22:17:12] t=782 tick#450 credits=529 stance=defend | jev 361 decisions p50=828ms
+[22:17:18] t=788 ALARM 敌军逼近 -> TURTLE (15 v 16, 守塔阵不打野战)
+[22:17:18] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:17:18"}
+[22:17:18] t=788 RETREAT DOG(5%)
+[22:17:18] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:17:18"}
+[22:17:27] t=797 ALARM 敌军逼近 -> TURTLE (16 v 16, 守塔阵不打野战)
+[22:17:27] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:17:27"}
+[22:17:33] t=803 RETREAT HTNK(35%)
+[22:17:33] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:17:33"}
+[22:17:36] t=806 ALARM 苏联战车工厂被攻击 -> TURTLE (15 v 16, 守塔阵不打野战)
+[22:17:36] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:17:36"}
+[22:17:45] t=815 ALARM 苏联矿石精炼场被攻击 -> TURTLE (15 v 15, 守塔阵不打野战)
+[22:17:45] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:17:45"}
+[22:17:49] t=819 OPENING BUILD NAREFN
+[22:17:49] {"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "ts": "22:17:49"}
+[22:17:49] t=819 tick#475 credits=0 stance=defend | jev 361 decisions p50=828ms
+[22:17:54] t=824 ALARM 苏联战车工厂被攻击 -> TURTLE (15 v 14, 守塔阵不打野战)
+[22:17:54] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:17:54"}
+[22:18:00] t=830 RETREAT E2(37%)
+[22:18:00] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:18:00"}
+[22:18:03] t=833 ALARM 苏联建造场被攻击 -> counter 17 vs 14 -> [70, 117]
+[22:18:03] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:18:03"}
+[22:18:03] t=833 RETREAT E2(27%)
+[22:18:03] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:18:03"}
+[22:18:12] t=842 ALARM 苏联矿石精炼场被攻击 -> TURTLE (15 v 13, 守塔阵不打野战)
+[22:18:12] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:18:12"}
+[22:18:21] t=851 ALARM 单位损失 -> counter 14 vs 11 -> [70, 117]
+[22:18:21] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:18:21"}
+[22:18:22] t=852 RETREAT E2(37%)
+[22:18:22] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:18:22"}
+[22:18:24] t=854 RETREAT E2(37%)
+[22:18:24] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:18:24"}
+[22:18:27] t=857 tick#500 credits=1882 stance=defend | jev 361 decisions p50=828ms
+[22:18:30] t=860 ALARM 敌军逼近 -> TURTLE (12 v 11, 守塔阵不打野战)
+[22:18:30] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:18:30"}
+[22:18:33] t=863 RETREAT HTK(22%)
+[22:18:33] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:18:33"}
+[22:18:39] t=869 ALARM 苏联矿石精炼场被攻击 -> TURTLE (11 v 14, 守塔阵不打野战)
+[22:18:39] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:18:39"}
+[22:18:39] t=869 AIR-DEFENSE 2nd AA
+[22:18:39] {"kind": "action", "what": "produce", "name": "NAFLAK", "qty": 1, "ts": "22:18:39"}
+[22:18:48] t=878 ALARM 苏联矿石精炼场被攻击 -> TURTLE (11 v 22, 守塔阵不打野战)
+[22:18:48] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:18:48"}
+[22:19:11] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:19:33] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:19:33] t=923 ALARM 敌军逼近 -> TURTLE (11 v 20, 守塔阵不打野战)
+[22:19:33] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:19:33"}
+[22:19:33] t=923 OPENING BUILD NAWEAP
+[22:19:33] {"kind": "action", "what": "produce", "name": "NAWEAP", "qty": 1, "ts": "22:19:33"}
+[22:19:42] t=932 ALARM 敌军逼近 -> TURTLE (11 v 20, 守塔阵不打野战)
+[22:19:42] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:19:42"}
+[22:19:45] t=935 tick#525 credits=669 stance=defend | jev 361 decisions p50=828ms
+[22:19:51] t=941 ALARM 敌军逼近 -> TURTLE (11 v 20, 守塔阵不打野战)
+[22:19:51] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:19:51"}
+[22:20:00] t=950 ALARM 苏联矿石精炼场被攻击 -> TURTLE (11 v 20, 守塔阵不打野战)
+[22:20:00] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:20:00"}
+[22:20:09] t=959 ALARM 苏联矿石精炼场被攻击 -> TURTLE (11 v 22, 守塔阵不打野战)
+[22:20:09] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:20:09"}
+[22:20:15] t=965 RETREAT E2(24%)
+[22:20:15] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:20:15"}
+[22:20:18] t=968 ALARM 敌军逼近 -> TURTLE (10 v 22, 守塔阵不打野战)
+[22:20:18] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:20:18"}
+[22:20:22] t=972 tick#550 credits=0 stance=defend | jev 361 decisions p50=828ms
+[22:20:27] t=977 ALARM 敌军逼近 -> TURTLE (10 v 21, 守塔阵不打野战)
+[22:20:27] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:20:27"}
+[22:20:51] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:20:51] t=1001 ALARM 单位损失 -> TURTLE (10 v 17, 守塔阵不打野战)
+[22:20:51] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:20:51"}
+[22:21:14] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:21:14] t=1024 ALARM 苏联矿石精炼场被攻击 -> TURTLE (10 v 18, 守塔阵不打野战)
+[22:21:14] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:21:14"}
+[22:21:23] t=1033 ALARM 敌军逼近 -> TURTLE (10 v 15, 守塔阵不打野战)
+[22:21:23] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:21:23"}
+[22:21:26] t=1036 RETREAT E2(38%)
+[22:21:26] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:21:26"}
+[22:21:32] t=1042 ALARM 苏联矿石精炼场被攻击 -> TURTLE (9 v 14, 守塔阵不打野战)
+[22:21:32] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:21:32"}
+[22:21:40] t=1050 tick#575 credits=3751 stance=defend | jev 361 decisions p50=828ms
+[22:21:41] t=1051 ALARM 敌军逼近 -> TURTLE (9 v 14, 守塔阵不打野战)
+[22:21:41] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:21:41"}
+[22:21:44] t=1054 RETREAT E2(28%)
+[22:21:44] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:21:44"}
+[22:21:50] t=1060 ALARM 敌军逼近 -> TURTLE (8 v 14, 守塔阵不打野战)
+[22:21:50] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:21:50"}
+[22:21:59] t=1069 ALARM 敌军逼近 -> TURTLE (8 v 13, 守塔阵不打野战)
+[22:21:59] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:21:59"}
+[22:22:07] t=1077 ECON harv#3
+[22:22:07] t=1077 TANK HTNK x2
+[22:22:07] {"kind": "action", "what": "produce", "name": "HARV", "qty": 1, "ts": "22:22:07"}
+[22:22:07] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 2, "ts": "22:22:07"}
+[22:22:08] t=1078 ALARM 敌军逼近 -> TURTLE (8 v 12, 守塔阵不打野战)
+[22:22:08] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:22:08"}
+[22:22:17] t=1087 ALARM 敌军逼近 -> TURTLE (8 v 12, 守塔阵不打野战)
+[22:22:17] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:22:17"}
+[22:22:17] t=1087 tick#600 credits=2865 stance=defend | jev 361 decisions p50=828ms
+[22:22:26] t=1096 ALARM 苏联战车工厂被攻击 -> TURTLE (8 v 11, 守塔阵不打野战)
+[22:22:26] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:22:26"}
+[22:22:35] t=1105 ALARM 苏联战车工厂被攻击 -> TURTLE (8 v 11, 守塔阵不打野战)
+[22:22:35] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:22:35"}
+[22:23:01] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:23:22] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:23:44] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:24:05] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:24:05] t=1174 MOVE defend-rally@(73, 120)(1)
+[22:24:05] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:24:05"}
+[22:24:27] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:24:27] t=1195 MOVE defend-rally@(73, 120)(1)
+[22:24:27] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:24:27"}
+[22:24:48] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:24:48] t=1217 MOVE defend-rally@(73, 120)(1)
+[22:24:48] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:24:48"}
+[22:25:09] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:25:09] t=1238 MOVE defend-rally@(73, 120)(1)
+[22:25:10] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:25:10"}
+[22:25:10] t=1260 TANK HTNK x4
+[22:25:10] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 4, "ts": "22:25:10"}
+[22:25:31] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:25:31] t=1260 MOVE defend-rally@(73, 120)(2)
+[22:25:31] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:25:31"}
+[22:25:31] t=1281 ALARM 单位损失 -> TURTLE (8 v 20, 守塔阵不打野战)
+[22:25:31] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:25:31"}
+[22:25:31] t=1281 RETREAT HTNK(13%)
+[22:25:31] t=1281 RETREAT E2(6%)
+[22:25:31] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:25:31"}
+[22:25:31] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:25:31"}
+[22:25:54] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:25:54] t=1283 MOVE defend-rally@(73, 120)(1)
+[22:25:54] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:25:54"}
+[22:25:54] t=1304 ALARM 单位损失 -> TURTLE (8 v 22, 守塔阵不打野战)
+[22:25:54] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:25:54"}
+[22:25:54] t=1304 tick#625 credits=3377 stance=defend | jev 361 decisions p50=828ms
+[22:26:17] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:26:17] t=1306 MOVE defend-rally@(73, 120)(2)
+[22:26:17] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:26:17"}
+[22:26:17] t=1327 ALARM 单位损失 -> TURTLE (8 v 23, 守塔阵不打野战)
+[22:26:17] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:26:17"}
+[22:26:26] t=1336 ALARM 苏联战车工厂被攻击 -> TURTLE (9 v 22, 守塔阵不打野战)
+[22:26:26] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:26:26"}
+[22:26:32] t=1342 RETREAT HTNK(29%)
+[22:26:32] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:26:32"}
+[22:26:35] t=1345 ALARM 苏联战车工厂被攻击 -> TURTLE (8 v 20, 守塔阵不打野战)
+[22:26:35] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:26:35"}
+[22:26:44] t=1354 ALARM 苏联战车工厂被攻击 -> TURTLE (8 v 17, 守塔阵不打野战)
+[22:26:44] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:26:44"}
+[22:26:52] t=1362 tick#650 credits=2204 stance=defend | jev 361 decisions p50=828ms
+[22:26:53] t=1363 ALARM 苏联战车工厂被攻击 -> TURTLE (8 v 17, 守塔阵不打野战)
+[22:26:53] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:26:53"}
+[22:26:55] t=1365 OPENING BUILD NAWEAP
+[22:26:55] {"kind": "action", "what": "produce", "name": "NAWEAP", "qty": 1, "ts": "22:26:55"}
+[22:27:02] t=1372 ALARM 敌军逼近 -> TURTLE (11 v 17, 守塔阵不打野战)
+[22:27:02] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:27:02"}
+[22:27:02] t=1372 RETREAT E2(37%)
+[22:27:02] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:27:02"}
+[22:27:11] t=1381 ALARM 敌军逼近 -> TURTLE (11 v 15, 守塔阵不打野战)
+[22:27:11] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:27:11"}
+[22:27:20] t=1390 ALARM 磁能反应炉被攻击 -> TURTLE (10 v 15, 守塔阵不打野战)
+[22:27:20] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:27:20"}
+[22:27:26] t=1396 RETREAT E2(36%)
+[22:27:26] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:27:26"}
+[22:27:29] t=1399 ALARM 敌军逼近 -> TURTLE (9 v 14, 守塔阵不打野战)
+[22:27:29] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:27:29"}
+[22:27:29] t=1399 tick#675 credits=2109 stance=defend | jev 361 decisions p50=828ms
+[22:27:38] t=1408 ALARM 磁能反应炉被攻击 -> TURTLE (9 v 14, 守塔阵不打野战)
+[22:27:38] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:27:38"}
+[22:27:47] t=1417 ALARM 磁能反应炉被攻击 -> TURTLE (9 v 14, 守塔阵不打野战)
+[22:27:47] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:27:47"}
+[22:27:56] t=1426 ALARM 磁能反应炉被攻击 -> TURTLE (9 v 14, 守塔阵不打野战)
+[22:27:56] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:27:56"}
+[22:28:05] t=1435 ALARM 敌军逼近 -> TURTLE (9 v 16, 守塔阵不打野战)
+[22:28:05] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:28:05"}
+[22:28:07] t=1437 tick#700 credits=1391 stance=defend | jev 361 decisions p50=828ms
+[22:28:31] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:28:31] t=1440 MOVE defend-rally@(73, 120)(2)
+[22:28:31] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:28:31"}
+[22:28:31] t=1461 POWER plant (reserve 16)
+[22:28:31] {"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "ts": "22:28:31"}
+[22:28:52] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:28:52] t=1461 MOVE defend-rally@(73, 120)(2)
+[22:28:52] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:28:52"}
+[22:29:14] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:29:14] t=1483 MOVE defend-rally@(73, 120)(2)
+[22:29:14] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:29:14"}
+[22:29:35] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:29:35] t=1504 MOVE defend-rally@(73, 120)(2)
+[22:29:35] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:29:35"}
+[22:29:57] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:29:57] t=1525 MOVE defend-rally@(73, 120)(2)
+[22:29:57] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:29:57"}
+[22:29:57] t=1547 ALARM 单位损失 -> TURTLE (9 v 13, 守塔阵不打野战)
+[22:29:57] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:29:57"}
+[22:30:20] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:30:20] t=1548 MOVE defend-rally@(73, 120)(2)
+[22:30:20] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:30:20"}
+[22:30:41] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:30:41] t=1570 MOVE defend-rally@(73, 120)(2)
+[22:30:41] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:30:41"}
+[22:30:42] t=1591 ALARM 单位损失 -> TURTLE (9 v 13, 守塔阵不打野战)
+[22:30:42] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:30:42"}
+[22:31:04] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:31:04] t=1593 MOVE defend-rally@(73, 120)(2)
+[22:31:04] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:31:04"}
+[22:31:26] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:31:26] t=1614 MOVE defend-rally@(73, 120)(2)
+[22:31:26] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:31:26"}
+[22:31:47] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:31:47] t=1636 MOVE defend-rally@(73, 120)(2)
+[22:31:47] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:31:47"}
+[22:32:09] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:32:09] t=1657 MOVE defend-rally@(73, 120)(2)
+[22:32:09] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:32:09"}
+[22:32:09] t=1679 TANK HTNK x1
+[22:32:09] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 1, "ts": "22:32:09"}
+[22:32:30] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:32:30] t=1679 MOVE defend-rally@(73, 120)(2)
+[22:32:30] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:32:30"}
+[22:32:52] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:32:52] t=1700 MOVE defend-rally@(73, 120)(2)
+[22:32:52] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:32:52"}
+[22:33:13] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:33:13] t=1722 MOVE defend-rally@(73, 120)(3)
+[22:33:13] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:33:13"}
+[22:33:35] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:33:35] t=1743 MOVE defend-rally@(73, 120)(3)
+[22:33:35] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:33:35"}
+[22:33:56] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:33:56] t=1765 MOVE defend-rally@(73, 120)(3)
+[22:33:56] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:33:56"}
+[22:34:18] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:34:18] t=1786 MOVE defend-rally@(73, 120)(3)
+[22:34:18] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:34:18"}
+[22:34:39] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:34:39] t=1808 MOVE defend-rally@(73, 120)(3)
+[22:34:39] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:34:39"}
+[22:35:01] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:35:01] t=1829 MOVE defend-rally@(73, 120)(3)
+[22:35:01] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:35:01"}
+[22:35:01] t=1851 AA HTK x2 (enemy air)
+[22:35:01] {"kind": "action", "what": "produce", "name": "HTK", "qty": 2, "ts": "22:35:01"}
+[22:35:22] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:35:22] t=1851 MOVE defend-rally@(73, 120)(3)
+[22:35:22] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:35:22"}
+[22:35:44] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:35:44] t=1872 MOVE forward-post@(82, 109)(4)
+[22:35:44] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:35:44"}
+[22:35:44] t=1894 ALARM 单位损失 -> TURTLE (11 v 29, 守塔阵不打野战)
+[22:35:44] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:35:44"}
+[22:35:44] t=1894 tick#725 credits=74 stance=defend | jev 361 decisions p50=828ms
+[22:36:07] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:36:07] t=1895 MOVE forward-post@(82, 109)(4)
+[22:36:07] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:36:07"}
+[22:36:07] t=1917 ALARM 单位损失 -> TURTLE (7 v 25, 守塔阵不打野战)
+[22:36:07] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:36:07"}
+[22:36:16] t=1926 ALARM 敌军逼近 -> TURTLE (6 v 26, 守塔阵不打野战)
+[22:36:16] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:36:16"}
+[22:36:25] t=1935 ALARM 苏联矿石精炼场被攻击 -> TURTLE (6 v 25, 守塔阵不打野战)
+[22:36:25] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:36:25"}
+[22:36:34] t=1944 ALARM 苏联矿石精炼场被攻击 -> TURTLE (6 v 24, 守塔阵不打野战)
+[22:36:34] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:36:34"}
+[22:36:36] t=1945 OPENING BUILD NAREFN
+[22:36:36] {"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "ts": "22:36:36"}
+[22:36:39] t=1948 RETREAT E2(23%)
+[22:36:39] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:36:39"}
+[22:36:42] t=1951 tick#750 credits=81 stance=defend | jev 361 decisions p50=828ms
+[22:36:43] t=1953 ALARM 苏联矿石精炼场被攻击 -> TURTLE (6 v 25, 守塔阵不打野战)
+[22:36:43] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:36:43"}
+[22:36:46] t=1956 RETREAT E2(23%)
+[22:36:46] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:36:46"}
+[22:36:52] t=1962 ALARM 苏联战车工厂被攻击 -> TURTLE (5 v 24, 守塔阵不打野战)
+[22:36:52] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:36:52"}
+[22:37:01] t=1971 ALARM 苏联战车工厂被攻击 -> TURTLE (4 v 21, 守塔阵不打野战)
+[22:37:01] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:37:01"}
+[22:37:01] t=1971 RETREAT E2(23%)
+[22:37:01] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:37:01"}
+[22:37:10] t=1980 ALARM 防空炮被攻击 -> TURTLE (3 v 20, 守塔阵不打野战)
+[22:37:10] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "22:37:10"}
+[22:37:15] t=1984 RETREAT E2(27%)
+[22:37:15] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "22:37:15"}
+[22:37:19] t=1989 tick#775 credits=0 stance=defend | jev 361 decisions p50=828ms
+[22:37:54] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:37:57] t=2027 ALARM 防空炮被攻击 -> TURTLE (1 v 22, 守塔阵不打野战)
+[22:38:12] t=2042 ALARM 哨戒炮被攻击 -> TURTLE (1 v 20, 守塔阵不打野战)
+[22:38:35] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[2026-09-26 22:38:35] {"kind": "report", "result": "defeat", "t": null, "ticks": 799, "crisis_ticks": 394, "stance": "defend", "jev": {"decisions": 361, "errors": 43, "input_tokens": 890427, "output_tokens": 77378, "p50_ms": 828, "p95_ms": 1307}, "enemy_base": [134, 79], "ts": "2026-09-26 22:38:35"}
+[22:38:56] review jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:38:56] REVIEW game#26 defeat → game-0026-review.md | changes=0
+{
+  "result": "defeat",
+  "t": null,
+  "ticks": 799,
+  "crisis_ticks": 394,
+  "stance": "defend",
+  "jev": {
+    "decisions": 361,
+    "errors": 43,
+    "input_tokens": 890427,
+    "output_tokens": 77378,
+    "p50_ms": 828,
+    "p95_ms": 1307
+  },
+  "enemy_base": [
+    134,
+    79
+  ],
+  "ts": "2026-09-26 22:38:35",
+  "review": {
+    "game_no": 26,
+    "rootcause": null,
+    "auto_tuned": 0
+  }
+}
