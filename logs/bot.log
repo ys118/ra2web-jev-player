@@ -12884,3 +12884,1451 @@
 [18:35:13] t=3222 ALARM 苏联战车工厂被攻击 -> TURTLE (1 v 10, 守塔阵不打野战)
 [18:35:13] t=3222 TANK HTNK x2
 [18:35:19] jev budget exhausted: max calls reached: 1500 (继续纯确定性运行)
+[20:29:30] REVIEW game#23 defeat → game-0023-review.md | changes=0
+[20:30:46] REVIEW game#23 defeat → game-0023-review.md | changes=0
+[20:32:06] 进局中(全自动)...
+[20:33:27] === ra2web-jev-player start (tick=1.5s, max_decisions=600) ===
+[20:33:27] t=0 DEPLOY mcv
+[20:33:29] t=2 DEPLOY mcv
+[20:33:30] t=3 POWER plant (reserve 0)
+[20:33:30] t=3 OPENING BUILD NAPOWR
+[20:33:33] t=5 jev STANCE defend->develop (conf 0.78)
+[20:33:59] t=32 OPENING BUILD NAREFN
+[20:34:04] t=36 tick#25 credits=9293 stance=develop | jev 24 decisions p50=800ms
+[20:34:42] t=74 tick#50 credits=8380 stance=develop | jev 49 decisions p50=829ms
+[20:35:20] t=112 tick#75 credits=7465 stance=develop | jev 74 decisions p50=829ms
+[20:35:25] t=118 OPENING BUILD NAHAND
+[20:35:49] t=142 DEFLINE NALASR (have 0)
+[20:35:49] t=142 OPENING BUILD NAWEAP
+[20:35:50] t=142 jev INF DOG (conf 0.35)
+[20:35:57] t=150 tick#100 credits=6336 stance=develop | jev 99 decisions p50=817ms
+[20:35:59] t=151 jev INF DOG (conf 0.21)
+[20:36:08] t=160 jev INF DOG (conf 0.24)
+[20:36:08] t=162 DEFLINE NALASR (have 1)
+[20:36:17] t=169 jev INF DOG (conf 0.28)
+[20:36:23] t=177 ALARM 敌军逼近 -> counter 3 vs 1 -> [72, 111]
+[20:36:30] t=181 jev INF E2 (conf 0.42)
+[20:36:33] t=186 DEFLINE NALASR (have 2)
+[20:36:35] t=188 jev INF E2 (conf 0.51)
+[20:36:35] t=188 tick#125 credits=3875 stance=defend | jev 121 decisions p50=813ms
+[20:36:41] t=194 jev INF E2 (conf 0.56)
+[20:36:46] t=198 jev INF E2 (conf 0.56)
+[20:36:52] t=204 jev INF E2 (conf 0.50)
+[20:36:56] t=209 jev INF E2 (conf 0.50)
+[20:37:01] t=213 jev INF E2 (conf 0.55)
+[20:37:05] t=218 jev INF E2 (conf 0.44)
+[20:37:10] t=222 jev INF E2 (conf 0.47)
+[20:37:13] t=225 tick#150 credits=1825 stance=defend | jev 146 decisions p50=806ms
+[20:37:14] t=227 jev INF E2 (conf 0.47)
+[20:37:16] t=230 ECON harv#2
+[20:37:16] t=230 OPENING BUILD NAREFN
+[20:37:18] t=231 INSURE AA building
+[20:37:19] t=231 jev INF E2 (conf 0.43)
+[20:37:23] t=236 jev INF E2 (conf 0.30)
+[20:37:29] t=242 jev INF E2 (conf 0.41)
+[20:37:34] t=246 jev INF E2 (conf 0.29)
+[20:37:38] t=251 jev INF E2 (conf 0.41)
+[20:37:44] t=257 jev INF E2 (conf 0.44)
+[20:37:51] t=263 tick#175 credits=0 stance=defend | jev 171 decisions p50=806ms
+[20:38:28] t=300 tick#200 credits=0 stance=defend | jev 196 decisions p50=813ms
+[20:38:52] t=325 ALARM 敌军逼近 -> counter 20 vs 1 -> [80, 107]
+[20:39:01] t=334 ALARM 敌军逼近 -> counter 20 vs 9 -> [83, 111]
+[20:39:04] t=337 RETREAT DOG(25%)
+[20:39:05] t=338 tick#225 credits=0 stance=defend | jev 211 decisions p50=813ms
+[20:39:08] t=341 RETREAT DOG(6%)
+[20:39:10] t=343 ALARM 单位损失 -> counter 17 vs 8 -> [70, 117]
+[20:39:11] t=344 RETREAT DOG(6%)
+[20:39:19] t=352 ALARM 敌军逼近 -> counter 16 vs 10 -> [81, 113]
+[20:39:26] t=359 RETREAT E2(15%)
+[20:39:28] t=361 ALARM 单位损失 -> TURTLE (15 v 13, 守塔阵不打野战)
+[20:39:29] t=362 RETREAT E2(23%)
+[20:39:35] t=368 RETREAT E2(25%)
+[20:39:37] t=370 ALARM 单位损失 -> TURTLE (13 v 11, 守塔阵不打野战)
+[20:39:41] t=374 RETREAT E2(21%)
+[20:39:43] t=376 tick#250 credits=0 stance=defend | jev 211 decisions p50=813ms
+[20:39:46] t=379 ALARM 敌军逼近 -> counter 12 vs 10 -> [82, 113]
+[20:39:50] t=383 RETREAT E2(37%)
+[20:39:55] t=388 ALARM 敌军逼近 -> counter 11 vs 9 -> [82, 113]
+[20:39:56] t=389 RETREAT E2(35%)
+[20:39:58] t=391 RETREAT E2(11%)
+[20:40:02] t=395 RETREAT E2(20%)
+[20:40:04] t=397 ALARM 单位损失 -> counter 8 vs 6 -> [70, 117]
+[20:40:05] t=398 RETREAT E2(27%)
+[20:40:11] t=404 RETREAT E2(15%)
+[20:40:13] t=406 ALARM 单位损失 -> counter 6 vs 5 -> [70, 117]
+[20:40:17] t=410 RETREAT E2(36%)
+[20:40:20] t=413 tick#275 credits=0 stance=defend | jev 211 decisions p50=813ms
+[20:40:22] t=415 ALARM 敌军逼近 -> counter 5 vs 4 -> [81, 114]
+[20:40:29] t=422 RETREAT E2(23%)
+[20:40:31] t=424 ALARM 敌军逼近 -> counter 4 vs 3 -> [81, 114]
+[20:40:37] t=430 RETREAT E2(37%)
+[20:40:40] t=433 ALARM 敌军逼近 -> counter 3 vs 2 -> [81, 114]
+[20:40:46] t=439 RETREAT E2(33%)
+[20:40:49] t=442 ALARM 敌军逼近 -> counter 2 vs 1 -> [81, 113]
+[20:40:58] t=451 ALARM 敌军逼近 -> counter 1 vs 1 -> [81, 113]
+[20:40:58] t=451 RETREAT E2(30%)
+[20:40:58] t=451 tick#300 credits=915 stance=defend | jev 211 decisions p50=813ms
+[20:41:07] t=460 RETREAT E2(30%)
+[20:41:11] t=463 jev INF E2 (conf 0.41)
+[20:41:11] t=463 jev VEH HTK (conf 0.34)
+[20:41:15] t=468 jev INF E2 (conf 0.40)
+[20:41:36] t=489 tick#325 credits=0 stance=defend | jev 229 decisions p50=813ms
+[20:42:14] t=526 tick#350 credits=0 stance=defend | jev 254 decisions p50=813ms
+[20:43:06] t=579 POWER plant (reserve -35)
+[20:43:06] scout ERR name 'mirror' is not defined
+[20:43:07] t=579 jev INF E2 (conf 0.45)
+[20:43:07] t=579 jev VEH HTK (conf 0.49)
+[20:43:07] t=579 MOVE defend-rally@base(1)
+[20:43:16] t=588 jev INF E2 (conf 0.39)
+[20:43:20] t=593 MOVE defend-rally@base(1)
+[20:43:25] t=597 jev INF E2 (conf 0.38)
+[20:43:33] t=605 MOVE defend-rally@base(1)
+[20:43:33] t=605 tick#375 credits=805 stance=defend | jev 279 decisions p50=814ms
+[20:43:34] t=606 jev INF E2 (conf 0.37)
+[20:43:43] t=615 jev INF E2 (conf 0.35)
+[20:43:45] t=617 MOVE defend-rally@base(1)
+[20:43:49] t=621 jev VEH HTK (conf 0.39)
+[20:43:52] t=624 jev INF E2 (conf 0.34)
+[20:43:58] t=630 MOVE defend-rally@base(2)
+[20:44:02] t=634 jev BUILD NAPOWR (conf 0.37)
+[20:44:11] t=643 MOVE defend-rally@base(2)
+[20:44:11] t=643 tick#400 credits=0 stance=defend | jev 304 decisions p50=813ms
+[20:44:24] t=657 MOVE defend-rally@base(2)
+[20:44:36] t=669 MOVE defend-rally@base(2)
+[20:44:48] t=681 MOVE defend-rally@base(2)
+[20:44:48] t=681 tick#425 credits=0 stance=defend | jev 329 decisions p50=817ms
+[20:44:51] t=684 jev INF E2 (conf 0.38)
+[20:44:56] t=688 jev INF E2 (conf 0.43)
+[20:45:02] t=694 jev INF E2 (conf 0.44)
+[20:45:02] t=694 MOVE defend-rally@base(2)
+[20:45:05] t=697 jev VEH HTK (conf 0.44)
+[20:45:08] t=700 jev INF E2 (conf 0.38)
+[20:45:12] t=705 jev INF E2 (conf 0.36)
+[20:45:15] t=708 MOVE defend-rally@base(3)
+[20:45:17] t=709 jev INF E2 (conf 0.36)
+[20:45:21] t=714 jev INF E2 (conf 0.37)
+[20:45:24] t=717 jev VEH HTK (conf 0.42)
+[20:45:26] t=718 jev INF DOG (conf 0.29)
+[20:45:26] t=718 tick#450 credits=69 stance=defend | jev 354 decisions p50=814ms
+[20:45:27] t=720 jev BUILD NAWEAP (conf 0.14)
+[20:45:27] t=720 MOVE defend-rally@base(4)
+[20:45:41] t=733 MOVE defend-rally@base(4)
+[20:45:47] t=741 RETREAT E2(7%)
+[20:45:48] t=741 jev INF E2 (conf 0.35)
+[20:45:53] t=745 MOVE defend-rally@base(4)
+[20:45:54] t=747 jev INF E2 (conf 0.28)
+[20:45:57] t=750 jev VEH HTK (conf 0.47)
+[20:45:59] t=753 RETREAT E2(20%)
+[20:46:03] t=756 tick#475 credits=0 stance=defend | jev 379 decisions p50=816ms
+[20:46:05] t=757 MOVE defend-rally@base(5)
+[20:46:05] t=759 ALARM 敌军逼近 -> counter 22 vs 2 -> [86, 110]
+[20:46:07] scout ERR name 'mirror' is not defined
+[20:46:08] t=762 RETREAT E2(10%)
+[20:46:14] t=768 ALARM 敌军逼近 -> counter 22 vs 2 -> [85, 111]
+[20:46:24] t=777 ALARM 哨戒炮被攻击 -> counter 22 vs 4 -> [72, 116]
+[20:46:33] t=786 ALARM 敌军逼近 -> counter 21 vs 5 -> [76, 113]
+[20:46:40] t=793 tick#500 credits=0 stance=defend | jev 380 decisions p50=816ms
+[20:46:42] t=795 ALARM 苏联战车工厂被攻击 -> counter 21 vs 5 -> [73, 114]
+[20:46:51] t=804 ALARM 哨戒炮被攻击 -> counter 21 vs 4 -> [72, 116]
+[20:46:52] t=805 RETREAT DOG(23%)
+[20:46:58] t=811 RETREAT E2(32%)
+[20:46:58] t=811 RETREAT E2(23%)
+[20:47:00] t=813 ALARM 苏联战车工厂被攻击 -> counter 18 vs 6 -> [73, 114]
+[20:47:09] t=822 ALARM 苏联战车工厂被攻击 -> counter 18 vs 10 -> [73, 114]
+[20:47:18] t=831 ALARM 敌军逼近 -> counter 18 vs 11 -> [85, 110]
+[20:47:18] t=831 tick#525 credits=0 stance=defend | jev 380 decisions p50=816ms
+[20:47:22] t=835 RETREAT E2(23%)
+[20:47:22] t=835 RETREAT E2(32%)
+[20:47:27] t=840 ALARM 敌军逼近 -> counter 15 vs 12 -> [82, 111]
+[20:47:27] t=840 RETREAT E2(35%)
+[20:47:31] t=844 RETREAT E2(32%)
+[20:47:36] t=849 ALARM 单位损失 -> counter 12 vs 10 -> [70, 117]
+[20:47:37] t=850 TANK HTNK x1
+[20:47:40] t=853 RETREAT E2(37%)
+[20:47:40] t=853 RETREAT E2(17%)
+[20:47:45] t=858 ALARM 敌军逼近 -> counter 11 vs 8 -> [84, 111]
+[20:47:54] t=867 ALARM 敌军逼近 -> counter 11 vs 5 -> [84, 111]
+[20:47:55] t=868 RETREAT HTK(36%)
+[20:47:55] t=868 tick#550 credits=301 stance=defend | jev 380 decisions p50=816ms
+[20:48:00] t=873 RETREAT E2(26%)
+[20:48:03] t=876 ALARM 敌军逼近 -> counter 9 vs 1 -> [84, 111]
+[20:48:11] t=883 MOVE defend-rally@base(2)
+[20:48:14] t=886 jev INF DOG (conf 0.24)
+[20:48:23] t=895 MOVE defend-rally@base(2)
+[20:48:34] t=906 tick#575 credits=0 stance=defend | jev 397 decisions p50=818ms
+[20:48:37] t=909 MOVE defend-rally@base(2)
+[20:48:50] t=922 MOVE defend-rally@base(2)
+[20:49:00] t=933 jev INF E2 (conf 0.35)
+[20:49:02] t=934 jev INF E2 (conf 0.39)
+[20:49:02] t=934 MOVE defend-rally@base(2)
+[20:49:07] t=939 jev VEH HTK (conf 0.37)
+[20:49:07] scout ERR name 'mirror' is not defined
+[20:49:08] t=940 jev VEH HTK (conf 0.47)
+[20:49:11] t=943 jev INF DOG (conf 0.25)
+[20:49:11] t=943 tick#600 credits=0 stance=defend | jev 422 decisions p50=819ms
+[20:49:15] t=948 MOVE defend-rally@base(3)
+[20:49:29] t=961 MOVE defend-rally@base(3)
+[20:49:41] t=973 MOVE defend-rally@base(3)
+[20:49:45] t=978 jev INF E2 (conf 0.38)
+[20:49:47] t=979 jev INF E2 (conf 0.40)
+[20:49:48] t=981 jev BUILD NAPOWR (conf 0.30)
+[20:49:48] t=981 tick#625 credits=21 stance=defend | jev 447 decisions p50=818ms
+[20:49:53] t=985 MOVE defend-rally@base(4)
+[20:50:05] t=998 MOVE defend-rally@base(4)
+[20:50:17] t=1010 MOVE defend-rally@base(4)
+[20:50:26] t=1019 tick#650 credits=0 stance=defend | jev 472 decisions p50=821ms
+[20:50:31] t=1023 MOVE defend-rally@base(4)
+[20:50:43] t=1035 MOVE defend-rally@base(4)
+[20:50:50] t=1043 RETREAT E2(7%)
+[20:50:56] t=1049 MOVE defend-rally@base(4)
+[20:51:02] t=1055 RETREAT E2(20%)
+[20:51:04] t=1056 tick#675 credits=0 stance=defend | jev 497 decisions p50=824ms
+[20:51:10] t=1062 MOVE defend-rally@base(4)
+[20:51:21] t=1074 RETREAT E2(39%)
+[20:51:22] t=1074 MOVE defend-rally@base(4)
+[20:51:28] t=1081 ALARM 敌军逼近 -> TURTLE (15 v 17, 守塔阵不打野战)
+[20:51:37] t=1090 ALARM 敌军逼近 -> TURTLE (14 v 17, 守塔阵不打野战)
+[20:51:41] t=1094 tick#700 credits=0 stance=defend | jev 512 decisions p50=827ms
+[20:51:45] t=1097 MOVE defend-rally@base(4)
+[20:51:50] t=1103 ALARM 单位损失 -> TURTLE (14 v 16, 守塔阵不打野战)
+[20:51:53] t=1106 RETREAT DOG(23%)
+[20:52:00] t=1112 MOVE defend-rally@base(4)
+[20:52:02] t=1115 ALARM 敌军逼近 -> TURTLE (14 v 14, 守塔阵不打野战)
+[20:52:08] t=1121 RETREAT E2(31%)
+[20:52:08] scout ERR name 'mirror' is not defined
+[20:52:11] t=1124 ALARM 敌军逼近 -> TURTLE (13 v 14, 守塔阵不打野战)
+[20:52:19] t=1132 tick#725 credits=0 stance=defend | jev 522 decisions p50=829ms
+[20:52:20] t=1133 ALARM 哨戒炮被攻击 -> TURTLE (13 v 13, 守塔阵不打野战)
+[20:52:29] t=1142 ALARM 苏联战车工厂被攻击 -> TURTLE (13 v 15, 守塔阵不打野战)
+[20:52:38] t=1151 ALARM 苏联战车工厂被攻击 -> TURTLE (13 v 14, 守塔阵不打野战)
+[20:52:47] t=1160 ALARM 敌军逼近 -> counter 17 vs 11 -> [77, 113]
+[20:52:49] t=1162 RETREAT E2(28%)
+[20:52:50] t=1163 RETREAT E2(32%)
+[20:52:56] t=1169 ALARM 敌军逼近 -> counter 14 vs 11 -> [77, 113]
+[20:52:56] t=1169 tick#750 credits=0 stance=defend | jev 522 decisions p50=829ms
+[20:53:05] t=1178 ALARM 苏联矿石精炼场被攻击 -> TURTLE (14 v 15, 守塔阵不打野战)
+[20:53:14] t=1187 ALARM 苏联矿石精炼场被攻击 -> TURTLE (14 v 15, 守塔阵不打野战)
+[20:53:19] t=1192 RETREAT E2(36%)
+[20:53:23] t=1196 ALARM 敌军逼近 -> TURTLE (14 v 14, 守塔阵不打野战)
+[20:53:32] t=1205 ALARM 磁能反应炉被攻击 -> TURTLE (14 v 12, 守塔阵不打野战)
+[20:53:34] t=1207 tick#775 credits=0 stance=defend | jev 522 decisions p50=829ms
+[20:53:41] t=1214 ALARM 磁能反应炉被攻击 -> TURTLE (14 v 12, 守塔阵不打野战)
+[20:53:47] t=1220 RETREAT E2(30%)
+[20:53:50] t=1223 ALARM 单位损失 -> counter 14 vs 11 -> [70, 117]
+[20:53:59] t=1232 ALARM 苏联战车工厂被攻击 -> counter 14 vs 11 -> [72, 123]
+[20:54:08] t=1241 ALARM 磁能反应炉被攻击 -> counter 14 vs 11 -> [69, 115]
+[20:54:11] t=1244 tick#800 credits=722 stance=defend | jev 522 decisions p50=829ms
+[20:54:13] t=1246 OPENING BUILD NAREFN
+[20:54:17] t=1250 ALARM 磁能反应炉被攻击 -> counter 14 vs 9 -> [72, 115]
+[20:54:23] t=1256 RETREAT DOG(17%)
+[20:54:26] t=1259 ALARM 苏联矿石精炼场被攻击 -> counter 13 vs 9 -> [74, 120]
+[20:54:35] t=1268 ALARM 磁能反应炉被攻击 -> counter 13 vs 9 -> [72, 115]
+[20:54:44] t=1277 ALARM 苏联矿石精炼场被攻击 -> counter 12 vs 8 -> [74, 120]
+[20:54:49] t=1282 tick#825 credits=0 stance=defend | jev 522 decisions p50=829ms
+[20:54:53] t=1286 ALARM 苏联矿石精炼场被攻击 -> counter 13 vs 7 -> [74, 120]
+[20:54:56] t=1289 ENEMY BASE spotted @[136, 84]
+[20:55:02] t=1295 ALARM 苏联矿石精炼场被攻击 -> counter 13 vs 8 -> [74, 120]
+[20:55:04] t=1297 RETREAT E2(30%)
+[20:55:11] t=1304 ALARM 敌军逼近 -> counter 12 vs 10 -> [77, 118]
+[20:55:20] t=1313 ALARM 苏联矿石精炼场被攻击 -> counter 12 vs 7 -> [74, 120]
+[20:55:26] t=1319 tick#850 credits=0 stance=defend | jev 522 decisions p50=829ms
+[20:55:29] t=1322 ALARM 敌军逼近 -> counter 13 vs 7 -> [74, 112]
+[20:55:34] t=1327 RETREAT E2(30%)
+[20:55:38] t=1331 ALARM 单位损失 -> counter 12 vs 8 -> [70, 117]
+[20:55:47] t=1340 ALARM 苏联建造场被攻击 -> counter 12 vs 8 -> [70, 117]
+[20:55:52] t=1345 RETREAT E2(7%)
+[20:55:56] t=1349 ALARM 敌军逼近 -> counter 12 vs 8 -> [73, 113]
+[20:56:04] t=1357 RETREAT E2(20%)
+[20:56:04] t=1357 tick#875 credits=0 stance=defend | jev 522 decisions p50=829ms
+[20:56:05] t=1358 ALARM 敌军逼近 -> counter 12 vs 8 -> [73, 113]
+[20:56:11] t=1364 RETREAT HTNK(25%)
+[20:56:14] t=1367 ALARM 敌军逼近 -> counter 11 vs 7 -> [78, 114]
+[20:56:18] t=1370 jev INF DOG (conf 0.29)
+[20:56:18] t=1370 jev VEH HTK (conf 0.44)
+[20:56:23] t=1375 MOVE defend-rally@base(3)
+[20:56:35] t=1387 MOVE defend-rally@base(3)
+[20:56:40] t=1393 ALARM 敌军逼近 -> counter 11 vs 7 -> [84, 107]
+[20:56:41] t=1394 tick#900 credits=0 stance=defend | jev 537 decisions p50=829ms
+[20:56:48] t=1400 MOVE defend-rally@base(3)
+[20:57:00] t=1412 MOVE defend-rally@base(3)
+[20:57:10] t=1423 RETREAT E2(13%)
+[20:57:12] t=1424 MOVE defend-rally@base(3)
+[20:57:20] t=1432 tick#925 credits=0 stance=defend | jev 560 decisions p50=828ms
+[20:57:26] t=1438 MOVE defend-rally@base(3)
+[20:57:38] t=1450 MOVE defend-rally@base(3)
+[20:57:50] t=1462 MOVE defend-rally@base(3)
+[20:57:57] t=1469 tick#950 credits=0 stance=defend | jev 585 decisions p50=835ms
+[20:58:03] t=1475 MOVE defend-rally@base(3)
+[20:58:04] t=1477 ALARM 敌军逼近 -> counter 11 vs 8 -> [85, 111]
+[20:58:13] t=1486 ALARM 敌军逼近 -> counter 11 vs 6 -> [81, 115]
+[20:58:22] t=1495 ALARM 敌军逼近 -> counter 7 vs 5 -> [82, 114]
+[20:58:31] t=1504 ALARM 苏联战车工厂被攻击 -> TURTLE (7 v 6, 守塔阵不打野战)
+[20:58:34] t=1507 tick#975 credits=0 stance=defend | jev 589 decisions p50=836ms
+[20:58:40] t=1513 ALARM 敌军逼近 -> TURTLE (5 v 5, 守塔阵不打野战)
+[20:58:40] t=1513 RETREAT E2(26%)
+[20:58:49] t=1522 ALARM 敌军逼近 -> TURTLE (5 v 5, 守塔阵不打野战)
+[20:58:56] t=1529 RETREAT E2(29%)
+[20:58:58] t=1531 ALARM 敌军逼近 -> TURTLE (4 v 4, 守塔阵不打野战)
+[20:59:04] t=1537 RETREAT E2(38%)
+[20:59:07] t=1540 ALARM 敌军逼近 -> TURTLE (3 v 4, 守塔阵不打野战)
+[20:59:11] t=1544 tick#1000 credits=0 stance=defend | jev 589 decisions p50=836ms
+[20:59:16] t=1549 ALARM 敌军逼近 -> TURTLE (3 v 5, 守塔阵不打野战)
+[20:59:17] t=1550 RETREAT E2(21%)
+[20:59:25] t=1558 ALARM 敌军逼近 -> TURTLE (2 v 6, 守塔阵不打野战)
+[20:59:34] t=1567 ALARM 敌军逼近 -> TURTLE (2 v 6, 守塔阵不打野战)
+[20:59:43] t=1576 ALARM 敌军逼近 -> TURTLE (2 v 5, 守塔阵不打野战)
+[20:59:49] t=1582 tick#1025 credits=0 stance=defend | jev 589 decisions p50=836ms
+[20:59:52] t=1585 ALARM 敌军逼近 -> TURTLE (2 v 5, 守塔阵不打野战)
+[21:00:01] t=1594 ALARM 敌军逼近 -> TURTLE (2 v 6, 守塔阵不打野战)
+[21:00:10] t=1603 ALARM 敌军逼近 -> TURTLE (2 v 6, 守塔阵不打野战)
+[21:00:19] t=1612 ALARM 敌军逼近 -> TURTLE (2 v 6, 守塔阵不打野战)
+[21:00:26] t=1619 tick#1050 credits=0 stance=defend | jev 589 decisions p50=836ms
+[21:00:28] t=1621 ALARM 敌军逼近 -> TURTLE (2 v 7, 守塔阵不打野战)
+[21:00:37] t=1630 ALARM 敌军逼近 -> TURTLE (2 v 7, 守塔阵不打野战)
+[21:00:46] t=1639 ALARM 敌军逼近 -> TURTLE (2 v 9, 守塔阵不打野战)
+[21:00:53] t=1647 RETREAT E2(7%)
+[21:00:55] t=1648 ALARM 敌军逼近 -> TURTLE (2 v 7, 守塔阵不打野战)
+[21:01:04] t=1657 ALARM 敌军逼近 -> TURTLE (2 v 7, 守塔阵不打野战)
+[21:01:04] t=1657 tick#1075 credits=0 stance=defend | jev 589 decisions p50=836ms
+[21:01:05] t=1659 RETREAT E2(20%)
+[21:01:11] t=1665 RETREAT HTNK(25%)
+[21:01:13] t=1666 ALARM 敌军逼近 -> TURTLE (2 v 6, 守塔阵不打野战)
+[21:01:21] t=1674 MOVE defend-rally@base(2)
+[21:01:33] t=1686 MOVE defend-rally@base(2)
+[21:01:34] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:01:35] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:01:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:01:38] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:01:40] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:01:41] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:01:41] t=1695 tick#1100 credits=0 stance=defend | jev 600 decisions p50=838ms
+[21:01:43] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:01:44] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:01:46] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:01:46] t=1699 MOVE defend-rally@base(2)
+[21:01:47] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:01:49] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:01:50] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:01:52] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:01:53] t=1707 ALARM 敌军逼近 -> TURTLE (2 v 13, 守塔阵不打野战)
+[21:02:02] t=1716 ALARM 单位损失 -> TURTLE (2 v 12, 守塔阵不打野战)
+[21:02:11] t=1725 ALARM 敌军逼近 -> TURTLE (2 v 10, 守塔阵不打野战)
+[21:02:11] t=1725 RETREAT E2(13%)
+[21:02:19] t=1732 tick#1125 credits=0 stance=defend | jev 600 decisions p50=838ms
+[21:02:20] t=1734 ALARM 敌军逼近 -> TURTLE (2 v 10, 守塔阵不打野战)
+[21:02:29] t=1743 ALARM 敌军逼近 -> TURTLE (2 v 10, 守塔阵不打野战)
+[21:02:38] t=1752 ALARM 敌军逼近 -> TURTLE (2 v 12, 守塔阵不打野战)
+[21:02:47] t=1761 ALARM 苏联建造场被攻击 -> TURTLE (2 v 9, 守塔阵不打野战)
+[21:02:49] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:02:50] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:02:52] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:02:53] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:02:55] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:02:56] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:02:56] t=1770 tick#1150 credits=906 stance=defend | jev 600 decisions p50=838ms
+[21:02:58] t=1771 ALARM 单位损失 -> TURTLE (6 v 9, 守塔阵不打野战)
+[21:02:59] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:03:02] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:03:04] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:03:05] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:03:07] t=1780 ALARM 单位损失 -> TURTLE (5 v 10, 守塔阵不打野战)
+[21:03:08] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:03:13] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:03:16] t=1789 ALARM 哨戒炮被攻击 -> TURTLE (4 v 11, 守塔阵不打野战)
+[21:03:20] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:03:22] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:03:25] t=1798 ALARM 苏联战车工厂被攻击 -> TURTLE (2 v 10, 守塔阵不打野战)
+[21:03:27] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:03:34] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:03:34] t=1807 tick#1175 credits=769 stance=defend | jev 600 decisions p50=838ms
+[21:03:36] t=1809 ALARM 苏联战车工厂被攻击 -> TURTLE (1 v 11, 守塔阵不打野战)
+[21:03:39] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:03:43] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:03:45] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:03:46] t=1819 ALARM 苏联战车工厂被攻击 -> TURTLE (1 v 9, 守塔阵不打野战)
+[21:03:55] t=1828 ALARM 磁能反应炉被攻击 -> TURTLE (5 v 9, 守塔阵不打野战)
+[21:04:01] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:04] t=1837 ALARM 苏联兵营被攻击 -> TURTLE (5 v 10, 守塔阵不打野战)
+[21:04:06] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:10] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:12] t=1845 tick#1200 credits=690 stance=defend | jev 600 decisions p50=838ms
+[21:04:13] t=1846 ALARM 磁能反应炉被攻击 -> TURTLE (4 v 11, 守塔阵不打野战)
+[21:04:18] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:19] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:22] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:24] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:25] t=1858 ALARM 单位损失 -> TURTLE (2 v 8, 守塔阵不打野战)
+[21:04:27] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:28] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:33] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:34] t=1867 ALARM 磁能反应炉被攻击 -> TURTLE (2 v 8, 守塔阵不打野战)
+[21:04:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:42] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:43] t=1876 ALARM 磁能反应炉被攻击 -> TURTLE (1 v 10, 守塔阵不打野战)
+[21:04:46] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:49] t=1882 tick#1225 credits=676 stance=defend | jev 600 decisions p50=838ms
+[21:04:51] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:52] t=1885 ALARM 磁能反应炉被攻击 -> TURTLE (1 v 10, 守塔阵不打野战)
+[21:04:55] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:04:58] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:05:00] review jev ERR max calls reached: 600
+[21:05:00] REVIEW game#24 defeat → game-0024-review.md | changes=0
+[21:09:03] REVIEW game#24 defeat → game-0024-review.md | changes=0
+[21:10:50] 进局中(全自动)...
+[21:11:13] === ra2web-jev-player start (tick=1.5s, max_decisions=600) ===
+[21:11:13] t=2 DEPLOY mcv
+[21:11:14] t=3 DEPLOY mcv
+[21:11:16] t=5 POWER plant (reserve 0)
+[21:11:19] t=7 jev STANCE defend->develop (conf 0.80)
+[21:11:45] t=34 OPENING BUILD NAREFN
+[21:11:50] t=38 tick#25 credits=9293 stance=develop | jev 24 decisions p50=806ms
+[21:12:28] t=76 tick#50 credits=8380 stance=develop | jev 49 decisions p50=807ms
+[21:13:06] t=114 tick#75 credits=7468 stance=develop | jev 74 decisions p50=819ms
+[21:13:11] t=120 OPENING BUILD NAHAND
+[21:13:35] t=144 DEFLINE NALASR (have 0)
+[21:13:35] t=144 OPENING BUILD NAWEAP
+[21:13:36] t=144 jev INF DOG (conf 0.34)
+[21:13:44] t=151 tick#100 credits=6334 stance=develop | jev 99 decisions p50=813ms
+[21:13:45] t=153 jev INF DOG (conf 0.26)
+[21:13:54] t=162 jev INF DOG (conf 0.34)
+[21:13:55] t=164 DEFLINE NALASR (have 1)
+[21:14:03] t=171 jev INF DOG (conf 0.24)
+[21:14:12] t=180 jev INF E2 (conf 0.32)
+[21:14:18] t=186 jev INF E2 (conf 0.36)
+[21:14:19] t=188 DEFLINE NALASR (have 2)
+[21:14:21] t=189 tick#125 credits=3825 stance=develop | jev 124 decisions p50=809ms
+[21:14:22] t=191 jev INF E2 (conf 0.33)
+[21:14:28] t=197 jev INF E2 (conf 0.37)
+[21:14:33] t=201 jev INF E2 (conf 0.40)
+[21:14:37] t=206 jev INF E2 (conf 0.41)
+[21:14:40] t=209 ALARM 敌军逼近 -> counter 9 vs 1 -> [81, 114]
+[21:14:49] t=218 jev INF E2 (conf 0.54)
+[21:14:55] t=224 jev INF E2 (conf 0.48)
+[21:14:58] t=227 tick#150 credits=1924 stance=defend | jev 143 decisions p50=807ms
+[21:15:01] t=230 jev INF E2 (conf 0.63)
+[21:15:02] t=231 ECON harv#2
+[21:15:02] t=231 OPENING BUILD NAREFN
+[21:15:04] t=233 INSURE AA building
+[21:15:06] t=234 jev INF E2 (conf 0.40)
+[21:15:10] t=239 jev INF E2 (conf 0.40)
+[21:15:16] t=245 jev INF E2 (conf 0.41)
+[21:15:22] t=251 jev INF E2 (conf 0.43)
+[21:15:27] t=255 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:15:28] t=257 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:15:30] t=258 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:15:31] t=260 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:15:33] t=261 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:15:34] t=263 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:15:36] t=264 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:15:36] t=264 tick#175 credits=166 stance=defend | jev 168 decisions p50=816ms
+[21:16:13] t=302 tick#200 credits=0 stance=defend | jev 193 decisions p50=809ms
+[21:16:51] t=340 tick#225 credits=0 stance=defend | jev 218 decisions p50=812ms
+[21:16:53] t=341 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:16:54] t=343 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:16:56] t=344 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:16:57] t=346 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:16:59] t=347 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:17:00] t=349 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:17:02] t=350 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:17:03] t=352 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:17:05] t=353 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:17:06] t=355 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:17:08] t=356 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:17:09] t=358 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[21:17:18] t=367 ALARM 苏联战车工厂被攻击 -> counter 17 vs 3 -> [73, 114]
+[21:17:27] t=376 ALARM 苏联战车工厂被攻击 -> counter 16 vs 5 -> [73, 114]
+[21:17:28] t=377 RETREAT DOG(25%)
+[21:17:28] t=377 tick#250 credits=0 stance=defend | jev 235 decisions p50=814ms
+[21:17:36] t=385 ALARM 敌军逼近 -> counter 14 vs 4 -> [80, 114]
+[21:17:37] t=386 RETREAT E2(39%)
+[21:17:40] t=389 RETREAT DOG(6%)
+[21:17:45] t=394 ALARM 敌军逼近 -> counter 11 vs 3 -> [80, 114]
+[21:17:45] t=394 RETREAT E2(14%)
+[21:17:46] t=395 RETREAT E2(38%)
+[21:17:54] t=403 ALARM 敌军逼近 -> counter 10 vs 2 -> [80, 114]
+[21:17:59] t=407 jev INF DOG (conf 0.29)
+[21:18:06] t=415 tick#275 credits=0 stance=defend | jev 241 decisions p50=813ms
+[21:18:42] t=451 jev VEH HTK (conf 0.30)
+[21:18:44] t=452 tick#300 credits=798 stance=defend | jev 266 decisions p50=812ms
+[21:18:47] t=455 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[21:18:48] t=457 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[21:18:50] t=458 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[21:18:51] t=460 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[21:18:53] t=461 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[21:18:54] t=463 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[21:18:56] t=464 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[21:18:57] t=466 jev INF DOG (conf 0.22)
+[21:19:22] t=490 tick#325 credits=0 stance=defend | jev 291 decisions p50=808ms
+[21:19:59] t=528 tick#350 credits=0 stance=defend | jev 316 decisions p50=812ms
+[21:20:32] t=561 SCOUT tank->mirror [130, 83]
+[21:20:32] t=561 jev VEH HTK (conf 0.51)
+[21:20:32] t=561 MOVE defend-rally@base(1)
+[21:20:37] t=565 jev INF E2 (conf 0.26)
+[21:20:37] t=565 tick#375 credits=1660 stance=defend | jev 341 decisions p50=808ms
+[21:20:41] t=570 jev INF E2 (conf 0.26)
+[21:20:42] t=571 POWER plant (reserve -35)
+[21:20:45] t=573 MOVE defend-rally@base(1)
+[21:20:50] t=579 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:20:52] t=580 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:20:53] t=582 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:20:55] t=583 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:20:56] t=585 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:20:58] t=586 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:20:58] t=586 MOVE defend-rally@base(1)
+[21:20:59] t=588 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:01] t=589 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:03] t=591 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:03] t=591 jev VEH HTK (conf 0.56)
+[21:21:04] t=593 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:06] t=594 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:08] t=596 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:09] t=597 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:11] t=599 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:11] t=599 MOVE defend-rally@base(2)
+[21:21:12] t=600 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:14] t=602 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:15] t=603 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:15] t=603 tick#400 credits=528 stance=defend | jev 366 decisions p50=808ms
+[21:21:17] t=605 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:18] t=606 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:20] t=608 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:21] t=609 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:23] t=611 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:24] t=612 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:24] t=612 MOVE defend-rally@base(2)
+[21:21:26] t=614 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:27] t=615 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:29] t=617 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:30] t=618 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[21:21:32] t=620 jev INF DOG (conf 0.23)
+[21:21:33] t=621 jev BUILD NAPOWR (conf 0.51)
+[21:21:37] t=624 MOVE defend-rally@base(2)
+[21:21:49] t=637 MOVE defend-rally@base(2)
+[21:21:53] t=642 tick#425 credits=0 stance=defend | jev 391 decisions p50=809ms
+[21:22:00] t=649 ALARM 敌军逼近 -> counter 16 vs 1 -> [85, 111]
+[21:22:06] t=655 RETREAT E2(32%)
+[21:22:09] t=658 ALARM 单位损失 -> counter 15 vs 3 -> [70, 117]
+[21:22:18] t=667 ALARM 敌军逼近 -> counter 15 vs 4 -> [83, 113]
+[21:22:21] t=670 RETREAT E2(37%)
+[21:22:23] t=672 RETREAT E2(36%)
+[21:22:27] t=676 ALARM 单位损失 -> counter 12 vs 4 -> [70, 117]
+[21:22:27] t=676 RETREAT E2(26%)
+[21:22:29] t=678 RETREAT HTK(27%)
+[21:22:30] t=679 tick#450 credits=786 stance=defend | jev 395 decisions p50=809ms
+[21:22:36] t=685 ALARM 敌军逼近 -> counter 13 vs 3 -> [80, 119]
+[21:22:45] t=694 ALARM 敌军逼近 -> counter 13 vs 3 -> [80, 119]
+[21:22:50] t=699 TANK HTNK x1
+[21:22:50] t=699 RETREAT HTK(15%)
+[21:22:54] t=703 ALARM 敌军逼近 -> counter 12 vs 2 -> [81, 116]
+[21:22:56] t=705 RETREAT E2(39%)
+[21:22:59] t=708 RETREAT DOG(30%)
+[21:23:03] t=712 ALARM 敌军逼近 -> counter 10 vs 4 -> [80, 119]
+[21:23:08] t=717 tick#475 credits=2102 stance=defend | jev 395 decisions p50=809ms
+[21:23:12] t=721 ALARM 敌军逼近 -> counter 10 vs 6 -> [80, 119]
+[21:23:21] t=730 ALARM 敌军逼近 -> counter 10 vs 5 -> [87, 112]
+[21:23:27] t=736 TANK HTNK x2
+[21:23:30] t=739 ALARM 单位损失 -> counter 10 vs 3 -> [70, 117]
+[21:23:32] t=741 SCOUT tank->mirror [130, 83]
+[21:23:33] t=742 RETREAT E2(23%)
+[21:23:33] t=742 RETREAT DOG(25%)
+[21:23:34] t=742 jev BUILD NAHAND (conf 0.25)
+[21:23:34] t=742 jev INF E2 (conf 0.37)
+[21:23:40] t=748 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:23:40] t=748 MOVE defend-rally@base(2)
+[21:23:41] t=750 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:23:43] t=751 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:23:44] t=753 ALARM 单位损失 -> counter 9 vs 1 -> [70, 117]
+[21:23:46] t=754 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:23:46] t=754 tick#500 credits=807 stance=defend | jev 402 decisions p50=809ms
+[21:23:53] t=762 ALARM 敌军逼近 -> counter 9 vs 1 -> [84, 113]
+[21:24:01] t=769 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:24:01] t=769 MOVE defend-rally@base(2)
+[21:24:02] t=771 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:24:04] t=772 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:24:05] t=774 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:24:07] t=775 jev INF DOG (conf 0.32)
+[21:24:09] t=777 jev BUILD NAWEAP (conf 0.18)
+[21:24:13] t=781 MOVE defend-rally@base(3)
+[21:24:24] t=792 tick#525 credits=0 stance=defend | jev 418 decisions p50=808ms
+[21:24:25] t=793 MOVE defend-rally@base(3)
+[21:24:37] t=805 MOVE defend-rally@base(3)
+[21:24:51] t=819 MOVE defend-rally@base(3)
+[21:25:02] t=830 tick#550 credits=0 stance=defend | jev 443 decisions p50=812ms
+[21:25:03] t=832 MOVE defend-rally@base(3)
+[21:25:08] t=836 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:25:09] t=838 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:25:11] t=839 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:25:12] t=841 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:25:14] t=842 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:25:15] t=844 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:25:17] t=845 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:25:17] t=845 MOVE defend-rally@base(3)
+[21:25:18] t=847 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:25:20] t=848 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:25:21] t=850 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[21:25:26] t=854 jev INF DOG (conf 0.22)
+[21:25:31] t=859 MOVE defend-rally@base(3)
+[21:25:39] t=868 tick#575 credits=0 stance=defend | jev 468 decisions p50=813ms
+[21:25:44] t=872 MOVE defend-rally@base(3)
+[21:25:57] t=886 MOVE defend-rally@base(3)
+[21:25:59] t=887 jev INF DOG (conf 0.22)
+[21:26:05] t=893 jev INF E2 (conf 0.28)
+[21:26:06] t=895 TANK HTNK x1
+[21:26:09] t=898 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:26:09] t=898 MOVE defend-rally@base(4)
+[21:26:11] t=899 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:26:13] t=901 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:26:14] t=902 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:26:15] t=904 jev INF DOG (conf 0.24)
+[21:26:17] t=905 tick#600 credits=635 stance=defend | jev 493 decisions p50=817ms
+[21:26:21] t=910 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:26:23] t=911 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:26:23] t=911 MOVE defend-rally@base(4)
+[21:26:24] t=913 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:26:26] t=914 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:26:33] t=922 SCOUT tank->mirror [130, 83]
+[21:26:35] t=923 MOVE defend-rally@base(4)
+[21:26:37] t=925 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:26:38] t=926 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:26:40] t=928 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:26:44] t=932 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:26:46] t=935 RETREAT E2(16%)
+[21:26:47] t=935 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[21:26:47] t=935 MOVE defend-rally@base(4)
+[21:26:49] t=938 ALARM 敌军逼近 -> counter 15 vs 9 -> [86, 109]
+[21:26:49] t=938 RETREAT E2(38%)
+[21:26:54] t=943 RETREAT E2(2%)
+[21:26:54] t=943 tick#625 credits=0 stance=defend | jev 514 decisions p50=822ms
+[21:26:55] t=944 RETREAT E2(22%)
+[21:26:58] t=947 ALARM 敌军逼近 -> counter 13 vs 10 -> [86, 109]
+[21:27:07] t=956 ALARM 敌军逼近 -> TURTLE (10 v 10, 守塔阵不打野战)
+[21:27:13] t=962 RETREAT HTNK(17%)
+[21:27:16] t=965 ALARM 敌军逼近 -> TURTLE (9 v 9, 守塔阵不打野战)
+[21:27:18] t=967 RETREAT E2(17%)
+[21:27:25] t=974 ALARM 苏联矿石精炼场被攻击 -> TURTLE (8 v 9, 守塔阵不打野战)
+[21:27:31] t=980 tick#650 credits=0 stance=defend | jev 514 decisions p50=822ms
+[21:27:34] t=983 ALARM 苏联矿石精炼场被攻击 -> TURTLE (8 v 9, 守塔阵不打野战)
+[21:27:43] t=992 ALARM 敌军逼近 -> TURTLE (8 v 8, 守塔阵不打野战)
+[21:27:52] t=1001 ALARM 敌军逼近 -> TURTLE (9 v 8, 守塔阵不打野战)
+[21:28:01] t=1010 ALARM 敌军逼近 -> counter 9 vs 7 -> [81, 121]
+[21:28:09] t=1018 tick#675 credits=14 stance=defend | jev 514 decisions p50=822ms
+[21:28:10] t=1019 ALARM 敌军逼近 -> counter 9 vs 6 -> [81, 121]
+[21:28:18] t=1027 RETREAT HTNK(38%)
+[21:28:19] t=1028 ALARM 敌军逼近 -> counter 8 vs 6 -> [81, 121]
+[21:28:24] t=1033 RETREAT DOG(38%)
+[21:28:27] t=1036 RETREAT DOG(7%)
+[21:28:28] t=1037 ALARM 单位损失 -> TURTLE (5 v 6, 守塔阵不打野战)
+[21:28:28] t=1037 RETREAT DOG(37%)
+[21:28:34] t=1043 RETREAT E2(3%)
+[21:28:37] t=1046 ALARM 敌军逼近 -> TURTLE (4 v 5, 守塔阵不打野战)
+[21:28:40] t=1049 RETREAT HTNK(39%)
+[21:28:46] t=1055 ALARM 敌军逼近 -> TURTLE (3 v 4, 守塔阵不打野战)
+[21:28:46] t=1055 tick#700 credits=0 stance=defend | jev 514 decisions p50=822ms
+[21:28:55] t=1064 ALARM 敌军逼近 -> counter 3 vs 2 -> [80, 122]
+[21:29:05] t=1073 jev INF DOG (conf 0.22)
+[21:29:05] t=1073 jev VEH HTK (conf 0.87)
+[21:29:05] t=1073 MOVE defend-rally@base(2)
+[21:29:17] t=1085 MOVE defend-rally@base(2)
+[21:29:25] t=1093 tick#725 credits=0 stance=defend | jev 528 decisions p50=823ms
+[21:29:31] t=1099 MOVE defend-rally@base(2)
+[21:29:33] t=1102 SCOUT tank->mirror [130, 83]
+[21:29:43] t=1111 MOVE defend-rally@base(2)
+[21:29:56] t=1124 MOVE defend-rally@base(2)
+[21:30:02] t=1130 tick#750 credits=0 stance=defend | jev 553 decisions p50=834ms
+[21:30:10] t=1138 MOVE defend-rally@base(2)
+[21:30:23] t=1151 MOVE defend-rally@base(2)
+[21:30:36] t=1164 MOVE defend-rally@base(2)
+[21:30:40] t=1169 tick#775 credits=0 stance=defend | jev 578 decisions p50=843ms
+[21:30:49] t=1178 MOVE defend-rally@base(2)
+[21:31:01] t=1190 MOVE defend-rally@base(2)
+[21:31:13] t=1202 jev INF DOG (conf 0.20)
+[21:31:14] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:14] t=1203 MOVE defend-rally@base(2)
+[21:31:16] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:17] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:17] t=1206 tick#800 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:31:19] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:20] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:22] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:23] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:25] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:26] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:26] t=1215 MOVE defend-rally@base(2)
+[21:31:28] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:29] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:31] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:32] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:34] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:35] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:38] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:38] t=1227 MOVE defend-rally@base(2)
+[21:31:40] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:41] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:43] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:44] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:46] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:47] t=1236 RETREAT E2(0%)
+[21:31:47] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:49] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:50] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:52] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:52] t=1241 MOVE defend-rally@base(2)
+[21:31:53] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:55] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:55] t=1244 tick#825 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:31:56] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:58] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:31:59] t=1248 ALARM 敌军逼近 -> TURTLE (4 v 9, 守塔阵不打野战)
+[21:32:08] t=1257 ALARM 敌军逼近 -> TURTLE (4 v 10, 守塔阵不打野战)
+[21:32:17] t=1266 ALARM 敌军逼近 -> TURTLE (4 v 11, 守塔阵不打野战)
+[21:32:26] t=1275 ALARM 单位损失 -> TURTLE (5 v 10, 守塔阵不打野战)
+[21:32:28] t=1277 AA HTK x2 (enemy air)
+[21:32:32] t=1281 tick#850 credits=499 stance=defend | jev 600 decisions p50=844ms
+[21:32:34] t=1283 SCOUT tank->mirror [130, 83]
+[21:32:35] t=1284 ALARM 敌军逼近 -> TURTLE (7 v 11, 守塔阵不打野战)
+[21:32:38] t=1287 RETREAT HTK(32%)
+[21:32:44] t=1293 ALARM 敌军逼近 -> TURTLE (6 v 9, 守塔阵不打野战)
+[21:32:47] t=1296 RETREAT HTK(32%)
+[21:32:53] t=1302 ALARM 敌军逼近 -> TURTLE (5 v 7, 守塔阵不打野战)
+[21:33:02] t=1311 ALARM 敌军逼近 -> TURTLE (5 v 8, 守塔阵不打野战)
+[21:33:10] t=1319 tick#875 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:33:11] t=1320 ALARM 苏联矿石精炼场被攻击 -> TURTLE (5 v 7, 守塔阵不打野战)
+[21:33:19] t=1328 RETREAT HTNK(24%)
+[21:33:20] t=1329 ALARM 单位损失 -> TURTLE (5 v 5, 守塔阵不打野战)
+[21:33:29] t=1338 ALARM 敌军逼近 -> counter 6 vs 5 -> [80, 119]
+[21:33:38] t=1347 ALARM 敌军逼近 -> counter 5 vs 2 -> [80, 119]
+[21:33:38] t=1347 RETREAT HTK(35%)
+[21:33:41] t=1350 RETREAT HTNK(39%)
+[21:33:47] t=1356 ALARM 敌军逼近 -> counter 5 vs 1 -> [80, 119]
+[21:33:47] t=1356 tick#900 credits=6 stance=defend | jev 600 decisions p50=844ms
+[21:33:50] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:33:52] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:33:53] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:33:55] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:33:56] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:33:56] t=1365 MOVE defend-rally@base(2)
+[21:33:58] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:33:59] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:01] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:02] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:04] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:05] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:07] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:08] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:08] t=1377 MOVE defend-rally@base(2)
+[21:34:10] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:11] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:13] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:14] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:16] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:17] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:19] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:20] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:20] t=1389 MOVE defend-rally@base(2)
+[21:34:22] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:23] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:25] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:25] t=1394 tick#925 credits=6 stance=defend | jev 600 decisions p50=844ms
+[21:34:26] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:28] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:29] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:31] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:32] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:32] t=1401 MOVE defend-rally@base(2)
+[21:34:34] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:35] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:38] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:40] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:41] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:43] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:44] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:44] t=1413 MOVE defend-rally@base(2)
+[21:34:46] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:47] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:49] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:50] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:52] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:53] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:55] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:56] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:56] t=1425 MOVE defend-rally@base(2)
+[21:34:58] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:34:59] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:01] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:02] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:02] t=1431 tick#950 credits=231 stance=defend | jev 600 decisions p50=844ms
+[21:35:04] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:05] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:07] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:08] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:08] t=1437 MOVE defend-rally@base(2)
+[21:35:10] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:11] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:13] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:14] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:16] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:17] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:19] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:21] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:21] t=1450 MOVE defend-rally@base(2)
+[21:35:22] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:23] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:25] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:26] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:28] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:29] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:31] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:32] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:34] t=1463 SCOUT tank->mirror [130, 83]
+[21:35:34] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:34] t=1463 MOVE defend-rally@base(2)
+[21:35:35] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:38] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:40] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:40] t=1469 tick#975 credits=456 stance=defend | jev 600 decisions p50=844ms
+[21:35:41] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:43] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:44] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:46] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:47] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:47] t=1476 MOVE defend-rally@base(2)
+[21:35:49] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:50] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:52] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:53] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:55] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:56] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:58] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:59] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:35:59] t=1488 MOVE defend-rally@base(2)
+[21:36:01] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:02] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:04] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:05] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:07] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:08] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:10] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:11] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:11] t=1500 MOVE defend-rally@base(2)
+[21:36:13] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:14] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:16] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:17] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:17] t=1506 tick#1000 credits=456 stance=defend | jev 600 decisions p50=844ms
+[21:36:19] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:20] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:22] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:23] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:23] t=1512 MOVE defend-rally@base(2)
+[21:36:25] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:26] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:28] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:29] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:31] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:32] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:34] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:35] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:35] t=1524 MOVE defend-rally@base(2)
+[21:36:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:38] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:40] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:41] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:43] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:44] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:46] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:47] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:47] t=1536 MOVE defend-rally@base(2)
+[21:36:49] t=1538 RETREAT E2(0%)
+[21:36:49] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:50] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:52] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:53] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:55] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:55] t=1544 tick#1025 credits=681 stance=defend | jev 600 decisions p50=844ms
+[21:36:56] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:58] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:59] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:36:59] t=1548 MOVE defend-rally@base(2)
+[21:37:01] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:02] t=1551 AA HTK x2 (enemy air)
+[21:37:02] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:04] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:05] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:07] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:08] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:10] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:11] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:11] t=1560 MOVE defend-rally@base(3)
+[21:37:13] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:14] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:16] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:17] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:19] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:20] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:22] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:23] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:23] t=1572 MOVE defend-rally@base(3)
+[21:37:25] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:37:26] t=1575 ALARM 敌军逼近 -> TURTLE (6 v 14, 守塔阵不打野战)
+[21:37:32] t=1581 tick#1050 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:37:35] t=1584 ALARM 敌军逼近 -> TURTLE (6 v 14, 守塔阵不打野战)
+[21:37:44] t=1593 ALARM 敌军逼近 -> TURTLE (6 v 15, 守塔阵不打野战)
+[21:37:53] t=1602 ALARM 苏联战车工厂被攻击 -> TURTLE (7 v 14, 守塔阵不打野战)
+[21:37:53] t=1602 OPENING BUILD NAREFN
+[21:37:56] t=1605 RETREAT E2(0%)
+[21:38:02] t=1611 ALARM 苏联矿石精炼场被攻击 -> TURTLE (6 v 11, 守塔阵不打野战)
+[21:38:10] t=1619 tick#1075 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:38:11] t=1620 ALARM 磁能反应炉被攻击 -> TURTLE (6 v 10, 守塔阵不打野战)
+[21:38:20] t=1629 ALARM 苏联战车工厂被攻击 -> TURTLE (6 v 8, 守塔阵不打野战)
+[21:38:20] t=1629 RETREAT HTNK(24%)
+[21:38:28] t=1637 RETREAT E2(16%)
+[21:38:29] t=1638 ALARM 单位损失 -> counter 9 vs 7 -> [70, 117]
+[21:38:31] t=1640 RETREAT E2(21%)
+[21:38:34] t=1643 SCOUT tank->mirror [130, 83]
+[21:38:37] t=1646 RETREAT E2(32%)
+[21:38:38] t=1647 ALARM 敌军逼近 -> TURTLE (7 v 7, 守塔阵不打野战)
+[21:38:43] t=1652 RETREAT HTNK(39%)
+[21:38:47] t=1656 ALARM 哨戒炮被攻击 -> TURTLE (7 v 7, 守塔阵不打野战)
+[21:38:47] t=1656 tick#1100 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:38:56] t=1665 ALARM 敌军逼近 -> TURTLE (7 v 7, 守塔阵不打野战)
+[21:39:05] t=1674 ALARM 磁能反应炉被攻击 -> TURTLE (7 v 7, 守塔阵不打野战)
+[21:39:14] t=1683 ALARM 磁能反应炉被攻击 -> TURTLE (7 v 8, 守塔阵不打野战)
+[21:39:23] t=1692 ALARM 磁能反应炉被攻击 -> TURTLE (7 v 7, 守塔阵不打野战)
+[21:39:25] t=1694 tick#1125 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:39:32] t=1701 ALARM 苏联建造场被攻击 -> TURTLE (7 v 9, 守塔阵不打野战)
+[21:39:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:39:38] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:39:41] t=1710 ALARM 磁能反应炉被攻击 -> TURTLE (11 v 10, 守塔阵不打野战)
+[21:39:44] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:39:50] t=1719 ALARM 磁能反应炉被攻击 -> TURTLE (7 v 7, 守塔阵不打野战)
+[21:39:56] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:39:59] t=1728 ALARM 磁能反应炉被攻击 -> TURTLE (2 v 8, 守塔阵不打野战)
+[21:40:02] t=1731 tick#1150 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:40:04] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:08] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:10] t=1739 ALARM 磁能反应炉被攻击 -> TURTLE (2 v 9, 守塔阵不打野战)
+[21:40:11] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:19] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:20] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:22] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:23] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:25] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:28] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:29] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:32] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:40] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:40] t=1769 tick#1175 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:40:41] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:44] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:47] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:49] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:50] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:52] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:53] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:55] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:56] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:58] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:40:59] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:01] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:02] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:04] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:05] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:07] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:08] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:11] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:13] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:16] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:17] t=1806 tick#1200 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:41:19] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:20] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:23] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:25] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:28] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:31] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:32] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:35] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:40] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:43] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:44] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:47] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:49] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:50] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:52] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:53] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:55] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:55] t=1844 tick#1225 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:41:56] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:58] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:41:59] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:01] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:02] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:04] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:05] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:07] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:08] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:10] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:11] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:13] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:14] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:16] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:17] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:19] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:20] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:22] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:23] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:25] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:26] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:28] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:29] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:31] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:32] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:32] t=1881 tick#1250 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:42:34] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:35] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:38] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:40] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:41] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:43] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:44] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:46] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:47] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:49] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:50] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:52] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:53] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:55] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:56] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:58] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:42:59] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:01] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:02] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:04] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:05] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:07] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:08] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:10] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:10] t=1919 tick#1275 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:43:11] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:13] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:14] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:16] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:17] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:19] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:20] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:22] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:23] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:25] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:26] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:28] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:29] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:31] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:32] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:34] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:35] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:38] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:40] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:41] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:43] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:44] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:46] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:47] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:47] t=1956 tick#1300 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:43:49] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:50] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:52] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:53] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:55] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:56] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:58] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:43:59] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:01] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:02] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:04] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:05] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:07] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:08] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:10] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:11] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:13] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:14] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:16] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:17] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:19] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:20] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:22] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:23] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:25] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:25] t=1994 tick#1325 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:44:26] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:28] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:29] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:31] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:32] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:34] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:35] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:38] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:40] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:41] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:43] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:44] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:46] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:47] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:49] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:50] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:52] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:53] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:55] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:56] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:58] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:44:59] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:01] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:02] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:02] t=2031 tick#1350 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:45:04] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:05] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:07] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:08] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:10] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:11] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:13] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:14] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:16] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:17] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:19] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:20] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:22] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:23] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:25] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:26] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:28] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:29] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:31] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:32] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:34] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:36] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:38] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:40] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:40] t=2069 tick#1375 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:45:42] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:43] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:45] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:46] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:48] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:49] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:51] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:52] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:54] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:55] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:57] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:45:58] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:46:00] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:46:01] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:46:03] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:46:04] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:46:06] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:46:18] t=2106 tick#1400 credits=0 stance=defend | jev 600 decisions p50=844ms
+[21:46:36] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:46:37] jev budget exhausted: max calls reached: 600 (继续纯确定性运行)
+[21:46:39] t=2127 ALARM 苏联兵营被攻击 -> TURTLE (4 v 18, 守塔阵不打野战)
+[21:46:48] t=2136 ALARM 苏联兵营被攻击 -> TURTLE (3 v 18, 守塔阵不打野战)
+[21:46:55] t=2144 tick#1425 credits=181 stance=defend | jev 600 decisions p50=844ms
+[21:46:57] t=2145 ALARM 苏联兵营被攻击 -> TURTLE (2 v 18, 守塔阵不打野战)
+[21:47:06] t=2154 ALARM 防空炮被攻击 -> TURTLE (3 v 18, 守塔阵不打野战)
+[21:47:08] REVIEW game#25 defeat → game-0025-review.md | changes=0
+[22:03:46] 进局中(全自动)...
+[22:04:10] === ra2web-jev-player start (tick=1.5s, max_decisions=600) ===
+[22:04:11] t=0 DEPLOY mcv
+[22:04:12] t=2 DEPLOY mcv
+[22:04:14] t=3 POWER plant (reserve 0)
+[22:04:16] t=5 jev STANCE defend->develop (conf 0.80)
+[22:04:42] t=32 OPENING BUILD NAREFN
+[22:04:47] t=36 tick#25 credits=9293 stance=develop | jev 24 decisions p50=865ms
+[22:05:26] t=75 tick#50 credits=8372 stance=develop | jev 49 decisions p50=865ms
+[22:06:04] t=113 tick#75 credits=7449 stance=develop | jev 74 decisions p50=840ms
+[22:06:09] t=119 OPENING BUILD NAHAND
+[22:06:33] t=143 DEFLINE NALASR (have 0)
+[22:06:33] t=143 OPENING BUILD NAWEAP
+[22:06:34] t=143 jev INF DOG (conf 0.31)
+[22:06:42] t=151 tick#100 credits=6332 stance=develop | jev 99 decisions p50=840ms
+[22:06:43] t=152 jev INF DOG (conf 0.32)
+[22:06:53] t=161 jev INF DOG (conf 0.34)
+[22:06:58] t=167 DEFLINE NALASR (have 1)
+[22:07:02] t=170 jev INF DOG (conf 0.33)
+[22:07:11] t=180 jev INF E2 (conf 0.34)
+[22:07:16] t=185 jev INF E2 (conf 0.33)
+[22:07:20] t=189 tick#125 credits=3813 stance=develop | jev 124 decisions p50=841ms
+[22:07:22] t=191 jev INF E2 (conf 0.35)
+[22:07:22] t=192 DEFLINE NALASR (have 2)
+[22:07:26] t=195 jev INF E2 (conf 0.31)
+[22:07:31] t=200 jev INF E2 (conf 0.41)
+[22:07:35] t=204 jev INF E2 (conf 0.38)
+[22:07:39] t=209 ALARM 敌军逼近 -> counter 10 vs 1 -> [80, 115]
+[22:07:47] t=216 jev INF E2 (conf 0.50)
+[22:07:52] t=221 jev INF E2 (conf 0.50)
+[22:07:57] t=226 jev INF E2 (conf 0.59)
+[22:07:58] t=227 tick#150 credits=1867 stance=defend | jev 144 decisions p50=832ms
+[22:08:00] t=230 ECON harv#2
+[22:08:00] t=230 OPENING BUILD NAREFN
+[22:08:02] t=232 INSURE AA building
+[22:08:02] t=232 jev INF E2 (conf 0.40)
+[22:08:09] t=238 jev INF E2 (conf 0.38)
+[22:08:14] t=244 jev INF E2 (conf 0.34)
+[22:08:21] t=250 jev INF E2 (conf 0.47)
+[22:08:27] t=256 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:08:28] t=257 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:08:29] t=259 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:08:31] t=260 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:08:32] t=262 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:08:34] t=263 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:08:36] t=265 tick#175 credits=53 stance=defend | jev 169 decisions p50=831ms
+[22:09:14] t=303 tick#200 credits=0 stance=defend | jev 194 decisions p50=831ms
+[22:09:52] t=341 tick#225 credits=0 stance=defend | jev 219 decisions p50=830ms
+[22:09:53] t=342 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:09:55] t=344 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:09:56] t=345 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:09:57] t=347 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:09:59] t=348 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:10:00] t=350 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:10:02] t=351 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:10:03] t=353 ALARM 敌军逼近 -> counter 17 vs 4 -> [86, 110]
+[22:10:07] t=357 RETREAT DOG(7%)
+[22:10:12] t=362 jev INF DOG (conf 0.43)
+[22:10:13] t=363 ALARM 单位损失 -> counter 14 vs 3 -> [70, 117]
+[22:10:15] t=365 RETREAT DOG(37%)
+[22:10:16] t=366 RETREAT DOG(6%)
+[22:10:29] t=378 tick#250 credits=0 stance=defend | jev 236 decisions p50=830ms
+[22:11:07] t=416 tick#275 credits=0 stance=defend | jev 261 decisions p50=828ms
+[22:11:43] t=452 jev VEH HTK (conf 0.26)
+[22:11:44] t=454 tick#300 credits=790 stance=defend | jev 286 decisions p50=828ms
+[22:11:48] t=457 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:11:49] t=458 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:11:51] t=460 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:11:52] t=461 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:11:54] t=463 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:11:55] t=464 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:11:58] t=467 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:12:24] t=493 tick#325 credits=0 stance=defend | jev 311 decisions p50=828ms
+[22:13:02] t=531 tick#350 credits=0 stance=defend | jev 336 decisions p50=829ms
+[22:13:29] t=558 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:13:31] t=560 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:13:32] t=561 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:13:33] t=563 SCOUT #1163->[130, 83] (visit 1)
+[22:13:34] t=563 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:13:34] t=563 jev VEH HTK (conf 0.49)
+[22:13:35] t=564 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:13:35] t=564 jev VEH HTK (conf 0.50)
+[22:13:37] t=566 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[22:13:38] t=567 jev INF E2 (conf 0.38)
+[22:13:39] t=569 POWER plant (reserve -35)
+[22:13:41] t=569 tick#375 credits=1835 stance=defend | jev 361 decisions p50=828ms
+[22:14:02] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:14:24] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:14:24] t=614 ENEMY BASE spotted @[134, 79]
+[22:14:45] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:14:45] t=614 MOVE defend-rally@(73, 120)(1)
+[22:14:45] t=635 ALARM 单位损失 -> TURTLE (17 v 16, 守塔阵不打野战)
+[22:15:08] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:15:08] t=637 MOVE defend-rally@(73, 120)(2)
+[22:15:08] t=658 RETREAT DOG(7%)
+[22:15:29] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:15:29] t=658 MOVE defend-rally@(73, 120)(2)
+[22:15:30] t=680 ALARM 单位损失 -> TURTLE (17 v 19, 守塔阵不打野战)
+[22:15:30] t=680 TANK HTNK x1
+[22:15:39] t=689 ALARM 敌军逼近 -> TURTLE (17 v 19, 守塔阵不打野战)
+[22:15:48] t=698 ALARM 哨戒炮被攻击 -> TURTLE (17 v 20, 守塔阵不打野战)
+[22:15:57] t=707 ALARM 敌军逼近 -> TURTLE (17 v 20, 守塔阵不打野战)
+[22:15:57] t=707 tick#400 credits=1833 stance=defend | jev 361 decisions p50=828ms
+[22:16:06] t=716 ALARM 哨戒炮被攻击 -> TURTLE (17 v 20, 守塔阵不打野战)
+[22:16:07] t=717 TANK HTNK x3
+[22:16:09] t=719 DEFLINE NALASR (have 2)
+[22:16:15] t=725 ALARM 敌军逼近 -> TURTLE (17 v 19, 守塔阵不打野战)
+[22:16:15] t=725 RETREAT HTNK(24%)
+[22:16:24] t=734 ALARM 敌军逼近 -> TURTLE (17 v 19, 守塔阵不打野战)
+[22:16:25] t=735 RETREAT E2(32%)
+[22:16:33] t=743 ALARM 苏联战车工厂被攻击 -> TURTLE (16 v 17, 守塔阵不打野战)
+[22:16:34] t=744 tick#425 credits=1544 stance=defend | jev 361 decisions p50=828ms
+[22:16:42] t=752 ALARM 敌军逼近 -> TURTLE (16 v 18, 守塔阵不打野战)
+[22:16:51] t=761 ALARM 敌军逼近 -> TURTLE (17 v 19, 守塔阵不打野战)
+[22:17:00] t=770 ALARM 敌军逼近 -> TURTLE (17 v 17, 守塔阵不打野战)
+[22:17:03] t=773 RETREAT HTNK(35%)
+[22:17:09] t=779 ALARM 苏联矿石精炼场被攻击 -> TURTLE (16 v 16, 守塔阵不打野战)
+[22:17:12] t=782 tick#450 credits=529 stance=defend | jev 361 decisions p50=828ms
+[22:17:18] t=788 ALARM 敌军逼近 -> TURTLE (15 v 16, 守塔阵不打野战)
+[22:17:18] t=788 RETREAT DOG(5%)
+[22:17:27] t=797 ALARM 敌军逼近 -> TURTLE (16 v 16, 守塔阵不打野战)
+[22:17:33] t=803 RETREAT HTNK(35%)
+[22:17:36] t=806 ALARM 苏联战车工厂被攻击 -> TURTLE (15 v 16, 守塔阵不打野战)
+[22:17:45] t=815 ALARM 苏联矿石精炼场被攻击 -> TURTLE (15 v 15, 守塔阵不打野战)
+[22:17:49] t=819 OPENING BUILD NAREFN
+[22:17:49] t=819 tick#475 credits=0 stance=defend | jev 361 decisions p50=828ms
+[22:17:54] t=824 ALARM 苏联战车工厂被攻击 -> TURTLE (15 v 14, 守塔阵不打野战)
+[22:18:00] t=830 RETREAT E2(37%)
+[22:18:03] t=833 ALARM 苏联建造场被攻击 -> counter 17 vs 14 -> [70, 117]
+[22:18:03] t=833 RETREAT E2(27%)
+[22:18:12] t=842 ALARM 苏联矿石精炼场被攻击 -> TURTLE (15 v 13, 守塔阵不打野战)
+[22:18:21] t=851 ALARM 单位损失 -> counter 14 vs 11 -> [70, 117]
+[22:18:22] t=852 RETREAT E2(37%)
+[22:18:24] t=854 RETREAT E2(37%)
+[22:18:27] t=857 tick#500 credits=1882 stance=defend | jev 361 decisions p50=828ms
+[22:18:30] t=860 ALARM 敌军逼近 -> TURTLE (12 v 11, 守塔阵不打野战)
+[22:18:33] t=863 RETREAT HTK(22%)
+[22:18:39] t=869 ALARM 苏联矿石精炼场被攻击 -> TURTLE (11 v 14, 守塔阵不打野战)
+[22:18:39] t=869 AIR-DEFENSE 2nd AA
+[22:18:48] t=878 ALARM 苏联矿石精炼场被攻击 -> TURTLE (11 v 22, 守塔阵不打野战)
+[22:19:11] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:19:33] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:19:33] t=923 ALARM 敌军逼近 -> TURTLE (11 v 20, 守塔阵不打野战)
+[22:19:33] t=923 OPENING BUILD NAWEAP
+[22:19:42] t=932 ALARM 敌军逼近 -> TURTLE (11 v 20, 守塔阵不打野战)
+[22:19:45] t=935 tick#525 credits=669 stance=defend | jev 361 decisions p50=828ms
+[22:19:51] t=941 ALARM 敌军逼近 -> TURTLE (11 v 20, 守塔阵不打野战)
+[22:20:00] t=950 ALARM 苏联矿石精炼场被攻击 -> TURTLE (11 v 20, 守塔阵不打野战)
+[22:20:09] t=959 ALARM 苏联矿石精炼场被攻击 -> TURTLE (11 v 22, 守塔阵不打野战)
+[22:20:15] t=965 RETREAT E2(24%)
+[22:20:18] t=968 ALARM 敌军逼近 -> TURTLE (10 v 22, 守塔阵不打野战)
+[22:20:22] t=972 tick#550 credits=0 stance=defend | jev 361 decisions p50=828ms
+[22:20:27] t=977 ALARM 敌军逼近 -> TURTLE (10 v 21, 守塔阵不打野战)
+[22:20:51] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:20:51] t=1001 ALARM 单位损失 -> TURTLE (10 v 17, 守塔阵不打野战)
+[22:21:14] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:21:14] t=1024 ALARM 苏联矿石精炼场被攻击 -> TURTLE (10 v 18, 守塔阵不打野战)
+[22:21:23] t=1033 ALARM 敌军逼近 -> TURTLE (10 v 15, 守塔阵不打野战)
+[22:21:26] t=1036 RETREAT E2(38%)
+[22:21:32] t=1042 ALARM 苏联矿石精炼场被攻击 -> TURTLE (9 v 14, 守塔阵不打野战)
+[22:21:40] t=1050 tick#575 credits=3751 stance=defend | jev 361 decisions p50=828ms
+[22:21:41] t=1051 ALARM 敌军逼近 -> TURTLE (9 v 14, 守塔阵不打野战)
+[22:21:44] t=1054 RETREAT E2(28%)
+[22:21:50] t=1060 ALARM 敌军逼近 -> TURTLE (8 v 14, 守塔阵不打野战)
+[22:21:59] t=1069 ALARM 敌军逼近 -> TURTLE (8 v 13, 守塔阵不打野战)
+[22:22:07] t=1077 ECON harv#3
+[22:22:07] t=1077 TANK HTNK x2
+[22:22:08] t=1078 ALARM 敌军逼近 -> TURTLE (8 v 12, 守塔阵不打野战)
+[22:22:17] t=1087 ALARM 敌军逼近 -> TURTLE (8 v 12, 守塔阵不打野战)
+[22:22:17] t=1087 tick#600 credits=2865 stance=defend | jev 361 decisions p50=828ms
+[22:22:26] t=1096 ALARM 苏联战车工厂被攻击 -> TURTLE (8 v 11, 守塔阵不打野战)
+[22:22:35] t=1105 ALARM 苏联战车工厂被攻击 -> TURTLE (8 v 11, 守塔阵不打野战)
+[22:23:01] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:23:22] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:23:44] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:24:05] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:24:05] t=1174 MOVE defend-rally@(73, 120)(1)
+[22:24:27] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:24:27] t=1195 MOVE defend-rally@(73, 120)(1)
+[22:24:48] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:24:48] t=1217 MOVE defend-rally@(73, 120)(1)
+[22:25:09] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:25:09] t=1238 MOVE defend-rally@(73, 120)(1)
+[22:25:10] t=1260 TANK HTNK x4
+[22:25:31] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:25:31] t=1260 MOVE defend-rally@(73, 120)(2)
+[22:25:31] t=1281 ALARM 单位损失 -> TURTLE (8 v 20, 守塔阵不打野战)
+[22:25:31] t=1281 RETREAT HTNK(13%)
+[22:25:31] t=1281 RETREAT E2(6%)
+[22:25:54] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:25:54] t=1283 MOVE defend-rally@(73, 120)(1)
+[22:25:54] t=1304 ALARM 单位损失 -> TURTLE (8 v 22, 守塔阵不打野战)
+[22:25:54] t=1304 tick#625 credits=3377 stance=defend | jev 361 decisions p50=828ms
+[22:26:17] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:26:17] t=1306 MOVE defend-rally@(73, 120)(2)
+[22:26:17] t=1327 ALARM 单位损失 -> TURTLE (8 v 23, 守塔阵不打野战)
+[22:26:26] t=1336 ALARM 苏联战车工厂被攻击 -> TURTLE (9 v 22, 守塔阵不打野战)
+[22:26:32] t=1342 RETREAT HTNK(29%)
+[22:26:35] t=1345 ALARM 苏联战车工厂被攻击 -> TURTLE (8 v 20, 守塔阵不打野战)
+[22:26:44] t=1354 ALARM 苏联战车工厂被攻击 -> TURTLE (8 v 17, 守塔阵不打野战)
+[22:26:52] t=1362 tick#650 credits=2204 stance=defend | jev 361 decisions p50=828ms
+[22:26:53] t=1363 ALARM 苏联战车工厂被攻击 -> TURTLE (8 v 17, 守塔阵不打野战)
+[22:26:55] t=1365 OPENING BUILD NAWEAP
+[22:27:02] t=1372 ALARM 敌军逼近 -> TURTLE (11 v 17, 守塔阵不打野战)
+[22:27:02] t=1372 RETREAT E2(37%)
+[22:27:11] t=1381 ALARM 敌军逼近 -> TURTLE (11 v 15, 守塔阵不打野战)
+[22:27:20] t=1390 ALARM 磁能反应炉被攻击 -> TURTLE (10 v 15, 守塔阵不打野战)
+[22:27:26] t=1396 RETREAT E2(36%)
+[22:27:29] t=1399 ALARM 敌军逼近 -> TURTLE (9 v 14, 守塔阵不打野战)
+[22:27:29] t=1399 tick#675 credits=2109 stance=defend | jev 361 decisions p50=828ms
+[22:27:38] t=1408 ALARM 磁能反应炉被攻击 -> TURTLE (9 v 14, 守塔阵不打野战)
+[22:27:47] t=1417 ALARM 磁能反应炉被攻击 -> TURTLE (9 v 14, 守塔阵不打野战)
+[22:27:56] t=1426 ALARM 磁能反应炉被攻击 -> TURTLE (9 v 14, 守塔阵不打野战)
+[22:28:05] t=1435 ALARM 敌军逼近 -> TURTLE (9 v 16, 守塔阵不打野战)
+[22:28:07] t=1437 tick#700 credits=1391 stance=defend | jev 361 decisions p50=828ms
+[22:28:31] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:28:31] t=1440 MOVE defend-rally@(73, 120)(2)
+[22:28:31] t=1461 POWER plant (reserve 16)
+[22:28:52] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:28:52] t=1461 MOVE defend-rally@(73, 120)(2)
+[22:29:14] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:29:14] t=1483 MOVE defend-rally@(73, 120)(2)
+[22:29:35] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:29:35] t=1504 MOVE defend-rally@(73, 120)(2)
+[22:29:57] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:29:57] t=1525 MOVE defend-rally@(73, 120)(2)
+[22:29:57] t=1547 ALARM 单位损失 -> TURTLE (9 v 13, 守塔阵不打野战)
+[22:30:20] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:30:20] t=1548 MOVE defend-rally@(73, 120)(2)
+[22:30:41] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:30:41] t=1570 MOVE defend-rally@(73, 120)(2)
+[22:30:42] t=1591 ALARM 单位损失 -> TURTLE (9 v 13, 守塔阵不打野战)
+[22:31:04] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:31:04] t=1593 MOVE defend-rally@(73, 120)(2)
+[22:31:26] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:31:26] t=1614 MOVE defend-rally@(73, 120)(2)
+[22:31:47] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:31:47] t=1636 MOVE defend-rally@(73, 120)(2)
+[22:32:09] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:32:09] t=1657 MOVE defend-rally@(73, 120)(2)
+[22:32:09] t=1679 TANK HTNK x1
+[22:32:30] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:32:30] t=1679 MOVE defend-rally@(73, 120)(2)
+[22:32:52] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:32:52] t=1700 MOVE defend-rally@(73, 120)(2)
+[22:33:13] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:33:13] t=1722 MOVE defend-rally@(73, 120)(3)
+[22:33:35] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:33:35] t=1743 MOVE defend-rally@(73, 120)(3)
+[22:33:56] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:33:56] t=1765 MOVE defend-rally@(73, 120)(3)
+[22:34:18] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:34:18] t=1786 MOVE defend-rally@(73, 120)(3)
+[22:34:39] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:34:39] t=1808 MOVE defend-rally@(73, 120)(3)
+[22:35:01] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:35:01] t=1829 MOVE defend-rally@(73, 120)(3)
+[22:35:01] t=1851 AA HTK x2 (enemy air)
+[22:35:22] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:35:22] t=1851 MOVE defend-rally@(73, 120)(3)
+[22:35:44] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:35:44] t=1872 MOVE forward-post@(82, 109)(4)
+[22:35:44] t=1894 ALARM 单位损失 -> TURTLE (11 v 29, 守塔阵不打野战)
+[22:35:44] t=1894 tick#725 credits=74 stance=defend | jev 361 decisions p50=828ms
+[22:36:07] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:36:07] t=1895 MOVE forward-post@(82, 109)(4)
+[22:36:07] t=1917 ALARM 单位损失 -> TURTLE (7 v 25, 守塔阵不打野战)
+[22:36:16] t=1926 ALARM 敌军逼近 -> TURTLE (6 v 26, 守塔阵不打野战)
+[22:36:25] t=1935 ALARM 苏联矿石精炼场被攻击 -> TURTLE (6 v 25, 守塔阵不打野战)
+[22:36:34] t=1944 ALARM 苏联矿石精炼场被攻击 -> TURTLE (6 v 24, 守塔阵不打野战)
+[22:36:36] t=1945 OPENING BUILD NAREFN
+[22:36:39] t=1948 RETREAT E2(23%)
+[22:36:42] t=1951 tick#750 credits=81 stance=defend | jev 361 decisions p50=828ms
+[22:36:43] t=1953 ALARM 苏联矿石精炼场被攻击 -> TURTLE (6 v 25, 守塔阵不打野战)
+[22:36:46] t=1956 RETREAT E2(23%)
+[22:36:52] t=1962 ALARM 苏联战车工厂被攻击 -> TURTLE (5 v 24, 守塔阵不打野战)
+[22:37:01] t=1971 ALARM 苏联战车工厂被攻击 -> TURTLE (4 v 21, 守塔阵不打野战)
+[22:37:01] t=1971 RETREAT E2(23%)
+[22:37:10] t=1980 ALARM 防空炮被攻击 -> TURTLE (3 v 20, 守塔阵不打野战)
+[22:37:15] t=1984 RETREAT E2(27%)
+[22:37:19] t=1989 tick#775 credits=0 stance=defend | jev 361 decisions p50=828ms
+[22:37:54] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:37:57] t=2027 ALARM 防空炮被攻击 -> TURTLE (1 v 22, 守塔阵不打野战)
+[22:38:12] t=2042 ALARM 哨戒炮被攻击 -> TURTLE (1 v 20, 守塔阵不打野战)
+[22:38:35] jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:38:56] review jev ERR typesafe failed: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+[22:38:56] REVIEW game#26 defeat → game-0026-review.md | changes=0
+[22:41:29] REVIEW game#26 defeat → game-0026-review.md | changes=0

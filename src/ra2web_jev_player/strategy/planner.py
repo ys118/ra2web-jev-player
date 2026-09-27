@@ -25,6 +25,9 @@ class BattleMemory:
     def __init__(self):
         self.enemy_base = None          # 最近一次看见的敌建筑坐标
         self.last_scout = 0.0           # 上次派坦克探图的真实时刻
+        self.scout_id = None            # 专职侦察单位（movement 集结时豁免它）
+        self.scout_visit: dict = {}     # 路标 -> 游戏秒（持续探索用）
+        self.last_alarm_pos = None      # 最近一次 ALARM 位置（前哨朝向参考）
         self.dogs_queued = False
         self.retreated: dict = {}       # unitId -> 游戏秒(每 300s 只撤一次)
         self.events: list = []          # 事件流(新→旧渲染时反转)
@@ -71,6 +74,8 @@ def sense_events(s: dict, home, mem: BattleMemory):
             del mem.unit_ids[uid]
             if alarm is None:
                 alarm = {"pos": list(home) if home else [0, 0], "what": "单位损失"}
+        if alarm:
+            mem.last_alarm_pos = list(alarm["pos"])
     for u in s["mine"]:
         if u["o"] in (3, 7) and u["id"] not in mem.unit_ids:
             mem.unit_ids[u["id"]] = nm(u["n"])
@@ -277,9 +282,15 @@ def update_enemy_base(s: dict, mem: BattleMemory) -> bool:
 
 
 def scouting(s: dict, home, mem: BattleMemory):
-    """军犬侦察（兵营好后 3 条）+ 每 3 分钟派 1 辆坦克探镜像角。返回 (action, log)。"""
+    """军犬侦察（兵营好后 3 条）+ 专职侦察车多路标持续探图。
+
+    第 26 局迭代（用户观察: 地图探索差、从不主动探索）：
+    - 专职侦察: 选定一辆坦克后记 scout_id，movement 的集结/进攻令豁免它，
+      修掉"侦察车被防守集结反复拉回家"的冲突（第 25 局复盘）；
+    - 多路标轮转: 镜像角→地图中心→四角，优先最久未访，不再只看一个镜像点；
+    - 间隔 150s（原 180s）；敌基地已定位后继续探索（确认+找残余分矿）。
+    """
     side = get_side(s)
-    seen = mem.enemy_base is not None
     qs = queues_by_type(s["queues"])
     av2 = available(s["av"], 2)
     if side["bar"] in [u["n"] for u in s["mine"] if u["o"] == 2] \
@@ -287,15 +298,31 @@ def scouting(s: dict, home, mem: BattleMemory):
         mem.dogs_queued = True
         return ({"act": "produce", "name": "ADOG", "qty": 3},
                 "t=%d SCOUT dogs x3" % s["t"])
-    if time.time() - mem.last_scout > 180 and not seen:
-        tanks = combat_tanks(s["mine"])
-        if tanks and home:
-            mx, my = s["map"]["width"], s["map"]["height"]   # snapshot 的 map 是 {width,height}
-            mem.last_scout = time.time()
-            return ({"act": "attack_move", "ids": [tanks[0]["id"]],
-                     "x": mirror[0], "y": mirror[1]},
-                    "t=%d SCOUT tank->mirror %s" % (s["t"], mirror))
-    return None, None
+    if time.time() - mem.last_scout <= 150:
+        return None, None
+    tanks = combat_tanks(s["mine"])
+    if not tanks or not home:
+        return None, None
+    # 侦察车存活即续用；阵亡/失踪则重新指派
+    if mem.scout_id and any(u["id"] == mem.scout_id for u in tanks):
+        sid = mem.scout_id
+    else:
+        sid = tanks[0]["id"]
+        mem.scout_id = sid
+    mx, my = s["map"]["width"], s["map"]["height"]
+    waypoints = [
+        [max(mx - home[0], 8), max(my - home[1], 8)],   # 镜像角(敌最可能方位)
+        [mx // 2, my // 2],                             # 地图中心
+        [12, my // 2], [12, 12], [mx - 12, 12],
+        [mx - 12, my - 12], [12, my - 12],              # 四角扫荡
+    ]
+    if mem.enemy_base:
+        return None, None        # 已定位: 别再送单车去敌方基地喂经验
+    target = min(waypoints, key=lambda w: mem.scout_visit.get(tuple(w), -1))
+    mem.scout_visit[tuple(target)] = s["t"]
+    mem.last_scout = time.time()
+    return ({"act": "attack_move", "ids": [sid], "x": target[0], "y": target[1]},
+            "t=%d SCOUT #%s->%s (visit %d)" % (s["t"], sid, target, len(mem.scout_visit)))
 
 
 # ================= 五态机确定性入口 =================
@@ -319,9 +346,35 @@ def stance_overrides(s: dict, stance: str, mem: BattleMemory) -> tuple:
 
 # ================= 进攻执行 (第 18-20 局定稿) =================
 
+def forward_post(s: dict, home, mem: BattleMemory) -> list:
+    """前哨位置：从基地朝敌情方向前出 ~12 格（路口前置优于贴家环形, Bible 防御三件套）。
+
+    朝向优先级: 已知敌基地 > 最近 ALARM 位置 > 地图中心（镜像近似）。
+    """
+    mx, my = s["map"]["width"], s["map"]["height"]
+    if mem.enemy_base:
+        dx, dy = mem.enemy_base[0] - home[0], mem.enemy_base[1] - home[1]
+    elif mem.last_alarm_pos:
+        dx, dy = mem.last_alarm_pos[0] - home[0], mem.last_alarm_pos[1] - home[1]
+    else:
+        dx, dy = mx / 2.0 - home[0], my / 2.0 - home[1]
+    norm = max(abs(dx), abs(dy), 1.0)
+    r = min(12, max(T["defend_radius"] - 6, 8))
+    x = int(min(max(home[0] + dx / norm * r, 4), mx - 4))
+    y = int(min(max(home[1] + dy / norm * r, 4), my - 4))
+    return [x, y]
+
+
 def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
-    """按态势指挥机动部队。返回 (actions, log)。12s 重发节流（wp 状态在 mem）。"""
-    combat = combat_tanks(s["mine"], keep_wounded=False)   # 残血不参与进攻
+    """按态势指挥机动部队。返回 (actions, log)。12s 重发节流（wp 状态在 mem）。
+
+    第 26 局迭代（用户观察: 兵站桩不动、不部署到关键位置、敌近不主动打）：
+    - 专职侦察车豁免所有集结/进攻令（scouting 负责）;
+    - 防守不再龟缩基地+3: 无深入敌情时前出前哨阵地（战斗员≥4）,
+      敌人深入 10 格内才收缩守塔; 页内 micro 同时对空闲单位就近接敌。
+    """
+    combat = [u for u in combat_tanks(s["mine"], keep_wounded=False)
+              if u["id"] != mem.scout_id]                  # 残血不进攻; 侦察车不指挥
     if stance in ("attack", "rush") and len(combat) >= 6:
         combat = combat[:-T["keep_home"]]                  # 留 2 守家
     ids = [u["id"] for u in combat]
@@ -331,14 +384,22 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     if stance not in ("attack", "rush"):
         if not home:
             return [], "no-home"
-        # 防守必须用攻击移动 (Move=0 站桩挨打的教训); 12s 节流防指令瘫痪
-        tgt_h = (home[0] + 3, home[1] + 3)
+        # 敌人深入基地 10 格内 / 兵力太少 → 收缩守塔; 否则前出前哨
+        inside = [h for h in s["hostile"]
+                  if math.hypot(h["tl"][0] - home[0], h["tl"][1] - home[1]) <= 10]
+        if inside or len(combat) < 4:
+            tgt_h = (home[0] + 3, home[1] + 3)
+            mode = "defend-rally"
+        else:
+            p = forward_post(s, home, mem)
+            tgt_h = (p[0], p[1])
+            mode = "forward-post"
         if wp[2] == tgt_h and wp[3] > time.time():
-            return [], "defend-rally (hold)"
+            return [], "%s (hold)" % mode
         wp[2] = tgt_h
         wp[3] = time.time() + 12
         return ([{"act": "attack_move", "ids": ids, "x": tgt_h[0], "y": tgt_h[1]}],
-                "defend-rally@base(%d)" % len(ids))
+                "%s@%s(%d)" % (mode, tgt_h, len(ids)))
     # 目标: 可见敌打分优先 → 已知敌基地 → 镜像/路标扫描
     tgt_u = pick_target(s, home)
     if tgt_u:
@@ -386,13 +447,24 @@ def apply_jev(s: dict, ans: dict, stance: str, mem: BattleMemory,
             acts.append({"act": "produce", "name": b, "qty": 1, "q": 0})
             logs.append("t=%d jev BUILD %s (conf %.2f)"
                         % (s["t"], b, (ans.get("build") or {}).get("confidence", -1)))
-    # 步兵
+    # 步兵 —— 坦克预算保护（第 24 局复盘：jev 每 tick 产 E2 共 62 个，现金见底率 71%，
+    # 坦克峰值仅 5。规则：有战车工厂后，步兵生产不得动用坦克资金线（≥tank_cash1 才许造）；
+    # 动员兵 ≥30 停产（性价比之王也会过饱和）；侦察犬不受限（便宜且是眼睛）。
     i = (ans.get("inf") or {}).get("choice")
     if i and i != "hold" and not used.get(2) \
             and qs.get(2, {}).get("s", 0) == 0 and i in available(s["av"], 2):
-        acts.append({"act": "produce", "name": i, "qty": 1, "q": 2})
-        logs.append("t=%d jev INF %s (conf %.2f)"
-                    % (s["t"], i, (ans.get("inf") or {}).get("confidence", -1)))
+        bl = buildings(s["mine"])
+        n_e2 = len([u for u in s["mine"] if u["n"] == "E2"])
+        factory_gate = bl.get(side["weap"], 0) == 0 \
+            or s["me"]["credits"] >= T["tank_cash1"] or i in SCOUT_DOGS
+        e2_gate = not (i == "E2" and n_e2 >= 30)
+        if factory_gate and e2_gate:
+            acts.append({"act": "produce", "name": i, "qty": 1, "q": 2})
+            logs.append("t=%d jev INF %s (conf %.2f)"
+                        % (s["t"], i, (ans.get("inf") or {}).get("confidence", -1)))
+        else:
+            logs.append("t=%d jev INF %s HOLD (预算保护 gate=%s e2=%d)"
+                        % (s["t"], i, factory_gate, n_e2))
     # 载具
     v = (ans.get("veh") or {}).get("choice")
     if v and v != "hold" and not used.get(3) \

@@ -36,10 +36,13 @@ tail -f logs/jev-events.jsonl  # 逐决策审计
 
 ## 三、后续任务（建议优先级）
 
-1. **按方法论复盘重构后首局**（`docs/METHODOLOGY.md` 六步闭环），结果追加 `docs/SESSION-REPORT.md`。
-2. **策略演进**：官方风格的候选组决策（8 组一次请求）替代五问制——官方源码在 `refs/examples/jev/`（只读参考），候选组/复查/冷却设计见 `docs/JEV-INTEGRATION.md` §四。
-3. **终局自动复盘**：把战报喂 Jev 判定哪条规则亏损，自动调 doctrine 阈值（METHODOLOGY 闭环的自动化）。
-4. **看板（可选）**：静态页读 `jev-events.jsonl`（旧 SSE 看板随桥接废弃）。
+1. **跑第 24 局验证闭环**：`uv run ra2web-jev-play`（终局自动复盘）或 `--loop 3` 连跑三局；
+   第 23 局复盘的修复项（侦察解包/双造竞态/deploy 收紧）逐项对账，见 `docs/LESSONS.md`。
+2. **学习闭环运营**：每局看 `logs/games/game-XXXX-review.md` + `docs/LESSONS.md`；
+   自动调参落在 `knowledge/doctrine.json`（白名单+限幅+Jev 闸门，可人工修订）；
+   大改进项进 LESSONS 待办由人/agent 实施（METHODOLOGY §〇）。
+3. **策略演进**：官方风格的候选组决策（8 组一次请求）替代五问制——官方源码在 `refs/examples/jev/`（只读参考），候选组/复查/冷却设计见 `docs/JEV-INTEGRATION.md` §四。
+4. **看板（可选）**：静态页读 `jev-events.jsonl` / game 切片（旧 SSE 看板随桥接废弃）。
 5. **对照实验（可选）**：同局面 legacy-bot（`src/ra2web_jev_player/legacy_bot.py`，历史参照）vs 新体系行为差异。
 6. **数据刷新（游戏更新后必做）**：按 `_research/README.md` 重抓数值；同时对照 `werhd/werhd-player-api.d.ts` 是否有 API 变化（官方仓库根每次构建重新生成）。
 

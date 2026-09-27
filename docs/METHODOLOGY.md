@@ -3,6 +3,28 @@
 > 本项目最有价值的产出不是代码，而是这套**可复制的迭代方法论**：
 > 把"实时对战 AI"的改进过程，变成可审计、可累积、每局都进化的工程循环。
 
+## 〇、自动化闭环（2026-09-26 起，本方法论的程序化实现）
+
+```
+实战(ra2web-jev-play, --loop N 连跑)
+  → 记录: jev-events.jsonl 逐事件(决策/动作/损失/击杀/观测快照) + bot.log 行日志
+  → 复盘(review.py, 终局自动执行):
+      ① 确定性分析: 开局时序 vs 手册窗口 / 经济·兵力曲线 / 态势分布 /
+         危机响应 / 交换比 / 错误指纹 —— 能用代码算的绝不给模型
+      ② Jev 语义复盘: 败因归类(rootcause) + 下局最优先事项(topfix) +
+         是否值得调参(tune noul) —— 语义拍板
+      ③ 落账: logs/games/game-XXXX-review.md(每局报告)
+              + docs/LESSONS.md(经验账本, 追加式)
+  → 迭代: 根因命中白名单且 tune>0.6 → knowledge/doctrine.json 自动微调
+         (限幅: 每项一步、有下限; 出处与理由写入文件, git 历史即审计轨迹)
+         工程bug/大改 → 进 LESSONS 待办, 由人/agent 实施
+  → 下一局: doctrine.load_overrides() 加载覆盖参数, 新局验证, 循环
+```
+
+- 每局复盘报告: `logs/games/game-XXXX-review.md`；账本: `docs/LESSONS.md`；调参: `knowledge/doctrine.json`。
+- 手动复盘任意一局: `uv run ra2web-jev-review [--game N]`。
+- 单变量原则不变：自动调参每局最多触发一组（按根因），限幅+下限防止单局噪声破坏 doctrine。
+
 ## 一、总原则
 
 1. **分层决策**：确定性代码管机制（部署/落位/建造序列/产量保底/节流/阈值），Jev 只做语义拍板（态势/威胁/取舍/时机）。能用代码算的绝不给模型——反之，模型只用在代码算不出的地方。

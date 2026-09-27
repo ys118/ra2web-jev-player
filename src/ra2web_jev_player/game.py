@@ -16,8 +16,9 @@ from .audit import Audit
 from .config import MatchConfig
 from .jev import JevBudgetExceeded, JevClient, JevError
 from .strategy import planner
+from .strategy.doctrine import HARVEST
 from .strategy.questions import build_questions
-from .strategy.state import yard_tile
+from .strategy.state import combat_tanks, force_value, yard_tile
 from .werhd.inject import WerhdClient
 
 
@@ -33,6 +34,8 @@ class BattleSession:
         self.tick_n = 0
         self.crisis_ticks = 0
         self._q_used = {0: False, 1: False, 2: False, 3: False}
+        self.prev_mine: dict = {}     # 战斗记录: 上 tick 我方机动单位 {id: name}
+        self.prev_enemy: dict = {}    # 战斗记录: 上 tick 可见敌战斗单位
 
     # ---------- 生命周期 ----------
 
@@ -93,6 +96,17 @@ class BattleSession:
             return {"result": micro_outcome["result"], "t": s["t"]}
 
         home = yard_tile(s)
+        # 战斗记录: 我方损失/敌方消失差分（复盘的兵力曲线与交换比数据源;
+        # 敌方消失含"失去视野"的近似, 解读时参考）
+        mine_ids = {u["id"]: u["n"] for u in s["mine"] if u["o"] in (3, 7)}
+        enemy_ids = {u["id"]: u["n"] for u in s["enemy"]}
+        for uid, n in self.prev_mine.items():
+            if uid not in mine_ids:
+                self.audit.event({"kind": "loss", "t": s["t"], "n": n})
+        for uid, n in self.prev_enemy.items():
+            if uid not in enemy_ids:
+                self.audit.event({"kind": "kill", "t": s["t"], "n": n})
+        self.prev_mine, self.prev_enemy = mine_ids, enemy_ids
         # 秒级战场感知: 危机速应不等 jev (先打后想, 省 ~1s)
         crisis = False
         try:
@@ -119,7 +133,10 @@ class BattleSession:
 
         # 侦察与敌基地记忆
         try:
+            _had_base = self.mem.enemy_base is not None
             planner.update_enemy_base(s, self.mem)
+            if self.mem.enemy_base and not _had_base:
+                self.audit.log("t=%s ENEMY BASE spotted @%s" % (s["t"], self.mem.enemy_base))
             if self.mem.enemy_base:
                 self.c.set_enemy_base(self.mem.enemy_base[0], self.mem.enemy_base[1])
             act, logline = planner.scouting(s, home, self.mem)
@@ -129,10 +146,11 @@ class BattleSession:
         except Exception as e:
             self.audit.log("scout ERR %s" % str(e)[:100])
 
-        # 开局确定性建造序列 (不依赖 jev)
+        # 开局确定性建造序列 (不依赖 jev; 本 tick 建筑队列已被 checklist 占用时跳过,
+        # 生产指令异步生效、快照滞后一 tick, 不查会双造 —— 第 24 局实测)
         try:
             act = planner.opening_build(s, self.mem)
-            if act:
+            if act and not self._q_used.get(0):
                 self.audit.log("t=%s OPENING BUILD %s" % (s["t"], act["name"]))
                 self._exec(s, [act])
         except Exception as e:
@@ -174,6 +192,16 @@ class BattleSession:
             self.audit.log("t=%s tick#%d credits=%s stance=%s | jev %d decisions p50=%sms"
                            % (s["t"], self.tick_n, s["me"]["credits"], self.stance,
                               stats["decisions"], stats["p50_ms"]))
+            # 周期观测快照(复盘的经济/兵力/态势曲线数据源, ~37 游戏秒一个点)
+            my_val, en_val = force_value(s)
+            self.audit.event({"kind": "obs", "t": s["t"],
+                              "credits": s["me"]["credits"],
+                              "my_val": my_val, "en_val": en_val,
+                              "stance": self.stance,
+                              "hostile": len(s["hostile"]),
+                              "tanks": len(combat_tanks(s["mine"])),
+                              "harv": len([u for u in s["mine"] if u["n"] in HARVEST]),
+                              "power_low": bool(s["me"]["power"].get("isLowPower"))})
         time.sleep(max(0.2, self.match.tick_interval - (time.time() - t0)))
         return None
 

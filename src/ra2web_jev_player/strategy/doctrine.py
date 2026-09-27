@@ -7,7 +7,14 @@
 - TARGET_SCORE = Bible §4.3 进攻目标优先级
 - DOCTRINE = knowledge/AI-OPERATING-CARD.md 蒸馏文本（喂 Jev 的作战手册）
 改任何一条都必须有新对局的复盘证据（docs/METHODOLOGY.md）。
+
+参数迭代机制：knowledge/doctrine.json 的覆盖值在 import 时加载进 T（复盘驱动的
+学习闭环）；每条覆盖带局次出处与理由，git 历史即调参审计轨迹。
 """
+import json
+import os
+
+from ..paths import KNOWLEDGE_DIR
 
 # 兵法阈值 (Bible §10.2) —— 与 legacy_bot 第 20 局后版本逐项一致
 T = dict(
@@ -27,6 +34,34 @@ T = dict(
     retreat_hp=0.40,     # 残血撤退线 (40%)
     defend_radius=18,    # 基地防御半径 (格)
 )
+
+# 复盘驱动的参数迭代（学习闭环）：knowledge/doctrine.json 里的覆盖值加载到 T。
+# 文件由 review.py 在复盘后按"白名单+限幅+Jev 置信闸门"自动写入（或人工编辑），
+# 每条覆盖带局次出处与理由；git 历史即调参审计轨迹。加载失败/键名不认→静默用默认值。
+_DOCTRINE_OVERRIDES = KNOWLEDGE_DIR / "doctrine.json"
+_T_DEFAULTS = dict(T)
+
+
+def load_overrides() -> dict:
+    """重新加载 doctrine.json 覆盖到 T（新对局开始时调用，保证 --loop 生效）。"""
+    try:
+        with open(_DOCTRINE_OVERRIDES, encoding="utf-8") as f:
+            ov = json.load(f) or {}
+    except Exception:
+        ov = {}
+    t_ov = ov.get("T") or {}
+    applied = {}
+    for k, v in t_ov.items():
+        if k in _T_DEFAULTS and isinstance(v, (int, float)):
+            T[k] = v
+            applied[k] = v
+        else:
+            T[k] = _T_DEFAULTS[k]
+    return applied
+
+
+if os.environ.get("RA2WEB_NO_OVERRIDES", "") == "":
+    load_overrides()
 
 # 护甲克制速查: 敌方护甲 -> 我方克制手段(名称+说明), 来自 Bible §1.6/§2
 COUNTERS = {

@@ -46,8 +46,10 @@
 3. **微操**：client.js 内部 setTimeout 链直接读写 werhd，不经 Python。
 4. **指令**：Python 决策 → `__rj.o.attackMove/produce/deploy/...` → 页内统一走
    ≤5 分批、同目标 12s 节流、per-unit 18 tick 冷却、deploy 45s 节流（api.md §六实测约束）。
-5. **审计**：`logs/bot.log`（行日志）+ `logs/jev-events.jsonl`（逐决策/动作事件），
-   与 legacy/官方体系时代格式兼容，复盘工具链不变。
+5. **审计与学习闭环**：`logs/bot.log`（行日志）+ `logs/jev-events.jsonl`（决策/动作/
+   损失/击杀/观测快照逐事件）→ 终局自动复盘（`review.py`：确定性分析 + Jev 语义复盘）→
+   `logs/games/game-XXXX-review.md` 每局报告 + `docs/LESSONS.md` 经验账本 +
+   `knowledge/doctrine.json` 限幅自动调参（`docs/METHODOLOGY.md` §〇）→ 下一局加载验证。
 
 ## 四、关键设计取舍
 
