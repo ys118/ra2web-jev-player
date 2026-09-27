@@ -498,15 +498,14 @@ def assign_squads(s: dict, home, mem: BattleMemory) -> dict:
     tanks = [u for u in units if u["o"] == 7]
     inf = [u for u in units if u["o"] != 7]
     sq = {"raid": [], "assault": [], "hold": [], "guard": [], "reserve": []}
-    # GUARD: 2 辆坦克守家（兵力少时不留）
-    if len(tanks) > 4:
+    # RAID=骚扰组 [第31局A++]: 敌基地一发现, 前 2 辆坦克立即成军专咬矿车
+    if mem.enemy_base and len(tanks) >= 2:
+        sq["raid"] = [u["id"] for u in tanks[:2]]
+        tanks = tanks[2:]
+    # GUARD: 2 辆坦克守家（剩余 ≥3 辆才留, 骚扰优先）
+    if len(tanks) >= 3:
         sq["guard"] = [u["id"] for u in tanks[:T["keep_home"]]]
         tanks = tanks[T["keep_home"]:]
-    # RAID: 2-3 辆坦克（敌基地已知才成军）
-    if mem.enemy_base and len(tanks) >= 4:
-        n_raid = min(3, max(1, len(tanks) // 4))
-        sq["raid"] = [u["id"] for u in tanks[:n_raid]]
-        tanks = tanks[n_raid:]
     sq["assault"] = [u["id"] for u in tanks]
     # HOLD: 步兵≥8 时分一半去伏击位, 其余进主攻/预备
     n_hold = (len(inf) // 2) if len(inf) >= 8 else 0
@@ -546,9 +545,15 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         acts.append({"act": "attack_move", "ids": ids, "x": x, "y": y})
         logs.append("%s x%d -> (%d,%d)" % (role, len(ids), x, y))
 
-    # RAID: 敌基地已知即持续骚扰断经济（防守态势也打——换家压力）
-    if mem.enemy_base:
-        order("raid", sq["raid"], mem.enemy_base[0], mem.enemy_base[1], 30)
+    # RAID=骚扰组 [第31局A++]: 优先咬可见的最近敌矿车(断经济), 无矿车视野再打基地
+    if mem.enemy_base and sq["raid"]:
+        harv = [h for h in s["hostile"] if h["n"] in HARVEST]
+        if harv and home:
+            h = min(harv, key=lambda h: math.hypot(h["tl"][0] - home[0],
+                                                   h["tl"][1] - home[1]))
+            order("raid", sq["raid"], h["tl"][0], h["tl"][1], 20)
+        else:
+            order("raid", sq["raid"], mem.enemy_base[0], mem.enemy_base[1], 30)
     # ASSAULT: 主攻方向
     if stance in ("attack", "rush") or mem.enemy_base:
         if mem.enemy_base:
