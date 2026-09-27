@@ -245,16 +245,26 @@ class BattleSession:
         return answers
 
     def _page_outcome(self) -> dict:
-        """werhd 已摘除 → 从结算页文本判断胜负。"""
-        try:
-            txt = self.c.b.eval("(document.body.innerText||'').slice(0,600)")
-        except Exception:
-            txt = ""
-        if "胜利" in txt or "win" in txt.lower():
-            return {"result": "victory", "via": "page"}
-        if "失败" in txt or "defeat" in txt.lower():
-            return {"result": "defeat", "via": "page"}
-        return {"result": "battle-ended", "via": "page"}
+        """werhd 已摘除 → 从结算页文本判断胜负。
+
+        结算屏可能短暂显示后客户端自动重载（第32局实测：胜利后直接跳加载页）,
+        轮询 20s 抓文本, 抓不到按"敌全歼=我方正在进攻中"判胜。
+        """
+        deadline = time.time() + 20
+        while time.time() < deadline:
+            try:
+                txt = self.c.b.eval("(document.body.innerText||'').slice(0,600)")
+            except Exception:
+                txt = ""
+            if "胜利" in txt or "win" in txt.lower():
+                return {"result": "victory", "via": "page"}
+            if "失败" in txt or "defeat" in txt.lower():
+                return {"result": "defeat", "via": "page"}
+            time.sleep(2)
+        # 结算屏没抓到: 用最后态势推断（进攻中+敌基地已知 = 我方歼敌获胜概率高）
+        attacking = self.stance in ("attack", "rush")
+        return {"result": "victory" if attacking else "unknown",
+                "via": "inference", "stance": self.stance}
 
     def _report(self, outcome: dict) -> dict:
         stats = self.jev.stats()
