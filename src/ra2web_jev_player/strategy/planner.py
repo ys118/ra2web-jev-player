@@ -601,14 +601,17 @@ def apply_jev(s: dict, ans: dict, stance: str, mem: BattleMemory,
     side = get_side(s)
     qs = queues_by_type(s["queues"])
     acts, logs = [], []
-    # 建造（确定性清单没花的钱由 jev 决定花法；资金闸门: 坦克资金线优先, 第28局复盘）
+    # 建造（确定性清单没花的钱由 jev 决定花法；资金闸门: 坦克资金线优先, 第28局复盘;
+    # [第32局] 同类建筑 ≥2 不再买——jev 曾连续买 30 座电厂 12 座兵营）
     b = (ans.get("build") or {}).get("choice")
     if b and b != "hold" and not used.get(0) \
             and qs.get(0, {}).get("s") == 0 and b in available(s["av"], 0):
         n_ref = len([u for u in s["mine"] if u["n"] == side["ref"]])
         n_bar = len([u for u in s["mine"] if u["n"] == side["bar"]])
+        bl_now = buildings(s["mine"])
         if not (b == side["ref"] and n_ref >= T["ref_cap"]) \
-                and not (b == side["bar"] and n_bar >= 2):
+                and not (b == side["bar"] and n_bar >= 2) \
+                and not (b != side["ref"] and bl_now.get(b, 0) >= 2):
             if build_gate(s, ucost(b), mem):
                 acts.append({"act": "produce", "name": b, "qty": 1, "q": 0})
                 logs.append("t=%d jev BUILD %s (conf %.2f)"
