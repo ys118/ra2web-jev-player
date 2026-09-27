@@ -28,6 +28,8 @@ class BattleMemory:
         self.scout_id = None            # 专职侦察单位（movement 集结时豁免它）
         self.scout_visit: dict = {}     # 路标 -> 游戏秒（持续探索用）
         self.last_alarm_pos = None      # 最近一次 ALARM 位置（前哨朝向参考）
+        self.raid_wp = [(), 0.0]        # 奇袭队: 目标/重发截止（30s 节流）
+        self.guard_t = 0.0              # 矿车护航令时刻（30s 节流）
         self.dogs_queued = False
         self.retreated: dict = {}       # unitId -> 游戏秒(每 300s 只撤一次)
         self.events: list = []          # 事件流(新→旧渲染时反转)
@@ -104,27 +106,45 @@ def sense_events(s: dict, home, mem: BattleMemory):
 
 
 def crisis_response(s: dict, home, alarm: dict, mem: BattleMemory) -> tuple:
-    """ALARM 危机速应（第 19/20 局复盘）：兵力 ≥1.2x 才反击，否则 TURTLE 守塔阵。
+    """ALARM 危机速应（第 19/20 局复盘 + 第 27 局用户观察）。
 
-    返回 (actions, logline)。不打野战的教训：37→0 匀速送人头。
+    - 家门口告警（≤15 格或建筑被击）：兵力 ≥1.2x 才反击，否则 TURTLE 守塔阵
+      （不打野战的教训：37→0 匀速送人头）；
+    - 远端告警（矿车在敌区被袭，第 27 局观察④）：派最近 2-3 辆支援，
+      不动用主力、不全员回撤。
+    返回 (actions, logline)。
     """
-    defenders = [u["id"] for u in s["mine"]
+    defenders = [u for u in s["mine"]
                  if u["o"] in (3, 7) and u["n"] not in HARVEST
                  and u["n"] not in MCV_CODES          # 基地车不参与反击(送人头)
                  and u["n"] not in ("SENGINEER",)
                  and u["hp"] >= T["retreat_hp"] * (u["mhp"] or 1)]
-    n_en = max(1, len(s["hostile"]))
     if not defenders or time.time() - mem.last_defend_order <= 8:
         return [], None
+    d_home = math.hypot(alarm["pos"][0] - home[0], alarm["pos"][1] - home[1]) if home else 0.0
+    # 远端告警(矿车远征被袭): 小队驰援
+    if home and d_home > 20 and not any(u["o"] == 2 for u in s["mine"]
+                                        if math.hypot(u["tl"][0] - alarm["pos"][0],
+                                                      u["tl"][1] - alarm["pos"][1]) <= 12):
+        squad = sorted(defenders, key=lambda u: math.hypot(
+            u["tl"][0] - alarm["pos"][0], u["tl"][1] - alarm["pos"][1]))[:3]
+        if squad:
+            mem.last_defend_order = time.time()
+            return ([{"act": "attack_move", "ids": [u["id"] for u in squad],
+                      "x": alarm["pos"][0], "y": alarm["pos"][1]}],
+                    ("t=%d ALARM %s -> RESCUE %d 辆驰援远端 %s"
+                     % (s["t"], alarm["what"], len(squad), alarm["pos"])))
     mem.last_defend_order = time.time()
+    n_en = max(1, len(s["hostile"]))
+    ids = [u["id"] for u in defenders]
     if len(defenders) >= 1.2 * n_en or n_en <= 2:
-        act = {"act": "attack_move", "ids": defenders,
+        act = {"act": "attack_move", "ids": ids,
                "x": alarm["pos"][0], "y": alarm["pos"][1]}
         return [act], ("t=%d ALARM %s -> counter %d vs %d -> %s"
                        % (s["t"], alarm["what"], len(defenders), n_en, alarm["pos"]))
     acts = []
     if home:
-        acts.append({"act": "attack_move", "ids": defenders,
+        acts.append({"act": "attack_move", "ids": ids,
                      "x": home[0], "y": home[1] + 3})
     return acts, ("t=%d ALARM %s -> TURTLE (%d v %d, 守塔阵不打野战)"
                   % (s["t"], alarm["what"], len(defenders), n_en))
@@ -167,11 +187,12 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("t=%d POWER plant (reserve %d)" % (s["t"], pw - drain))
         cred -= 600
 
-    # 5) 矿车补员: 每精炼厂 2 车, 下限 2, 第 3 辆起资金门槛 2800 (第 17 局复盘)
+    # 5) 矿车补员: 每精炼厂 2 车, 第 3 辆起资金门槛 2800 (第 17 局复盘);
+    #    目标上限 [第27局] 3→4 (三精炼厂经济扩张配套)
     n_harv = len([u for u in mine if u["n"] in HARVEST])
     n_ref = bl.get(side["ref"], 0)
     q3s = qs.get(3, {}).get("s", 0)
-    harv_target = min(3, T["harv_per_ref"] * n_ref)
+    harv_target = min(4, T["harv_per_ref"] * n_ref)
     harv_cost_gate = 1400 if n_harv < T["harv_min"] else 2800
     if q3s == 0 and n_ref >= 1 and n_harv < harv_target \
             and side["harv"] in available(s["av"], 3) and cred >= harv_cost_gate:
@@ -225,6 +246,24 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         acts.append({"act": "produce", "name": side["aa_v"], "qty": 2, "q": 3})
         logs.append("t=%d AA %s x2 (enemy air)" % (s["t"], side["aa_v"]))
         cred -= ucost(side["aa_v"]) * 2
+
+    # 11.5) 矿车护航（第 27 局用户观察④）: 矿车远征(>25格)且兵力允许 → 最近的
+    #       战斗坦克贴身护航（30s 节流；护卫已在矿车 6 格内则不重复派）。
+    if home and len(combat_tanks(mine)) >= 4 and time.time() - mem.guard_t > 30:
+        far_harv = [u for u in mine if u["n"] in HARVEST
+                    and math.hypot(u["tl"][0] - home[0], u["tl"][1] - home[1]) > 25]
+        if far_harv:
+            h = far_harv[0]
+            escorts = [u for u in combat_tanks(mine) if u["id"] != mem.scout_id]
+            if escorts:
+                guard = min(escorts, key=lambda u: math.hypot(
+                    u["tl"][0] - h["tl"][0], u["tl"][1] - h["tl"][1]))
+                if math.hypot(guard["tl"][0] - h["tl"][0], guard["tl"][1] - h["tl"][1]) > 6:
+                    acts.append({"act": "attack_move", "ids": [guard["id"]],
+                                 "x": h["tl"][0], "y": h["tl"][1]})
+                    mem.guard_t = time.time()
+                    logs.append("t=%d ESCORT 坦克#%s -> 护航矿车@%s"
+                                % (s["t"], guard["id"], h["tl"]))
 
     # 11) 残血撤退: hp<40% → 拉回基地 (每 300s 每单位只撤一次, Move=0 逃跑不恋战)
     if home:
@@ -328,17 +367,22 @@ def scouting(s: dict, home, mem: BattleMemory):
 # ================= 五态机确定性入口 =================
 
 def stance_overrides(s: dict, stance: str, mem: BattleMemory) -> tuple:
-    """RECOVER/RUSH/ATTACK 的确定性入口（jev 投票之外的硬约束）。返回 (stance, logs)。"""
+    """RECOVER/RUSH/ATTACK 的确定性入口（jev 投票之外的硬约束）。返回 (stance, logs)。
+
+    [第 28 局] ATTACK 入口加 defend——第 27 局实测：ALARM 把态势锁死在 defend 后，
+    27 辆坦克也永远出不去（防守陷阱）；进攻时 ALARM 的危机保护仍然生效（crisis_response）。
+    """
     logs = []
     n_tank = len(combat_tanks(s["mine"]))
     if n_tank < 3 and s["t"] > 400 and stance in ("attack", "rush"):
         stance = "recover"
         logs.append("t=%d RECOVER (only %d tanks)" % (s["t"], n_tank))
     if T["rush_t0"] <= s["t"] <= T["rush_t1"] and n_tank >= T["rush_tanks"] \
-            and stance in ("develop", "recover"):
+            and stance in ("develop", "recover", "defend"):
         stance = "rush"
         logs.append("t=%d RUSH window (%d tanks)" % (s["t"], n_tank))
-    if n_tank >= T["attack_tanks"] and stance in ("develop", "rush", "recover"):
+    if n_tank >= T["attack_tanks"] \
+            and stance in ("develop", "rush", "recover", "defend"):
         stance = "attack"
         logs.append("t=%d ATTACK (tanks=%d)" % (s["t"], n_tank))
     return stance, logs
@@ -375,15 +419,28 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     """
     combat = [u for u in combat_tanks(s["mine"], keep_wounded=False)
               if u["id"] != mem.scout_id]                  # 残血不进攻; 侦察车不指挥
+    # 双线骚扰（第 28 局, 用户观察②, Bible 苏军战术）: 敌基地已知且兵力充足 →
+    # 奇袭队(≤3 辆)直扑敌方基地/矿区——页内集火与 §4.3 打分都会优先咬矿车断经济。
+    raid_acts, raid_log = [], None
+    if stance in ("attack", "rush") and mem.enemy_base \
+            and len(combat) >= T["attack_tanks"] + 1:
+        n_raid = min(3, max(1, len(combat) // 4))
+        raid, combat = combat[:n_raid], combat[n_raid:]
+        rp = tuple(mem.enemy_base)
+        if mem.raid_wp[0] != rp or mem.raid_wp[1] < time.time():
+            mem.raid_wp = [rp, time.time() + 30]
+            raid_acts.append({"act": "attack_move", "ids": [u["id"] for u in raid],
+                              "x": rp[0], "y": rp[1]})
+            raid_log = "RAID x%d -> 敌基地 %s (断经济)" % (len(raid), rp)
     if stance in ("attack", "rush") and len(combat) >= 6:
         combat = combat[:-T["keep_home"]]                  # 留 2 守家
     ids = [u["id"] for u in combat]
     if not ids:
-        return [], "no-force"
+        return raid_acts, raid_log or "no-force"
     wp = mem.wp
     if stance not in ("attack", "rush"):
         if not home:
-            return [], "no-home"
+            return raid_acts, raid_log or "no-home"
         # 敌人深入基地 10 格内 / 兵力太少 → 收缩守塔; 否则前出前哨
         inside = [h for h in s["hostile"]
                   if math.hypot(h["tl"][0] - home[0], h["tl"][1] - home[1]) <= 10]
@@ -395,10 +452,10 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
             tgt_h = (p[0], p[1])
             mode = "forward-post"
         if wp[2] == tgt_h and wp[3] > time.time():
-            return [], "%s (hold)" % mode
+            return raid_acts, raid_log or "%s (hold)" % mode
         wp[2] = tgt_h
         wp[3] = time.time() + 12
-        return ([{"act": "attack_move", "ids": ids, "x": tgt_h[0], "y": tgt_h[1]}],
+        return (raid_acts + [{"act": "attack_move", "ids": ids, "x": tgt_h[0], "y": tgt_h[1]}],
                 "%s@%s(%d)" % (mode, tgt_h, len(ids)))
     # 目标: 可见敌打分优先 → 已知敌基地 → 镜像/路标扫描
     tgt_u = pick_target(s, home)
@@ -416,11 +473,13 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
             wp[0] += 1
             wp[1] = time.time() + 40
     if wp[2] == tuple(tgt) and wp[3] > time.time():
+        if raid_acts:
+            return raid_acts, raid_log or "raid"
         return [], "march->%s (hold)" % (tgt,)
     wp[2] = tuple(tgt)
     wp[3] = time.time() + 12
-    return [{"act": "attack_move", "ids": ids, "x": tgt[0], "y": tgt[1]}], \
-        "attack->%s x%d" % (tgt, len(ids))
+    return (raid_acts + [{"act": "attack_move", "ids": ids, "x": tgt[0], "y": tgt[1]}],
+            ((raid_log + " | ") if raid_log else "") + "attack->%s x%d" % (tgt, len(ids)))
 
 
 # ================= Jev 答案应用（闸门在 doctrine.CONF） =================

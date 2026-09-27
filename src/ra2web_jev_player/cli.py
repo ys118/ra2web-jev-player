@@ -28,7 +28,7 @@ def _common(argv):
     p.add_argument("--faction", default="苏俄")
     p.add_argument("--speed", type=int, default=2)
     p.add_argument("--credits", type=int, default=10000)
-    p.add_argument("--max-decisions", type=int, default=600)
+    p.add_argument("--max-decisions", type=int, default=1200)
     p.add_argument("--tick-interval", type=float, default=1.5)
     p.add_argument("--loop", type=int, default=1, help="连续对局数(每局之间自动复盘+调参)")
     p.add_argument("--no-review", action="store_true", help="终局后跳过自动复盘")

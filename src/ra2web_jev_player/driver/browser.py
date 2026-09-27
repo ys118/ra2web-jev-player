@@ -55,11 +55,22 @@ class Browser:
     # ---------- 底层 ----------
 
     def run(self, *args: str, timeout: float | None = None, check: bool = True) -> str:
-        """执行一条 agent-browser 命令，返回 stdout 文本。"""
+        """执行一条 agent-browser 命令，返回 stdout 文本。
+
+        Popen 偶发 WinError 2（第 28 局实测 15 连发后自愈）→ 重试一次。
+        """
         timeout = timeout or self.cfg.default_timeout_ms / 1000.0 + 5
         argv = [AGENT_BROWSER] + [str(a) for a in args]
-        p = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
-                             stderr=subprocess.PIPE, env=self._env)
+        p = None
+        for attempt in range(2):
+            try:
+                p = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
+                                     stderr=subprocess.PIPE, env=self._env)
+                break
+            except OSError:
+                if attempt:
+                    raise
+                time.sleep(0.5)
         try:
             out, errb = p.communicate(timeout=timeout)
         except subprocess.TimeoutExpired:
