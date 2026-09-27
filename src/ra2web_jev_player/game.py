@@ -36,6 +36,7 @@ class BattleSession:
         self._q_used = {0: False, 1: False, 2: False, 3: False}
         self.prev_mine: dict = {}     # 战斗记录: 上 tick 我方机动单位 {id: name}
         self.prev_enemy: dict = {}    # 战斗记录: 上 tick 可见敌战斗单位
+        self._budget_logged = False   # 预算耗尽只报一次（第 27 局刷屏教训）
 
     # ---------- 生命周期 ----------
 
@@ -156,21 +157,23 @@ class BattleSession:
         except Exception as e:
             self.audit.log("opening ERR %s" % str(e)[:150])
 
-        # Jev 语义决策 (危机 tick 跳过)
-        if not crisis:
-            try:
-                ans = self._jev_ask(s, home)
-                self.stance, acts, logs = planner.apply_jev(
-                    s, ans, self.stance, self.mem, used=dict(self._q_used))
-                for ln in logs:
-                    self.audit.log(ln)
-                self._exec(s, acts)
-            except JevBudgetExceeded as e:
+        # Jev 语义决策——危机 tick 也问（第 27 局用户观察③: 危机时最需要 Jev 拍板;
+        # 确定性危机响应早已先行, 这里 ~1s 延迟可接受）。预算耗尽降级纯确定性, 只报一次。
+        try:
+            ans = self._jev_ask(s, home)
+            self.stance, acts, logs = planner.apply_jev(
+                s, ans, self.stance, self.mem, used=dict(self._q_used))
+            for ln in logs:
+                self.audit.log(ln)
+            self._exec(s, acts)
+        except JevBudgetExceeded as e:
+            if not self._budget_logged:
                 self.audit.log("jev budget exhausted: %s (继续纯确定性运行)" % e)
-            except JevError as e:
-                self.audit.log("jev ERR %s" % str(e)[:150])
-            except Exception as e:
-                self.audit.log("jev flow ERR %s" % str(e)[:150])
+                self._budget_logged = True
+        except JevError as e:
+            self.audit.log("jev ERR %s" % str(e)[:150])
+        except Exception as e:
+            self.audit.log("jev flow ERR %s" % str(e)[:150])
 
         # 确定性态势入口 + 机动指挥 (ALARM 反击令 8s 保护期内不被集结覆盖)
         try:

@@ -129,13 +129,23 @@ class GameLauncher:
 
         强制重载：无论当前停在主选单、对局中还是结算屏，刷新后都回到干净的主选单
         （resign() 会弹 canvas 确认框且 DOM 不可见，弃局唯一可靠途径就是刷新）。
+        冷加载偶发黑屏/资源慢（第 27 局实测 >90s）：主选单等待做重试循环，
+        空白页就再刷一次。
         """
         nav = self.b.goto(GAME_URL, deadline_s=120, force=True)
         if not nav.get("ok"):
             raise LaunchError("打开游戏站失败: %s" % nav)
-        self._dismiss_overlays()
-        if not self._wait_text("单机模式", timeout=90):
-            raise LaunchError("主选单未出现（音频弹窗或加载卡住）")
+        menu_ok = False
+        for attempt in range(3):
+            self._dismiss_overlays()
+            if self._wait_text("单机模式", timeout=60):
+                menu_ok = True
+                break
+            self._debug_shot("menu-retry-%d" % attempt)
+            body = self.b.eval("document.body ? document.body.innerHTML.length : -1")
+            self.b.goto(GAME_URL, deadline_s=120, force=True)   # 黑屏/卡加载 → 再刷
+        if not menu_ok:
+            raise LaunchError("主选单未出现（重试 3 轮仍失败）")
         # SPA 初始化期点击可能只 hover 不生效：点击后必须验证下一屏出现，否则重试
         for _ in range(3):
             if self._click_text("单机模式") and self._wait_text("遭遇战", timeout=15):

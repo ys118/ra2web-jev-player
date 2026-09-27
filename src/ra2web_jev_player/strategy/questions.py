@@ -84,7 +84,14 @@ def build_questions(s: dict, home, mem, stance: str = "develop") -> tuple:
     if side.get("country") == "French":
         faction += ("。法国专属: 巨炮GTGCAN(2000金,150伤/射程15,需雷达)"
                     "——三矿车之后强烈建议造1-2座守基地方向路口")
-    state = {"battlefield": txt, "doctrine": DOCTRINE, "faction": faction}
+    state = {"battlefield": txt, "doctrine": DOCTRINE, "faction": faction,
+             "decision_request": (
+                 "你是本场战斗的战略决策人，请基于上面全部信息拍板下一步最佳动作。"
+                 "敌基地是否已定位：%s。若我方兵力价值明显高于视野内敌军、或敌基地已暴露，"
+                 "应果断选 rush/attack 直捣敌方基地与矿区（断其经济=矿车优先）；"
+                 "仅当我方基地建筑正在被攻击且敌方兵力占优时才选 defend。"
+                 "纯防御没有胜利条件，攒兵不出击=拖延败局。"
+                 % (mem.enemy_base or "未定位"))}
 
     Q = {}
     crit_b = {n: "%s(%d金)" % (nm(n), ucost(n)) for n in av0}
@@ -118,11 +125,12 @@ def build_questions(s: dict, home, mem, stance: str = "develop") -> tuple:
                    "instructions": ("五态态势机裁决(当前执行态势:%s)。"
                                     "DEVELOP=开局~5分钟无敌情,建造探图攒兵; "
                                     "DEFEND=基地受威胁,回防补防空; "
-                                    "RUSH=开局8分钟内且坦克≥4-5,直扑敌基地换家; "
-                                    "ATTACK=坦克≥8且已侦察到敌目标,集火拆生产建筑(留2守家); "
+                                    "RUSH=开局10分钟内且坦克≥4,直扑敌基地换家; "
+                                    "ATTACK=坦克≥7且已侦察到敌目标,集火拆生产建筑(留2守家); "
                                     "RECOVER=主力被歼,收缩抢经济。"
-                                    "注意: 开局8分钟内除非主力全灭否则不要选recover; "
-                                    "近期受袭次数高(≥3次/2分钟)说明AI正在施压,应选DEFEND而非develop。"
+                                    "注意: 开局10分钟内除非主力全灭否则不要选recover; "
+                                    "近期受袭次数高(≥3次/2分钟)说明AI正在施压,应选DEFEND而非develop; "
+                                    "但纯防御没有胜利条件——若兵力已达rush/attack门槛且敌基地已定位,应果断转进攻。"
                                     % stance),
                    "criteria": {"develop": "发展攒兵探图", "defend": "回防基地",
                                 "rush": "早期换家快攻", "attack": "军团总攻",
