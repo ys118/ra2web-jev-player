@@ -3750,3 +3750,431 @@
 [15:41:22] t=3876 AA HTK x2 (enemy air)
 [15:41:52] exec ERR produce agent-browser hang: eval -b X19yai5vLnByb2R1Y2UoIkhUTksiLDEp (killed tree)
 [15:42:22] exec ERR produce agent-browser hang: eval -b X19yai5vLnByb2R1Y2UoIkhUSyIsMik= (killed tree)
+[15:42:28] scout ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>
+[15:42:28] t=3876 MOVE RAID x3 -> 敌基地 (134, 79) (断经济) | attack->[132, 90] x18
+[15:42:28] exec ERR attack_move agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:28] exec ERR attack_move agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:28] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:31] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:34] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:37] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:40] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:43] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:46] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:49] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:52] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:55] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:59] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:02] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:08] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:11] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:14] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:17] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:20] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:23] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:26] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:29] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:32] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:35] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:38] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:41] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:44] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:47] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:50] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:53] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:56] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:59] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:02] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:08] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:11] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:15] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:18] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:21] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:24] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:27] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:30] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:33] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:36] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:39] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:42] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:45] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:48] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:51] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:54] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:57] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:00] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:03] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:06] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:09] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:12] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:15] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:18] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:21] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:24] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:27] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:30] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:34] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:37] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:40] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:43] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:46] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:49] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:52] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:55] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:58] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:01] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:04] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:07] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:10] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:13] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:16] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:19] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:22] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:25] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:28] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:31] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:34] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:37] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:40] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:43] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:46] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:49] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:52] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:56] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:59] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:02] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:08] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:11] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:14] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:17] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:20] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:23] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:26] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:29] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:32] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:35] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:38] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:41] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:44] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:47] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:50] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:53] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:56] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:59] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:02] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:08] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:12] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:15] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:18] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:21] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:24] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:27] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:30] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:33] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:36] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:39] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:42] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:45] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:48] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:51] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:54] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:57] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:00] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:03] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:06] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:09] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:12] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:15] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:18] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:21] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:24] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:27] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:31] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:34] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:37] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:40] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:43] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:46] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:49] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:52] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:55] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:58] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:50:01] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:50:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:50:19] t=14 tick#4775 credits=9704 stance=defend | jev 1200 decisions p50=969ms
+[15:50:56] t=51 tick#4800 credits=8781 stance=defend | jev 1200 decisions p50=969ms
+[15:51:34] t=89 tick#4825 credits=7874 stance=defend | jev 1200 decisions p50=969ms
+[15:51:56] t=111 OPENING BUILD NAHAND
+[15:51:56] {"kind": "action", "what": "produce", "name": "NAHAND", "qty": 1, "ts": "15:51:56"}
+[15:52:11] t=126 tick#4850 credits=6986 stance=defend | jev 1200 decisions p50=969ms
+[15:52:49] t=164 tick#4875 credits=4605 stance=defend | jev 1200 decisions p50=969ms
+[15:53:01] t=176 ALARM 敌军逼近 -> counter 5 vs 1 -> [73, 110]
+[15:53:01] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:53:01"}
+[15:53:27] t=201 tick#4900 credits=2266 stance=defend | jev 1200 decisions p50=969ms
+[15:53:43] t=218 INSURE AA building
+[15:53:43] {"kind": "action", "what": "produce", "name": "NAFLAK", "qty": 1, "ts": "15:53:43"}
+[15:54:04] t=239 tick#4925 credits=1246 stance=defend | jev 1200 decisions p50=969ms
+[15:54:42] t=277 tick#4950 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:54:45] t=280 ALARM 单位损失 -> counter 17 vs 10 -> [70, 117]
+[15:54:45] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:54:45"}
+[15:54:57] t=292 ALARM 单位损失 -> counter 15 vs 10 -> [70, 117]
+[15:54:57] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:54:57"}
+[15:55:06] t=301 ALARM 单位损失 -> counter 13 vs 10 -> [70, 117]
+[15:55:06] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:55:06"}
+[15:55:15] t=310 RETREAT E2(10%)
+[15:55:15] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "15:55:15"}
+[15:55:16] t=311 ALARM 单位损失 -> TURTLE (11 v 15, 守塔阵不打野战)
+[15:55:16] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:55:16"}
+[15:55:19] t=314 tick#4975 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:55:36] t=331 ALARM 单位损失 -> TURTLE (10 v 19, 守塔阵不打野战)
+[15:55:36] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:55:36"}
+[15:55:39] t=334 RETREAT E2(31%)
+[15:55:39] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "15:55:39"}
+[15:55:43] t=338 RETREAT E2(6%)
+[15:55:43] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "15:55:43"}
+[15:55:45] t=340 ALARM 单位损失 -> TURTLE (7 v 18, 守塔阵不打野战)
+[15:55:45] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:55:45"}
+[15:55:49] t=344 RETREAT E2(30%)
+[15:55:49] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "15:55:49"}
+[15:55:54] t=349 RETREAT E2(32%)
+[15:55:54] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "15:55:54"}
+[15:55:55] t=350 ALARM 单位损失 -> TURTLE (5 v 18, 守塔阵不打野战)
+[15:55:55] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:55:55"}
+[15:55:57] t=352 tick#5000 credits=746 stance=defend | jev 1200 decisions p50=969ms
+[15:56:00] t=355 RETREAT E2(33%)
+[15:56:00] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "15:56:00"}
+[15:56:13] t=368 ALARM 敌军逼近 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:13] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:56:13"}
+[15:56:22] t=377 ALARM 敌军逼近 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:22] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:56:22"}
+[15:56:31] t=386 ALARM 敌军逼近 -> TURTLE (5 v 18, 守塔阵不打野战)
+[15:56:31] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:56:31"}
+[15:56:34] t=389 tick#5025 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:56:40] t=395 ALARM 苏联矿石精炼场被攻击 -> TURTLE (5 v 18, 守塔阵不打野战)
+[15:56:40] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:56:40"}
+[15:56:43] t=398 RETREAT HTK(35%)
+[15:56:43] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "15:56:43"}
+[15:56:49] t=404 ALARM 苏联矿石精炼场被攻击 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:49] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:56:49"}
+[15:56:54] t=409 OPENING BUILD NAREFN
+[15:56:54] {"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "ts": "15:56:54"}
+[15:56:58] t=413 ALARM 敌军逼近 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:58] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:56:58"}
+[15:56:58] t=413 RETREAT E2(23%)
+[15:56:58] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "15:56:58"}
+[15:57:07] t=422 ALARM 防空炮被攻击 -> TURTLE (3 v 17, 守塔阵不打野战)
+[15:57:07] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:57:07"}
+[15:57:12] t=427 tick#5050 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:57:16] t=431 ALARM 防空炮被攻击 -> TURTLE (2 v 15, 守塔阵不打野战)
+[15:57:16] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:57:16"}
+[15:57:25] t=440 ALARM 防空炮被攻击 -> TURTLE (2 v 14, 守塔阵不打野战)
+[15:57:25] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:57:25"}
+[15:57:34] t=449 ALARM 苏联战车工厂被攻击 -> TURTLE (1 v 12, 守塔阵不打野战)
+[15:57:34] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "15:57:34"}
+[15:57:49] t=464 tick#5075 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:58:27] t=502 tick#5100 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:58:28] t=503 ALARM 磁能反应炉被攻击 -> TURTLE (5 v 12, 守塔阵不打野战)
+[15:58:37] t=512 ALARM 磁能反应炉被攻击 -> TURTLE (1 v 12, 守塔阵不打野战)
+[15:58:46] t=521 ALARM 苏联兵营被攻击 -> TURTLE (2 v 9, 守塔阵不打野战)
+[15:59:07] t=542 tick#5125 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:59:09] t=544 ALARM 磁能反应炉被攻击 -> TURTLE (1 v 8, 守塔阵不打野战)
+[15:59:31] t=566 ALARM 磁能反应炉被攻击 -> TURTLE (1 v 4, 守塔阵不打野战)
+[15:59:45] t=580 tick#5150 credits=90 stance=defend | jev 1200 decisions p50=969ms
+[16:00:06] t=601 ALARM 哨戒炮被攻击 -> counter 1 vs 1 -> [68, 116]
+[16:00:06] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "16:00:06"}
+[16:00:22] t=617 tick#5175 credits=90 stance=defend | jev 1200 decisions p50=969ms
+[16:01:00] t=655 tick#5200 credits=90 stance=defend | jev 1200 decisions p50=969ms
+[16:01:37] t=692 tick#5225 credits=90 stance=defend | jev 1200 decisions p50=969ms
+[16:02:15] t=727 tick#5250 credits=90 stance=defend | jev 1200 decisions p50=969ms
+[16:02:18] t=728 SIM STALL (time frozen) - skip actions
+[16:02:20] t=729 SIM STALL (time frozen) - skip actions
+[16:02:23] t=730 SIM STALL (time frozen) - skip actions
+[16:02:26] t=731 SIM STALL (time frozen) - skip actions
+[16:02:29] t=732 SIM STALL (time frozen) - skip actions
+[16:02:32] t=733 SIM STALL (time frozen) - skip actions
+[16:02:34] t=734 SIM STALL (time frozen) - skip actions
+[2026-09-27 16:02:35] {"kind": "report", "result": "defeat", "t": 735, "ticks": 5266, "crisis_ticks": 462, "stance": "defend", "jev": {"decisions": 1200, "errors": 0, "input_tokens": 3843806, "output_tokens": 286134, "p50_ms": 969, "p95_ms": 1069}, "enemy_base": [134, 79], "ts": "2026-09-27 16:02:35"}
+[16:02:36] REVIEW game#29 defeat → game-0029-review.md | changes=0
+{
+  "result": "defeat",
+  "t": 735,
+  "ticks": 5266,
+  "crisis_ticks": 462,
+  "stance": "defend",
+  "jev": {
+    "decisions": 1200,
+    "errors": 0,
+    "input_tokens": 3843806,
+    "output_tokens": 286134,
+    "p50_ms": 969,
+    "p95_ms": 1069
+  },
+  "enemy_base": [
+    134,
+    79
+  ],
+  "ts": "2026-09-27 16:02:35",
+  "review": {
+    "game_no": 29,
+    "rootcause": "no_target",
+    "auto_tuned": 0
+  }
+}

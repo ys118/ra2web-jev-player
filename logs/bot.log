@@ -20976,3 +20976,2160 @@
 [15:41:52] exec ERR produce agent-browser hang: eval -b X19yai5vLnByb2R1Y2UoIkhUTksiLDEp (killed tree)
 [15:42:22] exec ERR attack_move agent-browser hang: eval -b X19yai5vLmF0dGFja01vdmUoWzMzNDUsIDM0MDksIDM0MTVdLDEzNCw3OSk= (killed tree)
 [15:42:22] exec ERR produce agent-browser hang: eval -b X19yai5vLnByb2R1Y2UoIkhUSyIsMik= (killed tree)
+[15:42:28] scout ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>
+[15:42:28] t=3876 MOVE RAID x3 -> 敌基地 (134, 79) (断经济) | attack->[132, 90] x18
+[15:42:28] exec ERR attack_move agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:28] exec ERR attack_move agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:28] exec ERR attack_move agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:28] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:28] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:31] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:31] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:34] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:34] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:37] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:37] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:40] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:40] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:43] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:43] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:46] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:46] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:49] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:49] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:52] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:52] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:55] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:55] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:59] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:42:59] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:02] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:02] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:08] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:08] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:11] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:11] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:14] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:17] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:17] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:20] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:20] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:23] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:23] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:26] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:29] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:29] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:32] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:32] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:35] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:35] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:38] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:38] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:41] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:41] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:44] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:44] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:47] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:47] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:50] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:50] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:53] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:53] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:56] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:56] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:43:59] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:02] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:02] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:08] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:08] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:11] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:11] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:15] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:15] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:18] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:18] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:21] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:21] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:24] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:24] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:27] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:27] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:30] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:30] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:33] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:33] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:36] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:36] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:39] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:39] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:42] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:45] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:48] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:48] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:51] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:51] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:54] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:54] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:57] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:44:57] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:00] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:00] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:03] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:03] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:06] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:06] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:09] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:09] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:12] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:12] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:15] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:15] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:18] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:18] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:21] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:21] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:24] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:27] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:27] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:30] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:30] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:34] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:34] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:37] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:37] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:40] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:43] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:46] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:49] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:49] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:52] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:52] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:55] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:55] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:58] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:45:58] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:01] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:01] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:04] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:04] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:07] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:07] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:10] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:10] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:13] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:13] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:16] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:16] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:19] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:19] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:22] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:22] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:25] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:25] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:28] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:28] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:31] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:31] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:34] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:34] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:37] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:37] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:40] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:43] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:43] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:46] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:46] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:49] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:49] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:52] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:56] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:56] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:59] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:46:59] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:02] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:02] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:08] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:08] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:11] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:11] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:14] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:14] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:17] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:17] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:20] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:20] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:23] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:26] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:26] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:29] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:29] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:32] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:32] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:35] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:35] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:38] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:38] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:41] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:41] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:44] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:44] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:47] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:47] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:50] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:50] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:53] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:53] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:56] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:56] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:47:59] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:02] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:02] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:08] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:08] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:12] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:12] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:15] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:15] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:18] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:18] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:21] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:21] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:24] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:24] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:27] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:27] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:30] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:30] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:33] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:33] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:36] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:36] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:39] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:39] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:42] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:42] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:45] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:45] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:48] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:48] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:51] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:51] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:54] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:54] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:57] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:48:57] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:00] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:00] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:03] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:03] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:06] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:06] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:09] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:09] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:12] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:12] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:15] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:15] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:18] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:18] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:21] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:21] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:24] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:24] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:27] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:27] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:31] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:31] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:34] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:34] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:37] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:37] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:38] 进局中(全自动)...
+[15:49:40] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:40] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:43] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:43] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:46] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:46] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:49] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:49] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:52] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:52] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:55] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:55] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:58] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:49:58] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:50:01] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:50:01] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:50:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:50:05] tick ERR agent-browser[eval] rc=1: ✗ Evaluation error: ReferenceError: __rj is not defined
+    at <anonymous>:1:1
+[15:50:05] === ra2web-jev-player start (tick=1.5s, max_decisions=1200) ===
+[15:50:06] t=1 DEPLOY mcv
+[15:50:07] t=2 DEPLOY mcv
+[15:50:08] t=3 POWER plant (reserve 0)
+[15:50:09] t=4 jev STANCE defend->develop (conf 0.87)
+[15:50:19] t=14 tick#4775 credits=9704 stance=defend | jev 1200 decisions p50=969ms
+[15:50:29] t=24 tick#2750 credits=9419 stance=attack | jev 1200 decisions p50=972ms
+[15:50:31] t=26 OPENING BUILD NAREFN
+[15:50:42] t=37 tick#25 credits=9138 stance=develop | jev 25 decisions p50=833ms
+[15:50:56] t=51 tick#4800 credits=8781 stance=defend | jev 1200 decisions p50=969ms
+[15:51:07] t=62 tick#2775 credits=8533 stance=attack | jev 1200 decisions p50=972ms
+[15:51:20] t=74 tick#50 credits=8233 stance=develop | jev 50 decisions p50=823ms
+[15:51:34] t=89 tick#4825 credits=7874 stance=defend | jev 1200 decisions p50=969ms
+[15:51:44] t=99 tick#2800 credits=7626 stance=attack | jev 1200 decisions p50=972ms
+[15:51:56] t=111 OPENING BUILD NAHAND
+[15:51:57] t=112 tick#75 credits=7399 stance=develop | jev 75 decisions p50=818ms
+[15:52:11] t=126 tick#4850 credits=6986 stance=defend | jev 1200 decisions p50=969ms
+[15:52:16] t=131 DEFLINE NALASR (have 0)
+[15:52:16] t=131 OPENING BUILD NAWEAP
+[15:52:17] t=131 jev INF DOG (conf 0.46)
+[15:52:22] t=137 tick#2825 credits=6466 stance=attack | jev 1200 decisions p50=972ms
+[15:52:26] t=140 jev INF DOG (conf 0.34)
+[15:52:35] t=149 jev INF DOG (conf 0.34)
+[15:52:35] t=149 tick#100 credits=5559 stance=develop | jev 100 decisions p50=818ms
+[15:52:40] t=155 DEFLINE NALASR (have 1)
+[15:52:44] t=158 jev INF DOG (conf 0.48)
+[15:52:49] t=164 tick#4875 credits=4605 stance=defend | jev 1200 decisions p50=969ms
+[15:52:53] t=167 jev INF E2 (conf 0.42)
+[15:52:57] t=172 jev INF E2 (conf 0.44)
+[15:52:57] t=172 MOVE assault x1 -> (73,120)
+[15:52:58] t=173 MOVE attack->[134, 79] x1
+[15:52:59] t=174 DEFLINE NALASR (have 2)
+[15:52:59] t=174 tick#2850 credits=3919 stance=attack | jev 1200 decisions p50=972ms
+[15:53:01] t=176 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 5 个单位继续进攻）
+[15:53:01] t=176 MOVE attack->[73, 110] x1
+[15:53:01] t=176 ALARM 敌军逼近 -> counter 5 vs 1 -> [73, 110]
+[15:53:01] t=176 ALARM 敌军逼近 -> counter 5 vs 1 -> [73, 110]
+[15:53:02] t=177 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[15:53:02] t=177 MOVE attack->[72, 111] x2
+[15:53:03] t=178 jev INF E2 (conf 0.44)
+[15:53:04] t=179 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[15:53:04] t=179 MOVE attack->[71, 112] x2
+[15:53:05] t=180 MOVE attack->[134, 79] x2
+[15:53:08] t=182 jev INF E2 (conf 0.44)
+[15:53:11] t=185 MOVE assault x3 -> (73,120)
+[15:53:12] t=187 jev INF E2 (conf 0.37)
+[15:53:12] t=187 MOVE assault x4 -> (74,105)
+[15:53:13] t=187 tick#125 credits=3051 stance=defend | jev 125 decisions p50=819ms
+[15:53:17] t=192 MOVE attack->[134, 79] x5
+[15:53:18] t=193 jev INF E2 (conf 0.34)
+[15:53:18] t=193 MOVE reserve x1 -> (70,125)
+[15:53:23] t=197 jev INF E2 (conf 0.36)
+[15:53:26] t=200 MOVE assault x4 -> (74,105)
+[15:53:27] t=201 tick#4900 credits=2266 stance=defend | jev 1200 decisions p50=969ms
+[15:53:27] t=202 jev INF E2 (conf 0.34)
+[15:53:29] t=204 MOVE attack->[134, 79] x7
+[15:53:32] t=206 jev INF E2 (conf 0.33)
+[15:53:32] t=206 MOVE hold_a x2 -> (61,105); hold_b x2 -> (83,113)
+[15:53:36] t=211 jev INF E2 (conf 0.27)
+[15:53:37] t=212 tick#2875 credits=1828 stance=attack | jev 1200 decisions p50=972ms
+[15:53:38] t=212 MOVE assault x4 -> (74,105)
+[15:53:41] t=215 jev INF E2 (conf 0.42)
+[15:53:41] t=216 MOVE attack->[134, 79] x10
+[15:53:43] t=218 ECON harv#2
+[15:53:43] t=218 INSURE AA building
+[15:53:44] t=218 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1634)
+[15:53:45] t=220 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1527)
+[15:53:47] t=221 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1450)
+[15:53:47] t=221 jev INF E2 (conf 0.29)
+[15:53:49] t=223 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1362)
+[15:53:50] t=224 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1248)
+[15:53:50] t=224 MOVE assault x4 -> (74,105)
+[15:53:50] t=224 tick#150 credits=1248 stance=defend | jev 150 decisions p50=817ms
+[15:53:51] t=226 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1140)
+[15:53:51] t=226 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[15:53:53] t=227 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1064)
+[15:53:53] t=227 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[15:53:53] t=228 MOVE attack->[134, 79] x12
+[15:53:54] t=229 jev BUILD NAPOWR (conf 0.37)
+[15:53:59] t=233 jev INF E2 (conf 0.33)
+[15:54:04] t=238 MOVE assault x4 -> (74,105)
+[15:54:04] t=239 tick#4925 credits=1246 stance=defend | jev 1200 decisions p50=969ms
+[15:54:05] t=239 jev INF E2 (conf 0.34)
+[15:54:05] t=240 MOVE attack->[134, 79] x13
+[15:54:11] t=245 jev INF E2 HOLD (预算保护 gate=False e2=14)
+[15:54:12] t=247 jev INF E2 HOLD (预算保护 gate=False e2=14)
+[15:54:14] t=248 jev INF E2 HOLD (预算保护 gate=False e2=14)
+[15:54:14] t=249 tick#2900 credits=362 stance=attack | jev 1200 decisions p50=972ms
+[15:54:16] t=250 jev INF E2 HOLD (预算保护 gate=False e2=14)
+[15:54:17] t=251 jev INF E2 HOLD (预算保护 gate=False e2=14)
+[15:54:17] t=251 MOVE assault x4 -> (74,105)
+[15:54:17] t=252 MOVE attack->[134, 79] x14
+[15:54:19] t=253 MOVE reserve x3 -> (70,125)
+[15:54:27] t=262 tick#175 credits=0 stance=defend | jev 175 decisions p50=817ms
+[15:54:29] t=263 MOVE assault x4 -> (74,105)
+[15:54:29] t=264 MOVE attack->[134, 79] x14
+[15:54:33] t=268 MOVE hold_a x4 -> (61,105); hold_b x3 -> (83,113)
+[15:54:34] t=269 MOVE attack->[104, 93] x14
+[15:54:35] t=270 MOVE attack->[103, 94] x14
+[15:54:38] t=273 MOVE attack->[103, 95] x14
+[15:54:41] t=275 MOVE assault x4 -> (74,105)
+[15:54:42] t=277 tick#4950 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:54:44] t=278 jev INF E2 HOLD (预算保护 gate=False e2=14)
+[15:54:44] t=279 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 17 个单位继续进攻）
+[15:54:45] t=280 ALARM 单位损失 -> counter 17 vs 10 -> [70, 117]
+[15:54:45] t=280 ALARM 单位损失 -> counter 17 vs 10 -> [70, 117]
+[15:54:46] t=280 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[15:54:47] t=281 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[15:54:49] t=283 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[15:54:49] t=284 MOVE attack->[103, 96] x13
+[15:54:50] t=284 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[15:54:50] t=285 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 16 个单位继续进攻）
+[15:54:52] t=286 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[15:54:52] t=287 tick#2925 credits=0 stance=attack | jev 1200 decisions p50=972ms
+[15:54:53] t=287 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[15:54:53] t=287 MOVE assault x4 -> (70,117); hold_a x3 -> (78,105); hold_b x3 -> (78,128)
+[15:54:55] t=289 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[15:54:56] t=290 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[15:54:56] t=291 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 15 个单位继续进攻）
+[15:54:56] t=291 MOVE attack->[102, 97] x11
+[15:54:57] t=292 ALARM 单位损失 -> counter 15 vs 10 -> [70, 117]
+[15:54:57] t=292 ALARM 单位损失 -> counter 15 vs 10 -> [70, 117]
+[15:54:59] t=294 MOVE attack->[102, 98] x11
+[15:55:01] t=295 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[15:55:01] t=296 MOVE attack->[101, 98] x10
+[15:55:02] t=297 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 14 个单位继续进攻）
+[15:55:05] t=299 tick#200 credits=0 stance=defend | jev 200 decisions p50=823ms
+[15:55:05] t=300 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 13 个单位继续进攻）
+[15:55:06] t=301 ALARM 单位损失 -> counter 13 vs 10 -> [70, 117]
+[15:55:06] t=301 ALARM 单位损失 -> counter 13 vs 10 -> [70, 117]
+[15:55:08] t=303 MOVE attack->[100, 99] x9
+[15:55:09] t=304 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[15:55:13] t=308 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[15:55:14] t=308 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[15:55:14] t=308 MOVE assault x4 -> (70,117)
+[15:55:14] t=309 RETREAT E2(10%)
+[15:55:15] t=310 RETREAT E2(10%)
+[15:55:15] t=310 ALARM 单位损失 -> TURTLE (11 v 14, 守塔阵不打野战)
+[15:55:16] t=311 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[15:55:16] t=311 MOVE attack->[100, 100] x7
+[15:55:16] t=311 ALARM 单位损失 -> TURTLE (11 v 15, 守塔阵不打野战)
+[15:55:17] t=311 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[15:55:17] t=312 MOVE attack->[99, 99] x7
+[15:55:19] t=314 MOVE attack->[98, 99] x7
+[15:55:19] t=314 tick#4975 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:55:20] t=315 MOVE attack->[99, 102] x7
+[15:55:22] t=317 MOVE attack->[98, 102] x7
+[15:55:23] t=317 MOVE reserve x3 -> (70,125)
+[15:55:23] t=318 MOVE attack->[98, 103] x7
+[15:55:25] t=320 MOVE attack->[97, 103] x7
+[15:55:26] t=320 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[15:55:26] t=320 MOVE assault x4 -> (70,117)
+[15:55:26] t=321 MOVE attack->[95, 102] x7
+[15:55:28] t=322 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[15:55:29] t=323 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[15:55:29] t=324 tick#2950 credits=0 stance=attack | jev 1200 decisions p50=972ms
+[15:55:31] t=325 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[15:55:32] t=327 MOVE attack->[94, 101] x7
+[15:55:34] t=328 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[15:55:34] t=329 RETREAT E2(17%)
+[15:55:35] t=329 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[15:55:35] t=330 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[15:55:36] t=331 ALARM 单位损失 -> TURTLE (10 v 19, 守塔阵不打野战)
+[15:55:36] t=331 ALARM 单位损失 -> TURTLE (10 v 19, 守塔阵不打野战)
+[15:55:38] t=333 RETREAT E2(31%)
+[15:55:38] t=333 MOVE attack->[95, 104] x5
+[15:55:39] t=334 RETREAT E2(31%)
+[15:55:39] t=334 RETREAT E2(31%)
+[15:55:40] t=335 MOVE attack->[94, 103] x5
+[15:55:41] t=336 RETREAT E2(6%)
+[15:55:41] t=336 MOVE attack->[93, 102] x4
+[15:55:43] t=337 tick#225 credits=0 stance=defend | jev 225 decisions p50=831ms
+[15:55:43] t=338 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[15:55:43] t=338 RETREAT E2(15%)
+[15:55:43] t=338 RETREAT E2(6%)
+[15:55:43] t=338 RETREAT E2(6%)
+[15:55:44] t=338 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=1123)
+[15:55:44] t=338 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[15:55:44] t=338 MOVE assault x4 -> (70,117)
+[15:55:44] t=339 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[15:55:45] t=340 ALARM 单位损失 -> TURTLE (7 v 18, 守塔阵不打野战)
+[15:55:45] t=340 ALARM 单位损失 -> TURTLE (7 v 18, 守塔阵不打野战)
+[15:55:46] t=340 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=1050)
+[15:55:46] t=340 jev INF E2 HOLD (预算保护 gate=False e2=3)
+[15:55:46] t=341 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[15:55:46] t=341 MOVE attack->[93, 103] x3
+[15:55:47] t=341 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=999)
+[15:55:47] t=341 jev INF E2 HOLD (预算保护 gate=False e2=3)
+[15:55:47] t=342 MOVE attack->[93, 104] x3
+[15:55:48] t=343 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=963)
+[15:55:48] t=343 jev INF E2 HOLD (预算保护 gate=False e2=3)
+[15:55:49] t=344 RETREAT E2(36%)
+[15:55:49] t=344 RETREAT E2(30%)
+[15:55:49] t=344 RETREAT E2(23%)
+[15:55:50] t=344 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=926)
+[15:55:50] t=344 jev INF E2 HOLD (预算保护 gate=False e2=3)
+[15:55:50] t=345 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[15:55:50] t=345 MOVE attack->[92, 103] x2
+[15:55:52] t=346 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=890)
+[15:55:52] t=346 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[15:55:52] t=347 MOVE attack->[93, 105] x2
+[15:55:53] t=347 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=853)
+[15:55:53] t=347 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[15:55:53] t=347 MOVE assault x2 -> (73,120)
+[15:55:53] t=348 MOVE attack->[91, 104] x2
+[15:55:54] t=349 RETREAT E2(32%)
+[15:55:54] t=349 RETREAT E2(32%)
+[15:55:55] t=349 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=817)
+[15:55:55] t=349 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[15:55:55] t=350 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 5 个单位继续进攻）
+[15:55:55] t=350 ALARM 单位损失 -> TURTLE (5 v 18, 守塔阵不打野战)
+[15:55:55] t=350 ALARM 单位损失 -> TURTLE (5 v 18, 守塔阵不打野战)
+[15:55:56] t=350 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=780)
+[15:55:56] t=350 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[15:55:57] t=352 tick#5000 credits=746 stance=defend | jev 1200 decisions p50=969ms
+[15:55:58] t=352 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=744)
+[15:55:58] t=352 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[15:55:58] t=353 MOVE attack->[91, 105] x1
+[15:55:59] t=353 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=707)
+[15:55:59] t=353 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[15:56:00] t=355 RETREAT E2(33%)
+[15:56:00] t=355 RETREAT E2(33%)
+[15:56:01] t=355 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=672)
+[15:56:01] t=355 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[15:56:01] t=356 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[15:56:02] t=356 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=634)
+[15:56:02] t=356 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:04] t=358 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=599)
+[15:56:04] t=358 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:05] t=359 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=590)
+[15:56:05] t=359 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:05] t=359 jev VEH HTK (conf 0.30)
+[15:56:07] t=361 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=576)
+[15:56:07] t=361 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:07] t=362 tick#2975 credits=542 stance=attack | jev 1200 decisions p50=972ms
+[15:56:08] t=362 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=533)
+[15:56:08] t=362 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:10] t=364 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=492)
+[15:56:10] t=364 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:11] t=365 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:13] t=367 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:13] t=368 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[15:56:13] t=368 ALARM 敌军逼近 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:13] t=368 ALARM 敌军逼近 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:14] t=368 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:14] t=369 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[15:56:16] t=370 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:16] t=371 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[15:56:17] t=371 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:17] t=372 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[15:56:19] t=373 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:19] t=374 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[15:56:20] t=374 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:20] t=374 tick#250 credits=200 stance=defend | jev 250 decisions p50=833ms
+[15:56:20] t=375 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[15:56:22] t=376 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:22] t=377 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[15:56:22] t=377 ALARM 敌军逼近 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:22] t=377 ALARM 敌军逼近 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:23] t=377 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:23] t=378 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 5 个单位继续进攻）
+[15:56:24] t=379 SCOUT #1360->[130, 83] (visit 1)
+[15:56:25] t=379 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:25] t=379 jev VEH HTK (conf 0.36)
+[15:56:25] t=380 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 5 个单位继续进攻）
+[15:56:26] t=380 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:26] t=381 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 5 个单位继续进攻）
+[15:56:28] t=382 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=37)
+[15:56:28] t=382 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:28] t=383 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 5 个单位继续进攻）
+[15:56:29] t=384 ALARM 苏联矿石精炼场被攻击 -> 攻势保持（塔阵守家, 前线 5 个单位继续进攻）
+[15:56:31] t=386 ALARM 苏联矿石精炼场被攻击 -> 全军回防（敌 7 深入, 压崩风险）
+[15:56:31] t=386 ALARM 敌军逼近 -> TURTLE (5 v 18, 守塔阵不打野战)
+[15:56:31] t=386 ALARM 敌军逼近 -> TURTLE (5 v 18, 守塔阵不打野战)
+[15:56:32] t=386 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:34] t=388 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:56:34] t=389 tick#5025 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:56:40] t=395 ALARM 苏联矿石精炼场被攻击 -> 全军回防（敌 14 深入, 压崩风险）
+[15:56:40] t=395 ALARM 苏联矿石精炼场被攻击 -> TURTLE (5 v 18, 守塔阵不打野战)
+[15:56:40] t=395 ALARM 苏联矿石精炼场被攻击 -> TURTLE (5 v 18, 守塔阵不打野战)
+[15:56:43] t=398 RETREAT HTK(36%)
+[15:56:43] t=398 RETREAT HTK(35%)
+[15:56:43] t=398 RETREAT HTK(35%)
+[15:56:44] t=399 tick#3000 credits=0 stance=attack | jev 1200 decisions p50=972ms
+[15:56:46] t=401 RECOVER (only 1 tanks)
+[15:56:49] t=404 ALARM 苏联矿石精炼场被攻击 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:49] t=404 ALARM 苏联矿石精炼场被攻击 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:49] t=404 ALARM 苏联矿石精炼场被攻击 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:54] t=409 OPENING BUILD NAREFN
+[15:56:54] t=409 OPENING BUILD NAREFN
+[15:56:58] t=412 MOVE assault x1 -> (73,120)
+[15:56:58] t=412 tick#275 credits=0 stance=defend | jev 275 decisions p50=843ms
+[15:56:58] t=413 ALARM 敌军逼近 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:58] t=413 RETREAT E2(23%)
+[15:56:58] t=413 ALARM 敌军逼近 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:58] t=413 RETREAT E2(23%)
+[15:56:58] t=413 ALARM 敌军逼近 -> TURTLE (4 v 18, 守塔阵不打野战)
+[15:56:58] t=413 RETREAT E2(17%)
+[15:57:07] t=422 ALARM 防空炮被攻击 -> TURTLE (4 v 17, 守塔阵不打野战)
+[15:57:07] t=422 ALARM 防空炮被攻击 -> TURTLE (3 v 17, 守塔阵不打野战)
+[15:57:07] t=422 ALARM 防空炮被攻击 -> TURTLE (3 v 17, 守塔阵不打野战)
+[15:57:08] t=422 jev INF DOG (conf 0.40)
+[15:57:12] t=427 tick#5050 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:57:16] t=431 ALARM 防空炮被攻击 -> TURTLE (2 v 15, 守塔阵不打野战)
+[15:57:16] t=431 ALARM 防空炮被攻击 -> TURTLE (2 v 15, 守塔阵不打野战)
+[15:57:16] t=431 ALARM 防空炮被攻击 -> TURTLE (2 v 15, 守塔阵不打野战)
+[15:57:22] t=437 tick#3025 credits=0 stance=defend | jev 1200 decisions p50=972ms
+[15:57:25] t=440 ALARM 防空炮被攻击 -> TURTLE (2 v 14, 守塔阵不打野战)
+[15:57:25] t=440 ALARM 防空炮被攻击 -> TURTLE (2 v 14, 守塔阵不打野战)
+[15:57:25] t=440 ALARM 防空炮被攻击 -> TURTLE (2 v 14, 守塔阵不打野战)
+[15:57:31] t=446 RETREAT DOG(8%)
+[15:57:34] t=449 ALARM 敌军逼近 -> TURTLE (1 v 12, 守塔阵不打野战)
+[15:57:34] t=449 ALARM 苏联战车工厂被攻击 -> TURTLE (1 v 12, 守塔阵不打野战)
+[15:57:34] t=449 ALARM 苏联战车工厂被攻击 -> TURTLE (1 v 12, 守塔阵不打野战)
+[15:57:35] t=449 tick#300 credits=0 stance=defend | jev 300 decisions p50=848ms
+[15:57:49] t=464 tick#5075 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:58:00] t=474 tick#3050 credits=0 stance=defend | jev 1200 decisions p50=972ms
+[15:58:13] t=487 tick#325 credits=0 stance=defend | jev 325 decisions p50=845ms
+[15:58:27] t=502 tick#5100 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:58:28] t=503 ALARM 磁能反应炉被攻击 -> TURTLE (5 v 12, 守塔阵不打野战)
+[15:58:28] t=503 ALARM 磁能反应炉被攻击 -> TURTLE (5 v 12, 守塔阵不打野战)
+[15:58:28] t=503 ALARM 磁能反应炉被攻击 -> TURTLE (4 v 12, 守塔阵不打野战)
+[15:58:37] t=512 ALARM 磁能反应炉被攻击 -> TURTLE (1 v 12, 守塔阵不打野战)
+[15:58:37] t=512 tick#3075 credits=0 stance=defend | jev 1200 decisions p50=972ms
+[15:58:37] t=512 ALARM 磁能反应炉被攻击 -> TURTLE (1 v 12, 守塔阵不打野战)
+[15:58:37] t=512 ALARM 磁能反应炉被攻击 -> TURTLE (1 v 12, 守塔阵不打野战)
+[15:58:45] t=520 ALARM 单位损失 -> TURTLE (3 v 9, 守塔阵不打野战)
+[15:58:46] t=521 ALARM 苏联兵营被攻击 -> TURTLE (2 v 9, 守塔阵不打野战)
+[15:58:46] t=521 ALARM 苏联兵营被攻击 -> TURTLE (2 v 9, 守塔阵不打野战)
+[15:58:55] t=529 tick#350 credits=0 stance=defend | jev 350 decisions p50=843ms
+[15:59:07] t=542 tick#5125 credits=0 stance=defend | jev 1200 decisions p50=969ms
+[15:59:09] t=544 ALARM 磁能反应炉被攻击 -> TURTLE (1 v 8, 守塔阵不打野战)
+[15:59:09] t=544 ALARM 磁能反应炉被攻击 -> TURTLE (1 v 8, 守塔阵不打野战)
+[15:59:11] t=546 ALARM 磁能反应炉被攻击 -> TURTLE (1 v 7, 守塔阵不打野战)
+[15:59:18] t=553 tick#3100 credits=0 stance=defend | jev 1200 decisions p50=972ms
+[15:59:31] t=566 ALARM 哨戒炮被攻击 -> TURTLE (1 v 4, 守塔阵不打野战)
+[15:59:31] t=566 ALARM 磁能反应炉被攻击 -> TURTLE (1 v 4, 守塔阵不打野战)
+[15:59:31] t=566 ALARM 磁能反应炉被攻击 -> TURTLE (1 v 4, 守塔阵不打野战)
+[15:59:38] t=572 tick#375 credits=90 stance=defend | jev 375 decisions p50=846ms
+[15:59:45] t=580 tick#5150 credits=90 stance=defend | jev 1200 decisions p50=969ms
+[15:59:55] t=590 tick#3125 credits=90 stance=defend | jev 1200 decisions p50=972ms
+[16:00:06] t=601 ALARM 哨戒炮被攻击 -> counter 1 vs 1 -> [68, 116]
+[16:00:06] t=601 ALARM 哨戒炮被攻击 -> counter 1 vs 1 -> [68, 116]
+[16:00:06] t=601 ALARM 哨戒炮被攻击 -> counter 1 vs 1 -> [68, 116]
+[16:00:16] t=610 tick#400 credits=90 stance=defend | jev 400 decisions p50=850ms
+[16:00:22] t=617 tick#5175 credits=90 stance=defend | jev 1200 decisions p50=969ms
+[16:00:33] t=628 tick#3150 credits=90 stance=defend | jev 1200 decisions p50=972ms
+[16:00:53] t=647 tick#425 credits=90 stance=defend | jev 425 decisions p50=856ms
+[16:01:00] t=655 tick#5200 credits=90 stance=defend | jev 1200 decisions p50=969ms
+[16:01:10] t=665 tick#3175 credits=90 stance=defend | jev 1200 decisions p50=972ms
+[16:01:31] t=686 tick#450 credits=90 stance=defend | jev 450 decisions p50=864ms
+[16:01:37] t=692 tick#5225 credits=90 stance=defend | jev 1200 decisions p50=969ms
+[16:01:48] t=703 tick#3200 credits=90 stance=defend | jev 1200 decisions p50=972ms
+[16:02:09] t=722 tick#475 credits=90 stance=defend | jev 475 decisions p50=860ms
+[16:02:15] t=727 tick#5250 credits=90 stance=defend | jev 1200 decisions p50=969ms
+[16:02:16] t=727 SIM STALL (time frozen) - skip actions
+[16:02:18] t=728 SIM STALL (time frozen) - skip actions
+[16:02:18] t=728 SIM STALL (time frozen) - skip actions
+[16:02:18] t=728 SIM STALL (time frozen) - skip actions
+[16:02:20] t=729 SIM STALL (time frozen) - skip actions
+[16:02:20] t=729 SIM STALL (time frozen) - skip actions
+[16:02:21] t=729 SIM STALL (time frozen) - skip actions
+[16:02:23] t=730 SIM STALL (time frozen) - skip actions
+[16:02:23] t=730 SIM STALL (time frozen) - skip actions
+[16:02:23] t=730 SIM STALL (time frozen) - skip actions
+[16:02:24] t=731 tick#3225 credits=90 stance=defend | jev 1200 decisions p50=972ms
+[16:02:26] t=731 SIM STALL (time frozen) - skip actions
+[16:02:26] t=731 SIM STALL (time frozen) - skip actions
+[16:02:26] t=731 SIM STALL (time frozen) - skip actions
+[16:02:28] t=732 SIM STALL (time frozen) - skip actions
+[16:02:28] t=732 SIM STALL (time frozen) - skip actions
+[16:02:29] t=732 SIM STALL (time frozen) - skip actions
+[16:02:31] t=733 SIM STALL (time frozen) - skip actions
+[16:02:32] t=733 SIM STALL (time frozen) - skip actions
+[16:02:32] t=733 SIM STALL (time frozen) - skip actions
+[16:02:34] t=734 SIM STALL (time frozen) - skip actions
+[16:02:34] t=734 SIM STALL (time frozen) - skip actions
+[16:02:34] t=734 SIM STALL (time frozen) - skip actions
+[16:02:36] REVIEW game#29 defeat → game-0029-review.md | changes=0
+[16:02:36] REVIEW game#29 defeat → game-0029-review.md | changes=0
+[16:02:37] REVIEW game#29 defeat → game-0029-review.md | changes=0
+[16:12:23] 进局中(全自动)...
+[16:13:51] === ra2web-jev-player start (tick=1.5s, max_decisions=1200) ===
+[16:13:51] t=0 DEPLOY mcv
+[16:13:52] t=0 SIM STALL (time frozen) - skip actions
+[16:13:53] t=1 DEPLOY mcv
+[16:13:55] t=3 POWER plant (reserve 0)
+[16:13:55] t=3 jev STANCE defend->develop (conf 0.92)
+[16:14:23] t=31 OPENING BUILD NAREFN
+[16:14:27] t=34 tick#25 credits=9328 stance=develop | jev 24 decisions p50=806ms
+[16:15:05] t=72 tick#50 credits=8410 stance=develop | jev 49 decisions p50=808ms
+[16:15:42] t=109 tick#75 credits=7516 stance=develop | jev 74 decisions p50=809ms
+[16:15:50] t=118 OPENING BUILD NAHAND
+[16:16:10] t=138 DEFLINE NALASR (have 0)
+[16:16:10] t=138 OPENING BUILD NAWEAP
+[16:16:11] t=138 jev INF DOG (conf 0.45)
+[16:16:12] t=139 jev INF DOG (conf 0.44)
+[16:16:19] t=147 tick#100 credits=6211 stance=develop | jev 99 decisions p50=803ms
+[16:16:27] t=154 jev INF DOG (conf 0.40)
+[16:16:34] t=162 DEFLINE NALASR (have 1)
+[16:16:36] t=163 jev INF DOG (conf 0.36)
+[16:16:45] t=172 jev INF E2 (conf 0.48)
+[16:16:50] t=177 jev INF E2 (conf 0.40)
+[16:16:50] t=177 MOVE assault x1 -> (137,82)
+[16:16:51] t=178 jev INF E2 (conf 0.42)
+[16:16:57] t=184 tick#125 credits=3749 stance=develop | jev 124 decisions p50=803ms
+[16:16:59] t=186 jev INF E2 (conf 0.51)
+[16:16:59] t=187 DEFLINE NALASR (have 2)
+[16:17:00] t=187 jev INF E2 (conf 0.47)
+[16:17:02] t=189 MOVE assault x3 -> (137,82)
+[16:17:05] t=192 MOVE assault x4 -> (134,79)
+[16:17:08] t=195 jev INF E2 (conf 0.41)
+[16:17:08] t=195 MOVE reserve x1 -> (134,87)
+[16:17:09] t=196 jev INF E2 (conf 0.45)
+[16:17:16] t=204 jev INF E2 (conf 0.46)
+[16:17:18] t=205 jev INF E2 (conf 0.44)
+[16:17:18] t=205 MOVE assault x4 -> (134,79)
+[16:17:23] t=210 MOVE hold_a x2 -> (142,67); hold_b x2 -> (142,90)
+[16:17:26] t=213 jev INF E2 (conf 0.36)
+[16:17:32] t=219 jev INF E2 (conf 0.44)
+[16:17:32] t=219 MOVE assault x4 -> (134,79)
+[16:17:33] t=220 jev INF E2 (conf 0.38)
+[16:17:35] t=222 tick#150 credits=1650 stance=develop | jev 149 decisions p50=803ms
+[16:17:37] t=225 ECON harv#2
+[16:17:38] t=225 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1575)
+[16:17:38] t=226 INSURE AA building
+[16:17:39] t=226 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1526)
+[16:17:41] t=228 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1398)
+[16:17:41] t=228 jev INF E2 (conf 0.36)
+[16:17:42] t=229 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1348)
+[16:17:42] t=229 jev INF E2 (conf 0.35)
+[16:17:44] t=231 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1199)
+[16:17:44] t=231 MOVE assault x4 -> (134,79)
+[16:17:45] t=232 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1124)
+[16:17:47] t=234 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=975)
+[16:17:48] t=235 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=900)
+[16:17:50] t=237 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=772)
+[16:17:50] t=237 jev INF E2 HOLD (预算保护 gate=False e2=14)
+[16:17:51] t=238 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=722)
+[16:17:51] t=238 jev INF E2 HOLD (预算保护 gate=False e2=14)
+[16:17:53] t=240 jev BUILD NAPOWR (conf 0.36)
+[16:17:53] t=240 jev INF E2 (conf 0.30)
+[16:17:54] t=241 jev BUILD NAPOWR (conf 0.33)
+[16:17:54] t=241 jev INF E2 (conf 0.28)
+[16:17:55] t=243 ALARM 敌军逼近 -> counter 18 vs 1 -> [126, 85]
+[16:18:02] t=249 jev INF E2 (conf 0.38)
+[16:18:03] t=250 jev INF E2 (conf 0.35)
+[16:18:03] t=250 MOVE assault x4 -> (134,79)
+[16:18:08] t=255 MOVE reserve x4 -> (134,87)
+[16:18:11] t=258 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:12] t=259 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:12] t=259 tick#175 credits=1071 stance=defend | jev 174 decisions p50=804ms
+[16:18:14] t=261 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:15] t=262 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:17] t=264 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:17] t=264 MOVE assault x5 -> (134,79)
+[16:18:18] t=265 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:20] t=267 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:21] t=268 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=579)
+[16:18:21] t=268 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:23] t=270 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=545)
+[16:18:23] t=270 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:24] t=271 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=508)
+[16:18:24] t=271 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:24] t=271 MOVE hold_a x5 -> (142,67); hold_b x4 -> (142,90)
+[16:18:26] t=273 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=472)
+[16:18:26] t=273 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:27] t=274 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:29] t=276 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:30] t=277 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:30] t=277 MOVE assault x5 -> (134,79)
+[16:18:32] t=279 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:33] t=280 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:35] t=282 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:36] t=283 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:36] t=283 jev VEH HTNK (conf 0.25)
+[16:18:38] t=285 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:39] t=286 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:41] t=288 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:18:42] t=289 MOVE assault x5 -> (134,79)
+[16:18:47] t=293 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=17)
+[16:18:50] t=295 tick#200 credits=0 stance=defend | jev 199 decisions p50=803ms
+[16:18:56] t=299 MOVE assault x5 -> (134,79)
+[16:19:08] t=308 MOVE assault x5 -> (134,79)
+[16:19:09] t=309 MOVE reserve x4 -> (134,87)
+[16:19:17] t=315 SIM STALL (time frozen) - skip actions
+[16:19:21] t=317 MOVE assault x5 -> (134,79)
+[16:19:25] t=320 MOVE hold_a x5 -> (142,67); hold_b x4 -> (142,90)
+[16:19:27] t=321 tick#225 credits=0 stance=defend | jev 223 decisions p50=802ms
+[16:19:30] t=323 SIM STALL (time frozen) - skip actions
+[16:19:34] t=325 MOVE assault x5 -> (134,79)
+[16:19:46] t=336 MOVE assault x5 -> (134,79)
+[16:19:59] t=349 MOVE assault x5 -> (134,79)
+[16:20:04] t=354 tick#250 credits=0 stance=defend | jev 247 decisions p50=802ms
+[16:20:10] t=360 MOVE reserve x4 -> (134,87)
+[16:20:11] t=361 MOVE assault x5 -> (134,79)
+[16:20:23] t=373 MOVE assault x5 -> (134,79)
+[16:20:26] t=376 MOVE hold_a x5 -> (142,67); hold_b x4 -> (142,90)
+[16:20:35] t=385 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2220)
+[16:20:37] t=387 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2182)
+[16:20:37] t=387 jev INF E2 (conf 0.33)
+[16:20:37] t=387 MOVE assault x5 -> (134,79)
+[16:20:38] t=388 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2134)
+[16:20:40] t=390 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2057)
+[16:20:41] t=391 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1984)
+[16:20:41] t=391 tick#275 credits=1984 stance=defend | jev 272 decisions p50=802ms
+[16:20:43] t=393 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1942)
+[16:20:43] t=393 jev INF E2 (conf 0.26)
+[16:20:44] t=394 jev BUILD NAPOWR (conf 0.23)
+[16:20:47] t=397 jev INF E2 (conf 0.35)
+[16:20:50] t=400 MOVE assault x6 -> (134,79)
+[16:20:53] t=403 jev INF E2 (conf 0.30)
+[16:20:58] t=408 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:20:59] t=409 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:01] t=411 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:01] t=412 SCOUT #1121->[66, 121] (visit 1)
+[16:21:02] t=412 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:02] t=412 jev VEH HTNK (conf 0.43)
+[16:21:02] t=412 MOVE assault x7 -> (134,79)
+[16:21:04] t=414 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:05] t=415 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:07] t=417 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:08] t=418 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=494)
+[16:21:08] t=418 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:10] t=420 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:11] t=421 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:11] t=421 MOVE reserve x4 -> (134,87)
+[16:21:13] t=423 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:14] t=424 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:16] t=426 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:16] t=426 MOVE assault x7 -> (134,79)
+[16:21:17] t=427 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:19] t=429 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:19] t=429 tick#300 credits=232 stance=defend | jev 297 decisions p50=802ms
+[16:21:20] t=430 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:22] t=432 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:23] t=433 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:21:26] t=436 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2294)
+[16:21:26] t=436 jev INF E2 (conf 0.47)
+[16:21:26] t=436 MOVE hold_a x6 -> (142,67); hold_b x5 -> (142,90)
+[16:21:28] t=438 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2242)
+[16:21:28] t=438 MOVE assault x7 -> (134,79)
+[16:21:29] t=439 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2166)
+[16:21:31] t=441 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2092)
+[16:21:32] t=442 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2054)
+[16:21:32] t=442 jev INF E2 (conf 0.41)
+[16:21:34] t=444 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2002)
+[16:21:35] t=445 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1926)
+[16:21:37] t=447 jev BUILD NAHAND (conf 0.20)
+[16:21:38] t=448 jev INF E2 (conf 0.38)
+[16:21:39] t=450 TANK HTNK x2
+[16:21:40] t=450 MOVE assault x9 -> (134,79)
+[16:21:43] t=453 jev INF E2 (conf 0.33)
+[16:21:49] t=459 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:21:50] t=460 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:21:52] t=462 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:21:53] t=463 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:21:53] t=463 MOVE assault x10 -> (134,79)
+[16:21:55] t=465 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:21:56] t=466 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:21:56] t=466 tick#325 credits=699 stance=defend | jev 322 decisions p50=802ms
+[16:21:58] t=468 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=662)
+[16:21:58] t=468 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:21:59] t=469 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:01] t=471 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:02] t=472 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:04] t=474 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:05] t=475 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:05] t=475 MOVE assault x10 -> (134,79)
+[16:22:07] t=477 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:08] t=478 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:10] t=480 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:11] t=481 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:13] t=483 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:13] t=483 MOVE reserve x4 -> (134,87)
+[16:22:14] t=484 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1149)
+[16:22:14] t=484 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:15] t=486 ENEMY BASE spotted @[75, 117]
+[16:22:16] t=486 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1110)
+[16:22:16] t=486 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:16] t=486 MOVE assault x10 -> (75,117); hold_a x7 -> (133,92); hold_b x6 -> (121,73)
+[16:22:17] t=487 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1074)
+[16:22:17] t=487 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:17] t=487 jev STANCE defend->rush (conf 0.56)
+[16:22:17] t=487 MOVE assault x11 -> (71,114); hold_a x7 -> (132,92); hold_b x6 -> (121,72)
+[16:22:19] t=489 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1035)
+[16:22:19] t=489 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:19] t=489 MOVE assault x11 -> (70,117); hold_b x6 -> (121,73)
+[16:22:21] t=490 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=999)
+[16:22:21] t=490 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:22] t=492 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=960)
+[16:22:22] t=492 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:24] t=493 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1072)
+[16:22:24] t=493 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:25] t=495 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1035)
+[16:22:25] t=495 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:27] t=496 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=999)
+[16:22:27] t=496 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:28] t=498 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=960)
+[16:22:28] t=498 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:29] t=499 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=924)
+[16:22:29] t=499 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:30] t=501 RETREAT HTNK(36%)
+[16:22:30] t=501 OPENING BUILD NAREFN
+[16:22:31] t=501 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:31] t=501 MOVE assault x11 -> (70,117)
+[16:22:33] t=502 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:34] t=504 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:34] t=504 tick#350 credits=741 stance=rush | jev 347 decisions p50=803ms
+[16:22:36] t=505 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:37] t=507 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:38] t=508 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:40] t=510 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:41] t=511 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 32 个单位继续进攻）
+[16:22:42] t=511 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:42] t=511 RECOVER (only 2 tanks)
+[16:22:43] t=513 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:43] t=513 jev STANCE recover->defend (conf 0.46)
+[16:22:44] t=514 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:44] t=514 MOVE assault x11 -> (70,117)
+[16:22:46] t=516 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:49] t=519 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:22:57] t=526 MOVE assault x11 -> (70,117)
+[16:23:10] t=540 jev INF E2 HOLD (预算保护 gate=False e2=26)
+[16:23:10] t=540 MOVE assault x11 -> (70,117)
+[16:23:12] t=541 tick#375 credits=0 stance=defend | jev 372 decisions p50=810ms
+[16:23:13] t=543 MOVE reserve x4 -> (134,87)
+[16:23:17] t=547 RETREAT HTNK(28%)
+[16:23:18] t=547 MOVE hold_a x7 -> (132,92)
+[16:23:19] t=549 MOVE hold_b x6 -> (121,73)
+[16:23:21] t=552 ALARM 单位损失 -> counter 31 vs 16 -> [134, 79]
+[16:23:30] t=560 MOVE assault x10 -> (70,117)
+[16:23:43] t=572 MOVE assault x9 -> (70,117)
+[16:23:50] t=580 tick#400 credits=0 stance=defend | jev 397 decisions p50=820ms
+[16:23:53] t=584 RETREAT HTNK(35%)
+[16:23:56] t=586 MOVE assault x9 -> (70,117)
+[16:24:08] t=598 MOVE assault x9 -> (70,117)
+[16:24:08] t=599 ALARM 单位损失 -> counter 30 vs 16 -> [134, 79]
+[16:24:17] t=607 MOVE reserve x4 -> (134,87)
+[16:24:19] t=608 MOVE hold_a x7 -> (132,92)
+[16:24:19] t=610 RETREAT E2(20%)
+[16:24:20] t=610 MOVE assault x9 -> (70,117); hold_b x6 -> (121,73)
+[16:24:21] t=611 ALARM 单位损失 -> counter 29 vs 16 -> [134, 79]
+[16:24:26] t=616 jev INF E2 HOLD (预算保护 gate=False e2=25)
+[16:24:28] t=617 tick#425 credits=0 stance=defend | jev 422 decisions p50=831ms
+[16:24:29] t=619 jev INF E2 HOLD (预算保护 gate=False e2=25)
+[16:24:30] t=621 RETREAT E2(34%)
+[16:24:30] t=621 RETREAT E2(30%)
+[16:24:32] t=622 MOVE assault x9 -> (70,117)
+[16:24:34] t=625 ALARM 单位损失 -> counter 27 vs 16 -> [134, 79]
+[16:24:37] t=627 jev INF E2 HOLD (预算保护 gate=False e2=23)
+[16:24:37] t=628 RETREAT E2(23%)
+[16:24:39] t=628 jev INF E2 HOLD (预算保护 gate=False e2=23)
+[16:24:40] t=630 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:24:41] t=631 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:24:41] t=631 jev VEH DRON (conf 0.33)
+[16:24:42] t=633 RETREAT E2(27%)
+[16:24:43] t=633 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:24:44] t=634 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:24:44] t=634 MOVE assault x7 -> (70,117)
+[16:24:45] t=636 ALARM 单位损失 -> counter 26 vs 14 -> [134, 79]
+[16:24:46] t=636 jev INF E2 HOLD (预算保护 gate=False e2=21)
+[16:24:48] t=637 jev INF E2 HOLD (预算保护 gate=False e2=21)
+[16:24:49] t=639 jev INF E2 HOLD (预算保护 gate=False e2=21)
+[16:24:51] t=640 jev INF E2 HOLD (预算保护 gate=False e2=21)
+[16:24:52] t=642 jev INF E2 HOLD (预算保护 gate=False e2=21)
+[16:24:53] t=643 RETREAT E2(37%)
+[16:24:54] t=643 jev INF E2 HOLD (预算保护 gate=False e2=21)
+[16:24:55] t=645 jev INF E2 HOLD (预算保护 gate=False e2=21)
+[16:24:57] t=646 jev INF E2 (conf 0.54)
+[16:24:57] t=646 MOVE assault x7 -> (70,117)
+[16:25:01] t=651 jev VEH DRON (conf 0.32)
+[16:25:02] t=652 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:04] t=654 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:06] t=655 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:06] t=655 tick#450 credits=906 stance=defend | jev 447 decisions p50=853ms
+[16:25:06] t=657 RETREAT E2(33%)
+[16:25:07] t=657 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:09] t=658 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:09] t=658 MOVE assault x8 -> (70,117)
+[16:25:10] t=660 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:11] t=661 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:13] t=663 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:14] t=664 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:16] t=666 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:18] t=667 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:18] t=667 jev VEH DRON (conf 0.41)
+[16:25:18] t=667 MOVE reserve x4 -> (134,87)
+[16:25:19] t=669 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:19] t=669 MOVE hold_a x6 -> (132,92)
+[16:25:21] t=670 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:21] t=670 MOVE hold_b x5 -> (121,73)
+[16:25:22] t=672 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:22] t=672 MOVE assault x9 -> (70,117)
+[16:25:24] t=673 jev INF E2 HOLD (预算保护 gate=False e2=22)
+[16:25:24] t=675 ALARM 单位损失 -> counter 27 vs 11 -> [134, 79]
+[16:25:25] t=675 jev INF E2 HOLD (预算保护 gate=False e2=21)
+[16:25:27] t=678 RETREAT E2(32%)
+[16:25:34] t=684 MOVE assault x8 -> (70,117)
+[16:25:36] t=687 ALARM 单位损失 -> counter 26 vs 12 -> [134, 79]
+[16:25:39] t=688 jev INF E2 HOLD (预算保护 gate=False e2=19)
+[16:25:41] t=691 RETREAT E2(33%)
+[16:25:43] t=693 tick#475 credits=0 stance=defend | jev 472 decisions p50=893ms
+[16:25:46] t=696 jev INF E2 HOLD (预算保护 gate=False e2=19)
+[16:25:46] t=696 MOVE assault x8 -> (70,117)
+[16:25:51] t=702 ALARM 单位损失 -> counter 25 vs 13 -> [134, 79]
+[16:25:57] t=706 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:26:00] t=709 MOVE assault x7 -> (70,117)
+[16:26:01] t=711 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:26:03] t=712 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:26:06] t=715 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:26:09] t=718 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:26:10] t=720 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:26:12] t=721 MOVE assault x7 -> (70,117)
+[16:26:13] t=723 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:26:18] t=727 MOVE reserve x4 -> (134,87)
+[16:26:19] t=729 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:26:21] t=730 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:26:21] t=730 MOVE hold_a x5 -> (132,92); hold_b x4 -> (121,73)
+[16:26:21] t=730 tick#500 credits=0 stance=defend | jev 497 decisions p50=911ms
+[16:26:22] t=732 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:26:25] t=735 MOVE assault x7 -> (70,117)
+[16:26:29] t=739 RETREAT DRON(10%)
+[16:26:30] t=741 ALARM 单位损失 -> counter 23 vs 14 -> [134, 79]
+[16:26:37] t=747 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:26:39] t=748 MOVE assault x5 -> (70,117)
+[16:26:51] t=760 MOVE assault x5 -> (70,117)
+[16:26:58] t=768 tick#525 credits=0 stance=defend | jev 522 decisions p50=929ms
+[16:27:03] t=772 MOVE assault x5 -> (70,117)
+[16:27:15] t=784 MOVE assault x5 -> (70,117)
+[16:27:16] t=786 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:27:19] t=789 MOVE reserve x4 -> (134,87)
+[16:27:21] t=790 MOVE hold_a x5 -> (132,92); hold_b x4 -> (121,73)
+[16:27:27] t=796 MOVE assault x5 -> (70,117)
+[16:27:30] t=799 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:27:31] t=801 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:27:33] t=802 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:27:34] t=804 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:27:36] t=805 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:27:36] t=805 tick#550 credits=737 stance=defend | jev 547 decisions p50=943ms
+[16:27:37] t=807 jev INF E2 (conf 0.31)
+[16:27:38] t=808 TANK HTNK x2
+[16:27:40] t=810 MOVE assault x6 -> (70,117)
+[16:27:43] t=813 jev INF E2 (conf 0.30)
+[16:27:47] t=817 OPENING BUILD NAREFN
+[16:27:49] t=819 jev INF E2 HOLD (预算保护 gate=False e2=20)
+[16:27:50] t=820 RETREAT E2(20%)
+[16:27:51] t=820 jev INF E2 HOLD (预算保护 gate=False e2=20)
+[16:27:51] t=822 ALARM 单位损失 -> counter 25 vs 15 -> [134, 79]
+[16:27:52] t=822 jev INF E2 HOLD (预算保护 gate=False e2=19)
+[16:27:54] t=823 jev INF E2 HOLD (预算保护 gate=False e2=19)
+[16:27:55] t=825 jev INF E2 HOLD (预算保护 gate=False e2=19)
+[16:27:56] t=826 RETREAT E2(30%)
+[16:27:57] t=826 jev INF E2 HOLD (预算保护 gate=False e2=19)
+[16:27:58] t=828 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:28:00] t=829 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:28:00] t=829 MOVE assault x6 -> (70,117)
+[16:28:01] t=831 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:28:03] t=832 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:28:04] t=834 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:28:06] t=835 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:28:07] t=837 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:28:09] t=838 jev INF E2 HOLD (预算保护 gate=False e2=18)
+[16:28:12] t=841 MOVE assault x6 -> (70,117)
+[16:28:13] t=843 tick#575 credits=0 stance=defend | jev 572 decisions p50=954ms
+[16:28:15] t=846 RETREAT E2(36%)
+[16:28:18] t=849 ALARM 单位损失 -> counter 23 vs 19 -> [134, 79]
+[16:28:27] t=856 MOVE assault x6 -> (70,117); hold_a x4 -> (132,92); hold_b x4 -> (121,73); reserve x4 -> (134,87)
+[16:28:35] t=866 ALARM 单位损失 -> TURTLE (22 v 19, 守塔阵不打野战)
+[16:28:38] t=869 RETREAT E2(14%)
+[16:28:44] t=873 MOVE assault x4 -> (70,117)
+[16:28:51] t=881 tick#600 credits=0 stance=defend | jev 597 decisions p50=961ms
+[16:28:56] t=885 MOVE assault x4 -> (70,117)
+[16:29:01] t=892 RETREAT E2(3%)
+[16:29:03] t=894 ALARM 单位损失 -> TURTLE (20 v 18, 守塔阵不打野战)
+[16:29:12] t=902 MOVE assault x4 -> (70,117)
+[16:29:13] t=903 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:29:16] t=906 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:29:23] t=912 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:29:24] t=914 MOVE assault x4 -> (70,117)
+[16:29:25] t=915 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:29:27] t=917 MOVE hold_a x4 -> (132,92); hold_b x3 -> (121,73); reserve x4 -> (134,87)
+[16:29:30] t=920 tick#625 credits=0 stance=defend | jev 622 decisions p50=965ms
+[16:29:38] t=927 MOVE assault x4 -> (70,117)
+[16:29:42] t=932 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:29:47] t=936 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:29:51] t=941 MOVE assault x4 -> (70,117)
+[16:29:54] t=944 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:03] t=953 MOVE assault x4 -> (70,117)
+[16:30:06] t=956 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:08] t=957 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:08] t=957 tick#650 credits=982 stance=defend | jev 647 decisions p50=968ms
+[16:30:09] t=959 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:11] t=960 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:12] t=962 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:14] t=963 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:15] t=965 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:17] t=966 jev INF E2 (conf 0.39)
+[16:30:17] t=966 MOVE assault x5 -> (70,117)
+[16:30:23] t=972 jev INF E2 (conf 0.36)
+[16:30:29] t=978 jev INF E2 HOLD (预算保护 gate=False e2=17)
+[16:30:29] t=978 MOVE assault x6 -> (70,117); hold_a x4 -> (132,92); hold_b x4 -> (121,73); reserve x4 -> (134,87)
+[16:30:29] t=980 RETREAT E2(3%)
+[16:30:30] t=980 jev INF E2 HOLD (预算保护 gate=False e2=17)
+[16:30:31] t=981 ALARM 单位损失 -> counter 22 vs 16 -> [134, 79]
+[16:30:32] t=981 jev INF E2 HOLD (预算保护 gate=False e2=16)
+[16:30:33] t=983 jev INF E2 HOLD (预算保护 gate=False e2=16)
+[16:30:35] t=984 jev INF E2 HOLD (预算保护 gate=False e2=16)
+[16:30:35] t=986 RETREAT E2(2%)
+[16:30:36] t=986 jev INF E2 HOLD (预算保护 gate=False e2=16)
+[16:30:38] t=987 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:39] t=989 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:41] t=990 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:42] t=992 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:42] t=992 MOVE assault x6 -> (70,117)
+[16:30:44] t=993 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:44] t=995 ESCORT 坦克#1837 -> 护航矿车@[127, 105]
+[16:30:45] t=995 jev INF E2 HOLD (预算保护 gate=False e2=15)
+[16:30:45] t=995 jev VEH DRON (conf 0.46)
+[16:30:45] t=995 tick#675 credits=111 stance=defend | jev 672 decisions p50=969ms
+[16:30:54] t=1004 MOVE assault x7 -> (70,117)
+[16:31:04] t=1014 RETREAT E2(33%)
+[16:31:05] t=1016 ALARM 单位损失 -> TURTLE (22 v 22, 守塔阵不打野战)
+[16:31:14] t=1023 MOVE assault x7 -> (70,117)
+[16:31:14] t=1025 ESCORT 坦克#1704 -> 护航矿车@[130, 108]
+[16:31:15] t=1025 jev INF E2 HOLD (预算保护 gate=False e2=14)
+[16:31:17] t=1026 jev INF E2 HOLD (预算保护 gate=False e2=14)
+[16:31:18] t=1028 jev INF E2 HOLD (预算保护 gate=False e2=14)
+[16:31:20] t=1029 jev INF E2 HOLD (预算保护 gate=False e2=14)
+[16:31:20] t=1031 RETREAT E2(23%)
+[16:31:21] t=1031 jev INF E2 HOLD (预算保护 gate=False e2=14)
+[16:31:22] t=1032 ALARM 单位损失 -> TURTLE (21 v 21, 守塔阵不打野战)
+[16:31:23] t=1032 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:31:23] t=1032 tick#700 credits=675 stance=defend | jev 697 decisions p50=970ms
+[16:31:24] t=1034 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:31:26] t=1035 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:31:27] t=1037 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:31:27] t=1037 jev VEH DRON (conf 0.53)
+[16:31:29] t=1038 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:31:30] t=1040 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:31:30] t=1040 MOVE raid x1 -> (70,117); assault x7 -> (70,117); hold_a x3 -> (132,92); hold_b x3 -> (121,73); reserve x3 -> (134,87)
+[16:31:32] t=1041 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:31:33] t=1043 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=247)
+[16:31:33] t=1043 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:31:35] t=1044 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=204)
+[16:31:35] t=1044 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:31:36] t=1046 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=163)
+[16:31:36] t=1046 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:31:38] t=1047 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:31:40] t=1050 ALARM 单位损失 -> TURTLE (21 v 21, 守塔阵不打野战)
+[16:31:41] t=1050 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=37)
+[16:31:41] t=1050 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:31:42] t=1052 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:31:44] t=1053 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:31:44] t=1055 ESCORT 坦克#1837 -> 护航矿车@[125, 106]
+[16:31:45] t=1055 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:31:47] t=1056 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:31:47] t=1058 RETREAT DRON(24%)
+[16:31:48] t=1058 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:31:48] t=1058 MOVE assault x7 -> (70,117)
+[16:31:53] t=1062 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:31:53] t=1064 ALARM 敌军逼近 -> TURTLE (21 v 20, 守塔阵不打野战)
+[16:31:54] t=1064 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:31:57] t=1067 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:32:00] t=1070 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:32:00] t=1070 tick#725 credits=0 stance=defend | jev 722 decisions p50=971ms
+[16:32:02] t=1071 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:32:02] t=1071 MOVE assault x7 -> (70,117)
+[16:32:02] t=1073 ALARM 敌军逼近 -> TURTLE (21 v 20, 守塔阵不打野战)
+[16:32:05] t=1074 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:32:06] t=1076 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:32:08] t=1077 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:32:08] t=1079 RETREAT DOG(37%)
+[16:32:11] t=1080 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:32:11] t=1082 ALARM 单位损失 -> TURTLE (20 v 20, 守塔阵不打野战)
+[16:32:12] t=1082 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:32:12] t=1082 jev INF DOG (conf 0.35)
+[16:32:14] t=1083 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:32:14] t=1085 ESCORT 坦克#1881 -> 护航矿车@[129, 109]
+[16:32:15] t=1085 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:32:17] t=1086 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:32:18] t=1088 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:32:20] t=1089 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1077)
+[16:32:20] t=1089 MOVE assault x7 -> (70,117)
+[16:32:20] t=1091 ALARM 敌军逼近 -> TURTLE (21 v 20, 守塔阵不打野战)
+[16:32:21] t=1091 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=992)
+[16:32:21] t=1091 jev VEH DRON (conf 0.41)
+[16:32:23] t=1092 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=900)
+[16:32:24] t=1094 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=857)
+[16:32:24] t=1094 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:26] t=1095 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=816)
+[16:32:26] t=1095 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:27] t=1097 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=773)
+[16:32:27] t=1097 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:29] t=1098 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=733)
+[16:32:29] t=1098 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:29] t=1100 ALARM 敌军逼近 -> TURTLE (21 v 19, 守塔阵不打野战)
+[16:32:30] t=1100 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=690)
+[16:32:30] t=1100 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:32] t=1101 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=649)
+[16:32:32] t=1101 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:33] t=1103 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=607)
+[16:32:33] t=1103 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:35] t=1104 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=566)
+[16:32:35] t=1104 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:36] t=1106 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=523)
+[16:32:36] t=1106 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:38] t=1107 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=510)
+[16:32:38] t=1107 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:38] t=1107 jev VEH DRON (conf 0.35)
+[16:32:38] t=1107 MOVE raid x1 -> (70,117); assault x7 -> (70,117); hold_a x3 -> (132,92); hold_b x3 -> (121,73); reserve x3 -> (134,87)
+[16:32:38] t=1107 tick#750 credits=510 stance=defend | jev 747 decisions p50=973ms
+[16:32:38] t=1109 ALARM 敌军逼近 -> counter 22 vs 17 -> [118, 78]
+[16:32:39] t=1109 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=496)
+[16:32:39] t=1109 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:41] t=1110 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=455)
+[16:32:41] t=1110 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:42] t=1112 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:44] t=1113 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=372)
+[16:32:44] t=1113 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:44] t=1115 ESCORT 坦克#1807 -> 护航矿车@[127, 105]
+[16:32:45] t=1115 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=329)
+[16:32:45] t=1115 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:47] t=1116 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=288)
+[16:32:47] t=1116 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:47] t=1118 ALARM 敌军逼近 -> counter 22 vs 15 -> [117, 77]
+[16:32:48] t=1118 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=246)
+[16:32:48] t=1118 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:50] t=1119 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=205)
+[16:32:50] t=1119 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:51] t=1121 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:53] t=1122 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:54] t=1124 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=110)
+[16:32:54] t=1124 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:54] t=1124 jev VEH HTNK (conf 0.34)
+[16:32:55] t=1125 RETREAT DOG(12%)
+[16:32:56] t=1125 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=99)
+[16:32:56] t=1125 MOVE assault x7 -> (70,117)
+[16:32:57] t=1127 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1185)
+[16:32:57] t=1127 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[16:32:58] t=1128 ALARM 单位损失 -> counter 20 vs 14 -> [134, 79]
+[16:32:59] t=1128 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1147)
+[16:32:59] t=1128 jev INF DOG (conf 0.32)
+[16:33:00] t=1130 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1088)
+[16:33:02] t=1131 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=965)
+[16:33:03] t=1133 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=847)
+[16:33:05] t=1134 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=799)
+[16:33:06] t=1136 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=760)
+[16:33:07] t=1137 ALARM 敌军逼近 -> counter 20 vs 13 -> [117, 77]
+[16:33:08] t=1137 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=724)
+[16:33:09] t=1139 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=685)
+[16:33:11] t=1140 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=649)
+[16:33:12] t=1142 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=610)
+[16:33:14] t=1143 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=572)
+[16:33:14] t=1145 ESCORT 坦克#1837 -> 护航矿车@[126, 104]
+[16:33:15] t=1145 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=535)
+[16:33:15] t=1145 MOVE assault x7 -> (70,117)
+[16:33:15] t=1145 tick#775 credits=535 stance=defend | jev 772 decisions p50=975ms
+[16:33:17] t=1146 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=497)
+[16:33:18] t=1148 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=460)
+[16:33:20] t=1149 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=422)
+[16:33:21] t=1151 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=385)
+[16:33:24] t=1154 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=310)
+[16:33:26] t=1155 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=272)
+[16:33:27] t=1157 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=235)
+[16:33:29] t=1158 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=199)
+[16:33:29] t=1158 MOVE assault x7 -> (70,117)
+[16:33:30] t=1160 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=160)
+[16:33:30] t=1160 MOVE raid x1 -> (70,117)
+[16:33:32] t=1161 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=135)
+[16:33:32] t=1161 jev VEH HTNK (conf 0.42)
+[16:33:32] t=1161 MOVE guard x2 -> (137,82)
+[16:33:33] t=1163 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=124)
+[16:33:35] t=1164 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=85)
+[16:33:36] t=1166 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=49)
+[16:33:38] t=1167 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=10)
+[16:33:39] t=1169 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:33:39] t=1169 MOVE hold_a x3 -> (132,92); hold_b x3 -> (121,73); reserve x3 -> (134,87)
+[16:33:40] t=1170 ALARM 单位损失 -> counter 21 vs 10 -> [134, 79]
+[16:33:42] t=1172 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:33:44] t=1173 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:33:44] t=1175 ESCORT 坦克#1837 -> 护航矿车@[126, 105]
+[16:33:45] t=1175 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:33:48] t=1178 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:33:48] t=1178 MOVE assault x7 -> (70,117)
+[16:33:51] t=1181 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:33:53] t=1182 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:33:53] t=1182 tick#800 credits=0 stance=defend | jev 797 decisions p50=974ms
+[16:33:56] t=1185 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:33:57] t=1187 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:00] t=1190 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:02] t=1191 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:02] t=1191 MOVE assault x7 -> (70,117)
+[16:34:03] t=1193 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:06] t=1196 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:08] t=1197 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:09] t=1199 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:11] t=1200 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:12] t=1202 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:14] t=1203 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:15] t=1205 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:15] t=1205 MOVE assault x7 -> (70,117)
+[16:34:17] t=1206 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:20] t=1209 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:23] t=1212 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:24] t=1214 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:26] t=1215 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:29] t=1218 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:29] t=1218 MOVE assault x7 -> (70,117)
+[16:34:30] t=1220 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:30] t=1220 tick#825 credits=0 stance=defend | jev 822 decisions p50=971ms
+[16:34:32] t=1221 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:33] t=1223 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:35] t=1224 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:36] t=1226 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:34:38] t=1227 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1119)
+[16:34:38] t=1227 MOVE raid x1 -> (70,117)
+[16:34:39] t=1229 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1080)
+[16:34:39] t=1229 MOVE hold_a x3 -> (132,92); hold_b x3 -> (121,73); reserve x3 -> (134,87)
+[16:34:41] t=1230 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1044)
+[16:34:41] t=1230 MOVE assault x7 -> (70,117)
+[16:34:42] t=1232 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1005)
+[16:34:44] t=1233 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=969)
+[16:34:45] t=1235 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=930)
+[16:34:47] t=1236 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=894)
+[16:34:48] t=1238 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=855)
+[16:34:50] t=1239 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=819)
+[16:34:51] t=1241 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=930)
+[16:34:53] t=1242 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=894)
+[16:34:53] t=1242 MOVE assault x7 -> (70,117)
+[16:34:54] t=1244 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=855)
+[16:34:56] t=1245 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=819)
+[16:34:57] t=1247 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=780)
+[16:34:59] t=1248 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=744)
+[16:35:00] t=1250 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=705)
+[16:35:02] t=1251 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=669)
+[16:35:03] t=1253 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=630)
+[16:35:05] t=1254 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=594)
+[16:35:05] t=1254 MOVE assault x7 -> (70,117)
+[16:35:08] t=1257 MOVE raid x1 -> (70,117)
+[16:35:08] t=1257 tick#850 credits=519 stance=defend | jev 847 decisions p50=971ms
+[16:35:08] t=1259 AA HTK x2 (enemy air)
+[16:35:09] t=1259 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=510)
+[16:35:09] t=1259 MOVE guard x2 -> (137,82)
+[16:35:11] t=1262 ESCORT 坦克#1881 -> 护航矿车@[128, 104]
+[16:35:12] t=1262 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=427)
+[16:35:14] t=1263 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=386)
+[16:35:15] t=1265 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=344)
+[16:35:18] t=1268 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=259)
+[16:35:18] t=1268 MOVE assault x7 -> (70,117)
+[16:35:20] t=1269 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=220)
+[16:35:21] t=1271 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=179)
+[16:35:26] t=1275 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=55)
+[16:35:27] t=1277 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=12)
+[16:35:29] t=1278 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:35:29] t=1278 ATTACK (tanks=7)
+[16:35:32] t=1281 MOVE assault x7 -> (70,117)
+[16:35:36] t=1286 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:35:37] t=1287 RETREAT HTNK(38%)
+[16:35:38] t=1287 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:35:38] t=1287 MOVE raid x1 -> (70,117)
+[16:35:39] t=1289 MOVE hold_a x3 -> (132,92); hold_b x3 -> (121,73); guard x2 -> (137,82); reserve x3 -> (134,87)
+[16:35:41] t=1290 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:35:41] t=1292 ESCORT 坦克#2149 -> 护航矿车@[126, 106]
+[16:35:42] t=1292 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:35:44] t=1293 MOVE assault x7 -> (70,117)
+[16:35:45] t=1295 tick#875 credits=0 stance=attack | jev 872 decisions p50=971ms
+[16:35:50] t=1301 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[16:35:51] t=1301 jev STANCE attack->defend (conf 0.49)
+[16:35:52] t=1302 RETREAT HTNK(34%)
+[16:35:53] t=1302 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:35:56] t=1305 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:35:57] t=1307 MOVE assault x7 -> (70,117)
+[16:35:59] t=1308 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:09] t=1319 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:09] t=1319 MOVE assault x7 -> (70,117); guard x2 -> (137,82)
+[16:36:10] t=1320 ALARM 单位损失 -> counter 21 vs 13 -> [134, 79]
+[16:36:11] t=1322 ESCORT 坦克#2149 -> 护航矿车@[133, 119]
+[16:36:12] t=1322 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=115)
+[16:36:14] t=1323 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=73)
+[16:36:14] t=1325 RETREAT E2(10%)
+[16:36:15] t=1325 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=32)
+[16:36:17] t=1328 RETREAT E2(0%)
+[16:36:18] t=1328 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:18] t=1328 MOVE raid x1 -> (70,117)
+[16:36:19] t=1329 ALARM 单位损失 -> counter 19 vs 13 -> [134, 79]
+[16:36:20] t=1331 RETREAT E2(39%)
+[16:36:21] t=1331 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:23] t=1332 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:23] t=1332 tick#900 credits=0 stance=defend | jev 897 decisions p50=971ms
+[16:36:25] t=1335 RETREAT E2(39%)
+[16:36:27] t=1337 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:27] t=1337 MOVE assault x7 -> (70,117)
+[16:36:29] t=1338 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:30] t=1340 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:33] t=1343 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:35] t=1344 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:36] t=1346 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:38] t=1347 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:39] t=1349 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:39] t=1349 MOVE assault x7 -> (70,117); hold_a x2 -> (132,92); hold_b x2 -> (121,73); reserve x1 -> (134,87)
+[16:36:41] t=1350 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:41] t=1352 ESCORT 坦克#1807 -> 护航矿车@[127, 105]
+[16:36:42] t=1352 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:44] t=1353 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:45] t=1355 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:47] t=1356 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:48] t=1358 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:50] t=1359 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:50] t=1359 MOVE raid x1 -> (70,117)
+[16:36:51] t=1361 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:51] t=1361 MOVE assault x7 -> (70,117)
+[16:36:53] t=1362 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:54] t=1364 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:56] t=1365 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:57] t=1367 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:36:59] t=1368 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:00] t=1370 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:00] t=1370 tick#925 credits=0 stance=defend | jev 922 decisions p50=971ms
+[16:37:02] t=1371 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:03] t=1373 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:05] t=1374 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:05] t=1374 MOVE assault x7 -> (70,117)
+[16:37:05] t=1376 RETREAT HTK(33%)
+[16:37:06] t=1376 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:09] t=1379 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=102)
+[16:37:10] t=1380 ALARM 单位损失 -> counter 15 vs 12 -> [134, 79]
+[16:37:11] t=1380 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=62)
+[16:37:12] t=1382 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=19)
+[16:37:14] t=1383 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:17] t=1386 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:18] t=1388 MOVE assault x7 -> (70,117)
+[16:37:21] t=1391 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:23] t=1392 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:24] t=1394 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:26] t=1395 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:27] t=1397 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:31] t=1400 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:31] t=1400 MOVE assault x7 -> (70,117)
+[16:37:32] t=1402 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:32] t=1403 ESCORT 坦克#1807 -> 护航矿车@[122, 101]
+[16:37:35] t=1405 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:36] t=1406 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:38] t=1408 tick#950 credits=0 stance=defend | jev 947 decisions p50=971ms
+[16:37:40] t=1409 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:40] t=1409 MOVE hold_a x2 -> (132,92); hold_b x2 -> (121,73); reserve x1 -> (134,87)
+[16:37:41] t=1411 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:43] t=1412 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:43] t=1412 MOVE assault x7 -> (70,117)
+[16:37:44] t=1414 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:46] t=1415 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=265)
+[16:37:51] t=1421 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=110)
+[16:37:51] t=1421 jev VEH DRON (conf 0.32)
+[16:37:51] t=1421 MOVE raid x1 -> (70,117)
+[16:37:54] t=1424 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=53)
+[16:37:56] t=1426 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=12)
+[16:37:56] t=1426 MOVE assault x7 -> (70,117)
+[16:37:58] t=1427 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:37:59] t=1429 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:38:00] t=1430 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:38:03] t=1433 ESCORT 坦克#1807 -> 护航矿车@[121, 131]
+[16:38:04] t=1433 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:38:05] t=1435 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:38:08] t=1438 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:38:08] t=1438 MOVE assault x7 -> (70,117)
+[16:38:12] t=1442 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:38:15] t=1445 tick#975 credits=0 stance=defend | jev 972 decisions p50=971ms
+[16:38:17] t=1447 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:38:20] t=1450 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:38:20] t=1450 MOVE assault x7 -> (70,117)
+[16:38:21] t=1451 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:38:21] t=1451 MOVE raid x1 -> (70,117)
+[16:38:23] t=1453 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:38:25] t=1454 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:38:28] t=1457 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:38:29] t=1459 MOVE raid x1 -> (67,118); assault x7 -> (67,118)
+[16:38:33] t=1463 ALARM 单位损失 -> TURTLE (15 v 16, 守塔阵不打野战)
+[16:38:33] t=1463 ESCORT 坦克#1807 -> 护航矿车@[127, 105]
+[16:38:33] t=1463 RETREAT E2(19%)
+[16:38:41] t=1471 MOVE assault x7 -> (67,118); hold_a x2 -> (132,92); hold_b x2 -> (121,73)
+[16:38:42] t=1472 RETREAT HTNK(36%)
+[16:38:51] t=1481 ALARM 单位损失 -> TURTLE (14 v 15, 守塔阵不打野战)
+[16:38:53] t=1483 tick#1000 credits=0 stance=defend | jev 997 decisions p50=970ms
+[16:38:59] t=1489 MOVE assault x6 -> (67,118)
+[16:39:11] t=1501 MOVE assault x6 -> (67,118)
+[16:39:24] t=1514 MOVE assault x6 -> (67,118)
+[16:39:31] t=1520 tick#1025 credits=245 stance=defend | jev 1022 decisions p50=968ms
+[16:39:31] t=1522 RETREAT HTK(11%)
+[16:39:33] t=1523 ALARM 单位损失 -> TURTLE (13 v 15, 守塔阵不打野战)
+[16:39:34] t=1523 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=162)
+[16:39:37] t=1526 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=78)
+[16:39:38] t=1528 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=38)
+[16:39:40] t=1529 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=10)
+[16:39:40] t=1529 jev VEH DRON (conf 0.35)
+[16:39:41] t=1531 MOVE assault x6 -> (67,118); hold_a x2 -> (132,92); hold_b x2 -> (121,73)
+[16:39:45] t=1535 RETREAT E2(27%)
+[16:39:46] t=1537 ALARM 单位损失 -> TURTLE (13 v 15, 守塔阵不打野战)
+[16:39:50] t=1540 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:39:52] t=1541 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:39:55] t=1544 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:39:55] t=1544 MOVE assault x6 -> (67,118); reserve x3 -> (134,87)
+[16:39:56] t=1546 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:39:58] t=1547 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:39:59] t=1549 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:40:00] t=1550 RETREAT E2(36%)
+[16:40:01] t=1550 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:40:01] t=1552 ALARM 单位损失 -> TURTLE (11 v 15, 守塔阵不打野战)
+[16:40:02] t=1552 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:40:04] t=1553 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:40:05] t=1555 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:40:07] t=1556 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:40:08] t=1558 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:40:08] t=1558 tick#1050 credits=0 stance=defend | jev 1047 decisions p50=970ms
+[16:40:10] t=1559 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:40:10] t=1559 MOVE assault x6 -> (67,118)
+[16:40:11] t=1561 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:40:13] t=1562 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:40:16] t=1565 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:40:17] t=1567 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:40:19] t=1568 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:40:20] t=1570 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1124)
+[16:40:22] t=1571 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1083)
+[16:40:23] t=1573 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1040)
+[16:40:23] t=1573 MOVE assault x6 -> (67,118)
+[16:40:25] t=1574 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1000)
+[16:40:26] t=1576 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=957)
+[16:40:28] t=1577 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=914)
+[16:40:29] t=1579 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=874)
+[16:40:31] t=1580 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=831)
+[16:40:32] t=1582 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=790)
+[16:40:34] t=1583 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=750)
+[16:40:34] t=1585 ALARM 单位损失 -> TURTLE (11 v 15, 守塔阵不打野战)
+[16:40:35] t=1585 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=735)
+[16:40:35] t=1585 jev VEH DRON (conf 0.38)
+[16:40:37] t=1586 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=724)
+[16:40:38] t=1588 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=682)
+[16:40:40] t=1589 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=639)
+[16:40:41] t=1591 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=598)
+[16:40:43] t=1592 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=558)
+[16:40:43] t=1592 MOVE assault x6 -> (67,118)
+[16:40:44] t=1594 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=515)
+[16:40:46] t=1595 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=474)
+[16:40:46] t=1595 tick#1075 credits=474 stance=defend | jev 1072 decisions p50=969ms
+[16:40:47] t=1597 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=432)
+[16:40:49] t=1598 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=391)
+[16:40:50] t=1600 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=348)
+[16:40:51] t=1601 ESCORT 坦克#2574 -> 护航矿车@[127, 105]
+[16:40:52] t=1601 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=335)
+[16:40:52] t=1601 jev VEH DRON (conf 0.41)
+[16:40:55] t=1604 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=282)
+[16:40:55] t=1604 MOVE reserve x1 -> (134,87)
+[16:40:56] t=1606 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=241)
+[16:40:56] t=1606 MOVE assault x7 -> (67,118)
+[16:40:58] t=1607 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=198)
+[16:41:01] t=1610 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=115)
+[16:41:02] t=1612 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=74)
+[16:41:04] t=1613 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=34)
+[16:41:07] t=1616 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:41:08] t=1618 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:41:10] t=1619 MOVE assault x7 -> (67,118)
+[16:41:11] t=1621 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:41:12] t=1622 RETREAT HTNK(38%)
+[16:41:14] t=1624 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:41:16] t=1625 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:41:21] t=1631 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:41:21] t=1632 ESCORT 坦克#1807 -> 护航矿车@[116, 135]
+[16:41:22] t=1632 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:41:22] t=1632 MOVE assault x7 -> (67,118)
+[16:41:24] t=1634 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:41:24] t=1634 tick#1100 credits=0 stance=defend | jev 1097 decisions p50=970ms
+[16:41:28] t=1638 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:41:29] t=1640 ALARM 单位损失 -> TURTLE (9 v 14, 守塔阵不打野战)
+[16:41:29] t=1640 RETREAT DRON(16%)
+[16:41:30] t=1640 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=447)
+[16:41:31] t=1641 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=406)
+[16:41:33] t=1643 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=385)
+[16:41:33] t=1643 jev VEH DRON (conf 0.39)
+[16:41:34] t=1644 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=374)
+[16:41:37] t=1647 MOVE assault x6 -> (67,118)
+[16:41:39] t=1649 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=248)
+[16:41:46] t=1656 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=41)
+[16:41:49] t=1659 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:41:51] t=1661 MOVE assault x6 -> (67,118)
+[16:41:55] t=1665 MOVE reserve x1 -> (134,87)
+[16:41:58] t=1668 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:00] t=1670 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:01] t=1671 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:01] t=1671 tick#1125 credits=0 stance=defend | jev 1122 decisions p50=971ms
+[16:42:02] t=1673 ALARM 单位损失 -> TURTLE (10 v 13, 守塔阵不打野战)
+[16:42:03] t=1673 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:04] t=1674 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:10] t=1680 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:10] t=1680 MOVE assault x5 -> (67,118)
+[16:42:13] t=1683 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:15] t=1685 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:18] t=1688 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:22] t=1692 MOVE assault x5 -> (67,118)
+[16:42:30] t=1700 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:30] t=1701 ALARM 单位损失 -> TURTLE (9 v 13, 守塔阵不打野战)
+[16:42:33] t=1704 RETREAT E2(16%)
+[16:42:37] t=1707 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:39] t=1709 MOVE assault x4 -> (67,118)
+[16:42:39] t=1709 tick#1150 credits=0 stance=defend | jev 1147 decisions p50=972ms
+[16:42:40] t=1710 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:42] t=1712 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:45] t=1715 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:46] t=1716 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:42:47] t=1718 ALARM 单位损失 -> TURTLE (8 v 13, 守塔阵不打野战)
+[16:42:55] t=1725 MOVE assault x4 -> (67,118)
+[16:43:00] t=1730 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:43:01] t=1731 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[16:43:09] t=1739 MOVE assault x4 -> (67,118)
+[16:43:11] t=1742 RETREAT E2(16%)
+[16:43:12] t=1743 ALARM 单位损失 -> TURTLE (7 v 13, 守塔阵不打野战)
+[16:43:15] t=1745 jev VEH DRON (conf 0.42)
+[16:43:16] t=1746 tick#1175 credits=273 stance=defend | jev 1172 decisions p50=971ms
+[16:43:22] t=1752 MOVE assault x4 -> (67,118)
+[16:43:24] t=1754 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1190)
+[16:43:25] t=1755 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1148)
+[16:43:27] t=1757 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1107)
+[16:43:28] t=1758 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1064)
+[16:43:30] t=1760 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1023)
+[16:43:31] t=1761 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=1010)
+[16:43:31] t=1761 jev VEH DRON (conf 0.46)
+[16:43:33] t=1763 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=998)
+[16:43:35] t=1764 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=957)
+[16:43:35] t=1764 MOVE assault x5 -> (67,118)
+[16:43:36] t=1766 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=914)
+[16:43:37] t=1767 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=873)
+[16:43:39] t=1769 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=831)
+[16:43:40] t=1770 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=790)
+[16:43:41] t=1772 RETREAT E2(16%)
+[16:43:42] t=1772 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=748)
+[16:43:42] t=1773 ALARM 单位损失 -> TURTLE (8 v 13, 守塔阵不打野战)
+[16:43:43] t=1773 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=707)
+[16:43:45] t=1775 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=664)
+[16:43:45] t=1776 RETREAT E2(37%)
+[16:43:46] t=1776 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=623)
+[16:43:47] t=1778 ESCORT 坦克#2642 -> 护航矿车@[128, 105]
+[16:43:48] t=1778 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=610)
+[16:43:48] t=1778 jev VEH DRON (conf 0.44)
+[16:43:51] t=1781 MOVE assault x5 -> (67,118)
+[16:43:52] t=1782 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=516)
+[16:43:54] t=1784 tick#1200 credits=473 stance=defend | jev 1197 decisions p50=971ms
+[16:43:56] t=1785 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=433)
+[16:43:59] jev budget exhausted: max calls reached: 1200 (继续纯确定性运行)
+[16:44:03] t=1794 MOVE raid x1 -> (67,118); assault x5 -> (67,118)
+[16:44:05] t=1796 ALARM 单位损失 -> TURTLE (9 v 13, 守塔阵不打野战)
+[16:44:16] t=1806 MOVE assault x4 -> (67,118)
+[16:44:17] t=1808 ESCORT 坦克#2652 -> 护航矿车@[126, 105]
+[16:44:28] t=1818 MOVE assault x4 -> (67,118)
+[16:44:31] t=1821 tick#1225 credits=210 stance=defend | jev 1200 decisions p50=971ms
+[16:44:33] t=1824 ALARM 单位损失 -> TURTLE (7 v 13, 守塔阵不打野战)
+[16:44:43] t=1833 MOVE assault x3 -> (67,118)
+[16:44:55] t=1845 MOVE assault x3 -> (67,118)
+[16:44:56] t=1847 ALARM 单位损失 -> TURTLE (6 v 13, 守塔阵不打野战)
+[16:45:08] t=1859 MOVE assault x2 -> (67,118)
+[16:45:08] t=1859 tick#1250 credits=210 stance=defend | jev 1200 decisions p50=971ms
+[16:45:20] t=1871 MOVE assault x2 -> (67,118)
+[16:45:31] t=1881 ALARM 单位损失 -> TURTLE (5 v 13, 守塔阵不打野战)
+[16:45:40] t=1890 MOVE assault x1 -> (67,118)
+[16:45:46] t=1896 tick#1275 credits=660 stance=defend | jev 1200 decisions p50=971ms
+[16:45:53] t=1904 MOVE assault x1 -> (67,118)
+[16:46:05] t=1916 MOVE assault x1 -> (67,118)
+[16:46:17] t=1928 MOVE assault x1 -> (67,118)
+[16:46:23] t=1934 TANK HTNK x2
+[16:46:23] t=1934 tick#1300 credits=1785 stance=defend | jev 1200 decisions p50=971ms
+[16:46:31] t=1941 MOVE assault x1 -> (67,118)
+[16:46:43] t=1953 MOVE assault x1 -> (67,118)
+[16:46:49] t=1959 ALARM 单位损失 -> TURTLE (4 v 13, 守塔阵不打野战)
+[16:47:01] t=1971 MOVE assault x1 -> (67,118)
+[16:47:01] t=1971 tick#1325 credits=849 stance=defend | jev 1200 decisions p50=971ms
+[16:47:13] t=1983 MOVE assault x1 -> (67,118)
+[16:47:25] t=1995 MOVE assault x1 -> (67,118)
+[16:47:37] t=2007 MOVE assault x2 -> (67,118)
+[16:47:38] t=2009 tick#1350 credits=360 stance=defend | jev 1200 decisions p50=971ms
+[16:47:50] t=2021 MOVE assault x2 -> (67,118)
+[16:48:02] t=2033 MOVE assault x2 -> (67,118)
+[16:48:05] t=2036 RETREAT HTNK(37%)
+[16:48:11] t=2042 ALARM 单位损失 -> TURTLE (5 v 13, 守塔阵不打野战)
+[16:48:16] t=2046 tick#1375 credits=360 stance=defend | jev 1200 decisions p50=971ms
+[16:48:20] t=2051 MOVE assault x1 -> (67,118)
+[16:48:32] t=2063 MOVE assault x1 -> (67,118)
+[16:48:44] t=2075 MOVE assault x1 -> (67,118)
+[16:48:53] t=2084 tick#1400 credits=360 stance=defend | jev 1200 decisions p50=971ms
+[16:48:56] t=2087 MOVE assault x1 -> (67,118)
+[16:49:02] t=2093 RETREAT HTNK(37%)
+[16:49:08] t=2099 ALARM 单位损失 -> TURTLE (4 v 13, 守塔阵不打野战)
+[16:49:25] t=2115 TANK HTNK x2
+[16:49:31] t=2121 tick#1425 credits=1712 stance=defend | jev 1200 decisions p50=971ms
+[16:50:02] t=2153 MOVE assault x1 -> (67,118)
+[16:50:08] t=2159 tick#1450 credits=774 stance=defend | jev 1200 decisions p50=971ms
+[16:50:14] t=2165 MOVE assault x1 -> (67,118)
+[16:50:26] t=2177 MOVE assault x1 -> (67,118)
+[16:50:38] t=2189 MOVE assault x2 -> (67,118)
+[16:50:46] t=2196 tick#1475 credits=60 stance=defend | jev 1200 decisions p50=971ms
+[16:50:50] t=2201 MOVE assault x2 -> (67,118)
+[16:51:02] t=2213 MOVE assault x2 -> (67,118)
+[16:51:07] t=2217 RETREAT HTNK(37%)
+[16:51:13] t=2223 ALARM 单位损失 -> TURTLE (5 v 13, 守塔阵不打野战)
+[16:51:22] t=2232 MOVE assault x1 -> (67,118)
+[16:51:23] t=2234 tick#1500 credits=510 stance=defend | jev 1200 decisions p50=971ms
+[16:51:34] t=2244 MOVE assault x1 -> (67,118)
+[16:51:47] t=2258 MOVE assault x1 -> (67,118)
+[16:51:59] t=2270 MOVE assault x1 -> (67,118)
+[16:52:01] t=2271 tick#1525 credits=510 stance=defend | jev 1200 decisions p50=971ms
+[16:52:04] t=2274 RETREAT HTNK(37%)
+[16:52:10] t=2280 ALARM 单位损失 -> TURTLE (4 v 13, 守塔阵不打野战)
+[16:52:35] t=2306 TANK HTNK x2
+[16:52:38] t=2309 tick#1550 credits=1562 stance=defend | jev 1200 decisions p50=971ms
+[16:53:13] t=2343 MOVE assault x1 -> (67,118)
+[16:53:16] t=2346 tick#1575 credits=924 stance=defend | jev 1200 decisions p50=971ms
+[16:53:25] t=2355 MOVE assault x1 -> (67,118)
+[16:53:37] t=2367 MOVE assault x1 -> (67,118)
+[16:53:49] t=2379 MOVE assault x2 -> (67,118)
+[16:53:53] t=2384 tick#1600 credits=135 stance=defend | jev 1200 decisions p50=971ms
+[16:54:01] t=2391 MOVE assault x2 -> (67,118)
+[16:54:13] t=2403 MOVE assault x2 -> (67,118)
+[16:54:17] t=2408 RETREAT HTNK(35%)
+[16:54:23] t=2414 ALARM 单位损失 -> TURTLE (5 v 13, 守塔阵不打野战)
+[16:54:31] t=2421 tick#1625 credits=135 stance=defend | jev 1200 decisions p50=971ms
+[16:54:32] t=2423 MOVE assault x1 -> (67,118)
+[16:54:44] t=2435 MOVE assault x1 -> (67,118)
+[16:54:56] t=2447 MOVE assault x1 -> (67,118)
+[16:55:08] t=2459 MOVE assault x1 -> (67,118)
+[16:55:08] t=2459 tick#1650 credits=585 stance=defend | jev 1200 decisions p50=971ms
+[16:55:14] t=2465 RETREAT HTNK(30%)
+[16:55:19] t=2469 ALARM 单位损失 -> TURTLE (4 v 13, 守塔阵不打野战)
+[16:55:46] t=2496 tick#1675 credits=585 stance=defend | jev 1200 decisions p50=971ms
+[16:56:07] t=2518 TANK HTNK x2
+[16:56:23] t=2534 tick#1700 credits=1299 stance=defend | jev 1200 decisions p50=971ms
+[16:56:44] t=2555 MOVE assault x1 -> (67,118)
+[16:56:56] t=2567 MOVE assault x1 -> (67,118)
+[16:57:01] t=2572 tick#1725 credits=660 stance=defend | jev 1200 decisions p50=971ms
+[16:57:10] t=2581 MOVE assault x1 -> (67,118)
+[16:57:22] t=2593 MOVE assault x2 -> (67,118)
+[16:57:34] t=2605 MOVE assault x2 -> (67,118)
+[16:57:38] t=2609 tick#1750 credits=210 stance=defend | jev 1200 decisions p50=971ms
+[16:57:46] t=2617 MOVE assault x2 -> (67,118)
+[16:57:49] t=2620 RETREAT HTNK(35%)
+[16:57:53] t=2624 ALARM 单位损失 -> TURTLE (5 v 13, 守塔阵不打野战)
+[16:58:02] t=2633 MOVE assault x1 -> (67,118)
+[16:58:14] t=2645 MOVE assault x1 -> (67,118)
+[16:58:16] t=2647 tick#1775 credits=210 stance=defend | jev 1200 decisions p50=971ms
+[16:58:26] t=2657 MOVE assault x1 -> (67,118)
+[16:58:38] t=2669 MOVE assault x1 -> (67,118)
+[16:58:44] t=2675 RETREAT HTNK(37%)
+[16:58:50] t=2681 ALARM 单位损失 -> TURTLE (4 v 13, 守塔阵不打野战)
+[16:58:53] t=2684 tick#1800 credits=660 stance=defend | jev 1200 decisions p50=971ms
+[16:59:31] t=2722 tick#1825 credits=660 stance=defend | jev 1200 decisions p50=971ms
+[17:00:09] t=2759 tick#1850 credits=660 stance=defend | jev 1200 decisions p50=971ms
+[17:00:10] t=2761 TANK HTNK x2
+[17:00:46] t=2797 tick#1875 credits=1187 stance=defend | jev 1200 decisions p50=971ms
+[17:00:48] t=2798 MOVE assault x1 -> (67,118)
+[17:01:00] t=2810 MOVE assault x1 -> (67,118)
+[17:01:12] t=2822 MOVE assault x1 -> (67,118)
+[17:01:24] t=2834 MOVE assault x2 -> (67,118)
+[17:01:24] t=2834 tick#1900 credits=285 stance=defend | jev 1200 decisions p50=971ms
+[17:01:36] t=2846 MOVE assault x2 -> (67,118)
+[17:01:49] t=2860 MOVE assault x2 -> (67,118)
+[17:01:52] t=2863 RETREAT HTNK(37%)
+[17:01:58] t=2869 ALARM 单位损失 -> TURTLE (5 v 13, 守塔阵不打野战)
+[17:02:01] t=2872 tick#1925 credits=285 stance=defend | jev 1200 decisions p50=971ms
+[17:02:07] t=2878 MOVE assault x1 -> (67,118)
+[17:02:19] t=2890 MOVE assault x1 -> (67,118)
+[17:02:31] t=2902 MOVE assault x1 -> (67,118)
+[17:02:39] t=2909 tick#1950 credits=735 stance=defend | jev 1200 decisions p50=971ms
+[17:02:43] t=2914 MOVE assault x1 -> (67,118)
+[17:02:49] t=2920 RETREAT HTNK(35%)
+[17:02:55] t=2926 ALARM 单位损失 -> TURTLE (4 v 13, 守塔阵不打野战)
+[17:03:16] t=2947 tick#1975 credits=735 stance=defend | jev 1200 decisions p50=971ms
+[17:03:54] t=2984 tick#2000 credits=735 stance=defend | jev 1200 decisions p50=971ms
+[17:04:31] t=3022 tick#2025 credits=1110 stance=defend | jev 1200 decisions p50=971ms
+[17:04:33] t=3023 TANK HTNK x2
+[17:05:09] t=3059 tick#2050 credits=1235 stance=defend | jev 1200 decisions p50=971ms
+[17:05:10] t=3061 MOVE assault x1 -> (67,118)
+[17:05:22] t=3073 MOVE assault x1 -> (67,118)
+[17:05:34] t=3085 MOVE assault x1 -> (67,118)
+[17:05:46] t=3097 MOVE assault x2 -> (67,118)
+[17:05:46] t=3097 tick#2075 credits=335 stance=defend | jev 1200 decisions p50=971ms
+[17:05:58] t=3109 MOVE assault x2 -> (67,118)
+[17:06:10] t=3121 MOVE assault x2 -> (67,118)
+[17:06:15] t=3125 RETREAT HTNK(35%)
+[17:06:21] t=3131 ALARM 单位损失 -> TURTLE (5 v 13, 守塔阵不打野战)
+[17:06:24] t=3134 tick#2100 credits=710 stance=defend | jev 1200 decisions p50=971ms
+[17:06:30] t=3140 MOVE assault x1 -> (67,118)
+[17:06:42] t=3152 MOVE assault x1 -> (67,118)
+[17:06:54] t=3164 MOVE assault x1 -> (67,118)
+[17:07:01] t=3172 tick#2125 credits=710 stance=defend | jev 1200 decisions p50=971ms
+[17:07:06] t=3176 MOVE assault x1 -> (67,118)
+[17:07:12] t=3182 RETREAT HTNK(37%)
+[17:07:18] t=3188 ALARM 单位损失 -> TURTLE (4 v 13, 守塔阵不打野战)
+[17:07:39] t=3209 tick#2150 credits=710 stance=defend | jev 1200 decisions p50=971ms
+[17:08:16] t=3247 TANK HTNK x2
+[17:08:16] t=3247 tick#2175 credits=1835 stance=defend | jev 1200 decisions p50=971ms
+[17:08:54] t=3284 MOVE assault x1 -> (67,118)
+[17:08:54] t=3284 tick#2200 credits=899 stance=defend | jev 1200 decisions p50=971ms
+[17:09:06] t=3296 MOVE assault x1 -> (67,118)
+[17:09:19] t=3310 MOVE assault x1 -> (67,118)
+[17:09:31] t=3322 tick#2225 credits=35 stance=defend | jev 1200 decisions p50=971ms
+[17:09:33] t=3323 MOVE assault x2 -> (67,118)
+[17:09:45] t=3335 MOVE assault x2 -> (67,118)
+[17:09:57] t=3347 MOVE assault x2 -> (67,118)
+[17:10:03] t=3353 RETREAT HTNK(30%)
+[17:10:07] t=3358 ALARM 单位损失 -> TURTLE (5 v 13, 守塔阵不打野战)
+[17:10:09] t=3359 tick#2250 credits=410 stance=defend | jev 1200 decisions p50=971ms
+[17:10:16] t=3367 MOVE assault x1 -> (67,118)
+[17:10:28] t=3379 MOVE assault x1 -> (67,118)
+[17:10:40] t=3391 MOVE assault x1 -> (67,118)
+[17:10:46] t=3397 tick#2275 credits=410 stance=defend | jev 1200 decisions p50=971ms
+[17:10:52] t=3403 RETREAT HTNK(37%)
+[17:10:52] t=3403 MOVE assault x1 -> (67,118)
+[17:11:06] t=3416 MOVE assault x1 -> (67,118)
+[17:11:18] t=3428 MOVE assault x1 -> (67,118)
+[17:11:19] t=3430 ALARM 单位损失 -> TURTLE (4 v 13, 守塔阵不打野战)
+[17:11:24] t=3434 tick#2300 credits=410 stance=defend | jev 1200 decisions p50=971ms
+[17:11:49] t=3460 TANK HTNK x2
+[17:12:01] t=3472 tick#2325 credits=1312 stance=defend | jev 1200 decisions p50=971ms
+[17:12:27] t=3498 MOVE assault x1 -> (67,118)
+[17:12:39] t=3510 MOVE assault x1 -> (67,118)
+[17:12:39] t=3510 tick#2350 credits=374 stance=defend | jev 1200 decisions p50=971ms
+[17:12:51] t=3522 MOVE assault x1 -> (67,118)
+[17:13:03] t=3534 MOVE assault x1 -> (67,118)
+[17:13:15] t=3546 MOVE assault x1 -> (67,118)
+[17:13:16] t=3547 tick#2375 credits=0 stance=defend | jev 1200 decisions p50=971ms
+[17:13:28] t=3559 MOVE assault x1 -> (67,118)
+[17:13:31] t=3562 RETREAT HTNK(37%)
+[17:13:37] t=3568 ALARM 单位损失 -> TURTLE (4 v 13, 守塔阵不打野战)
+[17:13:54] t=3585 tick#2400 credits=289 stance=defend | jev 1200 decisions p50=971ms
+[17:13:55] t=3586 MOVE assault x1 -> (67,118)
+[17:14:07] t=3598 MOVE assault x1 -> (67,118)
+[17:14:21] t=3612 MOVE assault x1 -> (67,118)
+[17:14:31] t=3622 tick#2425 credits=260 stance=defend | jev 1200 decisions p50=971ms
+[17:14:33] t=3624 MOVE assault x1 -> (67,118)
+[17:14:46] t=3637 MOVE assault x1 -> (67,118)
+[17:14:59] t=3649 MOVE assault x1 -> (67,118)
+[17:15:01] t=3652 RETREAT HTNK(35%)
+[17:15:06] t=3657 ALARM 单位损失 -> TURTLE (4 v 13, 守塔阵不打野战)
+[17:15:09] t=3660 tick#2450 credits=860 stance=defend | jev 1200 decisions p50=971ms
+[17:15:47] t=3697 tick#2475 credits=1160 stance=defend | jev 1200 decisions p50=971ms
+[17:16:24] t=3735 tick#2500 credits=1160 stance=defend | jev 1200 decisions p50=971ms
+[17:17:02] t=3772 tick#2525 credits=1160 stance=defend | jev 1200 decisions p50=971ms
+[17:17:32] t=3802 TANK HTNK x2
+[17:17:39] t=3810 tick#2550 credits=1424 stance=defend | jev 1200 decisions p50=971ms
+[17:18:09] t=3840 MOVE assault x1 -> (67,118)
+[17:18:17] t=3847 tick#2575 credits=1085 stance=defend | jev 1200 decisions p50=971ms
+[17:18:21] t=3852 MOVE assault x1 -> (67,118)
+[17:18:33] t=3864 MOVE assault x1 -> (67,118)
+[17:18:45] t=3876 MOVE assault x2 -> (67,118)
+[17:18:54] t=3885 tick#2600 credits=410 stance=defend | jev 1200 decisions p50=971ms
+[17:18:57] t=3888 MOVE assault x2 -> (67,118)
+[17:19:09] t=3900 MOVE assault x2 -> (67,118)
+[17:19:14] t=3904 RETREAT HTNK(35%)
+[17:19:20] t=3910 ALARM 单位损失 -> TURTLE (5 v 13, 守塔阵不打野战)
+[17:19:29] t=3919 MOVE assault x1 -> (67,118)
+[17:19:32] t=3922 tick#2625 credits=785 stance=defend | jev 1200 decisions p50=971ms
+[17:19:42] t=3933 MOVE assault x1 -> (67,118)
+[17:19:54] t=3945 MOVE assault x1 -> (67,118)
+[17:20:06] t=3957 MOVE assault x1 -> (67,118)
+[17:20:08] t=3958 RETREAT HTNK(32%)
+[17:20:09] t=3960 tick#2650 credits=785 stance=defend | jev 1200 decisions p50=971ms
+[17:20:12] t=3963 ALARM 单位损失 -> TURTLE (4 v 13, 守塔阵不打野战)
+[17:20:47] t=3997 tick#2675 credits=785 stance=defend | jev 1200 decisions p50=971ms
+[17:21:02] t=4012 TANK HTNK x1
+[17:21:24] t=4035 tick#2700 credits=1124 stance=defend | jev 1200 decisions p50=971ms
+[17:21:39] t=4050 MOVE assault x1 -> (67,118)
+[17:21:53] t=4063 MOVE assault x1 -> (67,118)
+[17:22:02] t=4072 tick#2725 credits=785 stance=defend | jev 1200 decisions p50=971ms
+[17:22:05] t=4075 MOVE assault x1 -> (67,118)

@@ -149,6 +149,7 @@ class BattleSession:
         except Exception as e:
             self.audit.log("scout ERR %s" % str(e)[:100])
 
+        self.mem.current_stance = self.stance   # build_gate 读取（RECOVER 放开闸门）
         # 开局确定性建造序列 (不依赖 jev; 本 tick 建筑队列已被 checklist 占用时跳过,
         # 生产指令异步生效、快照滞后一 tick, 不查会双造 —— 第 24 局实测)
         try:

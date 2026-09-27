@@ -11,14 +11,47 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import subprocess
 import sys
 
 from .audit import Audit
 from .config import DriverConfig, MatchConfig
+from .paths import LOG_DIR
 from .driver.browser import Browser
 from .driver.launcher import GameLauncher
 from .game import BattleSession
 from .jev import JevClient
+
+LOCK_PATH = LOG_DIR / ".play.lock"
+
+
+def _acquire_lock() -> bool:
+    """单实例锁（第 29-31 局事故：三个对局进程并发共用一个浏览器/日志，数据互相污染）。
+
+    锁文件存 PID；PID 已死则视为陈旧锁自动接管。--force 可无视。
+    """
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+    if LOCK_PATH.exists() and os.environ.get("RA2WEB_NO_LOCK", "") == "":
+        try:
+            pid = int(LOCK_PATH.read_text(encoding="utf-8").strip() or 0)
+        except ValueError:
+            pid = 0
+        if pid:
+            r = subprocess.run(["tasklist", "/FI", "PID eq %d" % pid],
+                               capture_output=True, text=True)
+            if str(pid) in (r.stdout or ""):
+                return False
+    LOCK_PATH.write_text(str(os.getpid()), encoding="utf-8")
+    return True
+
+
+def _release_lock() -> None:
+    try:
+        if LOCK_PATH.exists():
+            LOCK_PATH.unlink()
+    except OSError:
+        pass
 
 
 def _common(argv):
@@ -49,30 +82,37 @@ def _wire(args) -> tuple:
 
 def main_play(argv=None) -> int:
     args = _common(sys.argv[1:] if argv is None else argv)
-    b, audit, jev, match = _wire(args)
-    launcher = GameLauncher(b, match, debug=args.debug)
-    from . import review
-    loop = max(1, args.loop)
-    results = []
-    for i in range(loop):
-        if loop > 1:
-            audit.log("=== LOOP game %d/%d ===" % (i + 1, loop))
-        audit.log("进局中(全自动)...")
-        client = launcher.launch()
-        report = BattleSession(client, jev, audit, match).run()
-        if not args.no_review:
-            try:  # 复盘闭环: 记录→分析→Jev 语义复盘→账本+参数迭代
-                # 独立小预算客户端: 对局本体可能刚好耗尽预算(第24局实测)
-                r = review.review_last_game(JevClient(max_calls=4), audit)
-                report["review"] = {"game_no": r.get("game_no"),
-                                    "rootcause": (r.get("answers") or {})
-                                    .get("rootcause", {}).get("choice"),
-                                    "auto_tuned": len(r.get("changes") or [])}
-            except Exception as e:
-                audit.log("review ERR %s" % str(e)[:200])
-        print(json.dumps(report, ensure_ascii=False, indent=2))
-        results.append(report)
-    return 0 if any(r.get("result") == "victory" for r in results) else 1
+    if not _acquire_lock():
+        print("已有对局进程在运行（logs/.play.lock）。先停掉它或设 RA2WEB_NO_LOCK=1 强制。",
+              file=sys.stderr)
+        return 2
+    try:
+        b, audit, jev, match = _wire(args)
+        launcher = GameLauncher(b, match, debug=args.debug)
+        from . import review
+        loop = max(1, args.loop)
+        results = []
+        for i in range(loop):
+            if loop > 1:
+                audit.log("=== LOOP game %d/%d ===" % (i + 1, loop))
+            audit.log("进局中(全自动)...")
+            client = launcher.launch()
+            report = BattleSession(client, jev, audit, match).run()
+            if not args.no_review:
+                try:  # 复盘闭环: 记录→分析→Jev 语义复盘→账本+参数迭代
+                    # 独立小预算客户端: 对局本体可能刚好耗尽预算(第24局实测)
+                    r = review.review_last_game(JevClient(max_calls=4), audit)
+                    report["review"] = {"game_no": r.get("game_no"),
+                                        "rootcause": (r.get("answers") or {})
+                                        .get("rootcause", {}).get("choice"),
+                                        "auto_tuned": len(r.get("changes") or [])}
+                except Exception as e:
+                    audit.log("review ERR %s" % str(e)[:200])
+            print(json.dumps(report, ensure_ascii=False, indent=2))
+            results.append(report)
+        return 0 if any(r.get("result") == "victory" for r in results) else 1
+    finally:
+        _release_lock()
 
 
 def main_launch(argv=None) -> int:

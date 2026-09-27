@@ -33,6 +33,8 @@ class BattleMemory:
         self.home_guard_t = 0.0         # (旧字段, 由 squad_wp 取代)
         self.squad_wp: dict = {}        # 各编组 {role: [目标, 重发截止]}
         self.last_squads: dict = {}     # 上 tick 编组表（危机救援抽 reserve 用）
+        self.current_stance = "develop" # 当前态势（build_gate 读取: RECOVER 放开闸门）
+        self.dog_sent = False           # 军犬探路是否已派出
         self.dogs_queued = False
         self.retreated: dict = {}       # unitId -> 游戏秒(每 300s 只撤一次)
         self.events: list = []          # 事件流(新→旧渲染时反转)
@@ -256,8 +258,9 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("t=%d AIR-DEFENSE 2nd AA" % s["t"])
         cred -= 1000
 
-    # 6.5) 地面防御线: 有兵营即把哨戒炮补到 3 座 (第 20 局复盘 4→3 省 500 金)
-    if side["bar"] in bl and bl.get(side["gdef"], 0) < 3 \
+    # 6.5) 地面防御线: [第31局 Route A] 速攻期只留 1 座哨戒炮(省1000转坦克), 之后补到 3
+    gdef_cap = 1 if s["t"] < T["rush_t1"] else 3
+    if side["bar"] in bl and bl.get(side["gdef"], 0) < gdef_cap \
             and qs.get(1, {}).get("s", 0) == 0 \
             and side["gdef"] in available(s["av"], 1) and cred >= 1500:
         acts.append({"act": "produce", "name": side["gdef"], "qty": 1, "q": 1})
@@ -307,43 +310,49 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
 
 # ================= 开局建造序列 (Bible §5.1/§5.2, 阵营感知) =================
 
-def build_gate(s: dict, cost: int) -> bool:
-    """建筑购买闸门（第 28 局复盘）。
+def build_gate(s: dict, cost: int, mem: BattleMemory | None = None) -> bool:
+    """建筑购买闸门（第 28 局复盘 + 第 31 局 Route A）。
 
     战车工厂落地后，现金必须 ≥ 造价+tank_cash1 才许买建筑——否则建筑一笔接一笔
-    排队（精炼厂 1500/座、维修），坦克资金线(1200)永远够不着，坦克峰值仅 1 辆、
-    190 击杀也赢不了。工厂落地前不设限（基建本身就是优先级，第 20 局"立即补二矿"
-    在现金充足时依然立即——闸门是现金不足时的保护，不是禁止扩张）。
+    排队（精炼厂 1500/座、维修），坦克资金线永远够不着。
+    例外：① 工厂落地前不设限（基建就是优先级）；② RECOVER 态势放开
+    （rush 失败后要补经济出二波，Route A 的二波机制）。
     """
     bl = buildings(s["mine"])
     if bl.get(get_side(s)["weap"], 0) == 0:
+        return True
+    if mem is not None and mem.current_stance == "recover":
         return True
     return s["me"]["credits"] >= cost + T["tank_cash1"]
 
 
 def opening_build(s: dict, mem: BattleMemory):
     """开局确定性序列：电厂→精炼厂→兵营→战车工厂；工厂后立即补二矿（第 20 局复盘）；
-    t>500 且资金 >4500 补第二工厂。返回 action 或 None。"""
+    t>rush_t1 且资金 >4500 补第二工厂。[第31局 Route A] 速攻期(t<rush_t1)精炼厂
+    只建 1 座、不建第二工厂——全部现金转坦克；RECOVER 后闸门放开补经济出二波。
+    返回 action 或 None。"""
     side = get_side(s)
     qs = queues_by_type(s["queues"])
     av0 = available(s["av"], 0)
     bl0 = buildings(s["mine"])
+    ref_cap_now = 1 if s["t"] < T["rush_t1"] else T["ref_cap"]
     opening_next = None
     for want in side["opening"]:
         if bl0.get(want, 0) == 0:
             opening_next = want
             break
     if opening_next is None and bl0.get(side["weap"], 0) >= 1 \
-            and bl0.get(side["ref"], 0) < T["ref_cap"] and side["ref"] in av0 \
-            and build_gate(s, ucost(side["ref"])):
+            and bl0.get(side["ref"], 0) < ref_cap_now and side["ref"] in av0 \
+            and build_gate(s, ucost(side["ref"]), mem):
         opening_next = side["ref"]
-    if opening_next is None and s["t"] > 500:
+    if opening_next is None and s["t"] > T["rush_t1"]:
         if bl0.get(side["weap"], 0) < 2 and s["me"]["credits"] > T["factory2_cash"] \
                 and side["weap"] in av0:
             opening_next = side["weap"]
-        elif bl0.get(side["ref"], 0) < T["ref_cap"] and side["ref"] in av0:
+        elif bl0.get(side["ref"], 0) < T["ref_cap"] and side["ref"] in av0 \
+                and build_gate(s, ucost(side["ref"]), mem):
             opening_next = side["ref"]
-    if opening_next and qs.get(0, {}).get("s") == 0 and opening_next in av0:
+    if opening_next and qs.get(0, {}).get("s", 0) == 0 and opening_next in av0:
         return {"act": "produce", "name": opening_next, "qty": 1, "q": 0,
                 "tag": "OPENING BUILD %s" % opening_next}
     return None
@@ -378,6 +387,16 @@ def scouting(s: dict, home, mem: BattleMemory):
         mem.dogs_queued = True
         return ({"act": "produce", "name": "ADOG", "qty": 3},
                 "t=%d SCOUT dogs x3" % s["t"])
+    # [第31局 Route A] 军犬出厂即送镜像角——速攻必须尽早知道敌基地方位
+    if not mem.dog_sent and home:
+        dogs = [u for u in s["mine"] if u["n"] in SCOUT_DOGS]
+        if dogs:
+            mx, my = s["map"]["width"], s["map"]["height"]
+            mirror = [max(mx - home[0], 8), max(my - home[1], 8)]
+            mem.dog_sent = True
+            return ({"act": "attack_move", "ids": [dogs[0]["id"]],
+                     "x": mirror[0], "y": mirror[1]},
+                    "t=%d SCOUT dog->mirror %s" % (s["t"], mirror))
     if time.time() - mem.last_scout <= 150:
         return None, None
     tanks = combat_tanks(s["mine"])
@@ -536,7 +555,13 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
             order("assault", sq["assault"], mem.enemy_base[0], mem.enemy_base[1], 12)
         else:
             tgt_u = pick_target(s, home)
-            tgt = list(tgt_u["tl"]) if tgt_u else forward_post(s, home, mem)
+            if tgt_u:
+                tgt = list(tgt_u["tl"])
+            elif home:
+                # [第31局 Route A] 无情报也压向镜像角（用接触找基地, 不龟缩）
+                tgt = [max(mx - home[0], 8), max(my - home[1], 8)]
+            else:
+                tgt = forward_post(s, home, mem)
             order("assault", sq["assault"], tgt[0], tgt[1], 12)
     else:
         if home:
@@ -579,7 +604,7 @@ def apply_jev(s: dict, ans: dict, stance: str, mem: BattleMemory,
         n_bar = len([u for u in s["mine"] if u["n"] == side["bar"]])
         if not (b == side["ref"] and n_ref >= T["ref_cap"]) \
                 and not (b == side["bar"] and n_bar >= 2):
-            if build_gate(s, ucost(b)):
+            if build_gate(s, ucost(b), mem):
                 acts.append({"act": "produce", "name": b, "qty": 1, "q": 0})
                 logs.append("t=%d jev BUILD %s (conf %.2f)"
                             % (s["t"], b, (ans.get("build") or {}).get("confidence", -1)))
