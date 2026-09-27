@@ -10,7 +10,7 @@ import json
 import math
 
 from ..paths import KNOWLEDGE_DIR
-from .doctrine import AIR_UNITS, COUNTERS, HARVEST, MCV_CODES, TARGET_SCORE
+from .doctrine import AIR_UNITS, COUNTERS, HARVEST, MCV_CODES, SCOUT_DOGS, TARGET_SCORE
 
 # ================= RA2-UNITS.json 术语表 (代号→中文名/造价/护甲) =================
 _UDB_RAW = {}
@@ -73,6 +73,26 @@ def combat_tanks(mine: list, keep_wounded: bool = True) -> list:
     out = []
     for u in mine:
         if u["o"] != 7 or u["n"] in HARVEST or u["n"] in MCV_CODES:
+            continue
+        if not keep_wounded and u["hp"] < 0.40 * (u["mhp"] or 1):
+            continue
+        out.append(u)
+    return out
+
+
+def all_combat(mine: list, keep_wounded: bool = True) -> list:
+    """全部可指挥战斗单位：坦克 + 步兵（排除矿车/MCV/军犬/工程师/残血可选）。
+
+    [第 30 局, 用户观察] movement 原先只指挥坦克——步兵从未收到宏观指令，
+    几十个动员兵在基地站桩/被微操遛来遛去。进攻波次必须带上步兵。
+    """
+    out = []
+    for u in mine:
+        if u["o"] not in (3, 7):
+            continue
+        if u["n"] in HARVEST or u["n"] in MCV_CODES or u["n"] in SCOUT_DOGS:
+            continue
+        if u["n"] in ("SENGINEER",):
             continue
         if not keep_wounded and u["hp"] < 0.40 * (u["mhp"] or 1):
             continue

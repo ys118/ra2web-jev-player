@@ -115,8 +115,10 @@ class BattleSession:
             if alarm:
                 crisis = True
                 self.crisis_ticks += 1
-                self.stance = "defend"
-                acts, logline = planner.crisis_response(s, home, alarm, self.mem)
+                acts, logline = planner.crisis_response(s, home, alarm, self.mem,
+                                                        stance=self.stance)
+                if self.stance not in ("attack", "rush"):
+                    self.stance = "defend"   # 攻势中不被 ALARM 打回防守（第30局）
                 if logline:
                     self.audit.log(logline)
                 self._exec(s, acts)

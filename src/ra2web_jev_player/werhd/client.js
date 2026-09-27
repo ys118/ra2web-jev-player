@@ -185,8 +185,20 @@
       (u.type === 7 || u.type === 3 || u.type === 1)
       && !isHarvester(u) && !/^(SMCV|AMCV)$/.test(u.name));
   }
-  function enemyScore(e, d) {
-    let s = 30;
+  function versesBonus(u, e) {
+    // 弹头×护甲真实倍率（第31局, 用户观察: 克制兵种先上）——
+    // rules() 主武器 versus 表按敌护甲查倍率, 2倍率+20分 / 0.25倍率-7.5分
+    try {
+      const mine = rulesOf(u.name, u.type);
+      const w = mine && mine.primary;
+      const theirs = rulesOf(e.name, e.type);
+      if (!w || !w.versus || !theirs) return 0;
+      const m = w.versus[theirs.armor];
+      return typeof m === 'number' ? m * 10 : 0;
+    } catch (err) { return 0; }
+  }
+  function enemyScore(u, e, d) {
+    let s = 30 + versesBonus(u, e);                         // 克制加权
     if (e.type === 7) s += 30;                              // 载具威胁
     if (e.zone === 1) s += 100;                             // 空中优先(飞行兵掏家是历史死因)
     if (st.mission && st.mission.targetId === e.id) s += 80;
@@ -215,7 +227,7 @@
         let inR = false;
         try { inR = W.inRange(u.id, e.id, 'current'); } catch (err) { inR = false; }
         if (!inR) continue;
-        const s = enemyScore(e, d);
+        const s = enemyScore(u, e, d);
         if (s > bestS) { bestS = s; best = e; }
       }
       if (!best) {
