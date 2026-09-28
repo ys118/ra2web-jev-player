@@ -149,7 +149,9 @@ class BattleSession:
                 self.audit.log(logline)
                 self._exec(s, [act])
         except Exception as e:
-            self.audit.log("scout ERR %s" % str(e)[:100])
+            import traceback
+            tb_last = traceback.format_exc().strip().splitlines()[-1]
+            self.audit.log("scout ERR %s | %s" % (e, tb_last[:120]))
 
         self.mem.current_stance = self.stance   # build_gate 读取（RECOVER 放开闸门）
         # 开局确定性建造序列 (不依赖 jev; 本 tick 建筑队列已被 checklist 占用时跳过,
