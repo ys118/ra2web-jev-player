@@ -35,6 +35,8 @@ class BattleMemory:
         self.last_squads: dict = {}     # 上 tick 编组表（危机救援抽 reserve 用）
         self.current_stance = "develop" # 当前态势（build_gate 读取: RECOVER 放开闸门）
         self.dog_sent = False           # 军犬探路是否已派出
+        self.first_hostile_pos = None   # [第37局] 首次看见敌军的位置（敌影推定用）
+        self.scout2_id = None           # [第37局] 第二侦察车（双车并行）
         self.dogs_queued = False
         self.retreated: dict = {}       # unitId -> 游戏秒(每 300s 只撤一次)
         self.events: list = []          # 事件流(新→旧渲染时反转)
@@ -104,6 +106,9 @@ def sense_events(s: dict, home, mem: BattleMemory):
         mem.seen_hostiles = new_ids
     else:
         mem.seen_hostiles |= new_ids
+    # [第37局 敌影推定] 首次看见敌军的位置 = 基地方向的最强线索
+    if s["hostile"] and mem.first_hostile_pos is None:
+        mem.first_hostile_pos = list(s["hostile"][0]["tl"])
     mem.events = ev[-6:]
     if alarm:
         mem.last_alarm_pos = list(alarm["pos"])   # 前哨/伏击位朝向参考
@@ -374,6 +379,35 @@ def opening_build(s: dict, mem: BattleMemory):
     return None
 
 
+def shadow_target(s: dict, home, mem: BattleMemory):
+    """敌影推定 [第37局, Jev 0.88]: 敌人最早出现/来袭的方向即基地方向——
+    从家沿接触方向的单位向量延伸到地图边缘（~92% 处）。无接触记录返回 None。"""
+    if not home or mem.first_hostile_pos is None:
+        return None
+    mx, my = s["map"]["width"], s["map"]["height"]
+    dx = mem.first_hostile_pos[0] - home[0]
+    dy = mem.first_hostile_pos[1] - home[1]
+    dist = math.hypot(dx, dy)
+    if dist < 3:
+        return None                                  # 接触点就在家门口, 无方向信息
+    ux, uy = dx / dist, dy / dist
+    cand = []
+    if ux > 1e-6:
+        cand.append((mx - 4 - home[0]) / ux)
+    if ux < -1e-6:
+        cand.append((4 - home[0]) / ux)
+    if uy > 1e-6:
+        cand.append((my - 4 - home[1]) / uy)
+    if uy < -1e-6:
+        cand.append((4 - home[1]) / uy)
+    cand = [c for c in cand if c > 0]
+    if not cand:
+        return None
+    t = min(cand) * 0.92
+    return [int(min(max(home[0] + ux * t, 4), mx - 4)),
+            int(min(max(home[1] + uy * t, 4), my - 4))]
+
+
 # ================= 侦察与敌基地定位 =================
 
 def update_enemy_base(s: dict, mem: BattleMemory) -> bool:
@@ -387,23 +421,20 @@ def update_enemy_base(s: dict, mem: BattleMemory) -> bool:
 
 
 def scouting(s: dict, home, mem: BattleMemory):
-    """军犬侦察（兵营好后 3 条）+ 专职侦察车多路标持续探图。
+    """军犬侦察 + 专职侦察车多路标持续探图。
 
-    第 26 局迭代（用户观察: 地图探索差、从不主动探索）：
-    - 专职侦察: 选定一辆坦克后记 scout_id，movement 的集结/进攻令豁免它，
-      修掉"侦察车被防守集结反复拉回家"的冲突（第 25 局复盘）；
-    - 多路标轮转: 镜像角→地图中心→四角，优先最久未访，不再只看一个镜像点；
-    - 间隔 150s（原 180s）；敌基地已定位后继续探索（确认+找残余分矿）。
+    第 25/26/31/37 局迭代: 侦察车豁免危机召回与集结令; 多路标轮转 150s 节流;
+    [第37局, Jev 0.88] 敌影推定优先——首个敌军接触方向的地图边缘;
+    [第37局] 阵亡即重派（不受节流）+ 双侦察车（坦克池≥4 时第二辆跑另一路标）。
     """
     side = get_side(s)
     qs = queues_by_type(s["queues"])
     av2 = available(s["av"], 2)
-    if side["bar"] in [u["n"] for u in s["mine"] if u["o"] == 2] \
-            and not mem.dogs_queued and "ADOG" in av2 and qs.get(2, {}).get("s", 0) == 0:
+    if side["bar"] in [u["n"] for u in s["mine"] if u["o"] == 2]             and not mem.dogs_queued and "ADOG" in av2 and qs.get(2, {}).get("s", 0) == 0:
         mem.dogs_queued = True
         return ({"act": "produce", "name": "ADOG", "qty": 3},
                 "t=%d SCOUT dogs x3" % s["t"])
-    # [第31局 Route A] 军犬出厂即送镜像角——速攻必须尽早知道敌基地方位
+    # [第31局 Route A] 军犬出厂即送镜像角
     if not mem.dog_sent and home:
         dogs = [u for u in s["mine"] if u["n"] in SCOUT_DOGS]
         if dogs:
@@ -413,31 +444,49 @@ def scouting(s: dict, home, mem: BattleMemory):
             return ({"act": "attack_move", "ids": [dogs[0]["id"]],
                      "x": mirror[0], "y": mirror[1]},
                     "t=%d SCOUT dog->mirror %s" % (s["t"], mirror))
-    if time.time() - mem.last_scout <= 150:
-        return None, None
     tanks = combat_tanks(s["mine"])
     if not tanks or not home:
         return None, None
-    # 侦察车存活即续用；阵亡/失踪则重新指派
-    if mem.scout_id and any(u["id"] == mem.scout_id for u in tanks):
-        sid = mem.scout_id
-    else:
-        sid = tanks[0]["id"]
-        mem.scout_id = sid
+    alive1 = bool(mem.scout_id) and any(u["id"] == mem.scout_id for u in tanks)
+    alive2 = bool(mem.scout2_id) and any(u["id"] == mem.scout2_id for u in tanks)
+    shadow = shadow_target(s, home, mem)
     mx, my = s["map"]["width"], s["map"]["height"]
     waypoints = [
-        [max(mx - home[0], 8), max(my - home[1], 8)],   # 镜像角(敌最可能方位)
+        [max(mx - home[0], 8), max(my - home[1], 8)],   # 镜像角
         [mx // 2, my // 2],                             # 地图中心
         [12, my // 2], [12, 12], [mx - 12, 12],
-        [mx - 12, my - 12], [12, my - 12],              # 四角扫荡
+        [mx - 12, my - 12], [12, my - 12],              # 四角
     ]
-    if mem.enemy_base:
-        return None, None        # 已定位: 别再送单车去敌方基地喂经验
-    target = min(waypoints, key=lambda w: mem.scout_visit.get(tuple(w), -1))
-    mem.scout_visit[tuple(target)] = s["t"]
-    mem.last_scout = time.time()
-    return ({"act": "attack_move", "ids": [sid], "x": target[0], "y": target[1]},
-            "t=%d SCOUT #%s->%s (visit %d)" % (s["t"], sid, target, len(mem.scout_visit)))
+    acts, logs = [], []
+
+    def pick_wp(exclude=None):
+        wps = [w for w in waypoints if tuple(w) != exclude]
+        return min(wps, key=lambda w: mem.scout_visit.get(tuple(w), -1))
+
+    def dispatch(sid, target, tag):
+        mem.scout_visit[tuple(target)] = s["t"]
+        acts.append({"act": "attack_move", "ids": [sid], "x": target[0], "y": target[1]})
+        logs.append("t=%d %s #%s->%s%s" % (s["t"], tag, sid, target,
+                                           " (敌影)" if shadow == target else ""))
+
+    # 主侦察: 死车立即重派(不受节流); 活车按 150s 节流换路标; 已定位则停
+    if not alive1 and tanks:
+        mem.scout_id = tanks[0]["id"]
+        dispatch(mem.scout_id, shadow or pick_wp(), "SCOUT")
+    elif alive1 and not mem.enemy_base and time.time() - mem.last_scout > 150:
+        dispatch(mem.scout_id, shadow or pick_wp(), "SCOUT")
+    mem.last_scout = time.time() if acts else mem.last_scout
+
+    # 第二侦察车: 坦克池≥4 且未定位时补位, 跑与主侦察不同的路标
+    if not alive2 and len(tanks) >= 4 and not mem.enemy_base:
+        rest = [t for t in tanks if t["id"] != mem.scout_id]
+        if rest:
+            mem.scout2_id = rest[0]["id"]
+            dispatch(mem.scout2_id, pick_wp(exclude=tuple(shadow) if shadow else None),
+                     "SCOUT2")
+    if not acts:
+        return None, None
+    return acts, "; ".join(logs)
 
 
 # ================= 五态机确定性入口 =================

@@ -153,12 +153,13 @@ class BattleSession:
 
         self.mem.current_stance = self.stance   # build_gate 读取（RECOVER 放开闸门）
         # 开局确定性建造序列 (不依赖 jev; 本 tick 建筑队列已被 checklist 占用时跳过,
-        # 生产指令异步生效、快照滞后一 tick, 不查会双造 —— 第 24 局实测)
+        # 生产指令异步生效、快照滞后一 tick, 不查会双造 —— 第 24 局实测。
+        # 日志只在真正执行后打 —— [第36局] 意图行被复盘当建成统计的噪音)
         try:
             act = planner.opening_build(s, self.mem)
             if act and not self._q_used.get(0):
-                self.audit.log("t=%s OPENING BUILD %s" % (s["t"], act["name"]))
-                self._exec(s, [act])
+                if self._exec(s, [act]):
+                    self.audit.log("t=%s OPENING BUILD %s" % (s["t"], act["name"]))
         except Exception as e:
             self.audit.log("opening ERR %s" % str(e)[:150])
 
@@ -215,7 +216,10 @@ class BattleSession:
 
     # ---------- 执行与 Jev ----------
 
-    def _exec(self, s: dict, acts: list) -> None:
+    def _exec(self, s: dict, acts: list) -> bool:
+        """执行动作列表。返回是否有动作真正执行（produce 冷却跳过不算, 第36局
+        复盘噪音: 意图日志不能当建成统计）。"""
+        executed = False
         for a in acts or []:
             try:
                 kind = a["act"]
@@ -241,8 +245,10 @@ class BattleSession:
                         self.audit.event({"kind": "action", "what": "deploy", "ids": ids})
                 self.audit.event({"kind": "action", "what": kind,
                                   "name": a.get("name"), "qty": a.get("qty")})
+                executed = True
             except Exception as e:
                 self.audit.log("exec ERR %s %s" % (a.get("act"), str(e)[:120]))
+        return executed
 
     def _jev_ask(self, s: dict, home) -> dict:
         state, Q = build_questions(s, home, self.mem, self.stance)
