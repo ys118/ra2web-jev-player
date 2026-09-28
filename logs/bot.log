@@ -26653,3 +26653,11 @@
 [14:40:51] t=1068 ESCORT 坦克#1990 -> 护航矿车@[117, 135]
 [14:40:54] t=1071 MOVE assault x7 -> (79,126)
 [14:41:01] REVIEW game#33 victory → game-0033-review.md | changes=0
+[14:51:52] 进局中(全自动)...
+[14:52:15] === ra2web-jev-player start (tick=1.5s, max_decisions=1200) ===
+[14:52:15] t=2 DEPLOY mcv
+[14:52:17] t=4 DEPLOY mcv
+[14:52:18] t=5 POWER plant (reserve 0)
+[14:52:19] t=5 jev STANCE defend->develop (conf 0.95)
+[14:52:47] t=34 OPENING BUILD NAREFN
+[14:52:52] t=38 tick#25 credits=9293 stance=develop | jev 25 decisions p50=833ms

@@ -27196,3 +27196,53 @@
 {"kind": "kill", "t": 1075, "n": "E2", "ts": "14:40:58"}
 {"kind": "decision", "t": 1075, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.47}, "inf": {"choice": "hold", "confidence": 0.44}, "veh": {"choice": "HTNK", "confidence": 0.63}, "stance": {"choice": "attack", "confidence": 0.93}, "threat": {"choice": null, "confidence": null}}, "ts": "14:40:59"}
 {"kind": "report", "result": "victory", "t": 1077, "ticks": 716, "crisis_ticks": 12, "stance": "attack", "jev": {"decisions": 715, "errors": 0, "input_tokens": 2146596, "output_tokens": 171209, "p50_ms": 974, "p95_ms": 1045}, "enemy_base": [79, 126], "ts": "2026-09-28 14:41:00"}
+{"kind": "start", "policy": "ra2web-jev-player/1.0", "maxDecisions": 1200, "micro": {"events": [{"kind": "micro", "t": 2, "what": "start"}], "loopN": 1, "on": true, "outcome": null, "stall": false}, "ts": "14:52:15"}
+{"kind": "action", "what": "deploy", "ids": [1042], "ts": "14:52:15"}
+{"kind": "action", "what": "deploy", "name": null, "qty": null, "ts": "14:52:15"}
+{"kind": "decision", "t": 2, "answers": {"build": {"choice": "hold", "confidence": 1.0}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:16"}
+{"kind": "action", "what": "deploy", "ids": [1042], "ts": "14:52:17"}
+{"kind": "action", "what": "deploy", "name": null, "qty": null, "ts": "14:52:17"}
+{"kind": "decision", "t": 4, "answers": {"build": {"choice": "hold", "confidence": 1.0}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:18"}
+{"kind": "loss", "t": 5, "n": "SMCV", "ts": "14:52:18"}
+{"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "ts": "14:52:18"}
+{"kind": "decision", "t": 5, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.98}, "stance": {"choice": "develop", "confidence": 0.95}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:19"}
+{"kind": "decision", "t": 7, "answers": {"build": {"choice": "hold", "confidence": 0.1}, "stance": {"choice": "develop", "confidence": 0.98}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:21"}
+{"kind": "decision", "t": 8, "answers": {"build": {"choice": "hold", "confidence": 0.24}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:22"}
+{"kind": "decision", "t": 10, "answers": {"build": {"choice": "hold", "confidence": 0.24}, "stance": {"choice": "develop", "confidence": 1.0}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:24"}
+{"kind": "decision", "t": 11, "answers": {"build": {"choice": "hold", "confidence": 0.03}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:25"}
+{"kind": "decision", "t": 13, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.2}, "stance": {"choice": "develop", "confidence": 0.97}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:27"}
+{"kind": "decision", "t": 14, "answers": {"build": {"choice": "hold", "confidence": 0.32}, "stance": {"choice": "develop", "confidence": 1.0}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:28"}
+{"kind": "decision", "t": 16, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.06}, "stance": {"choice": "develop", "confidence": 0.98}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:30"}
+{"kind": "decision", "t": 17, "answers": {"build": {"choice": "hold", "confidence": 0.09}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:31"}
+{"kind": "decision", "t": 19, "answers": {"build": {"choice": "hold", "confidence": 0.12}, "stance": {"choice": "develop", "confidence": 1.0}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:33"}
+{"kind": "decision", "t": 20, "answers": {"build": {"choice": "hold", "confidence": 0.07}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:34"}
+{"kind": "decision", "t": 22, "answers": {"build": {"choice": "hold", "confidence": 0.16}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:36"}
+{"kind": "decision", "t": 23, "answers": {"build": {"choice": "hold", "confidence": 0.17}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:37"}
+{"kind": "decision", "t": 25, "answers": {"build": {"choice": "hold", "confidence": 0.08}, "stance": {"choice": "develop", "confidence": 0.98}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:39"}
+{"kind": "decision", "t": 26, "answers": {"build": {"choice": "hold", "confidence": 0.07}, "stance": {"choice": "develop", "confidence": 0.95}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:40"}
+{"kind": "decision", "t": 28, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.96}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:42"}
+{"kind": "decision", "t": 29, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.93}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:43"}
+{"kind": "decision", "t": 30, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.93}, "stance": {"choice": "develop", "confidence": 1.0}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:45"}
+{"kind": "decision", "t": 32, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.95}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:46"}
+{"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "ts": "14:52:47"}
+{"kind": "decision", "t": 34, "answers": {"build": {"choice": "NAREFN", "confidence": 0.86}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:48"}
+{"kind": "decision", "t": 35, "answers": {"build": {"choice": "NAHAND", "confidence": 0.6}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:49"}
+{"kind": "decision", "t": 37, "answers": {"build": {"choice": "NAHAND", "confidence": 0.44}, "stance": {"choice": "develop", "confidence": 1.0}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:51"}
+{"kind": "decision", "t": 38, "answers": {"build": {"choice": "NAHAND", "confidence": 0.57}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:52"}
+{"kind": "obs", "t": 38, "credits": 9293, "my_val": 0, "en_val": 0, "stance": "develop", "hostile": 0, "tanks": 0, "harv": 0, "power_low": false, "ts": "14:52:52"}
+{"kind": "decision", "t": 40, "answers": {"build": {"choice": "NAHAND", "confidence": 0.54}, "stance": {"choice": "develop", "confidence": 0.98}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:54"}
+{"kind": "decision", "t": 41, "answers": {"build": {"choice": "NAHAND", "confidence": 0.5}, "stance": {"choice": "develop", "confidence": 1.0}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:55"}
+{"kind": "decision", "t": 43, "answers": {"build": {"choice": "NAHAND", "confidence": 0.45}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:57"}
+{"kind": "decision", "t": 44, "answers": {"build": {"choice": "NAHAND", "confidence": 0.5}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:52:58"}
+{"kind": "decision", "t": 46, "answers": {"build": {"choice": "NAHAND", "confidence": 0.53}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:53:00"}
+{"kind": "decision", "t": 47, "answers": {"build": {"choice": "NAHAND", "confidence": 0.4}, "stance": {"choice": "develop", "confidence": 1.0}, "threat": {"choice": null, "confidence": null}}, "ts": "14:53:01"}
+{"kind": "decision", "t": 49, "answers": {"build": {"choice": "NAHAND", "confidence": 0.55}, "stance": {"choice": "develop", "confidence": 0.98}, "threat": {"choice": null, "confidence": null}}, "ts": "14:53:03"}
+{"kind": "decision", "t": 50, "answers": {"build": {"choice": "NAHAND", "confidence": 0.64}, "stance": {"choice": "develop", "confidence": 1.0}, "threat": {"choice": null, "confidence": null}}, "ts": "14:53:04"}
+{"kind": "decision", "t": 52, "answers": {"build": {"choice": "NAHAND", "confidence": 0.56}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:53:06"}
+{"kind": "decision", "t": 53, "answers": {"build": {"choice": "NAHAND", "confidence": 0.6}, "stance": {"choice": "develop", "confidence": 1.0}, "threat": {"choice": null, "confidence": null}}, "ts": "14:53:07"}
+{"kind": "decision", "t": 55, "answers": {"build": {"choice": "NAHAND", "confidence": 0.55}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:53:09"}
+{"kind": "decision", "t": 56, "answers": {"build": {"choice": "NAHAND", "confidence": 0.55}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:53:10"}
+{"kind": "decision", "t": 58, "answers": {"build": {"choice": "NAHAND", "confidence": 0.66}, "stance": {"choice": "develop", "confidence": 0.98}, "threat": {"choice": null, "confidence": null}}, "ts": "14:53:12"}
+{"kind": "decision", "t": 59, "answers": {"build": {"choice": "NAHAND", "confidence": 0.49}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "14:53:13"}
+{"kind": "decision", "t": 61, "answers": {"build": {"choice": "NAHAND", "confidence": 0.49}, "stance": {"choice": "develop", "confidence": 0.96}, "threat": {"choice": null, "confidence": null}}, "ts": "14:53:15"}
+{"kind": "decision", "t": 62, "answers": {"build": {"choice": "NAHAND", "confidence": 0.4}, "stance": {"choice": "develop", "confidence": 0.95}, "threat": {"choice": null, "confidence": null}}, "ts": "14:53:17"}
