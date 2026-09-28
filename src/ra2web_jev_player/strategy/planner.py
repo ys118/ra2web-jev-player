@@ -248,6 +248,17 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("t=%d TESLA coil (have %d)" % (s["t"], bl.get("TESLA", 0)))
         cred -= ucost("TESLA")
 
+    # 7.5) 骚扰组换装 [第41局, Jev 0.79]: 恐怖机器人(400金/秒矿车刺客)作骚扰主力——
+    #     敌基地已知且存活机器人 <2 时补 2 只, 坦克伤亡换便宜的。
+    n_dron = len([u for u in mine if u["n"] == "DRON"])
+    if mem.enemy_base and n_dron < T["harass_dron"] \
+            and qs.get(3, {}).get("s", 0) == 0 \
+            and "DRON" in available(s["av"], 3) \
+            and cred >= ucost("DRON") * 2:
+        acts.append({"act": "produce", "name": "DRON", "qty": 2, "q": 3})
+        logs.append("t=%d HARASS DRON x2 (have %d)" % (s["t"], n_dron))
+        cred -= ucost("DRON") * 2
+
     # 8) 不攒钱: 产能线 (坦克预算保护, 第 20 局复盘: 防御支出让位坦克)
     if q3s == 0 and bl.get(side["weap"], 0) >= 1:
         tanks_av = [x for x in available(s["av"], 3)
@@ -565,12 +576,15 @@ def assign_squads(s: dict, home, mem: BattleMemory) -> dict:
     tanks = [u for u in units if u["o"] == 7]
     inf = [u for u in units if u["o"] != 7]
     sq = {"raid": [], "assault": [], "hold": [], "guard": [], "reserve": []}
-    # RAID=骚扰组 [第31局A++, 第40局②加强]: 敌基地一发现即成军咬矿车;
-    # 规模随坦克池扩展 2→4（池肥时更狠地拖敌方经济, 压其峰值）
-    if mem.enemy_base and len(tanks) >= 2:
-        n_raid = min(4, max(2, len(tanks) // 3))
-        sq["raid"] = [u["id"] for u in tanks[:n_raid]]
-        tanks = tanks[n_raid:]
+    # RAID=骚扰组 [第31局A++, 第40局②规模, 第41局换装]: DRON 刺客优先入组
+    # （400金秒矿车, 死了不心疼）, 坦克补足; 规模随池子 2→4。
+    dron_ids = [u["id"] for u in units if u["n"] == "DRON"]
+    if mem.enemy_base and (len(tanks) >= 2 or dron_ids):
+        n_raid = min(4, max(2, (len(tanks) + len(dron_ids)) // 3))
+        chosen = (dron_ids + [u["id"] for u in tanks])[:n_raid]
+        chosen_set = set(chosen)
+        sq["raid"] = chosen
+        tanks = [u for u in tanks if u["id"] not in chosen_set]
     # GUARD: 2 辆坦克守家（剩余 ≥3 辆才留, 骚扰优先）
     if len(tanks) >= 3:
         sq["guard"] = [u["id"] for u in tanks[:T["keep_home"]]]
