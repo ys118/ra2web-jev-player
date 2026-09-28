@@ -37,6 +37,8 @@ class BattleSession:
         self.prev_mine: dict = {}     # 战斗记录: 上 tick 我方机动单位 {id: name}
         self.prev_enemy: dict = {}    # 战斗记录: 上 tick 可见敌战斗单位
         self._budget_logged = False   # 预算耗尽只报一次（第 27 局刷屏教训）
+        self._q_cd = {0: 0.0, 1: 0.0, 2: 0.0, 3: 0.0}  # 生产指令冷却（第34局: 队列状态
+        # 滞后一个 tick, 重发=同一建筑重复排队, 9 座精炼厂一秒排满烧掉全部现金）
 
     # ---------- 生命周期 ----------
 
@@ -218,8 +220,15 @@ class BattleSession:
             try:
                 kind = a["act"]
                 if kind == "produce":
-                    if a.get("q") is not None:
-                        self._q_used[a["q"]] = True
+                    q = a.get("q")
+                    if q is not None:
+                        if time.time() - self._q_cd.get(q, 0.0) < 6.0:
+                            # 锁步队列状态滞后, 6s 内重发=同一建筑重复排队（第 34 局）
+                            self.audit.event({"kind": "produce_skip", "q": q,
+                                              "name": a.get("name")})
+                            continue
+                        self._q_cd[q] = time.time()
+                        self._q_used[q] = True
                     self.c.produce(a["name"], a.get("qty", 1))
                 elif kind == "attack_move":
                     self.c.attack_move(a["ids"], a["x"], a["y"])

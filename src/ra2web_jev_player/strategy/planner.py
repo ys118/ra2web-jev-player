@@ -125,6 +125,8 @@ def crisis_response(s: dict, home, alarm: dict, mem: BattleMemory,
                  if u["o"] in (3, 7) and u["n"] not in HARVEST
                  and u["n"] not in MCV_CODES          # 基地车不参与反击(送人头)
                  and u["n"] not in ("SENGINEER",)
+                 and u["id"] != mem.scout_id          # 侦察车不被危机召回（第34局:
+                                                      #   83次ALARM把侦察拽回家=敌基地定位失败）
                  and u["hp"] >= T["retreat_hp"] * (u["mhp"] or 1)]
     if not defenders or time.time() - mem.last_defend_order <= 8:
         return [], None
