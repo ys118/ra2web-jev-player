@@ -260,8 +260,9 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("t=%d AIR-DEFENSE 2nd AA" % s["t"])
         cred -= 1000
 
-    # 6.5) 地面防御线: [第31局 Route A] 速攻期只留 1 座哨戒炮(省1000转坦克), 之后补到 3
-    gdef_cap = 1 if s["t"] < T["rush_t1"] else 3
+    # 6.5) 地面防御线: [第31局 Route A] 速攻期只留 1 座哨戒炮; [第36局 A] 之后 2 座
+    #     （省现金转线圈——哨炮反步兵不反坦克, 坦克损耗大）
+    gdef_cap = 1 if s["t"] < T["rush_t1"] else 2
     if side["bar"] in bl and bl.get(side["gdef"], 0) < gdef_cap \
             and qs.get(1, {}).get("s", 0) == 0 \
             and side["gdef"] in available(s["av"], 1) and cred >= 1500:
@@ -269,6 +270,18 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("t=%d DEFLINE %s (have %d)"
                     % (s["t"], side["gdef"], bl.get(side["gdef"], 0)))
         cred -= 500
+
+    # 6.6) 磁暴线圈守家 [第36局 A]: 反坦克 200 伤替坦克挡刀——减少防守损耗,
+    #     让 6 辆重拳攒得出来。前置雷达由"可造列表含 TESLA"隐式判定;
+    #     现金软闸门（防守投资优先于坦克线, 但仍需可解）。
+    tesla_cap = 1 if s["t"] < T["rush_t1"] else 2
+    if side["weap"] in bl and bl.get("TESLA", 0) < tesla_cap \
+            and qs.get(1, {}).get("s", 0) == 0 \
+            and "TESLA" in available(s["av"], 1) \
+            and cred >= ucost("TESLA") + 300:
+        acts.append({"act": "produce", "name": "TESLA", "qty": 1, "q": 1})
+        logs.append("t=%d TESLA coil (have %d)" % (s["t"], bl.get("TESLA", 0)))
+        cred -= ucost("TESLA")
 
     # 7) 空军来袭 → 移动防空车 (苏军 HTK; 盟军靠防空建筑)
     q3 = qs.get(3, {})
