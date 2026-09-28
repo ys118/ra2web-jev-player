@@ -238,3 +238,7 @@
   反超）、坦克 11、击杀 142/损失 47（3:1）、敌基地 t=528 定位（双侦察车+敌影推定
   在另一个出生点生效）。scout ERR ×2 仍间歇出现（traceback 行号日志已就位待抓）。
   **A++ 打法四胜样本: 32W/33W/37W/38W**——学习闭环从七连败走到稳定胜率。
+- **scout ERR 归因成功（第39局 traceback 行号日志生效）**: 新版 scouting 返回
+  多指令列表, 而 game.py 侦察块用 `self._exec(s, [act])` 双重包装 → _exec 迭代时
+  a 变成嵌套列表 → AttributeError（离线精确复现, 修复验证通过: act 直传）。
+  同型隐患已排查: crisis 的 _exec 调用传的本来就是列表 ✓, opening 单 dict 用 [act] ✓。

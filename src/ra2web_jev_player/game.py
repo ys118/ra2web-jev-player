@@ -147,11 +147,12 @@ class BattleSession:
             act, logline = planner.scouting(s, home, self.mem)
             if act:
                 self.audit.log(logline)
-                self._exec(s, [act])
+                self._exec(s, act)   # scouting 返回的就是动作列表, 勿再包一层
+                                     # （[第39局] [act] 双重包装 → a 变成嵌套列表）
         except Exception as e:
             import traceback
             lines = traceback.format_exc().strip().splitlines()
-            tb_src = next((l.strip() for l in lines
+            tb_src = next((l.strip() for l in reversed(lines)
                            if "planner.py" in l or "game.py" in l), lines[-1])
             self.audit.log("scout ERR %s | %s" % (e, tb_src[:160]))
 
