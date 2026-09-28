@@ -230,6 +230,19 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("t=%d ECON harv#%d" % (s["t"], n_harv + 1))
         cred -= 1400
 
+    # 5.5) 磁暴线圈守家 [第36局 A]: 反坦克 200 伤替坦克挡刀——减少防守损耗,
+    #     让 6 辆重拳攒得出来。前置雷达由"可造列表含 TESLA"隐式判定。
+    #     [实测] 必须排在坦克线之前: 线圈 1800 软闸门永远抢不过 1000 的坦克线,
+    #     第 36 局线圈难产即此因; 无线圈时第一优先建, 建成后坦克恢复优先。
+    tesla_cap = 1 if s["t"] < T["rush_t1"] else 2
+    if side["weap"] in bl and bl.get("TESLA", 0) < tesla_cap \
+            and qs.get(1, {}).get("s", 0) == 0 \
+            and "TESLA" in available(s["av"], 1) \
+            and cred >= ucost("TESLA") + 300:
+        acts.append({"act": "produce", "name": "TESLA", "qty": 1, "q": 1})
+        logs.append("t=%d TESLA coil (have %d)" % (s["t"], bl.get("TESLA", 0)))
+        cred -= ucost("TESLA")
+
     # 8) 不攒钱: 产能线 (坦克预算保护, 第 20 局复盘: 防御支出让位坦克)
     if q3s == 0 and bl.get(side["weap"], 0) >= 1:
         tanks_av = [x for x in available(s["av"], 3)
@@ -270,18 +283,6 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("t=%d DEFLINE %s (have %d)"
                     % (s["t"], side["gdef"], bl.get(side["gdef"], 0)))
         cred -= 500
-
-    # 6.6) 磁暴线圈守家 [第36局 A]: 反坦克 200 伤替坦克挡刀——减少防守损耗,
-    #     让 6 辆重拳攒得出来。前置雷达由"可造列表含 TESLA"隐式判定;
-    #     现金软闸门（防守投资优先于坦克线, 但仍需可解）。
-    tesla_cap = 1 if s["t"] < T["rush_t1"] else 2
-    if side["weap"] in bl and bl.get("TESLA", 0) < tesla_cap \
-            and qs.get(1, {}).get("s", 0) == 0 \
-            and "TESLA" in available(s["av"], 1) \
-            and cred >= ucost("TESLA") + 300:
-        acts.append({"act": "produce", "name": "TESLA", "qty": 1, "q": 1})
-        logs.append("t=%d TESLA coil (have %d)" % (s["t"], bl.get("TESLA", 0)))
-        cred -= ucost("TESLA")
 
     # 7) 空军来袭 → 移动防空车 (苏军 HTK; 盟军靠防空建筑)
     q3 = qs.get(3, {})
