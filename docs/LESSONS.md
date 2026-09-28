@@ -274,3 +274,7 @@
   的分水岭已被 ①+② 打破**。遗留: scout ERR 'str' object has no attribute 'get'
   在 game.py:255 _exec 仍偶发（scouting 的 act 在已定位+单车存活路径可能返回字符串,
   待查——侦察块 `if act:` 对字符串也为真）。
+- **scout ERR 第二型归因+修复（第40局 'str' has no get @ _exec）**: scouting 的军犬
+  两条路径返回单 dict 而非列表——_exec 迭代 dict 拿到键字符串, 内层 TypeError 后
+  异常处理器 a.get() 二次爆炸, 报出来的就是 'str' object has no attribute 'get'。
+  已统一返回列表+回归测试（所有返回路径首元素必为 list[dict]）。

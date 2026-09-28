@@ -432,7 +432,9 @@ def scouting(s: dict, home, mem: BattleMemory):
     av2 = available(s["av"], 2)
     if side["bar"] in [u["n"] for u in s["mine"] if u["o"] == 2]             and not mem.dogs_queued and "ADOG" in av2 and qs.get(2, {}).get("s", 0) == 0:
         mem.dogs_queued = True
-        return ({"act": "produce", "name": "ADOG", "qty": 3},
+        # 返回必须是动作列表（第40局: 单 dict 被 _exec 迭代成键字符串 → 'str' object
+        # has no attribute 'get'）
+        return ([{"act": "produce", "name": "ADOG", "qty": 3}],
                 "t=%d SCOUT dogs x3" % s["t"])
     # [第31局 Route A] 军犬出厂即送镜像角
     if not mem.dog_sent and home:
@@ -441,8 +443,8 @@ def scouting(s: dict, home, mem: BattleMemory):
             mx, my = s["map"]["width"], s["map"]["height"]
             mirror = [max(mx - home[0], 8), max(my - home[1], 8)]
             mem.dog_sent = True
-            return ({"act": "attack_move", "ids": [dogs[0]["id"]],
-                     "x": mirror[0], "y": mirror[1]},
+            return ([{"act": "attack_move", "ids": [dogs[0]["id"]],
+                      "x": mirror[0], "y": mirror[1]}],
                     "t=%d SCOUT dog->mirror %s" % (s["t"], mirror))
     tanks = combat_tanks(s["mine"])
     if not tanks or not home:
