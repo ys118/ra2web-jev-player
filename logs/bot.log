@@ -24176,3 +24176,216 @@
     at Ax.ensureAli
 [21:30:26] review jev ERR typesafe failed: <urlopen error [WinError 10054] 远程主机强迫关闭了一个现有的连接。>
 [21:30:26] REVIEW game#29 battle-ended → game-0029-review.md | changes=0
+[07:40:30] 进局中(全自动)...
+[07:41:23] === ra2web-jev-player start (tick=1.5s, max_decisions=1200) ===
+[07:41:23] t=1 DEPLOY mcv
+[07:41:24] t=2 DEPLOY mcv
+[07:41:26] t=4 POWER plant (reserve 0)
+[07:41:26] t=4 jev STANCE defend->develop (conf 0.92)
+[07:41:54] t=32 OPENING BUILD NAREFN
+[07:42:00] t=37 tick#25 credits=9293 stance=develop | jev 25 decisions p50=720ms
+[07:42:37] t=74 tick#50 credits=8386 stance=develop | jev 50 decisions p50=722ms
+[07:43:15] t=112 tick#75 credits=7479 stance=develop | jev 75 decisions p50=720ms
+[07:43:20] t=118 OPENING BUILD NAHAND
+[07:43:40] t=137 DEFLINE NALASR (have 0)
+[07:43:40] t=137 OPENING BUILD NAWEAP
+[07:43:40] t=137 jev INF DOG (conf 0.32)
+[07:43:49] t=146 SCOUT dog->mirror [66, 121]
+[07:43:52] t=149 tick#100 credits=6081 stance=develop | jev 100 decisions p50=719ms
+[07:44:30] t=187 tick#125 credits=5004 stance=develop | jev 125 decisions p50=719ms
+[07:44:55] t=213 ENEMY BASE spotted @[71, 114]
+[07:45:05] t=223 ECON harv#2
+[07:45:05] t=223 TANK HTNK x3
+[07:45:06] t=223 jev BUILD NAPOWR (conf 0.38)
+[07:45:07] t=225 INSURE AA building
+[07:45:08] t=225 tick#150 credits=4149 stance=develop | jev 150 decisions p50=718ms
+[07:45:18] t=235 jev STANCE defend->develop (conf 0.69)
+[07:45:32] t=249 jev BUILD NAREFN (conf 0.37)
+[07:45:33] t=250 jev STANCE defend->develop (conf 0.66)
+[07:45:45] t=262 tick#175 credits=3653 stance=develop | jev 175 decisions p50=720ms
+[07:46:23] t=300 tick#200 credits=1763 stance=develop | jev 200 decisions p50=722ms
+[07:47:00] t=337 tick#225 credits=35 stance=develop | jev 225 decisions p50=721ms
+[07:47:38] t=375 tick#250 credits=0 stance=develop | jev 250 decisions p50=720ms
+[07:47:59] t=396 jev INF DOG (conf 0.21)
+[07:48:15] t=413 jev INF SHK (conf 0.25)
+[07:48:15] t=413 tick#275 credits=1817 stance=develop | jev 275 decisions p50=720ms
+[07:48:21] t=419 MOVE assault x1 -> (70,117)
+[07:48:33] t=431 MOVE assault x1 -> (70,117)
+[07:48:46] t=443 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=565)
+[07:48:46] t=443 MOVE assault x2 -> (70,117)
+[07:48:47] t=444 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=529)
+[07:48:53] t=450 tick#300 credits=2629 stance=develop | jev 300 decisions p50=719ms
+[07:48:57] t=455 TANK HTNK x2
+[07:48:57] t=455 MOVE raid x2 -> (70,117)
+[07:48:59] t=456 jev STANCE develop->rush (conf 0.62)
+[07:48:59] t=456 MOVE assault x1 -> (70,117)
+[07:49:08] t=465 jev INF SHK (conf 0.19)
+[07:49:11] t=468 MOVE assault x1 -> (70,117)
+[07:49:24] t=482 MOVE assault x1 -> (70,117)
+[07:49:27] t=485 MOVE raid x2 -> (70,117)
+[07:49:30] t=488 tick#325 credits=2352 stance=rush | jev 325 decisions p50=717ms
+[07:49:36] t=494 MOVE assault x3 -> (70,117)
+[07:49:49] t=506 MOVE assault x3 -> (70,117)
+[07:49:58] t=515 MOVE raid x2 -> (70,117)
+[07:50:02] t=519 MOVE assault x3 -> (70,117)
+[07:50:08] t=525 tick#350 credits=1412 stance=rush | jev 350 decisions p50=715ms
+[07:50:09] t=527 TANK HTNK x1
+[07:50:09] t=527 ESCORT 坦克#1160 -> 护航矿车@[126, 103]
+[07:50:16] t=533 MOVE assault x4 -> (70,117)
+[07:50:28] t=545 MOVE assault x4 -> (70,117)
+[07:50:29] t=546 MOVE raid x2 -> (70,117)
+[07:50:40] t=557 MOVE assault x4 -> (70,117)
+[07:50:46] t=563 tick#375 credits=477 stance=rush | jev 375 decisions p50=712ms
+[07:50:47] t=564 jev VEH HTNK (conf 0.54)
+[07:50:47] t=564 MOVE guard x2 -> (137,82)
+[07:50:51] t=569 RETREAT HTNK(29%)
+[07:50:52] t=569 MOVE assault x3 -> (70,117)
+[07:50:55] t=573 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[07:51:00] t=578 RETREAT SHK(35%)
+[07:51:01] t=578 jev INF SHK (conf 0.23)
+[07:51:01] t=578 MOVE raid x2 -> (70,117)
+[07:51:04] t=581 MOVE assault x4 -> (70,117)
+[07:51:07] t=585 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[07:51:16] t=593 MOVE assault x3 -> (70,117)
+[07:51:22] t=600 DEFLINE NALASR (have 1)
+[07:51:22] t=600 RETREAT HTNK(15%)
+[07:51:23] t=600 tick#400 credits=1869 stance=rush | jev 400 decisions p50=708ms
+[07:51:24] t=602 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[07:51:24] t=602 TANK HTNK x2
+[07:51:28] t=605 MOVE assault x4 -> (70,117)
+[07:51:31] t=608 MOVE raid x2 -> (70,117)
+[07:51:37] t=614 jev BUILD NAWEAP HOLD (资金闸门: 坦克优先, cash=2301)
+[07:51:40] t=617 jev BUILD NAWEAP HOLD (资金闸门: 坦克优先, cash=2143)
+[07:51:40] t=618 RETREAT SHK(30%)
+[07:51:41] t=618 jev BUILD NAWEAP HOLD (资金闸门: 坦克优先, cash=2062)
+[07:51:41] t=618 MOVE assault x4 -> (70,117)
+[07:51:42] t=620 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[07:51:45] t=623 DEFLINE NALASR (have 2)
+[07:51:55] t=632 MOVE assault x3 -> (70,117)
+[07:51:58] t=636 ESCORT 坦克#1289 -> 护航矿车@[128, 104]
+[07:52:01] t=638 MOVE raid x2 -> (70,117); guard x2 -> (137,82)
+[07:52:01] t=638 tick#425 credits=1158 stance=rush | jev 425 decisions p50=706ms
+[07:52:03] t=641 RETREAT HTNK(19%)
+[07:52:06] t=644 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[07:52:07] t=644 MOVE assault x3 -> (70,117)
+[07:52:12] t=650 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[07:52:19] t=656 MOVE assault x3 -> (70,117)
+[07:52:22] t=660 RETREAT SHK(16%)
+[07:52:24] t=662 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 5 个单位继续进攻）
+[07:52:26] t=663 jev STANCE rush->attack (conf 0.50)
+[07:52:28] t=665 jev STANCE attack->rush (conf 0.45)
+[07:52:28] t=666 ESCORT 坦克#1160 -> 护航矿车@[127, 105]
+[07:52:31] t=668 MOVE raid x2 -> (70,117)
+[07:52:32] t=669 MOVE assault x2 -> (70,117)
+[07:52:35] t=672 RETREAT HTNK(22%)
+[07:52:35] t=672 jev STANCE rush->attack (conf 0.47)
+[07:52:37] t=674 jev VEH HTNK (conf 0.75)
+[07:52:37] t=674 MOVE guard x2 -> (137,82)
+[07:52:38] t=675 tick#450 credits=157 stance=attack | jev 450 decisions p50=705ms
+[07:52:44] t=681 RETREAT HTNK(38%)
+[07:52:44] t=681 MOVE assault x1 -> (70,117)
+[07:52:50] t=687 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[07:52:51] t=689 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[07:52:53] t=690 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[07:52:54] t=692 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[07:52:55] t=692 jev INF SHK (conf 0.15)
+[07:52:56] t=693 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[07:52:58] t=695 jev STANCE attack->rush (conf 0.48)
+[07:52:58] t=695 MOVE assault x1 -> (70,117)
+[07:52:59] t=696 ESCORT 坦克#1411 -> 护航矿车@[126, 105]
+[07:53:01] t=698 MOVE raid x2 -> (70,117)
+[07:53:09] t=707 RETREAT HTNK(15%)
+[07:53:11] t=708 MOVE assault x1 -> (70,117)
+[07:53:14] t=711 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[07:53:16] t=713 tick#475 credits=97 stance=rush | jev 475 decisions p50=702ms
+[07:53:17] t=714 jev INF DOG (conf 0.16)
+[07:53:23] t=720 MOVE assault x1 -> (70,117)
+[07:53:27] t=725 RETREAT HTNK(25%)
+[07:53:31] t=728 MOVE raid x2 -> (70,117)
+[07:53:37] t=734 MOVE assault x1 -> (70,117)
+[07:53:49] t=746 MOVE assault x1 -> (70,117)
+[07:53:53] t=750 tick#500 credits=0 stance=rush | jev 500 decisions p50=698ms
+[07:54:01] t=758 jev VEH HTNK (conf 0.63)
+[07:54:01] t=758 MOVE raid x2 -> (70,117); assault x2 -> (70,117)
+[07:54:13] t=770 MOVE assault x2 -> (70,117)
+[07:54:26] t=784 ESCORT 坦克#1347 -> 护航矿车@[126, 104]
+[07:54:26] t=784 MOVE assault x2 -> (70,117)
+[07:54:31] t=788 tick#525 credits=94 stance=rush | jev 525 decisions p50=698ms
+[07:54:32] t=790 MOVE raid x2 -> (70,117)
+[07:54:38] t=796 TANK HTNK x1
+[07:54:40] t=797 MOVE assault x3 -> (70,117)
+[07:54:48] t=806 RETREAT SHK(38%)
+[07:54:51] t=809 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 5 个单位继续进攻）
+[07:54:52] t=809 MOVE assault x2 -> (70,117)
+[07:55:02] t=820 MOVE raid x2 -> (70,117)
+[07:55:04] t=821 MOVE assault x2 -> (70,117)
+[07:55:05] t=823 ESCORT 坦克#1347 -> 护航矿车@[128, 105]
+[07:55:09] t=826 tick#550 credits=1424 stance=rush | jev 550 decisions p50=697ms
+[07:55:14] t=832 TANK HTNK x1
+[07:55:14] t=832 MOVE guard x2 -> (137,82)
+[07:55:18] t=835 MOVE assault x1 -> (70,117)
+[07:55:26] t=844 jev STANCE rush->attack (conf 0.49)
+[07:55:31] t=848 MOVE assault x1 -> (70,117)
+[07:55:32] t=850 MOVE raid x2 -> (70,117)
+[07:55:35] t=853 ESCORT 坦克#1678 -> 护航矿车@[130, 105]
+[07:55:44] t=862 MOVE assault x1 -> (70,117); guard x2 -> (137,82)
+[07:55:46] t=863 tick#575 credits=487 stance=attack | jev 575 decisions p50=696ms
+[07:55:50] t=868 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[07:55:52] t=869 jev VEH HTNK (conf 0.70)
+[07:55:56] t=874 MOVE assault x1 -> (70,117)
+[07:56:02] t=880 MOVE raid x2 -> (70,117)
+[07:56:05] t=883 ESCORT 坦克#1745 -> 护航矿车@[129, 104]
+[07:56:08] t=886 MOVE assault x1 -> (70,117)
+[07:56:14] t=892 MOVE guard x2 -> (137,82)
+[07:56:21] t=898 MOVE assault x1 -> (70,117)
+[07:56:24] t=901 tick#600 credits=0 stance=attack | jev 600 decisions p50=697ms
+[07:56:33] t=910 MOVE raid x2 -> (70,117); assault x1 -> (70,117)
+[07:56:35] t=913 ESCORT 坦克#1678 -> 护航矿车@[126, 103]
+[07:56:45] t=922 MOVE assault x1 -> (70,117); guard x2 -> (137,82)
+[07:56:52] t=929 jev VEH HTNK (conf 0.74)
+[07:56:57] t=934 MOVE assault x2 -> (70,117)
+[07:57:01] t=938 tick#625 credits=1520 stance=attack | jev 625 decisions p50=700ms
+[07:57:03] t=940 MOVE raid x2 -> (70,117)
+[07:57:05] t=943 ESCORT 坦克#1766 -> 护航矿车@[130, 105]
+[07:57:09] t=946 MOVE assault x2 -> (70,117)
+[07:57:16] t=953 MOVE guard x2 -> (137,82)
+[07:57:22] t=959 MOVE assault x2 -> (70,117)
+[07:57:29] t=967 TANK HTNK x2
+[07:57:33] t=970 MOVE raid x2 -> (70,117)
+[07:57:34] t=971 MOVE assault x3 -> (70,117)
+[07:57:35] t=973 ESCORT 坦克#1678 -> 护航矿车@[131, 107]
+[07:57:39] t=976 tick#650 credits=1727 stance=attack | jev 650 decisions p50=700ms
+[07:57:46] t=983 MOVE assault x3 -> (70,117); guard x2 -> (137,82)
+[07:58:00] t=997 MOVE assault x3 -> (70,117)
+[07:58:03] t=1000 MOVE raid x2 -> (70,117)
+[07:58:05] t=1003 ESCORT 坦克#1678 -> 护航矿车@[131, 108]
+[07:58:12] t=1009 MOVE assault x4 -> (70,117)
+[07:58:16] t=1013 tick#675 credits=787 stance=attack | jev 675 decisions p50=704ms
+[07:58:18] t=1015 MOVE guard x2 -> (137,82)
+[07:58:25] t=1022 MOVE assault x4 -> (70,117)
+[07:58:33] t=1030 MOVE raid x2 -> (70,117)
+[07:58:35] t=1033 ESCORT 坦克#1678 -> 护航矿车@[129, 107]
+[07:58:37] t=1034 MOVE raid x2 -> (67,118); assault x4 -> (67,118)
+[07:58:43] t=1040 jev VEH HTNK (conf 0.48)
+[07:58:44] t=1042 RETREAT HTNK(38%)
+[07:58:48] t=1045 MOVE guard x2 -> (137,82)
+[07:58:51] t=1048 MOVE assault x5 -> (67,118)
+[07:58:54] t=1051 tick#700 credits=0 stance=attack | jev 700 decisions p50=708ms
+[07:59:03] t=1060 MOVE assault x5 -> (67,118)
+[07:59:07] t=1064 ESCORT 坦克#2092 -> 护航矿车@[126, 104]
+[07:59:07] t=1064 MOVE raid x2 -> (67,118)
+[07:59:16] t=1073 MOVE assault x5 -> (67,118)
+[07:59:18] t=1075 MOVE guard x2 -> (137,82)
+[07:59:28] t=1085 MOVE assault x5 -> (67,118)
+[07:59:31] t=1088 jev VEH HTNK (conf 0.59)
+[07:59:31] t=1088 tick#725 credits=375 stance=attack | jev 725 decisions p50=710ms
+[07:59:36] t=1093 MOVE raid x2 -> (68,122); assault x6 -> (68,122)
+[07:59:37] t=1094 ESCORT 坦克#2250 -> 护航矿车@[128, 105]
+[07:59:49] t=1106 MOVE assault x6 -> (68,122); guard x2 -> (137,82)
+[07:59:55] t=1112 MOVE raid x2 -> (79,125); assault x6 -> (79,125)
+[08:00:07] t=1124 ESCORT 坦克#2250 -> 护航矿车@[128, 106]
+[08:00:07] t=1124 MOVE assault x6 -> (79,125)
+[08:00:09] t=1126 jev VEH DRON (conf 0.28)
+[08:00:09] t=1126 MOVE raid x2 -> (84,122); assault x7 -> (84,122)
+[08:00:09] t=1126 tick#750 credits=600 stance=attack | jev 750 decisions p50=713ms
+[08:00:15] REVIEW game#30 victory → game-0030-review.md | changes=0
