@@ -24,7 +24,8 @@ T = dict(
     harv_per_ref=2,      # 每精炼厂 2 矿车 (rules.ini 官方配比)
     harv_min=2,          # 矿车下限
     ref_cap=3,           # 精炼厂上限（速攻期实际只建 1 座, 见 opening_build 的 ref_cap_now）
-    factory2_cash=4500,  # 第二工厂资金门槛（速攻期 t<rush_t1 不建）
+    factory2_cash=3000,  # 第二工厂资金门槛 [第40局①] 4500→3000（对局证据: 敌方经济
+                         #   boom>12000 时单工厂产能追不上; 速攻期 t<rush_t1 仍不建）
     tank_cash1=1000,     # 坦克资金保底线 [第31局] 1200→1000
     tank_cash2=1400,     # 双倍出车线 [第31局] 1600→1400
     power_reserve=30,    # 电力余量 <30 先补电厂

@@ -563,10 +563,12 @@ def assign_squads(s: dict, home, mem: BattleMemory) -> dict:
     tanks = [u for u in units if u["o"] == 7]
     inf = [u for u in units if u["o"] != 7]
     sq = {"raid": [], "assault": [], "hold": [], "guard": [], "reserve": []}
-    # RAID=骚扰组 [第31局A++]: 敌基地一发现, 前 2 辆坦克立即成军专咬矿车
+    # RAID=骚扰组 [第31局A++, 第40局②加强]: 敌基地一发现即成军咬矿车;
+    # 规模随坦克池扩展 2→4（池肥时更狠地拖敌方经济, 压其峰值）
     if mem.enemy_base and len(tanks) >= 2:
-        sq["raid"] = [u["id"] for u in tanks[:2]]
-        tanks = tanks[2:]
+        n_raid = min(4, max(2, len(tanks) // 3))
+        sq["raid"] = [u["id"] for u in tanks[:n_raid]]
+        tanks = tanks[n_raid:]
     # GUARD: 2 辆坦克守家（剩余 ≥3 辆才留, 骚扰优先）
     if len(tanks) >= 3:
         sq["guard"] = [u["id"] for u in tanks[:T["keep_home"]]]
