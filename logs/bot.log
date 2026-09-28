@@ -27489,3 +27489,109 @@
 [15:49:35] t=730 RETREAT HTNK(39%)
 [15:49:40] t=735 ALARM 单位损失 -> TURTLE (7 v 20, 守塔阵不打野战)
 [15:49:48] t=742 MOVE assault x3 -> (134,79)
+[15:49:53] t=747 tick#475 credits=0 stance=defend | jev 475 decisions p50=916ms
+[15:50:02] t=756 MOVE assault x3 -> (134,79)
+[15:50:14] t=768 MOVE assault x3 -> (134,79)
+[15:50:19] t=774 TANK HTNK x1
+[15:50:20] t=774 jev INF SHK (conf 0.15)
+[15:50:27] t=781 MOVE assault x4 -> (134,79)
+[15:50:27] t=783 ALARM 单位损失 -> TURTLE (8 v 23, 守塔阵不打野战)
+[15:50:31] t=786 tick#500 credits=302 stance=defend | jev 500 decisions p50=947ms
+[15:50:39] t=793 MOVE assault x4 -> (134,79)
+[15:50:43] t=798 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2)
+[15:50:51] t=805 MOVE assault x4 -> (134,79)
+[15:50:57] t=813 RETREAT E2(23%)
+[15:50:59] t=814 ALARM 单位损失 -> TURTLE (7 v 25, 守塔阵不打野战)
+[15:51:08] t=822 MOVE assault x3 -> (134,79)
+[15:51:09] t=823 tick#525 credits=0 stance=defend | jev 525 decisions p50=966ms
+[15:51:20] t=834 MOVE assault x3 -> (134,79)
+[15:51:32] t=846 MOVE assault x3 -> (134,79)
+[15:51:34] t=849 RETREAT SHK(24%)
+[15:51:36] t=851 ALARM 单位损失 -> TURTLE (6 v 25, 守塔阵不打野战)
+[15:51:45] t=859 MOVE assault x2 -> (134,79)
+[15:51:46] t=860 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:51:48] t=863 AA HTK x2 (enemy air)
+[15:51:49] t=863 MOVE raid x2 -> (118,76)
+[15:51:49] t=863 tick#550 credits=810 stance=defend | jev 550 decisions p50=970ms
+[15:51:51] t=865 MOVE raid x2 -> (128,76)
+[15:51:55] t=869 MOVE raid x2 -> (119,72)
+[15:51:57] t=871 MOVE raid x2 -> (118,73); assault x1 -> (134,79)
+[15:51:58] t=872 MOVE raid x2 -> (117,74)
+[15:52:00] t=874 MOVE raid x2 -> (115,75)
+[15:52:07] t=881 MOVE raid x2 -> (114,74)
+[15:52:09] t=883 MOVE raid x2 -> (113,73)
+[15:52:10] t=884 MOVE assault x2 -> (134,79)
+[15:52:12] t=886 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[15:52:16] t=890 MOVE raid x2 -> (114,72)
+[15:52:18] t=892 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=18)
+[15:52:21] t=895 MOVE raid x2 -> (115,73)
+[15:52:23] t=896 MOVE assault x2 -> (134,79)
+[15:52:26] t=901 ALARM 单位损失 -> TURTLE (7 v 30, 守塔阵不打野战)
+[15:52:29] t=903 tick#575 credits=0 stance=defend | jev 575 decisions p50=972ms
+[15:52:35] t=909 MOVE raid x2 -> (125,91)
+[15:52:36] t=910 MOVE raid x2 -> (124,92); assault x1 -> (134,79)
+[15:52:38] t=912 MOVE raid x2 -> (123,93)
+[15:52:39] t=913 MOVE raid x2 -> (123,95)
+[15:52:41] t=915 MOVE raid x2 -> (124,96)
+[15:52:41] t=916 RETREAT HTNK(32%)
+[15:52:42] t=916 MOVE raid x2 -> (112,72)
+[15:52:44] t=919 ALARM 单位损失 -> TURTLE (6 v 29, 守塔阵不打野战)
+[15:52:53] t=927 MOVE assault x2 -> (134,79)
+[15:52:58] t=933 ALARM 单位损失 -> TURTLE (5 v 28, 守塔阵不打野战)
+[15:53:07] t=941 MOVE assault x1 -> (134,79)
+[15:53:07] t=941 tick#600 credits=0 stance=defend | jev 600 decisions p50=978ms
+[15:53:08] t=943 RETREAT HTK(25%)
+[15:53:09] t=944 ALARM 单位损失 -> TURTLE (4 v 28, 守塔阵不打野战)
+[15:53:18] t=953 ALARM 敌军逼近 -> TURTLE (4 v 28, 守塔阵不打野战)
+[15:53:27] t=962 ALARM 敌军逼近 -> TURTLE (4 v 28, 守塔阵不打野战)
+[15:53:33] t=968 RETREAT DOG(3%)
+[15:53:35] t=970 RETREAT DOG(1%)
+[15:53:36] t=970 jev INF DOG (conf 0.35)
+[15:53:36] t=971 ALARM 苏联矿石精炼场被攻击 -> TURTLE (1 v 28, 守塔阵不打野战)
+[15:53:42] t=976 jev INF SHK HOLD (预算保护 gate=False e2=0)
+[15:53:43] t=977 jev INF DOG (conf 0.15)
+[15:53:44] t=979 AA HTK x2 (enemy air)
+[15:53:44] t=979 SCOUT #1814->[185, 44] (敌影)
+[15:53:44] scout ERR 'list' object has no attribute 'get' | File "D:\projects\ra2web-jev-player\src\ra2web_jev_player\game.py", line 229, in _exec
+[15:53:45] t=980 ALARM 苏联矿石精炼场被攻击 -> TURTLE (1 v 26, 守塔阵不打野战)
+[15:53:47] t=980 tick#625 credits=574 stance=defend | jev 625 decisions p50=977ms
+[15:53:50] t=984 jev INF DOG (conf 0.24)
+[15:53:50] t=985 RETREAT HTK(34%)
+[15:53:58] t=994 ALARM 苏联矿石精炼场被攻击 -> TURTLE (1 v 24, 守塔阵不打野战)
+[15:54:03] t=998 OPENING BUILD NAREFN
+[15:54:07] t=1001 MOVE assault x1 -> (134,79)
+[15:54:07] t=1003 ALARM 敌军逼近 -> TURTLE (1 v 25, 守塔阵不打野战)
+[15:54:08] t=1003 RETREAT E2(6%)
+[15:54:09] t=1004 RETREAT DOG(32%)
+[15:54:21] t=1016 ALARM 敌军逼近 -> TURTLE (4 v 22, 守塔阵不打野战)
+[15:54:22] t=1016 jev INF DOG (conf 0.24)
+[15:54:27] t=1022 RETREAT E2(21%)
+[15:54:29] t=1024 MOVE assault x4 -> (134,79)
+[15:54:30] t=1024 tick#650 credits=0 stance=defend | jev 650 decisions p50=982ms
+[15:54:30] t=1025 ALARM 单位损失 -> TURTLE (3 v 23, 守塔阵不打野战)
+[15:54:35] t=1029 RETREAT E2(3%)
+[15:54:39] t=1034 ALARM 敌军逼近 -> TURTLE (2 v 23, 守塔阵不打野战)
+[15:54:44] t=1039 RETREAT E2(34%)
+[15:54:48] t=1042 MOVE assault x1 -> (134,79)
+[15:54:48] t=1043 ALARM 敌军逼近 -> TURTLE (1 v 24, 守塔阵不打野战)
+[15:54:50] t=1045 RETREAT E2(27%)
+[15:55:07] t=1061 tick#675 credits=0 stance=defend | jev 675 decisions p50=990ms
+[15:55:27] t=1081 jev INF DOG (conf 0.22)
+[15:55:27] t=1081 MOVE assault x4 -> (134,79)
+[15:55:29] t=1084 ALARM 单位损失 -> TURTLE (5 v 23, 守塔阵不打野战)
+[15:55:39] t=1094 ALARM 单位损失 -> TURTLE (2 v 22, 守塔阵不打野战)
+[15:55:45] t=1099 tick#700 credits=0 stance=defend | jev 700 decisions p50=982ms
+[15:55:54] t=1108 MOVE assault x1 -> (134,79)
+[15:56:16] t=1130 MOVE assault x1 -> (134,79)
+[15:56:22] t=1136 tick#725 credits=0 stance=defend | jev 725 decisions p50=972ms
+[15:56:39] t=1153 MOVE assault x1 -> (134,79)
+[15:57:00] t=1174 tick#750 credits=0 stance=defend | jev 750 decisions p50=967ms
+[15:57:39] t=1213 tick#775 credits=0 stance=defend | jev 775 decisions p50=955ms
+[15:58:18] t=1252 tick#800 credits=0 stance=defend | jev 800 decisions p50=944ms
+[15:58:56] t=1290 tick#825 credits=0 stance=defend | jev 825 decisions p50=928ms
+[15:59:33] t=1327 tick#850 credits=0 stance=defend | jev 850 decisions p50=890ms
+[16:00:11] t=1365 tick#875 credits=0 stance=defend | jev 875 decisions p50=860ms
+[16:00:50] t=1404 tick#900 credits=0 stance=defend | jev 900 decisions p50=849ms
+[16:01:28] t=1442 tick#925 credits=0 stance=defend | jev 925 decisions p50=838ms
+[16:02:05] t=1479 tick#950 credits=0 stance=defend | jev 950 decisions p50=830ms
+[16:02:10] REVIEW game#35 defeat → game-0035-review.md | changes=0
