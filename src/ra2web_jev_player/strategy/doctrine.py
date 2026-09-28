@@ -31,9 +31,9 @@ T = dict(
     cash_idle=2000,      # 现金 >2000 必须转化
     rush_t0=180,         # RUSH 窗口起点 (3 分钟)
     rush_t1=600,         # RUSH 窗口终点 (10 分钟, 之后放开经济)
-    rush_tanks=8,        # [第31局A++] 早期3辆rush已证伪(撞27单位防守军)——不再早rush,
-                         #   8辆=总攻(与attack_tanks一致, 重拳一波)
-    attack_tanks=8,      # 总攻最低坦克数 [第31局A++] 7→8 (重拳)
+    rush_tanks=8,        # [第31局A++] 早期3辆rush已证伪(撞27单位防守军)——不再早rush
+    attack_tanks=6,      # 总攻最低坦克数 [第36局 A+B] 8→6（防守损耗矛盾: 与其憋8辆,
+                         #   不如6辆+线圈守家提前出击, 单测见 checklist TESLA）
     keep_home=2,         # ≥6 辆时留 2 守家
     retreat_hp=0.40,     # 残血撤退线 (40%)
     defend_radius=18,    # 基地防御半径 (格)
