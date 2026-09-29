@@ -263,10 +263,14 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         cred -= ucost("DRON") * 2
 
     # 8) 不攒钱: 产能线 (坦克预算保护, 第 20 局复盘: 防御支出让位坦克)
+    # [第46局复盘] 矿车补员期给坦克线让路: 矿车数低于下限时坦克线需同时覆盖
+    # 矿车造价才出手——否则坦克在 1000 金抢走现金, 矿车(1400)永远补不上,
+    # 第 46 局矿车掉到 1 辆后全程没补(收入腰斩 → 见底死循环)
+    harv_reserve = (harv_cost_gate if n_harv < T["harv_min"] else 0)
     if q3s == 0 and bl.get(side["weap"], 0) >= 1:
         tanks_av = [x for x in available(s["av"], 3)
                     if x not in HARVEST and x not in MCV_CODES]
-        if tanks_av and cred >= T["tank_cash1"]:
+        if tanks_av and cred >= T["tank_cash1"] + harv_reserve:
             prefer = [x for x in side["tank_pref"] if x in tanks_av]
             pick = prefer[0] if prefer else tanks_av[0]
             qty = 2 if cred >= T["tank_cash2"] else 1
