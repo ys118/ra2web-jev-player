@@ -290,9 +290,10 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("t=%d AIR-DEFENSE 2nd AA" % s["t"])
         cred -= 1000
 
-    # 6.5) 地面防御线: [第31局 Route A] 速攻期只留 1 座哨戒炮; [第36局 A] 之后 2 座
-    #     （省现金转线圈——哨炮反步兵不反坦克, 坦克损耗大）
-    gdef_cap = 1 if s["t"] < T["rush_t1"] else 2
+    # 6.5) 地面防御线: [第36局 A] 之后 2 座; [第42局①] 速攻期也保 2 座——
+    #     1 座哨炮撑不住重开局 rush（第 42 局 25 分钟速败的直接原因）,
+    #     多花 500 金换开局生存, rush 推迟 ~30s 可接受
+    gdef_cap = 2
     if side["bar"] in bl and bl.get(side["gdef"], 0) < gdef_cap \
             and qs.get(1, {}).get("s", 0) == 0 \
             and side["gdef"] in available(s["av"], 1) and cred >= 1500:
@@ -532,8 +533,14 @@ def stance_overrides(s: dict, stance: str, mem: BattleMemory) -> tuple:
         logs.append("t=%d RECOVER (only %d tanks)" % (s["t"], n_tank))
     if T["rush_t0"] <= s["t"] <= T["rush_t1"] and n_tank >= T["rush_tanks"] \
             and stance in ("develop", "recover", "defend"):
-        stance = "rush"
-        logs.append("t=%d RUSH window (%d tanks)" % (s["t"], n_tank))
+        # [第42局②] 策略自适应: 开局被重压(t<600 内受袭≥3次/2分钟)时暂缓 rush——
+        # 速攻期单矿经济正面撞重开局 rush = 第 42 局 25 分钟速败的根源;
+        # 转 RECOVER 补经济+塔阵, Rush 窗口顺延到压力缓解
+        if len(mem.alarm_times) >= 3 and s["t"] < T["rush_t1"] and stance != "recover":
+            logs.append("t=%d RUSH deferred (受袭 %d 次/2分钟, 转补经济)" % (s["t"], len(mem.alarm_times)))
+        else:
+            stance = "rush"
+            logs.append("t=%d RUSH window (%d tanks)" % (s["t"], n_tank))
     if n_tank >= T["attack_tanks"] \
             and stance in ("develop", "rush", "recover", "defend"):
         stance = "attack"
