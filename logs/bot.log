@@ -29693,3 +29693,197 @@
 [21:52:27] t=4794 ALARM 单位损失 -> TURTLE (5 v 15, 守塔阵不打野战)
 [21:52:36] t=4803 TANK HTNK x1
 [21:52:36] t=4803 MOVE raid x2 -> (134,79)
+[11:05:03] 进局中(全自动)...
+[11:05:56] === ra2web-jev-player start (tick=1.5s, max_decisions=1200) ===
+[11:05:56] t=5 DEPLOY mcv
+[11:05:58] t=11 POWER plant (reserve 0)
+[11:05:59] t=11 jev STANCE defend->develop (conf 0.93)
+[11:06:10] t=59 OPENING BUILD NAREFN
+[11:06:33] t=149 tick#25 credits=7400 stance=develop | jev 25 decisions p50=721ms
+[11:06:34] t=155 OPENING BUILD NAHAND
+[11:06:40] t=178 DEFLINE NALASR (have 0)
+[11:06:40] t=178 OPENING BUILD NAWEAP
+[11:06:41] t=178 jev INF DOG (conf 0.55)
+[11:06:43] t=190 ALARM 敌军逼近 -> counter 1 vs 1 -> [67, 120]
+[11:06:43] t=190 SCOUT dog->mirror [130, 83]
+[11:06:47] t=202 jev INF DOG (conf 0.23)
+[11:06:48] t=208 jev INF DOG (conf 0.25)
+[11:06:54] t=232 jev INF DOG (conf 0.30)
+[11:06:57] t=244 jev INF DOG (conf 0.24)
+[11:06:59] t=250 jev INF DOG (conf 0.24)
+[11:07:00] t=256 jev INF DOG (conf 0.27)
+[11:07:06] t=280 ECON harv#2
+[11:07:06] t=280 TANK HTNK x3
+[11:07:06] t=280 jev BUILD NAPOWR (conf 0.35)
+[11:07:07] t=286 INSURE AA building
+[11:07:11] t=298 tick#50 credits=3605 stance=defend | jev 50 decisions p50=725ms
+[11:07:18] t=327 jev BUILD NAHAND (conf 0.32)
+[11:07:21] t=339 TANK HTNK x2
+[11:07:22] t=345 ALARM 苏联战车工厂被攻击 -> TURTLE (4 v 5, 守塔阵不打野战)
+[11:07:23] t=345 jev INF E2 (conf 0.40)
+[11:07:24] t=351 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=857)
+[11:07:26] t=357 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:07:27] t=363 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:07:28] t=369 RETREAT DOG(6%)
+[11:07:29] t=369 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:07:30] t=375 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:07:30] t=375 MOVE assault x1 -> (73,120)
+[11:07:31] t=381 SCOUT #1168->[114, 13] (敌影)
+[11:07:32] t=381 jev INF E2 (conf 0.38)
+[11:07:35] t=393 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[11:07:36] t=399 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[11:07:38] t=405 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[11:07:39] t=411 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[11:07:41] t=417 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[11:07:41] t=417 jev VEH HTNK (conf 0.37)
+[11:07:42] t=423 MOVE assault x3 -> (73,120)
+[11:07:48] t=447 tick#75 credits=0 stance=defend | jev 75 decisions p50=721ms
+[11:07:51] t=459 jev INF E2 (conf 0.29)
+[11:07:54] t=471 MOVE assault x4 -> (70,117)
+[11:07:56] t=477 jev INF E2 HOLD (预算保护 gate=False e2=3)
+[11:07:57] t=483 jev INF E2 HOLD (预算保护 gate=False e2=3)
+[11:07:57] t=483 jev VEH HTNK (conf 0.45)
+[11:07:59] t=489 jev INF E2 (conf 0.26)
+[11:08:02] t=501 jev INF E2 (conf 0.29)
+[11:08:06] t=519 MOVE assault x6 -> (70,117)
+[11:08:07] t=525 SCOUT2 #1175->[130, 83]
+[11:08:08] t=525 jev VEH HTNK (conf 0.44)
+[11:08:08] t=525 MOVE guard x2 -> (73,120)
+[11:08:20] t=573 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:08:20] t=573 jev VEH HTNK (conf 0.56)
+[11:08:20] t=573 MOVE assault x6 -> (70,117)
+[11:08:26] t=597 tick#100 credits=339 stance=defend | jev 100 decisions p50=721ms
+[11:08:30] t=615 TANK HTNK x1
+[11:08:31] t=615 ATTACK (tanks=6)
+[11:08:31] t=615 MOVE assault x7 -> (130,83)
+[11:08:32] t=621 jev STANCE attack->defend (conf 0.48)
+[11:08:32] t=621 ATTACK (tanks=6)
+[11:08:33] t=627 jev STANCE attack->defend (conf 0.45)
+[11:08:33] t=627 ATTACK (tanks=6)
+[11:08:35] t=632 jev STANCE attack->defend (conf 0.48)
+[11:08:35] t=632 ATTACK (tanks=6)
+[11:08:36] t=638 jev STANCE attack->defend (conf 0.45)
+[11:08:36] t=638 ATTACK (tanks=6)
+[11:08:38] t=644 jev STANCE attack->defend (conf 0.54)
+[11:08:38] t=644 ATTACK (tanks=6)
+[11:08:39] t=650 jev STANCE attack->defend (conf 0.49)
+[11:08:39] t=650 ATTACK (tanks=6)
+[11:08:39] t=650 MOVE guard x2 -> (73,120)
+[11:08:41] t=656 jev VEH HTNK (conf 0.63)
+[11:08:41] t=656 jev STANCE attack->defend (conf 0.48)
+[11:08:41] t=656 ATTACK (tanks=7)
+[11:08:42] t=662 MOVE assault x8 -> (117,87)
+[11:08:44] t=668 jev STANCE attack->defend (conf 0.60)
+[11:08:44] t=668 ATTACK (tanks=7)
+[11:08:44] t=668 MOVE assault x8 -> (118,86)
+[11:08:45] t=674 RETREAT HTNK(8%)
+[11:08:45] t=674 RETREAT DOG(6%)
+[11:08:46] t=674 jev STANCE attack->defend (conf 0.52)
+[11:08:46] t=674 ATTACK (tanks=7)
+[11:08:46] t=674 MOVE assault x8 -> (123,83)
+[11:08:46] t=680 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[11:08:47] t=680 MOVE assault x7 -> (115,86)
+[11:08:48] t=686 RETREAT HTNK(7%)
+[11:08:49] t=686 MOVE assault x7 -> (113,85)
+[11:08:49] t=692 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[11:08:49] t=692 RETREAT HTNK(17%)
+[11:08:50] t=692 MOVE assault x6 -> (114,86)
+[11:08:51] t=698 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[11:08:52] t=698 jev INF SHK (conf 0.28)
+[11:08:52] t=698 MOVE assault x5 -> (111,86)
+[11:08:53] t=704 MOVE assault x5 -> (107,86)
+[11:08:54] t=710 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:08:54] t=710 MOVE assault x5 -> (106,87); reserve x1 -> (70,125)
+[11:08:55] t=716 RETREAT E2(10%)
+[11:08:56] t=716 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:08:57] t=722 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[11:08:57] t=722 jev STANCE attack->defend (conf 0.69)
+[11:08:57] t=722 MOVE assault x6 -> (70,117)
+[11:08:58] t=728 ALARM 单位损失 -> TURTLE (8 v 11, 守塔阵不打野战)
+[11:09:03] t=746 TANK HTNK x1
+[11:09:03] t=746 ESCORT 坦克#1179 -> 护航矿车@[93, 129]
+[11:09:04] t=746 jev INF SHK (conf 0.23)
+[11:09:04] t=746 tick#125 credits=1040 stance=defend | jev 125 decisions p50=723ms
+[11:09:06] t=758 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:09:08] t=764 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:09:10] t=770 MOVE assault x4 -> (70,117); guard x2 -> (73,120)
+[11:09:10] t=776 ALARM 单位损失 -> TURTLE (9 v 11, 守塔阵不打野战)
+[11:09:11] t=776 jev INF DOG (conf 0.18)
+[11:09:15] t=794 RETREAT HTNK(11%)
+[11:09:16] t=800 SCOUT #1175->[114, 13] (敌影)
+[11:09:18] t=806 RETREAT DOG(1%)
+[11:09:19] t=812 ALARM 单位损失 -> TURTLE (6 v 10, 守塔阵不打野战)
+[11:09:21] t=818 RETREAT HTNK(19%)
+[11:09:22] t=824 RETREAT SHK(31%)
+[11:09:24] t=830 RETREAT HTNK(25%)
+[11:09:25] t=836 RETREAT SHK(9%)
+[11:09:27] t=842 SCOUT #1179->[114, 13] (敌影)
+[11:09:28] t=842 jev INF SHK HOLD (预算保护 gate=False e2=1)
+[11:09:28] t=842 MOVE assault x2 -> (73,120)
+[11:09:28] t=848 ALARM 单位损失 -> TURTLE (2 v 4, 守塔阵不打野战)
+[11:09:28] t=848 RETREAT HTNK(39%)
+[11:09:29] t=848 jev INF SHK HOLD (预算保护 gate=False e2=1)
+[11:09:30] t=854 SCOUT #1371->[114, 13] (敌影)
+[11:09:31] t=854 jev INF SHK HOLD (预算保护 gate=False e2=1)
+[11:09:31] t=854 jev VEH DRON (conf 0.19)
+[11:09:32] t=860 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:09:33] t=866 SCOUT #1612->[114, 13] (敌影)
+[11:09:34] t=866 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:09:34] t=872 TANK HTNK x1
+[11:09:35] t=872 jev INF DOG (conf 0.21)
+[11:09:35] t=872 jev VEH HTNK (conf 0.27)
+[11:09:36] t=878 TANK HTNK x1
+[11:09:37] t=878 jev VEH HTNK (conf 0.30)
+[11:09:37] t=884 ALARM 敌军逼近 -> counter 2 vs 1 -> [81, 114]
+[11:09:38] t=884 jev INF E2 (conf 0.22)
+[11:09:39] t=890 RETREAT E2(34%)
+[11:09:40] t=890 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:09:41] t=896 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:09:41] t=896 tick#150 credits=715 stance=defend | jev 150 decisions p50=725ms
+[11:09:43] t=902 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:09:44] t=908 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:09:46] t=914 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:09:46] t=914 MOVE assault x1 -> (73,120)
+[11:09:47] t=920 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:09:47] t=920 jev VEH HTNK (conf 0.53)
+[11:09:49] t=926 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:09:59] t=968 MOVE assault x2 -> (73,120)
+[11:10:10] t=1010 jev INF E2 (conf 0.16)
+[11:10:13] t=1022 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[11:10:13] t=1022 MOVE assault x3 -> (73,120)
+[11:10:17] t=1039 jev VEH HTNK (conf 0.51)
+[11:10:17] t=1039 MOVE assault x4 -> (82,113)
+[11:10:19] t=1045 tick#175 credits=325 stance=defend | jev 175 decisions p50=725ms
+[11:10:23] t=1064 jev INF SHK HOLD (预算保护 gate=False e2=2)
+[11:10:27] t=1082 SCOUT2 #1711->[100, 100]
+[11:10:28] t=1082 jev VEH HTNK (conf 0.54)
+[11:10:28] t=1082 MOVE assault x3 -> (73,120); guard x2 -> (73,120)
+[11:10:34] t=1111 ESCORT 坦克#1733 -> 护航矿车@[93, 104]
+[11:10:40] t=1129 MOVE assault x3 -> (73,120)
+[11:10:51] t=1177 RETREAT HTNK(36%)
+[11:10:53] t=1183 MOVE assault x3 -> (73,120)
+[11:10:55] t=1195 RETREAT E2(21%)
+[11:10:56] t=1195 tick#200 credits=0 stance=defend | jev 200 decisions p50=725ms
+[11:10:59] t=1207 MOVE guard x2 -> (73,120)
+[11:11:04] t=1231 ESCORT 坦克#1733 -> 护航矿车@[114, 134]
+[11:11:05] t=1231 jev VEH HTNK (conf 0.45)
+[11:11:05] t=1231 MOVE assault x4 -> (82,113)
+[11:11:10] t=1255 ALARM 单位损失 -> TURTLE (4 v 12, 守塔阵不打野战)
+[11:11:15] t=1273 RETREAT HTNK(25%)
+[11:11:19] t=1285 MOVE assault x2 -> (73,120)
+[11:11:21] t=1297 RETREAT HTNK(26%)
+[11:11:22] t=1303 ALARM 单位损失 -> TURTLE (3 v 9, 守塔阵不打野战)
+[11:11:22] t=1303 SCOUT #1742->[114, 13] (敌影)
+[11:11:28] t=1321 jev INF DOG (conf 0.24)
+[11:11:31] t=1339 ALARM 苏联战车工厂被攻击 -> TURTLE (1 v 8, 守塔阵不打野战)
+[11:11:33] t=1345 RETREAT HTNK(27%)
+[11:11:33] t=1345 RETREAT E2(33%)
+[11:11:34] t=1345 tick#225 credits=0 stance=defend | jev 225 decisions p50=725ms
+[11:11:36] t=1357 OPENING BUILD NAREFN
+[11:11:40] t=1369 MOVE assault x4 -> (73,120)
+[11:11:40] t=1375 ALARM 磁能反应炉被攻击 -> TURTLE (3 v 9, 守塔阵不打野战)
+[11:11:41] t=1375 RETREAT E2(6%)
+[11:11:49] t=1411 ALARM 磁能反应炉被攻击 -> TURTLE (5 v 11, 守塔阵不打野战)
+[11:12:04] t=1464 jev INF DOG (conf 0.34)
+[11:12:11] t=1494 tick#250 credits=0 stance=defend | jev 250 decisions p50=725ms
+[11:12:13] REVIEW game#37 defeat → game-0037-review.md | changes=0
