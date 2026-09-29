@@ -199,23 +199,32 @@ class GameLauncher:
 
     def _pick_faction(self, faction: str) -> None:
         """选阵营。设置屏是全新重置的（玩家选择器显示'随机（???）'）：
-        点第一个'随机（???）'开下拉 → 点目标阵营 → 确认下拉收起。
-        若玩家已是目标阵营（重入未重置），点它开下拉再点一次即幂等完成。
+        点第一个'随机（???）'开下拉 → 等下拉渲染（轮询"美国"出现, 第47局:
+        headless 渲染慢于 1s 时盲目重点 opener 会把下拉切换关掉）→ 点目标阵营
+        → 确认下拉收起。若玩家已是目标阵营（重入未重置），点它开下拉再点即幂等。
         """
         for _ in range(3):
             shot = self._shot()
-            if self._find_ref(shot, "美国") and self._find_ref(shot, faction):
-                ref = self._find_ref(shot, faction)         # 下拉已开: 点目标项
+            if '"美国"' in shot and '"%s"' % faction in shot:
+                # 下拉已开: 点目标项
+                ref = self._find_ref(shot, faction)
                 self.b.click(ref)
                 time.sleep(1.0)
-                if not self._find_ref(self._shot(), "美国"):
+                if '"美国"' not in self._shot():
                     return                                   # 下拉收起 = 选中
                 continue
             opener = self._find_ref(shot, "随机（???）") or self._find_ref(shot, faction)
             if not opener:
                 raise LaunchError("找不到阵营选择器")
             self.b.click(opener)
-            time.sleep(1.0)
+            # 等下拉真正渲染出来再决定是否再点（避免 toggle 关掉）
+            if self._wait_text("美国", timeout=8):
+                ref = self._find_ref(self._shot(), faction)
+                if ref:
+                    self.b.click(ref)
+                    time.sleep(1.0)
+                    if '"美国"' not in self._shot():
+                        return
         raise LaunchError("选阵营失败: %s" % faction)
 
     def _wait_battle(self, timeout: float = 240) -> WerhdClient:
