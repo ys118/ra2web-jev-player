@@ -28,6 +28,8 @@ class BattleMemory:
         self.scout_id = None            # 专职侦察单位（movement 集结时豁免它）
         self.scout_visit: dict = {}     # 路标 -> 游戏秒（持续探索用）
         self.last_alarm_pos = None      # 最近一次 ALARM 位置（前哨朝向参考）
+        self.last_alarm_t = 0           # [第49局] 最近 ALARM 游戏秒（侦察反推时效）
+        self.alarm_scout_t = 0          # [第49局] 上次 ALARM 反推侦察游戏秒（60s 防刷）
         self.raid_wp = [(), 0.0]        # (旧字段, 由 squad_wp 取代)
         self.guard_t = 0.0              # 矿车护航令时刻（30s 节流）
         self.home_guard_t = 0.0         # (旧字段, 由 squad_wp 取代)
@@ -113,6 +115,7 @@ def sense_events(s: dict, home, mem: BattleMemory):
     mem.events = ev[-6:]
     if alarm:
         mem.last_alarm_pos = list(alarm["pos"])   # 前哨/伏击位朝向参考
+        mem.last_alarm_t = s["t"]                 # [第49局] 侦察反推时效用
     return alarm
 
 
@@ -403,14 +406,16 @@ def opening_build(s: dict, mem: BattleMemory):
     return None
 
 
-def shadow_target(s: dict, home, mem: BattleMemory):
-    """敌影推定 [第37局, Jev 0.88]: 敌人最早出现/来袭的方向即基地方向——
-    从家沿接触方向的单位向量延伸到地图边缘（~92% 处）。无接触记录返回 None。"""
-    if not home or mem.first_hostile_pos is None:
+def contact_edge(s: dict, home, pos):
+    """从家沿接触点方向的单位向量延伸到地图边缘（~92% 处）的探查点。
+
+    [第37局 敌影推定 / 第49局 ALARM 反推共用] dist<3 视为家门口无方向信息。
+    """
+    if not home or pos is None:
         return None
     mx, my = s["map"]["width"], s["map"]["height"]
-    dx = mem.first_hostile_pos[0] - home[0]
-    dy = mem.first_hostile_pos[1] - home[1]
+    dx = pos[0] - home[0]
+    dy = pos[1] - home[1]
     dist = math.hypot(dx, dy)
     if dist < 3:
         return None                                  # 接触点就在家门口, 无方向信息
@@ -432,6 +437,12 @@ def shadow_target(s: dict, home, mem: BattleMemory):
             int(min(max(home[1] + uy * t, 4), my - 4))]
 
 
+def shadow_target(s: dict, home, mem: BattleMemory):
+    """敌影推定 [第37局, Jev 0.88]: 敌人最早出现的位置反推基地方向。
+    无接触记录返回 None。"""
+    return contact_edge(s, home, mem.first_hostile_pos)
+
+
 # ================= 侦察与敌基地定位 =================
 
 def update_enemy_base(s: dict, mem: BattleMemory) -> bool:
@@ -450,10 +461,13 @@ def scouting(s: dict, home, mem: BattleMemory):
     第 25/26/31/37 局迭代: 侦察车豁免危机召回与集结令; 多路标轮转 150s 节流;
     [第37局, Jev 0.88] 敌影推定优先——首个敌军接触方向的地图边缘;
     [第37局] 阵亡即重派（不受节流）+ 双侦察车（坦克池≥4 时第二辆跑另一路标）。
+    [第49局] ALARM 反推: 新鲜 ALARM(≤150 游戏秒)破节流即时派车沿来向反推,
+    军犬首派同源——第 49 局 t=492→1209 有 717 游戏秒无任何侦察指令。
     """
     side = get_side(s)
     qs = queues_by_type(s["queues"])
     av2 = available(s["av"], 2)
+    last_edge = contact_edge(s, home, mem.last_alarm_pos)  # [第49局] ALARM 来向反推
     if side["bar"] in [u["n"] for u in s["mine"] if u["o"] == 2]             and not mem.dogs_queued and "ADOG" in av2 and qs.get(2, {}).get("s", 0) == 0:
         mem.dogs_queued = True
         # 返回必须是动作列表（第40局: 单 dict 被 _exec 迭代成键字符串 → 'str' object
@@ -469,16 +483,18 @@ def scouting(s: dict, home, mem: BattleMemory):
         mem.last_dog_replenish = time.time()
         return ([{"act": "produce", "name": "ADOG", "qty": 2}],
                 "t=%d SCOUT dogs replenish (alive %d)" % (s["t"], len(dogs_alive)))
-    # [第31局 Route A] 军犬出厂即送镜像角
+    # [第31局 Route A] 军犬出厂即送镜像角; [第49局] 有 ALARM 来向则优先反推
     if not mem.dog_sent and home:
         dogs = [u for u in s["mine"] if u["n"] in SCOUT_DOGS]
         if dogs:
             mx, my = s["map"]["width"], s["map"]["height"]
             mirror = [max(mx - home[0], 8), max(my - home[1], 8)]
+            tgt = last_edge or mirror
             mem.dog_sent = True
             return ([{"act": "attack_move", "ids": [dogs[0]["id"]],
-                      "x": mirror[0], "y": mirror[1]}],
-                    "t=%d SCOUT dog->mirror %s" % (s["t"], mirror))
+                      "x": tgt[0], "y": tgt[1]}],
+                    "t=%d SCOUT dog->%s %s" % (s["t"],
+                                               "敌影反推" if tgt != mirror else "mirror", tgt))
     tanks = combat_tanks(s["mine"])
     if not tanks or not home:
         return None, None
@@ -504,12 +520,18 @@ def scouting(s: dict, home, mem: BattleMemory):
         logs.append("t=%d %s #%s->%s%s" % (s["t"], tag, sid, target,
                                            " (敌影)" if shadow == target else ""))
 
-    # 主侦察: 死车立即重派(不受节流); 活车按 150s 节流换路标; 已定位则停
+    # 主侦察: 死车立即重派(不受节流); 活车按 150s 节流换路标; 已定位则停;
+    # [第49局] 新鲜 ALARM(≤150 游戏秒, 距上次反推 ≥60s)破节流即时沿来向反推
     if not alive1 and tanks:
         mem.scout_id = tanks[0]["id"]
-        dispatch(mem.scout_id, shadow or pick_wp(), "SCOUT")
-    elif alive1 and not mem.enemy_base and time.time() - mem.last_scout > 150:
-        dispatch(mem.scout_id, shadow or pick_wp(), "SCOUT")
+        dispatch(mem.scout_id, last_edge or shadow or pick_wp(), "SCOUT")
+    elif alive1 and not mem.enemy_base:
+        if (last_edge and s["t"] - mem.last_alarm_t <= 150
+                and s["t"] - mem.alarm_scout_t >= 60):
+            mem.alarm_scout_t = s["t"]
+            dispatch(mem.scout_id, last_edge, "SCOUT*")
+        elif time.time() - mem.last_scout > 150:
+            dispatch(mem.scout_id, shadow or pick_wp(), "SCOUT")
     mem.last_scout = time.time() if acts else mem.last_scout
 
     # 第二侦察车: 坦克池≥4 且未定位时补位, 跑与主侦察不同的路标
