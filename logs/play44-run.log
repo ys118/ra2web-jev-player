@@ -1,0 +1,779 @@
+[11:42:00] 进局中(全自动)...
+[11:42:24] {"kind": "start", "policy": "ra2web-jev-player/1.0", "maxDecisions": 1200, "micro": {"events": [{"kind": "micro", "t": 5, "what": "start"}], "loopN": 1, "on": true, "outcome": null, "stall": false}, "ts": "11:42:24"}
+[11:42:24] === ra2web-jev-player start (tick=1.5s, max_decisions=1200) ===
+[11:42:24] t=5 DEPLOY mcv
+[11:42:24] {"kind": "action", "what": "deploy", "ids": [1042], "ts": "11:42:24"}
+[11:42:24] {"kind": "action", "what": "deploy", "name": null, "qty": null, "ts": "11:42:24"}
+[11:42:25] t=11 POWER plant (reserve 0)
+[11:42:25] {"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "ts": "11:42:25"}
+[11:42:26] t=11 jev STANCE defend->develop (conf 0.91)
+[11:42:37] {"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "ts": "11:42:37"}
+[11:42:37] t=59 OPENING BUILD NAREFN
+[11:43:01] t=149 tick#25 credits=7400 stance=develop | jev 25 decisions p50=727ms
+[11:43:01] {"kind": "action", "what": "produce", "name": "NAHAND", "qty": 1, "ts": "11:43:01"}
+[11:43:01] t=155 OPENING BUILD NAHAND
+[11:43:07] t=178 DEFLINE NALASR (have 0)
+[11:43:07] {"kind": "action", "what": "produce", "name": "NALASR", "qty": 1, "ts": "11:43:07"}
+[11:43:08] {"kind": "action", "what": "produce", "name": "NAWEAP", "qty": 1, "ts": "11:43:08"}
+[11:43:08] t=178 OPENING BUILD NAWEAP
+[11:43:08] t=178 jev INF DOG (conf 0.35)
+[11:43:08] {"kind": "action", "what": "produce", "name": "DOG", "qty": 1, "ts": "11:43:08"}
+[11:43:10] t=190 SCOUT dog->mirror [66, 121]
+[11:43:10] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:43:10"}
+[11:43:13] t=202 DEFLINE NALASR (have 1)
+[11:43:15] t=208 DEFLINE NALASR (have 1)
+[11:43:16] t=214 DEFLINE NALASR (have 1)
+[11:43:18] t=220 DEFLINE NALASR (have 1)
+[11:43:19] t=226 DEFLINE NALASR (have 1)
+[11:43:21] t=232 DEFLINE NALASR (have 1)
+[11:43:22] t=238 DEFLINE NALASR (have 1)
+[11:43:24] t=244 DEFLINE NALASR (have 1)
+[11:43:25] t=250 DEFLINE NALASR (have 1)
+[11:43:27] t=256 DEFLINE NALASR (have 1)
+[11:43:28] t=262 DEFLINE NALASR (have 1)
+[11:43:30] t=268 DEFLINE NALASR (have 1)
+[11:43:31] t=274 DEFLINE NALASR (have 1)
+[11:43:33] t=280 ECON harv#2
+[11:43:33] t=280 TANK HTNK x4
+[11:43:33] t=280 INSURE AA building
+[11:43:33] {"kind": "action", "what": "produce", "name": "HARV", "qty": 1, "ts": "11:43:33"}
+[11:43:33] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 4, "ts": "11:43:33"}
+[11:43:33] {"kind": "action", "what": "produce", "name": "NAFLAK", "qty": 1, "ts": "11:43:33"}
+[11:43:34] t=280 jev BUILD NAPOWR (conf 0.41)
+[11:43:34] {"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "ts": "11:43:34"}
+[11:43:38] t=298 tick#50 credits=5191 stance=develop | jev 50 decisions p50=727ms
+[11:43:46] t=328 jev BUILD NAREFN (conf 0.42)
+[11:43:46] {"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "ts": "11:43:46"}
+[11:43:51] t=352 DEFLINE NALASR (have 1)
+[11:43:51] {"kind": "action", "what": "produce", "name": "NALASR", "qty": 1, "ts": "11:43:51"}
+[11:43:55] t=369 RETREAT DOG(25%)
+[11:43:56] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:43:56"}
+[11:43:57] t=375 SCOUT #1092->[14, 148] (敌影)
+[11:43:57] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:43:57"}
+[11:44:12] t=435 ALARM 敌军逼近 -> counter 1 vs 2 -> [129, 85]
+[11:44:12] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:44:12"}
+[11:44:14] t=441 jev INF E2 (conf 0.14)
+[11:44:14] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "11:44:14"}
+[11:44:16] t=447 tick#75 credits=1019 stance=defend | jev 75 decisions p50=724ms
+[11:44:20] t=465 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=555)
+[11:44:20] t=465 MOVE assault x2 -> (137,82)
+[11:44:20] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:44:20"}
+[11:44:32] t=513 MOVE assault x3 -> (137,82)
+[11:44:32] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:44:32"}
+[11:44:34] t=525 TANK HTNK x2
+[11:44:35] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 2, "ts": "11:44:35"}
+[11:44:35] t=525 SCOUT2 #1104->[66, 121]
+[11:44:35] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:44:35"}
+[11:44:35] t=525 MOVE guard x2 -> (137,82)
+[11:44:35] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:44:35"}
+[11:44:37] t=537 ESCORT 坦克#1121 -> 护航矿车@[126, 103]
+[11:44:38] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:44:38"}
+[11:44:46] t=566 MOVE assault x3 -> (137,82)
+[11:44:46] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:44:46"}
+[11:44:50] t=584 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=520)
+[11:44:53] t=596 tick#100 credits=1745 stance=defend | jev 100 decisions p50=724ms
+[11:44:54] t=602 TANK HTNK x2
+[11:44:55] t=602 jev VEH HTNK (conf 0.73)
+[11:44:55] t=602 ATTACK (tanks=6)
+[11:44:55] t=602 MOVE assault x4 -> (66,121)
+[11:44:55] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:44:55"}
+[11:44:55] t=608 TANK HTNK x2
+[11:44:56] t=608 jev VEH HTNK (conf 0.72)
+[11:44:57] t=614 TANK HTNK x2
+[11:44:58] t=614 jev INF SHK (conf 0.24)
+[11:44:58] t=614 jev VEH HTNK (conf 0.60)
+[11:44:58] t=614 jev STANCE attack->rush (conf 0.67)
+[11:44:58] {"kind": "action", "what": "produce", "name": "SHK", "qty": 1, "ts": "11:44:58"}
+[11:44:58] t=614 ATTACK (tanks=6)
+[11:44:58] t=614 MOVE assault x4 -> (85,113)
+[11:44:58] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:44:58"}
+[11:44:58] t=620 TANK HTNK x2
+[11:44:59] t=620 jev VEH HTNK (conf 0.63)
+[11:44:59] t=620 jev STANCE attack->rush (conf 0.63)
+[11:44:59] t=620 ATTACK (tanks=6)
+[11:44:59] t=620 MOVE assault x4 -> (92,105)
+[11:44:59] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:44:59"}
+[11:45:00] t=626 TANK HTNK x2
+[11:45:00] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 2, "ts": "11:45:00"}
+[11:45:01] t=626 jev STANCE attack->rush (conf 0.59)
+[11:45:01] t=626 ATTACK (tanks=6)
+[11:45:01] t=626 MOVE assault x4 -> (98,102)
+[11:45:01] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:01"}
+[11:45:02] t=632 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[11:45:02] t=632 jev STANCE attack->rush (conf 0.55)
+[11:45:02] t=632 ATTACK (tanks=6)
+[11:45:02] t=632 MOVE assault x4 -> (103,96)
+[11:45:02] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:02"}
+[11:45:04] t=638 jev INF DOG (conf 0.14)
+[11:45:04] t=638 jev STANCE attack->rush (conf 0.56)
+[11:45:04] {"kind": "action", "what": "produce", "name": "DOG", "qty": 1, "ts": "11:45:04"}
+[11:45:04] t=638 ATTACK (tanks=6)
+[11:45:04] t=638 MOVE assault x5 -> (104,94)
+[11:45:04] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:04"}
+[11:45:05] t=644 jev STANCE attack->rush (conf 0.60)
+[11:45:05] t=644 ATTACK (tanks=6)
+[11:45:05] t=644 MOVE guard x2 -> (137,82)
+[11:45:05] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:05"}
+[11:45:06] t=650 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[11:45:07] t=650 jev INF SHK (conf 0.11)
+[11:45:07] t=650 jev STANCE attack->rush (conf 0.64)
+[11:45:07] t=650 MOVE assault x4 -> (104,93)
+[11:45:07] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:07"}
+[11:45:08] t=656 ESCORT 坦克#1121 -> 护航矿车@[124, 103]
+[11:45:08] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:08"}
+[11:45:08] t=656 jev INF SHK (conf 0.12)
+[11:45:10] t=662 jev INF SHK (conf 0.17)
+[11:45:11] t=668 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[11:45:11] t=668 jev INF SHK (conf 0.21)
+[11:45:11] t=668 MOVE assault x4 -> (105,94)
+[11:45:11] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:11"}
+[11:45:13] t=674 jev INF SHK (conf 0.17)
+[11:45:13] t=674 MOVE assault x4 -> (105,93)
+[11:45:13] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:13"}
+[11:45:14] t=680 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[11:45:14] t=680 jev INF SHK (conf 0.12)
+[11:45:14] t=680 MOVE assault x3 -> (105,91)
+[11:45:14] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:14"}
+[11:45:16] t=686 jev INF SHK (conf 0.13)
+[11:45:16] t=686 MOVE assault x3 -> (106,91)
+[11:45:16] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:16"}
+[11:45:17] t=692 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 5 个单位继续进攻）
+[11:45:17] t=692 jev INF SHK (conf 0.11)
+[11:45:17] t=692 MOVE assault x2 -> (107,90)
+[11:45:17] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:17"}
+[11:45:18] t=698 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[11:45:19] t=698 jev INF SHK (conf 0.24)
+[11:45:20] t=704 TANK HTNK x2
+[11:45:20] t=704 jev INF SHK (conf 0.34)
+[11:45:20] t=704 jev VEH HTNK (conf 0.64)
+[11:45:20] t=704 MOVE assault x2 -> (108,89)
+[11:45:20] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:20"}
+[11:45:21] t=710 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[11:45:21] t=710 TANK HTNK x2
+[11:45:22] t=710 jev INF SHK (conf 0.29)
+[11:45:22] t=710 jev VEH HTNK (conf 0.60)
+[11:45:23] t=716 TANK HTNK x2
+[11:45:23] t=716 jev INF SHK (conf 0.30)
+[11:45:23] t=716 jev VEH HTNK (conf 0.62)
+[11:45:23] {"kind": "action", "what": "produce", "name": "SHK", "qty": 1, "ts": "11:45:23"}
+[11:45:24] t=722 TANK HTNK x2
+[11:45:25] t=722 jev VEH HTNK (conf 0.63)
+[11:45:25] t=722 MOVE assault x1 -> (105,92)
+[11:45:25] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:25"}
+[11:45:26] t=728 TANK HTNK x1
+[11:45:26] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 1, "ts": "11:45:26"}
+[11:45:26] t=728 MOVE assault x1 -> (105,93)
+[11:45:26] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:26"}
+[11:45:28] t=734 MOVE assault x1 -> (108,90)
+[11:45:28] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:28"}
+[11:45:29] t=740 jev INF SHK HOLD (预算保护 gate=False e2=0)
+[11:45:29] t=740 MOVE assault x2 -> (89,117)
+[11:45:29] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:29"}
+[11:45:30] t=746 RETREAT HTNK(36%)
+[11:45:30] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:45:30"}
+[11:45:31] t=746 jev INF SHK (conf 0.16)
+[11:45:31] t=746 MOVE assault x2 -> (89,111)
+[11:45:31] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:31"}
+[11:45:31] t=746 tick#125 credits=1665 stance=rush | jev 125 decisions p50=724ms
+[11:45:32] t=752 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[11:45:32] t=752 jev INF SHK (conf 0.27)
+[11:45:32] t=752 MOVE assault x3 -> (91,105)
+[11:45:32] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:32"}
+[11:45:34] t=758 jev INF SHK (conf 0.27)
+[11:45:34] t=758 MOVE assault x3 -> (95,102)
+[11:45:34] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:34"}
+[11:45:35] t=764 ALARM 敌军逼近 -> 攻势保持（塔阵守家, 前线 4 个单位继续进攻）
+[11:45:35] t=764 jev INF SHK (conf 0.32)
+[11:45:35] t=764 jev STANCE rush->defend (conf 0.77)
+[11:45:35] t=764 MOVE assault x3 -> (137,82)
+[11:45:35] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:35"}
+[11:45:36] t=769 TANK HTNK x1
+[11:45:37] t=769 jev INF SHK (conf 0.28)
+[11:45:37] t=769 jev VEH HTNK (conf 0.51)
+[11:45:37] t=769 MOVE guard x2 -> (137,82)
+[11:45:37] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:37"}
+[11:45:38] t=775 ALARM 单位损失 -> TURTLE (3 v 10, 守塔阵不打野战)
+[11:45:38] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:38"}
+[11:45:38] t=775 TANK HTNK x1
+[11:45:38] t=775 ESCORT 坦克#1116 -> 护航矿车@[126, 104]
+[11:45:38] t=775 RETREAT SHK(19%)
+[11:45:38] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:38"}
+[11:45:38] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:45:38"}
+[11:45:38] t=775 jev INF SHK (conf 0.19)
+[11:45:38] t=775 jev VEH HTNK (conf 0.53)
+[11:45:39] t=781 TANK HTNK x1
+[11:45:40] t=781 jev INF SHK (conf 0.18)
+[11:45:40] t=781 jev VEH HTNK (conf 0.42)
+[11:45:41] t=787 TANK HTNK x1
+[11:45:41] t=787 jev INF DOG (conf 0.13)
+[11:45:41] t=787 jev VEH HTNK (conf 0.36)
+[11:45:41] {"kind": "action", "what": "produce", "name": "DOG", "qty": 1, "ts": "11:45:41"}
+[11:45:42] t=793 TANK HTNK x1
+[11:45:43] t=793 jev VEH DRON (conf 0.34)
+[11:45:43] {"kind": "action", "what": "produce", "name": "DRON", "qty": 1, "ts": "11:45:43"}
+[11:45:44] t=799 RETREAT HTNK(16%)
+[11:45:44] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:45:44"}
+[11:45:45] t=805 SCOUT #1104->[14, 148] (敌影)
+[11:45:45] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:45"}
+[11:45:46] t=805 jev INF SHK (conf 0.14)
+[11:45:47] t=811 ALARM 敌军逼近 -> TURTLE (4 v 7, 守塔阵不打野战)
+[11:45:47] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:47"}
+[11:45:47] t=811 TANK HTNK x2
+[11:45:47] t=811 jev INF SHK (conf 0.15)
+[11:45:47] t=811 jev VEH HTNK (conf 0.35)
+[11:45:48] t=817 TANK HTNK x2
+[11:45:49] t=817 jev INF SHK (conf 0.18)
+[11:45:49] t=817 jev VEH DRON (conf 0.35)
+[11:45:49] {"kind": "action", "what": "produce", "name": "SHK", "qty": 1, "ts": "11:45:49"}
+[11:45:50] t=823 TANK HTNK x3
+[11:45:50] t=823 jev VEH HTNK (conf 0.40)
+[11:45:51] t=829 TANK HTNK x2
+[11:45:51] t=829 RETREAT HTNK(27%)
+[11:45:51] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 2, "ts": "11:45:51"}
+[11:45:51] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:45:51"}
+[11:45:55] t=841 MOVE assault x2 -> (137,82)
+[11:45:55] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:55"}
+[11:45:56] t=847 ALARM 单位损失 -> counter 3 vs 1 -> [134, 79]
+[11:45:56] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:45:56"}
+[11:45:56] t=847 jev INF E2 (conf 0.17)
+[11:45:56] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "11:45:56"}
+[11:45:57] t=853 RETREAT DRON(10%)
+[11:45:57] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:45:57"}
+[11:45:59] t=859 jev INF DOG (conf 0.21)
+[11:46:01] t=865 jev INF DOG (conf 0.21)
+[11:46:02] t=871 jev INF DOG (conf 0.24)
+[11:46:04] t=877 jev INF DOG (conf 0.19)
+[11:46:04] t=877 MOVE assault x4 -> (122,82)
+[11:46:04] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:04"}
+[11:46:05] t=883 jev INF DOG (conf 0.23)
+[11:46:07] t=889 jev INF DOG (conf 0.21)
+[11:46:07] {"kind": "action", "what": "produce", "name": "DOG", "qty": 1, "ts": "11:46:07"}
+[11:46:07] t=889 MOVE guard x2 -> (137,82)
+[11:46:07] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:07"}
+[11:46:08] t=895 tick#150 credits=557 stance=defend | jev 150 decisions p50=724ms
+[11:46:09] t=901 ESCORT 坦克#1116 -> 护航矿车@[128, 105]
+[11:46:09] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:09"}
+[11:46:11] t=907 jev VEH HTNK (conf 0.38)
+[11:46:11] t=907 ATTACK (tanks=6)
+[11:46:11] t=907 MOVE assault x5 -> (89,108)
+[11:46:11] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:11"}
+[11:46:13] t=913 jev VEH HTNK (conf 0.39)
+[11:46:13] t=913 jev STANCE attack->defend (conf 0.54)
+[11:46:13] t=913 ATTACK (tanks=6)
+[11:46:13] t=913 MOVE assault x5 -> (92,105)
+[11:46:13] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:13"}
+[11:46:14] t=919 jev VEH HTNK (conf 0.42)
+[11:46:14] t=919 jev STANCE attack->defend (conf 0.59)
+[11:46:14] t=919 ATTACK (tanks=6)
+[11:46:14] t=919 MOVE assault x5 -> (97,102)
+[11:46:14] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:14"}
+[11:46:16] t=925 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:46:16] t=925 jev VEH HTNK (conf 0.40)
+[11:46:16] t=925 jev STANCE attack->defend (conf 0.67)
+[11:46:16] t=925 ATTACK (tanks=6)
+[11:46:16] t=925 MOVE assault x5 -> (102,99)
+[11:46:16] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:16"}
+[11:46:17] t=930 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[11:46:17] t=930 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:46:17] t=930 jev VEH HTNK (conf 0.38)
+[11:46:17] t=930 jev STANCE attack->defend (conf 0.70)
+[11:46:17] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 1, "ts": "11:46:17"}
+[11:46:17] t=930 MOVE assault x4 -> (134,79)
+[11:46:17] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:17"}
+[11:46:19] t=936 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:46:22] t=948 jev INF SHK HOLD (预算保护 gate=False e2=1)
+[11:46:23] t=954 jev INF SHK HOLD (预算保护 gate=False e2=1)
+[11:46:28] t=972 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[11:46:28] t=972 jev VEH HTNK (conf 0.35)
+[11:46:28] t=972 ATTACK (tanks=6)
+[11:46:28] t=972 MOVE assault x5 -> (119,91)
+[11:46:28] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:28"}
+[11:46:29] t=978 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[11:46:29] t=978 jev INF DOG (conf 0.26)
+[11:46:29] t=978 jev VEH HTNK (conf 0.44)
+[11:46:29] t=978 jev STANCE attack->defend (conf 0.55)
+[11:46:29] t=978 ATTACK (tanks=6)
+[11:46:29] t=978 MOVE assault x5 -> (120,92)
+[11:46:29] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:29"}
+[11:46:31] t=984 jev INF DOG (conf 0.25)
+[11:46:31] t=984 jev VEH HTNK (conf 0.50)
+[11:46:31] t=984 jev STANCE attack->defend (conf 0.50)
+[11:46:31] t=984 ATTACK (tanks=6)
+[11:46:31] t=984 MOVE assault x5 -> (119,91)
+[11:46:31] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:31"}
+[11:46:32] t=990 jev INF DOG (conf 0.24)
+[11:46:32] t=990 jev VEH HTNK (conf 0.55)
+[11:46:32] t=990 jev STANCE attack->defend (conf 0.46)
+[11:46:32] {"kind": "action", "what": "produce", "name": "DOG", "qty": 1, "ts": "11:46:32"}
+[11:46:32] t=990 ATTACK (tanks=6)
+[11:46:32] t=990 MOVE assault x5 -> (120,95)
+[11:46:32] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:32"}
+[11:46:33] t=996 TANK HTNK x1
+[11:46:34] t=996 jev VEH HTNK (conf 0.65)
+[11:46:34] t=996 jev STANCE attack->defend (conf 0.58)
+[11:46:34] t=996 ATTACK (tanks=6)
+[11:46:34] t=996 MOVE assault x5 -> (66,121)
+[11:46:34] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:34"}
+[11:46:35] t=1002 TANK HTNK x1
+[11:46:35] t=1002 jev VEH HTNK (conf 0.68)
+[11:46:35] t=1002 jev STANCE attack->defend (conf 0.58)
+[11:46:35] t=1002 ATTACK (tanks=6)
+[11:46:36] t=1008 TANK HTNK x1
+[11:46:37] t=1008 jev VEH HTNK (conf 0.64)
+[11:46:37] t=1008 jev STANCE attack->defend (conf 0.62)
+[11:46:37] t=1008 ATTACK (tanks=6)
+[11:46:38] t=1014 TANK HTNK x1
+[11:46:38] t=1014 jev VEH HTNK (conf 0.62)
+[11:46:38] t=1014 jev STANCE attack->defend (conf 0.63)
+[11:46:38] t=1014 ATTACK (tanks=6)
+[11:46:38] t=1014 MOVE guard x2 -> (137,82)
+[11:46:38] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:38"}
+[11:46:39] t=1020 TANK HTNK x1
+[11:46:39] t=1020 ESCORT 坦克#1116 -> 护航矿车@[120, 106]
+[11:46:39] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:39"}
+[11:46:40] t=1020 jev VEH HTNK (conf 0.70)
+[11:46:40] t=1020 jev STANCE attack->defend (conf 0.58)
+[11:46:40] t=1020 ATTACK (tanks=6)
+[11:46:41] t=1026 TANK HTNK x1
+[11:46:41] t=1026 jev INF DOG (conf 0.24)
+[11:46:41] t=1026 jev VEH HTNK (conf 0.66)
+[11:46:41] t=1026 jev STANCE attack->defend (conf 0.59)
+[11:46:41] t=1026 ATTACK (tanks=6)
+[11:46:42] t=1032 TANK HTNK x1
+[11:46:43] t=1032 jev VEH HTNK (conf 0.67)
+[11:46:43] t=1032 jev STANCE attack->defend (conf 0.62)
+[11:46:43] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 1, "ts": "11:46:43"}
+[11:46:43] t=1032 ATTACK (tanks=6)
+[11:46:44] t=1038 jev INF DOG (conf 0.12)
+[11:46:44] t=1038 jev STANCE attack->defend (conf 0.48)
+[11:46:44] t=1038 ATTACK (tanks=6)
+[11:46:44] t=1038 MOVE assault x5 -> (117,133)
+[11:46:44] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:44"}
+[11:46:46] t=1044 jev INF DOG (conf 0.08)
+[11:46:46] t=1044 jev STANCE attack->defend (conf 0.52)
+[11:46:46] t=1044 ATTACK (tanks=6)
+[11:46:46] t=1044 MOVE assault x5 -> (117,132)
+[11:46:46] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:46"}
+[11:46:46] t=1044 tick#175 credits=1195 stance=attack | jev 175 decisions p50=724ms
+[11:46:47] t=1050 jev INF E2 (conf 0.11)
+[11:46:47] t=1050 jev STANCE attack->defend (conf 0.50)
+[11:46:47] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "ts": "11:46:47"}
+[11:46:47] t=1050 ATTACK (tanks=6)
+[11:46:49] t=1056 MOVE assault x5 -> (118,133)
+[11:46:49] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:49"}
+[11:46:50] t=1062 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[11:46:52] t=1068 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[11:46:52] t=1068 jev STANCE attack->defend (conf 0.50)
+[11:46:52] t=1068 ATTACK (tanks=6)
+[11:46:52] t=1068 MOVE assault x6 -> (86,108)
+[11:46:52] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:52"}
+[11:46:53] t=1074 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[11:46:53] t=1074 jev VEH HTNK (conf 0.51)
+[11:46:53] t=1074 MOVE assault x7 -> (90,118)
+[11:46:53] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:53"}
+[11:46:55] t=1080 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[11:46:55] t=1080 jev VEH HTNK (conf 0.53)
+[11:46:55] t=1080 jev STANCE attack->defend (conf 0.45)
+[11:46:55] t=1080 ATTACK (tanks=7)
+[11:46:55] t=1080 MOVE assault x7 -> (90,112)
+[11:46:55] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:55"}
+[11:46:56] t=1086 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[11:46:56] t=1086 jev VEH HTNK (conf 0.55)
+[11:46:56] t=1086 MOVE assault x7 -> (91,105)
+[11:46:56] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:56"}
+[11:46:58] t=1092 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[11:46:58] t=1092 jev VEH HTNK (conf 0.56)
+[11:46:58] t=1092 MOVE assault x7 -> (95,102)
+[11:46:58] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:58"}
+[11:46:59] t=1098 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[11:46:59] t=1098 jev VEH HTNK (conf 0.51)
+[11:46:59] t=1098 MOVE assault x7 -> (94,103)
+[11:46:59] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:46:59"}
+[11:47:01] t=1103 jev INF DOG (conf 0.14)
+[11:47:01] t=1103 jev VEH HTNK (conf 0.42)
+[11:47:01] t=1103 jev STANCE attack->defend (conf 0.50)
+[11:47:01] {"kind": "action", "what": "produce", "name": "DOG", "qty": 1, "ts": "11:47:01"}
+[11:47:01] t=1103 ATTACK (tanks=7)
+[11:47:02] t=1109 jev VEH HTNK (conf 0.17)
+[11:47:02] t=1109 jev STANCE attack->defend (conf 0.61)
+[11:47:02] t=1109 ATTACK (tanks=7)
+[11:47:04] t=1115 jev INF DOG (conf 0.21)
+[11:47:04] t=1115 jev VEH HTNK (conf 0.23)
+[11:47:04] t=1115 jev STANCE attack->defend (conf 0.61)
+[11:47:04] t=1115 ATTACK (tanks=7)
+[11:47:04] t=1115 MOVE assault x7 -> (92,105)
+[11:47:04] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:04"}
+[11:47:05] t=1121 AA HTK x2 (enemy air)
+[11:47:05] {"kind": "action", "what": "produce", "name": "HTK", "qty": 2, "ts": "11:47:05"}
+[11:47:05] t=1121 jev INF SHK HOLD (预算保护 gate=False e2=2)
+[11:47:05] t=1121 jev STANCE attack->defend (conf 0.58)
+[11:47:05] t=1121 ATTACK (tanks=7)
+[11:47:05] t=1121 MOVE assault x7 -> (91,102)
+[11:47:05] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:05"}
+[11:47:06] t=1127 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[11:47:07] t=1127 jev INF DOG (conf 0.18)
+[11:47:07] t=1127 jev STANCE attack->defend (conf 0.64)
+[11:47:07] t=1127 ATTACK (tanks=6)
+[11:47:07] t=1127 MOVE assault x6 -> (90,113)
+[11:47:07] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:07"}
+[11:47:08] t=1133 RETREAT HTNK(8%)
+[11:47:08] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:47:08"}
+[11:47:08] t=1133 jev INF DOG (conf 0.17)
+[11:47:08] t=1133 jev STANCE attack->defend (conf 0.47)
+[11:47:08] t=1133 ATTACK (tanks=6)
+[11:47:08] t=1133 MOVE assault x6 -> (93,103); guard x2 -> (137,82)
+[11:47:08] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:08"}
+[11:47:08] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:08"}
+[11:47:09] t=1139 ESCORT 坦克#1116 -> 护航矿车@[120, 119]
+[11:47:09] t=1139 RETREAT SHK(32%)
+[11:47:09] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:09"}
+[11:47:09] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:47:09"}
+[11:47:10] t=1139 jev STANCE attack->defend (conf 0.48)
+[11:47:10] t=1139 ATTACK (tanks=6)
+[11:47:11] t=1145 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[11:47:11] t=1145 jev INF DOG (conf 0.24)
+[11:47:11] t=1145 jev STANCE attack->defend (conf 0.47)
+[11:47:11] t=1145 ATTACK (tanks=7)
+[11:47:12] t=1151 RETREAT HTNK(25%)
+[11:47:12] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:47:12"}
+[11:47:13] t=1151 jev INF DOG (conf 0.24)
+[11:47:13] t=1151 jev STANCE attack->defend (conf 0.50)
+[11:47:13] t=1151 ATTACK (tanks=7)
+[11:47:14] t=1157 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[11:47:14] t=1157 RETREAT HTNK(30%)
+[11:47:14] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:47:14"}
+[11:47:14] t=1157 jev INF DOG (conf 0.35)
+[11:47:14] t=1157 jev STANCE attack->defend (conf 0.49)
+[11:47:14] t=1157 ATTACK (tanks=7)
+[11:47:16] t=1163 jev INF DOG (conf 0.30)
+[11:47:16] t=1163 jev STANCE attack->defend (conf 0.47)
+[11:47:16] t=1163 ATTACK (tanks=7)
+[11:47:17] t=1169 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[11:47:17] t=1169 jev INF DOG (conf 0.30)
+[11:47:17] t=1169 jev STANCE attack->defend (conf 0.47)
+[11:47:17] t=1169 MOVE assault x3 -> (137,82)
+[11:47:17] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:17"}
+[11:47:19] t=1175 jev INF DOG (conf 0.32)
+[11:47:20] t=1181 ALARM 单位损失 -> TURTLE (4 v 6, 守塔阵不打野战)
+[11:47:20] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:20"}
+[11:47:20] t=1181 RETREAT HTNK(25%)
+[11:47:20] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:47:20"}
+[11:47:20] t=1181 jev INF DOG (conf 0.33)
+[11:47:22] t=1187 jev INF DOG (conf 0.29)
+[11:47:23] t=1193 jev INF DOG (conf 0.34)
+[11:47:23] t=1193 tick#200 credits=0 stance=defend | jev 200 decisions p50=724ms
+[11:47:25] t=1199 jev INF DOG (conf 0.30)
+[11:47:26] t=1205 jev INF DOG (conf 0.29)
+[11:47:26] {"kind": "action", "what": "produce", "name": "DOG", "qty": 1, "ts": "11:47:26"}
+[11:47:30] t=1223 RETREAT HTNK(21%)
+[11:47:30] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:47:30"}
+[11:47:31] t=1223 MOVE assault x1 -> (137,82)
+[11:47:31] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:31"}
+[11:47:32] t=1229 ALARM 单位损失 -> TURTLE (4 v 8, 守塔阵不打野战)
+[11:47:32] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:32"}
+[11:47:32] t=1229 SCOUT #1116->[14, 148] (敌影)
+[11:47:32] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:32"}
+[11:47:43] t=1271 jev INF DOG (conf 0.15)
+[11:47:44] t=1277 AA HTK x2 (enemy air)
+[11:47:44] t=1277 ESCORT 坦克#1374 -> 护航矿车@[128, 104]
+[11:47:44] {"kind": "action", "what": "produce", "name": "HTK", "qty": 2, "ts": "11:47:44"}
+[11:47:44] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:44"}
+[11:47:44] t=1277 SCOUT2 #1374->[100, 100]
+[11:47:44] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:44"}
+[11:47:44] t=1277 jev INF DOG (conf 0.21)
+[11:47:44] t=1277 MOVE assault x1 -> (137,82); guard x2 -> (137,82)
+[11:47:44] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:44"}
+[11:47:45] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:45"}
+[11:47:46] t=1283 jev INF DOG (conf 0.18)
+[11:47:47] t=1289 jev INF DOG (conf 0.29)
+[11:47:49] t=1295 jev INF DOG (conf 0.26)
+[11:47:50] t=1301 jev INF DOG (conf 0.16)
+[11:47:52] t=1307 jev INF DOG (conf 0.23)
+[11:47:52] {"kind": "action", "what": "produce", "name": "DOG", "qty": 1, "ts": "11:47:52"}
+[11:47:54] t=1319 AA HTK x2 (enemy air)
+[11:47:55] t=1319 jev INF SHK HOLD (预算保护 gate=False e2=0)
+[11:47:55] t=1319 jev VEH DRON (conf 0.23)
+[11:47:55] {"kind": "action", "what": "produce", "name": "DRON", "qty": 1, "ts": "11:47:55"}
+[11:47:55] t=1319 ATTACK (tanks=6)
+[11:47:55] t=1319 MOVE assault x3 -> (117,135)
+[11:47:55] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:55"}
+[11:47:56] t=1325 jev STANCE attack->defend (conf 0.79)
+[11:47:56] t=1325 ATTACK (tanks=6)
+[11:47:56] t=1325 MOVE assault x3 -> (116,136)
+[11:47:56] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:56"}
+[11:47:58] t=1331 jev STANCE attack->defend (conf 0.74)
+[11:47:58] t=1331 ATTACK (tanks=6)
+[11:47:58] t=1331 MOVE assault x3 -> (115,137)
+[11:47:58] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:58"}
+[11:47:59] t=1337 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:47:59] t=1337 jev VEH DRON (conf 0.27)
+[11:47:59] t=1337 jev STANCE attack->defend (conf 0.68)
+[11:47:59] t=1337 ATTACK (tanks=7)
+[11:47:59] t=1337 MOVE assault x4 -> (115,135)
+[11:47:59] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:47:59"}
+[11:48:01] t=1343 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:48:01] t=1343 jev VEH DRON (conf 0.24)
+[11:48:01] t=1343 jev STANCE attack->defend (conf 0.69)
+[11:48:01] t=1343 ATTACK (tanks=7)
+[11:48:01] t=1343 MOVE assault x4 -> (115,134)
+[11:48:01] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:01"}
+[11:48:01] t=1343 tick#225 credits=355 stance=attack | jev 225 decisions p50=725ms
+[11:48:02] t=1349 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:48:02] t=1349 jev VEH DRON (conf 0.29)
+[11:48:02] t=1349 jev STANCE attack->defend (conf 0.67)
+[11:48:02] t=1349 ATTACK (tanks=7)
+[11:48:02] t=1349 MOVE assault x4 -> (115,133)
+[11:48:02] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:02"}
+[11:48:03] t=1355 AA HTK x2 (enemy air)
+[11:48:04] t=1355 jev VEH DRON (conf 0.25)
+[11:48:04] t=1355 jev STANCE attack->defend (conf 0.70)
+[11:48:04] t=1355 ATTACK (tanks=7)
+[11:48:04] t=1355 MOVE assault x4 -> (115,134)
+[11:48:04] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:04"}
+[11:48:05] t=1361 AA HTK x2 (enemy air)
+[11:48:05] t=1361 jev VEH DRON (conf 0.25)
+[11:48:05] t=1361 jev STANCE attack->defend (conf 0.68)
+[11:48:05] t=1361 ATTACK (tanks=7)
+[11:48:05] t=1361 MOVE assault x4 -> (117,135)
+[11:48:05] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:05"}
+[11:48:06] t=1367 AA HTK x2 (enemy air)
+[11:48:07] t=1367 jev VEH DRON (conf 0.21)
+[11:48:07] t=1367 jev STANCE attack->defend (conf 0.67)
+[11:48:07] t=1367 ATTACK (tanks=7)
+[11:48:07] t=1367 MOVE assault x4 -> (105,88)
+[11:48:07] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:07"}
+[11:48:08] t=1372 AA HTK x2 (enemy air)
+[11:48:08] t=1372 jev VEH HTK (conf 0.17)
+[11:48:08] t=1372 jev STANCE attack->defend (conf 0.69)
+[11:48:08] t=1372 ATTACK (tanks=7)
+[11:48:09] t=1378 AA HTK x2 (enemy air)
+[11:48:09] {"kind": "action", "what": "produce", "name": "HTK", "qty": 2, "ts": "11:48:09"}
+[11:48:10] t=1378 jev STANCE attack->defend (conf 0.60)
+[11:48:10] t=1378 ATTACK (tanks=7)
+[11:48:11] t=1384 jev STANCE attack->defend (conf 0.67)
+[11:48:11] t=1384 ATTACK (tanks=7)
+[11:48:13] t=1390 jev STANCE attack->defend (conf 0.68)
+[11:48:13] t=1390 ATTACK (tanks=7)
+[11:48:14] t=1396 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[11:48:14] t=1396 ESCORT 坦克#2060 -> 护航矿车@[114, 136]
+[11:48:14] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:14"}
+[11:48:14] t=1396 jev STANCE attack->defend (conf 0.69)
+[11:48:14] t=1396 ATTACK (tanks=6)
+[11:48:16] t=1402 jev STANCE attack->defend (conf 0.66)
+[11:48:16] t=1402 ATTACK (tanks=7)
+[11:48:16] t=1402 MOVE guard x2 -> (137,82)
+[11:48:16] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:16"}
+[11:48:17] t=1408 jev STANCE attack->defend (conf 0.68)
+[11:48:17] t=1408 ATTACK (tanks=7)
+[11:48:19] t=1414 jev STANCE attack->defend (conf 0.64)
+[11:48:19] t=1414 ATTACK (tanks=7)
+[11:48:19] t=1414 MOVE assault x4 -> (104,89)
+[11:48:19] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:19"}
+[11:48:20] t=1420 jev STANCE attack->defend (conf 0.61)
+[11:48:20] t=1420 ATTACK (tanks=7)
+[11:48:20] t=1420 MOVE assault x4 -> (105,92)
+[11:48:20] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:20"}
+[11:48:22] t=1426 jev STANCE attack->defend (conf 0.60)
+[11:48:22] t=1426 ATTACK (tanks=7)
+[11:48:22] t=1426 MOVE assault x4 -> (104,92)
+[11:48:22] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:22"}
+[11:48:23] t=1432 jev STANCE attack->defend (conf 0.61)
+[11:48:23] t=1432 ATTACK (tanks=7)
+[11:48:23] t=1432 MOVE assault x4 -> (104,93)
+[11:48:23] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:23"}
+[11:48:24] t=1438 RETREAT HTNK(8%)
+[11:48:24] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:48:24"}
+[11:48:25] t=1438 jev STANCE attack->defend (conf 0.55)
+[11:48:25] t=1438 ATTACK (tanks=7)
+[11:48:26] t=1444 jev STANCE attack->defend (conf 0.65)
+[11:48:26] t=1444 ATTACK (tanks=7)
+[11:48:26] t=1444 MOVE assault x4 -> (66,121)
+[11:48:26] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:26"}
+[11:48:28] t=1450 jev STANCE attack->defend (conf 0.72)
+[11:48:28] t=1450 ATTACK (tanks=7)
+[11:48:29] t=1456 jev STANCE attack->defend (conf 0.69)
+[11:48:29] t=1456 ATTACK (tanks=7)
+[11:48:31] t=1462 jev STANCE attack->defend (conf 0.67)
+[11:48:31] t=1462 ATTACK (tanks=7)
+[11:48:32] t=1468 ENEMY BASE spotted @[70, 117]
+[11:48:32] t=1468 jev VEH DRON (conf 0.32)
+[11:48:32] {"kind": "action", "what": "produce", "name": "DRON", "qty": 1, "ts": "11:48:32"}
+[11:48:32] t=1468 MOVE raid x2 -> (70,117); assault x3 -> (70,117)
+[11:48:32] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:32"}
+[11:48:32] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:32"}
+[11:48:37] t=1486 jev VEH HTNK (conf 0.38)
+[11:48:37] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 1, "ts": "11:48:37"}
+[11:48:38] t=1492 tick#250 credits=734 stance=attack | jev 250 decisions p50=726ms
+[11:48:40] t=1498 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=584)
+[11:48:41] t=1504 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:48:44] t=1516 ESCORT 坦克#1374 -> 护航矿车@[120, 107]
+[11:48:44] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:44"}
+[11:48:44] t=1516 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:48:44] t=1516 MOVE assault x3 -> (70,117)
+[11:48:44] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:44"}
+[11:48:46] t=1522 MOVE guard x2 -> (137,82)
+[11:48:46] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:46"}
+[11:48:55] t=1558 jev VEH HTNK (conf 0.46)
+[11:48:56] t=1564 jev VEH HTNK (conf 0.43)
+[11:48:58] t=1570 jev VEH HTNK (conf 0.45)
+[11:48:58] t=1570 MOVE assault x4 -> (70,117)
+[11:48:58] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:48:58"}
+[11:48:59] t=1576 jev VEH HTNK (conf 0.43)
+[11:49:01] t=1582 jev VEH HTNK (conf 0.51)
+[11:49:02] t=1588 jev VEH HTNK (conf 0.40)
+[11:49:02] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 1, "ts": "11:49:02"}
+[11:49:02] t=1588 MOVE raid x3 -> (70,117)
+[11:49:02] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:49:02"}
+[11:49:08] t=1612 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[11:49:10] t=1618 MOVE assault x3 -> (70,117)
+[11:49:10] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:49:10"}
+[11:49:14] t=1636 ESCORT 坦克#2236 -> 护航矿车@[90, 113]
+[11:49:14] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:49:14"}
+[11:49:16] t=1642 MOVE guard x2 -> (137,82)
+[11:49:16] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:49:16"}
+[11:49:16] t=1642 tick#275 credits=0 stance=attack | jev 275 decisions p50=726ms
+[11:49:23] t=1671 RETREAT HTNK(37%)
+[11:49:23] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:49:23"}
+[11:49:23] t=1671 jev INF SHK HOLD (预算保护 gate=False e2=0)
+[11:49:23] t=1671 MOVE assault x3 -> (70,117)
+[11:49:23] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:49:23"}
+[11:49:32] t=1707 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[11:49:34] t=1713 MOVE raid x2 -> (70,117)
+[11:49:34] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:49:34"}
+[11:49:37] t=1725 jev STANCE attack->defend (conf 0.47)
+[11:49:37] t=1725 ATTACK (tanks=8)
+[11:49:37] t=1725 MOVE assault x3 -> (70,117)
+[11:49:37] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:49:37"}
+[11:49:41] t=1743 RETREAT HTNK(8%)
+[11:49:41] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:49:41"}
+[11:49:44] t=1755 ESCORT 坦克#2060 -> 护航矿车@[120, 114]
+[11:49:44] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:49:44"}
+[11:49:44] t=1755 jev STANCE attack->defend (conf 0.50)
+[11:49:44] t=1755 ATTACK (tanks=8)
+[11:49:45] t=1761 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[11:49:46] t=1761 jev VEH DRON (conf 0.34)
+[11:49:46] {"kind": "action", "what": "produce", "name": "DRON", "qty": 1, "ts": "11:49:46"}
+[11:49:46] t=1761 MOVE raid x2 -> (67,118); assault x3 -> (67,118); guard x2 -> (137,82)
+[11:49:46] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:49:46"}
+[11:49:46] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:49:46"}
+[11:49:46] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:49:46"}
+[11:49:53] t=1791 jev INF SHK (conf 0.23)
+[11:49:53] {"kind": "action", "what": "produce", "name": "SHK", "qty": 1, "ts": "11:49:53"}
+[11:49:53] t=1791 tick#300 credits=1018 stance=attack | jev 300 decisions p50=727ms
+[11:49:54] t=1797 RETREAT HTK(22%)
+[11:49:54] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:49:54"}
+[11:49:55] t=1797 jev VEH HTNK (conf 0.30)
+[11:49:55] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 1, "ts": "11:49:55"}
+[11:49:56] t=1803 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[11:49:59] t=1815 MOVE assault x4 -> (67,118)
+[11:49:59] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:49:59"}
+[11:50:00] t=1821 RETREAT HTNK(37%)
+[11:50:00] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:50:00"}
+[11:50:01] t=1821 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:50:02] t=1827 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:50:04] t=1833 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:50:06] t=1839 jev VEH HTNK (conf 0.51)
+[11:50:06] t=1845 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[11:50:07] t=1845 jev VEH HTNK (conf 0.53)
+[11:50:08] t=1851 jev VEH HTNK (conf 0.48)
+[11:50:10] t=1857 jev VEH HTNK (conf 0.45)
+[11:50:11] t=1863 jev VEH HTNK (conf 0.48)
+[11:50:11] t=1863 MOVE assault x4 -> (67,118)
+[11:50:11] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:50:11"}
+[11:50:13] t=1869 jev VEH HTNK (conf 0.38)
+[11:50:14] t=1875 ESCORT 坦克#2744 -> 护航矿车@[116, 135]
+[11:50:14] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:50:14"}
+[11:50:14] t=1875 jev VEH HTNK (conf 0.46)
+[11:50:16] t=1881 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:50:16] t=1881 jev VEH HTNK (conf 0.36)
+[11:50:17] t=1887 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:50:17] t=1887 jev VEH HTNK (conf 0.33)
+[11:50:17] t=1887 MOVE raid x2 -> (67,118); guard x2 -> (137,82)
+[11:50:17] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:50:17"}
+[11:50:17] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:50:17"}
+[11:50:19] t=1893 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:50:19] t=1893 jev VEH HTNK (conf 0.31)
+[11:50:20] t=1899 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:50:20] t=1899 jev VEH HTNK (conf 0.35)
+[11:50:20] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 1, "ts": "11:50:20"}
+[11:50:22] t=1905 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:50:23] t=1910 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:50:23] t=1910 jev STANCE attack->defend (conf 0.45)
+[11:50:23] t=1910 ATTACK (tanks=8)
+[11:50:23] t=1910 MOVE assault x4 -> (67,118)
+[11:50:23] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:50:23"}
+[11:50:31] t=1940 tick#325 credits=0 stance=attack | jev 325 decisions p50=727ms
+[11:50:33] t=1952 RETREAT DRON(32%)
+[11:50:33] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:50:33"}
+[11:50:35] t=1958 MOVE raid x2 -> (75,120); assault x4 -> (75,120)
+[11:50:35] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:50:35"}
+[11:50:36] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:50:36"}
+[11:50:36] t=1964 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[11:50:36] t=1964 RETREAT HTNK(37%)
+[11:50:36] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:50:36"}
+[11:50:40] t=1976 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[11:50:44] t=1994 ESCORT 坦克#2744 -> 护航矿车@[89, 125]
+[11:50:44] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:50:44"}
+[11:50:47] t=2006 jev VEH HTNK (conf 0.39)
+[11:50:48] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 1, "ts": "11:50:48"}
+[11:50:48] t=2006 MOVE assault x4 -> (75,120); guard x2 -> (137,82)
+[11:50:48] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:50:48"}
+[11:50:48] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:50:48"}
+[11:50:50] t=2018 RETREAT HTK(35%)
+[11:50:50] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:50:50"}
+[11:50:56] t=2042 RETREAT HTK(20%)
+[11:50:56] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:50:56"}
+[11:50:57] t=2048 RETREAT HTNK(8%)
+[11:50:57] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:50:57"}
+[11:51:00] t=2054 MOVE assault x4 -> (75,120)
+[11:51:00] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:51:00"}
+[11:51:05] t=2078 jev INF SHK HOLD (预算保护 gate=False e2=0)
+[11:51:05] t=2078 MOVE raid x2 -> (75,120)
+[11:51:05] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:51:05"}
+[11:51:07] t=2084 MOVE raid x2 -> (69,122); assault x4 -> (69,122)
+[11:51:07] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:51:07"}
+[11:51:07] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:51:07"}
+[11:51:08] t=2090 HARASS DRON x2 (have 0)
+[11:51:08] {"kind": "action", "what": "produce", "name": "DRON", "qty": 2, "ts": "11:51:08"}
+[11:51:09] t=2090 tick#350 credits=1105 stance=attack | jev 350 decisions p50=727ms
+[11:51:14] t=2117 ESCORT 坦克#2060 -> 护航矿车@[117, 135]
+[11:51:14] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:51:14"}
+[11:51:17] t=2123 jev VEH HTNK (conf 0.54)
+[11:51:17] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 1, "ts": "11:51:17"}
+[11:51:18] t=2128 MOVE guard x2 -> (137,82)
+[11:51:18] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:51:18"}
+[11:51:20] t=2135 MOVE assault x5 -> (69,122)
+[11:51:20] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:51:20"}
+[11:51:23] t=2147 MOVE raid x4 -> (67,115); assault x5 -> (67,115)
+[11:51:23] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:51:23"}
+[11:51:23] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "ts": "11:51:23"}
+[11:51:25] t=2158 RETREAT HTNK(30%)
+[11:51:25] {"kind": "action", "what": "move", "name": null, "qty": null, "ts": "11:51:25"}
+[11:51:31] t=2182 ALARM 单位损失 -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[2026-09-29 11:51:32] {"kind": "report", "result": "victory", "t": 2188, "ticks": 366, "crisis_ticks": 43, "stance": "attack", "jev": {"decisions": 365, "errors": 0, "input_tokens": 1103746, "output_tokens": 90247, "p50_ms": 729, "p95_ms": 812}, "enemy_base": [67, 115], "ts": "2026-09-29 11:51:32"}
+[11:51:33] REVIEW game#39 victory → game-0039-review.md | changes=0
+{
+  "result": "victory",
+  "t": 2188,
+  "ticks": 366,
+  "crisis_ticks": 43,
+  "stance": "attack",
+  "jev": {
+    "decisions": 365,
+    "errors": 0,
+    "input_tokens": 1103746,
+    "output_tokens": 90247,
+    "p50_ms": 729,
+    "p95_ms": 812
+  },
+  "enemy_base": [
+    67,
+    115
+  ],
+  "ts": "2026-09-29 11:51:32",
+  "review": {
+    "game_no": 39,
+    "rootcause": "timing",
+    "auto_tuned": 0
+  }
+}
