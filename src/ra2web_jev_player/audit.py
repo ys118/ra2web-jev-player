@@ -19,7 +19,7 @@ ECHO_KINDS = {"action", "outcome", "place", "micro", "start", "stop", "stale",
 
 
 class Audit:
-    def __init__(self, log_dir=None, echo: bool = True):
+    def __init__(self, log_dir=None, echo: bool = True, mirror_path=None):
         self.dir = str(log_dir or LOG_DIR)
         os.makedirs(self.dir, exist_ok=True)
         self.echo = echo
@@ -27,11 +27,25 @@ class Audit:
         self._bot = open(os.path.join(self.dir, "bot.log"), "a", buffering=1, encoding="utf-8")
         self._events = open(os.path.join(self.dir, "jev-events.jsonl"), "a",
                             buffering=1, encoding="utf-8")
+        self._mirror = open(mirror_path, "a", buffering=1, encoding="utf-8") \
+            if mirror_path else None   # [训练数据] 每局独立镜像（run 目录）
+
+    def attach_mirror(self, path) -> None:
+        """挂载每局独立镜像文件（run 目录），log/event 双写。"""
+        with self._lock:
+            if self._mirror:
+                try:
+                    self._mirror.close()
+                except OSError:
+                    pass
+            self._mirror = open(path, "a", buffering=1, encoding="utf-8")
 
     def log(self, msg: str) -> None:
         line = "[%s] %s" % (time.strftime("%H:%M:%S"), msg)
         with self._lock:
             self._bot.write(line + "\n")
+            if self._mirror:
+                self._mirror.write(line + "\n")
         if self.echo:
             print(line, flush=True)
 
@@ -41,6 +55,8 @@ class Audit:
         line = json.dumps(ev, ensure_ascii=False)
         with self._lock:
             self._events.write(line + "\n")
+            if self._mirror:
+                self._mirror.write(line + "\n")
         if self.echo and ev.get("kind") in ECHO_KINDS:
             print("[%s] %s" % (ev["ts"], line[:300]), flush=True)
 
@@ -50,3 +66,5 @@ class Audit:
                 self._bot.close()
             finally:
                 self._events.close()
+                if self._mirror:
+                    self._mirror.close()

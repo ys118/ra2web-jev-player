@@ -44,8 +44,36 @@ TUNING_RULES = {
 
 # ================= 数据采集 =================
 
+def _latest_run_dir():
+    """[训练数据] 最新的 run 目录（每局独立存档）。"""
+    runs = LOG_DIR.glob("games/run-*/events.jsonl")
+    try:
+        return max(runs, key=lambda p: p.stat().st_mtime).parent
+    except ValueError:
+        return None
+
+
 def _slice_events() -> list:
-    """取最后一段对局的 jsonl 事件（最后一个 start 之后）。"""
+    """取最后一段对局的 jsonl 事件。
+
+    优先读最新 run 目录的 events.jsonl（训练数据镜像, 单局完整）;
+    无 run 目录时回退到全局 jev-events.jsonl 切片（最后一个 start 之后）。
+    """
+    run_dir = _latest_run_dir()
+    if run_dir:
+        path = run_dir / "events.jsonl"
+        events = []
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    events.append(json.loads(line))
+                except json.JSONDecodeError:
+                    continue
+        if events:
+            return events
     path = LOG_DIR / "jev-events.jsonl"
     events = []
     with open(path, encoding="utf-8") as f:

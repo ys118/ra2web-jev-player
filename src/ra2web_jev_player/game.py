@@ -14,6 +14,7 @@ import time
 
 from .audit import Audit
 from .config import MatchConfig
+from .paths import LOG_DIR
 from .jev import JevBudgetExceeded, JevClient, JevError
 from .strategy import planner
 from .strategy.doctrine import HARVEST
@@ -27,8 +28,13 @@ class BattleSession:
                  match: MatchConfig | None = None):
         self.c = client
         self.jev = jev
-        self.audit = audit
         self.match = match or MatchConfig()
+        # [训练数据] 每局独立 run 目录: decisions.jsonl(Jev 决策元组) + events.jsonl
+        # (镜像) + report.json —— 后训练(SFT/RL)的数据资产, 见 AGENTS.md
+        self.run_dir = LOG_DIR / "games" / time.strftime("run-%Y%m%d-%H%M%S")
+        self.run_dir.mkdir(parents=True, exist_ok=True)
+        audit.attach_mirror(self.run_dir / "events.jsonl")
+        self.audit = audit
         self.mem = planner.BattleMemory()
         self.stance = "develop"
         self.tick_n = 0
@@ -63,6 +69,12 @@ class BattleSession:
                 time.sleep(3)
         report = self._report(outcome)
         self.audit.event({"kind": "report", **report})
+        # [训练数据] 终局战报落 run 目录
+        try:
+            with open(self.run_dir / "report.json", "w", encoding="utf-8") as f:
+                f.write(json.dumps(report, ensure_ascii=False, indent=2))
+        except Exception as e:
+            self.audit.log("report write ERR %s" % str(e)[:100])
         self.c.micro_stop()
         return report
 
@@ -267,6 +279,16 @@ class BattleSession:
                           "answers": {k: {"choice": v.get("choice"),
                                           "confidence": v.get("confidence")}
                                       for k, v in answers.items()}})
+        # [训练数据] 完整决策元组 (state, questions, answers) —— SFT 核心数据
+        try:
+            rec = {"kind": "sft_tuple", "t": s["t"],
+                   "ts": time.strftime("%Y-%m-%d %H:%M:%S"),
+                   "stance_before": self.stance,
+                   "state": state, "questions": Q, "answers": answers}
+            with open(self.run_dir / "decisions.jsonl", "a", encoding="utf-8") as f:
+                f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        except Exception as e:
+            self.audit.log("sft write ERR %s" % str(e)[:100])
         return answers
 
     def _page_outcome(self) -> dict:
