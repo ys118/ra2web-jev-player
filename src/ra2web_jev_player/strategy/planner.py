@@ -35,6 +35,7 @@ class BattleMemory:
         self.last_squads: dict = {}     # 上 tick 编组表（危机救援抽 reserve 用）
         self.current_stance = "develop" # 当前态势（build_gate 读取: RECOVER 放开闸门）
         self.dog_sent = False           # 军犬探路是否已派出
+        self.last_dog_replenish = 0.0   # [第42局] 军犬补员时刻（60s 节流）
         self.first_hostile_pos = None   # [第37局] 首次看见敌军的位置（敌影推定用）
         self.scout2_id = None           # [第37局] 第二侦察车（双车并行）
         self.dogs_queued = False
@@ -378,9 +379,14 @@ def opening_build(s: dict, mem: BattleMemory):
             and build_gate(s, ucost(side["ref"]), mem):
         opening_next = side["ref"]
     if opening_next is None and s["t"] > T["rush_t1"]:
-        if bl0.get(side["weap"], 0) < 2 and s["me"]["credits"] > T["factory2_cash"] \
-                and side["weap"] in av0:
-            opening_next = side["weap"]
+        # [第42局②] 后期产能解锁: t>2400s 仍单工厂时无条件补第二座——
+        # 第 41 局 80 分钟拉锯暴露: 敌方后期波次无上限, 单工厂补充速度跟不上。
+        # 注意: 开局序列缺失项（如电厂被拆）优先级更高, 先走原逻辑。
+        late_game = s["t"] > 2400
+        if (bl0.get(side["weap"], 0) < 2 and late_game) \
+                or (bl0.get(side["weap"], 0) < 2 and s["me"]["credits"] > T["factory2_cash"]):
+            if side["weap"] in av0 and build_gate(s, ucost(side["weap"]), mem) or late_game:
+                opening_next = side["weap"]
         elif bl0.get(side["ref"], 0) < T["ref_cap"] and side["ref"] in av0 \
                 and build_gate(s, ucost(side["ref"]), mem):
             opening_next = side["ref"]
@@ -447,6 +453,15 @@ def scouting(s: dict, home, mem: BattleMemory):
         # has no attribute 'get'）
         return ([{"act": "produce", "name": "ADOG", "qty": 3}],
                 "t=%d SCOUT dogs x3" % s["t"])
+    # [第42局①] 军犬群持续探图: 存活军犬 <2 且兵营可造时补 2 只——
+    # 第 41 局单首发次后全灭, 镜像/敌影双盲区拖到 2039s 才定位
+    dogs_alive = [u for u in s["mine"] if u["n"] in SCOUT_DOGS]
+    if side["bar"] in [u["n"] for u in s["mine"] if u["o"] == 2] \
+            and len(dogs_alive) < 2 and "ADOG" in av2 and qs.get(2, {}).get("s", 0) == 0 \
+            and time.time() - mem.last_dog_replenish > 60:
+        mem.last_dog_replenish = time.time()
+        return ([{"act": "produce", "name": "ADOG", "qty": 2}],
+                "t=%d SCOUT dogs replenish (alive %d)" % (s["t"], len(dogs_alive)))
     # [第31局 Route A] 军犬出厂即送镜像角
     if not mem.dog_sent and home:
         dogs = [u for u in s["mine"] if u["n"] in SCOUT_DOGS]
