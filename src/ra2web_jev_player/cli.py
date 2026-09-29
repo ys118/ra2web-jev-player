@@ -59,7 +59,8 @@ def _common(argv):
     p.add_argument("--session", default=None, help="agent-browser 会话名(默认 ra2web)")
     p.add_argument("--headed", action="store_true", help="有头窗口(默认无头, 长局首选无头)")
     p.add_argument("--faction", default="苏俄")
-    p.add_argument("--speed", type=int, default=2)
+    p.add_argument("--speed", type=int, default=1,
+                   help="游戏速度档(1=标准最慢档, 2026-09-29 用户决定; 页面默认 6 勿用)")
     p.add_argument("--credits", type=int, default=10000)
     p.add_argument("--max-decisions", type=int, default=1200)
     p.add_argument("--tick-interval", type=float, default=1.5)
