@@ -17,7 +17,10 @@ class MatchConfig:
     """单机遭遇战设置。"""
 
     faction: str = "苏俄"        # 苏俄 / 盟军 / ...
-    speed: int = 2               # 游戏速度（页面默认 6，太快反应不过来）
+    speed: int = 1               # 游戏速度（1=标准最慢档；2026-09-29 用户决定：
+                                 # 2 档实为 4x 墙钟加速, 我方出兵队列按墙钟补给,
+                                 # 加速放大了与引擎 AI 的出兵速度差——连续两局被
+                                 # rush 压垮后恢复标准速度。页面默认 6 勿用）
     credits: int = 10000
     difficulty: str = "简单"
     opponents: int = 1
