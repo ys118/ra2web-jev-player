@@ -229,7 +229,9 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     n_ref = bl.get(side["ref"], 0)
     q3s = qs.get(3, {}).get("s", 0)
     harv_target = min(4, T["harv_per_ref"] * n_ref)
-    harv_cost_gate = 1400 if n_harv < T["harv_min"] else 2800
+    # [第45局复盘] 第3辆门槛 2800→1500: 见底率69% 的根源是"现金到不了 2800→矿车
+    # 不补→收入上不去"死循环（矿车曲线全程仅 2 辆）; 第4辆仍 2800 防抢坦克线
+    harv_cost_gate = 1400 if n_harv < 2 else (1500 if n_harv == 2 else 2800)
     if q3s == 0 and n_ref >= 1 and n_harv < harv_target \
             and side["harv"] in available(s["av"], 3) and cred >= harv_cost_gate:
         acts.append({"act": "produce", "name": side["harv"], "qty": 1, "q": 3})

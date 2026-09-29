@@ -41,11 +41,11 @@ class Audit:
             self._mirror = open(path, "a", buffering=1, encoding="utf-8")
 
     def log(self, msg: str) -> None:
+        """[训练数据] 文本行日志只进全局 bot.log——run 镜像保持纯 jsonl
+        （第 45 局: 混写导致 events.jsonl 无法解析）。"""
         line = "[%s] %s" % (time.strftime("%H:%M:%S"), msg)
         with self._lock:
             self._bot.write(line + "\n")
-            if self._mirror:
-                self._mirror.write(line + "\n")
         if self.echo:
             print(line, flush=True)
 
