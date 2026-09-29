@@ -1,5 +1,26 @@
 {
   "_provenance": "由 review.py 复盘自动写入（白名单+限幅+Jev 置信>0.6 闸门）；可直接人工编辑",
-  "T": {},
-  "history": []
+  "T": {
+    "tank_cash1": 900,
+    "tank_cash2": 1200
+  },
+  "history": [
+    {
+      "game": 42,
+      "ts": "2026-09-29 15:58",
+      "reason": "Jev复盘: starve",
+      "changes": [
+        {
+          "key": "tank_cash1",
+          "from": 1000,
+          "to": 900
+        },
+        {
+          "key": "tank_cash2",
+          "from": 1400,
+          "to": 1200
+        }
+      ]
+    }
+  ]
 }

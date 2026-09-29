@@ -60,8 +60,12 @@ LEGACY = {
 # 复盘文件 → 局号（内容已人工核对; 编号跳位见 docs/LESSONS.md）
 REVIEW_MAP = {23: "0023", 24: "0024", 25: "0025", 26: "0026", 28: "0028", 29: "0029",
               33: "0030", 34: "0031", 36: "0032", 37: "0033", 38: "0034", 39: "0035",
-              40: "0036", 42: "0037", 43: "0038", 44: "0039"}
+              40: "0036", 42: "0037", 43: "0038", 44: "0039",
+              45: "0040", 47: "0041", 48: "0042"}
 REVIEW_DEGRADED = {29: "并发期数据, 与第 32 局事件混写"}
+# [训练数据管道] 第 45 局起每局独立 run 目录（含 decisions.jsonl SFT 元组）
+RUN_GAMES = {45: "run-20260929-132512", 46: "run-20260929-134527",
+             47: "run-20260929-152348", 48: "run-20260929-153835"}
 # 进程 stdout 日志 → 局号（尾行 report 与局表对账）
 RUNLOG_MAP = {23: "play-run.log", 24: "play24-run.log", 25: "play25-run.log",
               26: "play26-run.log", 28: "play28-run.log", 29: "play29-run.log",
@@ -173,6 +177,42 @@ def main():
             src = LOGS / RUNLOG_MAP[g]
             if src.exists():
                 shutil.copy(src, d / "run.log")
+        manifest.append(meta)
+
+    # 45+: run 目录层（完整 SFT 元组）
+    for g, run_name in RUN_GAMES.items():
+        run = LOGS / "games" / run_name
+        if not run.exists():
+            continue
+        d = OUT / ("game-%04d" % g)
+        d.mkdir(exist_ok=True)
+        evs = []
+        for line in open(run / "events.jsonl", encoding="utf-8"):
+            line = line.strip()
+            if line.startswith("{"):
+                evs.append(json.loads(line))
+        sm = seg_meta(evs)
+        n_sft = sum(1 for _ in open(run / "decisions.jsonl", encoding="utf-8")) \
+            if (run / "decisions.jsonl").exists() else 0
+        meta = {"game": g, "date": "2026-09-29", "era": "self-contained",
+                "result": sm.get("result"), "duration_s": sm.get("duration_s"),
+                "ticks": sm.get("ticks"), "tier": "sft-full" if n_sft else "partial",
+                "policy": sm.get("policy"), "events_count": len(evs),
+                "event_kinds": sm.get("event_kinds"), "sft_tuples": n_sft,
+                "note": "完整 (state,questions,answers) SFT 元组" if n_sft else "run 无终局报告"}
+        (d / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2),
+                                     encoding="utf-8")
+        (d / "events.jsonl").write_text(
+            "\n".join(json.dumps(e, ensure_ascii=False) for e in evs) + "\n",
+            encoding="utf-8")
+        if n_sft:
+            shutil.copy(run / "decisions.jsonl", d / "decisions.jsonl")
+        if (run / "report.json").exists():
+            shutil.copy(run / "report.json", d / "report.json")
+        if g in REVIEW_MAP:
+            src = LOGS / "games" / ("game-%s-review.md" % REVIEW_MAP[g])
+            if src.exists():
+                shutil.copy(src, d / "review.md")
         manifest.append(meta)
 
     # MANIFEST
