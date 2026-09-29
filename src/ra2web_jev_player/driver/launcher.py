@@ -89,38 +89,47 @@ class GameLauncher:
         return []
 
     def _set_slider(self, index: int, target: int, max_presses: int = 40) -> int:
-        """直设值 + 派发 input/change（可能被取整），再方向键逐档校准。
+        """只用真实方向键(CDP 可信事件)设滑条值。
 
-        两个坑（实测）：
-        - 游戏在 input 事件后重渲染滑条节点 → 每步必须重新查询节点；
-        - 不能用 HTMLInputElement.prototype 的 value 描述符 setter——页面节点
-          可能带原生环境之外的 brand，触发 Illegal invocation；朴素 `s.value=v`
-          走元素自己的原型链，永远合法。
+        第 51 局事故定谳: 旧法"s.value 直设 + 派发合成 input/change"会让 DOM
+        回读等于目标值, 但 React/引擎状态从未收到可信事件——校准循环见
+        delta==0 一次键都不按即返回。前 50 局速度滑条从未生效, 全程跑页面
+        默认 6 档（用户 2026-09-29 亲眼确认开局停在 6 档）。
+
+        现流程: 聚焦 → ArrowLeft 压底(按键前的 DOM 值不可信, 先洗到最小) →
+        ArrowRight 步进到目标。真实按键触发浏览器原生步进 + 可信 input 事件,
+        应用状态必然跟随。按键若推不动, 回读到不了目标, 调用方按"设不到"
+        抛 LaunchError——宁可失败不可假成功。
         """
-        self.b.eval(
-            "(function(){function q(){return document.querySelectorAll("
-            "'input[type=range]')[%d];}var s=q();if(!s)return 'no-slider';"
-            "s.value='%d';"
-            "try{s.dispatchEvent(new Event('input',{bubbles:true}));}catch(e){}"
-            "s=q();try{if(s)s.dispatchEvent(new Event('change',{bubbles:true}));}catch(e){}"
-            "return (q()||{}).value;})()" % (index, target))
-        time.sleep(0.4)
-        prev = None
-        for _ in range(max_presses):
+        def cur():
             vals = self._slider_values()
-            if len(vals) <= index:
+            return vals[index] if len(vals) > index else None
+
+        self.b.eval("document.querySelectorAll('input[type=range]')[%d].focus()" % index)
+        time.sleep(0.2)
+        prev = None
+        for _ in range(12):                      # 压底: 量程 1-6, 12 次必到底
+            v = cur()
+            if v is None:
+                return -1
+            if prev is not None and v == prev:
                 break
-            delta = int(round(vals[index] - target))
-            if delta == 0:
-                return vals[index]
-            if prev is not None and vals[index] == prev:
-                break                     # 方向键推不动了
-            prev = vals[index]
-            self.b.eval("document.querySelectorAll('input[type=range]')[%d].focus()" % index)
-            self.b.press("ArrowLeft" if delta > 0 else "ArrowRight")
-            time.sleep(0.15)
-        vals = self._slider_values()
-        return vals[index] if len(vals) > index else -1
+            prev = v
+            self.b.press("ArrowLeft")
+            time.sleep(0.12)
+        prev = None
+        for _ in range(min(max_presses, 12)):    # 步进到目标
+            v = cur()
+            if v is None:
+                return -1
+            if v == target:
+                return v
+            if prev is not None and v == prev:
+                break                            # 推不动了(到顶或按键失效)
+            prev = v
+            self.b.press("ArrowRight")
+            time.sleep(0.12)
+        return cur()
 
     # ---------- 主流程 ----------
 
