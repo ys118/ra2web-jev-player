@@ -397,3 +397,12 @@
   48 胜。期间修复: 矿车门槛 1500、坦克让路 harv_reserve、headless 迁移（eval 挂死
   根治）、阵营选择竞态、复盘 HOLD 行排除。**训练数据: 4 局 sft-full（共 2948 条
   完整决策元组）+ dataset/ 全量重建（48 局）**。
+
+---
+
+## Session 交接（2026-09-29）
+
+本 session 完成: 第 42-48 局实战（A++ 打法成型→八胜）；学习闭环全自动运转
+（含自动调参首次放行 G48）；训练数据管道（SFT 元组 G45+，dataset 48 局重建）；
+headless 迁移与浏览器 daemon 恢复流程。下一 session 从 `docs/HANDOFF.md` 冷启动，
+主任务: 继续逐局实战训练（每局停下汇报），持续积累 dataset。
