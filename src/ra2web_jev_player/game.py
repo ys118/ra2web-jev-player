@@ -37,7 +37,8 @@ class BattleSession:
         self.prev_mine: dict = {}     # 战斗记录: 上 tick 我方机动单位 {id: name}
         self.prev_enemy: dict = {}    # 战斗记录: 上 tick 可见敌战斗单位
         self._budget_logged = False   # 预算耗尽只报一次（第 27 局刷屏教训）
-        self._q_cd = {0: 0.0, 1: 0.0, 2: 0.0, 3: 0.0}  # 生产指令冷却（第34局: 队列状态
+        self._q_cd = {}               # 生产指令冷却 {(队列号, 建筑名): 时刻}（第43局:
+                                      #   队列号级冷却被不同名建筑轮流插队绕过）
         # 滞后一个 tick, 重发=同一建筑重复排队, 9 座精炼厂一秒排满烧掉全部现金）
 
     # ---------- 生命周期 ----------
@@ -230,15 +231,19 @@ class BattleSession:
                 kind = a["act"]
                 if kind == "produce":
                     q = a.get("q")
+                    name = a.get("name", "")
+                    # [第43局] 冷却键=队列号+建筑名: q0 级冷却会被"同队列不同名建筑
+                    # 轮流插队"绕过（NAHAND 十连发烧掉全部现金, 73% 见底）;
+                    # 游戏静默拒收时队列恒空, 6s 一过就重发死循环 → 建筑名级 25s
+                    cd_key = (q, name) if q is not None else name
+                    if time.time() - self._q_cd.get(cd_key, 0.0) < 25.0:
+                        self.audit.event({"kind": "produce_skip", "q": q,
+                                          "name": name})
+                        continue
                     if q is not None:
-                        if time.time() - self._q_cd.get(q, 0.0) < 6.0:
-                            # 锁步队列状态滞后, 6s 内重发=同一建筑重复排队（第 34 局）
-                            self.audit.event({"kind": "produce_skip", "q": q,
-                                              "name": a.get("name")})
-                            continue
-                        self._q_cd[q] = time.time()
+                        self._q_cd[cd_key] = time.time()
                         self._q_used[q] = True
-                    self.c.produce(a["name"], a.get("qty", 1))
+                    self.c.produce(name, a.get("qty", 1))
                 elif kind == "attack_move":
                     self.c.attack_move(a["ids"], a["x"], a["y"])
                 elif kind == "move":
