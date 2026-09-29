@@ -42,6 +42,10 @@ class Browser:
         self._env = dict(os.environ,
                          AGENT_BROWSER_SESSION=self.cfg.session,
                          AGENT_BROWSER_RESTORE=self.cfg.restore,
+                         # [第47局] headless 显式覆盖全局 config 的 "headed": true——
+                         # 有头窗口在本机会被持续最小化/还原折腾, eval 间歇挂死;
+                         # 无头页面默认 visible, 长局托管最可靠（ENGINEERING-NOTES §3.1）
+                         AGENT_BROWSER_HEADED="false",
                          AGENT_BROWSER_IDLE_TIMEOUT_MS="0",
                          AGENT_BROWSER_DEFAULT_TIMEOUT=str(self.cfg.default_timeout_ms),
                          # headless 页面默认会被 Chrome 做 setTimeout 节流(~1s/次)，
