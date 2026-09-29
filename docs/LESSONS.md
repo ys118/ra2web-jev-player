@@ -345,3 +345,10 @@
   HARASS DRON x2 生效; 敌基地已定位; 0 错误。兵力 7000 vs 13600 劣势下靠
   attack 50%+骚扰+冷却省下的现金翻盘——经济健康直接转化为战斗力。
   战绩: 近 10 完整对局 6 胜 4 负。冷却修复是目前单笔收益最大的 bug 修复。
+- **训练数据管道落地（2026-09-29, 用户需求: 基模后训练数据资产）**:
+  每局独立 run 目录 logs/games/run-<时间戳>/: ① decisions.jsonl——完整 Jev 决策
+  元组 (state 含战场文本/ doctrine/ faction/ decision_request + questions 五问 +
+  answers 含置信度, SFT 核心); ② events.jsonl 全事件镜像（决策/动作/损失/击杀/
+  观测快照——RL 轨迹）; ③ report.json 终局战报（奖励信号）。复盘 _slice_events
+  优先读 run 目录（不再依赖全局 jsonl 切片）。规则已写入 AGENTS.md（禁删 logs/
+  数据、格式变更先汇报）。
