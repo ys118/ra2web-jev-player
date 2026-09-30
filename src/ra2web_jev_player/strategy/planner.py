@@ -475,41 +475,52 @@ def update_enemy_base(s: dict, mem: BattleMemory) -> bool:
 
 
 def scouting(s: dict, home, mem: BattleMemory):
-    """军犬群持续巡逻 + 专职侦察车多路标持续探图。
+    """军犬单骑侦察 + 专职侦察车网格探图。
 
-    第 25/26/31/37 局迭代: 侦察车豁免危机召回与集结令; 多路标轮转 150s 节流;
-    [第37局, Jev 0.88] 敌影推定优先——首个敌军接触方向的地图边缘;
-    [第37局] 阵亡即重派（不受节流）+ 双侦察车（坦克池≥4 时第二辆跑另一路标）。
-    [第49局] ALARM 反推: 新鲜 ALARM(≤150 游戏秒)破节流即时派车沿来向反推。
-    [第55局] 军犬从"一次性首派"重构为持续巡逻循环（用户要求: 快速探查全地图
-    直到定位敌基地）——60 游戏秒一轮×最多 2 犬, 首犬走最新线索, 其余就近扫
-    最久未访路标（10 点全图网格）, 残血留守, 撤退/补员犬自动回归巡逻。
+    [第62局用户逐条指示] 军犬: 只养 1 只, 任务=探图找敌基地; 一律 move 指令
+    (中途绝不主动攻击); 遇敌 8 格内立即规避撤回家, 脱险 14 格再出发; 探到敌基地
+    立即撤回; 阵亡由补员补 1 只。路标=割草机网格(行距 18=视野 9×2 无缝)。
+    坦克侦察车: 多路标轮转 150s 节流 + ALARM 反推破节流([第49局]) + 双车([第37局])。
     """
     side = get_side(s)
     qs = queues_by_type(s["queues"])
     av2 = available(s["av"], 2)
     last_edge = contact_edge(s, home, mem.last_alarm_pos)  # [第49局] ALARM 来向反推
+    # [第62局用户指示] 只养 1 只侦察犬(不需要太多), 阵亡再补 1 只
     if side["bar"] in [u["n"] for u in s["mine"] if u["o"] == 2]             and not mem.dogs_queued and "ADOG" in av2 and qs.get(2, {}).get("s", 0) == 0:
         mem.dogs_queued = True
         # 返回必须是动作列表（第40局: 单 dict 被 _exec 迭代成键字符串 → 'str' object
         # has no attribute 'get'）
-        return ([{"act": "produce", "name": "ADOG", "qty": 3}],
-                "t=%d SCOUT dogs x3" % s["t"])
-    # [第42局①] 军犬群持续探图: 存活军犬 <2 且兵营可造时补 2 只——
-    # 第 41 局单首发次后全灭, 镜像/敌影双盲区拖到 2039s 才定位
+        return ([{"act": "produce", "name": "ADOG", "qty": 1}],
+                "t=%d SCOUT dog x1" % s["t"])
     dogs_alive = [u for u in s["mine"] if u["n"] in SCOUT_DOGS]
     if side["bar"] in [u["n"] for u in s["mine"] if u["o"] == 2] \
-            and len(dogs_alive) < 2 and "ADOG" in av2 and qs.get(2, {}).get("s", 0) == 0 \
+            and len(dogs_alive) < 1 and "ADOG" in av2 and qs.get(2, {}).get("s", 0) == 0 \
             and time.time() - mem.last_dog_replenish > 60:
         mem.last_dog_replenish = time.time()
-        return ([{"act": "produce", "name": "ADOG", "qty": 2}],
-                "t=%d SCOUT dogs replenish (alive %d)" % (s["t"], len(dogs_alive)))
-    # [第31局→第55局重构→第57局网格→第60局任务制] 军犬持续巡逻:
-    # 用户要求"快速探查全地图直到定位敌基地"。割草机网格(行距 18=犬视野 9×2 无缝,
-    # 22 点/200x208 图) + [第60局用户反馈] 全部健康犬都出动(原"60gs 一轮×最多 2 犬"
-    # 让多产犬永远站基地待命——太蠢), 任务制: 每犬一个目标, 到达(≤6格)/超时(240gs)
-    # 才换下一目标, 在途不打断; 首犬线索优先(首触射线>ALARM 反推, 240gs 内去过让位);
-    # 残血(<30%)留守, 定位即停, 全图扫完自动重扫。
+        return ([{"act": "produce", "name": "ADOG", "qty": 1}],
+                "t=%d SCOUT dog replenish x1 (alive %d)" % (s["t"], len(dogs_alive)))
+    # [第62局用户逐条指示] 军犬单骑侦察新规:
+    #  只 1 犬; 任务=探图找敌基地, 中途绝不主动攻击(一律 move 指令, 非 attack_move);
+    #  遇敌(8 格内)立即规避撤回家, 脱险(14 格无敌)再出发; 探到敌基地立即撤回;
+    #  阵亡由补员补 1 只再出发。割草机网格(行距 18=视野 9×2 无缝)仍是路标来源。
+    if mem.enemy_base and mem.dog_task:
+        alive = {u["id"]: u for u in s["mine"] if u["n"] in SCOUT_DOGS}
+        rec, done = [], False
+        for kid, task in list(mem.dog_task.items()):
+            if kid not in alive:
+                del mem.dog_task[kid]
+                continue
+            if task.get("mode") != "retreat":
+                rec.append({"act": "move", "ids": [kid], "x": home[0], "y": home[1]})
+                mem.dog_task[kid] = {"wp": (home[0], home[1]), "t": s["t"], "mode": "retreat"}
+            elif math.hypot(alive[kid]["tl"][0] - home[0],
+                            alive[kid]["tl"][1] - home[1]) <= 12:
+                del mem.dog_task[kid]            # 已到家
+                done = True
+        if rec:
+            return rec, "t=%d SCOUT dog 探到敌基地→立即撤回" % s["t"]
+        return None, None
     if home and not mem.enemy_base:
         mx, my = s["map"]["width"], s["map"]["height"]
         waypoints = []
@@ -517,30 +528,42 @@ def scouting(s: dict, home, mem: BattleMemory):
             waypoints += [[12, _y], [mx - 12, _y]]
         acts, logs = [], []
 
-        def dispatch(d, target, tag):
-            mem.scout_visit[tuple(target)] = s["t"]
-            mem.dog_task[d["id"]] = {"wp": tuple(target), "t": s["t"]}
-            acts.append({"act": "attack_move", "ids": [d["id"]], "x": target[0], "y": target[1]})
-            logs.append("t=%d %s #%s->%s" % (s["t"], tag, d["id"], target))
+        def dispatch(d, target, tag, evade=False):
+            mem.dog_task[d["id"]] = {"wp": tuple(target), "t": s["t"],
+                                     "mode": "evade" if evade else "go"}
+            acts.append({"act": "move", "ids": [d["id"]], "x": target[0], "y": target[1]})
+            logs.append("t=%d %s #%s->%s%s" % (s["t"], tag, d["id"], target,
+                                               " (遇敌规避)" if evade else ""))
 
         dogs_ok = [u for u in s["mine"] if u["n"] in SCOUT_DOGS
                    and u["hp"] >= 0.30 * (u["mhp"] or 1)]
         alive_ids = {u["id"] for u in dogs_ok}
         for kid in [k for k in mem.dog_task if k not in alive_ids]:
-            del mem.dog_task[kid]                        # 阵亡犬任务清理
+            del mem.dog_task[kid]                        # 阵亡犬任务清理(补员自动再出发)
         if dogs_ok:
             lead = shadow_target(s, home, mem) or last_edge
             lead_fresh = lead and (s["t"] - mem.scout_visit.get(tuple(lead), -10 ** 9) > 240)
             used = set()
-            for i, d in enumerate(dogs_ok):              # [第60局] 全员出动
+            for i, d in enumerate(dogs_ok):
+                near = [h for h in s["hostile"]
+                        if math.hypot(h["tl"][0] - d["tl"][0],
+                                      h["tl"][1] - d["tl"][1]) <= 8]
                 task = mem.dog_task.get(d["id"])
-                if task:
+                fleeing = task and task.get("mode") == "evade"
+                if fleeing and any(math.hypot(h["tl"][0] - d["tl"][0],
+                                              h["tl"][1] - d["tl"][1]) <= 14
+                                   for h in s["hostile"]):
+                    continue                             # 规避中, 敌仍在 14 格内: 继续撤
+                if near:                                 # [用户指示] 遇敌立即规避
+                    dispatch(d, [home[0], home[1]], "SCOUT dog 遭遇规避", evade=True)
+                    continue
+                if task and not fleeing:
                     dist = math.hypot(d["tl"][0] - task["wp"][0],
                                       d["tl"][1] - task["wp"][1])
                     if dist > 6 and s["t"] - task["t"] <= 240:
-                        used.add(task["wp"])             # 在途: 不打断, 占住目标
+                        used.add(task["wp"])             # 在途: 不打断
                         continue
-                    mem.scout_visit[task["wp"]] = s["t"]  # 到达/超时: 记访问换下一点
+                    mem.scout_visit[task["wp"]] = s["t"]  # 到达/超时: 记访问
                 if i == 0 and lead and lead_fresh:
                     tgt, tag = list(lead), "SCOUT dog*"
                 else:
@@ -700,13 +723,10 @@ def assign_squads(s: dict, home, mem: BattleMemory) -> dict:
         sq["guard"] = [u["id"] for u in tanks[:T["keep_home"]]]
         tanks = tanks[T["keep_home"]:]
     sq["assault"] = [u["id"] for u in tanks]
-    # HOLD: 步兵≥8 时分一半去伏击位, 其余进主攻/预备
-    n_hold = (len(inf) // 2) if len(inf) >= 8 else 0
-    sq["hold"] = [u["id"] for u in inf[:n_hold]]
-    rest = inf[n_hold:]
-    n_res = min(4, max(0, len(rest) - 4))     # 保底 4 人给 assault
-    sq["reserve"] = [u["id"] for u in rest[:n_res]]
-    sq["assault"] += [u["id"] for u in rest[n_res:]]
+    # HOLD: [第62局用户指示] 步兵全员驻家守塔(伏击位在家门两侧), 不再随突击组送死
+    # ——坦克进攻, 步兵防守; 原先步兵大半进 assault 远征=给 rush 送经验
+    sq["hold"] = [u["id"] for u in inf]
+    sq["reserve"] = []
     return sq
 
 
