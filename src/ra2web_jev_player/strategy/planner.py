@@ -13,8 +13,8 @@ from __future__ import annotations
 import math
 import time
 
-from .doctrine import (AIR_UNITS, CONF, HARVEST, MCV_CODES, SCOUT_DOGS,
-                       THREAT_FORCE_DEFEND, T, get_side)
+from .doctrine import (AIR_UNITS, CONF, DEF_BUILDINGS, HARVEST, MCV_CODES,
+                       SCOUT_DOGS, THREAT_FORCE_DEFEND, T, get_side)
 from .state import (all_combat, available, buildings, combat_tanks, nm,
                     pick_target, queues_by_type, ucost)
 
@@ -137,7 +137,12 @@ def crisis_response(s: dict, home, alarm: dict, mem: BattleMemory,
                  and u["n"] not in ("SENGINEER",)
                  and u["id"] != mem.scout_id          # 侦察车不被危机召回（第34局:
                                                       #   83次ALARM把侦察拽回家=敌基地定位失败）
-                 and u["hp"] >= T["retreat_hp"] * (u["mhp"] or 1)]
+                 and u["hp"] >= T["retreat_hp"] * (u["mhp"] or 1)
+                 and not (mem.enemy_base and math.hypot(
+                     u["tl"][0] - mem.enemy_base[0],
+                     u["tl"][1] - mem.enemy_base[1]) <= 18)]
+                 # [第57局换家, 用户观察] 在敌基地 18 格内的前线部队不被召回——
+                 # 敌 14 单位压我家时, 主力继续捅他基地逼其回防, 缩回家=两头空
     if not defenders or time.time() - mem.last_defend_order <= 8:
         return [], None
     d_home = math.hypot(alarm["pos"][0] - home[0], alarm["pos"][1] - home[1]) if home else 0.0
@@ -713,7 +718,30 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         acts.append({"act": "attack_move", "ids": ids, "x": x, "y": y})
         logs.append("%s x%d -> (%d,%d)" % (role, len(ids), x, y))
 
-    # RAID=骚扰组 [第31局A++]: 优先咬可见的最近敌矿车(断经济), 无矿车视野再打基地
+    def order_obj(role, ids, tid, x, y, throttle):
+        """[第57局] 显式攻击指定目标(建筑/载具 id), 走 order type 2——
+        attack_move 会被防御塔吸火, 显式目标让坦克只打该打的东西。"""
+        ids = list(ids or [])
+        if not ids or not tid:
+            return
+        wp = mem.squad_wp.setdefault(role, [None, 0.0])
+        if wp[0] == (tid, x, y) and wp[1] > time.time():
+            return
+        wp[0] = (tid, x, y)
+        wp[1] = time.time() + throttle
+        acts.append({"act": "attack_obj", "ids": ids, "tid": tid})
+        logs.append("%s x%d -> 攻击目标#%s@(%d,%d)" % (role, len(ids), tid, x, y))
+
+    def squad_ref(ids):
+        """编组平均位置(选最近目标用, 减少穿过塔区的路程)。"""
+        idset = set(ids or [])
+        pts = [u["tl"] for u in s["mine"] if u["id"] in idset]
+        if not pts:
+            return None
+        return (sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts))
+
+    # RAID=骚扰组 [第31局A++]: 优先咬可见的最近敌矿车(断经济) — [第57局] 无矿车
+    # 视野时咬最近的敌载具(机器人打不了建筑, 塔区站桩=白给), 再无则随突击组行动
     if mem.enemy_base and sq["raid"]:
         harv = [h for h in s["hostile"] if h["n"] in HARVEST]
         if harv and home:
@@ -721,11 +749,27 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
                                                    h["tl"][1] - home[1]))
             order("raid", sq["raid"], h["tl"][0], h["tl"][1], 20)
         else:
-            order("raid", sq["raid"], mem.enemy_base[0], mem.enemy_base[1], 30)
-    # ASSAULT: 主攻方向
+            veh = [h for h in s["hostile"] if h["o"] == 7]
+            ref = squad_ref(sq["raid"])
+            if veh and ref:
+                v = min(veh, key=lambda h: math.hypot(h["tl"][0] - ref[0],
+                                                      h["tl"][1] - ref[1]))
+                order("raid", sq["raid"], v["tl"][0], v["tl"][1], 20)
+            else:
+                order("raid", sq["raid"], mem.enemy_base[0], mem.enemy_base[1], 30)
+    # ASSAULT: 主攻方向 — [第57局用户拍板] 打经济不打塔: 显式攻击视野内最近的
+    # 无攻击力敌建筑(order type 2), 绝不攻击防御塔; 无可见经济建筑才退回基地中心
     if stance in ("attack", "rush") or mem.enemy_base:
         if mem.enemy_base:
-            order("assault", sq["assault"], mem.enemy_base[0], mem.enemy_base[1], 12)
+            blds = [h for h in s["hostile"] if h["o"] == 2
+                    and h["n"] not in DEF_BUILDINGS]
+            ref = squad_ref(sq["assault"])
+            if blds and ref:
+                b = min(blds, key=lambda h: math.hypot(h["tl"][0] - ref[0],
+                                                       h["tl"][1] - ref[1]))
+                order_obj("assault", sq["assault"], b["id"], b["tl"][0], b["tl"][1], 12)
+            else:
+                order("assault", sq["assault"], mem.enemy_base[0], mem.enemy_base[1], 12)
         else:
             tgt_u = pick_target(s, home)
             if tgt_u:
