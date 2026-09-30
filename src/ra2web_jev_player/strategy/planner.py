@@ -325,7 +325,10 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     gdef_cap = 2
     if side["bar"] in bl and bl.get(side["gdef"], 0) < gdef_cap \
             and qs.get(1, {}).get("s", 0) == 0 \
-            and side["gdef"] in available(s["av"], 1) and cred >= 1500:
+            and side["gdef"] in available(s["av"], 1) and cred >= 1500 \
+            and (pw - drain) >= 40:
+        # [第64局] 余量<40 不上塔: NALASR 吃电, 缺电=塔全瞎(rush 到来瞬间
+        # power_low=True 的活局实证), 电厂优先, 塔晚 ~25s 但上线即有效
         acts.append({"act": "produce", "name": side["gdef"], "qty": 1, "q": 1})
         logs.append("t=%d DEFLINE %s (have %d)"
                     % (s["t"], side["gdef"], bl.get(side["gdef"], 0)))
@@ -721,7 +724,11 @@ def forward_post(s: dict, home, mem: BattleMemory) -> list:
 
 
 def _hold_posts(s: dict, home, mem: BattleMemory) -> list:
-    """两个伏击位：以基地为圆心、敌方向 ±55°、半径 14 格（卡路口/斜向布防）。"""
+    """两个伏击位：以基地为圆心、敌方向 ±55°。
+
+    [第64局] 半径 14→8: 伏击位贴塔线(哨戒炮射程内), 原先前出 14-20 格正好卡在
+    敌 rush 行军线上——14 个动员兵被逐个点名(活局损失曲线实证)。
+    """
     mx, my = s["map"]["width"], s["map"]["height"]
     if mem.enemy_base:
         ang = math.atan2(mem.enemy_base[1] - home[1], mem.enemy_base[0] - home[0])
@@ -731,8 +738,8 @@ def _hold_posts(s: dict, home, mem: BattleMemory) -> list:
         ang = math.atan2(my / 2.0 - home[1], mx / 2.0 - home[0])
     posts = []
     for da in (-0.96, 0.96):
-        x = int(min(max(home[0] + 14 * math.cos(ang + da), 4), mx - 4))
-        y = int(min(max(home[1] + 14 * math.sin(ang + da), 4), my - 4))
+        x = int(min(max(home[0] + 8 * math.cos(ang + da), 4), mx - 4))
+        y = int(min(max(home[1] + 8 * math.sin(ang + da), 4), my - 4))
         posts.append((x, y))
     return posts
 
