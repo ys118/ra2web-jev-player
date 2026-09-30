@@ -375,6 +375,18 @@ def build_gate(s: dict, cost: int, mem: BattleMemory | None = None) -> bool:
     return s["me"]["credits"] >= cost + T["tank_cash1"]
 
 
+def opening_next_code(s: dict):
+    """开工序列第一个未建成项（建造序列真相源）。[第58局] 工厂前置位保护用:
+    该项为战工时, Jev 不得往 q0 建造队列插单——第 58 局 Jev 在战工前插 4 栋建筑
+    (二矿/电厂/三矿/兵营), NAWEAP 被推到 398 → 首坦克 488 出窗口。"""
+    side = get_side(s)
+    bl0 = buildings(s["mine"])
+    for want in side["opening"]:
+        if bl0.get(want, 0) == 0:
+            return want
+    return None
+
+
 def opening_build(s: dict, mem: BattleMemory):
     """开局确定性序列：电厂→精炼厂→兵营→战车工厂；工厂后立即补二矿（第 20 局复盘）；
     t>rush_t1 且资金 >4500 补第二工厂。[第31局 Route A] 速攻期(t<rush_t1)精炼厂
@@ -817,20 +829,26 @@ def apply_jev(s: dict, ans: dict, stance: str, mem: BattleMemory,
     # [第32局] 同类建筑 ≥2 不再买——jev 曾连续买 30 座电厂 12 座兵营）
     b = (ans.get("build") or {}).get("choice")
     if b and b != "hold" and not used.get(0) \
-            and qs.get(0, {}).get("s") == 0 and b in available(s["av"], 0):
-        n_ref = len([u for u in s["mine"] if u["n"] == side["ref"]])
-        n_bar = len([u for u in s["mine"] if u["n"] == side["bar"]])
-        bl_now = buildings(s["mine"])
-        if not (b == side["ref"] and n_ref >= T["ref_cap"]) \
-                and not (b == side["bar"] and n_bar >= 2) \
-                and not (b != side["ref"] and bl_now.get(b, 0) >= 2):
-            if build_gate(s, ucost(b), mem):
-                acts.append({"act": "produce", "name": b, "qty": 1, "q": 0})
-                logs.append("t=%d jev BUILD %s (conf %.2f)"
-                            % (s["t"], b, (ans.get("build") or {}).get("confidence", -1)))
-            else:
-                logs.append("t=%d jev BUILD %s HOLD (资金闸门: 坦克优先, cash=%d)"
-                            % (s["t"], b, s["me"]["credits"]))
+            and qs.get(0, {}).get("s", 0) == 0 and b in available(s["av"], 0):
+        # [第58局] 工厂前置位保护: 开工序列走到战工位次时 Jev 不得插单建筑,
+        # 让 opening_build 的战工单第一时间出去(首坦克时序保障)
+        if opening_next_code(s) == side["weap"]:
+            logs.append("t=%d jev BUILD %s HOLD (工厂前置位保护)"
+                        % (s["t"], b))
+        else:
+            n_ref = len([u for u in s["mine"] if u["n"] == side["ref"]])
+            n_bar = len([u for u in s["mine"] if u["n"] == side["bar"]])
+            bl_now = buildings(s["mine"])
+            if not (b == side["ref"] and n_ref >= T["ref_cap"]) \
+                    and not (b == side["bar"] and n_bar >= 2) \
+                    and not (b != side["ref"] and bl_now.get(b, 0) >= 2):
+                if build_gate(s, ucost(b), mem):
+                    acts.append({"act": "produce", "name": b, "qty": 1, "q": 0})
+                    logs.append("t=%d jev BUILD %s (conf %.2f)"
+                                % (s["t"], b, (ans.get("build") or {}).get("confidence", -1)))
+                else:
+                    logs.append("t=%d jev BUILD %s HOLD (资金闸门: 坦克优先, cash=%d)"
+                                % (s["t"], b, s["me"]["credits"]))
     # 步兵 —— 坦克预算保护（第 24 局复盘：jev 每 tick 产 E2 共 62 个，现金见底率 71%，
     # 坦克峰值仅 5。规则：有战车工厂后，步兵生产不得动用坦克资金线（≥tank_cash1 才许造）；
     # 动员兵 ≥30 停产（性价比之王也会过饱和）；侦察犬不受限（便宜且是眼睛）。

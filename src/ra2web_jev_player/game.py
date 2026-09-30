@@ -269,7 +269,8 @@ class BattleSession:
                         self.c.deploy(ids)
                         self.audit.event({"kind": "action", "what": "deploy", "ids": ids})
                 self.audit.event({"kind": "action", "what": kind,
-                                  "name": a.get("name"), "qty": a.get("qty")})
+                                  "name": a.get("name"), "qty": a.get("qty"),
+                                  "tid": a.get("tid")})
                 executed = True
             except Exception as e:
                 self.audit.log("exec ERR %s %s" % (a.get("act"), str(e)[:120]))
