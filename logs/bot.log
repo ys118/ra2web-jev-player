@@ -36447,3 +36447,120 @@
 [17:24:26] t=577 ALARM 哨戒炮被攻击 -> TURTLE (1 v 5, 守塔阵不打野战)
 [17:24:45] t=601 tick#300 credits=0 stance=defend | jev 300 decisions p50=710ms
 [17:25:39] REVIEW game#51 defeat → game-0051-review.md | changes=0
+[17:27:59] 进局中(全自动)...
+[17:28:27] === ra2web-jev-player start (tick=1.5s, max_decisions=1200) ===
+[17:28:27] t=3 DEPLOY mcv
+[17:28:28] t=5 POWER plant (reserve 0)
+[17:28:29] t=5 jev STANCE defend->develop (conf 0.93)
+[17:28:46] t=29 OPENING BUILD NAREFN
+[17:29:03] t=51 tick#25 credits=8871 stance=develop | jev 25 decisions p50=704ms
+[17:29:41] t=101 tick#50 credits=7661 stance=develop | jev 50 decisions p50=705ms
+[17:29:54] t=119 OPENING BUILD NAHAND
+[17:30:12] t=143 DEFLINE NALASR (have 0)
+[17:30:12] t=143 OPENING BUILD NAWEAP
+[17:30:13] t=143 jev INF DOG (conf 0.30)
+[17:30:19] t=151 tick#75 credits=6300 stance=develop | jev 75 decisions p50=708ms
+[17:30:19] t=153 SCOUT dog #1058->[12, 120]
+[17:30:31] t=169 ALARM 敌军逼近 -> counter 1 vs 1 -> [72, 111]
+[17:30:31] t=169 DEFLINE NALASR (have 1)
+[17:30:33] t=171 DEFLINE NALASR (have 1)
+[17:30:34] t=173 DEFLINE NALASR (have 1)
+[17:30:36] t=175 DEFLINE NALASR (have 1)
+[17:30:37] t=177 DEFLINE NALASR (have 1)
+[17:30:43] t=183 jev INF DOG (conf 0.21)
+[17:30:49] t=193 SCOUT dog #1069->[12, 102]
+[17:30:50] t=193 jev INF DOG (conf 0.23)
+[17:30:52] t=195 jev INF DOG (conf 0.26)
+[17:30:55] t=199 jev INF DOG (conf 0.23)
+[17:30:56] t=201 tick#100 credits=4101 stance=defend | jev 100 decisions p50=708ms
+[17:30:58] t=203 jev INF DOG (conf 0.22)
+[17:31:05] t=213 jev INF DOG (conf 0.24)
+[17:31:13] t=223 jev INF DOG (conf 0.23)
+[17:31:19] t=233 SCOUT dog #1084->[12, 138]
+[17:31:20] t=233 jev INF DOG (conf 0.31)
+[17:31:21] t=235 ECON harv#2
+[17:31:21] t=235 TANK HTNK x3
+[17:31:22] t=235 jev BUILD NAPOWR (conf 0.46)
+[17:31:22] t=235 jev INF DOG (conf 0.24)
+[17:31:22] t=237 INSURE AA building
+[17:31:23] t=237 jev INF DOG (conf 0.25)
+[17:31:25] t=239 jev INF DOG (conf 0.25)
+[17:31:28] t=243 jev INF DOG (conf 0.30)
+[17:31:29] t=245 jev INF DOG (conf 0.26)
+[17:31:31] t=247 jev INF DOG (conf 0.24)
+[17:31:32] t=249 jev INF DOG (conf 0.21)
+[17:31:34] t=251 jev INF DOG (conf 0.25)
+[17:31:34] t=251 tick#125 credits=3275 stance=defend | jev 125 decisions p50=708ms
+[17:31:35] t=253 jev INF DOG (conf 0.29)
+[17:31:37] t=255 jev INF DOG (conf 0.25)
+[17:31:38] t=257 jev INF DOG (conf 0.22)
+[17:31:40] t=259 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2660)
+[17:31:41] t=261 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2505)
+[17:31:43] t=263 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2351)
+[17:31:44] t=265 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2195)
+[17:31:45] t=267 SCOUT dog #1098->[12, 156]
+[17:31:46] t=267 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2091)
+[17:31:47] t=269 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=1991)
+[17:31:49] t=271 jev BUILD NAHAND (conf 0.21)
+[17:32:11] t=301 tick#150 credits=515 stance=defend | jev 150 decisions p50=710ms
+[17:32:24] t=319 ALARM 敌军逼近 -> counter 4 vs 3 -> [82, 110]
+[17:32:28] t=325 RETREAT DOG(25%)
+[17:32:33] t=331 ALARM 单位损失 -> TURTLE (3 v 8, 守塔阵不打野战)
+[17:32:34] t=331 jev INF DOG (conf 0.32)
+[17:32:42] t=343 ALARM 敌军逼近 -> TURTLE (3 v 11, 守塔阵不打野战)
+[17:32:44] t=345 SCOUT dog #1147->[12, 84]
+[17:32:44] t=345 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:32:45] t=347 SCOUT #1156->[185, 117]
+[17:32:46] t=347 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:32:47] t=349 SCOUT* #1156->[185, 117]
+[17:32:47] t=349 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:32:49] t=351 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:32:49] t=351 tick#175 credits=636 stance=defend | jev 175 decisions p50=711ms
+[17:32:50] t=353 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:32:51] t=355 ALARM 苏联矿石精炼场被攻击 -> TURTLE (4 v 16, 守塔阵不打野战)
+[17:32:52] t=355 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:32:53] t=357 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:32:54] t=359 RETREAT DOG(25%)
+[17:32:55] t=359 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:32:56] t=361 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:32:58] t=363 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:32:59] t=365 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:33:00] t=367 ALARM 苏联矿石精炼场被攻击 -> TURTLE (3 v 17, 守塔阵不打野战)
+[17:33:01] t=367 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:33:02] t=369 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:33:04] t=371 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[17:33:09] t=379 ALARM 磁能反应炉被攻击 -> TURTLE (4 v 17, 守塔阵不打野战)
+[17:33:09] t=379 OPENING BUILD NAREFN
+[17:33:11] t=381 jev INF DOG (conf 0.37)
+[17:33:14] t=385 RETREAT E2(6%)
+[17:33:18] t=391 ALARM 磁能反应炉被攻击 -> TURTLE (3 v 16, 守塔阵不打野战)
+[17:33:24] t=399 RETREAT HTNK(38%)
+[17:33:26] t=401 RETREAT E2(36%)
+[17:33:26] t=401 MOVE assault x1 -> (73,120)
+[17:33:26] t=401 tick#200 credits=0 stance=defend | jev 200 decisions p50=710ms
+[17:33:27] t=403 ALARM 苏联建造场被攻击 -> TURTLE (3 v 15, 守塔阵不打野战)
+[17:33:29] t=405 RETREAT DOG(6%)
+[17:33:32] t=409 SCOUT* #1156->[88, 189]
+[17:33:36] t=415 ALARM 苏联战车工厂被攻击 -> TURTLE (2 v 15, 守塔阵不打野战)
+[17:33:45] t=427 ALARM 苏联战车工厂被攻击 -> TURTLE (1 v 15, 守塔阵不打野战)
+[17:33:50] t=433 RETREAT E2(24%)
+[17:33:51] t=435 SCOUT dog #1720->[12, 66]
+[17:33:52] t=435 jev INF E2 (conf 0.37)
+[17:33:53] t=437 MOVE assault x3 -> (73,120)
+[17:33:54] t=439 ALARM 敌军逼近 -> TURTLE (3 v 14, 守塔阵不打野战)
+[17:33:54] t=439 RETREAT E2(16%)
+[17:33:56] t=441 RETREAT E2(39%)
+[17:33:56] t=441 jev INF E2 (conf 0.42)
+[17:33:58] t=443 jev INF DOG (conf 0.29)
+[17:34:03] t=451 ALARM 苏联建造场被攻击 -> TURTLE (1 v 14, 守塔阵不打野战)
+[17:34:04] t=451 tick#225 credits=0 stance=defend | jev 225 decisions p50=709ms
+[17:34:11] t=461 MOVE assault x1 -> (73,120)
+[17:34:12] t=463 RETREAT E2(36%)
+[17:34:33] t=491 ALARM 防空炮被攻击 -> TURTLE (5 v 14, 守塔阵不打野战)
+[17:34:37] t=495 jev INF E2 (conf 0.26)
+[17:34:41] t=501 jev INF DOG (conf 0.25)
+[17:34:41] t=501 tick#250 credits=82 stance=defend | jev 250 decisions p50=708ms
+[17:34:42] t=503 ALARM 单位损失 -> TURTLE (2 v 11, 守塔阵不打野战)
+[17:35:42] t=582 tick#275 credits=0 stance=defend | jev 275 decisions p50=710ms
+[17:36:40] t=659 tick#300 credits=0 stance=defend | jev 300 decisions p50=710ms
+[17:37:10] REVIEW game#52 defeat → game-0052-review.md | changes=0
