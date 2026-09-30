@@ -252,7 +252,9 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     harv_target = min(4, T["harv_per_ref"] * n_ref)
     # [第45局复盘] 第3辆门槛 2800→1500: 见底率69% 的根源是"现金到不了 2800→矿车
     # 不补→收入上不去"死循环（矿车曲线全程仅 2 辆）; 第4辆仍 2800 防抢坦克线
-    harv_cost_gate = 1400 if n_harv < 2 else (1500 if n_harv == 2 else 2800)
+    # [第63局用户反馈] 门槛 1400/1500/2800 → 800/1200/1500: 资金见底时
+    # 矿车永远攒不够门槛=收入死螺旋(活局实挂 $0 长期, 第 4 车从未上路)
+    harv_cost_gate = 800 if n_harv < 2 else (1200 if n_harv == 2 else 1500)
     if q3s == 0 and n_ref >= 1 and n_harv < harv_target \
             and side["harv"] in available(s["av"], 3) and cred >= harv_cost_gate:
         acts.append({"act": "produce", "name": side["harv"], "qty": 1, "q": 3})
@@ -735,12 +737,14 @@ def _hold_posts(s: dict, home, mem: BattleMemory) -> list:
     return posts
 
 
-def assign_squads(s: dict, home, mem: BattleMemory) -> dict:
+def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> dict:
     """多线分组（第 31 局, 用户观察: 分职责多线执行, 步兵不再游荡）。
 
     RAID(坦克奇袭断经济) / ASSAULT(主攻) / HOLD(伏击把手, 步兵为主) /
     GUARD(守家) / RESERVE(机动支援池, 危机救援从这抽人)。
     分配按池子顺序切分, 单位死亡自然缩编, 新兵落到 assault。
+    [第63局用户反馈] 敌基地已定位+总攻态势 → 步兵留 4 人守家、其余全部编入
+    突击组参战（动员兵蹲伏击位看戏=浪费; 动员兵海拆无防御建筑很强）。
     """
     units = [u for u in all_combat(s["mine"], keep_wounded=True)
              if u["id"] != mem.scout_id]
@@ -756,14 +760,19 @@ def assign_squads(s: dict, home, mem: BattleMemory) -> dict:
         chosen_set = set(chosen)
         sq["raid"] = chosen
         tanks = [u for u in tanks if u["id"] not in chosen_set]
-    # GUARD: 2 辆坦克守家（剩余 ≥3 辆才留, 骚扰优先）
-    if len(tanks) >= 3:
-        sq["guard"] = [u["id"] for u in tanks[:T["keep_home"]]]
-        tanks = tanks[T["keep_home"]:]
+    # GUARD: 1 辆坦克守家（[第63局] 2→1, 用户反馈闲站坦克太多; 剩余≥2 才留）
+    if len(tanks) >= 2:
+        sq["guard"] = [u["id"] for u in tanks[:max(1, T["keep_home"] - 1)]]
+        tanks = tanks[max(1, T["keep_home"] - 1):]
     sq["assault"] = [u["id"] for u in tanks]
-    # HOLD: [第62局用户指示] 步兵全员驻家守塔(伏击位在家门两侧), 不再随突击组送死
-    # ——坦克进攻, 步兵防守; 原先步兵大半进 assault 远征=给 rush 送经验
-    sq["hold"] = [u["id"] for u in inf]
+    total_combat = len(sq["raid"]) + len(sq["assault"]) + len(sq["guard"])
+    if mem.enemy_base and stance in ("attack", "rush") and total_combat >= 4:
+        # [第63局] 总战争模式: 步兵留 4 人守家, 其余全部参战拆建筑
+        sq["hold"] = [u["id"] for u in inf[:4]]
+        sq["assault"] += [u["id"] for u in inf[4:]]
+    else:
+        # 防守/发展期: 步兵全员驻家([第62局用户指示])
+        sq["hold"] = [u["id"] for u in inf]
     sq["reserve"] = []
     return sq
 
@@ -779,7 +788,7 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
       RESERVE -> 家侧翼待机(危机救援优先从这抽人) (60s)
     目标优先级沿用 §4.3 打分; 页内集火含弹头×护甲克制加权(第31局)。
     """
-    sq = assign_squads(s, home, mem)
+    sq = assign_squads(s, home, mem, stance=stance)
     mem.last_squads = dict(sq)
     acts, logs = [], []
     mx, my = s["map"]["width"], s["map"]["height"]
