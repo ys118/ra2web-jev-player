@@ -36,7 +36,8 @@ class BattleMemory:
         self.squad_wp: dict = {}        # 各编组 {role: [目标, 重发截止]}
         self.last_squads: dict = {}     # 上 tick 编组表（危机救援抽 reserve 用）
         self.current_stance = "develop" # 当前态势（build_gate 读取: RECOVER 放开闸门）
-        self.dog_sent = False           # 军犬探路是否已派出
+        self.last_dog_round = 0         # [第55局] 军犬巡逻轮游戏秒(原 dog_sent 一次性
+                                        # 派发是断链: 犬撤退回家/补员犬永远不再出发)
         self.last_dog_replenish = 0.0   # [第42局] 军犬补员时刻（60s 节流）
         self.first_hostile_pos = None   # [第37局] 首次看见敌军的位置（敌影推定用）
         self.scout2_id = None           # [第37局] 第二侦察车（双车并行）
@@ -456,13 +457,15 @@ def update_enemy_base(s: dict, mem: BattleMemory) -> bool:
 
 
 def scouting(s: dict, home, mem: BattleMemory):
-    """军犬侦察 + 专职侦察车多路标持续探图。
+    """军犬群持续巡逻 + 专职侦察车多路标持续探图。
 
     第 25/26/31/37 局迭代: 侦察车豁免危机召回与集结令; 多路标轮转 150s 节流;
     [第37局, Jev 0.88] 敌影推定优先——首个敌军接触方向的地图边缘;
     [第37局] 阵亡即重派（不受节流）+ 双侦察车（坦克池≥4 时第二辆跑另一路标）。
-    [第49局] ALARM 反推: 新鲜 ALARM(≤150 游戏秒)破节流即时派车沿来向反推,
-    军犬首派同源——第 49 局 t=492→1209 有 717 游戏秒无任何侦察指令。
+    [第49局] ALARM 反推: 新鲜 ALARM(≤150 游戏秒)破节流即时派车沿来向反推。
+    [第55局] 军犬从"一次性首派"重构为持续巡逻循环（用户要求: 快速探查全地图
+    直到定位敌基地）——60 游戏秒一轮×最多 2 犬, 首犬走最新线索, 其余就近扫
+    最久未访路标（10 点全图网格）, 残血留守, 撤退/补员犬自动回归巡逻。
     """
     side = get_side(s)
     qs = queues_by_type(s["queues"])
@@ -483,18 +486,50 @@ def scouting(s: dict, home, mem: BattleMemory):
         mem.last_dog_replenish = time.time()
         return ([{"act": "produce", "name": "ADOG", "qty": 2}],
                 "t=%d SCOUT dogs replenish (alive %d)" % (s["t"], len(dogs_alive)))
-    # [第31局 Route A] 军犬出厂即送镜像角; [第49局] 有 ALARM 来向则优先反推
-    if not mem.dog_sent and home:
-        dogs = [u for u in s["mine"] if u["n"] in SCOUT_DOGS]
-        if dogs:
-            mx, my = s["map"]["width"], s["map"]["height"]
-            mirror = [max(mx - home[0], 8), max(my - home[1], 8)]
-            tgt = last_edge or mirror
-            mem.dog_sent = True
-            return ([{"act": "attack_move", "ids": [dogs[0]["id"]],
-                      "x": tgt[0], "y": tgt[1]}],
-                    "t=%d SCOUT dog->%s %s" % (s["t"],
-                                               "敌影反推" if tgt != mirror else "mirror", tgt))
+    # [第31局 Route A→第55局重构] 军犬持续侦察循环: 敌基地未知时 60 游戏秒一轮,
+    # 首犬优先 ALARM 反推/敌影推定(240gs 内去过则让位覆盖), 其余犬"最久未访+就近"
+    # 扫全图路标(用户要求: 快速探查全地图直到定位)。残血犬(<30%)留守, 撤退回家的
+    # 犬下一轮自动再出发——原 dog_sent 一次性派发是第 55 局断链根因。
+    if home and not mem.enemy_base:
+        mx, my = s["map"]["width"], s["map"]["height"]
+        waypoints = [
+            [max(mx - home[0], 8), max(my - home[1], 8)],   # 镜像角
+            [mx // 2, my // 2],                             # 地图中心
+            [12, my // 2], [12, 12], [mx - 12, 12],
+            [mx - 12, my - 12], [12, my - 12],              # 四角
+            [mx // 2, 12], [mx // 2, my - 12],              # [第55局] N/S 边中点
+            [mx - 12, my // 2],                             # [第55局] E 边中点
+        ]
+        acts, logs = [], []
+
+        def pick_wp(exclude=None):
+            wps = [w for w in waypoints if tuple(w) != exclude]
+            return min(wps, key=lambda w: mem.scout_visit.get(tuple(w), -1))
+
+        def dispatch(sid, target, tag):
+            mem.scout_visit[tuple(target)] = s["t"]
+            acts.append({"act": "attack_move", "ids": [sid], "x": target[0], "y": target[1]})
+            logs.append("t=%d %s #%s->%s" % (s["t"], tag, sid, target))
+
+        dogs_ok = [u for u in s["mine"] if u["n"] in SCOUT_DOGS
+                   and u["hp"] >= 0.30 * (u["mhp"] or 1)]
+        if dogs_ok and s["t"] - mem.last_dog_round >= 60:
+            mem.last_dog_round = s["t"]
+            lead = last_edge or shadow_target(s, home, mem)
+            used = set()
+            for i, d in enumerate(dogs_ok[:2]):      # 最多派 2 只, 其余留守
+                if i == 0 and lead \
+                        and s["t"] - mem.scout_visit.get(tuple(lead), -10 ** 9) > 240:
+                    tgt = lead
+                else:
+                    tgt = min((w for w in waypoints if tuple(w) not in used),
+                              key=lambda w: (mem.scout_visit.get(tuple(w), -1),
+                                             math.hypot(w[0] - d["tl"][0], w[1] - d["tl"][1])))
+                used.add(tuple(tgt))
+                dispatch(d["id"], tgt, "SCOUT dog*" if i == 0 and lead is tgt else "SCOUT dog")
+            if acts:
+                return acts, "; ".join(logs)
+
     tanks = combat_tanks(s["mine"])
     if not tanks or not home:
         return None, None
