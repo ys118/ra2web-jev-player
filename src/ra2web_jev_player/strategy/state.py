@@ -10,7 +10,8 @@ import json
 import math
 
 from ..paths import KNOWLEDGE_DIR
-from .doctrine import AIR_UNITS, COUNTERS, HARVEST, MCV_CODES, SCOUT_DOGS, TARGET_SCORE
+from .doctrine import (AIR_UNITS, COUNTERS, COUNTERS_EN, HARVEST, MCV_CODES,
+                       SCOUT_DOGS, TARGET_SCORE)
 
 # ================= RA2-UNITS.json 术语表 (代号→中文名/造价/护甲) =================
 _UDB_RAW = {}
@@ -33,6 +34,12 @@ def nm(code: str) -> str:
     """代号→中文名（Jev 语义术语表的生命线：零信息 gloss 会让模型分票瞎蒙）。"""
     u = UDB.get(code)
     return ("%s" % u["cn"]) if u else (code or "")
+
+
+def nm_en(code: str) -> str:
+    """代号→英文名（[第63局] Jev 英文投喂: 英文理解优于中文, 用户指示）。"""
+    u = UDB.get(code) or {}
+    return u.get("name") or (code or "")
 
 
 def ucost(code: str) -> int:
@@ -154,4 +161,25 @@ def enemy_intel_lines(hostile: list) -> str:
         cts = COUNTERS.get(a, [])
         cts_txt = "; ".join("%s=%s" % (nm(c), d) for c, d in cts[:3]) or "无已知克制"
         lines.append("·[%s甲] %s → 克制: %s" % (a, comp, cts_txt))
+    return "\n".join(lines)
+
+
+def enemy_intel_lines_en(hostile: list) -> str:
+    """敌情英文版 [第63局]: 按护甲归类 + 英文克制建议。"""
+    if not hostile:
+        return "No enemy units in view"
+    byarm: dict = {}
+    for h in hostile:
+        a = UDB.get(h["n"], {}).get("armor", "?")
+        byarm.setdefault(a, []).append(h)
+    lines = []
+    for a, items in sorted(byarm.items(), key=lambda kv: -len(kv[1])):
+        cnt: dict = {}
+        for h in items:
+            cnt[h["n"]] = cnt.get(h["n"], 0) + 1
+        comp = ",".join("%s(%s)x%d@%s" % (k, nm_en(k), v, items[0]["tl"])
+                        for k, v in cnt.items())
+        cts = COUNTERS_EN.get(a, [])
+        cts_txt = "; ".join("%s=%s" % (c, d) for c, d in cts[:3]) or "no known counter"
+        lines.append("- [%s armor] %s -> counters: %s" % (a, comp, cts_txt))
     return "\n".join(lines)

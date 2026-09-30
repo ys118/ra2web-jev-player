@@ -122,6 +122,8 @@ class BattleSession:
         for uid, n in self.prev_enemy.items():
             if uid not in enemy_ids:
                 self.audit.event({"kind": "kill", "t": s["t"], "n": n})
+                self.mem.kill_log.append((s["t"], n))
+                self.mem.kill_log = self.mem.kill_log[-12:]
         self.prev_mine, self.prev_enemy = mine_ids, enemy_ids
         # 秒级战场感知: 危机速应不等 jev (先打后想, 省 ~1s)
         crisis = False
@@ -169,6 +171,10 @@ class BattleSession:
                            if "planner.py" in l or "game.py" in l), lines[-1])
             self.audit.log("scout ERR %s | %s" % (e, tb_src[:160]))
 
+        if self.mem.current_stance != self.stance:   # [第63局] 态势史(Jev 动态上下文)
+            self.mem.stance_hist.append((s["t"], self.stance))
+            self.mem.stance_hist = self.mem.stance_hist[-4:]
+            self.mem.stance_since = s["t"]
         self.mem.current_stance = self.stance   # build_gate 读取（RECOVER 放开闸门）
         # 开局确定性建造序列 (不依赖 jev; 本 tick 建筑队列已被 checklist 占用时跳过,
         # 生产指令异步生效、快照滞后一 tick, 不查会双造 —— 第 24 局实测。
@@ -221,6 +227,8 @@ class BattleSession:
                               stats["decisions"], stats["p50_ms"]))
             # 周期观测快照(复盘的经济/兵力/态势曲线数据源, ~37 游戏秒一个点)
             my_val, en_val = force_value(s)
+            self.mem.val_history.append((s["t"], s["me"]["credits"], my_val, en_val))
+            self.mem.val_history = self.mem.val_history[-6:]
             self.audit.event({"kind": "obs", "t": s["t"],
                               "credits": s["me"]["credits"],
                               "my_val": my_val, "en_val": en_val,

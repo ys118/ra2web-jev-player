@@ -1,18 +1,80 @@
 # -*- coding: utf-8 -*-
-"""Jev 五问构造（build/inf/veh/stance/threat）——从 legacy_bot jev_decide 原样迁移。
+"""Jev 五问构造（build/inf/veh/stance/threat）。
 
-语义术语表是第一杠杆：内部代码全部经 nm() 翻译成中文再进 criteria；
-一次请求批量问全部问题（比逐问省 ~10x 延迟/费用）。
+[第63局用户指示] 全部投喂改为英文（Jev 对英文理解优于中文），并补充战场
+动态上下文（趋势/告警史/损失交换/侦察进度/敌军方位/态势史）——原先只有
+静态快照+最近 5 条事件，Jev "不知道战场动态"。内部代号仍走 nm_en() 英文名。
 """
 from __future__ import annotations
 
-from .doctrine import DOCTRINE, T, get_side
-from .state import (UDB, available, buildings, enemy_intel_lines, force_value,
-                    nm, ucost)
+import math
+
+from .doctrine import DOCTRINE_EN, T, get_side
+from .state import (UDB, available, buildings, enemy_intel_lines_en, force_value,
+                    nm_en, ucost)
+
+
+def _en(code: str) -> str:
+    u = UDB.get(code) or {}
+    return "%s [%s]" % (u.get("name") or code, code)
+
+
+def build_dynamic_section(s: dict, home, mem) -> str:
+    """[第63局] 战场动态上下文: 趋势曲线/告警史/交换比/侦察进度/敌军方位/态势史。"""
+    lines = []
+
+    # 1) 经济与兵力趋势(最近 6 个观测点, ~37 游戏秒一个)
+    if mem.val_history:
+        pts = ["[t%d: $%d, mine %d, enemy-visible %d]" % r for r in mem.val_history[-5:]]
+        lines.append("Trend (t, credits, my force value, visible enemy value): " + " ".join(pts))
+        if len(mem.val_history) >= 2:
+            old, new = mem.val_history[-2], mem.val_history[-1]
+            d_cred, d_en = new[1] - old[1], new[3] - old[3]
+            lines.append("Since last check: credits %s%d, visible enemy value %s%d%s"
+                         % ("+" if d_cred >= 0 else "", d_cred,
+                            "+" if d_en >= 0 else "", d_en,
+                            "  <-- ENEMY ARMY GROWING" if d_en > 500 else ""))
+
+    # 2) 最近告警(类型+位置)
+    if mem.alarm_log:
+        al = ["[t%d %s @%s]" % r for r in mem.alarm_log[-4:]]
+        lines.append("Recent alarms: " + " ".join(al))
+
+    # 3) 交换比(近 120 游戏秒)
+    recent_loss = [n for t, n in mem.loss_log if s["t"] - t <= 120]
+    recent_kill = [n for t, n in mem.kill_log if s["t"] - t <= 120]
+    lines.append("Last 120s exchanges: lost %d units (%s) / killed %d (%s)"
+                 % (len(recent_loss), ",".join(recent_loss[:5]) or "-",
+                    len(recent_kill), ",".join(recent_kill[:5]) or "-"))
+
+    # 4) 敌军方位(相对基地的方位角+距离)
+    if s["hostile"] and home:
+        bs = []
+        for h in s["hostile"][:8]:
+            dx, dy = h["tl"][0] - home[0], h["tl"][1] - home[1]
+            dist = math.hypot(dx, dy)
+            ang = math.degrees(math.atan2(dy, dx)) % 360
+            bs.append("%s@%d tiles(%d°)" % (h["n"], int(dist), int(ang)))
+        lines.append("Visible enemy bearing from base: " + ", ".join(bs))
+
+    # 5) 侦察状态
+    if mem.dog_task:
+        for kid, task in list(mem.dog_task.items())[:2]:
+            lines.append("Scout dog #%s: %s, target %s since t%d"
+                         % (kid, task.get("mode"), task.get("wp"), task.get("t")))
+    else:
+        lines.append("Scout dog: none active")
+
+    # 6) 态势史
+    cur_for = s["t"] - mem.stance_since
+    hist = " ".join("[%t%d %s]".replace("%t", "t") % r for r in mem.stance_hist[-3:]) or "-"
+    lines.append("Stance %s held for %ds | history: %s"
+                 % (mem.current_stance, cur_for, hist))
+    return "\n".join(lines)
 
 
 def build_state_text(s: dict, home, mem) -> str:
-    """战场快照 → 分层中文战报（20 局验证的投喂顺序：事件→力量对比→状态→敌情）。"""
+    """战场快照 → 分层英文战报（[第63局] 英文投喂 + 动态上下文段）。"""
     cred = s["me"]["credits"]
     pw = s["me"]["power"].get("total", 0)
     drain = s["me"]["power"].get("drain", 0)
@@ -26,117 +88,145 @@ def build_state_text(s: dict, home, mem) -> str:
     def ql(t):
         q = qs.get(t)
         if not q:
-            return "无"
-        st = {0: "空闲", 1: "生产中", 2: "暂停", 3: "待放置"}.get(q.get("s"), "?")
+            return "idle"
+        st = {0: "idle", 1: "building", 2: "paused", 3: "READY-TO-PLACE"}.get(q.get("s"), "?")
         its = ",".join("%s%%%d" % (i["n"], i["p"]) for i in q.get("items", [])) or "-"
         return "%s[%s]" % (st, its)
 
     my_val, en_val = force_value(s)
-    ev_txt = "\n".join("· " + e for e in reversed((mem.events or [])[-5:])) or "无"
+    ev_txt = "\n".join("· " + e for e in reversed((mem.events or [])[-5:])) or "none"
     lines = [
-        "== 最近事件(新→旧, 即时战况) ==",
+        "== RECENT EVENTS (newest first, live combat feed) ==",
         ev_txt,
-        "兵力价值对比: 我方≈%d vs 视野内敌军≈%d | 近期受袭 %d 次/2分钟"
+        "== DYNAMIC SITUATION ==",
+        build_dynamic_section(s, home, mem),
+        "Force value: mine ~%d vs visible enemy ~%d | alarms last 2min: %d"
         % (my_val, en_val, len(mem.alarm_times)),
-        "== 战场状态 ==",
-        "时间%ds(约%d分钟) 资金%d 电力:%s(余量%d,需求%d/容量%d) 雷达:%s" % (
+        "== STATUS ==",
+        "Time %ds (~%d min) | cash %d | power %s (margin %d, drain %d / cap %d) | radar %s" % (
             s["t"], s["t"] // 60, cred,
-            "缺电!" if s["me"]["power"].get("isLowPower") else "正常",
+            "LOW POWER!" if s["me"]["power"].get("isLowPower") else "ok",
             pw - drain, drain, pw,
-            "不可用" if s["me"].get("radarDisabled") else "正常"),
-        "我方建筑: %s" % (", ".join("%s(%s)x%d" % (k, nm(k), v)
-                                    for k, v in sorted(bl.items())) or "无"),
-        "我方部队: %s" % (", ".join("%s(%s)x%d" % (k, nm(k), v)
-                                    for k, v in sorted(units.items())) or "无"),
-        "队列 建筑:%s | 防御:%s | 步兵:%s | 载具:%s" % (ql(0), ql(1), ql(2), ql(3)),
-        "可造建筑: %s" % _avl(s, 0),
-        "可造防御: %s" % _avl(s, 1),
-        "可造步兵: %s" % _avl(s, 2),
-        "可造载具: %s" % _avl(s, 3),
-        "== 敌情 ==",
-        enemy_intel_lines(s["hostile"]),
-        "敌基地坐标: %s" % (mem.enemy_base or "未侦察到"),
-        "基地位置:%s" % (home,),
+            "disabled" if s["me"].get("radarDisabled") else "ok"),
+        "My buildings: %s" % (", ".join("%s x%d" % (_en(k), v)
+                                        for k, v in sorted(bl.items())) or "none"),
+        "My units: %s" % (", ".join("%s x%d" % (_en(k), v)
+                                    for k, v in sorted(units.items())) or "none"),
+        "Queues building:%s | defense:%s | infantry:%s | vehicle:%s" % (
+            ql(0), ql(1), ql(2), ql(3)),
+        "Buildable structures: %s" % _avl(s, 0),
+        "Buildable defenses: %s" % _avl(s, 1),
+        "Buildable infantry: %s" % _avl(s, 2),
+        "Buildable vehicles: %s" % _avl(s, 3),
+        "== ENEMY INTEL ==",
+        enemy_intel_lines_en(s["hostile"]),
+        "Enemy base coordinates: %s" % (mem.enemy_base or "NOT FOUND yet"),
+        "My base position: %s" % (home,),
     ]
     return "\n".join(lines)
 
 
 def _avl(s: dict, t: int) -> str:
-    return ", ".join("%s(%s,%d金)" % (n, nm(n), ucost(n)) for n in available(s["av"], t)) or "无"
+    return ", ".join("%s(%dcr)" % (_en(n), ucost(n)) for n in available(s["av"], t)) or "none"
 
 
 def build_questions(s: dict, home, mem, stance: str = "develop") -> tuple:
-    """返回 (state, questions)。候选里已剔除超限项（精炼厂≤2/兵营≤2/军犬≥4）。"""
+    """返回 (state, questions)。候选里已剔除超限项（精炼厂≤3/兵营≤2）。"""
     side = get_side(s)
     n_ref = len([u for u in s["mine"] if u["n"] == side["ref"]])
     n_bar = len([u for u in s["mine"] if u["n"] == side["bar"]])
-    n_dog = len([u for u in s["mine"] if u["n"] in ("ADOG", "DOG")])
     av0 = [n for n in available(s["av"], 0)
            if not (n == side["ref"] and n_ref >= T["ref_cap"])
            and not (n == side["bar"] and n_bar >= 2)]
     av2 = available(s["av"], 2)
-    if n_dog >= 4:
-        av2 = [x for x in av2 if x not in ("ADOG", "DOG")]   # 第 12 局: 军犬失控 23 条
+    av2 = [x for x in av2 if x not in ("ADOG", "DOG")]   # [第62局] 犬由侦察线专管
     av3 = available(s["av"], 3)
     txt = build_state_text(s, home, mem)
-    faction = "%s侧·国家%s 开局序列: %s" % (
-        side["side"], side.get("country", "?"), "→".join(side["opening"]))
+    faction = "%s side. Opening sequence: %s" % (
+        side["side"], " -> ".join(side["opening"]))
     if side.get("country") == "French":
-        faction += ("。法国专属: 巨炮GTGCAN(2000金,150伤/射程15,需雷达)"
-                    "——三矿车之后强烈建议造1-2座守基地方向路口")
-    state = {"battlefield": txt, "doctrine": DOCTRINE, "faction": faction,
+        faction += (" France special: Grand Cannon GTGCAN (2000cr, 150dmg/range 15, "
+                    "needs radar) - strongly consider 1-2 guarding base approaches "
+                    "after 3 harvesters.")
+    state = {"battlefield": txt, "doctrine": DOCTRINE_EN, "faction": faction,
              "decision_request": (
-                 "你是本场战斗的战略决策人，请基于上面全部信息拍板下一步最佳动作。"
-                 "敌基地是否已定位：%s。若我方兵力价值明显高于视野内敌军、或敌基地已暴露，"
-                 "应果断选 rush/attack 直捣敌方基地与矿区（断其经济=矿车优先）；"
-                 "仅当我方基地建筑正在被攻击且敌方兵力占优时才选 defend。"
-                 "纯防御没有胜利条件，攒兵不出击=拖延败局。"
-                 % (mem.enemy_base or "未定位"))}
+                 "You are the strategic commander of this battle. Decide the best next "
+                 "action based on ALL information above, especially the DYNAMIC "
+                 "SITUATION section (trends, alarms, exchanges, enemy bearing). "
+                 "Enemy base located: %s. If my force value clearly beats visible "
+                 "enemies, or the enemy base is exposed, choose rush/attack and hit "
+                 "the enemy base and refineries (cutting economy = harvesters first); "
+                 "choose defend ONLY when my base buildings are being attacked AND the "
+                 "enemy outnumbers us. Pure defense has no victory condition - hoarding "
+                 "troops = losing slowly."
+                 % (mem.enemy_base or "not located"))}
 
     Q = {}
-    crit_b = {n: "%s(%d金)" % (nm(n), ucost(n)) for n in av0}
-    crit_b["hold"] = "本tick不开新建筑"
+    crit_b = {"hold": "do not start a new building this tick"}
+    for n in av0:
+        crit_b[n] = "%s (%dcr)" % (_en(n), ucost(n))
     Q["build"] = {"type": "choice",
-                  "instructions": ("建造参谋: 选下一个开始生产的建筑(队列一次一个)。"
-                                   "按手册优先级: 补电力>经济精炼厂(≤2座)>兵营(战车工厂前置,出步兵)"
-                                   ">战车工厂>雷达或空指部(开图解锁科技)>对空建筑>实验室。"
-                                   "结合当前时间窗、资金和阵营判断。资金充裕且队列空闲时绝不选hold。"),
+                  "instructions": ("Build advisor: pick the next structure to start "
+                                   "(one per queue). Manual priority: power plant when "
+                                   "low > refinery economy (max 3) > barracks (prereq of "
+                                   "war factory, produces infantry) > war factory > "
+                                   "radar/air command (unlocks tech) > AA > tech center. "
+                                   "Weigh the timing window, cash and matchup. When cash "
+                                   "is healthy and the queue is idle, NEVER pick hold."),
                   "criteria": crit_b}
     if av2:
-        crit_i = {n: "%s(%d金)" % (nm(n), ucost(n)) for n in av2}
-        crit_i["hold"] = "不造步兵"
+        crit_i = {"hold": "no infantry now"}
+        for n in av2:
+            crit_i[n] = "%s (%dcr)" % (_en(n), ucost(n))
         Q["inf"] = {"type": "choice",
-                    "instructions": ("选一种步兵生产。军犬=侦察+预警(视野9); "
-                                     "动员兵90金性价比之王(同价完胜大兵),可进驻建筑; "
-                                     "磁爆步兵反装甲+可给线圈充能; 防空步兵机动防空; "
-                                     "工程师占家/修车。按敌情和资金选,无需时hold。"),
+                    "instructions": ("Pick one infantry type to produce. Conscript: 90cr "
+                                     "best value, garrisons buildings, defends towers at "
+                                     "home. Tesla trooper: anti-armor + charges coils. "
+                                     "Flak trooper: mobile AA. Engineer: capture/repair. "
+                                     "NOTE: scout dogs are managed by the recon system - "
+                                     "do not pick them. Choose per enemy comp and cash; "
+                                     "hold when unnecessary."),
                     "criteria": crit_i}
     if av3:
-        crit_v = {n: "%s(%d金)" % (nm(n), ucost(n)) for n in av3}
-        crit_v["hold"] = "不造载具"
+        crit_v = {"hold": "no vehicle now"}
+        for n in av3:
+            crit_v[n] = "%s (%dcr)" % (_en(n), ucost(n))
         Q["veh"] = {"type": "choice",
-                    "instructions": ("选一种载具生产。犀牛=绝对主力(900金,5炮杀犀牛/4炮杀灰熊); "
-                                     "恐怖机器人=刺客专咬矿车/载具(400金,别啃建筑); "
-                                     "防空履带车=唯一移动防空+反步兵(500金); "
-                                     "天启=肉盾自带对空(贵且慢); V3只拆家打单位无效; "
-                                     "磁能坦克射程短怕风筝。按战略和敌构成选。"),
+                    "instructions": ("Pick one vehicle type. Rhino heavy tank: core "
+                                     "mainforce (900cr, 5 shots per Rhino / 4 per "
+                                     "Grizzly). Terror drone: assassin vs harvesters/"
+                                     "vehicles (400cr, useless vs buildings). Flak "
+                                     "track: only mobile AA + anti-infantry (500cr). "
+                                     "Apocalypse: tanky AA wall (expensive, slow). V3: "
+                                     "buildings only, useless vs units. Tesla tank: "
+                                     "short range, kited easily. Choose per strategy "
+                                     "and enemy composition."),
                     "criteria": crit_v}
     Q["stance"] = {"type": "choice",
-                   "instructions": ("五态态势机裁决(当前执行态势:%s)。"
-                                    "DEVELOP=开局~5分钟无敌情,建造探图攒兵; "
-                                    "DEFEND=基地受威胁,回防补防空; "
-                                    "RUSH=开局10分钟内且坦克≥4,直扑敌基地换家; "
-                                    "ATTACK=坦克≥7且已侦察到敌目标,集火拆生产建筑(留2守家); "
-                                    "RECOVER=主力被歼,收缩抢经济。"
-                                    "注意: 开局10分钟内除非主力全灭否则不要选recover; "
-                                    "近期受袭次数高(≥3次/2分钟)说明AI正在施压,应选DEFEND而非develop; "
-                                    "但纯防御没有胜利条件——若兵力已达rush/attack门槛且敌基地已定位,应果断转进攻。"
-                                    % stance),
-                   "criteria": {"develop": "发展攒兵探图", "defend": "回防基地",
-                                "rush": "早期换家快攻", "attack": "军团总攻",
-                                "recover": "收缩重建"}}
+                   "instructions": ("Five-stance arbiter (currently executing: %s). "
+                                    "DEVELOP = opening ~5min, no contact: build, scout, "
+                                    "save. DEFEND = base threatened: hold tower line. "
+                                    "RUSH = within first 10 min with 4+ tanks: strike "
+                                    "the enemy base (base swap). ATTACK = 7+ tanks AND "
+                                    "enemy base located: flatten production buildings "
+                                    "(keep 2 home). RECOVER = main force destroyed: "
+                                    "shrink and rebuild economy. "
+                                    "Notes: within first 10 min never pick recover "
+                                    "unless the main force is wiped; high alarm rate "
+                                    "(3+/2min) means the AI is pressuring us - prefer "
+                                    "DEFEND over develop; but pure defense has no "
+                                    "victory condition - if force value beats visible "
+                                    "enemies or the enemy base is located, switch to "
+                                    "the attack." % stance),
+                   "criteria": {"develop": "develop and save",
+                                "defend": "hold base defense",
+                                "rush": "early base-swap strike",
+                                "attack": "total assault",
+                                "recover": "shrink and rebuild"}}
     Q["threat"] = {"type": "noul",
-                   "instructions": ("根据视野内敌方单位数量/兵种/与基地坐标的距离,"
-                                    "判断基地当前是否正遭受实际威胁"
-                                    "(敌人即将打到或正在打基地建筑)。远处路过的散兵不算。")}
+                   "instructions": ("Based on visible enemy count/composition/distance "
+                                    "to my base coordinates, judge whether the base is "
+                                    "under REAL threat right now (enemies about to hit "
+                                    "or already hitting base buildings). Stray units "
+                                    "passing far away do not count.")}
     return state, Q
