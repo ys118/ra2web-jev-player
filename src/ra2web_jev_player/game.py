@@ -258,6 +258,9 @@ class BattleSession:
                     self.c.produce(name, a.get("qty", 1))
                 elif kind == "attack_move":
                     self.c.attack_move(a["ids"], a["x"], a["y"])
+                elif kind == "attack_obj":
+                    # [第57局] 显式攻击指定目标(order type 2): 打经济不打塔
+                    self.c.attack(a["ids"], a["tid"])
                 elif kind == "move":
                     self.c.move(a["ids"], a["x"], a["y"])
                 elif kind == "deploy":
