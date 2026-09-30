@@ -535,6 +535,13 @@ def scouting(s: dict, home, mem: BattleMemory):
             logs.append("t=%d %s #%s->%s%s" % (s["t"], tag, d["id"], target,
                                                " (遇敌规避)" if evade else ""))
 
+        def safety(w):
+            """路标安全度: 距所有可见敌军的最近距离(无可见敌=足够大)。"""
+            if not s["hostile"]:
+                return 999.0
+            return min(math.hypot(w[0] - h["tl"][0], w[1] - h["tl"][1])
+                       for h in s["hostile"])
+
         dogs_ok = [u for u in s["mine"] if u["n"] in SCOUT_DOGS
                    and u["hp"] >= 0.30 * (u["mhp"] or 1)]
         alive_ids = {u["id"] for u in dogs_ok}
@@ -549,15 +556,35 @@ def scouting(s: dict, home, mem: BattleMemory):
                         if math.hypot(h["tl"][0] - d["tl"][0],
                                       h["tl"][1] - d["tl"][1]) <= 8]
                 task = mem.dog_task.get(d["id"])
-                fleeing = task and task.get("mode") == "evade"
-                if fleeing and any(math.hypot(h["tl"][0] - d["tl"][0],
-                                              h["tl"][1] - d["tl"][1]) <= 14
-                                   for h in s["hostile"]):
-                    continue                             # 规避中, 敌仍在 14 格内: 继续撤
+                mode = task.get("mode") if task else None
+                # [第62局反馈] 罚站死锁修复: 规避撤到家 → 短暂休整 60gs →
+                # 从最安全的未访路标再出发(绝不无限罚站); 再遇敌再规避, 循环推进
+                if mode == "evade":
+                    if math.hypot(d["tl"][0] - home[0],
+                                  d["tl"][1] - home[1]) > 12:
+                        used.add(task["wp"])             # 撤退途中: 继续回家
+                        continue
+                    task["mode"], task["hold_until"] = "hold", s["t"] + 60
+                    mode = "hold"                        # 到家: 休整 60gs
+                if mode == "hold":
+                    if s["t"] < task["hold_until"]:
+                        continue                         # 休整中(短暂驻家, 非罚站)
+                    cands = [w for w in waypoints if tuple(w) not in used]
+                    if cands:
+                        tgt = max(cands, key=lambda w: (min(safety(w), 60),
+                                                        -mem.scout_visit.get(tuple(w), -1)))
+                        task["mode"], task["wp"], task["t"] = "go", tuple(tgt), s["t"]
+                        mem.scout_visit[tuple(tgt)] = s["t"]
+                        used.add(tuple(tgt))
+                        acts.append({"act": "move", "ids": [d["id"]],
+                                     "x": tgt[0], "y": tgt[1]})
+                        logs.append("t=%d SCOUT dog 休整毕 #%s->%s (最安全向)"
+                                    % (s["t"], d["id"], tgt))
+                    continue
                 if near:                                 # [用户指示] 遇敌立即规避
                     dispatch(d, [home[0], home[1]], "SCOUT dog 遭遇规避", evade=True)
                     continue
-                if task and not fleeing:
+                if task and mode == "go":
                     dist = math.hypot(d["tl"][0] - task["wp"][0],
                                       d["tl"][1] - task["wp"][1])
                     if dist > 6 and s["t"] - task["t"] <= 240:
@@ -883,18 +910,23 @@ def apply_jev(s: dict, ans: dict, stance: str, mem: BattleMemory,
     i = (ans.get("inf") or {}).get("choice")
     if i and i != "hold" and not used.get(2) \
             and qs.get(2, {}).get("s", 0) == 0 and i in available(s["av"], 2):
-        bl = buildings(s["mine"])
-        n_e2 = len([u for u in s["mine"] if u["n"] == "E2"])
-        factory_gate = bl.get(side["weap"], 0) == 0 \
-            or s["me"]["credits"] >= T["tank_cash1"] or i in SCOUT_DOGS
-        e2_gate = not (i == "E2" and n_e2 >= 30)
-        if factory_gate and e2_gate:
-            acts.append({"act": "produce", "name": i, "qty": 1, "q": 2})
-            logs.append("t=%d jev INF %s (conf %.2f)"
-                        % (s["t"], i, (ans.get("inf") or {}).get("confidence", -1)))
+        # [第62局用户反馈] 军犬由侦察线专管(只养 1 只), Jev 不得插手产犬——
+        # 旧豁免(i in SCOUT_DOGS 不限预算)致 Jev 连产 4+ 犬全站基地
+        if i in SCOUT_DOGS:
+            logs.append("t=%d jev INF %s HOLD (犬由侦察线专管)" % (s["t"], i))
         else:
-            logs.append("t=%d jev INF %s HOLD (预算保护 gate=%s e2=%d)"
-                        % (s["t"], i, factory_gate, n_e2))
+            bl = buildings(s["mine"])
+            n_e2 = len([u for u in s["mine"] if u["n"] == "E2"])
+            factory_gate = bl.get(side["weap"], 0) == 0 \
+                or s["me"]["credits"] >= T["tank_cash1"]
+            e2_gate = not (i == "E2" and n_e2 >= 30)
+            if factory_gate and e2_gate:
+                acts.append({"act": "produce", "name": i, "qty": 1, "q": 2})
+                logs.append("t=%d jev INF %s (conf %.2f)"
+                            % (s["t"], i, (ans.get("inf") or {}).get("confidence", -1)))
+            else:
+                logs.append("t=%d jev INF %s HOLD (预算保护 gate=%s e2=%d)"
+                            % (s["t"], i, factory_gate, n_e2))
     # 载具
     v = (ans.get("veh") or {}).get("choice")
     if v and v != "hold" and not used.get(3) \

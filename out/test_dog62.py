@@ -41,11 +41,17 @@ a3, l3 = planner.scouting(mk(270, dogs=(([90, 118], 100),),
 assert a3 is None, "敌仍在 14 格内应继续撤"
 print("S3: 规避中不折腾 ✓")
 
-# S4: 脱险(敌 20 格外) → 恢复原目标
+# S4: [新语义] 规避=回家→休整 60gs→最安全向再出发
 a4, l4 = planner.scouting(mk(280, dogs=(([85, 115], 100),),
                              hostile=(H(1, 140, 60),)), home, mem)
-print("S4:", l4)
-assert a4 and a4[0]["act"] == "move" and "规避" not in l4, "脱险应恢复行进"
+assert a4 is None, "规避途中应先回家"
+a4b, l4b = planner.scouting(mk(380, dogs=(([71, 124], 100),),
+                               hostile=(H(1, 140, 60),)), home, mem)
+assert a4b is None, "到家应进入 60gs 休整"
+a4c, l4c = planner.scouting(mk(470, dogs=(([71, 124], 100),),
+                               hostile=(H(1, 140, 60),)), home, mem)
+print("S4:", l4c)
+assert a4c and a4c[0]["act"] == "move" and "休整毕" in l4c, "休整毕应最安全向再出发"
 
 # S5: 敌基地定位 → 犬立即撤回(一次性)
 mem.enemy_base = [131, 80]

@@ -36564,3 +36564,129 @@
 [17:35:42] t=582 tick#275 credits=0 stance=defend | jev 275 decisions p50=710ms
 [17:36:40] t=659 tick#300 credits=0 stance=defend | jev 300 decisions p50=710ms
 [17:37:10] REVIEW game#52 defeat → game-0052-review.md | changes=0
+[17:50:11] 进局中(全自动)...
+[17:50:39] === ra2web-jev-player start (tick=1.5s, max_decisions=1200) ===
+[17:50:39] t=3 DEPLOY mcv
+[17:50:40] t=5 POWER plant (reserve 0)
+[17:50:41] t=5 jev STANCE defend->develop (conf 0.94)
+[17:50:59] t=29 OPENING BUILD NAREFN
+[17:53:13] t=208 OPENING BUILD NAHAND
+[17:53:18] t=214 tick#25 credits=7236 stance=defend | jev 25 decisions p50=706ms
+[17:53:32] t=234 DEFLINE NALASR (have 0)
+[17:53:32] t=234 OPENING BUILD NAWEAP
+[17:53:33] t=234 jev INF DOG (conf 0.48)
+[17:53:40] t=244 jev INF DOG (conf 0.47)
+[17:53:42] t=246 jev INF DOG (conf 0.40)
+[17:53:44] t=248 jev INF DOG (conf 0.38)
+[17:53:45] t=250 jev INF DOG (conf 0.38)
+[17:53:47] t=252 jev INF DOG (conf 0.47)
+[17:53:48] t=254 jev INF DOG (conf 0.46)
+[17:53:49] t=256 jev INF DOG (conf 0.46)
+[17:53:51] t=258 jev INF DOG (conf 0.49)
+[17:53:52] t=260 DEFLINE NALASR (have 1)
+[17:53:53] t=260 jev INF DOG (conf 0.40)
+[17:53:53] t=262 DEFLINE NALASR (have 1)
+[17:53:54] t=262 jev INF DOG (conf 0.43)
+[17:53:55] t=264 DEFLINE NALASR (have 1)
+[17:53:56] t=264 jev INF DOG (conf 0.39)
+[17:53:56] t=264 tick#50 credits=6602 stance=defend | jev 50 decisions p50=704ms
+[17:53:56] t=266 DEFLINE NALASR (have 1)
+[17:53:57] t=266 jev INF DOG (conf 0.54)
+[17:53:58] t=268 DEFLINE NALASR (have 1)
+[17:53:58] t=268 jev INF DOG (conf 0.50)
+[17:54:05] t=278 SCOUT dog* #1078->[45, 189]
+[17:54:07] t=280 jev INF DOG (conf 0.19)
+[17:54:11] t=284 jev INF DOG (conf 0.21)
+[17:54:33] t=314 tick#75 credits=4693 stance=defend | jev 75 decisions p50=705ms
+[17:54:41] t=326 ECON harv#2
+[17:54:41] t=326 TANK HTNK x3
+[17:54:42] t=326 jev BUILD NAPOWR (conf 0.50)
+[17:54:42] t=326 jev INF DOG (conf 0.19)
+[17:54:43] t=328 INSURE AA building
+[17:54:49] t=336 SCOUT dog #1087->[12, 120]
+[17:54:50] t=336 jev INF DOG (conf 0.21)
+[17:54:51] t=338 jev INF DOG (conf 0.25)
+[17:54:53] t=340 jev INF DOG (conf 0.26)
+[17:54:54] t=342 jev INF DOG (conf 0.29)
+[17:54:56] t=344 jev INF DOG (conf 0.21)
+[17:54:57] t=346 jev INF DOG (conf 0.26)
+[17:54:58] t=348 ALARM 敌军逼近 -> counter 2 vs 1 -> [82, 114]
+[17:54:59] t=348 jev INF E2 (conf 0.19)
+[17:55:00] t=350 jev BUILD NAREFN (conf 0.28)
+[17:55:01] t=352 SCOUT dog 遭遇规避 #1078->[70, 117] (遇敌规避)
+[17:55:02] t=354 SCOUT dog 遭遇规避 #1087->[70, 117] (遇敌规避)
+[17:55:03] t=354 jev INF E2 (conf 0.24)
+[17:55:05] t=356 jev INF E2 (conf 0.23)
+[17:55:06] t=358 jev INF E2 (conf 0.29)
+[17:55:06] t=358 MOVE hold_a x1 -> (75,104)
+[17:55:07] t=360 ALARM 敌军逼近 -> TURTLE (3 v 4, 守塔阵不打野战)
+[17:55:08] t=360 jev INF E2 (conf 0.28)
+[17:55:08] t=362 RETREAT DOG(26%)
+[17:55:09] t=362 jev INF E2 (conf 0.35)
+[17:55:11] t=364 jev INF E2 (conf 0.24)
+[17:55:11] t=364 tick#100 credits=2720 stance=defend | jev 100 decisions p50=704ms
+[17:55:12] t=366 jev INF E2 (conf 0.23)
+[17:55:14] t=368 jev INF E2 (conf 0.34)
+[17:55:15] t=370 jev INF E2 (conf 0.35)
+[17:55:15] t=370 MOVE hold_a x1 -> (78,105)
+[17:55:16] t=372 ALARM 敌军逼近 -> TURTLE (2 v 3, 守塔阵不打野战)
+[17:55:17] t=372 jev INF E2 (conf 0.25)
+[17:55:18] t=374 jev INF E2 (conf 0.35)
+[17:55:19] t=376 RETREAT DOG(26%)
+[17:55:20] t=376 jev INF DOG (conf 0.19)
+[17:55:24] t=382 MOVE hold_a x1 -> (75,104)
+[17:55:26] t=386 SCOUT dog* #1123->[45, 189]
+[17:55:27] t=386 jev INF DOG (conf 0.30)
+[17:55:29] t=388 jev INF DOG (conf 0.31)
+[17:55:30] t=390 jev INF DOG (conf 0.24)
+[17:55:32] t=392 jev INF DOG (conf 0.28)
+[17:55:33] t=394 jev INF DOG (conf 0.29)
+[17:55:35] t=396 jev INF DOG (conf 0.28)
+[17:55:36] t=398 jev INF DOG (conf 0.25)
+[17:55:38] t=400 jev INF DOG (conf 0.26)
+[17:55:39] t=402 jev INF DOG (conf 0.26)
+[17:55:40] t=404 jev INF DOG (conf 0.21)
+[17:55:42] t=406 jev INF DOG (conf 0.26)
+[17:55:44] t=408 jev INF DOG (conf 0.28)
+[17:55:45] t=410 jev INF DOG (conf 0.26)
+[17:55:48] t=414 tick#125 credits=0 stance=defend | jev 125 decisions p50=704ms
+[17:56:17] t=454 SCOUT dog #1128->[12, 120]
+[17:56:18] t=454 jev INF DOG (conf 0.31)
+[17:56:18] t=454 MOVE assault x1 -> (73,120)
+[17:56:19] t=456 SCOUT #1129->[185, 91]
+[17:56:20] t=458 SCOUT* #1129->[185, 91]
+[17:56:25] t=464 SCOUT dog #1130->[12, 102]
+[17:56:26] t=464 MOVE hold_a x1 -> (75,104)
+[17:56:26] t=464 tick#150 credits=0 stance=defend | jev 150 decisions p50=705ms
+[17:57:01] t=510 SIM STALL (time frozen) - skip actions
+[17:57:09] t=519 SCOUT* #1129->[185, 91]
+[17:57:10] t=519 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=515)
+[17:57:11] t=521 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[17:57:17] t=529 MOVE assault x1 -> (73,120)
+[17:57:26] t=541 MOVE hold_a x1 -> (75,104)
+[17:57:31] t=547 MOVE assault x1 -> (73,120)
+[17:57:37] t=557 ALARM 敌军逼近 -> counter 5 vs 1 -> [86, 109]
+[17:57:40] t=559 jev INF SHK (conf 0.22)
+[17:57:40] t=559 tick#200 credits=1059 stance=defend | jev 198 decisions p50=704ms
+[17:57:42] t=563 SCOUT dog 遭遇规避 #1130->[70, 117] (遇敌规避)
+[17:57:46] t=567 MOVE assault x1 -> (73,120); hold_a x1 -> (64,104)
+[17:57:47] t=569 ALARM 哨戒炮被攻击 -> counter 5 vs 1 -> [68, 116]
+[17:57:48] t=571 SCOUT dog 遭遇规避 #1128->[70, 117] (遇敌规避)
+[17:57:50] t=573 SCOUT dog 遭遇规避 #1123->[70, 117] (遇敌规避)
+[17:57:55] t=579 MOVE hold_a x1 -> (57,123); hold_b x1 -> (67,103)
+[17:57:56] t=581 ALARM 敌军逼近 -> counter 7 vs 4 -> [73, 112]
+[17:57:56] t=581 RETREAT HTNK(24%)
+[17:57:56] t=581 SCOUT* #1129->[132, 13]
+[17:57:56] t=581 jev VEH HTNK (conf 0.35)
+[17:57:58] t=583 jev INF DOG (conf 0.19)
+[17:57:59] t=585 SCOUT #1136->[45, 189] (敌影)
+[17:58:04] t=591 MOVE assault x1 -> (73,120)
+[17:58:05] t=593 ALARM 哨戒炮被攻击 -> counter 6 vs 4 -> [68, 116]
+[17:58:09] t=599 RETREAT E2(19%)
+[17:58:13] t=603 MOVE hold_a x1 -> (78,105)
+[17:58:14] t=605 ALARM 苏联战车工厂被攻击 -> counter 5 vs 3 -> [72, 114]
+[17:58:15] t=607 RETREAT DOG(37%)
+[17:58:17] t=609 RETREAT HTNK(35%)
+[17:58:17] t=609 tick#225 credits=0 stance=defend | jev 223 decisions p50=704ms
+[17:58:22] t=615 MOVE assault x1 -> (73,120); hold_a x1 -> (61,128)
+[17:58:23] t=617 ALARM 苏联战车工厂被攻击 -> counter 4 vs 3 -> [72, 114]
