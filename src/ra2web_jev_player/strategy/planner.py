@@ -36,8 +36,9 @@ class BattleMemory:
         self.squad_wp: dict = {}        # 各编组 {role: [目标, 重发截止]}
         self.last_squads: dict = {}     # 上 tick 编组表（危机救援抽 reserve 用）
         self.current_stance = "develop" # 当前态势（build_gate 读取: RECOVER 放开闸门）
-        self.last_dog_round = 0         # [第55局] 军犬巡逻轮游戏秒(原 dog_sent 一次性
-                                        # 派发是断链: 犬撤退回家/补员犬永远不再出发)
+        self.dog_task: dict = {}        # [第60局] dogId -> {wp, t}: 军犬任务表——
+                                        # 原"60gs 一轮×最多 2 犬"致多产犬永远站基地
+                                        # (用户反馈), 改为全员出动+任务制不打断在途
         self.last_dog_replenish = 0.0   # [第42局] 军犬补员时刻（60s 节流）
         self.first_hostile_pos = None   # [第37局] 首次看见敌军的位置（敌影推定用）
         self.scout2_id = None           # [第37局] 第二侦察车（双车并行）
@@ -503,47 +504,54 @@ def scouting(s: dict, home, mem: BattleMemory):
         mem.last_dog_replenish = time.time()
         return ([{"act": "produce", "name": "ADOG", "qty": 2}],
                 "t=%d SCOUT dogs replenish (alive %d)" % (s["t"], len(dogs_alive)))
-    # [第31局 Route A→第55局重构→第57局网格扫荡] 军犬持续巡逻:
-    # 用户要求"快速探查全地图直到定位敌基地"。第 56 局定谳辐条式路标照不到
-    # 地图内部 → 改为割草机网格: 行距 18 格(=犬视野 9×2, 无缝覆盖), 东西端点
-    # 逐行排布(~22 点/200x208 图); 犬按"最久未访+离当前最近"链式推进, 双犬
-    # 各扫各的邻域。线索优先级: 首次接触射线(首波 rush 必从基地出发, 最强信号)
-    # > 最新 ALARM 反推 > 无。60 游戏秒一轮×最多 2 犬, 残血(<30%)留守,
-    # 定位即停, 全图扫完自动重扫(新建筑)。
+    # [第31局→第55局重构→第57局网格→第60局任务制] 军犬持续巡逻:
+    # 用户要求"快速探查全地图直到定位敌基地"。割草机网格(行距 18=犬视野 9×2 无缝,
+    # 22 点/200x208 图) + [第60局用户反馈] 全部健康犬都出动(原"60gs 一轮×最多 2 犬"
+    # 让多产犬永远站基地待命——太蠢), 任务制: 每犬一个目标, 到达(≤6格)/超时(240gs)
+    # 才换下一目标, 在途不打断; 首犬线索优先(首触射线>ALARM 反推, 240gs 内去过让位);
+    # 残血(<30%)留守, 定位即停, 全图扫完自动重扫。
     if home and not mem.enemy_base:
         mx, my = s["map"]["width"], s["map"]["height"]
         waypoints = []
-        _row = 0
         for _y in range(12, my - 10, 18):                # 行距 18 = 2×犬视野 9
             waypoints += [[12, _y], [mx - 12, _y]]
-            _row += 1
         acts, logs = [], []
 
-        def pick_wp(exclude=None):
-            wps = [w for w in waypoints if tuple(w) != exclude]
-            return min(wps, key=lambda w: mem.scout_visit.get(tuple(w), -1))
-
-        def dispatch(sid, target, tag):
+        def dispatch(d, target, tag):
             mem.scout_visit[tuple(target)] = s["t"]
-            acts.append({"act": "attack_move", "ids": [sid], "x": target[0], "y": target[1]})
-            logs.append("t=%d %s #%s->%s" % (s["t"], tag, sid, target))
+            mem.dog_task[d["id"]] = {"wp": tuple(target), "t": s["t"]}
+            acts.append({"act": "attack_move", "ids": [d["id"]], "x": target[0], "y": target[1]})
+            logs.append("t=%d %s #%s->%s" % (s["t"], tag, d["id"], target))
 
         dogs_ok = [u for u in s["mine"] if u["n"] in SCOUT_DOGS
                    and u["hp"] >= 0.30 * (u["mhp"] or 1)]
-        if dogs_ok and s["t"] - mem.last_dog_round >= 60:
-            mem.last_dog_round = s["t"]
+        alive_ids = {u["id"] for u in dogs_ok}
+        for kid in [k for k in mem.dog_task if k not in alive_ids]:
+            del mem.dog_task[kid]                        # 阵亡犬任务清理
+        if dogs_ok:
             lead = shadow_target(s, home, mem) or last_edge
+            lead_fresh = lead and (s["t"] - mem.scout_visit.get(tuple(lead), -10 ** 9) > 240)
             used = set()
-            for i, d in enumerate(dogs_ok[:2]):      # 最多派 2 只, 其余留守
-                if i == 0 and lead \
-                        and s["t"] - mem.scout_visit.get(tuple(lead), -10 ** 9) > 240:
-                    tgt = lead
+            for i, d in enumerate(dogs_ok):              # [第60局] 全员出动
+                task = mem.dog_task.get(d["id"])
+                if task:
+                    dist = math.hypot(d["tl"][0] - task["wp"][0],
+                                      d["tl"][1] - task["wp"][1])
+                    if dist > 6 and s["t"] - task["t"] <= 240:
+                        used.add(task["wp"])             # 在途: 不打断, 占住目标
+                        continue
+                    mem.scout_visit[task["wp"]] = s["t"]  # 到达/超时: 记访问换下一点
+                if i == 0 and lead and lead_fresh:
+                    tgt, tag = list(lead), "SCOUT dog*"
                 else:
-                    tgt = min((w for w in waypoints if tuple(w) not in used),
-                              key=lambda w: (mem.scout_visit.get(tuple(w), -1),
-                                             math.hypot(w[0] - d["tl"][0], w[1] - d["tl"][1])))
-                used.add(tuple(tgt))
-                dispatch(d["id"], tgt, "SCOUT dog*" if i == 0 and lead is tgt else "SCOUT dog")
+                    cands = [w for w in waypoints if tuple(w) not in used]
+                    if not cands:
+                        continue
+                    tgt = min(cands, key=lambda w: (mem.scout_visit.get(tuple(w), -1),
+                                                    math.hypot(w[0] - d["tl"][0],
+                                                               w[1] - d["tl"][1])))
+                    tag = "SCOUT dog"
+                dispatch(d, tgt, tag)
             if acts:
                 return acts, "; ".join(logs)
 
