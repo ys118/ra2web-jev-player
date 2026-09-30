@@ -49,6 +49,11 @@ class BattleMemory:
         self.unit_ids: dict = {}        # unitId -> 中文名(损失检测)
         self.seen_hostiles: set = set()
         self.alarm_times: list = []     # 受袭时刻(真实时间), 120s 窗口
+        self.alarm_log: list = []       # [第63局] (游戏秒, 类型, 位置) 动态上下文
+        self.loss_log: list = []        # [第63局] (游戏秒, 单位名) 我方损失
+        self.val_history: list = []     # [第63局] (游戏秒, 资金, 我值, 敌值) 趋势
+        self.stance_hist: list = []     # [第63局] (游戏秒, 态势) 态势史
+        self.stance_since = 0           # 当前态势起始游戏秒
         self.last_defend_order = 0.0    # ALARM 反击令时刻(8s 保护期)
         self.last_t = None              # 停摆检测
         self.stall_logged = False
@@ -76,18 +81,21 @@ def sense_events(s: dict, home, mem: BattleMemory):
             prev = mem.bld_hp.get(u["id"])
             if prev and u["hp"] < prev[1] - 1:
                 lost = int(prev[1] - u["hp"])
-                ev.append("受击: %s(%s) -%d血 剩%d/%d"
-                          % (u["n"], nm(u["n"]), lost, int(u["hp"]), int(u["mhp"])))
-                alarm = {"pos": list(u["tl"]), "what": "%s被攻击" % nm(u["n"])}
+                ev.append("Under attack: %s -%dhp (%d/%d left) @%s"
+                          % (u["n"], lost, int(u["hp"]), int(u["mhp"]),
+                             list(u["tl"])))
+                alarm = {"pos": list(u["tl"]), "what": "%s under attack" % u["n"]}
     mem.bld_hp = cur_hp
     # b) 战斗单位损失
     alive = {u["id"] for u in s["mine"] if u["o"] in (3, 7)}
     for uid, uname in list(mem.unit_ids.items()):
         if uid not in alive:
-            ev.append("损失: %s" % uname)
+            ev.append("Unit lost: %s" % uname)
+            mem.loss_log.append((s["t"], uname))
+            mem.loss_log = mem.loss_log[-12:]
             del mem.unit_ids[uid]
             if alarm is None:
-                alarm = {"pos": list(home) if home else [0, 0], "what": "单位损失"}
+                alarm = {"pos": list(home) if home else [0, 0], "what": "unit lost"}
     for u in s["mine"]:
         if u["o"] in (3, 7) and u["id"] not in mem.unit_ids:
             mem.unit_ids[u["id"]] = nm(u["n"])
@@ -98,16 +106,18 @@ def sense_events(s: dict, home, mem: BattleMemory):
         if near:
             comp = ",".join(nm(h["n"]) for h in near[:4])
             d = min(math.hypot(h["tl"][0] - home[0], h["tl"][1] - home[1]) for h in near)
-            ev.append("敌逼近基地(%d格): %s" % (int(d), comp))
+            ev.append("Enemy closing on base (%d tiles): %s" % (int(d), comp))
             mem.alarm_times.append(time.time())
             mem.alarm_times = [x for x in mem.alarm_times if time.time() - x < 120][-20:]
             if alarm is None:
-                alarm = {"pos": list(near[0]["tl"]), "what": "敌军逼近"}
+                alarm = {"pos": list(near[0]["tl"]), "what": "enemy approaching"}
+            mem.alarm_log.append((s["t"], alarm["what"], list(alarm["pos"])))
+            mem.alarm_log = mem.alarm_log[-8:]
     new_ids = {h["id"] for h in s["hostile"]}
     fresh = new_ids - mem.seen_hostiles
     if fresh:
         fn = [h for h in s["hostile"] if h["id"] in fresh]
-        ev.append("发现敌军: " + ",".join("%s(%s)" % (nm(h["n"]), h["tl"]) for h in fn[:4]))
+        ev.append("Spotted: " + ",".join("%s@%s" % (h["n"], h["tl"]) for h in fn[:4]))
         mem.seen_hostiles = new_ids
     else:
         mem.seen_hostiles |= new_ids

@@ -80,12 +80,27 @@ COUNTERS = {
     "heavy":     [("HTNK", "犀牛(100%,5炮杀犀牛)"), ("TESLA", "磁暴线圈(100%,2炮)"), ("SHK", "磁爆步兵(100%)"), ("APOC", "天启(100%×2)")],
     "special_2": [("NAFLAK", "防空炮(150%,射程12)"), ("HTK", "防空车(150%,射程10)"), ("FLAKT", "防空步兵(100%)")],
     "special_1": [("E2", "动员兵枪(100%)"), ("NALASR", "哨戒炮(100%)")],  # 蜘蛛: 只怕机枪
+
+"special_1": [("E2", "conscript rifle (100%)"), ("NALASR", "sentry gun (100%)")],
     "concrete":  [("HTNK", "犀牛(60%)"), ("APOC", "天启(70%)"), ("V3", "V3火箭(30%)")],
     "wood":      [("HTNK", "犀牛(65%)"), ("APOC", "天启(100%)")],
     "steel":     [("APOC", "天启(100%)"), ("V3", "V3火箭(50%)")],
 }
 
 AIR_UNITS = {"JUMPJET", "ZEP", "SHAD", "ORCA", "HORNOR"}
+
+# [第63局] 英文克制建议(英文投喂用): 护甲 -> [(反制单位码, 英文说明)]
+COUNTERS_EN = {
+    "none":      [("NALASR", "sentry gun (100%)"), ("E2", "conscript swarm (100%)"), ("HTK", "flak track vs ground (150%)"), ("DESO", "desolator (100%)")],
+    "flak":      [("E2", "conscript swarm (80%)"), ("HTK", "flak track vs ground (150% no-armor)"), ("NALASR", "sentry gun (80%)"), ("DESO", "desolator (100%)")],
+    "plate":     [("SHK", "tesla trooper (100%)"), ("E2", "conscripts (70%)"), ("NALASR", "sentry gun (70%)")],
+    "light":     [("HTK", "flak track (AA 100%/AG 60%)"), ("NAFLAK", "flak cannon (AA only 100%)"), ("SHK", "tesla trooper (85%)"), ("TTNK", "tesla tank (85%)")],
+    "medium":    [("HTNK", "rhino (100%)"), ("DRON", "terror drone (anti-vehicle)"), ("TTNK", "tesla tank (100%)")],
+    "heavy":     [("HTNK", "rhino (100%, 5 shots per rhino)"), ("TESLA", "tesla coil (100%, 2 shots)"), ("SHK", "tesla trooper (100%)"), ("APOC", "apocalypse (100% x2)")],
+    "special_2": [("NAFLAK", "flak cannon (150%, range 12)"), ("HTK", "flak track (150%, range 10)"), ("FLAKT", "flak trooper (100%)")],
+    "special_1": [("E2", "conscript rifle (100%)"), ("NALASR", "sentry gun (100%)")],
+}
+
 
 # 进攻目标优先级分 (Bible §4.3): 矿车 > 防空/反坦克防御 > 生产建筑 > 兵营 > 精炼厂 > 电厂 > 建造厂(最后)
 TARGET_SCORE = {
@@ -114,6 +129,36 @@ DOCTRINE = """[作战手册·苏军·骚扰+重拳版(A++)]
 五态态势: DEVELOP(建造序列+骚扰组咬矿车+探图) DEFEND(基地受威胁,守塔阵) RUSH(坦克≥8,与ATTACK同为总攻) ATTACK(坦克≥8,一波推平敌基地) RECOVER(坦克<3,收缩补经济,骚扰组继续).
 进攻纪律: 总攻时≥6辆留2守家继续拆生产建筑; 残血(<40%)撤后保老兵; 骚扰组打完矿车就打基地周边生产建筑, 不恋战不送死.
 时间窗: 3分钟首坦克→2辆即去咬矿车; 10分钟放开经济; 10-12分钟8辆重拳."""
+
+# [第63局用户指示] Jev 对英文理解优于中文——作战手册/问题/状态全部提交英文版
+DOCTRINE_EN = """[Battlefield Manual · Soviet · Harass+Hammer doctrine (A++)]
+Strategy (user-approved): first 2 tanks = harass squad, bite enemy harvesters to cut
+income and force splits; main force saves up to 8 tanks (~10-12 min) then flattens the
+enemy base in one push. Meanwhile tower line (1 sentry gun + 1 flak) defends home; after
+minute 10 unlock third refinery + second war factory to ramp production. Defense alone
+has NO victory condition: harass their economy + finish with the hammer.
+Iron rules: SURVIVAL > economy > production > army > attack; cash > 2000 must be
+converted (tanks/harvesters); anti-air is mandatory (rocketeers are a historical death
+cause); power margin < 30 -> build power plant first.
+Matchup common sense: tank guns only 25% vs infantry (never clear infantry blobs with
+tanks); tank vs tank full damage (Rhino 5 shots kills Rhino / 4 kills Grizzly); terror
+drone bites vehicles/harvesters only (cannot hurt buildings); flak trooper shreds
+rocketeers (150%).
+Attack target priority: 1 harvester (cut income) 2 engineer 3 war factory > refinery >
+power plant > barracks (undefended buildings) 4 construction yard (last). **IRON RULE
+[user-mandated]: NEVER attack defense towers / sentry guns / tesla coils on purpose —
+attack-moving into them = free kills for them; if unreachable, go around, only hit
+economy and production buildings.** Exception: base under air raid -> pull home guard +
+build AA.
+Five stances: DEVELOP (opening ~5min no contact: build, scout, save) DEFEND (base
+threatened: hold towers) RUSH (first 10 min with 4+ tanks: swap-base strike) ATTACK
+(7+ tanks and enemy base located: focus production buildings, keep 2 home) RECOVER
+(main force destroyed: shrink and rebuild economy).
+Attack discipline: on total attack keep 2 tanks home, rest hit production buildings;
+wounded (<40%) fall back and survive; harass squad hits harvesters then undefended
+production buildings, never lingers in tower zones.
+Timing windows: first tank by 3min -> 2 tanks go harass; economy unlocked at 10min;
+8-tank hammer at 10-12min."""
 
 # Jev 答案采信闸门 (仅态势强制; 生产类收到非 hold 即执行, 见 SESSION-REPORT 18-20 局复盘)
 CONF = {"build": 0.40, "inf": 0.35, "veh": 0.35, "stance": 0.45}
