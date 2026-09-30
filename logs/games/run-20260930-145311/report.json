@@ -1,0 +1,17 @@
+{
+  "result": "defeat",
+  "t": 815,
+  "ticks": 408,
+  "crisis_ticks": 265,
+  "stance": "defend",
+  "jev": {
+    "decisions": 407,
+    "errors": 0,
+    "input_tokens": 1027335,
+    "output_tokens": 72504,
+    "p50_ms": 719,
+    "p95_ms": 809
+  },
+  "enemy_base": null,
+  "ts": "2026-09-30 15:03:22"
+}
