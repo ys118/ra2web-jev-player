@@ -179,7 +179,12 @@ class GameLauncher:
         return self._wait_battle(timeout=60)
 
     def _dismiss_overlays(self) -> None:
-        """音频授权弹窗 / 上局结算屏，有则点掉。"""
+        """音频授权弹窗 / 上局结算屏，有则点掉。
+
+        [第53局] a11y ref 可能落在 message-box-footer 容器上, click 无效,
+        弹窗不消 → 主选单永远出不来。ref 循环后加 JS 兜底: 直点真正的
+        <button>（弹窗已消时按钮不存在, 天然 no-op）。
+        """
         for label in ("确定", "返回主选单"):
             for _ in range(3):
                 ref = self._find_ref(self._shot(), label)
@@ -187,6 +192,12 @@ class GameLauncher:
                     break
                 self.b.click(ref)
                 time.sleep(2)
+            if label == "确定":
+                self.b.eval(
+                    "(function(){var b=[...document.querySelectorAll('button')]"
+                    ".filter(function(x){return x.innerText.trim()==='确定'});"
+                    "if(b.length){b[b.length-1].click();return 'ok'}return 'none'})()")
+                time.sleep(1)
 
     def _configure_match(self) -> None:
         m = self.match
