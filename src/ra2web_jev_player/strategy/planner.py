@@ -51,6 +51,7 @@ class BattleMemory:
         self.alarm_times: list = []     # 受袭时刻(真实时间), 120s 窗口
         self.alarm_log: list = []       # [第63局] (游戏秒, 类型, 位置) 动态上下文
         self.loss_log: list = []        # [第63局] (游戏秒, 单位名) 我方损失
+        self.kill_log: list = []        # [第63局] (游戏秒, 单位名) 击杀
         self.val_history: list = []     # [第63局] (游戏秒, 资金, 我值, 敌值) 趋势
         self.stance_hist: list = []     # [第63局] (游戏秒, 态势) 态势史
         self.stance_since = 0           # 当前态势起始游戏秒
