@@ -486,20 +486,20 @@ def scouting(s: dict, home, mem: BattleMemory):
         mem.last_dog_replenish = time.time()
         return ([{"act": "produce", "name": "ADOG", "qty": 2}],
                 "t=%d SCOUT dogs replenish (alive %d)" % (s["t"], len(dogs_alive)))
-    # [第31局 Route A→第55局重构] 军犬持续侦察循环: 敌基地未知时 60 游戏秒一轮,
-    # 首犬优先 ALARM 反推/敌影推定(240gs 内去过则让位覆盖), 其余犬"最久未访+就近"
-    # 扫全图路标(用户要求: 快速探查全地图直到定位)。残血犬(<30%)留守, 撤退回家的
-    # 犬下一轮自动再出发——原 dog_sent 一次性派发是第 55 局断链根因。
+    # [第31局 Route A→第55局重构→第57局网格扫荡] 军犬持续巡逻:
+    # 用户要求"快速探查全地图直到定位敌基地"。第 56 局定谳辐条式路标照不到
+    # 地图内部 → 改为割草机网格: 行距 18 格(=犬视野 9×2, 无缝覆盖), 东西端点
+    # 逐行排布(~22 点/200x208 图); 犬按"最久未访+离当前最近"链式推进, 双犬
+    # 各扫各的邻域。线索优先级: 首次接触射线(首波 rush 必从基地出发, 最强信号)
+    # > 最新 ALARM 反推 > 无。60 游戏秒一轮×最多 2 犬, 残血(<30%)留守,
+    # 定位即停, 全图扫完自动重扫(新建筑)。
     if home and not mem.enemy_base:
         mx, my = s["map"]["width"], s["map"]["height"]
-        waypoints = [
-            [max(mx - home[0], 8), max(my - home[1], 8)],   # 镜像角
-            [mx // 2, my // 2],                             # 地图中心
-            [12, my // 2], [12, 12], [mx - 12, 12],
-            [mx - 12, my - 12], [12, my - 12],              # 四角
-            [mx // 2, 12], [mx // 2, my - 12],              # [第55局] N/S 边中点
-            [mx - 12, my // 2],                             # [第55局] E 边中点
-        ]
+        waypoints = []
+        _row = 0
+        for _y in range(12, my - 10, 18):                # 行距 18 = 2×犬视野 9
+            waypoints += [[12, _y], [mx - 12, _y]]
+            _row += 1
         acts, logs = [], []
 
         def pick_wp(exclude=None):
@@ -515,7 +515,7 @@ def scouting(s: dict, home, mem: BattleMemory):
                    and u["hp"] >= 0.30 * (u["mhp"] or 1)]
         if dogs_ok and s["t"] - mem.last_dog_round >= 60:
             mem.last_dog_round = s["t"]
-            lead = last_edge or shadow_target(s, home, mem)
+            lead = shadow_target(s, home, mem) or last_edge
             used = set()
             for i, d in enumerate(dogs_ok[:2]):      # 最多派 2 只, 其余留守
                 if i == 0 and lead \
