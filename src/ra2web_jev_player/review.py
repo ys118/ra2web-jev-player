@@ -122,9 +122,18 @@ class GameRecord:
         self.kills = [e for e in events if e.get("kind") == "kill"]
         self.places = [e for e in events if e.get("kind") == "place"]
         # 行日志分类（[第47局] 排除 "HOLD" 行——被资金闸门拒绝的意图不算建造）
+        # [第53局复盘] "POWER plant (reserve)" 是电力保底路径的真实下单, 旧正则
+        # 看不见 → 误报"开局缺 NAPOWR/慢 502%"。阵营由其他建造码推断
+        # (NAREFN 族→NAPOWR / GAREFN 族→GAPOWR), 之后按 t 重排。
         self.build_order = [(int(m.group(1)), m.group(2)) for ln in loglines
                             if "HOLD" not in ln
                             and (m := re.search(r"t=(\d+) (?:OPENING BUILD|jev BUILD) (\w+)", ln))]
+        _codes = {c for _, c in self.build_order}
+        _powr = "GAPOWR" if {"GAREFN", "GAPILE", "GAWEAP"} & _codes else "NAPOWR"
+        self.build_order += [(int(m.group(1)), _powr) for ln in loglines
+                             if "POWER plant (reserve" in ln
+                             and (m := re.search(r"t=(\d+) POWER plant", ln))]
+        self.build_order.sort(key=lambda x: x[0])
         self.tanks_built = [(int(m.group(1)), m.group(2), int(m.group(3))) for ln in loglines
                             if (m := re.search(r"t=(\d+) TANK (\w+) x(\d+)", ln))]
         self.first_tank_t = self.tanks_built[0][0] if self.tanks_built else None

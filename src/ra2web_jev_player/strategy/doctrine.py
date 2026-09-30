@@ -136,7 +136,11 @@ def get_side(s: dict) -> dict:
     if country in SOVIET_COUNTRIES:
         return {"side": "soviet", "powr": "NAPOWR", "ref": "NAREFN", "bar": "NAHAND",
                 "weap": "NAWEAP", "aa_b": "NAFLAK", "aa_v": "HTK", "radar": "NARADR",
-                "opening": ["NAPOWR", "NAREFN", "NAHAND", "NAWEAP"],
+                # [第53局复盘] NAHAND 挪到 NAWEAP 后: 建筑串行队列(造价∝时间)里
+                # 兵营 500cr 挡在战工 2000cr 前面, 首坦克 401s(窗口 180-320);
+                # 换位后战工早 ~30s, 首坦克预计 ~330s。代价: 军犬/E2/SHK 延迟
+                # ~2 分钟, 侦察由坦克侦察车+ALARM 反推补位。第 54 局验证。
+                "opening": ["NAPOWR", "NAREFN", "NAWEAP", "NAHAND"],
                 "tank_pref": ["HTNK", "APOC", "TTNK"], "harv": "HARV", "gdef": "NALASR"}
     return {"side": "allied", "powr": "GAPOWR", "ref": "GAREFN", "bar": "GAPILE",
             "weap": "GAWEAP", "aa_b": "NASAM", "aa_v": None, "radar": "GAAIRC",
