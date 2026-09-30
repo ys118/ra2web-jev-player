@@ -140,11 +140,11 @@ def get_side(s: dict) -> dict:
     if country in SOVIET_COUNTRIES:
         return {"side": "soviet", "powr": "NAPOWR", "ref": "NAREFN", "bar": "NAHAND",
                 "weap": "NAWEAP", "aa_b": "NAFLAK", "aa_v": "HTK", "radar": "NARADR",
-                # [第53局复盘] NAHAND 挪到 NAWEAP 后: 建筑串行队列(造价∝时间)里
-                # 兵营 500cr 挡在战工 2000cr 前面, 首坦克 401s(窗口 180-320);
-                # 换位后战工早 ~30s, 首坦克预计 ~330s。代价: 军犬/E2/SHK 延迟
-                # ~2 分钟, 侦察由坦克侦察车+ALARM 反推补位。第 54 局验证。
-                "opening": ["NAPOWR", "NAREFN", "NAWEAP", "NAHAND"],
+                # [第59局完败自复盘] 序列必须遵守引擎前置链(NAWEAP prereq 含 NAHAND,
+                # 见 RA2-UNITS.json)——第 54 局换位 [.., NAWEAP, NAHAND] 违规, 靠 Jev
+                # 插单建兵营 masking 了 5 局, 第 59 局插单门控拆掉补丁后死锁完败。
+                # 回滚合法序: 电厂→矿厂→兵营→战工; 工厂前置位门控保护兵营→战工间隙。
+                "opening": ["NAPOWR", "NAREFN", "NAHAND", "NAWEAP"],
                 "tank_pref": ["HTNK", "APOC", "TTNK"], "harv": "HARV", "gdef": "NALASR"}
     return {"side": "allied", "powr": "GAPOWR", "ref": "GAREFN", "bar": "GAPILE",
             "weap": "GAWEAP", "aa_b": "NASAM", "aa_v": None, "radar": "GAAIRC",
