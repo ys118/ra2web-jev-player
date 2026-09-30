@@ -1,0 +1,26 @@
+Exception in thread Thread-1 (_readerthread):
+Traceback (most recent call last):
+  File "C:\Users\15652\AppData\Roaming\uv\python\cpython-3.12.10-windows-x86_64-none\Lib\threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "C:\Users\15652\AppData\Roaming\uv\python\cpython-3.12.10-windows-x86_64-none\Lib\threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\15652\AppData\Roaming\uv\python\cpython-3.12.10-windows-x86_64-none\Lib\subprocess.py", line 1599, in _readerthread
+    buffer.append(fh.read())
+                  ^^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xd0 in position 0: invalid continuation byte
+[22:54:59] 进局中(全自动)...
+[22:55:36] {"kind": "start", "policy": "ra2web-jev-player/1.0", "maxDecisions": 1200, "micro": {"events": [{"kind": "micro", "t": 2, "what": "start"}], "loopN": 1, "on": true, "outcome": null, "stall": false}, "ts": "22:55:36"}
+[22:55:36] === ra2web-jev-player start (tick=1.5s, max_decisions=1200) ===
+[22:55:36] t=2 DEPLOY mcv
+[22:55:36] {"kind": "action", "what": "deploy", "ids": [1042], "ts": "22:55:36"}
+[22:55:36] {"kind": "action", "what": "deploy", "name": null, "qty": null, "ts": "22:55:36"}
+[22:55:38] t=3 DEPLOY mcv
+[22:55:38] {"kind": "action", "what": "deploy", "ids": [1042], "ts": "22:55:38"}
+[22:55:38] {"kind": "action", "what": "deploy", "name": null, "qty": null, "ts": "22:55:38"}
+[22:55:39] t=5 POWER plant (reserve 0)
+[22:55:39] {"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "ts": "22:55:39"}
+[22:55:40] t=5 jev STANCE defend->develop (conf 0.96)
+[22:56:08] {"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "ts": "22:56:08"}
+[22:56:08] t=33 OPENING BUILD NAREFN
+[22:56:13] t=38 tick#25 credits=9293 stance=develop | jev 25 decisions p50=824ms
