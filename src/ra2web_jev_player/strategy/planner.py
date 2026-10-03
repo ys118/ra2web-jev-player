@@ -676,10 +676,15 @@ def scouting(s: dict, home, mem: BattleMemory):
                 if mode == "evade":
                     if math.hypot(d["tl"][0] - home[0],
                                   d["tl"][1] - home[1]) > 12:
-                        used.add(task["wp"])             # 撤退途中: 继续回家
-                        continue
-                    task["mode"], task["hold_until"] = "hold", s["t"] + 60
-                    mode = "hold"                        # 到家: 休整 60gs
+                        if s["t"] - task["t"] <= 60:
+                            used.add(task["wp"])         # 撤退途中: 继续回家
+                            continue
+                        # [第68局] 撤退 60gs 仍未到家 = 卡死(地形卡住/指令丢失,
+                        # 第 67 局军犬 t=153 后永久沉默即此形态): 不再罚站,
+                        # 落到下方重派逻辑去最安全未访路标
+                    else:
+                        task["mode"], task["hold_until"] = "hold", s["t"] + 60
+                        mode = "hold"                    # 到家: 休整 60gs
                 if mode == "hold":
                     if s["t"] < task["hold_until"]:
                         continue                         # 休整中(短暂驻家, 非罚站)
@@ -746,16 +751,23 @@ def scouting(s: dict, home, mem: BattleMemory):
 
     # 主侦察: 死车立即重派(不受节流); 活车按 150s 节流换路标; 已定位则停;
     # [第49局] 新鲜 ALARM(≤150 游戏秒, 距上次反推 ≥60s)破节流即时沿来向反推
+    # [第68局] 敌影推定降级为"仅新鲜时用": 第 67 局 5 次反复沿 first_hostile_pos
+    # 奔同一错误边缘(首接触方向 ≠ 基地方向), 侦察全程空转——改为 visit 记录
+    # 240gs 内去重, 否则回退未访路标轮转(第 63 局网格扫荡定位的成功路径)。
+    def shadow_fresh():
+        return bool(shadow) and (s["t"] - mem.scout_visit.get(tuple(shadow), -10 ** 9) > 240)
+
     if not alive1 and tanks:
         mem.scout_id = tanks[0]["id"]
-        dispatch(mem.scout_id, last_edge or shadow or pick_wp(), "SCOUT")
+        dispatch(mem.scout_id, last_edge or (shadow if shadow_fresh() else None)
+                 or pick_wp(), "SCOUT")
     elif alive1 and not mem.enemy_base:
         if (last_edge and s["t"] - mem.last_alarm_t <= 150
                 and s["t"] - mem.alarm_scout_t >= 60):
             mem.alarm_scout_t = s["t"]
             dispatch(mem.scout_id, last_edge, "SCOUT*")
         elif time.time() - mem.last_scout > 150:
-            dispatch(mem.scout_id, shadow or pick_wp(), "SCOUT")
+            dispatch(mem.scout_id, shadow if shadow_fresh() else pick_wp(), "SCOUT")
     mem.last_scout = time.time() if acts else mem.last_scout
 
     # 第二侦察车: 坦克池≥4 且未定位时补位, 跑与主侦察不同的路标
