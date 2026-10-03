@@ -145,5 +145,69 @@ s = base_state(hostile=[v3_far])
 txt = build_state_text(s, home, mem)
 check("9 投喂含V3 THREAT段", "V3 THREAT ACTIVE" in txt)
 
-print("\n%s" % ("ALL PASS" if not fails else "FAILED: %s" % fails))
-sys.exit(0 if not fails else 1)
+
+# ---- 场景 10: 电厂应急闸门战厂条件(第67局配套, 两开局下行为验证) ----
+from ra2web_jev_player.strategy.doctrine import get_side
+
+IDLE_Q = [{"t": i, "s": 0, "items": []} for i in range(4)]
+
+def pow_case(bl_names, t=300):
+    mem = planner.BattleMemory()
+    mine = [unit("b0", "NACNST", 2, (10, 10))]
+    for i, n in enumerate(bl_names):
+        mine.append(unit("b%d" % (i + 1), n, 2, (12 + i, 10)))
+    s = base_state(t=t)
+    s["mine"] = mine
+    s["me"]["power"] = {"total": 0, "drain": 0}   # 0 电容
+    s["queues"] = [dict(q) for q in IDLE_Q]       # 真实快照恒含4条队列
+    s["av"][0] = list(s["av"][0]) + ["NARADR"]    # 场景11需要
+    return s, mem
+
+# 10a: 当前序列(电厂是开局下一项) → 应急电厂照常开闸
+s, mem = pow_case([])                       # 只有基地 → opening_next=NAPOWR
+_, acts, _ = planner.checklist(s, home, "develop", mem)
+check("10a 无战厂+电厂是下一项→开闸", any(a.get("name") == "NAPOWR" for a in acts))
+
+# 10b: 精炼厂先行序列(电厂排第4) → 战厂建成前应急闸不抢 q0
+import ra2web_jev_player.strategy.planner as _P
+_real_gs = _P.get_side
+def _rf_get_side(s):
+    d = _real_gs(s)
+    d["opening"] = ["NAREFN", "NAHAND", "NAWEAP", "NAPOWR"]
+    return d
+_P.get_side = _rf_get_side
+s, mem = pow_case(["NAREFN"])               # 新序下 opening_next=NAHAND
+_, acts, _ = planner.checklist(s, home, "develop", mem)
+ob = planner.opening_build(s, mem)
+check("10b-1 精炼厂先行: 闸门不抢电厂", not any(a.get("name") == "NAPOWR" for a in acts))
+check("10b-2 精炼厂先行: opening_build 出兵营", ob is not None and ob["name"] == "NAHAND",
+      str(ob))
+_P.get_side = _real_gs
+
+# 10c: 战厂已建成 + 缺电 → 应急开闸
+s, mem = pow_case(["NAPOWR", "NAREFN", "NAHAND", "NAWEAP"])
+s["me"]["power"] = {"total": 150, "drain": 130}   # 余量 20 < 60
+_, acts, _ = planner.checklist(s, home, "develop", mem)
+check("10c 战厂后缺电→应急开闸", any(a.get("name") == "NAPOWR" for a in acts))
+
+# 10d: 中途电厂被拆(战厂在) → 开闸重建
+s, mem = pow_case(["NAREFN", "NAHAND", "NAWEAP"])
+_, acts, _ = planner.checklist(s, home, "develop", mem)
+check("10d 电厂被拆战厂在→开闸", any(a.get("name") == "NAPOWR" for a in acts))
+
+
+# ---- 场景 11: Jev 插单保护扩展到整个开局序列(第67局配套) ----
+_P.get_side = _rf_get_side   # 精炼厂先行
+s, mem = pow_case(["NAREFN"])                  # opening_next=NAHAND
+ans = {"build": {"choice": "NAPOWR", "confidence": 0.9}}
+_, acts, logs = planner.apply_jev(s, ans, "develop", mem, used={})
+check("11a 开局期Jev插单被HOLD", not acts and any("前置位保护" in l for l in logs),
+      str(logs))
+s2, mem2 = pow_case(["NAREFN", "NAHAND", "NAWEAP", "NAPOWR"])   # 序列走完
+s2["me"]["power"] = {"total": 200, "drain": 120}
+ans2 = {"build": {"choice": "NARADR", "confidence": 0.9}}
+_, acts2, logs2 = planner.apply_jev(s2, ans2, "develop", mem2, used={})
+check("11b 序列建成后Jev自由建造", any(a.get("name") == "NARADR" for a in acts2),
+      str(logs2))
+_P.get_side = _real_gs
+

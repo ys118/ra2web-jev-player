@@ -269,7 +269,13 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("t=%d DEPLOY mcv" % s["t"])
 
     # 4) 电力保底：余量 <30 → 电厂（排在大多数建造之前）
-    if pw - drain < T["power_reserve"] and cred >= 600 \
+    #    [第67局] 战厂未建成前不开闸: 精炼厂先行链(电厂排第4)下开局 0 电容是
+    #    预期状态, 不能让本闸门在 t=1 抢先插电厂架空开局序列; 战厂立起后
+    #    (或电厂本就是开局下一项时)恢复应急职能。
+    fac_up = bl.get(side["weap"], 0) >= 1
+    if pw - drain < T["power_reserve"] \
+            and (fac_up or opening_next_code(s) == side["powr"]) \
+            and cred >= 600 \
             and side["powr"] in available(s["av"], 0) \
             and qs.get(0, {}).get("s") == 0:
         acts.append({"act": "produce", "name": side["powr"], "qty": 1, "q": 0})
@@ -997,11 +1003,12 @@ def apply_jev(s: dict, ans: dict, stance: str, mem: BattleMemory,
     b = (ans.get("build") or {}).get("choice")
     if b and b != "hold" and not used.get(0) \
             and qs.get(0, {}).get("s", 0) == 0 and b in available(s["av"], 0):
-        # [第58局] 工厂前置位保护: 开工序列走到战工位次时 Jev 不得插单建筑,
-        # 让 opening_build 的战工单第一时间出去(首坦克时序保障)
-        if opening_next_code(s) == side["weap"]:
-            logs.append("t=%d jev BUILD %s HOLD (工厂前置位保护)"
-                        % (s["t"], b))
+        # [第58局] 工厂前置位保护; [第67局] 扩展为整个开局序列前置位保护——
+        # 精炼厂先行链下兵营/战厂之间同样不容插单(Jev 曾插 4 栋把战工推到 398);
+        # 开局序列全部建成后 opening_next_code=None, Jev 恢复自由买建筑。
+        if opening_next_code(s) is not None:
+            logs.append("t=%d jev BUILD %s HOLD (开局序列前置位保护: 等 %s)"
+                        % (s["t"], b, opening_next_code(s)))
         else:
             n_ref = len([u for u in s["mine"] if u["n"] == side["ref"]])
             n_bar = len([u for u in s["mine"] if u["n"] == side["bar"]])
