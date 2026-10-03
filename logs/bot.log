@@ -38898,3 +38898,26 @@
 [15:30:23] t=1761 MOVE raid x4 -> (70,122); assault x14 -> 攻击目标#1060@(70,122); hold_b x2 -> (126,76)
 [15:30:33] t=1769 jev INF E2 HOLD (预算保护 gate=False e2=3)
 [15:30:57] REVIEW game#55 victory → game-0055-review.md | changes=0
+[20:45:20] 进局中(全自动)...
+[20:46:37] === ra2web-jev-player start (tick=1.5s, max_decisions=1200) ===
+[20:46:37] t=0 DEPLOY mcv
+[20:46:49] t=5 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:46:50] t=15 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:46:50] t=15 jev STANCE defend->develop (conf 0.47)
+[20:47:48] t=17 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:47:50] t=93 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:47:55] t=97 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:47:57] t=103 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:47:59] t=107 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:48:11] t=108 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:48:26] t=124 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:48:41] t=144 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:48:44] t=165 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:48:48] t=168 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:48:50] t=175 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:48:55] t=177 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:49:00] t=184 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:49:08] t=189 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:49:14] t=200 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:49:21] t=209 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[20:49:22] t=217 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)

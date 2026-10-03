@@ -507,6 +507,14 @@ def opening_build(s: dict, mem: BattleMemory):
         if bl0.get(want, 0) == 0 and want not in mem.open_blacklist:
             opening_next = want
             break
+    # [第67局死锁修复] 引擎把下一项挡在可造列表外(如无电厂时 NAREFN 不进 av0)
+    # → opening_build 永远不下单, 旧自愈网(依赖"已下单")永不触发, 三方互等
+    # (opening 等 av0 / 电厂闸被压制 / Jev 被前置位保护 HOLD)开局冻死——
+    # 第 67 局 t=124 零建筑活局实证。修法: 下一项选出即武装守望, 不管单有没有
+    # 发得出去; 40gs 无进展统一走拒收+回退。
+    if opening_next and mem.open_order is None:
+        mem.open_order = opening_next
+        mem.open_order_t = s["t"]
     if opening_next is None and bl0.get(side["weap"], 0) >= 1 \
             and bl0.get(side["ref"], 0) < ref_cap_now and side["ref"] in av0 \
             and build_gate(s, ucost(side["ref"]), mem):

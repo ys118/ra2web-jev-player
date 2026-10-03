@@ -245,11 +245,25 @@ check("12a-4 opening_next_code 感知回退(NAPOWR 在途未建成=仍下一项)
 s, mem = open_state([], q0s=1)
 mem.open_order, mem.open_order_t = "NAREFN", s["t"] - 10
 planner.opening_build(s, mem)
-check("12b 受理中→不拒收不回退", not mem.open_fallback and mem.open_order is None,
-      str(mem.open_events))
+check("12b 受理中→不拒收不回退(重arming刷新计时)",
+      not mem.open_fallback and not mem.open_events
+      and mem.open_order_t == s["t"], str(mem.open_events))
 
 # 12c: NAREFN 已建成 → 订单清除, 下一单=NAHAND
 s, mem = open_state(["NAREFN", "NAPOWR"])
 mem.open_order, mem.open_order_t = "NAREFN", s["t"] - 60
 act = planner.opening_build(s, mem)
 check("12c 精炼厂落地→下一单兵营", act is not None and act["name"] == "NAHAND", str(act))
+
+# ---- 场景 12d: 引擎把下一项挡在 av0 外(死锁形态, 第67局活局实证) ----
+s, mem = open_state([])
+s["av"][0] = ["NAPOWR"]                       # NAREFN 不在可造列表(无电厂)
+act = planner.opening_build(s, mem)
+check("12d-1 av0 无 NAREFN→不下单但武装守望", act is None
+      and mem.open_order == "NAREFN", str(act))
+mem.open_order_t = s["t"] - 50
+act2 = planner.opening_build(s, mem)
+check("12d-2 40gs无进展→拒收+回退", mem.open_fallback
+      and any("FALLBACK" in e for e in mem.open_events), str(mem.open_events))
+check("12d-3 回退后立刻下 NAPOWR", act2 is not None and act2["name"] == "NAPOWR",
+      str(act2))
