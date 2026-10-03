@@ -54649,3 +54649,350 @@
 {"kind": "kill", "t": 1008, "n": "V3", "ts": "20:32:04"}
 {"kind": "decision", "t": 1008, "answers": {"build": {"choice": "hold", "confidence": 1.0}, "stance": {"choice": "recover", "confidence": 0.44}, "threat": {"choice": null, "confidence": null}}, "ts": "20:32:04"}
 {"kind": "report", "result": "defeat", "t": 1010, "ticks": 474, "crisis_ticks": 239, "stance": "defend", "jev": {"decisions": 473, "errors": 0, "input_tokens": 1155084, "output_tokens": 77543, "p50_ms": 760, "p95_ms": 972}, "enemy_base": null, "ts": "2026-09-30 20:32:05"}
+{"kind": "start", "policy": "ra2web-jev-player/1.0", "maxDecisions": 1200, "micro": {"events": [{"kind": "micro", "t": 1, "what": "start"}], "loopN": 1, "on": true, "outcome": null, "stall": false}, "ts": "15:08:17"}
+{"kind": "action", "what": "deploy", "ids": [1042], "ts": "15:08:17"}
+{"kind": "action", "what": "deploy", "name": null, "qty": null, "tid": null, "ts": "15:08:17"}
+{"kind": "decision", "t": 1, "answers": {"build": {"choice": "hold", "confidence": 1.0}, "stance": {"choice": "develop", "confidence": 0.99}, "threat": {"choice": null, "confidence": null}}, "ts": "15:09:02"}
+{"kind": "loss", "t": 61, "n": "SMCV", "ts": "15:09:02"}
+{"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "tid": null, "ts": "15:09:02"}
+{"kind": "decision", "t": 61, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.77}, "stance": {"choice": "recover", "confidence": 0.57}, "threat": {"choice": null, "confidence": null}}, "ts": "15:09:07"}
+{"kind": "decision", "t": 68, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.13}, "stance": {"choice": "recover", "confidence": 0.79}, "threat": {"choice": null, "confidence": null}}, "ts": "15:09:08"}
+{"kind": "decision", "t": 70, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.31}, "stance": {"choice": "recover", "confidence": 0.8}, "threat": {"choice": null, "confidence": null}}, "ts": "15:09:54"}
+{"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "tid": null, "ts": "15:09:54"}
+{"kind": "decision", "t": 130, "answers": {"threat": {"choice": null, "confidence": null}, "build": {"choice": "NAREFN", "confidence": 0.89}, "stance": {"choice": "recover", "confidence": 0.79}}, "ts": "15:09:56"}
+{"kind": "decision", "t": 133, "answers": {"build": {"choice": "NAHAND", "confidence": 0.34}, "stance": {"choice": "recover", "confidence": 0.75}, "threat": {"choice": null, "confidence": null}}, "ts": "15:09:57"}
+{"kind": "decision", "t": 135, "answers": {"build": {"choice": "NAHAND", "confidence": 0.23}, "stance": {"choice": "recover", "confidence": 0.76}, "threat": {"choice": null, "confidence": null}}, "ts": "15:10:48"}
+{"kind": "decision", "t": 202, "answers": {"build": {"choice": "NAHAND", "confidence": 0.35}, "stance": {"choice": "recover", "confidence": 0.56}, "threat": {"choice": null, "confidence": null}}, "ts": "15:11:43"}
+{"kind": "action", "what": "produce", "name": "NAHAND", "qty": 1, "tid": null, "ts": "15:11:43"}
+{"kind": "decision", "t": 276, "answers": {"build": {"choice": "NAHAND", "confidence": 0.44}, "stance": {"choice": "defend", "confidence": 0.64}, "threat": {"choice": null, "confidence": null}}, "ts": "15:11:49"}
+{"kind": "decision", "t": 284, "answers": {"build": {"choice": "NARADR", "confidence": 0.19}, "stance": {"choice": "defend", "confidence": 0.82}, "threat": {"choice": null, "confidence": null}}, "ts": "15:12:32"}
+{"kind": "action", "what": "produce", "name": "NALASR", "qty": 1, "tid": null, "ts": "15:12:32"}
+{"kind": "action", "what": "produce", "name": "NAWEAP", "qty": 1, "tid": null, "ts": "15:12:32"}
+{"kind": "decision", "t": 341, "answers": {"build": {"choice": "NAWEAP", "confidence": 0.43}, "inf": {"choice": "E2", "confidence": 0.48}, "stance": {"choice": "defend", "confidence": 0.94}, "threat": {"choice": null, "confidence": null}}, "ts": "15:12:41"}
+{"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "15:12:41"}
+{"kind": "decision", "t": 354, "answers": {"build": {"choice": "NAREFN", "confidence": 0.24}, "inf": {"choice": "E2", "confidence": 0.55}, "stance": {"choice": "defend", "confidence": 0.96}, "threat": {"choice": null, "confidence": null}}, "ts": "15:12:46"}
+{"kind": "decision", "t": 360, "answers": {"build": {"choice": "NAREFN", "confidence": 0.24}, "inf": {"choice": "E2", "confidence": 0.6}, "stance": {"choice": "defend", "confidence": 0.97}, "threat": {"choice": null, "confidence": null}}, "ts": "15:12:49"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:12:49"}
+{"kind": "produce_skip", "q": 1, "name": "NALASR", "ts": "15:12:49"}
+{"kind": "decision", "t": 364, "answers": {"build": {"choice": "NAREFN", "confidence": 0.25}, "inf": {"choice": "E2", "confidence": 0.57}, "stance": {"choice": "defend", "confidence": 0.97}, "threat": {"choice": null, "confidence": null}}, "ts": "15:12:50"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:12:50"}
+{"kind": "produce_skip", "q": 1, "name": "NALASR", "ts": "15:12:51"}
+{"kind": "decision", "t": 366, "answers": {"build": {"choice": "NAREFN", "confidence": 0.23}, "inf": {"choice": "E2", "confidence": 0.6}, "stance": {"choice": "defend", "confidence": 0.98}, "threat": {"choice": null, "confidence": null}}, "ts": "15:12:53"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:12:53"}
+{"kind": "kill", "t": 370, "n": "DOG", "ts": "15:12:54"}
+{"kind": "produce_skip", "q": 1, "name": "NALASR", "ts": "15:12:54"}
+{"kind": "decision", "t": 370, "answers": {"build": {"choice": "NAREFN", "confidence": 0.37}, "inf": {"choice": "E2", "confidence": 0.5}, "stance": {"choice": "defend", "confidence": 0.97}, "threat": {"choice": null, "confidence": null}}, "ts": "15:12:55"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:12:55"}
+{"kind": "produce_skip", "q": 1, "name": "NALASR", "ts": "15:12:55"}
+{"kind": "decision", "t": 372, "answers": {"build": {"choice": "NAREFN", "confidence": 0.32}, "inf": {"choice": "E2", "confidence": 0.54}, "stance": {"choice": "defend", "confidence": 0.97}, "threat": {"choice": null, "confidence": null}}, "ts": "15:13:39"}
+{"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "15:13:39"}
+{"kind": "action", "what": "produce", "name": "HARV", "qty": 1, "tid": null, "ts": "15:13:39"}
+{"kind": "action", "what": "produce", "name": "HTNK", "qty": 4, "tid": null, "ts": "15:13:39"}
+{"kind": "action", "what": "produce", "name": "NAFLAK", "qty": 1, "tid": null, "ts": "15:13:39"}
+{"kind": "decision", "t": 430, "answers": {"stance": {"choice": "defend", "confidence": 0.98}, "threat": {"choice": null, "confidence": null}, "build": {"choice": "NAREFN", "confidence": 0.4}, "inf": {"choice": "E2", "confidence": 0.56}, "veh": {"choice": "HTNK", "confidence": 0.64}}, "ts": "15:14:37"}
+{"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "tid": null, "ts": "15:14:37"}
+{"kind": "decision", "t": 507, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.24}, "inf": {"choice": "E2", "confidence": 0.47}, "veh": {"choice": "HTNK", "confidence": 0.71}, "stance": {"choice": "defend", "confidence": 0.9}, "threat": {"choice": null, "confidence": null}}, "ts": "15:14:41"}
+{"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "15:14:41"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:14:41"}
+{"kind": "decision", "t": 513, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.14}, "inf": {"choice": "E2", "confidence": 0.44}, "veh": {"choice": "HTNK", "confidence": 0.68}, "stance": {"choice": "defend", "confidence": 0.91}, "threat": {"choice": null, "confidence": null}}, "ts": "15:14:47"}
+{"kind": "decision", "t": 521, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.18}, "inf": {"choice": "E2", "confidence": 0.41}, "veh": {"choice": "HTNK", "confidence": 0.67}, "stance": {"choice": "defend", "confidence": 0.88}, "threat": {"choice": null, "confidence": null}}, "ts": "15:15:01"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:15:01"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:15:02"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:15:02"}
+{"kind": "decision", "t": 541, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.12}, "inf": {"choice": "E2", "confidence": 0.44}, "veh": {"choice": "HTNK", "confidence": 0.63}, "stance": {"choice": "defend", "confidence": 0.9}, "threat": {"choice": null, "confidence": null}}, "ts": "15:16:02"}
+{"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "15:16:02"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:16:02"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:16:02"}
+{"kind": "loss", "t": 621, "n": "HTNK", "ts": "15:16:02"}
+{"kind": "loss", "t": 621, "n": "E2", "ts": "15:16:02"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:16:02"}
+{"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "tid": null, "ts": "15:16:02"}
+{"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "15:16:02"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:16:02"}
+{"kind": "decision", "t": 621, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.91}, "inf": {"choice": "SHK", "confidence": 0.36}, "veh": {"choice": "HTNK", "confidence": 0.71}, "stance": {"choice": "defend", "confidence": 0.98}, "threat": {"choice": null, "confidence": null}}, "ts": "15:16:17"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:16:17"}
+{"kind": "loss", "t": 642, "n": "E2", "ts": "15:16:18"}
+{"kind": "kill", "t": 642, "n": "HTK", "ts": "15:16:18"}
+{"kind": "kill", "t": 642, "n": "HTNK", "ts": "15:16:18"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:16:18"}
+{"kind": "decision", "t": 642, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.34}, "inf": {"choice": "SHK", "confidence": 0.39}, "veh": {"choice": "HTNK", "confidence": 0.72}, "stance": {"choice": "defend", "confidence": 0.85}, "threat": {"choice": null, "confidence": null}}, "ts": "15:16:18"}
+{"kind": "action", "what": "produce", "name": "SHK", "qty": 1, "tid": null, "ts": "15:16:19"}
+{"kind": "kill", "t": 644, "n": "HTNK", "ts": "15:16:19"}
+{"kind": "decision", "t": 644, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.51}, "inf": {"choice": "E2", "confidence": 0.34}, "veh": {"choice": "HTNK", "confidence": 0.62}, "stance": {"choice": "defend", "confidence": 0.88}, "threat": {"choice": null, "confidence": null}}, "ts": "15:16:20"}
+{"kind": "obs", "t": 644, "credits": 1935, "my_val": 990, "en_val": 0, "stance": "defend", "hostile": 0, "tanks": 1, "harv": 3, "power_low": true, "ts": "15:16:20"}
+{"kind": "decision", "t": 646, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.48}, "inf": {"choice": "E2", "confidence": 0.39}, "veh": {"choice": "HTNK", "confidence": 0.63}, "stance": {"choice": "defend", "confidence": 0.9}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:08"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:08"}
+{"kind": "loss", "t": 710, "n": "HTNK", "ts": "15:17:09"}
+{"kind": "loss", "t": 710, "n": "E2", "ts": "15:17:09"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:09"}
+{"kind": "action", "what": "produce", "name": "HARV", "qty": 1, "tid": null, "ts": "15:17:09"}
+{"kind": "action", "what": "produce", "name": "HTNK", "qty": 2, "tid": null, "ts": "15:17:09"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:09"}
+{"kind": "decision", "t": 710, "answers": {"build": {"choice": "NAREFN", "confidence": 0.81}, "inf": {"choice": "E2", "confidence": 0.9}, "veh": {"choice": "HTNK", "confidence": 0.5}, "stance": {"choice": "defend", "confidence": 0.74}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:10"}
+{"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "15:17:10"}
+{"kind": "action", "what": "produce", "name": "NALASR", "qty": 1, "tid": null, "ts": "15:17:10"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:10"}
+{"kind": "decision", "t": 712, "answers": {"build": {"choice": "NAREFN", "confidence": 0.77}, "inf": {"choice": "E2", "confidence": 0.77}, "veh": {"choice": "HTNK", "confidence": 0.52}, "stance": {"choice": "defend", "confidence": 0.66}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:11"}
+{"kind": "decision", "t": 714, "answers": {"build": {"choice": "NAREFN", "confidence": 0.76}, "inf": {"choice": "E2", "confidence": 0.76}, "veh": {"choice": "HTNK", "confidence": 0.6}, "stance": {"choice": "defend", "confidence": 0.72}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:12"}
+{"kind": "decision", "t": 716, "answers": {"build": {"choice": "NAREFN", "confidence": 0.74}, "inf": {"choice": "E2", "confidence": 0.89}, "veh": {"choice": "HTNK", "confidence": 0.53}, "stance": {"choice": "defend", "confidence": 0.6}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:14"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:14"}
+{"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "15:17:15"}
+{"kind": "decision", "t": 718, "answers": {"build": {"choice": "NAREFN", "confidence": 0.71}, "inf": {"choice": "E2", "confidence": 0.86}, "veh": {"choice": "HTNK", "confidence": 0.6}, "stance": {"choice": "defend", "confidence": 0.59}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:15"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:15"}
+{"kind": "decision", "t": 720, "answers": {"build": {"choice": "NAREFN", "confidence": 0.7}, "inf": {"choice": "E2", "confidence": 0.86}, "veh": {"choice": "HTNK", "confidence": 0.61}, "stance": {"choice": "defend", "confidence": 0.5}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:17"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:17"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:17"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:17"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:18"}
+{"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "tid": null, "ts": "15:17:18"}
+{"kind": "decision", "t": 722, "answers": {"build": {"choice": "NAREFN", "confidence": 0.77}, "inf": {"choice": "E2", "confidence": 0.86}, "veh": {"choice": "HTNK", "confidence": 0.63}, "stance": {"choice": "defend", "confidence": 0.51}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:18"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:18"}
+{"kind": "decision", "t": 724, "answers": {"build": {"choice": "NAREFN", "confidence": 0.24}, "inf": {"choice": "E2", "confidence": 0.84}, "veh": {"choice": "HTNK", "confidence": 0.62}, "stance": {"choice": "defend", "confidence": 0.57}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:20"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:20"}
+{"kind": "decision", "t": 726, "answers": {"build": {"choice": "NAREFN", "confidence": 0.32}, "inf": {"choice": "E2", "confidence": 0.87}, "veh": {"choice": "HTNK", "confidence": 0.63}, "stance": {"choice": "defend", "confidence": 0.57}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:21"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:21"}
+{"kind": "decision", "t": 728, "answers": {"build": {"choice": "NAREFN", "confidence": 0.28}, "inf": {"choice": "E2", "confidence": 0.85}, "veh": {"choice": "HTNK", "confidence": 0.63}, "stance": {"choice": "defend", "confidence": 0.54}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:23"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:23"}
+{"kind": "decision", "t": 730, "answers": {"veh": {"choice": "HTNK", "confidence": 0.6}, "stance": {"choice": "defend", "confidence": 0.61}, "threat": {"choice": null, "confidence": null}, "build": {"choice": "NAREFN", "confidence": 0.39}, "inf": {"choice": "E2", "confidence": 0.86}}, "ts": "15:17:24"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:24"}
+{"kind": "decision", "t": 732, "answers": {"build": {"choice": "NAREFN", "confidence": 0.28}, "inf": {"choice": "E2", "confidence": 0.86}, "veh": {"choice": "HTNK", "confidence": 0.56}, "stance": {"choice": "defend", "confidence": 0.64}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:27"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:27"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:27"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:27"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:27"}
+{"kind": "decision", "t": 735, "answers": {"build": {"choice": "NAREFN", "confidence": 0.27}, "inf": {"choice": "E2", "confidence": 0.85}, "veh": {"choice": "HTNK", "confidence": 0.53}, "stance": {"choice": "defend", "confidence": 0.67}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:28"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:28"}
+{"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "15:17:29"}
+{"kind": "decision", "t": 737, "answers": {"build": {"choice": "NAREFN", "confidence": 0.25}, "inf": {"choice": "E2", "confidence": 0.84}, "veh": {"choice": "HTNK", "confidence": 0.57}, "stance": {"choice": "defend", "confidence": 0.57}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:30"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:30"}
+{"kind": "kill", "t": 739, "n": "E2", "ts": "15:17:30"}
+{"kind": "decision", "t": 739, "answers": {"build": {"choice": "NAREFN", "confidence": 0.2}, "inf": {"choice": "E2", "confidence": 0.83}, "veh": {"choice": "HTNK", "confidence": 0.48}, "stance": {"choice": "defend", "confidence": 0.58}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:31"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:31"}
+{"kind": "kill", "t": 741, "n": "E2", "ts": "15:17:32"}
+{"kind": "decision", "t": 741, "answers": {"build": {"choice": "NAWEAP", "confidence": 0.17}, "inf": {"choice": "E2", "confidence": 0.83}, "veh": {"choice": "HTNK", "confidence": 0.54}, "stance": {"choice": "defend", "confidence": 0.62}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:34"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:34"}
+{"kind": "decision", "t": 744, "answers": {"build": {"choice": "NAREFN", "confidence": 0.19}, "inf": {"choice": "E2", "confidence": 0.85}, "veh": {"choice": "HTNK", "confidence": 0.43}, "stance": {"choice": "defend", "confidence": 0.56}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:35"}
+{"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "15:17:35"}
+{"kind": "kill", "t": 746, "n": "E2", "ts": "15:17:36"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:36"}
+{"kind": "decision", "t": 746, "answers": {"build": {"choice": "NAREFN", "confidence": 0.17}, "inf": {"choice": "E2", "confidence": 0.8}, "veh": {"choice": "HTNK", "confidence": 0.41}, "stance": {"choice": "defend", "confidence": 0.56}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:36"}
+{"kind": "kill", "t": 748, "n": "E2", "ts": "15:17:37"}
+{"kind": "decision", "t": 748, "answers": {"build": {"choice": "NAREFN", "confidence": 0.22}, "inf": {"choice": "E2", "confidence": 0.82}, "veh": {"choice": "HTNK", "confidence": 0.51}, "stance": {"choice": "defend", "confidence": 0.57}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:38"}
+{"kind": "kill", "t": 750, "n": "E2", "ts": "15:17:39"}
+{"kind": "decision", "t": 750, "answers": {"build": {"choice": "NAREFN", "confidence": 0.21}, "inf": {"choice": "E2", "confidence": 0.84}, "veh": {"choice": "HTNK", "confidence": 0.5}, "stance": {"choice": "defend", "confidence": 0.55}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:39"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:39"}
+{"kind": "decision", "t": 752, "answers": {"veh": {"choice": "HTNK", "confidence": 0.42}, "stance": {"choice": "defend", "confidence": 0.58}, "threat": {"choice": null, "confidence": null}, "build": {"choice": "NAHAND", "confidence": 0.26}, "inf": {"choice": "E2", "confidence": 0.83}}, "ts": "15:17:41"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:41"}
+{"kind": "kill", "t": 754, "n": "E2", "ts": "15:17:42"}
+{"kind": "kill", "t": 754, "n": "E2", "ts": "15:17:42"}
+{"kind": "decision", "t": 754, "answers": {"inf": {"choice": "E2", "confidence": 0.8}, "veh": {"choice": "HTNK", "confidence": 0.42}, "stance": {"choice": "defend", "confidence": 0.53}, "threat": {"choice": null, "confidence": null}, "build": {"choice": "NAHAND", "confidence": 0.3}}, "ts": "15:17:42"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:42"}
+{"kind": "decision", "t": 756, "answers": {"build": {"choice": "NAREFN", "confidence": 0.2}, "inf": {"choice": "E2", "confidence": 0.78}, "veh": {"choice": "HTNK", "confidence": 0.57}, "stance": {"choice": "defend", "confidence": 0.45}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:44"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:44"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:44"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:45"}
+{"kind": "decision", "t": 758, "answers": {"stance": {"choice": "defend", "confidence": 0.44}, "threat": {"choice": null, "confidence": null}, "build": {"choice": "NAHAND", "confidence": 0.25}, "inf": {"choice": "E2", "confidence": 0.78}, "veh": {"choice": "HTNK", "confidence": 0.57}}, "ts": "15:17:45"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:45"}
+{"kind": "obs", "t": 758, "credits": 1285, "my_val": 1580, "en_val": 90, "stance": "defend", "hostile": 1, "tanks": 1, "harv": 3, "power_low": false, "ts": "15:17:45"}
+{"kind": "decision", "t": 760, "answers": {"build": {"choice": "NAHAND", "confidence": 0.18}, "inf": {"choice": "E2", "confidence": 0.8}, "veh": {"choice": "HTNK", "confidence": 0.49}, "stance": {"choice": "defend", "confidence": 0.61}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:48"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:48"}
+{"kind": "loss", "t": 763, "n": "SHK", "ts": "15:17:49"}
+{"kind": "decision", "t": 763, "answers": {"build": {"choice": "NAREFN", "confidence": 0.24}, "inf": {"choice": "E2", "confidence": 0.83}, "veh": {"choice": "HTNK", "confidence": 0.51}, "stance": {"choice": "defend", "confidence": 0.59}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:50"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:50"}
+{"kind": "loss", "t": 765, "n": "HTNK", "ts": "15:17:50"}
+{"kind": "decision", "t": 765, "answers": {"build": {"choice": "NAREFN", "confidence": 0.19}, "inf": {"choice": "E2", "confidence": 0.8}, "veh": {"choice": "HTNK", "confidence": 0.29}, "stance": {"choice": "defend", "confidence": 0.66}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:51"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:51"}
+{"kind": "decision", "t": 767, "answers": {"build": {"choice": "NAREFN", "confidence": 0.18}, "inf": {"choice": "E2", "confidence": 0.81}, "veh": {"choice": "HTNK", "confidence": 0.22}, "stance": {"choice": "defend", "confidence": 0.71}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:54"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:17:54"}
+{"kind": "decision", "t": 770, "answers": {"build": {"choice": "NAREFN", "confidence": 0.3}, "inf": {"choice": "E2", "confidence": 0.76}, "veh": {"choice": "HTNK", "confidence": 0.48}, "stance": {"choice": "defend", "confidence": 0.93}, "threat": {"choice": null, "confidence": null}}, "ts": "15:17:55"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:17:55"}
+{"kind": "decision", "t": 772, "answers": {"build": {"choice": "NAREFN", "confidence": 0.16}, "inf": {"choice": "E2", "confidence": 0.83}, "veh": {"choice": "HTNK", "confidence": 0.6}, "stance": {"choice": "defend", "confidence": 0.93}, "threat": {"choice": null, "confidence": null}}, "ts": "15:18:31"}
+{"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "15:18:31"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:18:31"}
+{"kind": "loss", "t": 820, "n": "E2", "ts": "15:18:31"}
+{"kind": "loss", "t": 820, "n": "E2", "ts": "15:18:31"}
+{"kind": "kill", "t": 820, "n": "E2", "ts": "15:18:31"}
+{"kind": "kill", "t": 820, "n": "HARV", "ts": "15:18:31"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:18:31"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:18:31"}
+{"kind": "decision", "t": 820, "answers": {"build": {"choice": "hold", "confidence": 0.55}, "inf": {"choice": "E2", "confidence": 0.42}, "veh": {"choice": "HTNK", "confidence": 0.72}, "stance": {"choice": "defend", "confidence": 0.93}, "threat": {"choice": null, "confidence": null}}, "ts": "15:20:05"}
+{"kind": "kill", "t": 945, "n": "HARV", "ts": "15:20:05"}
+{"kind": "action", "what": "produce", "name": "HTNK", "qty": 4, "tid": null, "ts": "15:20:05"}
+{"kind": "action", "what": "produce", "name": "NAWEAP", "qty": 1, "tid": null, "ts": "15:20:05"}
+{"kind": "decision", "t": 945, "answers": {"build": {"choice": "NAWEAP", "confidence": 0.23}, "inf": {"choice": "E2", "confidence": 0.54}, "veh": {"choice": "HTNK", "confidence": 0.71}, "stance": {"choice": "defend", "confidence": 0.71}, "threat": {"choice": null, "confidence": null}}, "ts": "15:20:13"}
+{"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "15:20:13"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:20:13"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:20:13"}
+{"kind": "decision", "t": 956, "answers": {"build": {"choice": "NARADR", "confidence": 0.37}, "inf": {"choice": "E2", "confidence": 0.58}, "veh": {"choice": "HTNK", "confidence": 0.71}, "stance": {"choice": "defend", "confidence": 0.66}, "threat": {"choice": null, "confidence": null}}, "ts": "15:21:06"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:21:06"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:21:06"}
+{"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "15:21:06"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:21:06"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:21:06"}
+{"kind": "decision", "t": 1026, "answers": {"build": {"choice": "NARADR", "confidence": 0.33}, "inf": {"choice": "E2", "confidence": 0.56}, "veh": {"choice": "HTNK", "confidence": 0.75}, "stance": {"choice": "defend", "confidence": 0.83}, "threat": {"choice": null, "confidence": null}}, "ts": "15:21:13"}
+{"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "15:21:13"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:21:13"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:21:14"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:21:14"}
+{"kind": "loss", "t": 1037, "n": "HTNK", "ts": "15:21:14"}
+{"kind": "kill", "t": 1037, "n": "HARV", "ts": "15:21:14"}
+{"kind": "kill", "t": 1037, "n": "HARV", "ts": "15:21:14"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:21:14"}
+{"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "tid": null, "ts": "15:21:14"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:21:14"}
+{"kind": "decision", "t": 1037, "answers": {"build": {"choice": "NAWEAP", "confidence": 0.3}, "inf": {"choice": "E2", "confidence": 0.48}, "veh": {"choice": "HTNK", "confidence": 0.76}, "stance": {"choice": "defend", "confidence": 0.39}, "threat": {"choice": null, "confidence": null}}, "ts": "15:21:16"}
+{"kind": "decision", "t": 1040, "answers": {"build": {"choice": "NAWEAP", "confidence": 0.18}, "inf": {"choice": "E2", "confidence": 0.44}, "veh": {"choice": "HTNK", "confidence": 0.74}, "stance": {"choice": "attack", "confidence": 0.36}, "threat": {"choice": null, "confidence": null}}, "ts": "15:21:19"}
+{"kind": "produce_skip", "q": 2, "name": "E2", "ts": "15:21:19"}
+{"kind": "kill", "t": 1044, "n": "HARV", "ts": "15:21:20"}
+{"kind": "decision", "t": 1044, "answers": {"build": {"choice": "NARADR", "confidence": 0.24}, "inf": {"choice": "E2", "confidence": 0.4}, "veh": {"choice": "HTNK", "confidence": 0.74}, "stance": {"choice": "defend", "confidence": 0.71}, "threat": {"choice": null, "confidence": null}}, "ts": "15:22:44"}
+{"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "15:22:44"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:22:44"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:22:44"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:22:44"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:22:44"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:22:45"}
+{"kind": "action", "what": "produce", "name": "HTK", "qty": 2, "tid": null, "ts": "15:22:45"}
+{"kind": "action", "what": "produce", "name": "HTNK", "qty": 4, "tid": null, "ts": "15:22:45"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:22:45"}
+{"kind": "decision", "t": 1158, "answers": {"build": {"choice": "NARADR", "confidence": 0.36}, "inf": {"choice": "SHK", "confidence": 0.33}, "veh": {"choice": "HTK", "confidence": 0.78}, "stance": {"choice": "defend", "confidence": 0.9}, "threat": {"choice": null, "confidence": null}}, "ts": "15:24:26"}
+{"kind": "action", "what": "produce", "name": "NARADR", "qty": 1, "tid": null, "ts": "15:24:26"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:24:26"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:24:26"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:24:26"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:24:26"}
+{"kind": "loss", "t": 1294, "n": "HTNK", "ts": "15:24:27"}
+{"kind": "loss", "t": 1294, "n": "E2", "ts": "15:24:27"}
+{"kind": "kill", "t": 1294, "n": "HARV", "ts": "15:24:27"}
+{"kind": "kill", "t": 1294, "n": "HTK", "ts": "15:24:27"}
+{"kind": "kill", "t": 1294, "n": "HTK", "ts": "15:24:27"}
+{"kind": "kill", "t": 1294, "n": "HTNK", "ts": "15:24:27"}
+{"kind": "kill", "t": 1294, "n": "HTNK", "ts": "15:24:27"}
+{"kind": "kill", "t": 1294, "n": "HTNK", "ts": "15:24:27"}
+{"kind": "kill", "t": 1294, "n": "V3ROCKET", "ts": "15:24:27"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:24:27"}
+{"kind": "action", "what": "produce", "name": "HTK", "qty": 2, "tid": null, "ts": "15:24:27"}
+{"kind": "action", "what": "produce", "name": "HTNK", "qty": 2, "tid": null, "ts": "15:24:27"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:24:27"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:24:27"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:24:27"}
+{"kind": "decision", "t": 1294, "answers": {"build": {"choice": "NAWEAP", "confidence": 0.14}, "inf": {"choice": "SHK", "confidence": 0.2}, "veh": {"choice": "HTK", "confidence": 0.85}, "stance": {"choice": "defend", "confidence": 0.57}, "threat": {"choice": null, "confidence": null}}, "ts": "15:24:29"}
+{"kind": "action", "what": "produce", "name": "SHK", "qty": 1, "tid": null, "ts": "15:24:29"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:24:30"}
+{"kind": "decision", "t": 1298, "answers": {"build": {"choice": "NARADR", "confidence": 0.15}, "inf": {"choice": "SHK", "confidence": 0.28}, "veh": {"choice": "HTK", "confidence": 0.83}, "stance": {"choice": "defend", "confidence": 0.63}, "threat": {"choice": null, "confidence": null}}, "ts": "15:24:34"}
+{"kind": "kill", "t": 1304, "n": "HARV", "ts": "15:24:34"}
+{"kind": "decision", "t": 1304, "answers": {"build": {"choice": "NAWEAP", "confidence": 0.17}, "inf": {"choice": "SHK", "confidence": 0.26}, "veh": {"choice": "HTK", "confidence": 0.86}, "stance": {"choice": "defend", "confidence": 0.59}, "threat": {"choice": null, "confidence": null}}, "ts": "15:25:19"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:25:19"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:25:19"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:25:19"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:25:19"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:25:19"}
+{"kind": "kill", "t": 1364, "n": "HARV", "ts": "15:25:20"}
+{"kind": "kill", "t": 1364, "n": "V3", "ts": "15:25:20"}
+{"kind": "action", "what": "produce", "name": "HTNK", "qty": 2, "tid": null, "ts": "15:25:20"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:25:20"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:25:20"}
+{"kind": "decision", "t": 1364, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.14}, "inf": {"choice": "FLAKT", "confidence": 0.83}, "veh": {"choice": "HTNK", "confidence": 0.58}, "stance": {"choice": "defend", "confidence": 0.49}, "threat": {"choice": null, "confidence": null}}, "ts": "15:25:23"}
+{"kind": "action", "what": "produce", "name": "FLAKT", "qty": 1, "tid": null, "ts": "15:25:23"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:25:23"}
+{"kind": "decision", "t": 1369, "answers": {"build": {"choice": "NAHAND", "confidence": 0.21}, "inf": {"choice": "FLAKT", "confidence": 0.8}, "veh": {"choice": "HTNK", "confidence": 0.65}, "stance": {"choice": "defend", "confidence": 0.52}, "threat": {"choice": null, "confidence": null}}, "ts": "15:25:25"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:25:25"}
+{"kind": "action", "what": "produce", "name": "TESLA", "qty": 1, "tid": null, "ts": "15:25:25"}
+{"kind": "decision", "t": 1371, "answers": {"build": {"choice": "NAWEAP", "confidence": 0.1}, "inf": {"choice": "FLAKT", "confidence": 0.73}, "veh": {"choice": "HTNK", "confidence": 0.68}, "stance": {"choice": "defend", "confidence": 0.48}, "threat": {"choice": null, "confidence": null}}, "ts": "15:26:14"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:26:14"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:26:14"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:26:14"}
+{"kind": "kill", "t": 1437, "n": "HARV", "ts": "15:26:14"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:26:14"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:26:14"}
+{"kind": "decision", "t": 1437, "answers": {"build": {"choice": "hold", "confidence": 0.47}, "inf": {"choice": "FLAKT", "confidence": 0.51}, "veh": {"choice": "HTNK", "confidence": 0.57}, "stance": {"choice": "defend", "confidence": 0.6}, "threat": {"choice": null, "confidence": null}}, "ts": "15:26:59"}
+{"kind": "action", "what": "produce", "name": "HTNK", "qty": 1, "tid": null, "ts": "15:26:59"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:26:59"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:26:59"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:26:59"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:26:59"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:26:59"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:27:00"}
+{"kind": "decision", "t": 1498, "answers": {"build": {"choice": "hold", "confidence": 0.57}, "inf": {"choice": "E2", "confidence": 0.38}, "veh": {"choice": "HTNK", "confidence": 0.47}, "stance": {"choice": "defend", "confidence": 0.41}, "threat": {"choice": null, "confidence": null}}, "ts": "15:27:47"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:27:47"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:27:47"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:27:47"}
+{"kind": "kill", "t": 1561, "n": "E2", "ts": "15:27:47"}
+{"kind": "action", "what": "produce", "name": "HTNK", "qty": 2, "tid": null, "ts": "15:27:47"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:27:47"}
+{"kind": "decision", "t": 1561, "answers": {"threat": {"choice": null, "confidence": null}, "build": {"choice": "hold", "confidence": 0.22}, "inf": {"choice": "FLAKT", "confidence": 0.44}, "veh": {"choice": "HTNK", "confidence": 0.6}, "stance": {"choice": "defend", "confidence": 0.7}}, "ts": "15:27:50"}
+{"kind": "action", "what": "produce", "name": "FLAKT", "qty": 1, "tid": null, "ts": "15:27:50"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:27:50"}
+{"kind": "decision", "t": 1565, "answers": {"build": {"choice": "NARADR", "confidence": 0.23}, "inf": {"choice": "FLAKT", "confidence": 0.49}, "veh": {"choice": "HTNK", "confidence": 0.67}, "stance": {"choice": "defend", "confidence": 0.64}, "threat": {"choice": null, "confidence": null}}, "ts": "15:28:09"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:09"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:09"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:09"}
+{"kind": "decision", "t": 1590, "answers": {"build": {"choice": "NARADR", "confidence": 0.22}, "inf": {"choice": "FLAKT", "confidence": 0.47}, "veh": {"choice": "HTNK", "confidence": 0.7}, "stance": {"choice": "defend", "confidence": 0.63}, "threat": {"choice": null, "confidence": null}}, "ts": "15:28:19"}
+{"kind": "action", "what": "produce", "name": "NARADR", "qty": 1, "tid": null, "ts": "15:28:19"}
+{"kind": "action", "what": "produce", "name": "FLAKT", "qty": 1, "tid": null, "ts": "15:28:19"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:19"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:19"}
+{"kind": "obs", "t": 1590, "credits": 1746, "my_val": 15280, "en_val": 0, "stance": "attack", "hostile": 0, "tanks": 17, "harv": 5, "power_low": false, "ts": "15:28:19"}
+{"kind": "action", "what": "produce", "name": "HTNK", "qty": 2, "tid": null, "ts": "15:28:19"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:19"}
+{"kind": "decision", "t": 1603, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.24}, "inf": {"choice": "FLAKT", "confidence": 0.49}, "veh": {"choice": "HTNK", "confidence": 0.73}, "stance": {"choice": "attack", "confidence": 0.95}, "threat": {"choice": null, "confidence": null}}, "ts": "15:28:48"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:48"}
+{"kind": "action", "what": "attack_obj", "name": null, "qty": null, "tid": 1171, "ts": "15:28:48"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:48"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:48"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:48"}
+{"kind": "kill", "t": 1643, "n": "NAPOWR", "ts": "15:28:48"}
+{"kind": "kill", "t": 1643, "n": "NALASR", "ts": "15:28:48"}
+{"kind": "decision", "t": 1643, "answers": {"build": {"choice": "hold", "confidence": 0.28}, "inf": {"choice": "FLAKT", "confidence": 0.35}, "veh": {"choice": "HTNK", "confidence": 0.71}, "stance": {"choice": "attack", "confidence": 0.91}, "threat": {"choice": null, "confidence": null}}, "ts": "15:28:51"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:51"}
+{"kind": "action", "what": "attack_obj", "name": null, "qty": null, "tid": 1091, "ts": "15:28:51"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:51"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:51"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:28:51"}
+{"kind": "decision", "t": 1647, "answers": {"build": {"choice": "hold", "confidence": 0.26}, "inf": {"choice": "FLAKT", "confidence": 0.32}, "veh": {"choice": "HTNK", "confidence": 0.72}, "stance": {"choice": "attack", "confidence": 0.91}, "threat": {"choice": null, "confidence": null}}, "ts": "15:29:43"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:29:43"}
+{"kind": "action", "what": "attack_obj", "name": null, "qty": null, "tid": 1091, "ts": "15:29:43"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:29:43"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:29:43"}
+{"kind": "kill", "t": 1716, "n": "NAPOWR", "ts": "15:29:43"}
+{"kind": "kill", "t": 1716, "n": "NAWEAP", "ts": "15:29:43"}
+{"kind": "kill", "t": 1716, "n": "NAREFN", "ts": "15:29:43"}
+{"kind": "kill", "t": 1716, "n": "NADEPT", "ts": "15:29:43"}
+{"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "tid": null, "ts": "15:29:43"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:29:43"}
+{"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "15:29:44"}
+{"kind": "decision", "t": 1716, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.33}, "inf": {"choice": "E2", "confidence": 0.35}, "veh": {"choice": "HTNK", "confidence": 0.6}, "stance": {"choice": "attack", "confidence": 0.93}, "threat": {"choice": null, "confidence": null}}, "ts": "15:29:48"}
+{"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "15:29:48"}
+{"kind": "action", "what": "produce", "name": "HTNK", "qty": 1, "tid": null, "ts": "15:29:48"}
+{"kind": "action", "what": "attack_obj", "name": null, "qty": null, "tid": 1052, "ts": "15:29:48"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:29:48"}
+{"kind": "kill", "t": 1723, "n": "E2", "ts": "15:29:48"}
+{"kind": "kill", "t": 1723, "n": "E2", "ts": "15:29:48"}
+{"kind": "decision", "t": 1723, "answers": {"build": {"choice": "hold", "confidence": 0.19}, "inf": {"choice": "E2", "confidence": 0.31}, "veh": {"choice": "HTNK", "confidence": 0.61}, "stance": {"choice": "attack", "confidence": 0.94}, "threat": {"choice": null, "confidence": null}}, "ts": "15:30:01"}
+{"kind": "action", "what": "attack_obj", "name": null, "qty": null, "tid": 1111, "ts": "15:30:01"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:30:01"}
+{"kind": "kill", "t": 1740, "n": "NACNST", "ts": "15:30:02"}
+{"kind": "kill", "t": 1740, "n": "NAREFN", "ts": "15:30:02"}
+{"kind": "kill", "t": 1740, "n": "E2", "ts": "15:30:02"}
+{"kind": "decision", "t": 1740, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.51}, "inf": {"choice": "E2", "confidence": 0.32}, "veh": {"choice": "HTNK", "confidence": 0.63}, "stance": {"choice": "attack", "confidence": 0.97}, "threat": {"choice": null, "confidence": null}}, "ts": "15:30:03"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:30:03"}
+{"kind": "decision", "t": 1742, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.28}, "inf": {"choice": "E2", "confidence": 0.26}, "veh": {"choice": "HTNK", "confidence": 0.67}, "stance": {"choice": "attack", "confidence": 0.97}, "threat": {"choice": null, "confidence": null}}, "ts": "15:30:05"}
+{"kind": "decision", "t": 1745, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.34}, "inf": {"choice": "E2", "confidence": 0.25}, "veh": {"choice": "HTNK", "confidence": 0.73}, "stance": {"choice": "attack", "confidence": 0.96}, "threat": {"choice": null, "confidence": null}}, "ts": "15:30:07"}
+{"kind": "kill", "t": 1748, "n": "E2", "ts": "15:30:07"}
+{"kind": "decision", "t": 1748, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.31}, "inf": {"choice": "E2", "confidence": 0.33}, "veh": {"choice": "HTNK", "confidence": 0.68}, "stance": {"choice": "attack", "confidence": 0.96}, "threat": {"choice": null, "confidence": null}}, "ts": "15:30:10"}
+{"kind": "kill", "t": 1751, "n": "E2", "ts": "15:30:10"}
+{"kind": "decision", "t": 1751, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.32}, "inf": {"choice": "E2", "confidence": 0.29}, "veh": {"choice": "HTNK", "confidence": 0.66}, "stance": {"choice": "attack", "confidence": 0.96}, "threat": {"choice": null, "confidence": null}}, "ts": "15:30:13"}
+{"kind": "decision", "t": 1755, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.21}, "inf": {"choice": "E2", "confidence": 0.25}, "veh": {"choice": "HTNK", "confidence": 0.66}, "stance": {"choice": "attack", "confidence": 0.96}, "threat": {"choice": null, "confidence": null}}, "ts": "15:30:17"}
+{"kind": "action", "what": "attack_obj", "name": null, "qty": null, "tid": 1111, "ts": "15:30:17"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:30:17"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:30:17"}
+{"kind": "kill", "t": 1761, "n": "NAHAND", "ts": "15:30:17"}
+{"kind": "kill", "t": 1761, "n": "NAREFN", "ts": "15:30:17"}
+{"kind": "kill", "t": 1761, "n": "E2", "ts": "15:30:17"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:30:17"}
+{"kind": "decision", "t": 1761, "answers": {"build": {"choice": "NAPOWR", "confidence": 0.25}, "inf": {"choice": "E2", "confidence": 0.3}, "veh": {"choice": "HTNK", "confidence": 0.71}, "stance": {"choice": "attack", "confidence": 0.94}, "threat": {"choice": null, "confidence": null}}, "ts": "15:30:23"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:30:23"}
+{"kind": "action", "what": "attack_obj", "name": null, "qty": null, "tid": 1060, "ts": "15:30:23"}
+{"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "15:30:23"}
+{"kind": "kill", "t": 1769, "n": "E2", "ts": "15:30:23"}
+{"kind": "decision", "t": 1769, "answers": {"build": {"choice": "hold", "confidence": 0.19}, "inf": {"choice": "E2", "confidence": 0.34}, "veh": {"choice": "HTNK", "confidence": 0.69}, "stance": {"choice": "attack", "confidence": 0.94}, "threat": {"choice": null, "confidence": null}}, "ts": "15:30:33"}
+{"kind": "report", "result": "victory", "t": 1783, "ticks": 89, "crisis_ticks": 44, "stance": "attack", "jev": {"decisions": 88, "errors": 0, "input_tokens": 271851, "output_tokens": 21821, "p50_ms": 2248, "p95_ms": 14579}, "enemy_base": [70, 122], "ts": "2026-10-03 15:30:33"}
