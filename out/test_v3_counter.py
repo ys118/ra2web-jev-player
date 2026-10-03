@@ -163,10 +163,14 @@ def pow_case(bl_names, t=300):
     s["av"][0] = list(s["av"][0]) + ["NARADR"]    # 场景11需要
     return s, mem
 
-# 10a: 当前序列(电厂是开局下一项) → 应急电厂照常开闸
-s, mem = pow_case([])                       # 只有基地 → opening_next=NAPOWR
+# 10a: 默认精炼厂先行(开局下一项=NAREFN) → 应急闸不开闸(0电容是预期)
+s, mem = pow_case([])
 _, acts, _ = planner.checklist(s, home, "develop", mem)
-check("10a 无战厂+电厂是下一项→开闸", any(a.get("name") == "NAPOWR" for a in acts))
+check("10a-1 精炼厂先行开局应急闸不开", not any(a.get("name") == "NAPOWR" for a in acts))
+# 10a-2: 回退态(NAPOWR 先行)下电厂是下一项 → 开闸
+mem.open_fallback = True
+_, acts, _ = planner.checklist(s, home, "develop", mem)
+check("10a-2 回退态电厂是下一项→开闸", any(a.get("name") == "NAPOWR" for a in acts))
 
 # 10b: 精炼厂先行序列(电厂排第4) → 战厂建成前应急闸不抢 q0
 import ra2web_jev_player.strategy.planner as _P
@@ -211,3 +215,41 @@ check("11b 序列建成后Jev自由建造", any(a.get("name") == "NARADR" for a 
       str(logs2))
 _P.get_side = _real_gs
 
+
+# ---- 场景 12: 开局自愈回退网(第67局) ----
+def open_state(mine_names, q0s=0, t=100):
+    mem = planner.BattleMemory()
+    mine = [unit("b0", "NACNST", 2, (10, 10))]
+    for i, n in enumerate(mine_names):
+        mine.append(unit("b%d" % (i + 1), n, 2, (12 + i, 10)))
+    s = base_state(t=t)
+    s["mine"] = mine
+    s["queues"] = [{"t": 0, "s": q0s, "items": []}] + [dict(q) for q in IDLE_Q[1:]]
+    s["av"][0] = ["NAPOWR", "NAREFN", "NAHAND", "NAWEAP"]
+    return s, mem
+
+# 12a: NAREFN 下单后 40gs 无进展 → 拒收 + 整体回退旧序
+s, mem = open_state([])
+act = planner.opening_build(s, mem)
+check("12a-1 首单=NAREFN(精炼厂先行)", act is not None and act["name"] == "NAREFN", str(act))
+mem.open_order_t = s["t"] - 50
+act2 = planner.opening_build(s, mem)
+check("12a-2 40gs无进展→拒收+回退", mem.open_fallback
+      and any("FALLBACK" in e for e in mem.open_events), str(mem.open_events))
+check("12a-3 回退后首单=NAPOWR", act2 is not None and act2["name"] == "NAPOWR", str(act2))
+check("12a-4 opening_next_code 感知回退(NAPOWR 在途未建成=仍下一项)",
+      planner.opening_next_code(s, mem) == "NAPOWR",
+      planner.opening_next_code(s, mem))
+
+# 12b: NAREFN 受理(q0 building) → 不拒收, 不回退
+s, mem = open_state([], q0s=1)
+mem.open_order, mem.open_order_t = "NAREFN", s["t"] - 10
+planner.opening_build(s, mem)
+check("12b 受理中→不拒收不回退", not mem.open_fallback and mem.open_order is None,
+      str(mem.open_events))
+
+# 12c: NAREFN 已建成 → 订单清除, 下一单=NAHAND
+s, mem = open_state(["NAREFN", "NAPOWR"])
+mem.open_order, mem.open_order_t = "NAREFN", s["t"] - 60
+act = planner.opening_build(s, mem)
+check("12c 精炼厂落地→下一单兵营", act is not None and act["name"] == "NAHAND", str(act))

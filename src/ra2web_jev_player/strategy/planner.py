@@ -65,6 +65,12 @@ class BattleMemory:
         self.v3_seen_t = -10 ** 9       # 最后看见 V3 的游戏秒(600gs 内视为活跃)
         self.v3_pos = None              # V3 最后目击位置
         self.long_fire_t = -10 ** 9     # 远程火力签名(建筑掉血+视野内无攻击者)
+        # [第67局] 开局自愈回退网: 引擎拒收检测(40gs 无进展) + 黑名单 + 整体回退
+        self.open_order = None          # 最近下的开局建筑单
+        self.open_order_t = -1          # 下单游戏秒
+        self.open_blacklist: set = set()  # 被引擎拒收的建筑(本局跳过)
+        self.open_fallback = False      # True=回退旧合法序(NAPOWR 先行)
+        self.open_events: list = []     # 自愈事件(由 game.py 排空进 audit)
 
     def log_lines(self) -> list:
         return list(self.events)
@@ -274,7 +280,7 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     #    (或电厂本就是开局下一项时)恢复应急职能。
     fac_up = bl.get(side["weap"], 0) >= 1
     if pw - drain < T["power_reserve"] \
-            and (fac_up or opening_next_code(s) == side["powr"]) \
+            and (fac_up or opening_next_code(s, mem) == side["powr"]) \
             and cred >= 600 \
             and side["powr"] in available(s["av"], 0) \
             and qs.get(0, {}).get("s") == 0:
@@ -433,6 +439,10 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
 
 # ================= 开局建造序列 (Bible §5.1/§5.2, 阵营感知) =================
 
+# [第67局] 旧合法序(自愈回退目标): NAPOWR 先行, 第 18-59 局实证可行
+_OPENING_LEGACY = ["NAPOWR", "NAREFN", "NAHAND", "NAWEAP"]
+
+
 def build_gate(s: dict, cost: int, mem: BattleMemory | None = None) -> bool:
     """建筑购买闸门（第 28 局复盘 + 第 31 局 Route A）。
 
@@ -449,31 +459,52 @@ def build_gate(s: dict, cost: int, mem: BattleMemory | None = None) -> bool:
     return s["me"]["credits"] >= cost + T["tank_cash1"]
 
 
-def opening_next_code(s: dict):
-    """开工序列第一个未建成项（建造序列真相源）。[第58局] 工厂前置位保护用:
-    该项为战工时, Jev 不得往 q0 建造队列插单——第 58 局 Jev 在战工前插 4 栋建筑
-    (二矿/电厂/三矿/兵营), NAWEAP 被推到 398 → 首坦克 488 出窗口。"""
+def opening_next_code(s: dict, mem: BattleMemory | None = None):
+    """开工序列第一个未建成项（建造序列真相源）。[第58局] 工厂前置位保护用;
+    [第67局] 感知自愈回退: open_fallback 时按旧合法序, 黑名单项跳过。"""
     side = get_side(s)
     bl0 = buildings(s["mine"])
-    for want in side["opening"]:
-        if bl0.get(want, 0) == 0:
+    opening = _OPENING_LEGACY if (mem and mem.open_fallback) else side["opening"]
+    blkl = mem.open_blacklist if mem else set()
+    for want in opening:
+        if bl0.get(want, 0) == 0 and want not in blkl:
             return want
     return None
 
 
 def opening_build(s: dict, mem: BattleMemory):
-    """开局确定性序列：电厂→精炼厂→兵营→战车工厂；工厂后立即补二矿（第 20 局复盘）；
-    t>rush_t1 且资金 >4500 补第二工厂。[第31局 Route A] 速攻期(t<rush_t1)精炼厂
-    只建 1 座、不建第二工厂——全部现金转坦克；RECOVER 后闸门放开补经济出二波。
-    返回 action 或 None。"""
+    """开局确定性序列：[第67局] 精炼厂→兵营→战车工厂→电厂(精炼厂先行链, 老
+    33-37 局快开局同构, 首坦克 430→~350); 引擎拒收自愈网: 下单后 40gs q0 仍
+    idle 且建筑未落地 = 拒收 → 拉黑该建筑; NAREFN 被拒 = 无电厂精炼厂先行不可
+    行 → 整体回退旧合法序(NAPOWR 先行, 第 18-59 局实证)。电厂后置的电力缺口
+    由电厂应急闸门(战厂条件)与 DEFLINE 余量闸兜底。工厂后立即补二矿（第 20 局
+    复盘）；t>rush_t1 且资金 >4500 补第二工厂。[第31局 Route A] 速攻期(t<rush_t1)
+    精炼厂只建 1 座、不建第二工厂——全部现金转坦克；RECOVER 后闸门放开补经济
+    出二波。返回 action 或 None。"""
     side = get_side(s)
     qs = queues_by_type(s["queues"])
     av0 = available(s["av"], 0)
     bl0 = buildings(s["mine"])
+    # ---- [第67局] 引擎拒收检测(自愈网) ----
+    if mem.open_order:
+        built = bl0.get(mem.open_order, 0) > 0
+        q0s = qs.get(0, {}).get("s", 0)
+        if built or q0s != 0:
+            mem.open_order = None                    # 已落地 / 已受理
+        elif s["t"] - mem.open_order_t >= 40:
+            mem.open_blacklist.add(mem.open_order)
+            mem.open_events.append("t=%d OPENING REJECT %s (40gs 无进展, 拉黑)"
+                                   % (s["t"], mem.open_order))
+            if mem.open_order == "NAREFN" and not mem.open_fallback:
+                mem.open_fallback = True
+                mem.open_blacklist.clear()
+                mem.open_events.append("t=%d OPENING FALLBACK -> legacy NAPOWR-first"
+                                       % s["t"])
+            mem.open_order = None
     ref_cap_now = 1 if s["t"] < T["rush_t1"] else T["ref_cap"]
     opening_next = None
-    for want in side["opening"]:
-        if bl0.get(want, 0) == 0:
+    for want in (_OPENING_LEGACY if mem.open_fallback else side["opening"]):
+        if bl0.get(want, 0) == 0 and want not in mem.open_blacklist:
             opening_next = want
             break
     if opening_next is None and bl0.get(side["weap"], 0) >= 1 \
@@ -493,6 +524,8 @@ def opening_build(s: dict, mem: BattleMemory):
                 and build_gate(s, ucost(side["ref"]), mem):
             opening_next = side["ref"]
     if opening_next and qs.get(0, {}).get("s", 0) == 0 and opening_next in av0:
+        mem.open_order = opening_next            # [第67局] 自愈网: 记录在途订单
+        mem.open_order_t = s["t"]
         return {"act": "produce", "name": opening_next, "qty": 1, "q": 0,
                 "tag": "OPENING BUILD %s" % opening_next}
     return None
@@ -1006,9 +1039,10 @@ def apply_jev(s: dict, ans: dict, stance: str, mem: BattleMemory,
         # [第58局] 工厂前置位保护; [第67局] 扩展为整个开局序列前置位保护——
         # 精炼厂先行链下兵营/战厂之间同样不容插单(Jev 曾插 4 栋把战工推到 398);
         # 开局序列全部建成后 opening_next_code=None, Jev 恢复自由买建筑。
-        if opening_next_code(s) is not None:
+        _onext = opening_next_code(s, mem)
+        if _onext is not None:
             logs.append("t=%d jev BUILD %s HOLD (开局序列前置位保护: 等 %s)"
-                        % (s["t"], b, opening_next_code(s)))
+                        % (s["t"], b, _onext))
         else:
             n_ref = len([u for u in s["mine"] if u["n"] == side["ref"]])
             n_bar = len([u for u in s["mine"] if u["n"] == side["bar"]])
