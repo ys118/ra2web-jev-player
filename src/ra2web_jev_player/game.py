@@ -181,6 +181,9 @@ class BattleSession:
         # 日志只在真正执行后打 —— [第36局] 意图行被复盘当建成统计的噪音)
         try:
             act = planner.opening_build(s, self.mem)
+            for ev in self.mem.open_events:      # [第67局] 自愈回退事件进日志
+                self.audit.log(ev)
+            self.mem.open_events = []
             if act and not self._q_used.get(0):
                 if self._exec(s, [act]):
                     self.audit.log("t=%s OPENING BUILD %s" % (s["t"], act["name"]))

@@ -49,13 +49,22 @@ def main():
         print("[bench] launched")
         # 等基地车落成(有 NACNST)
         s = poll(c, lambda s: any(u["n"] == "NACNST" for u in s.get("mine", [])),
-                 timeout=180, tag="yard")
+                 timeout=300, tag="yard")
         if not s:
             print("[bench] FATAL yard never appeared"); return 1
         t0 = s["t"]
         print("[bench] yard@t=%s av0=%s" % (t0, av0(s)))
         print("[bench] power: %s" % json.dumps(s["me"]["power"]))
         c.micro_start()
+        # 等可造列表就绪(av0 非空)——长引导会话里菜单可能滞后
+        try:
+            s = poll(c, lambda s: len(av0(s)) > 0, timeout=120, tag="av0")
+        except Exception as e:
+            print("[bench] av0 poll died: %s" % str(e)[:100]); raise
+        if not s or len(av0(s)) == 0:
+            print("[bench] INCONCLUSIVE av0 never ready (t=%s)" % (s or {}).get("t"))
+            return 2
+        print("[bench] av0-ready t=%s av0=%s" % (s["t"], av0(s)))
 
         res = {}
         for name in ("NAREFN", "NAHAND", "NAWEAP"):

@@ -205,8 +205,12 @@ def get_side(s: dict) -> dict:
                 # [第59局完败自复盘] 序列必须遵守引擎前置链(NAWEAP prereq 含 NAHAND,
                 # 见 RA2-UNITS.json)——第 54 局换位 [.., NAWEAP, NAHAND] 违规, 靠 Jev
                 # 插单建兵营 masking 了 5 局, 第 59 局插单门控拆掉补丁后死锁完败。
-                # 回滚合法序: 电厂→矿厂→兵营→战工; 工厂前置位门控保护兵营→战工间隙。
-                "opening": ["NAPOWR", "NAREFN", "NAHAND", "NAWEAP"],
+                # [第67局] 精炼厂先行链 NAREFN→NAHAND→NAWEAP→NAPOWR: NAWEAP 依赖
+                # PROC(=精炼厂)+NAHAND 均在前 ✓; 老 33-37 局快开局同构(首坦 230s);
+                # 电厂后置由电厂应急闸门(战厂条件)+DEFLINE 余量闸兜底。若引擎拒收
+                # NAREFN(无电厂不可造), opening_build 自愈回退旧合法序(见 planner
+                # _OPENING_LEGACY), 走 open_fallback。
+                "opening": ["NAREFN", "NAHAND", "NAWEAP", "NAPOWR"],
                 "tank_pref": ["HTNK", "APOC", "TTNK"], "harv": "HARV", "gdef": "NALASR"}
     return {"side": "allied", "powr": "GAPOWR", "ref": "GAREFN", "bar": "GAPILE",
             "weap": "GAWEAP", "aa_b": "NASAM", "aa_v": None, "radar": "GAAIRC",
