@@ -41,6 +41,9 @@ T = dict(
                          # 替坦克挨刀——坦克伤亡换便宜的, 断经济效率更高
     retreat_hp=0.40,     # 残血撤退线 (40%)
     defend_radius=18,    # 基地防御半径 (格)
+    v3_htk_cap=3,        # [第66局 V3反制] V3 威胁期 HTK 存量上限(防刷)
+    v3_seen_window=600,  # [第66局] 见过 V3 后 600gs 内视为威胁活跃(生产响应)
+    v3_fire_window=120,  # [第66局] 远程火力签名(建筑掉血+视野内无攻击者)有效窗
 )
 
 # 复盘驱动的参数迭代（学习闭环）：knowledge/doctrine.json 里的覆盖值加载到 T。
@@ -116,6 +119,11 @@ TARGET_SCORE = {
 HARVEST = {"HARV", "CMIN"}
 MCV_CODES = {"SMCV", "AMCV"}
 SCOUT_DOGS = ("ADOG", "DOG")
+# [第66局 V3反制] 苏军 V3 火箭发射车(射程 18, 塔射程 5.5-12 够不着)远程点名生产
+# 建筑——第 65 局战车工厂两建两拆, 坦克峰值 0 的真因。反制 = HTK 防空车
+# (500cr, 可拦截 V3 火箭弹道 + 速度 8 能贴脸拆速度 4 的 V3)。
+V3_CODES = {"V3"}
+AA_VEHICLES = {"HTK"}
 # [第57局用户反馈] 防御塔代码表——坦克严禁主动攻击这些(攻击移动会被塔吸火送头),
 # 进攻目标只选无攻击力建筑(经济/生产), 塔交给微操/射程外处理
 DEF_BUILDINGS = {"TESLA", "NAFLAK", "NALASR", "NAWALL",
@@ -159,7 +167,15 @@ Attack discipline: on total attack keep 2 tanks home, rest hit production buildi
 wounded (<40%) fall back and survive; harass squad hits harvesters then undefended
 production buildings, never lingers in tower zones.
 Timing windows: first tank by 3min -> 2 tanks go harass; economy unlocked at 10min;
-8-tank hammer at 10-12min."""
+8-tank hammer at 10-12min.
+V3 COUNTER (from game 65 loss): enemy V3 launcher range 18 outranges ALL my towers
+(sentry 5.5 / tesla 7 / flak 12) and snipes production buildings from stand-off - my
+war factory died twice this way, tank count stayed 0. Response is mandatory: when a V3
+is spotted OR buildings take fire with no visible attacker (long-range signature),
+produce 2x Flak Track (500cr) at once - Flak Tracks shoot V3 rockets out of the air
+and their speed 8 catches the launcher (speed 4). Keep Flak Tracks between the threat
+direction and my production buildings; they are AA escorts, NOT hammer tanks - never
+send them deep into enemy tower zones."""
 
 # Jev 答案采信闸门 (仅态势强制; 生产类收到非 hold 即执行, 见 SESSION-REPORT 18-20 局复盘)
 CONF = {"build": 0.40, "inf": 0.35, "veh": 0.35, "stance": 0.45}

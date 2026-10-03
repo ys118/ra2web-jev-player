@@ -13,8 +13,9 @@ from __future__ import annotations
 import math
 import time
 
-from .doctrine import (AIR_UNITS, CONF, DEF_BUILDINGS, HARVEST, MCV_CODES,
-                       SCOUT_DOGS, THREAT_FORCE_DEFEND, T, get_side)
+from .doctrine import (AA_VEHICLES, AIR_UNITS, CONF, DEF_BUILDINGS, HARVEST,
+                       MCV_CODES, SCOUT_DOGS, THREAT_FORCE_DEFEND, T,
+                       V3_CODES, get_side)
 from .state import (all_combat, available, buildings, combat_tanks, nm,
                     pick_target, queues_by_type, ucost)
 
@@ -60,6 +61,10 @@ class BattleMemory:
         self.stall_logged = False
         self.stall_t = 0.0
         self.wp = [0, 0.0, (), 0.0]     # 路标: 索引/切换时刻/当前目标/重发截止
+        # [第66局 V3反制] V3 威胁记忆: 最后目击/位置 + 远程火力签名时刻
+        self.v3_seen_t = -10 ** 9       # 最后看见 V3 的游戏秒(600gs 内视为活跃)
+        self.v3_pos = None              # V3 最后目击位置
+        self.long_fire_t = -10 ** 9     # 远程火力签名(建筑掉血+视野内无攻击者)
 
     def log_lines(self) -> list:
         return list(self.events)
@@ -85,7 +90,18 @@ def sense_events(s: dict, home, mem: BattleMemory):
                 ev.append("Under attack: %s -%dhp (%d/%d left) @%s"
                           % (u["n"], lost, int(u["hp"]), int(u["mhp"]),
                              list(u["tl"])))
-                alarm = {"pos": list(u["tl"]), "what": "%s under attack" % u["n"]}
+                # [第66局 V3反制] 远程火力签名: 建筑掉血但 13 格内无可见攻击者
+                # ——V3 射程 18 >> 我方视野/塔射程, 第 65 局战厂被点名即此形态。
+                # 签名照常触发 ALARM 危机响应, 同时点亮 V3 反制生产闸门。
+                near_att = [h for h in s["hostile"]
+                            if math.hypot(h["tl"][0] - u["tl"][0],
+                                          h["tl"][1] - u["tl"][1]) <= 13]
+                if not near_att:
+                    mem.long_fire_t = s["t"]
+                    alarm = {"pos": list(u["tl"]),
+                             "what": "long-range fire (likely V3)"}
+                elif alarm is None:
+                    alarm = {"pos": list(u["tl"]), "what": "%s under attack" % u["n"]}
     mem.bld_hp = cur_hp
     # b) 战斗单位损失
     alive = {u["id"] for u in s["mine"] if u["o"] in (3, 7)}
@@ -122,6 +138,15 @@ def sense_events(s: dict, home, mem: BattleMemory):
         mem.seen_hostiles = new_ids
     else:
         mem.seen_hostiles |= new_ids
+    # [第66局 V3反制] V3 目击记录(持续更新, 生产/猎杀共用的威胁源)
+    v3_now = [h for h in s["hostile"] if h["n"] in V3_CODES]
+    if v3_now:
+        mem.v3_seen_t = s["t"]
+        mem.v3_pos = list(v3_now[0]["tl"])
+        if any(h["id"] in fresh for h in v3_now):
+            ev.append("V3 LAUNCHER spotted @%s - range 18 sniper, outranges all "
+                      "towers; Flak Tracks intercept its rockets and hunt it"
+                      % mem.v3_pos)
     # [第37局 敌影推定] 首次看见敌军的位置 = 基地方向的最强线索
     if s["hostile"] and mem.first_hostile_pos is None:
         mem.first_hostile_pos = list(s["hostile"][0]["tl"])
@@ -207,6 +232,13 @@ def crisis_response(s: dict, home, alarm: dict, mem: BattleMemory,
 
 # ================= §10.1 确定性清单 =================
 
+def v3_threat_active(s: dict, mem: BattleMemory) -> bool:
+    """[第66局 V3反制] V3 威胁是否活跃: 600gs 内目击过 V3, 或 120gs 内有
+    远程火力签名(建筑掉血+视野内无攻击者)。任一命中即开生产闸门。"""
+    return (s["t"] - mem.v3_seen_t <= T["v3_seen_window"]
+            or s["t"] - mem.long_fire_t <= T["v3_fire_window"])
+
+
 def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     """按 §10.1 优先级产出确定性动作。返回 (stance, actions, logs)。"""
     side = get_side(s)
@@ -285,6 +317,23 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("t=%d HARASS DRON x2 (have %d)" % (s["t"], n_dron))
         cred -= ucost("DRON") * 2
 
+    # 7.6) V3 反制 [第66局]: V3 活跃且 HTK 存量 <cap → 优先产 2×HTK(插在坦克
+    #     线之前——战厂被 V3 点名时坦克线本身就会断供, 保厂=保产能; 第 65 局
+    #     坦克峰值 0 的真因即战厂两建两拆)。HTK 500cr, 拦火箭+贴脸拆车。
+    v3_on = v3_threat_active(s, mem)
+    if v3_on and side["aa_v"] and bl.get(side["weap"], 0) >= 1 and q3s == 0 \
+            and side["aa_v"] in available(s["av"], 3):
+        n_aav = len([u for u in mine if u["n"] == side["aa_v"]])
+        aav_cost = ucost(side["aa_v"])
+        if n_aav < T["v3_htk_cap"] and cred >= aav_cost:
+            qty = 2 if cred >= aav_cost * 2 else 1
+            acts.append({"act": "produce", "name": side["aa_v"], "qty": qty, "q": 3})
+            logs.append("t=%d V3-RESPONSE %s x%d (alive %d, seen t%d fire t%d)"
+                        % (s["t"], side["aa_v"], qty, n_aav,
+                           max(0, s["t"] - mem.v3_seen_t),
+                           max(0, s["t"] - mem.long_fire_t)))
+            cred -= aav_cost * qty
+
     # 8) 不攒钱: 产能线 (坦克预算保护, 第 20 局复盘: 防御支出让位坦克)
     # [第46局复盘] 矿车补员期给坦克线让路: 矿车数低于下限时坦克线需同时覆盖
     # 矿车造价才出手——否则坦克在 1000 金抢走现金, 矿车(1400)永远补不上,
@@ -349,7 +398,9 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
                     and math.hypot(u["tl"][0] - home[0], u["tl"][1] - home[1]) > 25]
         if far_harv:
             h = far_harv[0]
-            escorts = [u for u in combat_tanks(mine) if u["id"] != mem.scout_id]
+            # [第66局] HTK 不出远门护航: V3 活跃期它是基地防空屏, 远征=送头
+            escorts = [u for u in combat_tanks(mine)
+                       if u["id"] != mem.scout_id and u["n"] not in AA_VEHICLES]
             if escorts:
                 guard = min(escorts, key=lambda u: math.hypot(
                     u["tl"][0] - h["tl"][0], u["tl"][1] - h["tl"][1]))
@@ -621,7 +672,7 @@ def scouting(s: dict, home, mem: BattleMemory):
             if acts:
                 return acts, "; ".join(logs)
 
-    tanks = combat_tanks(s["mine"])
+    tanks = [u for u in combat_tanks(s["mine"]) if u["n"] not in AA_VEHICLES]
     if not tanks or not home:
         return None, None
     alive1 = bool(mem.scout_id) and any(u["id"] == mem.scout_id for u in tanks)
@@ -755,9 +806,17 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
     """
     units = [u for u in all_combat(s["mine"], keep_wounded=True)
              if u["id"] != mem.scout_id]
+    # [第66局 V3反制] HTK(防空履带车)从 raid/assault/guard 坦克池剥离, 走专属
+    # aahunt 组——它是基地防空屏(拦截 V3 火箭), 混进突击组=被塔区点名送头
+    side = get_side(s)
+    aav_ids = [u["id"] for u in units
+               if side["aa_v"] and u["n"] == side["aa_v"]]
+    if side["aa_v"]:
+        units = [u for u in units if u["n"] != side["aa_v"]]
     tanks = [u for u in units if u["o"] == 7]
     inf = [u for u in units if u["o"] != 7]
-    sq = {"raid": [], "assault": [], "hold": [], "guard": [], "reserve": []}
+    sq = {"raid": [], "assault": [], "hold": [], "guard": [], "reserve": [],
+          "aahunt": aav_ids}
     # RAID=骚扰组 [第31局A++, 第40局②规模, 第41局换装]: DRON 刺客优先入组
     # （400金秒矿车, 死了不心疼）, 坦克补足; 规模随池子 2→4。
     dron_ids = [u["id"] for u in units if u["n"] == "DRON"]
@@ -891,6 +950,32 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         order("hold_b", sq["hold"][half:], posts[1][0], posts[1][1], 60)
         order("guard", sq["guard"], home[0] + 3, home[1] + 3, 30)
         order("reserve", sq["reserve"], home[0], home[1] + 8, 60)
+        # [第66局 V3反制] AA 屏: 有可见 V3(26 格内) → 全组显式攻击最近家的那台
+        # (速度 8 追速度 4, 途中顺带拦火箭); 否则守威胁方向 10 格拦截位
+        # (塔线内侧, 等火箭进拦截射程)。同一 tick 只发一种指令防打架。
+        if sq["aahunt"]:
+            tgt_v3 = None
+            v3s = [h for h in s["hostile"] if h["n"] in V3_CODES]
+            if v3s:
+                v = min(v3s, key=lambda h: math.hypot(
+                    h["tl"][0] - home[0], h["tl"][1] - home[1]))
+                if math.hypot(v["tl"][0] - home[0], v["tl"][1] - home[1]) <= 26:
+                    tgt_v3 = v
+            if tgt_v3:
+                order_obj("aahunt", sq["aahunt"], tgt_v3["id"],
+                          tgt_v3["tl"][0], tgt_v3["tl"][1], 12)
+            else:
+                if mem.enemy_base:
+                    dx, dy = mem.enemy_base[0] - home[0], mem.enemy_base[1] - home[1]
+                elif mem.last_alarm_pos:
+                    dx, dy = (mem.last_alarm_pos[0] - home[0],
+                              mem.last_alarm_pos[1] - home[1])
+                else:
+                    dx, dy = mx / 2.0 - home[0], my / 2.0 - home[1]
+                nrm = max(math.hypot(dx, dy), 1.0)
+                ix = int(min(max(home[0] + dx / nrm * 10, 4), mx - 4))
+                iy = int(min(max(home[1] + dy / nrm * 10, 4), my - 4))
+                order("aahunt", sq["aahunt"], ix, iy, 30)
     return acts, "; ".join(logs) or "no-force"
 
 
