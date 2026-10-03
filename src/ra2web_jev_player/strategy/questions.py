@@ -70,6 +70,22 @@ def build_dynamic_section(s: dict, home, mem) -> str:
     hist = " ".join("[%t%d %s]".replace("%t", "t") % r for r in mem.stance_hist[-3:]) or "-"
     lines.append("Stance %s held for %ds | history: %s"
                  % (mem.current_stance, cur_for, hist))
+
+    # 7) V3 威胁状态 [第66局 V3反制]
+    v3_seen_ago = s["t"] - mem.v3_seen_t
+    fire_ago = s["t"] - mem.long_fire_t
+    if v3_seen_ago <= 600 or fire_ago <= 120:
+        parts = []
+        if v3_seen_ago <= 600:
+            parts.append("launcher spotted %ds ago @%s"
+                         % (v3_seen_ago, mem.v3_pos))
+        if fire_ago <= 120:
+            parts.append("buildings took long-range fire %ds ago "
+                         "(no visible attacker = V3 signature)" % fire_ago)
+        lines.append("V3 THREAT ACTIVE: %s. Response: keep Flak Tracks between "
+                     "the threat and my production buildings (they intercept V3 "
+                     "rockets in flight and chase down the launcher)."
+                     % "; ".join(parts))
     return "\n".join(lines)
 
 
@@ -196,7 +212,11 @@ def build_questions(s: dict, home, mem, stance: str = "develop") -> tuple:
                                      "mainforce (900cr, 5 shots per Rhino / 4 per "
                                      "Grizzly). Terror drone: assassin vs harvesters/"
                                      "vehicles (400cr, useless vs buildings). Flak "
-                                     "track: only mobile AA + anti-infantry (500cr). "
+                                     "track: only mobile AA + anti-infantry "
+                                     "(500cr); FIRST RESPONSE to enemy V3 "
+                                     "launchers - intercepts V3 rockets in "
+                                     "flight and hunts the launcher (game-65 "
+                                     "lesson). "
                                      "Apocalypse: tanky AA wall (expensive, slow). V3: "
                                      "buildings only, useless vs units. Tesla tank: "
                                      "short range, kited easily. Choose per strategy "
