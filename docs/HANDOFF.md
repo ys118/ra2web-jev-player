@@ -13,7 +13,7 @@
 | **clef 接入指引** | JevClient 已环境变量驱动(`src/ra2web_jev_player/jev/client.py`): `JEV_BASE_URL`(默认 api.typesafe.ai/v1, 端点契约 POST {base_url}/systemone, body {state,questions,model}) / `JEV_MODEL` / `JEV_MAX_CALLS` / 密钥 `TYPESAFE_API_KEY`(绝不入库)。本地 clef 若实现同契约→零代码改; 若是 OpenAI 兼容 API→client.py 加适配层。决策预算上限由 CLI `--max-decisions`(现 1200)传入, 长局触顶候选上调。✅ **已实测(2026-10-04)**: llama.cpp 的 clef 实现=同契约, 逐字段核对一致(noul 答案键=`noul`), `JEV_BASE_URL=http://127.0.0.1:8085/v1`+dummy key 即零代码切; 阈值建议(threat 0.6→0.55 / stance 0.45 保持)与切换手册见 `docs/CLEF-LOCAL.md` §四.4/§五。**2026-10-04 已切流**: client.py 默认端点/模型改本地(`127.0.0.1:8085`/`clef-flash`), Jev 云端两行注释保留可回切 |
 | 速度定谳 | 前 50 局速度滑条未生效(已修为真实方向键)。3 档=1.33x(用户定谳默认), 墙钟完整局 20-30 分钟 |
 | 数据分层 | 第 1-50 局=6 档 / 51=1 档 / 52=2 档 / **53 起=3 档**。节奏类结论跨层不可比 |
-| Jev 投喂 | 63 局起全面英文化 + DYNAMIC SITUATION 动态上下文段; **[第69局及2026-10-04冒烟局] 决策预算 1200 均触顶(长局后半纯确定性)——已实施(2026-10-04): 预算按后端分流, 本地 clef 实质不限/云 Jev 保持 1200** |
+| Jev 投喂 | 63 局起全面英文化 + DYNAMIC SITUATION 动态上下文段; **[第69局] Jev 决策预算 1200 触顶(长局后半纯确定性)——已实施(2026-10-04): 预算按后端分流, 本地 clef 实质不限/云 Jev 保持 1200, 第70局实证全局无断崖** |
 | 遗留(下一局主攻) | **反囤积+编队出击包已实施待实战验证**(用户 69 局两条反馈: ①HTK 囤积 18 辆→存量帽 aa_htk_cap=4 双闸共享+威胁过期超额回归编队 ②assault x1 碎片化 258 次→raid 坦克抽调饥饿保护 assault≥3); 次候选: aahunt 拦截位与敌影推定联动。**注意: 下局=多变量首局**(clef 教师+threat 0.55+预算不限 同局生效, 对第69局基线, 单变量归因不成立, 见 CLEF-LOCAL §八.3) |
 
 ## 一.2、本 session 关键教训（均已入 docs/LESSONS.md，此处防重蹈）
