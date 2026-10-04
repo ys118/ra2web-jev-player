@@ -897,15 +897,15 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
                   or any(h["n"] in AIR_UNITS for h in s["hostile"])
                   or s["t"] - mem.long_fire_t <= T["v3_fire_window"])
     if side["aa_v"]:
-        if not aav_threat and len(aav_units) > 2:
-            aav_ids = [u["id"] for u in aav_units[:2]]       # 2 辆守拦截位
-            keep = set(aav_ids)
-            # 拦截位车移出坦克池; 超额战车留在池里随大部队编队出击
-            units = [u for u in units
-                     if u["n"] != side["aa_v"] or u["id"] not in keep]
-        else:
-            aav_ids = [u["id"] for u in aav_units]           # 全员防空屏
-            units = [u for u in units if u["n"] != side["aa_v"]]
+        # [第72局 P1b] 拦截位是屏不是仓库(统一式): 威胁在场留 aa_screen(4) 辆屏,
+        # 无威胁留 2, 超额一律回归对地编队——第 70/71 局实证: JUMPJET 骚扰使
+        # aav_threat 常驻真, "威胁=全员防空屏"分支把 13 辆 HTK 钉死在拦截位,
+        # 敌 22 单位地面潮压家时守家部队零坦克(64 秒 my_val 9080→1080)
+        keep_n = min(len(aav_units), T["aa_screen"] if aav_threat else 2)
+        aav_ids = [u["id"] for u in aav_units[:keep_n]]
+        keep = set(aav_ids)
+        units = [u for u in units
+                 if u["n"] != side["aa_v"] or u["id"] not in keep]
     tanks = [u for u in units if u["o"] == 7]
     inf = [u for u in units if u["o"] != 7]
     sq = {"raid": [], "assault": [], "hold": [], "guard": [], "reserve": [],
@@ -1143,9 +1143,23 @@ def apply_jev(s: dict, ans: dict, stance: str, mem: BattleMemory,
     v = (ans.get("veh") or {}).get("choice")
     if v and v != "hold" and not used.get(3) \
             and qs.get(3, {}).get("s", 0) == 0 and v in available(s["av"], 3):
-        acts.append({"act": "produce", "name": v, "qty": 1, "q": 3})
-        logs.append("t=%d jev VEH %s (conf %.2f)"
-                    % (s["t"], v, (ans.get("veh") or {}).get("confidence", -1)))
+        # [第72局 P1] 载具预算保护+防空存量帽——第 70/71 局实证: clef 经 VEH
+        # 通道点名 HTK 58/74 次(无任何资金闸), 细流现金全被 500 级载具吃光,
+        # HTNK 每局仅 7 辆且 t<1719 全灭 → 敌潮时刻守家零重坦。与 INF 同款:
+        # 载具只在坦克资金线之上买; HTK 另受存量帽(防空补充由确定性 AA 线
+        # 专管, 模式同"犬由侦察线专管")
+        n_aav_j = len([u for u in s["mine"] if u["n"] == side["aa_v"]]) \
+            if side["aa_v"] else 0
+        veh_gate = s["me"]["credits"] >= ucost(v) + T["tank_cash1"]
+        aav_cap_ok = v != side["aa_v"] or n_aav_j < T["aa_htk_cap"]
+        if veh_gate and aav_cap_ok:
+            acts.append({"act": "produce", "name": v, "qty": 1, "q": 3})
+            logs.append("t=%d jev VEH %s (conf %.2f)"
+                        % (s["t"], v, (ans.get("veh") or {}).get("confidence", -1)))
+        else:
+            logs.append("t=%d jev VEH %s HOLD (预算保护 cash=%d aav帽=%s aav=%d)"
+                        % (s["t"], v, s["me"]["credits"],
+                           "ok" if aav_cap_ok else "hit", n_aav_j))
     # 态势裁决: ≥0.45 采信（低置信保持原态势防摇摆）
     st_raw = ans.get("stance") or {}
     if st_raw.get("choice") and st_raw.get("confidence", 0) >= CONF["stance"]:

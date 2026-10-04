@@ -167,9 +167,18 @@ class GameRecord:
     def army_curve(self) -> dict:
         if not self.obs:
             return {}
-        return {"my_val_peak": max(e.get("my_val", 0) for e in self.obs),
-                "en_val_peak": max(e.get("en_val", 0) for e in self.obs),
-                "tanks_peak": max(e.get("tanks", 0) for e in self.obs)}
+        # [第72局 P4] tanks_peak 口径修正: 旧"tanks"字段含 HTK 防空车
+        # (71 局"坦克峰值 19"实为 HTK 计入, 误导向 starve 归因);
+        # armor=重坦(HTNK-only)新口径, 旧数据无 armor 字段时回退旧值。
+        armor = [e.get("armor") for e in self.obs if "armor" in e]
+        out = {"my_val_peak": max(e.get("my_val", 0) for e in self.obs),
+               "en_val_peak": max(e.get("en_val", 0) for e in self.obs),
+               "tanks_peak": max(armor) if armor
+               else max(e.get("tanks", 0) for e in self.obs)}
+        if self.obs and "armor" in self.obs[-1]:
+            out["death_comp"] = {k: self.obs[-1].get(k)
+                                 for k in ("armor", "aav", "inf", "hostile")}
+        return out
 
     def loss_kill(self) -> dict:
         from collections import Counter
@@ -213,6 +222,11 @@ def analyze(rec: GameRecord) -> list:
     if curve and curve.get("tanks_peak", 0) < 5 and rec.t_end and rec.t_end > 900:
         out.append(("med", "15 分钟后坦克峰值仅 %d 辆（总攻门槛 %d）——产能/资金被别处吃掉"
                     % (curve.get("tanks_peak", 0), T["attack_tanks"]), "obs tanks"))
+    # [第72局 P4] 敌潮时刻对地 mass 缺失检测(70/71 局败因: 守家零重坦)
+    dc = curve.get("death_comp")
+    if rec.outcome == "defeat" and dc is not None and (dc.get("armor") or 0) <= 2:
+        out.append(("high", "敌潮时刻防线重坦仅 %d 辆（防空车 %d/步兵 %s）——对地 mass 缺失"
+                    % (dc.get("armor"), dc.get("aav", -1), dc.get("inf", "?")), "obs armor"))
     # 6) 防守占比
     dist = rec.stance_distribution()
     if dist.get("defend", 0) >= 0.7 and rec.outcome != "victory":
@@ -373,9 +387,13 @@ def write_review_md(rec: GameRecord, findings: list, answers: dict,
             rec.first_tank_t, "已定位" if rec.enemy_base else "未定位"),
         "- **经济**: 平均 %s / 峰值 %s / 见底率 %.0f%%" % (
             eco.get("avg"), eco.get("max"), (eco.get("starve_frac") or 0) * 100),
-        "- **兵力**: 峰值我方 %s vs 敌 %s | 坦克峰值 %s | 损失 %d / 可见击杀 %d" % (
+        "- **兵力**: 峰值我方 %s vs 敌 %s | 坦克峰值 %s(重坦口径) | 损失 %d / 可见击杀 %d" % (
             curve.get("my_val_peak"), curve.get("en_val_peak"), curve.get("tanks_peak"),
             lk["losses"], lk["kills_visible"]),
+        "- **终局构成**: 重坦 %s / 防空车 %s / 步兵 %s" % (
+            (curve.get("death_comp") or {}).get("armor", "—"),
+            (curve.get("death_comp") or {}).get("aav", "—"),
+            (curve.get("death_comp") or {}).get("inf", "—")),
         "- **态势分布**: %s | ALARM %d（反击 %d / TURTLE %d）| 停摆 %d" % (
             rec.stance_distribution(), len(rec.alarms), len(rec.counters),
             len(rec.turtles), len(rec.stalls)),
