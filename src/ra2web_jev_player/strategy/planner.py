@@ -332,16 +332,18 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("t=%d HARASS DRON x2 (have %d)" % (s["t"], n_dron))
         cred -= ucost("DRON") * 2
 
-    # 7.6) V3 反制 [第66局]: V3 活跃且 HTK 存量 <cap → 优先产 2×HTK(插在坦克
+    # 7.6) V3 反制 [第66局]: V3 活跃且 HTK 存量 <cap → 优先产 HTK(插在坦克
     #     线之前——战厂被 V3 点名时坦克线本身就会断供, 保厂=保产能; 第 65 局
     #     坦克峰值 0 的真因即战厂两建两拆)。HTK 500cr, 拦火箭+贴脸拆车。
+    #     [第70局反囤积] 存量帽 aa_htk_cap=4 与 AA 闸门共享, qty 按余量封顶。
     v3_on = v3_threat_active(s, mem)
+    n_aav = len([u for u in mine if u["n"] == side["aa_v"]]) if side["aa_v"] else 0
     if v3_on and side["aa_v"] and bl.get(side["weap"], 0) >= 1 and q3s == 0 \
             and side["aa_v"] in available(s["av"], 3):
-        n_aav = len([u for u in mine if u["n"] == side["aa_v"]])
         aav_cost = ucost(side["aa_v"])
-        if n_aav < T["v3_htk_cap"] and cred >= aav_cost:
-            qty = 2 if cred >= aav_cost * 2 else 1
+        if n_aav < T["aa_htk_cap"] and cred >= aav_cost:
+            qty = max(1, min(2 if cred >= aav_cost * 2 else 1,
+                             T["aa_htk_cap"] - n_aav))
             acts.append({"act": "produce", "name": side["aa_v"], "qty": qty, "q": 3})
             logs.append("t=%d V3-RESPONSE %s x%d (alive %d, seen t%d fire t%d)"
                         % (s["t"], side["aa_v"], qty, n_aav,
@@ -399,12 +401,16 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         cred -= 500
 
     # 7) 空军来袭 → 移动防空车 (苏军 HTK; 盟军靠防空建筑)
+    #    [第70局反囤积] 存量帽 aa_htk_cap=4: 第 69 局 JUMPJET 海期间无上限
+    #    刷出 18 辆 HTK 囤积基地(用户实证), 4 辆+塔线足够防空
     q3 = qs.get(3, {})
     if air and side["aa_v"] and bl.get(side["weap"], 0) >= 1 and q3.get("s", 0) == 0 \
-            and side["aa_v"] in available(s["av"], 3) and cred >= 500:
-        acts.append({"act": "produce", "name": side["aa_v"], "qty": 2, "q": 3})
-        logs.append("t=%d AA %s x2 (enemy air)" % (s["t"], side["aa_v"]))
-        cred -= ucost(side["aa_v"]) * 2
+            and side["aa_v"] in available(s["av"], 3) and cred >= 500 \
+            and n_aav < T["aa_htk_cap"]:
+        qty = max(1, min(2, T["aa_htk_cap"] - n_aav))
+        acts.append({"act": "produce", "name": side["aa_v"], "qty": qty, "q": 3})
+        logs.append("t=%d AA %s x%d (enemy air, alive %d)" % (s["t"], side["aa_v"], qty, n_aav))
+        cred -= ucost(side["aa_v"]) * qty
 
     # 11.5) 矿车护航（第 27 局用户观察④）: 矿车远征(>25格)且兵力允许 → 最近的
     #       战斗坦克贴身护航（30s 节流；护卫已在矿车 6 格内则不重复派）。
@@ -871,12 +877,26 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
     units = [u for u in all_combat(s["mine"], keep_wounded=True)
              if u["id"] != mem.scout_id]
     # [第66局 V3反制] HTK(防空履带车)从 raid/assault/guard 坦克池剥离, 走专属
-    # aahunt 组——它是基地防空屏(拦截 V3 火箭), 混进突击组=被塔区点名送头
+    # aahunt 组——它是基地防空屏(拦截 V3 火箭), 混进突击组=被塔区点名送头。
+    # [第70局用户反馈 反囤积+编队] 威胁过期(V3/空中/远程火力全无)且存量 >2 时
+    # 只留 2 辆守拦截位, 其余战车回归坦克池随大部队编队出击——第 69 局 18 辆
+    # HTK 全程囤在基地(用户实证); 威胁在场时仍全员防空屏。
     side = get_side(s)
-    aav_ids = [u["id"] for u in units
-               if side["aa_v"] and u["n"] == side["aa_v"]]
+    aav_units = [u for u in units if side["aa_v"] and u["n"] == side["aa_v"]]
+    aav_ids = []                                     # 盟军侧(aa_v=None)无 HTK
+    aav_threat = (v3_threat_active(s, mem)
+                  or any(h["n"] in AIR_UNITS for h in s["hostile"])
+                  or s["t"] - mem.long_fire_t <= T["v3_fire_window"])
     if side["aa_v"]:
-        units = [u for u in units if u["n"] != side["aa_v"]]
+        if not aav_threat and len(aav_units) > 2:
+            aav_ids = [u["id"] for u in aav_units[:2]]       # 2 辆守拦截位
+            keep = set(aav_ids)
+            # 拦截位车移出坦克池; 超额战车留在池里随大部队编队出击
+            units = [u for u in units
+                     if u["n"] != side["aa_v"] or u["id"] not in keep]
+        else:
+            aav_ids = [u["id"] for u in aav_units]           # 全员防空屏
+            units = [u for u in units if u["n"] != side["aa_v"]]
     tanks = [u for u in units if u["o"] == 7]
     inf = [u for u in units if u["o"] != 7]
     sq = {"raid": [], "assault": [], "hold": [], "guard": [], "reserve": [],
@@ -886,6 +906,11 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
     dron_ids = [u["id"] for u in units if u["n"] == "DRON"]
     if mem.enemy_base and (len(tanks) >= 2 or dron_ids):
         n_raid = min(4, max(2, (len(tanks) + len(dron_ids)) // 3))
+        # [第70局用户反馈 编队] 突击饥饿保护: 敌基地已定位且坦克池抽完 raid
+        # 后突击组 <3 → raid 只用恐怖机器人, 坦克全部留给突击编队——
+        # 第 69 局 raid x4 + assault x1(258 次!)碎片化出击实证
+        if len(tanks) - n_raid < 3:
+            n_raid = min(n_raid, len(dron_ids))
         chosen = (dron_ids + [u["id"] for u in tanks])[:n_raid]
         chosen_set = set(chosen)
         sq["raid"] = chosen

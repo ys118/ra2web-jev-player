@@ -88,9 +88,19 @@ check("3 无威胁→不产HTK", not any(a.get("name") == "HTK" for a in acts))
 mem = planner.BattleMemory()
 mem.v3_seen_t = 590
 s = base_state(hostile=[v3_far])
+s["mine"] += [dict(htk1), dict(htk2), unit("k3", "HTK", 7, (13, 11)),
+              unit("k4", "HTK", 7, (14, 11))]
+_, acts, logs = planner.checklist(s, home, "defend", mem)
+check("4 HTK=4达cap→不产", not any(a.get("name") == "HTK" for a in acts))
+
+# ---- 场景 4b: HTK=3(帽4)→按余量补 1 ----
+mem = planner.BattleMemory()
+mem.v3_seen_t = 590
+s = base_state(hostile=[v3_far])
 s["mine"] += [dict(htk1), dict(htk2), unit("k3", "HTK", 7, (13, 11))]
 _, acts, logs = planner.checklist(s, home, "defend", mem)
-check("4 HTK=3达cap→不产", not any(a.get("name") == "HTK" for a in acts))
+prod = [a for a in acts if a.get("name") == "HTK"]
+check("4b HTK=3→补1(按余量封顶)", len(prod) == 1 and prod[0]["qty"] == 1, str(logs))
 
 # ---- 场景 5: 猎杀编组 ----
 mem = planner.BattleMemory()
