@@ -298,7 +298,10 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     # 不补→收入上不去"死循环（矿车曲线全程仅 2 辆）; 第4辆仍 2800 防抢坦克线
     # [第63局用户反馈] 门槛 1400/1500/2800 → 800/1200/1500: 资金见底时
     # 矿车永远攒不够门槛=收入死螺旋(活局实挂 $0 长期, 第 4 车从未上路)
-    harv_cost_gate = 800 if n_harv < 2 else (1200 if n_harv == 2 else 1500)
+    # [第69局 boost_econ] 再降一档 800/1200/1500 → 600/900/1200: 第 67/68 局
+    # 见底率 68%/41%, 矿车折损(68局损2车)在现金细流期补不上; 低于 tank_cash1
+    # 的闲钱转收入, harv_reserve 同步降低=坦克线也更早解锁
+    harv_cost_gate = 600 if n_harv < 2 else (900 if n_harv == 2 else 1200)
     if q3s == 0 and n_ref >= 1 and n_harv < harv_target \
             and side["harv"] in available(s["av"], 3) and cred >= harv_cost_gate:
         acts.append({"act": "produce", "name": side["harv"], "qty": 1, "q": 3})
@@ -522,15 +525,17 @@ def opening_build(s: dict, mem: BattleMemory):
     if opening_next is None and s["t"] > T["rush_t1"]:
         # [第42局②] 后期产能解锁: t>2400s 仍单工厂时无条件补第二座——
         # 第 41 局 80 分钟拉锯暴露: 敌方后期波次无上限, 单工厂补充速度跟不上。
-        # 注意: 开局序列缺失项（如电厂被拆）优先级更高, 先走原逻辑。
+        # [第69局 boost_econ] 经济时序重构: ①精炼厂缺额优先于二厂(收入>吞吐);
+        # ②二厂去掉 build_gate 叠加(2400+2900 双闸在资金饥饿长局不可逾越,
+        # 第 68 局 606-2402 现金从未破 2900 实证), factory2_cash=1800 即真闸,
+        # 自带坦克资金线(tank_cash1=900)保护。
         late_game = s["t"] > 2400
-        if (bl0.get(side["weap"], 0) < 2 and late_game) \
-                or (bl0.get(side["weap"], 0) < 2 and s["me"]["credits"] > T["factory2_cash"]):
-            if side["weap"] in av0 and build_gate(s, ucost(side["weap"]), mem) or late_game:
-                opening_next = side["weap"]
-        elif bl0.get(side["ref"], 0) < T["ref_cap"] and side["ref"] in av0 \
+        if bl0.get(side["ref"], 0) < T["ref_cap"] and side["ref"] in av0 \
                 and build_gate(s, ucost(side["ref"]), mem):
             opening_next = side["ref"]
+        elif bl0.get(side["weap"], 0) < 2 and side["weap"] in av0 \
+                and (late_game or s["me"]["credits"] > T["factory2_cash"]):
+            opening_next = side["weap"]
     if opening_next and qs.get(0, {}).get("s", 0) == 0 and opening_next in av0:
         mem.open_order = opening_next            # [第67局] 自愈网: 记录在途订单
         mem.open_order_t = s["t"]
