@@ -1010,7 +1010,19 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
                 order("raid", sq["raid"], mem.enemy_base[0], mem.enemy_base[1], 30)
     # ASSAULT: 主攻方向 — [第57局用户拍板] 打经济不打塔: 显式攻击视野内最近的
     # 无攻击力敌建筑(order type 2), 绝不攻击防御塔; 无可见经济建筑才退回基地中心
-    if stance in ("attack", "rush") or mem.enemy_base:
+    # [第73局 用户反馈①] 防空接触规避: 可见空中单位距突击组任一成员 ≤ air_evade(14)
+    # → 全组后撤到 AA/塔火力圈, 不被火箭飞行兵白打(坦克打不到空中);
+    # 空威胁由 aahunt 主动猎杀解除后恢复推进。
+    air_units = [h for h in s["hostile"] if h["n"] in AIR_UNITS]
+    assault_set = set(sq["assault"])
+    air_threat_near = bool(air_units) and sq["assault"] and any(
+        math.hypot(h["tl"][0] - u["tl"][0], h["tl"][1] - u["tl"][1]) <= T["air_evade"]
+        for h in air_units for u in s["mine"] if u["id"] in assault_set)
+    if air_threat_near and home:
+        order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
+        logs.append("t=%d AIR-EVADE assault x%d -> home (坦克打不到空中, 等AA猎杀)"
+                    % (s["t"], len(sq["assault"])))
+    elif stance in ("attack", "rush") or mem.enemy_base:
         if mem.enemy_base:
             blds = [h for h in s["hostile"] if h["o"] == 2
                     and h["n"] not in DEF_BUILDINGS]
@@ -1063,17 +1075,26 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
                 order_obj("aahunt", sq["aahunt"], tgt_v3["id"],
                           tgt_v3["tl"][0], tgt_v3["tl"][1], 12)
             else:
-                if mem.enemy_base:
-                    dx, dy = mem.enemy_base[0] - home[0], mem.enemy_base[1] - home[1]
-                elif mem.last_alarm_pos:
-                    dx, dy = (mem.last_alarm_pos[0] - home[0],
-                              mem.last_alarm_pos[1] - home[1])
+                # [第73局 用户反馈②③] 防空主动猎杀: 可见空中单位 → 全组显式
+                # 攻击最近的一台(上前消灭, 不龟缩拦截位); 无可见空中才守拦截位
+                airs = [h for h in s["hostile"] if h["n"] in AIR_UNITS]
+                a = min(airs, key=lambda h: math.hypot(
+                    h["tl"][0] - home[0], h["tl"][1] - home[1])) if airs else None
+                if a:
+                    order_obj("aahunt", sq["aahunt"], a["id"],
+                              a["tl"][0], a["tl"][1], 12)
                 else:
-                    dx, dy = mx / 2.0 - home[0], my / 2.0 - home[1]
-                nrm = max(math.hypot(dx, dy), 1.0)
-                ix = int(min(max(home[0] + dx / nrm * 10, 4), mx - 4))
-                iy = int(min(max(home[1] + dy / nrm * 10, 4), my - 4))
-                order("aahunt", sq["aahunt"], ix, iy, 30)
+                    if mem.enemy_base:
+                        dx, dy = mem.enemy_base[0] - home[0], mem.enemy_base[1] - home[1]
+                    elif mem.last_alarm_pos:
+                        dx, dy = (mem.last_alarm_pos[0] - home[0],
+                                  mem.last_alarm_pos[1] - home[1])
+                    else:
+                        dx, dy = mx / 2.0 - home[0], my / 2.0 - home[1]
+                    nrm = max(math.hypot(dx, dy), 1.0)
+                    ix = int(min(max(home[0] + dx / nrm * 10, 4), mx - 4))
+                    iy = int(min(max(home[1] + dy / nrm * 10, 4), my - 4))
+                    order("aahunt", sq["aahunt"], ix, iy, 30)
     return acts, "; ".join(logs) or "no-force"
 
 
