@@ -17,7 +17,7 @@ from .config import MatchConfig
 from .paths import LOG_DIR
 from .jev import JevBudgetExceeded, JevClient, JevError
 from .strategy import planner
-from .strategy.doctrine import HARVEST
+from .strategy.doctrine import AA_VEHICLES, HARVEST
 from .strategy.questions import build_questions
 from .strategy.state import combat_tanks, force_value, yard_tile
 from .werhd.inject import WerhdClient
@@ -232,12 +232,19 @@ class BattleSession:
             my_val, en_val = force_value(s)
             self.mem.val_history.append((s["t"], s["me"]["credits"], my_val, en_val))
             self.mem.val_history = self.mem.val_history[-6:]
+            _mob = combat_tanks(s["mine"])
             self.audit.event({"kind": "obs", "t": s["t"],
                               "credits": s["me"]["credits"],
                               "my_val": my_val, "en_val": en_val,
                               "stance": self.stance,
                               "hostile": len(s["hostile"]),
-                              "tanks": len(combat_tanks(s["mine"])),
+                              "tanks": len(_mob),
+                              # [第72局 P4] 兵力构成观测: armor=重坦(不含防空车),
+                              # 防止"坦克峰值"把 HTK 计入导致复盘误诊(71 局教训)
+                              "armor": len([u for u in _mob if u["n"] not in AA_VEHICLES]),
+                              "aav": len([u for u in s["mine"] if u["n"] in AA_VEHICLES]),
+                              "inf": len([u for u in s["mine"]
+                                          if u["o"] not in (2, 7) and u["n"] not in HARVEST]),
                               "harv": len([u for u in s["mine"] if u["n"] in HARVEST]),
                               "power_low": bool(s["me"]["power"].get("isLowPower"))})
         time.sleep(max(0.2, self.match.tick_interval - (time.time() - t0)))

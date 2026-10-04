@@ -62,10 +62,14 @@ s, mem = sq_state(htks=2, enemy_base=(60, 120))
 sq = planner.assign_squads(s, (130, 80), mem, "attack")
 check("17e 2辆→全员aahunt", len(sq["aahunt"]) == 2, str(sq["aahunt"]))
 
-# 17f: 空袭在场(无V3) → 全员防空屏
+# 17f: 空袭在场(无V3) → [第72局 P1b改] 留屏4+超额回归对地(旧"全员屏"语义被取代:
+# 70/71局实证 aav_threat 常驻真→全员钉在拦截位, 敌地面潮压家时守家零坦克)
 s, mem = sq_state(htks=5, air=True, enemy_base=(60, 120))
 sq = planner.assign_squads(s, (130, 80), mem, "attack")
-check("17f 空袭在场→全员aahunt", len(sq["aahunt"]) == 5, str(len(sq["aahunt"])))
+folded_f = sum(sq[r].count("k%d" % i) for r in ("raid", "assault", "guard")
+               for i in range(5))
+check("17f(72局改) 空袭在场→留屏4+1辆回归对地",
+      len(sq["aahunt"]) == 4 and folded_f == 1, str(len(sq["aahunt"])))
 
 # 18a: 坦克4无drone+敌基地 → raid空, 突击3+守家1
 s, mem = sq_state(tanks=4, enemy_base=(60, 120))
