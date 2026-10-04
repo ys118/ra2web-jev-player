@@ -78,8 +78,10 @@ check("15d late_game(t>2400)→无条件二厂", act is not None and act["name"]
 
 s, mem = open_state(700, 2, 2000)
 act = planner.opening_build(s, mem)
-check("15e ref买不起(2900)+现金2000→先二厂", act is not None and act["name"] == "NAWEAP",
-      str(act))
+# [第71局] 精炼厂缺额豁免后旧语义被取代: ref 缺额(存量<ref_cap)不再"买不起",
+# 无条件优先于二厂(收入>吞吐); ref=cap 时才回落二厂(见 15d)
+check("15e(71局改) ref缺额豁免: 现金2000<旧闸2900→先补第三矿厂",
+      act is not None and act["name"] == "NAREFN", str(act))
 
 # ---- 16: 矿车门槛 600/900/1200 ----
 s, mem = econ_state(1, 650)
