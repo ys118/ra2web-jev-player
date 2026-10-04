@@ -452,18 +452,27 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
 _OPENING_LEGACY = ["NAPOWR", "NAREFN", "NAHAND", "NAWEAP"]
 
 
-def build_gate(s: dict, cost: int, mem: BattleMemory | None = None) -> bool:
+def build_gate(s: dict, cost: int, mem: BattleMemory | None = None,
+               code: str | None = None) -> bool:
     """建筑购买闸门（第 28 局复盘 + 第 31 局 Route A）。
 
     战车工厂落地后，现金必须 ≥ 造价+tank_cash1 才许买建筑——否则建筑一笔接一笔
     排队（精炼厂 1500/座、维修），坦克资金线永远够不着。
     例外：① 工厂落地前不设限（基建就是优先级）；② RECOVER 态势放开
-    （rush 失败后要补经济出二波，Route A 的二波机制）。
+    （rush 失败后要补经济出二波，Route A 的二波机制）；
+    ③ [第71局] 精炼厂缺额豁免——存量<ref_cap 时不受坦克资金线约束。
+      第 70 局(clef 首局)实证: 见底率 67% 下现金永远凑不齐 造价+tank_cash1,
+      确定性两线与 Jev 线三路同闸 → 三矿厂死锁、收入端饿死(坦克峰值 14 vs
+      69 局 26)。本条把第 69 局"收入>吞吐"原则补全到闸门本身;
+      ref_cap=3 封顶控制暴露面, 非精炼厂建筑闸门行为不变。
     """
     bl = buildings(s["mine"])
-    if bl.get(get_side(s)["weap"], 0) == 0:
+    side = get_side(s)
+    if bl.get(side["weap"], 0) == 0:
         return True
     if mem is not None and mem.current_stance == "recover":
+        return True
+    if code == side["ref"] and bl.get(side["ref"], 0) < T["ref_cap"]:
         return True
     return s["me"]["credits"] >= cost + T["tank_cash1"]
 
@@ -526,7 +535,7 @@ def opening_build(s: dict, mem: BattleMemory):
         mem.open_order_t = s["t"]
     if opening_next is None and bl0.get(side["weap"], 0) >= 1 \
             and bl0.get(side["ref"], 0) < ref_cap_now and side["ref"] in av0 \
-            and build_gate(s, ucost(side["ref"]), mem):
+            and build_gate(s, ucost(side["ref"]), mem, side["ref"]):
         opening_next = side["ref"]
     if opening_next is None and s["t"] > T["rush_t1"]:
         # [第42局②] 后期产能解锁: t>2400s 仍单工厂时无条件补第二座——
@@ -537,7 +546,7 @@ def opening_build(s: dict, mem: BattleMemory):
         # 自带坦克资金线(tank_cash1=900)保护。
         late_game = s["t"] > 2400
         if bl0.get(side["ref"], 0) < T["ref_cap"] and side["ref"] in av0 \
-                and build_gate(s, ucost(side["ref"]), mem):
+                and build_gate(s, ucost(side["ref"]), mem, side["ref"]):
             opening_next = side["ref"]
         elif bl0.get(side["weap"], 0) < 2 and side["weap"] in av0 \
                 and (late_game or s["me"]["credits"] > T["factory2_cash"]):
@@ -1100,7 +1109,7 @@ def apply_jev(s: dict, ans: dict, stance: str, mem: BattleMemory,
             if not (b == side["ref"] and n_ref >= T["ref_cap"]) \
                     and not (b == side["bar"] and n_bar >= 2) \
                     and not (b != side["ref"] and bl_now.get(b, 0) >= 2):
-                if build_gate(s, ucost(b), mem):
+                if build_gate(s, ucost(b), mem, b):
                     acts.append({"act": "produce", "name": b, "qty": 1, "q": 0})
                     logs.append("t=%d jev BUILD %s (conf %.2f)"
                                 % (s["t"], b, (ans.get("build") or {}).get("confidence", -1)))
