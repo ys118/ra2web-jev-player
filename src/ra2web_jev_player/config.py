@@ -24,8 +24,9 @@ class MatchConfig:
     credits: int = 10000
     difficulty: str = "简单"
     opponents: int = 1
-    max_decisions: int = 1200    # 单局 Jev 决策预算 [第28局] 600→1200（预算中途耗尽=
-                                 # 后半局全程无 Jev，用户观察③；成本 ~$0.1/局 可接受）
+    max_decisions: int = 1200    # 单局决策预算（cli 每局以 JevClient 解析值覆盖本字段:
+                                 # 本地 clef 实质不限 999999 / 云端 Jev 1200, 2026-10-04
+                                 # 用户定谳。历史注: [第28局] 600→1200, 成本 ~$0.1/局）
     tick_interval: float = 1.5   # 宏观循环真实秒
 
 

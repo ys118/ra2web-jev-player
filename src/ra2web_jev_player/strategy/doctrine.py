@@ -185,7 +185,12 @@ send them deep into enemy tower zones."""
 
 # Jev 答案采信闸门 (仅态势强制; 生产类收到非 hold 即执行, 见 SESSION-REPORT 18-20 局复盘)
 CONF = {"build": 0.40, "inf": 0.35, "veh": 0.35, "stance": 0.45}
-THREAT_FORCE_DEFEND = 0.6   # 威胁概率 >0.6 强制回防 (第 5-19 局多次 0.7-0.9 正确预警)
+# [2026-10-04] 0.6→0.55, 配套决策后端切本地 clef-flash。依据: 828 条影子评测
+# (docs/CLEF-LOCAL.md §四)——clef 概率尾部压缩(Jev p90=0.820 vs clef 0.700),
+# 0.6 档漏报主导(Jev 触发 clef 漏报 53 vs clef 误报 26; Jev 高烈度>0.75 有 26%
+# 被压到 0.6 以下), rush 是当前主要败因, 漏报代价(基地被打)≫误报(坦克白跑)。
+# 原 0.6 依据: 第 5-19 局多次 0.7-0.9 正确预警(针对 Jev 校准)。待实战验证。
+THREAT_FORCE_DEFEND = 0.55
 
 # ================= 阵营自适应 =================
 SOVIET_COUNTRIES = {"Russians", "Confederation", "Africans", "Arabs"}

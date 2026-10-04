@@ -352,6 +352,11 @@
   观测快照——RL 轨迹）; ③ report.json 终局战报（奖励信号）。复盘 _slice_events
   优先读 run 目录（不再依赖全局 jsonl 切片）。规则已写入 AGENTS.md（禁删 logs/
   数据、格式变更先汇报）。
+  **teacher 字段（2026-10-04 切流新增, 用户批准）**: sft_tuple 增 `"teacher"`
+  = "clef"|"jev"（决策教师后端家族, 取自 JevClient.backend）；**凡无此字段的
+  历史 sft_tuple 一律为 Jev 时代产物（第 1-69 局, 该期仅单教师无歧义）**;
+  同族内细分（clef q8/q4 量化档、未来模型升级）以 run 时间戳 + 对应日期 git
+  提交 + docs/CLEF-LOCAL.md §八 为准, 不再加字段。
 
 ## 第 40 局 —— 2026-09-29 13:41 | victory | t=3921 | 详见 game-0040-review.md
 

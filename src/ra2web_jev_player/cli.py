@@ -62,7 +62,8 @@ def _common(argv):
     p.add_argument("--speed", type=int, default=3,
                    help="游戏速度档(2026-09-29 用户定 3 档; 1 档 0.82x 偏慢, 6 档 ~4x 过快)")
     p.add_argument("--credits", type=int, default=10000)
-    p.add_argument("--max-decisions", type=int, default=1200)
+    p.add_argument("--max-decisions", type=int, default=None,
+                   help="单局决策预算上限(缺省按后端: 本地 clef 实质不限, 云端 Jev 1200)")
     p.add_argument("--tick-interval", type=float, default=1.5)
     p.add_argument("--loop", type=int, default=1, help="连续对局数(每局之间自动复盘+调参)")
     p.add_argument("--no-review", action="store_true", help="终局后跳过自动复盘")
@@ -73,11 +74,13 @@ def _common(argv):
 def _wire(args) -> tuple:
     dcfg = DriverConfig(session=args.session or DriverConfig.session, headed=args.headed)
     match = MatchConfig(faction=args.faction, speed=args.speed, credits=args.credits,
-                        max_decisions=args.max_decisions,
                         tick_interval=args.tick_interval)
     b = Browser(dcfg)
     audit = Audit()
-    jev = JevClient(max_calls=match.max_decisions)
+    # [2026-10-04 用户定谳] 预算缺省由客户端按后端解析(本地 clef 实质不限/云 Jev 1200),
+    # 显式 --max-decisions 时覆盖两者; match 记实际生效值供战报/审计展示
+    jev = JevClient(max_calls=args.max_decisions)
+    match.max_decisions = jev.max_calls
     return b, audit, jev, match
 
 
