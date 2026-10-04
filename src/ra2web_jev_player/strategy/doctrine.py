@@ -169,7 +169,10 @@ power plant > barracks (undefended buildings) 4 construction yard (last). **IRON
 [user-mandated]: NEVER attack defense towers / sentry guns / tesla coils on purpose —
 attack-moving into them = free kills for them; if unreachable, go around, only hit
 economy and production buildings.** Exception: base under air raid -> pull home guard +
-build AA.
+build AA. **ENDGAME SIEGE EXCEPTION [user-mandated 2026-10-04]: when the enemy base is
+located, their economy is dead (no harvesters) and our force value >= 1.5x theirs,
+SIEGE: the whole army mass-attacks — destroy defensive buildings (pillboxes/towers)
+first to silence their guns, then every remaining building. Do not cycle at the shell.**
 Five stances: DEVELOP (opening ~5min no contact: build, scout, save) DEFEND (base
 threatened: hold towers) RUSH (first 10 min with 4+ tanks: swap-base strike) ATTACK
 (7+ tanks and enemy base located: focus production buildings, keep 2 home) RECOVER
