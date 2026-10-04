@@ -298,6 +298,9 @@ class BattleSession:
         try:
             rec = {"kind": "sft_tuple", "t": s["t"],
                    "ts": time.strftime("%Y-%m-%d %H:%M:%S"),
+                   # [2026-10-04] 决策教师溯源 clef/jev(切流生效起才有此字段;
+                   # 无该字段的历史记录均为 Jev 时代, 约定见 docs/CLEF-LOCAL.md §八)
+                   "teacher": self.jev.backend,
                    "stance_before": self.stance,
                    "state": state, "questions": Q, "answers": answers}
             with open(self.run_dir / "decisions.jsonl", "a", encoding="utf-8") as f:

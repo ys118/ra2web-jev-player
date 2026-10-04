@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-"""TypeSafe Jev 客户端 —— 本项目对外部模型调用的唯一封装。
+"""决策模型客户端（TypeSafe Jev / 本地 clef-flash 同契约）—— 对外模型调用的唯一封装。
 
 端点: {base_url}/systemone, POST {"state", "questions", "model"}
+后端: 默认本地 clef-flash（2026-10-04 切，Jev 云端两行注释保留可回切）；
+      backend 属性 = "clef"|"jev"，供 sft_tuple teacher 溯源（docs/CLEF-LOCAL.md §八）
 题型: choice(多选一, criteria=选项→描述字典) / score(评分, criteria=有序档位数组≥2) /
       noul(概率判定, criteria 可省)
 返回: answers[qid] = {"type", "choice"|"score"|"noul", "confidence", "probabilities"}
@@ -16,13 +18,24 @@ import os
 import threading
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 
-DEFAULT_BASE_URL = "https://api.typesafe.ai/v1"
-DEFAULT_MODEL = "jev-latest"
+# [2026-10-04] 默认切本地 clef-flash（llama.cpp /v1/systemone，契约与 Jev 逐字段
+# 一致且不校验密钥，见 docs/CLEF-LOCAL.md）。回切云端 Jev：注释掉现行两行、
+# 恢复末尾两行即可（注意云账号余额已耗尽，回切前先确认余额）。
+DEFAULT_BASE_URL = "http://127.0.0.1:8085/v1"       # 启停: D:\model-scripts\start_clef-flash.bat
+DEFAULT_MODEL = "clef-flash"                        # 本地端点忽略 model 字段(实测)，此值仅作溯源标识
+# DEFAULT_BASE_URL = "https://api.typesafe.ai/v1"   # Jev 云端（2026-10-04 暂停：余额耗尽）
+# DEFAULT_MODEL = "jev-latest"
 _MAX_INSTRUCTIONS = 4000
 _MAX_CRITERION = 2000
 _RETRYABLE_HTTP = {429, 500, 502, 503, 504, 529}
+_LOCAL_HOSTS = ("127.0.0.1", "localhost", "::1")
+# [2026-10-04 用户定谳] 决策预算仅约束计费后端: 云端 Jev 保持上限(第 28 局 600→1200,
+# 第 70 局长局触顶实证), 本地 clef 零边际成本实质不限。env JEV_MAX_CALLS 可覆盖两者。
+CLOUD_MAX_CALLS = 1200
+LOCAL_MAX_CALLS = 999999    # 大数占位而非去掉上限判断, 零改动预算路径
 
 
 class JevError(RuntimeError):
@@ -47,8 +60,15 @@ class JevClient:
         self.api_key = api_key if api_key is not None else os.environ.get("TYPESAFE_API_KEY", "")
         self.base_url = (base_url or os.environ.get("JEV_BASE_URL") or DEFAULT_BASE_URL).rstrip("/")
         self.model = model or os.environ.get("JEV_MODEL") or DEFAULT_MODEL
-        self.max_calls = int(
-            max_calls if max_calls is not None else os.environ.get("JEV_MAX_CALLS", "1500"))
+        host = (urllib.parse.urlsplit(self.base_url).hostname or "").lower()
+        self.local_backend = host in _LOCAL_HOSTS
+        # teacher 溯源(sft_tuple): 决策教师后端家族, 约定与历史查证见 docs/CLEF-LOCAL.md §八
+        self.backend = "clef" if self.local_backend else "jev"
+        if max_calls is None:
+            env = os.environ.get("JEV_MAX_CALLS")
+            max_calls = env if env is not None else (
+                LOCAL_MAX_CALLS if self.local_backend else CLOUD_MAX_CALLS)
+        self.max_calls = int(max_calls)
         self._lock = threading.Lock()
         self._stats = {"decisions": 0, "errors": 0, "input_tokens": 0,
                        "output_tokens": 0, "latencies": []}

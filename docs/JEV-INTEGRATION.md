@@ -8,6 +8,9 @@
 - 端点 `{JEV_BASE_URL:-https://api.typesafe.ai/v1}/systemone`，POST `{state, questions, model}`；
   环境变量：`TYPESAFE_API_KEY`（必填）、`JEV_BASE_URL`、`JEV_MODEL`（默认 jev-latest）、
   `JEV_MAX_CALLS`（默认 1500，进程内预算）。
+- **[2026-10-04 已切本地]** `client.py` 代码默认已改 `http://127.0.0.1:8085/v1` + `clef-flash`
+  （本地 llama.cpp，不校验密钥），Jev 云端两行以注释保留在 `client.py`，回切即恢复；
+  本节环境变量覆盖关系不变（设 `JEV_BASE_URL` 仍可指回云端）。详见 `CLEF-LOCAL.md`。
 - 三题型：choice（criteria=选项→描述字典）/ score（有序档位数组）/ noul（概率；
   **答案键是 `noul` 不是 `probability`**）。一次请求批量问全部问题。
 - 429/5xx 指数退避重试（4 次）；gzip 兜底解压；决策/错误/token/延迟统计进程内维护。
@@ -114,3 +117,17 @@ v8.3-recovery-naval 为当前版本线。
 
 `refs/` 下所有内容复制自 `D:/projects/ra2web.github.io/docs/`（游戏官方文档仓库）：
 `player-console-api.md`（werhd 完整 API）、`jev-player-local.md`（官方 Jev 玩家接入规格、启动步骤、六局实测记录——**官方曾以 16:24 获胜：摧毁 40/损失 3**）、`jev-player-goal-audit.md`（阶段验收）、`examples/`（玩家/目录/策略/特殊行动/摄像机/看板源码，v8.3）。
+
+## 六、本地 clef-flash 候选后端（2026-10-04，影子评测完成）
+
+Jev 云账号余额耗尽后的替代后端已落地：Cloudflare 开源决策模型 clef-flash（9B，
+Jev/SystemOne 兼容），经 llama.cpp（master 11fe021 自编译）跑在本机 4060 Ti 上，
+端点 `http://127.0.0.1:8085/v1/systemone`，**与本文件 §3.1 的请求/响应契约逐字段
+一致**（含 noul 答案键 = `noul`），`JEV_BASE_URL=http://127.0.0.1:8085/v1` +
+dummy key 即零代码切换。影子评测（828 条历史 decisions.jsonl 重放 vs 存档 Jev
+答案）：threat noul r=0.815 但尾部压缩致 0.6 阈值漏报主导（建议 0.55）、stance
+0.45 闸门保持、build/inf/veh 对齐率与分歧风格详见报告。
+
+**全量档案（部署定谳/GPU 预算/影子评测/阈值建议/切换手册/踩坑）：
+`docs/CLEF-LOCAL.md`；影子评测工具 `out/shadow_eval.py`，报告
+`out/shadow_eval/report.md`。**
