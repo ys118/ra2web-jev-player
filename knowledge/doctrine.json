@@ -2,7 +2,8 @@
   "_provenance": "由 review.py 复盘自动写入（白名单+限幅+Jev 置信>0.6 闸门）；可直接人工编辑",
   "T": {
     "tank_cash1": 800,
-    "tank_cash2": 1200
+    "tank_cash2": 1200,
+    "defend_radius": 26
   },
   "history": [
     {
@@ -31,6 +32,18 @@
           "key": "tank_cash1",
           "from": 900,
           "to": 800
+        }
+      ]
+    },
+    {
+      "game": 61,
+      "ts": "2026-10-04 20:57",
+      "reason": "Jev复盘: def overrun",
+      "changes": [
+        {
+          "key": "defend_radius",
+          "from": 18,
+          "to": 26
         }
       ]
     }
