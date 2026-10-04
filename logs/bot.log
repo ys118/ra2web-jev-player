@@ -42458,3 +42458,3207 @@
 [22:36:37] t=2836 ESCORT 坦克#3265 -> 护航矿车@[75, 76]
 [22:36:39] t=2838 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
 [22:36:41] REVIEW game#57 victory → game-0057-review.md | changes=0
+[11:31:36] 进局中(全自动)...
+[11:32:23] === ra2web-jev-player start (tick=1.5s, max_decisions=1200) ===
+[11:32:23] t=3 DEPLOY mcv
+[11:32:25] t=5 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:27] t=7 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:27] t=7 jev STANCE defend->develop (conf 0.53)
+[11:32:28] t=9 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:30] t=11 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:31] t=13 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:33] t=15 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:34] t=17 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:36] t=19 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:37] t=21 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:39] t=23 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:40] t=25 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:42] t=27 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:43] t=29 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:45] t=31 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:46] t=33 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:48] t=35 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:49] t=37 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:51] t=39 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:52] t=41 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[11:32:53] t=43 OPENING REJECT NAREFN (40gs 无进展, 拉黑)
+[11:32:53] t=43 OPENING FALLBACK -> legacy NAPOWR-first
+[11:32:53] t=43 OPENING BUILD NAPOWR
+[11:33:00] t=51 tick#25 credits=9780 stance=develop | jev 25 decisions p50=777ms
+[11:33:12] t=69 OPENING BUILD NAREFN
+[11:33:37] t=101 tick#50 credits=8628 stance=develop | jev 50 decisions p50=783ms
+[11:34:15] t=151 tick#75 credits=7421 stance=develop | jev 75 decisions p50=782ms
+[11:34:22] t=161 OPENING BUILD NAHAND
+[11:34:40] t=185 DEFLINE NALASR (have 0)
+[11:34:40] t=185 OPENING BUILD NAWEAP
+[11:34:52] t=201 jev INF E2 (conf 0.32)
+[11:34:52] t=201 tick#100 credits=6075 stance=develop | jev 100 decisions p50=795ms
+[11:34:57] t=207 jev INF E2 (conf 0.34)
+[11:34:57] t=207 MOVE hold_a x1 -> (138,72)
+[11:34:58] t=209 DEFLINE NALASR (have 1)
+[11:34:59] t=211 DEFLINE NALASR (have 1)
+[11:35:01] t=213 DEFLINE NALASR (have 1)
+[11:35:02] t=215 DEFLINE NALASR (have 1)
+[11:35:04] t=217 DEFLINE NALASR (have 1)
+[11:35:05] t=219 DEFLINE NALASR (have 1)
+[11:35:10] t=225 jev INF E2 (conf 0.35)
+[11:35:12] t=227 jev INF E2 (conf 0.40)
+[11:35:13] t=229 jev INF E2 (conf 0.34)
+[11:35:15] t=231 jev INF E2 (conf 0.32)
+[11:35:16] t=233 ALARM enemy approaching -> counter 1 vs 1 -> [128, 84]
+[11:35:17] t=233 jev INF E2 (conf 0.53)
+[11:35:18] t=235 jev INF E2 (conf 0.57)
+[11:35:22] t=241 jev INF E2 (conf 0.55)
+[11:35:24] t=243 jev INF E2 (conf 0.48)
+[11:35:24] t=243 MOVE hold_a x1 -> (136,86); hold_b x1 -> (126,78)
+[11:35:25] t=245 jev INF E2 (conf 0.47)
+[11:35:27] t=247 jev INF E2 (conf 0.48)
+[11:35:28] t=249 jev INF E2 (conf 0.54)
+[11:35:30] t=251 jev INF E2 (conf 0.49)
+[11:35:30] t=251 tick#125 credits=4128 stance=defend | jev 125 decisions p50=809ms
+[11:35:32] t=253 jev INF E2 (conf 0.50)
+[11:35:33] t=255 jev INF E2 (conf 0.53)
+[11:35:34] t=257 jev INF E2 (conf 0.47)
+[11:35:36] t=259 jev INF E2 (conf 0.49)
+[11:35:37] t=261 jev INF E2 (conf 0.59)
+[11:35:39] t=263 jev INF E2 (conf 0.54)
+[11:35:41] t=265 jev INF E2 (conf 0.51)
+[11:35:42] t=267 jev INF E2 (conf 0.48)
+[11:35:43] t=269 jev INF E2 (conf 0.50)
+[11:35:47] t=275 ECON harv#2
+[11:35:47] t=275 TANK HTNK x2
+[11:35:48] t=275 jev BUILD NAREFN (conf 0.47)
+[11:35:48] t=275 jev INF E2 (conf 0.48)
+[11:35:49] t=277 INSURE AA building
+[11:35:50] t=277 jev INF E2 (conf 0.44)
+[11:35:51] t=279 jev INF E2 (conf 0.45)
+[11:35:52] t=281 jev INF E2 (conf 0.49)
+[11:35:54] t=283 jev INF E2 (conf 0.46)
+[11:35:55] t=285 jev INF E2 (conf 0.50)
+[11:35:57] t=287 jev INF E2 (conf 0.45)
+[11:35:58] t=289 jev INF E2 (conf 0.45)
+[11:36:00] t=291 jev INF E2 (conf 0.45)
+[11:36:01] t=293 jev INF E2 (conf 0.44)
+[11:36:03] t=295 jev INF E2 (conf 0.54)
+[11:36:05] t=297 jev INF E2 (conf 0.46)
+[11:36:06] t=299 jev INF E2 (conf 0.51)
+[11:36:07] t=301 jev INF E2 (conf 0.44)
+[11:36:07] t=301 tick#150 credits=4063 stance=defend | jev 150 decisions p50=850ms
+[11:36:09] t=303 jev INF E2 (conf 0.42)
+[11:36:14] t=309 jev INF E2 (conf 0.43)
+[11:36:15] t=311 jev INF E2 (conf 0.44)
+[11:36:17] t=313 jev INF E2 (conf 0.43)
+[11:36:18] t=315 jev INF E2 (conf 0.40)
+[11:36:19] t=317 jev INF E2 (conf 0.44)
+[11:36:21] t=319 jev INF E2 (conf 0.47)
+[11:36:22] t=321 jev INF E2 (conf 0.47)
+[11:36:24] t=323 jev INF E2 (conf 0.46)
+[11:36:24] t=323 MOVE hold_a x2 -> (136,86); hold_b x2 -> (126,78)
+[11:36:25] t=325 jev INF E2 (conf 0.43)
+[11:36:27] t=327 jev INF E2 (conf 0.40)
+[11:36:29] t=329 jev INF E2 (conf 0.34)
+[11:36:30] t=331 jev INF E2 (conf 0.34)
+[11:36:33] t=335 jev INF E2 (conf 0.36)
+[11:36:35] t=337 jev INF E2 (conf 0.39)
+[11:36:39] t=343 jev INF E2 (conf 0.33)
+[11:36:40] t=345 jev INF E2 (conf 0.31)
+[11:36:43] t=349 jev INF E2 (conf 0.32)
+[11:36:45] t=351 jev INF E2 (conf 0.34)
+[11:36:45] t=351 tick#175 credits=1048 stance=defend | jev 175 decisions p50=884ms
+[11:36:46] t=353 jev INF E2 (conf 0.38)
+[11:36:48] t=355 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:36:50] t=357 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:36:52] t=361 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:36:54] t=363 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:36:55] t=365 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:36:57] t=367 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=469)
+[11:36:59] t=369 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=444)
+[11:36:59] t=369 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:37:00] t=371 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=419)
+[11:37:01] t=373 SCOUT #1097->[53, 186]
+[11:37:02] t=373 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=394)
+[11:37:02] t=373 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:37:02] t=375 SCOUT* #1097->[53, 186]
+[11:37:03] t=375 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=369)
+[11:37:03] t=375 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:37:05] t=377 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=344)
+[11:37:05] t=377 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:37:06] t=379 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=319)
+[11:37:06] t=379 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:37:07] t=381 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=294)
+[11:37:07] t=381 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:37:09] t=383 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=269)
+[11:37:09] t=383 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:37:11] t=385 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=244)
+[11:37:12] t=387 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=219)
+[11:37:12] t=387 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:37:14] t=389 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=194)
+[11:37:14] t=389 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:37:15] t=391 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=169)
+[11:37:15] t=391 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:37:17] t=393 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=144)
+[11:37:17] t=393 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:37:18] t=395 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=119)
+[11:37:20] t=397 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=94)
+[11:37:21] t=399 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=69)
+[11:37:23] t=401 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=44)
+[11:37:23] t=401 tick#200 credits=44 stance=defend | jev 200 decisions p50=893ms
+[11:37:24] t=403 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=19)
+[11:37:24] t=403 MOVE hold_a x3 -> (136,86); hold_b x2 -> (126,78)
+[11:37:26] t=405 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:27] t=407 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:28] t=409 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:30] t=411 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:32] t=413 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:33] t=415 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:35] t=417 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:36] t=419 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:38] t=421 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:39] t=423 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:41] t=425 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:42] t=427 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:44] t=429 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:45] t=431 jev BUILD NAPOWR HOLD (资金闸门: 坦克优先, cash=0)
+[11:37:46] t=433 POWER plant (reserve -35)
+[11:37:47] t=433 jev INF E2 (conf 0.45)
+[11:37:54] t=443 jev INF E2 (conf 0.36)
+[11:37:56] t=445 jev INF E2 (conf 0.37)
+[11:37:57] t=447 jev INF E2 (conf 0.37)
+[11:37:59] t=449 jev INF E2 (conf 0.35)
+[11:38:00] t=451 jev INF E2 (conf 0.34)
+[11:38:00] t=451 tick#225 credits=1685 stance=defend | jev 225 decisions p50=897ms
+[11:38:02] t=453 jev INF E2 (conf 0.36)
+[11:38:05] t=457 jev INF E2 (conf 0.32)
+[11:38:06] t=459 jev INF E2 (conf 0.38)
+[11:38:08] t=461 jev INF E2 (conf 0.41)
+[11:38:12] t=467 jev INF E2 (conf 0.38)
+[11:38:16] t=473 TANK HTNK x1
+[11:38:17] t=473 MOVE assault x1 -> (137,82)
+[11:38:20] t=477 jev INF E2 (conf 0.37)
+[11:38:23] t=481 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:38:24] t=483 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:38:24] t=483 MOVE hold_a x4 -> (136,86); hold_b x3 -> (126,78)
+[11:38:26] t=485 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:38:27] t=487 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:38:29] t=489 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:38:30] t=491 MOVE assault x1 -> (137,82)
+[11:38:32] t=493 jev BUILD NAREFN HOLD (资金闸门: 坦克优先, cash=2814)
+[11:38:33] t=495 jev BUILD NAREFN (conf 0.61)
+[11:38:38] t=501 tick#250 credits=3627 stance=defend | jev 250 decisions p50=907ms
+[11:38:41] t=505 jev INF E2 (conf 0.35)
+[11:38:44] t=509 MOVE assault x1 -> (137,82)
+[11:38:46] t=513 ECON harv#4
+[11:38:46] t=513 TANK HTNK x2
+[11:38:47] t=513 MOVE guard x1 -> (137,82)
+[11:38:57] t=527 MOVE assault x1 -> (137,82)
+[11:38:59] t=529 jev INF E2 (conf 0.33)
+[11:39:11] t=545 MOVE assault x1 -> (137,82)
+[11:39:14] t=549 jev INF E2 (conf 0.31)
+[11:39:15] t=551 tick#275 credits=1096 stance=defend | jev 275 decisions p50=908ms
+[11:39:18] t=555 MOVE guard x1 -> (137,82)
+[11:39:20] t=557 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:39:24] t=563 MOVE assault x1 -> (137,82)
+[11:39:26] t=565 MOVE hold_a x5 -> (136,86); hold_b x4 -> (126,78)
+[11:39:28] t=569 ALARM enemy approaching -> counter 11 vs 2 -> [123, 82]
+[11:39:28] t=569 SCOUT* #1097->[14, 111]
+[11:39:29] t=569 jev INF SHK HOLD (预算保护 gate=False e2=9)
+[11:39:32] t=573 jev INF SHK HOLD (预算保护 gate=False e2=9)
+[11:39:33] t=575 jev INF SHK HOLD (预算保护 gate=False e2=9)
+[11:39:35] t=577 jev INF SHK HOLD (预算保护 gate=False e2=9)
+[11:39:36] t=579 jev INF SHK HOLD (预算保护 gate=False e2=9)
+[11:39:36] t=579 MOVE assault x1 -> (137,82); hold_a x5 -> (131,86); hold_b x4 -> (127,73)
+[11:39:37] t=581 ALARM enemy approaching -> counter 9 vs 3 -> [123, 82]
+[11:39:37] t=581 RETREAT E2(33%)
+[11:39:37] t=581 RETREAT E2(39%)
+[11:39:38] t=581 jev INF SHK HOLD (预算保护 gate=False e2=9)
+[11:39:44] t=589 jev INF SHK HOLD (预算保护 gate=False e2=9)
+[11:39:44] t=591 RETREAT E2(15%)
+[11:39:45] t=591 MOVE hold_b x4 -> (127,74)
+[11:39:46] t=593 ALARM enemy approaching -> counter 8 vs 5 -> [125, 82]
+[11:39:47] t=593 jev INF SHK HOLD (预算保护 gate=False e2=9)
+[11:39:48] t=595 jev INF SHK HOLD (预算保护 gate=False e2=8)
+[11:39:50] t=597 jev INF SHK HOLD (预算保护 gate=False e2=8)
+[11:39:51] t=599 jev INF SHK HOLD (预算保护 gate=False e2=8)
+[11:39:53] t=601 jev INF SHK HOLD (预算保护 gate=False e2=8)
+[11:39:53] t=601 tick#300 credits=0 stance=defend | jev 300 decisions p50=912ms
+[11:39:54] t=603 MOVE assault x1 -> (137,82); hold_a x4 -> (130,86); hold_b x4 -> (128,73); guard x1 -> (137,82)
+[11:39:55] t=605 ALARM NALASR under attack -> counter 8 vs 2 -> [132, 79]
+[11:39:58] t=609 RETREAT E2(23%)
+[11:40:03] t=615 MOVE hold_a x4 -> (138,72); hold_b x3 -> (138,85)
+[11:40:06] t=619 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:40:08] t=621 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:40:08] t=621 MOVE assault x1 -> (137,82)
+[11:40:09] t=623 jev INF E2 (conf 0.49)
+[11:40:14] t=629 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:40:15] t=631 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:40:17] t=633 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:40:18] t=635 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:40:20] t=637 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:40:20] t=637 MOVE assault x1 -> (137,82)
+[11:40:20] t=639 OPENING BUILD NAWEAP
+[11:40:21] t=639 jev INF E2 (conf 0.51)
+[11:40:23] t=641 jev INF E2 (conf 0.48)
+[11:40:24] t=643 jev INF E2 (conf 0.51)
+[11:40:24] t=643 MOVE guard x1 -> (137,82)
+[11:40:25] t=645 ALARM enemy approaching -> counter 8 vs 4 -> [117, 81]
+[11:40:25] t=645 SCOUT* #1097->[14, 93]
+[11:40:26] t=645 jev INF E2 (conf 0.75)
+[11:40:27] t=647 jev INF E2 (conf 0.79)
+[11:40:29] t=649 jev INF E2 (conf 0.81)
+[11:40:30] t=651 jev INF E2 (conf 0.78)
+[11:40:30] t=651 tick#325 credits=1479 stance=defend | jev 325 decisions p50=919ms
+[11:40:32] t=653 jev INF E2 (conf 0.80)
+[11:40:33] t=655 jev INF E2 (conf 0.78)
+[11:40:33] t=655 MOVE assault x1 -> (137,82); hold_a x4 -> (131,86); hold_b x4 -> (127,73)
+[11:40:34] t=657 ALARM enemy approaching -> TURTLE (9 v 9, 守塔阵不打野战)
+[11:40:34] t=657 ESCORT 坦克#1110 -> 护航矿车@[126, 105]
+[11:40:34] t=657 SCOUT2 #1110->[66, 121]
+[11:40:35] t=657 jev INF E2 (conf 0.82)
+[11:40:39] t=663 jev INF E2 (conf 0.80)
+[11:40:41] t=665 jev INF E2 (conf 0.75)
+[11:40:42] t=667 jev INF E2 (conf 0.71)
+[11:40:43] t=669 ALARM enemy approaching -> counter 10 vs 7 -> [120, 83]
+[11:40:44] t=669 jev INF E2 (conf 0.73)
+[11:40:45] t=671 jev INF E2 (conf 0.73)
+[11:40:47] t=673 jev INF E2 (conf 0.71)
+[11:40:48] t=675 jev INF E2 (conf 0.74)
+[11:40:50] t=677 jev INF E2 (conf 0.70)
+[11:40:51] t=679 jev INF E2 (conf 0.72)
+[11:40:51] t=679 MOVE assault x2 -> (137,82)
+[11:40:52] t=681 ALARM enemy approaching -> counter 10 vs 5 -> [118, 78]
+[11:40:53] t=681 jev INF E2 (conf 0.75)
+[11:40:54] t=683 jev INF E2 (conf 0.76)
+[11:40:56] t=685 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:40:57] t=687 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:40:59] t=689 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:41:00] t=691 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:41:00] t=691 MOVE hold_a x5 -> (128,84); hold_b x4 -> (130,71); guard x1 -> (137,82)
+[11:41:01] t=693 ALARM enemy approaching -> counter 11 vs 2 -> [117, 77]
+[11:41:02] t=693 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:41:02] t=693 jev VEH HTNK (conf 0.61)
+[11:41:03] t=695 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:41:05] t=697 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:41:05] t=699 ESCORT 坦克#1541 -> 护航矿车@[128, 105]
+[11:41:06] t=699 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:41:08] t=701 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:41:08] t=701 tick#350 credits=102 stance=defend | jev 350 decisions p50=926ms
+[11:41:09] t=703 MOVE assault x3 -> (137,82)
+[11:41:10] t=705 SCOUT* #1097->[14, 64]
+[11:41:14] t=709 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:41:15] t=711 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:41:17] t=713 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:41:21] t=719 MOVE assault x3 -> (137,82)
+[11:41:24] t=723 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:41:26] t=725 jev INF E2 (conf 0.44)
+[11:41:30] t=731 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:41:30] t=731 MOVE guard x1 -> (137,82)
+[11:41:32] t=733 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:41:33] t=735 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:41:33] t=735 MOVE assault x3 -> (137,82)
+[11:41:35] t=737 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:41:35] t=739 ESCORT 坦克#1345 -> 护航矿车@[129, 106]
+[11:41:36] t=739 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:41:38] t=741 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:41:41] t=747 POWER plant (reserve 40)
+[11:41:42] t=747 jev INF E2 (conf 0.44)
+[11:41:43] t=749 TANK HTNK x1
+[11:41:44] t=749 jev INF E2 (conf 0.48)
+[11:41:44] t=749 ATTACK (tanks=6)
+[11:41:44] t=749 MOVE assault x4 -> (120,94)
+[11:41:45] t=751 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:41:45] t=751 MOVE assault x4 -> (120,97)
+[11:41:45] t=751 tick#375 credits=813 stance=attack | jev 375 decisions p50=931ms
+[11:41:47] t=753 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:41:47] t=753 MOVE assault x4 -> (118,99)
+[11:41:48] t=755 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:41:48] t=755 jev STANCE attack->defend (conf 0.53)
+[11:41:48] t=755 ATTACK (tanks=6)
+[11:41:48] t=755 MOVE assault x4 -> (66,121)
+[11:41:50] t=757 jev INF E2 (conf 0.53)
+[11:41:50] t=757 jev STANCE attack->defend (conf 0.53)
+[11:41:50] t=757 ATTACK (tanks=6)
+[11:41:51] t=759 jev INF E2 (conf 0.55)
+[11:41:51] t=759 jev STANCE attack->defend (conf 0.56)
+[11:41:51] t=759 ATTACK (tanks=6)
+[11:41:53] t=761 jev STANCE attack->defend (conf 0.58)
+[11:41:53] t=761 ATTACK (tanks=6)
+[11:41:54] t=763 jev STANCE attack->defend (conf 0.57)
+[11:41:54] t=763 ATTACK (tanks=6)
+[11:41:55] t=765 SCOUT* #1097->[14, 64]
+[11:41:56] t=765 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:41:56] t=765 jev STANCE attack->defend (conf 0.52)
+[11:41:56] t=765 ATTACK (tanks=6)
+[11:41:57] t=767 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:41:57] t=767 jev STANCE attack->defend (conf 0.59)
+[11:41:57] t=767 ATTACK (tanks=6)
+[11:41:59] t=769 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:41:59] t=769 jev VEH HTNK (conf 0.67)
+[11:41:59] t=769 jev STANCE attack->defend (conf 0.56)
+[11:41:59] t=769 ATTACK (tanks=7)
+[11:42:00] t=771 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:42:00] t=771 jev VEH HTNK (conf 0.70)
+[11:42:00] t=771 jev STANCE attack->defend (conf 0.54)
+[11:42:00] t=771 ATTACK (tanks=7)
+[11:42:00] t=771 MOVE assault x5 -> (66,121); hold_a x6 -> (128,84); hold_b x5 -> (130,71); guard x1 -> (137,82)
+[11:42:02] t=773 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:42:02] t=773 jev VEH HTNK (conf 0.68)
+[11:42:02] t=773 jev STANCE attack->defend (conf 0.53)
+[11:42:02] t=773 ATTACK (tanks=7)
+[11:42:03] t=775 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:42:03] t=775 jev VEH HTNK (conf 0.67)
+[11:42:03] t=775 jev STANCE attack->defend (conf 0.52)
+[11:42:03] t=775 ATTACK (tanks=7)
+[11:42:05] t=777 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:42:05] t=777 jev VEH HTNK (conf 0.65)
+[11:42:05] t=777 jev STANCE attack->defend (conf 0.46)
+[11:42:05] t=777 ATTACK (tanks=7)
+[11:42:05] t=779 ESCORT 坦克#1556 -> 护航矿车@[126, 107]
+[11:42:06] t=779 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:42:06] t=779 jev VEH HTNK (conf 0.69)
+[11:42:06] t=779 jev STANCE attack->defend (conf 0.54)
+[11:42:06] t=779 ATTACK (tanks=7)
+[11:42:08] t=781 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:42:08] t=781 jev VEH HTNK (conf 0.65)
+[11:42:08] t=781 jev STANCE attack->defend (conf 0.53)
+[11:42:08] t=781 ATTACK (tanks=7)
+[11:42:09] t=783 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:42:09] t=783 jev VEH HTNK (conf 0.67)
+[11:42:09] t=783 jev STANCE attack->defend (conf 0.58)
+[11:42:09] t=783 ATTACK (tanks=7)
+[11:42:11] t=785 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:42:11] t=785 jev STANCE attack->defend (conf 0.55)
+[11:42:11] t=785 ATTACK (tanks=7)
+[11:42:12] t=787 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:42:12] t=787 jev STANCE attack->defend (conf 0.54)
+[11:42:12] t=787 ATTACK (tanks=7)
+[11:42:12] t=787 MOVE assault x5 -> (66,121)
+[11:42:14] t=789 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1446)
+[11:42:14] t=789 jev INF E2 (conf 0.53)
+[11:42:14] t=789 jev STANCE attack->defend (conf 0.59)
+[11:42:14] t=789 ATTACK (tanks=7)
+[11:42:15] t=791 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1346)
+[11:42:15] t=791 jev INF E2 (conf 0.46)
+[11:42:15] t=791 jev STANCE attack->defend (conf 0.53)
+[11:42:15] t=791 ATTACK (tanks=7)
+[11:42:17] t=793 jev INF E2 (conf 0.47)
+[11:42:17] t=793 jev STANCE attack->defend (conf 0.53)
+[11:42:17] t=793 ATTACK (tanks=7)
+[11:42:18] t=795 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1130)
+[11:42:18] t=795 jev STANCE attack->defend (conf 0.56)
+[11:42:18] t=795 ATTACK (tanks=7)
+[11:42:20] t=797 jev STANCE attack->defend (conf 0.54)
+[11:42:20] t=797 ATTACK (tanks=7)
+[11:42:21] t=799 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:21] t=799 jev STANCE attack->defend (conf 0.52)
+[11:42:21] t=799 ATTACK (tanks=7)
+[11:42:23] t=801 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:23] t=801 jev STANCE attack->defend (conf 0.52)
+[11:42:23] t=801 ATTACK (tanks=7)
+[11:42:23] t=801 tick#400 credits=756 stance=attack | jev 400 decisions p50=932ms
+[11:42:24] t=803 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:24] t=803 jev VEH HTNK (conf 0.63)
+[11:42:25] t=805 V3-RESPONSE HTK x1 (alive 0, seen t0 fire t1000000805)
+[11:42:25] t=805 ENEMY BASE spotted @[75, 118]
+[11:42:26] t=805 jev INF SHK HOLD (预算保护 gate=False e2=12)
+[11:42:26] t=805 MOVE raid x2 -> (81,119); assault x12 -> 攻击目标#1100@(80,122); hold_a x2 -> (133,86); hold_b x2 -> (126,76)
+[11:42:27] t=807 jev INF SHK HOLD (预算保护 gate=False e2=12)
+[11:42:27] t=807 MOVE raid x2 -> (74,111); assault x12 -> 攻击目标#1204@(75,115)
+[11:42:29] t=809 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:29] t=809 MOVE raid x2 -> (81,114)
+[11:42:30] t=811 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:30] t=811 MOVE hold_b x2 -> (126,75); guard x1 -> (137,82)
+[11:42:31] t=813 HARASS DRON x2 (have 0)
+[11:42:31] t=813 V3-RESPONSE HTK x1 (alive 1, seen t4 fire t1000000813)
+[11:42:32] t=813 jev INF E2 (conf 0.19)
+[11:42:32] t=813 MOVE raid x2 -> (89,115); aahunt x1 -> (125,84)
+[11:42:33] t=815 jev INF E2 (conf 0.18)
+[11:42:33] t=815 MOVE raid x2 -> (89,112)
+[11:42:35] t=817 MOVE raid x2 -> (89,109)
+[11:42:35] t=819 ESCORT 坦克#1568 -> 护航矿车@[129, 106]
+[11:42:36] t=819 jev INF E2 (conf 0.39)
+[11:42:36] t=819 MOVE raid x2 -> (89,107)
+[11:42:38] t=821 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:38] t=821 MOVE raid x3 -> (91,105)
+[11:42:39] t=823 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:39] t=823 MOVE raid x3 -> (92,105); aahunt x1 -> (125,83)
+[11:42:41] t=825 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:41] t=825 MOVE raid x3 -> (94,103); assault x12 -> 攻击目标#1204@(75,115)
+[11:42:42] t=827 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:42] t=827 MOVE raid x3 -> (95,102)
+[11:42:43] t=829 V3-RESPONSE HTK x1 (alive 1, seen t20 fire t1000000829)
+[11:42:44] t=829 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=517)
+[11:42:44] t=829 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:44] t=829 jev VEH HTNK (conf 0.49)
+[11:42:45] t=831 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:47] t=833 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:48] t=835 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:50] t=837 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:50] t=837 MOVE raid x3 -> (80,120)
+[11:42:51] t=839 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:53] t=841 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:53] t=841 MOVE raid x3 -> (71,114)
+[11:42:54] t=843 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:54] t=843 MOVE raid x3 -> (74,113); assault x13 -> 攻击目标#1204@(75,115)
+[11:42:56] t=845 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:56] t=845 MOVE raid x3 -> (74,111)
+[11:42:57] t=847 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:57] t=847 MOVE raid x3 -> (72,109)
+[11:42:59] t=849 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:42:59] t=849 MOVE raid x3 -> (80,119); aahunt x1 -> (125,84)
+[11:43:00] t=851 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:43:00] t=851 tick#425 credits=0 stance=attack | jev 425 decisions p50=936ms
+[11:43:02] t=853 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:43:02] t=853 MOVE guard x1 -> (137,82)
+[11:43:03] t=855 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:43:04] t=857 RETREAT HTNK(39%)
+[11:43:04] t=857 RETREAT DRON(32%)
+[11:43:05] t=857 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:43:05] t=857 MOVE raid x3 -> (74,116)
+[11:43:05] t=859 ESCORT 坦克#1568 -> 护航矿车@[131, 106]
+[11:43:06] t=859 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:43:06] t=859 MOVE raid x3 -> (74,113)
+[11:43:07] t=861 ALARM unit lost -> 攻势保持（塔阵守家, 前线 15 个单位继续进攻）
+[11:43:08] t=861 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:43:08] t=861 MOVE raid x3 -> (74,111); assault x12 -> 攻击目标#1204@(75,115)
+[11:43:09] t=863 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:43:09] t=863 MOVE raid x3 -> (73,108)
+[11:43:10] t=865 RETREAT HTNK(36%)
+[11:43:11] t=865 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:43:11] t=865 MOVE raid x3 -> (80,116)
+[11:43:12] t=867 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:43:14] t=869 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:43:15] t=871 jev INF E2 HOLD (预算保护 gate=False e2=12)
+[11:43:16] t=873 ALARM unit lost -> 攻势保持（塔阵守家, 前线 14 个单位继续进攻）
+[11:43:17] t=873 jev INF E2 (conf 0.69)
+[11:43:17] t=873 MOVE raid x2 -> (80,120)
+[11:43:17] t=875 ALARM unit lost -> 攻势保持（塔阵守家, 前线 14 个单位继续进攻）
+[11:43:20] t=877 MOVE assault x11 -> 攻击目标#1204@(75,115)
+[11:43:21] t=879 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[11:43:22] t=881 V3-RESPONSE HTK x1 (alive 1, seen t0 fire t1000000881)
+[11:43:23] t=881 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[11:43:23] t=881 MOVE raid x2 -> (120,107)
+[11:43:23] t=883 RETREAT E2(18%)
+[11:43:23] t=883 RETREAT E2(30%)
+[11:43:24] t=883 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[11:43:24] t=883 MOVE raid x2 -> (120,105)
+[11:43:26] t=885 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[11:43:26] t=885 MOVE raid x2 -> (120,102); hold_a x2 -> (133,86)
+[11:43:26] t=887 RETREAT HTNK(37%)
+[11:43:27] t=887 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[11:43:27] t=887 MOVE raid x2 -> (119,101)
+[11:43:29] t=889 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[11:43:29] t=889 jev VEH HTK (conf 0.53)
+[11:43:29] t=889 MOVE raid x2 -> (120,100); aahunt x2 -> (125,84)
+[11:43:30] t=891 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[11:43:30] t=891 jev VEH HTK (conf 0.53)
+[11:43:30] t=891 MOVE raid x2 -> (120,99); hold_b x2 -> (126,75)
+[11:43:31] t=893 HARASS DRON x2 (have 1)
+[11:43:31] t=893 RETREAT HTNK(28%)
+[11:43:32] t=893 jev INF E2 (conf 0.57)
+[11:43:32] t=893 MOVE raid x2 -> (120,96); guard x1 -> (137,82)
+[11:43:33] t=895 jev INF E2 (conf 0.56)
+[11:43:33] t=895 MOVE raid x2 -> (120,94); assault x13 -> 攻击目标#1204@(75,115)
+[11:43:35] t=897 jev INF E2 (conf 0.60)
+[11:43:35] t=897 MOVE raid x2 -> (121,94)
+[11:43:35] t=899 ALARM unit lost -> 攻势保持（塔阵守家, 前线 16 个单位继续进攻）
+[11:43:35] t=899 ESCORT 坦克#1960 -> 护航矿车@[126, 104]
+[11:43:36] t=899 jev INF E2 (conf 0.38)
+[11:43:36] t=899 MOVE raid x2 -> (120,92)
+[11:43:37] t=901 ALARM unit lost -> 攻势保持（塔阵守家, 前线 17 个单位继续进攻）
+[11:43:38] t=901 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[11:43:38] t=901 MOVE raid x2 -> (120,91)
+[11:43:38] t=901 tick#450 credits=840 stance=attack | jev 450 decisions p50=937ms
+[11:43:39] t=903 jev INF E2 (conf 0.50)
+[11:43:39] t=903 MOVE raid x2 -> (118,89)
+[11:43:41] t=905 jev INF E2 (conf 0.59)
+[11:43:41] t=905 MOVE raid x2 -> (117,88)
+[11:43:42] t=907 jev INF E2 (conf 0.60)
+[11:43:42] t=907 MOVE raid x2 -> (115,88)
+[11:43:43] t=909 V3-RESPONSE HTK x2 (alive 2, seen t0 fire t1000000909)
+[11:43:44] t=909 jev VEH HTK (conf 0.64)
+[11:43:44] t=909 MOVE raid x2 -> (114,87)
+[11:43:44] t=911 V3-RESPONSE HTK x2 (alive 2, seen t0 fire t1000000911)
+[11:43:46] t=911 jev VEH HTK (conf 0.72)
+[11:43:46] t=911 MOVE raid x2 -> (112,87); assault x12 -> 攻击目标#1204@(75,115)
+[11:43:46] t=913 ALARM unit lost -> 攻势保持（塔阵守家, 前线 18 个单位继续进攻）
+[11:43:46] t=913 V3-RESPONSE HTK x2 (alive 2, seen t0 fire t1000000913)
+[11:43:47] t=913 jev INF E2 (conf 0.58)
+[11:43:47] t=913 jev VEH HTK (conf 0.76)
+[11:43:47] t=913 MOVE raid x2 -> (110,85)
+[11:43:47] t=915 V3-RESPONSE HTK x2 (alive 2, seen t0 fire t1000000915)
+[11:43:48] t=915 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1512)
+[11:43:48] t=915 jev INF E2 (conf 0.55)
+[11:43:48] t=915 MOVE raid x2 -> (109,84)
+[11:43:49] t=917 RETREAT HTNK(31%)
+[11:43:50] t=917 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1374)
+[11:43:50] t=917 jev INF E2 (conf 0.54)
+[11:43:50] t=917 MOVE raid x2 -> (108,85)
+[11:43:51] t=919 jev INF E2 (conf 0.55)
+[11:43:51] t=919 MOVE raid x2 -> (107,86)
+[11:43:53] t=921 jev INF E2 (conf 0.48)
+[11:43:53] t=921 MOVE raid x2 -> (105,88)
+[11:43:53] t=923 ALARM unit lost -> 攻势保持（塔阵守家, 前线 15 个单位继续进攻）
+[11:43:54] t=923 jev INF E2 (conf 0.54)
+[11:43:54] t=923 MOVE raid x2 -> (104,89)
+[11:43:56] t=925 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[11:43:56] t=925 MOVE raid x2 -> (103,91)
+[11:43:56] t=927 RETREAT E2(25%)
+[11:43:56] t=927 RETREAT E2(25%)
+[11:43:57] t=927 jev INF E2 HOLD (预算保护 gate=False e2=13)
+[11:43:57] t=927 MOVE raid x2 -> (103,93)
+[11:43:58] t=929 ALARM unit lost -> 攻势保持（塔阵守家, 前线 14 个单位继续进攻）
+[11:43:59] t=929 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:43:59] t=929 MOVE raid x2 -> (103,95); assault x9 -> 攻击目标#1204@(75,115); aahunt x3 -> (125,84)
+[11:43:59] t=931 RETREAT E2(23%)
+[11:44:00] t=931 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:44:00] t=931 jev VEH HTK (conf 0.79)
+[11:44:00] t=931 MOVE raid x3 -> (81,120)
+[11:44:01] t=933 ALARM unit lost -> 攻势保持（塔阵守家, 前线 16 个单位继续进攻）
+[11:44:02] t=933 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:44:02] t=933 jev VEH HTK (conf 0.75)
+[11:44:02] t=933 MOVE guard x1 -> (137,82)
+[11:44:02] t=935 ALARM unit lost -> 攻势保持（塔阵守家, 前线 16 个单位继续进攻）
+[11:44:03] t=935 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:44:03] t=935 jev VEH HTK (conf 0.81)
+[11:44:04] t=937 RETREAT E2(9%)
+[11:44:04] t=937 RETREAT E2(27%)
+[11:44:05] t=937 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:44:05] t=937 jev VEH HTK (conf 0.83)
+[11:44:05] t=939 ALARM unit lost -> 攻势保持（塔阵守家, 前线 16 个单位继续进攻）
+[11:44:05] t=939 ESCORT 坦克#2201 -> 护航矿车@[127, 105]
+[11:44:06] t=939 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:06] t=939 jev VEH HTK (conf 0.82)
+[11:44:08] t=941 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:08] t=941 jev VEH HTK (conf 0.84)
+[11:44:09] t=943 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:09] t=943 jev VEH HTK (conf 0.84)
+[11:44:11] t=945 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:11] t=945 jev VEH HTK (conf 0.84)
+[11:44:11] t=947 ALARM unit lost -> 攻势保持（塔阵守家, 前线 14 个单位继续进攻）
+[11:44:12] t=947 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:12] t=947 jev VEH HTK (conf 0.64)
+[11:44:12] t=947 MOVE assault x3 -> 攻击目标#1204@(75,115)
+[11:44:14] t=949 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:14] t=949 jev VEH HTK (conf 0.62)
+[11:44:15] t=951 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:15] t=951 tick#475 credits=466 stance=attack | jev 475 decisions p50=937ms
+[11:44:17] t=953 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:18] t=955 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:20] t=957 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:21] t=959 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:21] t=959 jev VEH HTK (conf 0.64)
+[11:44:21] t=959 MOVE raid x2 -> (81,120)
+[11:44:23] t=961 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:23] t=961 jev VEH HTK (conf 0.69)
+[11:44:23] t=963 RETREAT HTNK(33%)
+[11:44:24] t=963 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:24] t=963 jev VEH HTK (conf 0.61)
+[11:44:24] t=963 MOVE assault x3 -> 攻击目标#1204@(75,115)
+[11:44:25] t=965 HARASS DRON x2 (have 1)
+[11:44:26] t=965 jev INF E2 (conf 0.49)
+[11:44:26] t=965 MOVE hold_a x2 -> (133,86)
+[11:44:30] t=971 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:30] t=971 MOVE aahunt x5 -> (125,84)
+[11:44:32] t=973 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:32] t=973 MOVE hold_b x2 -> (126,75); guard x1 -> (137,82)
+[11:44:32] t=975 ALARM unit lost -> 攻势保持（塔阵守家, 前线 16 个单位继续进攻）
+[11:44:33] t=975 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:35] t=977 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:36] t=979 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:36] t=979 MOVE assault x4 -> 攻击目标#1204@(75,115)
+[11:44:38] t=981 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:38] t=981 jev VEH HTK (conf 0.77)
+[11:44:39] t=983 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:39] t=983 jev VEH HTK (conf 0.81)
+[11:44:41] t=985 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:41] t=987 ESCORT 坦克#1110 -> 护航矿车@[128, 104]
+[11:44:42] t=987 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:42] t=987 MOVE raid x2 -> (81,120)
+[11:44:43] t=989 RETREAT HTNK(34%)
+[11:44:44] t=989 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:44] t=989 MOVE raid x2 -> (72,111)
+[11:44:45] t=991 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:45] t=991 MOVE raid x2 -> (74,113)
+[11:44:47] t=993 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:47] t=993 MOVE raid x2 -> (74,116)
+[11:44:48] t=995 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:48] t=995 MOVE raid x2 -> (81,120)
+[11:44:49] t=997 ALARM unit lost -> 攻势保持（塔阵守家, 前线 16 个单位继续进攻）
+[11:44:50] t=997 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:50] t=997 jev VEH HTK (conf 0.73)
+[11:44:50] t=997 MOVE raid x2 -> (72,108); assault x4 -> 攻击目标#1204@(75,115)
+[11:44:50] t=999 ALARM unit lost -> 攻势保持（塔阵守家, 前线 16 个单位继续进攻）
+[11:44:51] t=999 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:51] t=999 jev VEH HTK (conf 0.71)
+[11:44:51] t=999 MOVE raid x2 -> (73,109)
+[11:44:53] t=1001 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:53] t=1001 jev VEH HTK (conf 0.74)
+[11:44:53] t=1001 MOVE raid x2 -> (74,112)
+[11:44:53] t=1001 tick#500 credits=772 stance=attack | jev 500 decisions p50=939ms
+[11:44:54] t=1003 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:54] t=1003 jev VEH HTK (conf 0.77)
+[11:44:54] t=1003 MOVE raid x2 -> (74,115)
+[11:44:55] t=1005 RETREAT E2(18%)
+[11:44:56] t=1005 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:44:56] t=1005 jev VEH HTK (conf 0.73)
+[11:44:56] t=1005 MOVE raid x2 -> (74,117)
+[11:44:56] t=1007 ALARM unit lost -> 攻势保持（塔阵守家, 前线 15 个单位继续进攻）
+[11:44:57] t=1007 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:57] t=1007 jev VEH HTK (conf 0.85)
+[11:44:57] t=1007 MOVE raid x2 -> (81,120)
+[11:44:59] t=1009 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:44:59] t=1009 jev VEH HTK (conf 0.80)
+[11:45:00] t=1011 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:45:00] t=1011 jev VEH HTK (conf 0.83)
+[11:45:00] t=1011 MOVE aahunt x6 -> (125,84)
+[11:45:02] t=1013 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:45:02] t=1013 jev VEH HTK (conf 0.77)
+[11:45:02] t=1013 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[11:45:03] t=1015 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:45:03] t=1015 jev VEH HTK (conf 0.83)
+[11:45:04] t=1017 TANK HTNK x2
+[11:45:04] t=1017 RETREAT DRON(12%)
+[11:45:05] t=1017 jev INF E2 (conf 0.65)
+[11:45:05] t=1019 ALARM unit lost -> 攻势保持（塔阵守家, 前线 14 个单位继续进攻）
+[11:45:06] t=1019 MOVE raid x2 -> (81,119)
+[11:45:09] t=1023 jev INF E2 (conf 0.46)
+[11:45:09] t=1023 MOVE raid x2 -> (74,116)
+[11:45:11] t=1025 jev INF E2 (conf 0.61)
+[11:45:11] t=1025 MOVE raid x2 -> (74,114)
+[11:45:11] t=1027 ESCORT 坦克#1110 -> 护航矿车@[127, 105]
+[11:45:12] t=1027 jev INF E2 (conf 0.56)
+[11:45:12] t=1027 MOVE raid x2 -> (74,111)
+[11:45:14] t=1029 jev INF E2 (conf 0.55)
+[11:45:14] t=1029 MOVE raid x2 -> (74,108)
+[11:45:15] t=1031 jev INF E2 (conf 0.55)
+[11:45:15] t=1031 MOVE raid x2 -> (74,106)
+[11:45:17] t=1033 jev INF E2 (conf 0.66)
+[11:45:17] t=1033 MOVE raid x2 -> (74,118)
+[11:45:18] t=1035 jev INF E2 (conf 0.63)
+[11:45:18] t=1035 MOVE raid x2 -> (74,115)
+[11:45:19] t=1037 ALARM unit lost -> 攻势保持（塔阵守家, 前线 15 个单位继续进攻）
+[11:45:20] t=1037 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:20] t=1037 MOVE raid x2 -> (74,112)
+[11:45:21] t=1039 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:21] t=1039 MOVE raid x2 -> (74,110)
+[11:45:23] t=1041 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:23] t=1041 MOVE raid x2 -> (72,107)
+[11:45:24] t=1043 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:24] t=1043 MOVE raid x2 -> (87,109)
+[11:45:26] t=1045 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=557)
+[11:45:26] t=1045 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:26] t=1045 MOVE hold_a x4 -> (133,86)
+[11:45:27] t=1047 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:28] t=1049 RETREAT HTNK(35%)
+[11:45:29] t=1049 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:30] t=1051 jev INF E2 (conf 0.56)
+[11:45:30] t=1051 MOVE aahunt x6 -> (125,84)
+[11:45:30] t=1051 tick#525 credits=1382 stance=attack | jev 525 decisions p50=940ms
+[11:45:32] t=1053 MOVE hold_b x3 -> (126,75)
+[11:45:32] t=1055 HARASS DRON x2 (have 0)
+[11:45:32] t=1055 RETREAT E2(20%)
+[11:45:33] t=1055 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[11:45:34] t=1057 ALARM unit lost -> 攻势保持（塔阵守家, 前线 16 个单位继续进攻）
+[11:45:35] t=1057 jev INF E2 (conf 0.55)
+[11:45:36] t=1059 jev INF E2 (conf 0.64)
+[11:45:36] t=1059 MOVE raid x2 -> (88,108)
+[11:45:38] t=1061 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:38] t=1061 MOVE raid x2 -> (88,106)
+[11:45:39] t=1063 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:39] t=1063 MOVE guard x1 -> (137,82)
+[11:45:41] t=1065 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=719)
+[11:45:41] t=1065 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:41] t=1067 ESCORT 坦克#1110 -> 护航矿车@[121, 130]
+[11:45:42] t=1067 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:43] t=1069 ALARM unit lost -> 攻势保持（塔阵守家, 前线 17 个单位继续进攻）
+[11:45:43] t=1069 SCOUT #1110->[14, 178] (敌影)
+[11:45:44] t=1069 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:45] t=1071 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:45] t=1071 jev VEH HTK (conf 0.81)
+[11:45:45] t=1071 MOVE raid x2 -> (89,107)
+[11:45:47] t=1073 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:47] t=1073 MOVE raid x2 -> (79,102); assault x4 -> 攻击目标#1204@(75,115)
+[11:45:48] t=1075 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:48] t=1075 MOVE raid x2 -> (80,101)
+[11:45:50] t=1077 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:50] t=1077 MOVE raid x2 -> (90,106)
+[11:45:51] t=1079 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:51] t=1079 jev STANCE attack->defend (conf 0.45)
+[11:45:51] t=1079 ATTACK (tanks=11)
+[11:45:51] t=1079 MOVE raid x2 -> (71,111)
+[11:45:53] t=1081 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:53] t=1081 MOVE raid x2 -> (73,113)
+[11:45:54] t=1083 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:54] t=1083 jev STANCE attack->defend (conf 0.53)
+[11:45:54] t=1083 ATTACK (tanks=11)
+[11:45:54] t=1083 MOVE raid x2 -> (74,115)
+[11:45:56] t=1085 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:56] t=1085 MOVE raid x2 -> (74,117)
+[11:45:57] t=1087 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:57] t=1087 MOVE raid x2 -> (90,106)
+[11:45:58] t=1089 RETREAT HTNK(37%)
+[11:45:59] t=1089 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:45:59] t=1089 MOVE assault x4 -> 攻击目标#1204@(75,115)
+[11:46:00] t=1091 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:00] t=1091 jev STANCE attack->defend (conf 0.47)
+[11:46:00] t=1091 ATTACK (tanks=11)
+[11:46:02] t=1093 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:02] t=1093 MOVE raid x2 -> (89,105); aahunt x6 -> (125,84)
+[11:46:03] t=1095 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:03] t=1095 MOVE raid x2 -> (89,104)
+[11:46:05] t=1097 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:06] t=1099 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:07] t=1101 ALARM unit lost -> 攻势保持（塔阵守家, 前线 17 个单位继续进攻）
+[11:46:07] t=1101 SCOUT #2705->[100, 100]
+[11:46:08] t=1101 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:08] t=1101 jev STANCE attack->defend (conf 0.47)
+[11:46:08] t=1101 ATTACK (tanks=10)
+[11:46:08] t=1101 MOVE raid x2 -> (91,105)
+[11:46:08] t=1101 tick#550 credits=0 stance=attack | jev 550 decisions p50=939ms
+[11:46:08] t=1103 ALARM unit lost -> 攻势保持（塔阵守家, 前线 15 个单位继续进攻）
+[11:46:09] t=1103 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:10] t=1105 ALARM unit lost -> 攻势保持（塔阵守家, 前线 14 个单位继续进攻）
+[11:46:11] t=1105 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:11] t=1107 ESCORT 坦克#2780 -> 护航矿车@[128, 105]
+[11:46:12] t=1107 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:12] t=1107 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[11:46:14] t=1109 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:14] t=1109 jev STANCE attack->defend (conf 0.47)
+[11:46:14] t=1109 ATTACK (tanks=8)
+[11:46:15] t=1111 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:18] t=1115 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:18] t=1115 jev STANCE attack->defend (conf 0.50)
+[11:46:18] t=1115 ATTACK (tanks=8)
+[11:46:20] t=1117 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:21] t=1119 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:23] t=1121 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:23] t=1123 RETREAT E2(18%)
+[11:46:24] t=1123 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:26] t=1125 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:26] t=1125 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[11:46:27] t=1127 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:27] t=1127 MOVE hold_a x4 -> (133,86)
+[11:46:29] t=1129 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:30] t=1131 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:32] t=1133 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:32] t=1133 MOVE hold_b x3 -> (126,75); aahunt x6 -> (125,84)
+[11:46:33] t=1135 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:35] t=1137 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:35] t=1139 RETREAT HTNK(34%)
+[11:46:36] t=1139 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:38] t=1141 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:38] t=1141 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[11:46:39] t=1143 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:40] t=1145 ALARM unit lost -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[11:46:41] t=1145 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:42] t=1147 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:42] t=1147 jev STANCE attack->defend (conf 0.45)
+[11:46:42] t=1147 ATTACK (tanks=7)
+[11:46:44] t=1149 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:44] t=1149 jev STANCE attack->defend (conf 0.50)
+[11:46:44] t=1149 ATTACK (tanks=7)
+[11:46:45] t=1151 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:45] t=1151 tick#575 credits=277 stance=attack | jev 575 decisions p50=939ms
+[11:46:47] t=1153 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:47] t=1153 jev VEH HTK (conf 0.75)
+[11:46:48] t=1155 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:50] t=1157 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:51] t=1159 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:51] t=1159 jev STANCE attack->defend (conf 0.50)
+[11:46:51] t=1159 ATTACK (tanks=8)
+[11:46:53] t=1161 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:46:53] t=1161 jev STANCE attack->defend (conf 0.47)
+[11:46:53] t=1161 ATTACK (tanks=8)
+[11:46:54] t=1163 jev INF E2 (conf 0.68)
+[11:46:56] t=1165 jev STANCE attack->defend (conf 0.45)
+[11:46:56] t=1165 ATTACK (tanks=8)
+[11:46:56] t=1167 HARASS DRON x2 (have 0)
+[11:46:57] t=1167 jev STANCE attack->defend (conf 0.46)
+[11:46:57] t=1167 ATTACK (tanks=9)
+[11:46:59] t=1169 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:00] t=1171 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:02] t=1173 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:02] t=1173 jev STANCE attack->defend (conf 0.46)
+[11:47:02] t=1173 ATTACK (tanks=9)
+[11:47:02] t=1173 MOVE aahunt x8 -> (125,84)
+[11:47:02] t=1175 ESCORT 坦克#3106 -> 护航矿车@[117, 135]
+[11:47:03] t=1175 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:03] t=1175 jev STANCE attack->defend (conf 0.45)
+[11:47:03] t=1175 ATTACK (tanks=10)
+[11:47:03] t=1175 MOVE raid x2 -> (91,105)
+[11:47:05] t=1177 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:06] t=1179 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:08] t=1181 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:09] t=1183 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:09] t=1183 jev VEH HTK (conf 0.62)
+[11:47:11] t=1185 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:11] t=1185 jev VEH HTK (conf 0.70)
+[11:47:12] t=1187 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:12] t=1187 jev VEH HTK (conf 0.54)
+[11:47:14] t=1189 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:15] t=1191 jev INF E2 (conf 0.68)
+[11:47:17] t=1193 jev INF E2 (conf 0.62)
+[11:47:18] t=1195 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:18] t=1195 MOVE raid x2 -> (80,102)
+[11:47:20] t=1197 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:20] t=1197 MOVE raid x2 -> (80,105)
+[11:47:21] t=1199 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:21] t=1199 jev VEH HTK (conf 0.65)
+[11:47:21] t=1199 MOVE raid x2 -> (80,108)
+[11:47:23] t=1201 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:23] t=1201 jev VEH HTK (conf 0.70)
+[11:47:23] t=1201 MOVE raid x2 -> (80,111)
+[11:47:23] t=1201 tick#600 credits=627 stance=attack | jev 600 decisions p50=939ms
+[11:47:24] t=1203 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:24] t=1203 jev VEH HTK (conf 0.54)
+[11:47:24] t=1203 MOVE raid x2 -> (80,113)
+[11:47:26] t=1205 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:26] t=1205 jev VEH HTK (conf 0.61)
+[11:47:26] t=1205 MOVE raid x2 -> (80,116)
+[11:47:27] t=1207 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:27] t=1207 jev VEH HTK (conf 0.55)
+[11:47:27] t=1207 MOVE raid x2 -> (80,119); hold_a x4 -> (133,86)
+[11:47:29] t=1209 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:47:29] t=1209 jev VEH HTK (conf 0.74)
+[11:47:29] t=1209 MOVE raid x2 -> (91,105)
+[11:47:29] t=1211 TANK HTNK x2
+[11:47:30] t=1211 jev INF E2 (conf 0.67)
+[11:47:32] t=1213 MOVE hold_b x4 -> (126,75)
+[11:47:32] t=1215 ESCORT 坦克#3109 -> 护航矿车@[128, 105]
+[11:47:33] t=1215 MOVE aahunt x9 -> (125,84)
+[11:47:35] t=1217 jev INF E2 (conf 0.64)
+[11:47:36] t=1219 jev INF E2 (conf 0.62)
+[11:47:38] t=1221 jev INF E2 (conf 0.67)
+[11:47:39] t=1223 jev INF E2 (conf 0.66)
+[11:47:41] t=1225 jev INF E2 (conf 0.70)
+[11:47:42] t=1227 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:47:42] t=1227 MOVE raid x2 -> (79,120)
+[11:47:44] t=1229 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:47:44] t=1229 MOVE raid x2 -> (79,117)
+[11:47:45] t=1231 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:47:45] t=1231 MOVE raid x2 -> (79,114); assault x1 -> 攻击目标#1204@(75,115)
+[11:47:47] t=1233 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:47:47] t=1233 MOVE raid x2 -> (79,112)
+[11:47:48] t=1235 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:47:48] t=1235 MOVE raid x2 -> (79,109)
+[11:47:50] t=1237 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:47:50] t=1237 MOVE raid x2 -> (80,107)
+[11:47:51] t=1239 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:47:51] t=1239 MOVE raid x2 -> (80,105)
+[11:47:53] t=1241 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:47:53] t=1241 MOVE raid x2 -> (80,102)
+[11:47:54] t=1243 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:47:54] t=1243 MOVE raid x2 -> (81,100)
+[11:47:56] t=1245 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:47:56] t=1245 MOVE raid x2 -> (81,103)
+[11:47:57] t=1247 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:47:57] t=1247 MOVE raid x2 -> (81,106); assault x1 -> 攻击目标#1204@(75,115)
+[11:47:59] t=1249 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:47:59] t=1249 MOVE raid x2 -> (81,108)
+[11:48:00] t=1251 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:48:00] t=1251 MOVE raid x2 -> (81,111)
+[11:48:01] t=1251 tick#625 credits=0 stance=attack | jev 625 decisions p50=942ms
+[11:48:02] t=1253 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:48:02] t=1253 MOVE raid x2 -> (81,114)
+[11:48:02] t=1255 ESCORT 坦克#3109 -> 护航矿车@[120, 125]
+[11:48:04] t=1255 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:48:04] t=1255 MOVE raid x2 -> (81,116); aahunt x9 -> (125,84)
+[11:48:05] t=1257 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:48:05] t=1257 MOVE raid x2 -> (81,119)
+[11:48:06] t=1259 jev INF E2 (conf 0.62)
+[11:48:06] t=1259 MOVE raid x2 -> (91,105)
+[11:48:08] t=1263 TANK HTNK x1
+[11:48:09] t=1263 MOVE guard x1 -> (137,82)
+[11:48:11] t=1265 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:11] t=1265 MOVE assault x7 -> 攻击目标#1204@(75,115)
+[11:48:12] t=1267 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:14] t=1269 jev INF E2 (conf 0.66)
+[11:48:15] t=1271 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:17] t=1273 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:18] t=1275 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:20] t=1277 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:20] t=1277 MOVE raid x2 -> (83,118)
+[11:48:21] t=1279 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:21] t=1279 MOVE raid x2 -> (83,115)
+[11:48:23] t=1281 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:23] t=1281 MOVE raid x2 -> (83,113)
+[11:48:24] t=1283 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:24] t=1283 jev VEH HTK (conf 0.68)
+[11:48:24] t=1283 MOVE raid x2 -> (83,110); assault x8 -> 攻击目标#1204@(75,115)
+[11:48:26] t=1285 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:26] t=1285 MOVE raid x2 -> (83,107)
+[11:48:27] t=1287 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:27] t=1287 MOVE raid x2 -> (83,105); hold_a x2 -> (133,86)
+[11:48:29] t=1289 MOVE raid x2 -> (82,103)
+[11:48:30] t=1291 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:30] t=1291 MOVE raid x2 -> (81,100)
+[11:48:32] t=1293 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:32] t=1293 MOVE raid x2 -> (91,105); hold_b x2 -> (126,75)
+[11:48:32] t=1295 ESCORT 坦克#3182 -> 护航矿车@[128, 105]
+[11:48:34] t=1295 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:34] t=1295 MOVE aahunt x9 -> (125,84)
+[11:48:35] t=1297 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:36] t=1299 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:36] t=1299 MOVE assault x8 -> 攻击目标#1204@(75,115)
+[11:48:38] t=1301 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:38] t=1301 tick#650 credits=0 stance=attack | jev 650 decisions p50=945ms
+[11:48:39] t=1303 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:39] t=1303 MOVE guard x1 -> (137,82)
+[11:48:41] t=1305 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:42] t=1307 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:44] t=1309 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:45] t=1311 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:47] t=1313 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:48] t=1315 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:50] t=1317 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:50] t=1317 MOVE assault x8 -> 攻击目标#1204@(75,115)
+[11:48:51] t=1319 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:53] t=1321 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:53] t=1321 MOVE raid x2 -> (91,105)
+[11:48:54] t=1323 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:48:56] t=1325 jev INF E2 (conf 0.57)
+[11:48:56] t=1327 TANK HTNK x1
+[11:48:58] t=1329 RETREAT HTNK(37%)
+[11:49:01] t=1331 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:49:02] t=1333 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:49:02] t=1335 ESCORT 坦克#3150 -> 护航矿车@[128, 105]
+[11:49:04] t=1335 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:49:04] t=1335 MOVE assault x9 -> 攻击目标#1204@(75,115)
+[11:49:05] t=1337 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:49:05] t=1337 MOVE aahunt x10 -> (125,84)
+[11:49:06] t=1339 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:49:08] t=1341 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:49:09] t=1343 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:49:11] t=1345 jev INF E2 HOLD (预算保护 gate=False e2=11)
+[11:49:11] t=1345 MOVE guard x1 -> (137,82)
+[11:49:11] t=1347 ALARM unit lost -> 攻势保持（塔阵守家, 前线 26 个单位继续进攻）
+[11:49:12] t=1347 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:49:12] t=1347 jev VEH HTK (conf 0.54)
+[11:49:14] t=1349 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:49:14] t=1349 MOVE raid x2 -> (91,105)
+[11:49:14] t=1351 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[11:49:14] t=1351 RETREAT E2(39%)
+[11:49:15] t=1351 SCOUT #3106->[14, 178] (敌影)
+[11:49:16] t=1351 jev INF E2 HOLD (预算保护 gate=False e2=10)
+[11:49:16] t=1351 MOVE assault x9 -> 攻击目标#1204@(75,115)
+[11:49:16] t=1351 tick#675 credits=0 stance=attack | jev 675 decisions p50=944ms
+[11:49:16] t=1353 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[11:49:17] t=1353 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:49:18] t=1355 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[11:49:19] t=1357 RETREAT E2(20%)
+[11:49:20] t=1357 jev INF E2 (conf 0.55)
+[11:49:21] t=1359 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[11:49:21] t=1359 RETREAT E2(6%)
+[11:49:21] t=1359 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=977)
+[11:49:21] t=1359 jev INF E2 (conf 0.58)
+[11:49:22] t=1361 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[11:49:24] t=1363 RETREAT E2(28%)
+[11:49:25] t=1365 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[11:49:26] t=1365 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:49:26] t=1365 jev VEH HTK (conf 0.77)
+[11:49:26] t=1365 MOVE raid x2 -> (80,102)
+[11:49:27] t=1367 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[11:49:28] t=1367 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:49:28] t=1367 jev VEH HTK (conf 0.87)
+[11:49:28] t=1367 MOVE raid x2 -> (80,104); hold_a x2 -> (133,86)
+[11:49:28] t=1369 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[11:49:28] t=1369 SCOUT #3150->[12, 100]
+[11:49:29] t=1369 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:49:29] t=1369 jev VEH HTK (conf 0.88)
+[11:49:29] t=1369 MOVE raid x2 -> (80,107); assault x1 -> 攻击目标#1204@(75,115)
+[11:49:30] t=1371 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:49:30] t=1371 jev VEH HTK (conf 0.90)
+[11:49:30] t=1371 MOVE raid x2 -> (80,110)
+[11:49:31] t=1373 ALARM unit lost -> 攻势保持（塔阵守家, 前线 20 个单位继续进攻）
+[11:49:32] t=1373 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:32] t=1373 jev VEH HTK (conf 0.88)
+[11:49:32] t=1373 MOVE raid x2 -> (80,112); hold_b x3 -> (126,75)
+[11:49:33] t=1375 ESCORT 坦克#3182 -> 护航矿车@[118, 135]
+[11:49:34] t=1375 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:34] t=1375 jev VEH HTK (conf 0.89)
+[11:49:34] t=1375 MOVE raid x2 -> (80,115)
+[11:49:34] t=1377 HARASS DRON x2 (have 0)
+[11:49:35] t=1377 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=917)
+[11:49:35] t=1377 jev INF E2 (conf 0.64)
+[11:49:35] t=1377 MOVE raid x2 -> (80,118); aahunt x11 -> (125,84)
+[11:49:37] t=1379 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=810)
+[11:49:37] t=1379 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:37] t=1379 MOVE raid x2 -> (81,119)
+[11:49:38] t=1381 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:38] t=1381 MOVE raid x2 -> (80,120)
+[11:49:40] t=1383 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:40] t=1383 MOVE raid x2 -> (90,107)
+[11:49:41] t=1385 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:41] t=1385 MOVE guard x1 -> (137,82)
+[11:49:42] t=1387 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:42] t=1387 MOVE assault x3 -> 攻击目标#1204@(75,115)
+[11:49:44] t=1389 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:44] t=1389 MOVE raid x2 -> (84,114)
+[11:49:46] t=1391 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:47] t=1393 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:47] t=1393 jev VEH HTK (conf 0.84)
+[11:49:49] t=1395 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:50] t=1397 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:51] t=1399 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:53] t=1401 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:53] t=1401 MOVE raid x2 -> (79,118)
+[11:49:53] t=1401 tick#700 credits=0 stance=attack | jev 700 decisions p50=944ms
+[11:49:54] t=1403 RETREAT HTNK(35%)
+[11:49:55] t=1403 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:55] t=1403 MOVE raid x2 -> (79,115); assault x4 -> 攻击目标#1204@(75,115)
+[11:49:56] t=1405 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:56] t=1405 MOVE raid x2 -> (79,113)
+[11:49:58] t=1407 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:49:58] t=1407 MOVE raid x2 -> (80,102)
+[11:49:59] t=1409 jev INF E2 (conf 0.36)
+[11:49:59] t=1409 MOVE raid x2 -> (80,105)
+[11:50:00] t=1411 RETREAT HTNK(33%)
+[11:50:00] t=1411 MOVE raid x2 -> (80,107)
+[11:50:02] t=1413 jev VEH HTK (conf 0.76)
+[11:50:02] t=1413 MOVE raid x2 -> (79,102)
+[11:50:03] t=1415 ESCORT 坦克#3453 -> 护航矿车@[127, 105]
+[11:50:04] t=1415 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:04] t=1415 jev VEH HTK (conf 0.75)
+[11:50:04] t=1415 MOVE raid x2 -> (80,113)
+[11:50:05] t=1417 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:05] t=1417 jev VEH HTK (conf 0.79)
+[11:50:05] t=1417 MOVE raid x2 -> (80,115); aahunt x12 -> (125,84)
+[11:50:07] t=1419 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:07] t=1419 jev VEH HTK (conf 0.80)
+[11:50:07] t=1419 MOVE raid x2 -> (80,118)
+[11:50:08] t=1421 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:08] t=1421 jev VEH HTK (conf 0.73)
+[11:50:08] t=1421 MOVE raid x2 -> (81,119); assault x5 -> 攻击目标#1204@(75,115)
+[11:50:10] t=1423 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:10] t=1423 jev VEH HTK (conf 0.72)
+[11:50:10] t=1423 MOVE raid x2 -> (80,120)
+[11:50:10] t=1425 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[11:50:11] t=1425 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:11] t=1425 jev VEH HTK (conf 0.56)
+[11:50:11] t=1425 MOVE raid x2 -> (84,114)
+[11:50:13] t=1427 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:13] t=1427 jev VEH HTK (conf 0.71)
+[11:50:13] t=1427 MOVE guard x1 -> (137,82)
+[11:50:14] t=1429 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:16] t=1431 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:17] t=1433 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:19] t=1435 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:20] t=1437 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:20] t=1437 jev VEH HTK (conf 0.65)
+[11:50:20] t=1437 MOVE assault x4 -> 攻击目标#1204@(75,115)
+[11:50:22] t=1439 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:22] t=1439 jev VEH HTK (conf 0.66)
+[11:50:23] t=1441 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:23] t=1441 jev VEH HTK (conf 0.80)
+[11:50:25] t=1443 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:25] t=1443 jev VEH HTK (conf 0.82)
+[11:50:25] t=1443 MOVE raid x2 -> (79,120)
+[11:50:25] t=1445 TANK HTNK x2
+[11:50:26] t=1445 jev INF E2 (conf 0.38)
+[11:50:26] t=1445 MOVE raid x2 -> (79,117)
+[11:50:28] t=1447 MOVE raid x2 -> (79,114)
+[11:50:29] t=1449 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=1011)
+[11:50:29] t=1449 MOVE raid x2 -> (79,111); hold_a x2 -> (133,86)
+[11:50:31] t=1451 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:50:31] t=1451 MOVE raid x2 -> (79,109)
+[11:50:31] t=1451 tick#725 credits=887 stance=attack | jev 725 decisions p50=941ms
+[11:50:32] t=1453 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:50:32] t=1453 MOVE raid x2 -> (79,106)
+[11:50:33] t=1455 ESCORT 坦克#3182 -> 护航矿车@[115, 134]
+[11:50:34] t=1455 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:50:34] t=1455 MOVE raid x2 -> (79,103); assault x5 -> 攻击目标#1204@(75,115); hold_b x2 -> (126,75)
+[11:50:35] t=1457 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:50:35] t=1457 MOVE raid x2 -> (80,101); aahunt x13 -> (125,84)
+[11:50:37] t=1459 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:50:37] t=1459 MOVE raid x2 -> (84,114)
+[11:50:37] t=1461 RETREAT E2(21%)
+[11:50:38] t=1461 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:50:39] t=1463 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[11:50:40] t=1463 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:41] t=1465 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:42] t=1467 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[11:50:43] t=1467 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:43] t=1467 MOVE guard x1 -> (137,82)
+[11:50:44] t=1469 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:46] t=1471 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:47] t=1473 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:47] t=1473 MOVE assault x4 -> 攻击目标#1204@(75,115)
+[11:50:49] t=1475 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:49] t=1477 RETREAT E2(38%)
+[11:50:50] t=1477 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:52] t=1479 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:53] t=1481 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:55] t=1483 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:55] t=1485 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[11:50:56] t=1485 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:58] t=1487 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:50:58] t=1487 MOVE raid x2 -> (84,114)
+[11:50:59] t=1489 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:51:00] t=1491 RETREAT DRON(10%)
+[11:51:01] t=1491 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:51:01] t=1491 MOVE assault x4 -> 攻击目标#1204@(75,115)
+[11:51:02] t=1493 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:51:03] t=1495 ESCORT 坦克#3453 -> 护航矿车@[127, 105]
+[11:51:04] t=1495 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:51:04] t=1497 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[11:51:05] t=1497 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:51:05] t=1497 MOVE aahunt x13 -> (125,84)
+[11:51:07] t=1499 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:51:08] t=1501 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:51:08] t=1501 tick#750 credits=0 stance=attack | jev 750 decisions p50=939ms
+[11:51:10] t=1503 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:51:11] t=1505 jev INF SHK (conf 0.28)
+[11:51:14] t=1509 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[11:51:16] t=1511 jev VEH HTK (conf 0.88)
+[11:51:16] t=1511 MOVE guard x1 -> (137,82)
+[11:51:19] t=1515 MOVE raid x2 -> (84,114)
+[11:51:28] t=1527 MOVE assault x4 -> 攻击目标#1204@(75,115)
+[11:51:29] t=1529 MOVE raid x2 -> (80,119); hold_a x2 -> (133,86)
+[11:51:31] t=1533 RETREAT HTNK(28%)
+[11:51:33] t=1535 ESCORT 坦克#3747 -> 护航矿车@[128, 105]
+[11:51:34] t=1537 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[11:51:35] t=1537 MOVE hold_b x2 -> (126,75)
+[11:51:37] t=1539 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=0)
+[11:51:37] t=1539 MOVE aahunt x13 -> (125,84)
+[11:51:38] t=1541 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=0)
+[11:51:40] t=1543 MOVE raid x2 -> (80,103); assault x3 -> 攻击目标#1100@(80,122)
+[11:51:41] t=1545 MOVE raid x2 -> (80,105)
+[11:51:43] t=1547 MOVE raid x2 -> (80,108)
+[11:51:43] t=1549 ALARM unit lost -> 攻势保持（塔阵守家, 前线 21 个单位继续进攻）
+[11:51:43] t=1549 HARASS DRON x2 (have 0)
+[11:51:44] t=1549 MOVE raid x2 -> (80,111)
+[11:51:46] t=1551 MOVE raid x2 -> (80,113)
+[11:51:46] t=1551 tick#775 credits=853 stance=attack | jev 775 decisions p50=941ms
+[11:51:47] t=1553 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:51:47] t=1553 MOVE raid x2 -> (80,116); assault x1 -> 攻击目标#1204@(75,115)
+[11:51:48] t=1555 RETREAT HTNK(28%)
+[11:51:49] t=1555 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:51:49] t=1555 MOVE raid x2 -> (80,118)
+[11:51:49] t=1557 RETREAT E2(30%)
+[11:51:50] t=1557 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:51:50] t=1557 MOVE raid x2 -> (81,119); guard x1 -> (137,82)
+[11:51:52] t=1559 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:51:52] t=1559 MOVE raid x2 -> (80,121)
+[11:51:53] t=1561 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:51:53] t=1561 MOVE raid x2 -> (79,122)
+[11:51:54] t=1563 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[11:51:55] t=1563 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:51:55] t=1563 MOVE raid x2 -> (80,119)
+[11:51:56] t=1565 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:51:56] t=1565 jev VEH HTK (conf 0.67)
+[11:51:56] t=1565 MOVE raid x2 -> (70,117)
+[11:51:58] t=1567 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:51:58] t=1567 MOVE assault x4 -> 攻击目标#1100@(80,122)
+[11:51:59] t=1569 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:01] t=1571 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:02] t=1573 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:03] t=1575 ESCORT 坦克#3747 -> 护航矿车@[119, 124]
+[11:52:04] t=1575 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:05] t=1577 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:05] t=1577 MOVE raid x2 -> (78,121)
+[11:52:07] t=1579 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:07] t=1579 MOVE raid x2 -> (80,102); aahunt x14 -> (125,84)
+[11:52:08] t=1581 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:08] t=1581 MOVE raid x2 -> (80,105)
+[11:52:10] t=1583 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:10] t=1583 MOVE raid x2 -> (80,107); assault x4 -> 攻击目标#1100@(80,122)
+[11:52:10] t=1585 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[11:52:11] t=1585 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:11] t=1585 MOVE raid x2 -> (80,110); assault x3 -> 攻击目标#1204@(75,115)
+[11:52:13] t=1587 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:13] t=1587 MOVE raid x2 -> (79,108)
+[11:52:14] t=1589 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:14] t=1589 MOVE raid x2 -> (80,106)
+[11:52:15] t=1591 RETREAT E2(21%)
+[11:52:16] t=1591 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:16] t=1591 jev VEH HTK (conf 0.56)
+[11:52:16] t=1591 MOVE raid x2 -> (80,103)
+[11:52:16] t=1593 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[11:52:17] t=1593 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:17] t=1593 jev VEH HTK (conf 0.62)
+[11:52:17] t=1593 MOVE raid x2 -> (80,101)
+[11:52:18] t=1595 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[11:52:19] t=1595 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:19] t=1595 jev VEH HTK (conf 0.51)
+[11:52:19] t=1595 MOVE raid x2 -> (70,117)
+[11:52:20] t=1597 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:20] t=1597 jev VEH HTK (conf 0.51)
+[11:52:22] t=1599 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:22] t=1599 jev VEH HTK (conf 0.56)
+[11:52:23] t=1601 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:23] t=1601 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[11:52:23] t=1601 tick#800 credits=37 stance=attack | jev 800 decisions p50=940ms
+[11:52:25] t=1603 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:26] t=1605 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:28] t=1607 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:29] t=1609 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:31] t=1611 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:31] t=1611 MOVE raid x2 -> (79,120); hold_a x3 -> (133,86)
+[11:52:32] t=1613 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:32] t=1613 MOVE raid x2 -> (79,118)
+[11:52:33] t=1615 ESCORT 坦克#3672 -> 护航矿车@[128, 105]
+[11:52:34] t=1615 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:34] t=1615 MOVE raid x2 -> (79,115)
+[11:52:35] t=1617 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:35] t=1617 MOVE raid x2 -> (79,112); hold_b x2 -> (126,75)
+[11:52:37] t=1619 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:37] t=1619 MOVE raid x2 -> (79,110); assault x1 -> 攻击目标#1204@(75,115)
+[11:52:37] t=1621 ALARM unit lost -> 攻势保持（塔阵守家, 前线 21 个单位继续进攻）
+[11:52:38] t=1621 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:38] t=1621 MOVE raid x2 -> (79,107); aahunt x15 -> (125,84)
+[11:52:40] t=1623 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:40] t=1623 MOVE raid x2 -> (79,104)
+[11:52:41] t=1625 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[11:52:41] t=1625 MOVE raid x2 -> (79,102)
+[11:52:43] t=1627 jev INF E2 (conf 0.56)
+[11:52:43] t=1627 MOVE raid x2 -> (80,119)
+[11:52:47] t=1633 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:47] t=1633 jev VEH HTNK (conf 0.34)
+[11:52:49] t=1635 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:50] t=1637 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:52] t=1639 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:53] t=1641 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:55] t=1643 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:56] t=1645 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:58] t=1647 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:52:58] t=1649 RETREAT HTNK(35%)
+[11:52:59] t=1649 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:01] t=1651 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:01] t=1651 tick#825 credits=0 stance=attack | jev 825 decisions p50=941ms
+[11:53:02] t=1653 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:04] t=1655 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:04] t=1655 MOVE raid x2 -> (80,119)
+[11:53:05] t=1657 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:07] t=1659 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:08] t=1661 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:08] t=1661 MOVE aahunt x16 -> (125,84)
+[11:53:10] t=1663 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:11] t=1665 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:12] t=1667 RETREAT HTNK(37%)
+[11:53:13] t=1667 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:14] t=1669 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:16] t=1672 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:16] t=1674 ESCORT 坦克#3672 -> 护航矿车@[121, 102]
+[11:53:17] t=1674 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:19] t=1676 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:20] t=1678 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:22] t=1679 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:22] t=1679 jev VEH HTNK (conf 0.42)
+[11:53:22] t=1679 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[11:53:23] t=1681 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:25] t=1683 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:25] t=1683 MOVE raid x2 -> (80,119)
+[11:53:26] t=1685 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:27] t=1687 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[11:53:28] t=1687 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:29] t=1689 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:31] t=1691 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:32] t=1693 MOVE hold_a x3 -> (133,86)
+[11:53:34] t=1696 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:35] t=1698 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:35] t=1698 MOVE hold_b x3 -> (126,75)
+[11:53:37] t=1700 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:38] t=1702 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[11:53:38] t=1702 MOVE raid x2 -> (80,118)
+[11:53:38] t=1702 tick#850 credits=0 stance=attack | jev 850 decisions p50=942ms
+[11:53:40] t=1704 jev INF E2 (conf 0.69)
+[11:53:40] t=1704 MOVE raid x2 -> (83,115); aahunt x16 -> (125,84)
+[11:53:41] t=1706 MOVE raid x2 -> (85,113)
+[11:53:42] t=1708 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[11:53:43] t=1708 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[11:53:44] t=1710 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:53:44] t=1710 jev VEH HTNK (conf 0.33)
+[11:53:44] t=1710 MOVE raid x2 -> (86,112)
+[11:53:46] t=1712 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:53:46] t=1712 jev VEH HTNK (conf 0.33)
+[11:53:46] t=1714 ESCORT 坦克#4040 -> 护航矿车@[128, 105]
+[11:53:47] t=1714 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:53:47] t=1714 jev VEH HTNK (conf 0.49)
+[11:53:49] t=1716 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:53:50] t=1718 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:53:52] t=1720 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:53:53] t=1722 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:53:55] t=1724 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:53:56] t=1726 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:53:58] t=1728 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:53:59] t=1730 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:01] t=1732 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:02] t=1734 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:04] t=1736 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:05] t=1738 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:05] t=1738 MOVE raid x2 -> (80,101)
+[11:54:07] t=1740 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:07] t=1740 MOVE raid x2 -> (80,104)
+[11:54:08] t=1742 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:08] t=1742 MOVE raid x2 -> (80,106)
+[11:54:10] t=1744 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:10] t=1744 MOVE raid x2 -> (80,109)
+[11:54:11] t=1746 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:11] t=1746 MOVE raid x2 -> (80,112); aahunt x16 -> (125,84)
+[11:54:13] t=1748 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:13] t=1748 jev VEH HTK (conf 0.54)
+[11:54:13] t=1748 MOVE raid x2 -> (80,115); assault x1 -> 攻击目标#1100@(80,122)
+[11:54:14] t=1750 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:14] t=1750 MOVE raid x2 -> (80,117)
+[11:54:16] t=1752 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:16] t=1752 MOVE raid x2 -> (80,120)
+[11:54:16] t=1752 tick#875 credits=2 stance=attack | jev 875 decisions p50=941ms
+[11:54:16] t=1754 ESCORT 坦克#4040 -> 护航矿车@[117, 135]
+[11:54:17] t=1754 MOVE raid x2 -> (86,112)
+[11:54:20] t=1758 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:23] t=1762 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:26] t=1766 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[11:54:29] t=1770 MOVE raid x2 -> (78,121)
+[11:54:31] t=1772 MOVE raid x2 -> (79,118)
+[11:54:32] t=1774 MOVE raid x2 -> (79,116)
+[11:54:34] t=1776 MOVE raid x2 -> (80,101); assault x1 -> 攻击目标#1204@(75,115); hold_a x4 -> (133,86)
+[11:54:35] t=1778 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:35] t=1778 MOVE raid x2 -> (80,104); hold_b x3 -> (126,75)
+[11:54:37] t=1780 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:37] t=1780 MOVE raid x2 -> (80,107)
+[11:54:38] t=1782 jev VEH HTNK (conf 0.62)
+[11:54:38] t=1782 MOVE raid x2 -> (79,105)
+[11:54:40] t=1784 MOVE raid x2 -> (79,102)
+[11:54:41] t=1786 MOVE raid x2 -> (80,101); aahunt x17 -> (125,84)
+[11:54:43] t=1788 MOVE raid x2 -> (80,118)
+[11:54:44] t=1790 MOVE raid x2 -> (79,120)
+[11:54:46] t=1792 MOVE raid x2 -> (86,108); assault x1 -> 攻击目标#1204@(75,115)
+[11:54:46] t=1794 ESCORT 坦克#4040 -> 护航矿车@[117, 135]
+[11:54:47] t=1794 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:49] t=1796 MOVE raid x2 -> (85,107)
+[11:54:52] t=1800 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:52] t=1802 RETREAT HTNK(39%)
+[11:54:53] t=1802 MOVE raid x2 -> (77,119)
+[11:54:53] t=1802 tick#900 credits=0 stance=attack | jev 900 decisions p50=941ms
+[11:54:55] t=1804 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:55] t=1804 MOVE raid x2 -> (80,119)
+[11:54:56] t=1806 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:58] t=1808 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:58] t=1808 MOVE raid x2 -> (79,120)
+[11:54:59] t=1810 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:54:59] t=1810 MOVE raid x2 -> (79,118); assault x1 -> 攻击目标#1204@(75,115)
+[11:55:01] t=1812 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:01] t=1812 MOVE raid x2 -> (79,115)
+[11:55:02] t=1814 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:02] t=1814 MOVE raid x2 -> (79,112)
+[11:55:04] t=1816 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:04] t=1816 MOVE raid x2 -> (78,110)
+[11:55:04] t=1818 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[11:55:05] t=1818 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:05] t=1818 MOVE raid x2 -> (79,109)
+[11:55:06] t=1820 RETREAT HTNK(26%)
+[11:55:07] t=1820 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:07] t=1820 MOVE raid x2 -> (79,108)
+[11:55:08] t=1822 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:08] t=1822 MOVE raid x2 -> (79,105)
+[11:55:09] t=1824 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[11:55:10] t=1824 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:11] t=1826 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:13] t=1828 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:13] t=1828 MOVE assault x1 -> 攻击目标#1204@(75,115); aahunt x17 -> (125,84)
+[11:55:14] t=1830 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:16] t=1832 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:16] t=1834 ESCORT 坦克#4129 -> 护航矿车@[128, 105]
+[11:55:19] t=1836 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:20] t=1838 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:21] t=1840 RETREAT HTNK(33%)
+[11:55:22] t=1840 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:23] t=1842 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:25] t=1844 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:25] t=1844 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[11:55:25] t=1846 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[11:55:26] t=1846 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:28] t=1848 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:29] t=1850 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:31] t=1852 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:31] t=1852 tick#925 credits=0 stance=attack | jev 925 decisions p50=939ms
+[11:55:32] t=1854 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:32] t=1854 jev STANCE attack->defend (conf 0.52)
+[11:55:32] t=1854 ATTACK (tanks=18)
+[11:55:33] t=1856 RETREAT HTNK(6%)
+[11:55:34] t=1856 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:34] t=1856 jev STANCE attack->defend (conf 0.52)
+[11:55:34] t=1856 ATTACK (tanks=18)
+[11:55:34] t=1856 MOVE hold_a x4 -> (133,86)
+[11:55:35] t=1858 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:35] t=1858 jev STANCE attack->defend (conf 0.49)
+[11:55:35] t=1858 ATTACK (tanks=18)
+[11:55:35] t=1858 MOVE hold_b x3 -> (126,75)
+[11:55:37] t=1860 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:37] t=1860 jev STANCE attack->defend (conf 0.52)
+[11:55:37] t=1860 ATTACK (tanks=18)
+[11:55:38] t=1862 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:38] t=1862 jev STANCE attack->defend (conf 0.52)
+[11:55:38] t=1862 ATTACK (tanks=18)
+[11:55:40] t=1864 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:40] t=1864 jev STANCE attack->defend (conf 0.49)
+[11:55:40] t=1864 ATTACK (tanks=18)
+[11:55:41] t=1866 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:41] t=1866 jev STANCE attack->defend (conf 0.48)
+[11:55:41] t=1866 ATTACK (tanks=18)
+[11:55:43] t=1868 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:43] t=1868 jev STANCE attack->defend (conf 0.54)
+[11:55:43] t=1868 ATTACK (tanks=18)
+[11:55:43] t=1868 MOVE aahunt x17 -> (125,84)
+[11:55:44] t=1870 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:44] t=1870 jev STANCE attack->defend (conf 0.46)
+[11:55:44] t=1870 ATTACK (tanks=18)
+[11:55:46] t=1872 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:46] t=1872 jev STANCE attack->defend (conf 0.56)
+[11:55:46] t=1872 ATTACK (tanks=18)
+[11:55:47] t=1874 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:49] t=1876 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:49] t=1876 jev STANCE attack->defend (conf 0.55)
+[11:55:49] t=1876 ATTACK (tanks=18)
+[11:55:50] t=1878 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:50] t=1878 jev STANCE attack->defend (conf 0.48)
+[11:55:50] t=1878 ATTACK (tanks=18)
+[11:55:52] t=1880 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:52] t=1880 jev STANCE attack->defend (conf 0.50)
+[11:55:52] t=1880 ATTACK (tanks=18)
+[11:55:53] t=1882 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:53] t=1882 jev STANCE attack->defend (conf 0.51)
+[11:55:53] t=1882 ATTACK (tanks=18)
+[11:55:55] t=1884 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:55] t=1884 jev STANCE attack->defend (conf 0.48)
+[11:55:55] t=1884 ATTACK (tanks=18)
+[11:55:56] t=1886 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:56] t=1886 jev STANCE attack->defend (conf 0.49)
+[11:55:56] t=1886 ATTACK (tanks=18)
+[11:55:58] t=1888 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:58] t=1888 jev STANCE attack->defend (conf 0.52)
+[11:55:58] t=1888 ATTACK (tanks=18)
+[11:55:59] t=1890 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:55:59] t=1890 jev STANCE attack->defend (conf 0.54)
+[11:55:59] t=1890 ATTACK (tanks=18)
+[11:56:01] t=1892 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:56:01] t=1892 jev STANCE attack->defend (conf 0.58)
+[11:56:01] t=1892 ATTACK (tanks=18)
+[11:56:02] t=1894 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[11:56:02] t=1894 jev STANCE attack->defend (conf 0.58)
+[11:56:02] t=1894 ATTACK (tanks=18)
+[11:56:04] t=1896 jev INF E2 (conf 0.63)
+[11:56:05] t=1898 jev STANCE attack->defend (conf 0.53)
+[11:56:05] t=1898 ATTACK (tanks=18)
+[11:56:06] t=1900 HARASS DRON x2 (have 0)
+[11:56:06] t=1900 ESCORT 坦克#4458 -> 护航矿车@[120, 116]
+[11:56:07] t=1900 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[11:56:08] t=1902 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:08] t=1902 tick#950 credits=685 stance=attack | jev 950 decisions p50=938ms
+[11:56:10] t=1904 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:11] t=1906 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:13] t=1908 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:13] t=1908 MOVE raid x2 -> (103,91); aahunt x17 -> (125,84)
+[11:56:14] t=1910 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:14] t=1910 MOVE raid x2 -> (105,89)
+[11:56:16] t=1912 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:16] t=1912 MOVE raid x2 -> (106,87)
+[11:56:17] t=1914 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:17] t=1914 MOVE raid x2 -> (108,85)
+[11:56:19] t=1916 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:19] t=1916 MOVE raid x2 -> (109,84)
+[11:56:20] t=1918 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:20] t=1918 MOVE raid x2 -> (111,86)
+[11:56:22] t=1920 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:22] t=1920 MOVE raid x2 -> (113,87)
+[11:56:22] t=1922 ALARM unit lost -> 攻势保持（塔阵守家, 前线 26 个单位继续进攻）
+[11:56:23] t=1922 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:23] t=1922 jev STANCE attack->defend (conf 0.47)
+[11:56:23] t=1922 ATTACK (tanks=19)
+[11:56:23] t=1922 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[11:56:25] t=1924 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:26] t=1926 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:26] t=1926 jev VEH HTK (conf 0.43)
+[11:56:26] t=1926 MOVE raid x2 -> (119,90)
+[11:56:28] t=1928 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:28] t=1928 MOVE raid x2 -> (120,92)
+[11:56:29] t=1930 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:29] t=1930 MOVE raid x2 -> (120,94)
+[11:56:31] t=1932 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:31] t=1932 jev STANCE attack->defend (conf 0.47)
+[11:56:31] t=1932 ATTACK (tanks=20)
+[11:56:31] t=1932 MOVE raid x2 -> (120,96)
+[11:56:32] t=1934 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:32] t=1934 MOVE raid x2 -> (120,99)
+[11:56:34] t=1936 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:34] t=1936 MOVE raid x2 -> (120,102)
+[11:56:35] t=1938 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:35] t=1938 MOVE raid x2 -> (120,104); hold_a x4 -> (133,86); hold_b x4 -> (126,75)
+[11:56:36] t=1940 ESCORT 坦克#4504 -> 护航矿车@[128, 105]
+[11:56:37] t=1940 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:37] t=1940 MOVE raid x2 -> (120,107)
+[11:56:38] t=1942 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:38] t=1942 MOVE raid x2 -> (120,110)
+[11:56:40] t=1944 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:40] t=1944 MOVE raid x2 -> (120,113)
+[11:56:40] t=1946 ALARM unit lost -> 攻势保持（塔阵守家, 前线 26 个单位继续进攻）
+[11:56:41] t=1946 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[11:56:41] t=1946 jev STANCE attack->defend (conf 0.45)
+[11:56:41] t=1946 ATTACK (tanks=19)
+[11:56:41] t=1946 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[11:56:43] t=1948 jev INF E2 (conf 0.56)
+[11:56:43] t=1948 jev STANCE attack->defend (conf 0.47)
+[11:56:43] t=1948 ATTACK (tanks=19)
+[11:56:43] t=1948 MOVE aahunt x17 -> (125,84)
+[11:56:43] t=1950 HARASS DRON x2 (have 0)
+[11:56:46] t=1952 tick#975 credits=820 stance=attack | jev 975 decisions p50=937ms
+[11:56:47] t=1954 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:56:49] t=1956 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:56:50] t=1958 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:56:50] t=1958 MOVE raid x2 -> (117,130)
+[11:56:52] t=1960 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:56:52] t=1960 MOVE raid x2 -> (117,133)
+[11:56:53] t=1962 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:56:53] t=1962 MOVE raid x2 -> (117,134)
+[11:56:55] t=1964 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:56:55] t=1964 MOVE raid x2 -> (116,135)
+[11:56:56] t=1966 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:56:56] t=1966 jev VEH HTNK (conf 0.64)
+[11:56:56] t=1966 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[11:56:58] t=1968 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:56:58] t=1968 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[11:56:59] t=1970 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:56:59] t=1970 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[11:57:01] t=1972 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:02] t=1974 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:04] t=1976 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:04] t=1976 MOVE raid x2 -> (117,134)
+[11:57:05] t=1978 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:06] t=1980 ESCORT 坦克#4528 -> 护航矿车@[116, 133]
+[11:57:07] t=1980 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:08] t=1982 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:10] t=1984 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:11] t=1986 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:11] t=1986 MOVE raid x2 -> (117,135)
+[11:57:13] t=1988 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:13] t=1988 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[11:57:14] t=1990 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:14] t=1990 MOVE aahunt x18 -> (125,84)
+[11:57:16] t=1992 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:17] t=1994 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:17] t=1994 MOVE raid x2 -> (83,123)
+[11:57:19] t=1996 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:19] t=1996 MOVE raid x2 -> (79,116)
+[11:57:20] t=1998 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:20] t=1998 MOVE raid x2 -> (79,113)
+[11:57:22] t=2000 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:22] t=2000 MOVE raid x2 -> (79,110)
+[11:57:23] t=2002 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:23] t=2002 MOVE raid x2 -> (79,108)
+[11:57:23] t=2002 tick#1000 credits=0 stance=attack | jev 1000 decisions p50=939ms
+[11:57:25] t=2004 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:25] t=2004 MOVE raid x2 -> (79,105)
+[11:57:26] t=2006 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:26] t=2006 MOVE raid x2 -> (79,102); assault x1 -> 攻击目标#1204@(75,115)
+[11:57:28] t=2008 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:28] t=2008 MOVE raid x2 -> (80,101)
+[11:57:29] t=2010 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:29] t=2010 MOVE raid x2 -> (80,98)
+[11:57:31] t=2012 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:31] t=2012 MOVE raid x2 -> (83,110)
+[11:57:32] t=2014 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:32] t=2014 MOVE raid x2 -> (83,108)
+[11:57:34] t=2016 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:34] t=2016 MOVE raid x2 -> (83,106)
+[11:57:35] t=2018 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:35] t=2018 MOVE raid x2 -> (82,103); hold_a x5 -> (133,86); hold_b x4 -> (126,75)
+[11:57:36] t=2020 ESCORT 坦克#4539 -> 护航矿车@[116, 135]
+[11:57:37] t=2020 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:37] t=2020 MOVE raid x2 -> (81,101)
+[11:57:37] t=2022 RETREAT HTNK(29%)
+[11:57:38] t=2022 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:38] t=2022 MOVE raid x2 -> (81,98); assault x1 -> 攻击目标#1204@(75,115)
+[11:57:40] t=2024 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:40] t=2024 MOVE raid x2 -> (86,111)
+[11:57:41] t=2026 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:41] t=2026 MOVE raid x2 -> (78,119)
+[11:57:42] t=2028 ALARM unit lost -> 攻势保持（塔阵守家, 前线 28 个单位继续进攻）
+[11:57:43] t=2028 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:43] t=2028 MOVE raid x2 -> (80,119)
+[11:57:44] t=2030 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:45] t=2032 ALARM unit lost -> 攻势保持（塔阵守家, 前线 27 个单位继续进攻）
+[11:57:46] t=2032 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:46] t=2032 MOVE aahunt x18 -> (125,84)
+[11:57:47] t=2034 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:49] t=2036 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:50] t=2038 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:52] t=2040 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:53] t=2042 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:55] t=2044 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:56] t=2046 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:58] t=2048 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:57:59] t=2050 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:01] t=2052 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:01] t=2052 tick#1025 credits=0 stance=attack | jev 1025 decisions p50=939ms
+[11:58:02] t=2054 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:04] t=2056 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:05] t=2058 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:07] t=2060 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:08] t=2062 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:10] t=2064 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:11] t=2066 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:13] t=2068 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:14] t=2070 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:16] t=2072 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:17] t=2074 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:17] t=2074 MOVE aahunt x18 -> (125,84)
+[11:58:19] t=2076 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:20] t=2078 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:22] t=2080 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:23] t=2082 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:25] t=2084 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:26] t=2086 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:27] t=2088 ESCORT 坦克#4766 -> 护航矿车@[97, 102]
+[11:58:28] t=2088 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:28] t=2088 jev VEH HTNK (conf 0.57)
+[11:58:28] t=2088 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[11:58:29] t=2090 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:31] t=2092 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:32] t=2094 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:34] t=2096 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:35] t=2098 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:35] t=2098 MOVE hold_a x5 -> (133,86); hold_b x4 -> (126,75)
+[11:58:37] t=2100 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:38] t=2102 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:38] t=2102 tick#1050 credits=280 stance=attack | jev 1050 decisions p50=938ms
+[11:58:40] t=2104 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:41] t=2105 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:41] t=2105 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[11:58:43] t=2108 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:44] t=2110 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:46] t=2112 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:47] t=2114 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:47] t=2114 jev VEH HTNK (conf 0.71)
+[11:58:47] t=2114 MOVE raid x2 -> (80,118)
+[11:58:49] t=2116 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:49] t=2116 jev VEH HTNK (conf 0.71)
+[11:58:49] t=2116 MOVE raid x2 -> (79,120); aahunt x18 -> (125,84)
+[11:58:50] t=2118 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:50] t=2118 jev VEH HTNK (conf 0.70)
+[11:58:50] t=2118 MOVE raid x2 -> (79,121)
+[11:58:52] t=2120 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:52] t=2120 jev VEH HTNK (conf 0.51)
+[11:58:52] t=2120 MOVE raid x2 -> (80,119)
+[11:58:53] t=2122 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:53] t=2122 jev VEH HTNK (conf 0.56)
+[11:58:55] t=2124 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:56] t=2126 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:57] t=2128 ESCORT 坦克#4766 -> 护航矿车@[120, 113]
+[11:58:58] t=2128 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:58] t=2128 MOVE raid x2 -> (79,122)
+[11:58:59] t=2130 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:58:59] t=2130 MOVE raid x2 -> (81,121)
+[11:59:01] t=2132 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:01] t=2132 MOVE raid x2 -> (83,122)
+[11:59:02] t=2134 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:02] t=2134 MOVE raid x2 -> (84,123)
+[11:59:04] t=2136 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:04] t=2136 MOVE raid x2 -> (79,116)
+[11:59:05] t=2138 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:05] t=2138 MOVE raid x2 -> (79,113)
+[11:59:07] t=2140 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:07] t=2140 MOVE raid x2 -> (79,111)
+[11:59:08] t=2142 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:08] t=2142 MOVE raid x2 -> (79,108)
+[11:59:10] t=2144 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:10] t=2144 MOVE raid x2 -> (80,106)
+[11:59:11] t=2146 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:11] t=2146 MOVE raid x2 -> (80,104)
+[11:59:13] t=2148 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:13] t=2148 MOVE raid x2 -> (80,101)
+[11:59:14] t=2150 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:14] t=2150 MOVE raid x2 -> (80,98)
+[11:59:16] t=2152 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:16] t=2152 MOVE raid x2 -> (80,96)
+[11:59:16] t=2152 tick#1075 credits=0 stance=attack | jev 1075 decisions p50=939ms
+[11:59:17] t=2154 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:17] t=2154 MOVE raid x2 -> (80,93)
+[11:59:19] t=2156 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:19] t=2156 MOVE raid x2 -> (80,90)
+[11:59:19] t=2158 RETREAT HTNK(6%)
+[11:59:20] t=2158 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:20] t=2158 MOVE raid x2 -> (80,87); aahunt x18 -> (125,84)
+[11:59:22] t=2160 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:22] t=2160 MOVE raid x2 -> (80,85)
+[11:59:23] t=2162 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:23] t=2162 MOVE raid x2 -> (80,82)
+[11:59:25] t=2164 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:25] t=2164 MOVE raid x2 -> (83,99)
+[11:59:26] t=2166 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:27] t=2168 ESCORT 坦克#4781 -> 护航矿车@[128, 105]
+[11:59:28] t=2168 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:29] t=2170 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:31] t=2172 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:31] t=2174 RETREAT HTNK(32%)
+[11:59:32] t=2174 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:34] t=2176 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:35] t=2178 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:36] t=2180 ALARM unit lost -> 攻势保持（塔阵守家, 前线 28 个单位继续进攻）
+[11:59:37] t=2180 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:37] t=2180 MOVE assault x1 -> 攻击目标#1204@(75,115); hold_a x5 -> (133,86); hold_b x4 -> (126,75)
+[11:59:38] t=2182 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:40] t=2184 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:41] t=2186 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:43] t=2188 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:44] t=2190 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:46] t=2192 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:47] t=2194 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:49] t=2196 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:50] t=2198 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:50] t=2198 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[11:59:52] t=2200 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:52] t=2200 MOVE aahunt x18 -> (125,84)
+[11:59:53] t=2202 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:53] t=2202 tick#1100 credits=119 stance=attack | jev 1100 decisions p50=939ms
+[11:59:55] t=2204 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:56] t=2206 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:57] t=2208 ESCORT 坦克#4781 -> 护航矿车@[121, 102]
+[11:59:58] t=2208 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[11:59:59] t=2210 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:01] t=2212 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:02] t=2214 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:02] t=2214 jev VEH HTNK (conf 0.53)
+[12:00:02] t=2214 MOVE raid x2 -> (89,103)
+[12:00:04] t=2216 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:05] t=2218 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:07] t=2220 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:08] t=2222 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:10] t=2224 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:11] t=2226 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:13] t=2228 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:14] t=2230 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:15] t=2232 RETREAT HTNK(35%)
+[12:00:16] t=2232 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:16] t=2232 MOVE raid x2 -> (80,70)
+[12:00:17] t=2234 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:17] t=2234 MOVE raid x2 -> (82,68)
+[12:00:19] t=2236 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:19] t=2236 MOVE raid x2 -> (84,66)
+[12:00:19] t=2238 ALARM unit lost -> 攻势保持（塔阵守家, 前线 28 个单位继续进攻）
+[12:00:20] t=2238 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:20] t=2238 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:00:22] t=2240 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:23] t=2242 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:23] t=2242 MOVE assault x1 -> 攻击目标#1204@(75,115); aahunt x18 -> (125,84)
+[12:00:25] t=2244 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:26] t=2246 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:27] t=2248 ESCORT 坦克#4935 -> 护航矿车@[126, 105]
+[12:00:28] t=2248 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:29] t=2250 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:31] t=2252 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:31] t=2252 tick#1125 credits=40 stance=attack | jev 1125 decisions p50=939ms
+[12:00:32] t=2254 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:32] t=2254 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:00:34] t=2256 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:35] t=2258 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:37] t=2260 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:38] t=2262 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:38] t=2262 MOVE hold_a x5 -> (133,86); hold_b x4 -> (126,75)
+[12:00:40] t=2264 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:40] t=2264 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:00:41] t=2266 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:43] t=2268 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:44] t=2270 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:46] t=2272 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:47] t=2274 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:49] t=2276 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:50] t=2278 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:52] t=2280 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:53] t=2282 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:53] t=2282 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:00:55] t=2284 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:55] t=2284 MOVE aahunt x18 -> (125,84)
+[12:00:56] t=2286 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:57] t=2288 ESCORT 坦克#4935 -> 护航矿车@[117, 135]
+[12:00:58] t=2288 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:00:59] t=2290 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:01] t=2292 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:01] t=2292 jev VEH HTNK (conf 0.74)
+[12:01:01] t=2292 MOVE raid x2 -> (90,61)
+[12:01:02] t=2294 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:04] t=2296 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:04] t=2296 MOVE raid x2 -> (91,60)
+[12:01:05] t=2298 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:07] t=2300 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:08] t=2302 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:08] t=2302 tick#1150 credits=0 stance=attack | jev 1150 decisions p50=939ms
+[12:01:10] t=2304 MOVE raid x2 -> (91,62)
+[12:01:11] t=2306 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:11] t=2306 MOVE raid x2 -> (91,64)
+[12:01:13] t=2308 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:13] t=2308 MOVE raid x2 -> (91,67)
+[12:01:14] t=2310 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:14] t=2310 MOVE raid x2 -> (91,69)
+[12:01:16] t=2312 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:16] t=2312 MOVE raid x2 -> (91,72)
+[12:01:17] t=2314 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:17] t=2314 MOVE raid x2 -> (105,95)
+[12:01:19] t=2316 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:20] t=2318 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:22] t=2320 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:23] t=2322 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:23] t=2322 MOVE raid x2 -> (105,93)
+[12:01:25] t=2324 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:25] t=2324 MOVE raid x2 -> (88,87); aahunt x18 -> (125,84)
+[12:01:26] t=2326 jev INF E2 HOLD (预算保护 gate=False e2=8)
+[12:01:26] t=2326 MOVE raid x2 -> (86,89)
+[12:01:27] t=2328 ESCORT 坦克#5151 -> 护航矿车@[128, 104]
+[12:01:28] t=2328 jev INF E2 (conf 0.55)
+[12:01:28] t=2328 MOVE raid x2 -> (84,91)
+[12:01:29] t=2330 MOVE raid x2 -> (84,93)
+[12:01:31] t=2332 MOVE raid x2 -> (82,95)
+[12:01:32] t=2334 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:01:32] t=2334 MOVE raid x2 -> (82,98)
+[12:01:33] t=2336 ALARM enemy approaching -> 攻势保持（塔阵守家, 前线 30 个单位继续进攻）
+[12:01:34] t=2336 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:01:34] t=2336 MOVE raid x2 -> (82,101)
+[12:01:35] t=2338 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:01:35] t=2338 MOVE raid x2 -> (82,103)
+[12:01:37] t=2340 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:01:37] t=2340 jev VEH HTNK (conf 0.64)
+[12:01:37] t=2340 MOVE raid x2 -> (82,106); assault x1 -> 攻击目标#1100@(80,122)
+[12:01:38] t=2342 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:01:38] t=2342 MOVE raid x2 -> (82,109)
+[12:01:40] t=2344 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:01:40] t=2344 MOVE raid x2 -> (82,112); hold_a x5 -> (133,86); hold_b x5 -> (126,75)
+[12:01:41] t=2346 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:01:41] t=2346 MOVE raid x2 -> (82,114)
+[12:01:43] t=2348 MOVE raid x2 -> (82,117)
+[12:01:44] t=2350 MOVE raid x2 -> (82,120)
+[12:01:46] t=2352 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:01:46] t=2352 MOVE raid x2 -> (83,122)
+[12:01:46] t=2352 tick#1175 credits=0 stance=attack | jev 1175 decisions p50=940ms
+[12:01:47] t=2354 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:01:47] t=2354 MOVE raid x2 -> (84,123)
+[12:01:50] t=2358 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:01:53] t=2362 MOVE raid x2 -> (83,123)
+[12:01:55] t=2364 MOVE aahunt x18 -> (125,84)
+[12:01:56] t=2366 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:01:57] t=2368 ESCORT 坦克#5151 -> 护航矿车@[111, 59]
+[12:01:58] t=2368 MOVE raid x2 -> (83,121)
+[12:01:59] t=2370 MOVE raid x2 -> (83,119)
+[12:02:01] t=2372 MOVE raid x2 -> (83,116)
+[12:02:02] t=2374 MOVE raid x2 -> (83,113)
+[12:02:04] t=2376 MOVE raid x2 -> (83,111)
+[12:02:05] t=2378 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:02:05] t=2378 MOVE raid x2 -> (83,108)
+[12:02:07] t=2380 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:02:07] t=2380 MOVE raid x2 -> (83,105)
+[12:02:08] t=2382 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:02:08] t=2382 MOVE raid x2 -> (83,102); assault x1 -> 攻击目标#1204@(75,115)
+[12:02:10] t=2384 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:02:10] t=2384 MOVE raid x2 -> (83,100)
+[12:02:11] t=2386 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:02:11] t=2386 MOVE raid x2 -> (82,97)
+[12:02:13] t=2388 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:02:13] t=2388 MOVE raid x2 -> (82,95)
+[12:02:14] t=2390 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:02:14] t=2390 MOVE raid x2 -> (82,93)
+[12:02:16] t=2392 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:02:16] t=2392 MOVE raid x2 -> (83,90)
+[12:02:17] t=2394 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:02:17] t=2394 MOVE raid x2 -> (85,88)
+[12:02:19] t=2396 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:02:19] t=2396 MOVE raid x2 -> (87,86)
+[12:02:20] t=2398 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:02:20] t=2398 MOVE raid x2 -> (87,84)
+[12:02:22] t=2400 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:02:22] t=2400 MOVE raid x2 -> (87,81); assault x1 -> 攻击目标#1204@(75,115)
+[12:02:23] t=2402 jev INF E2 HOLD (预算保护 gate=False e2=9)
+[12:02:23] t=2402 MOVE raid x2 -> (87,79)
+[12:02:23] t=2402 tick#1200 credits=0 stance=attack | jev 1200 decisions p50=939ms
+[12:02:24] jev budget exhausted: max calls reached: 1200 (继续纯确定性运行)
+[12:02:24] t=2404 MOVE raid x2 -> (88,76)
+[12:02:26] t=2406 MOVE raid x2 -> (90,74); aahunt x18 -> (125,84)
+[12:02:27] t=2408 ESCORT 坦克#5151 -> 护航矿车@[104, 92]
+[12:02:27] t=2408 MOVE raid x2 -> (91,72); guard x1 -> (137,82)
+[12:02:29] t=2410 MOVE raid x2 -> (91,69)
+[12:02:30] t=2412 MOVE raid x2 -> (91,67)
+[12:02:32] t=2414 MOVE raid x2 -> (91,64)
+[12:02:33] t=2416 MOVE raid x2 -> (91,62)
+[12:02:35] t=2418 MOVE raid x2 -> (91,60); assault x7 -> 攻击目标#1204@(75,115)
+[12:02:41] t=2426 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:02:44] t=2430 MOVE raid x2 -> (90,59)
+[12:02:47] t=2434 MOVE assault x7 -> 攻击目标#1204@(75,115)
+[12:02:51] t=2440 MOVE raid x2 -> (89,58)
+[12:02:56] t=2446 MOVE aahunt x18 -> (125,84)
+[12:02:57] t=2448 ESCORT 坦克#5510 -> 护航矿车@[127, 105]
+[12:02:57] t=2448 MOVE raid x2 -> (88,57); guard x1 -> (137,82)
+[12:02:59] t=2450 MOVE assault x7 -> 攻击目标#1204@(75,115)
+[12:03:00] t=2452 tick#1225 credits=612 stance=attack | jev 1200 decisions p50=939ms
+[12:03:02] t=2454 MOVE raid x2 -> (89,56)
+[12:03:03] t=2456 MOVE raid x2 -> (80,97)
+[12:03:05] t=2458 MOVE raid x2 -> (80,94)
+[12:03:06] t=2460 RETREAT HTNK(6%)
+[12:03:06] t=2460 MOVE raid x2 -> (80,92)
+[12:03:08] t=2462 MOVE raid x2 -> (80,89)
+[12:03:09] t=2464 MOVE raid x2 -> (80,86)
+[12:03:11] t=2466 MOVE raid x2 -> (80,84)
+[12:03:12] t=2468 MOVE raid x2 -> (80,81); assault x7 -> 攻击目标#1204@(75,115)
+[12:03:14] t=2470 MOVE raid x2 -> (79,79)
+[12:03:15] t=2472 MOVE raid x2 -> (77,77)
+[12:03:17] t=2474 MOVE raid x2 -> (76,75)
+[12:03:20] t=2478 MOVE raid x2 -> (76,74)
+[12:03:23] t=2482 RETREAT E2(27%)
+[12:03:24] t=2484 MOVE raid x2 -> (75,75); assault x7 -> 攻击目标#1204@(75,115)
+[12:03:26] t=2486 MOVE aahunt x18 -> (125,84)
+[12:03:27] t=2488 ALARM unit lost -> 攻势保持（塔阵守家, 前线 29 个单位继续进攻）
+[12:03:27] t=2488 ESCORT 坦克#5510 -> 护航矿车@[117, 135]
+[12:03:27] t=2488 RETREAT HTNK(37%)
+[12:03:27] t=2488 MOVE raid x2 -> (74,75); guard x1 -> (137,82)
+[12:03:30] t=2492 RETREAT E2(23%)
+[12:03:32] t=2494 ALARM unit lost -> 攻势保持（塔阵守家, 前线 29 个单位继续进攻）
+[12:03:33] t=2496 MOVE raid x2 -> (75,76)
+[12:03:36] t=2500 MOVE raid x2 -> (80,119); assault x5 -> 攻击目标#1204@(75,115)
+[12:03:38] t=2502 HARASS DRON x2 (have 0)
+[12:03:38] t=2502 RETREAT E2(27%)
+[12:03:38] t=2502 tick#1250 credits=1062 stance=attack | jev 1200 decisions p50=939ms
+[12:03:39] t=2504 ALARM unit lost -> 攻势保持（塔阵守家, 前线 28 个单位继续进攻）
+[12:03:41] t=2506 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:03:50] t=2518 ALARM unit lost -> 攻势保持（塔阵守家, 前线 29 个单位继续进攻）
+[12:03:50] t=2518 RETREAT E2(37%)
+[12:03:50] t=2518 MOVE assault x5 -> 攻击目标#1204@(75,115)
+[12:03:56] t=2526 MOVE aahunt x18 -> (125,84)
+[12:03:57] t=2528 ESCORT 坦克#5510 -> 护航矿车@[120, 126]
+[12:03:57] t=2528 MOVE raid x2 -> (80,119)
+[12:03:59] t=2530 ALARM unit lost -> 攻势保持（塔阵守家, 前线 28 个单位继续进攻）
+[12:03:59] t=2530 RETREAT SHK(36%)
+[12:03:59] t=2530 MOVE guard x1 -> (137,82)
+[12:04:03] t=2536 MOVE assault x4 -> 攻击目标#1204@(75,115)
+[12:04:15] t=2552 MOVE assault x4 -> 攻击目标#1204@(75,115)
+[12:04:15] t=2552 tick#1275 credits=637 stance=attack | jev 1200 decisions p50=939ms
+[12:04:17] t=2554 RETREAT HTNK(38%)
+[12:04:18] t=2556 MOVE raid x2 -> (80,119)
+[12:04:23] t=2562 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[12:04:24] t=2564 RETREAT HTNK(39%)
+[12:04:26] t=2566 RETREAT DRON(24%)
+[12:04:26] t=2566 MOVE aahunt x18 -> (125,84)
+[12:04:27] t=2568 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[12:04:27] t=2568 ESCORT 坦克#4935 -> 护航矿车@[128, 105]
+[12:04:27] t=2568 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:04:32] t=2574 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[12:04:32] t=2574 RETREAT E2(34%)
+[12:04:32] t=2574 MOVE raid x2 -> (70,117)
+[12:04:33] t=2576 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[12:04:33] t=2576 HARASS DRON x2 (have 1)
+[12:04:35] t=2578 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[12:04:39] t=2584 RETREAT HTNK(29%)
+[12:04:39] t=2584 MOVE assault x1 -> 攻击目标#1204@(75,115); guard x1 -> (137,82)
+[12:04:41] t=2586 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:04:45] t=2592 MOVE assault x2 -> 攻击目标#1100@(80,122)
+[12:04:53] t=2602 tick#1300 credits=812 stance=attack | jev 1200 decisions p50=939ms
+[12:04:54] t=2604 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:04:54] t=2604 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:04:56] t=2606 TANK HTNK x1
+[12:04:56] t=2606 MOVE aahunt x18 -> (125,84)
+[12:04:57] t=2608 ESCORT 坦克#4935 -> 护航矿车@[120, 108]
+[12:05:03] t=2616 MOVE raid x2 -> (70,117)
+[12:05:06] t=2620 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:05:11] t=2626 MOVE assault x2 -> 攻击目标#1100@(80,122); guard x1 -> (137,82)
+[12:05:12] t=2628 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:05:12] t=2628 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:05:21] t=2640 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:05:27] t=2648 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:05:27] t=2648 ESCORT 坦克#6037 -> 护航矿车@[127, 105]
+[12:05:27] t=2648 MOVE aahunt x18 -> (125,84)
+[12:05:30] t=2652 tick#1325 credits=212 stance=attack | jev 1200 decisions p50=939ms
+[12:05:33] t=2656 MOVE raid x2 -> (70,117); assault x1 -> 攻击目标#1122@(83,126)
+[12:05:36] t=2660 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:05:39] t=2664 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:05:41] t=2666 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:05:51] t=2680 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:05:57] t=2688 ESCORT 坦克#6037 -> 护航矿车@[120, 115]
+[12:05:57] t=2688 MOVE aahunt x18 -> (125,84)
+[12:06:03] t=2696 MOVE raid x2 -> (70,117); assault x1 -> 攻击目标#1204@(75,115)
+[12:06:08] t=2702 tick#1350 credits=512 stance=attack | jev 1200 decisions p50=939ms
+[12:06:15] t=2712 HARASS DRON x2 (have 1)
+[12:06:15] t=2712 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:06:21] t=2720 MOVE guard x1 -> (137,82)
+[12:06:27] t=2728 MOVE assault x2 -> 攻击目标#1100@(80,122)
+[12:06:29] t=2730 MOVE aahunt x18 -> (125,84)
+[12:06:33] t=2736 MOVE raid x2 -> (70,117)
+[12:06:35] t=2738 ESCORT 坦克#6061 -> 护航矿车@[128, 104]
+[12:06:35] t=2738 MOVE assault x2 -> 攻击目标#1204@(75,115)
+[12:06:36] t=2740 MOVE assault x2 -> 攻击目标#1100@(80,122)
+[12:06:38] t=2742 RETREAT HTNK(23%)
+[12:06:38] t=2742 MOVE assault x2 -> 攻击目标#1204@(75,115)
+[12:06:41] t=2746 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:06:45] t=2752 tick#1375 credits=612 stance=attack | jev 1200 decisions p50=939ms
+[12:06:51] t=2760 TANK HTNK x2
+[12:06:51] t=2760 MOVE assault x2 -> 攻击目标#1204@(75,115); guard x1 -> (137,82)
+[12:06:53] t=2762 RETREAT HTNK(6%)
+[12:06:59] t=2770 MOVE aahunt x18 -> (125,84)
+[12:07:00] t=2772 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[12:07:02] t=2774 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[12:07:03] t=2776 MOVE raid x2 -> (70,117)
+[12:07:05] t=2778 ESCORT 坦克#4935 -> 护航矿车@[127, 105]
+[12:07:05] t=2778 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:07:06] t=2780 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:07:08] t=2782 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:07:17] t=2794 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:07:20] t=2798 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:07:23] t=2802 MOVE guard x1 -> (137,82)
+[12:07:23] t=2802 tick#1400 credits=237 stance=attack | jev 1200 decisions p50=939ms
+[12:07:29] t=2810 MOVE aahunt x18 -> (125,84)
+[12:07:30] t=2812 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:07:32] t=2814 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:07:33] t=2816 MOVE raid x2 -> (70,117); assault x1 -> 攻击目标#1100@(80,122)
+[12:07:35] t=2818 ESCORT 坦克#4935 -> 护航矿车@[120, 128]
+[12:07:39] t=2824 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:07:41] t=2826 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:07:51] t=2840 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:07:53] t=2842 MOVE guard x1 -> (137,82)
+[12:07:59] t=2850 MOVE aahunt x18 -> (125,84)
+[12:08:00] t=2852 tick#1425 credits=612 stance=attack | jev 1200 decisions p50=939ms
+[12:08:03] t=2856 RETREAT HTNK(34%)
+[12:08:03] t=2856 MOVE raid x2 -> (70,117); assault x1 -> 攻击目标#1204@(75,115)
+[12:08:05] t=2858 ESCORT 坦克#4935 -> 护航矿车@[126, 105]
+[12:08:12] t=2868 HARASS DRON x2 (have 1)
+[12:08:17] t=2874 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:08:18] t=2876 MOVE assault x2 -> 攻击目标#1100@(80,122)
+[12:08:20] t=2878 RETREAT HTNK(38%)
+[12:08:23] t=2882 MOVE guard x1 -> (137,82)
+[12:08:24] t=2884 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:08:24] t=2884 MOVE assault x2 -> 攻击目标#1122@(83,126)
+[12:08:29] t=2890 MOVE aahunt x18 -> (125,84)
+[12:08:30] t=2892 MOVE assault x2 -> 攻击目标#1100@(80,122)
+[12:08:35] t=2898 ESCORT 坦克#4935 -> 护航矿车@[121, 101]
+[12:08:35] t=2898 MOVE raid x2 -> (70,117)
+[12:08:36] t=2900 MOVE assault x2 -> 攻击目标#1204@(75,115)
+[12:08:38] t=2902 tick#1450 credits=637 stance=attack | jev 1200 decisions p50=939ms
+[12:08:41] t=2906 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:08:48] t=2916 TANK HTNK x1
+[12:08:48] t=2916 MOVE assault x2 -> 攻击目标#1204@(75,115)
+[12:08:53] t=2922 MOVE guard x1 -> (137,82)
+[12:08:54] t=2924 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:08:59] t=2930 MOVE aahunt x18 -> (125,84)
+[12:09:02] t=2934 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:09:03] t=2936 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:09:03] t=2936 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:09:05] t=2938 ESCORT 坦克#6091 -> 护航矿车@[116, 135]
+[12:09:05] t=2938 MOVE raid x2 -> (70,117)
+[12:09:14] t=2950 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:09:15] t=2952 tick#1475 credits=37 stance=attack | jev 1200 decisions p50=939ms
+[12:09:21] t=2960 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:09:23] t=2962 MOVE guard x1 -> (137,82)
+[12:09:29] t=2970 MOVE aahunt x18 -> (125,84)
+[12:09:33] t=2976 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:09:35] t=2978 ESCORT 坦克#6091 -> 护航矿车@[127, 105]
+[12:09:35] t=2978 MOVE raid x2 -> (70,117)
+[12:09:41] t=2986 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:09:45] t=2992 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:09:53] t=3002 MOVE guard x1 -> (137,82)
+[12:09:53] t=3002 tick#1500 credits=337 stance=attack | jev 1200 decisions p50=939ms
+[12:09:57] t=3008 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:09:59] t=3010 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:09:59] t=3010 MOVE aahunt x18 -> (125,84)
+[12:10:06] t=3020 RETREAT HTNK(32%)
+[12:10:06] t=3020 MOVE raid x2 -> (70,117)
+[12:10:09] t=3024 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:10:14] t=3030 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:10:14] t=3030 HARASS DRON x2 (have 1)
+[12:10:14] t=3030 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:10:15] t=3032 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:10:20] t=3038 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:10:26] t=3046 ESCORT 坦克#6091 -> 护航矿车@[126, 104]
+[12:10:26] t=3046 MOVE assault x1 -> 攻击目标#1122@(83,126); guard x1 -> (137,82)
+[12:10:27] t=3048 TANK HTNK x2
+[12:10:29] t=3050 MOVE aahunt x18 -> (125,84)
+[12:10:30] t=3052 tick#1525 credits=1366 stance=attack | jev 1200 decisions p50=939ms
+[12:10:33] t=3056 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:10:36] t=3060 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:10:38] t=3062 MOVE raid x2 -> (70,117)
+[12:10:39] t=3064 RETREAT HTNK(6%)
+[12:10:41] t=3066 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:10:44] t=3070 MOVE assault x2 -> 攻击目标#1100@(80,122)
+[12:10:54] t=3084 MOVE assault x2 -> 攻击目标#1122@(83,126)
+[12:10:56] t=3086 ESCORT 坦克#6091 -> 护航矿车@[117, 134]
+[12:10:56] t=3086 MOVE assault x2 -> 攻击目标#1100@(80,122); guard x1 -> (137,82)
+[12:10:59] t=3090 MOVE assault x2 -> 攻击目标#1122@(83,126); aahunt x18 -> (125,84)
+[12:11:00] t=3092 MOVE assault x2 -> 攻击目标#1100@(80,122)
+[12:11:02] t=3094 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:11:08] t=3102 MOVE raid x2 -> (70,117); assault x2 -> 攻击目标#1204@(75,115)
+[12:11:08] t=3102 tick#1550 credits=62 stance=attack | jev 1200 decisions p50=939ms
+[12:11:20] t=3118 MOVE assault x2 -> 攻击目标#1204@(75,115)
+[12:11:27] t=3128 MOVE guard x1 -> (137,82)
+[12:11:30] t=3132 MOVE aahunt x18 -> (125,84)
+[12:11:32] t=3134 MOVE assault x2 -> 攻击目标#1204@(75,115)
+[12:11:35] t=3138 ESCORT 坦克#6091 -> 护航矿车@[128, 105]
+[12:11:38] t=3142 MOVE raid x2 -> (70,117)
+[12:11:41] t=3146 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:11:42] t=3148 RETREAT HTNK(38%)
+[12:11:45] t=3152 MOVE assault x2 -> 攻击目标#1204@(75,115)
+[12:11:45] t=3152 tick#1575 credits=362 stance=attack | jev 1200 decisions p50=939ms
+[12:11:50] t=3158 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:11:57] t=3168 MOVE assault x1 -> 攻击目标#1204@(75,115); guard x1 -> (137,82)
+[12:12:00] t=3172 MOVE aahunt x18 -> (125,84)
+[12:12:05] t=3178 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:12:05] t=3178 ESCORT 坦克#6091 -> 护航矿车@[127, 105]
+[12:12:05] t=3178 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:12:08] t=3182 MOVE raid x2 -> (70,117)
+[12:12:18] t=3196 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:12:20] t=3198 TANK HTNK x1
+[12:12:23] t=3202 tick#1600 credits=841 stance=attack | jev 1200 decisions p50=939ms
+[12:12:27] t=3208 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:12:30] t=3212 MOVE aahunt x18 -> (125,84)
+[12:12:32] t=3214 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:12:35] t=3218 ESCORT 坦克#6091 -> 护航矿车@[121, 101]
+[12:12:35] t=3218 MOVE assault x1 -> 攻击目标#1122@(83,126); guard x1 -> (137,82)
+[12:12:38] t=3222 MOVE raid x2 -> (70,117)
+[12:12:41] t=3226 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:12:48] t=3236 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:12:56] t=3246 MOVE assault x1 -> 攻击目标#1204@(75,115)
+[12:12:59] t=3250 TANK HTNK x1
+[12:13:00] t=3252 MOVE aahunt x18 -> (125,84)
+[12:13:00] t=3252 tick#1625 credits=937 stance=attack | jev 1200 decisions p50=939ms
+[12:13:06] t=3260 ESCORT 坦克#6091 -> 护航矿车@[127, 105]
+[12:13:06] t=3260 MOVE guard x1 -> (137,82)
+[12:13:08] t=3262 MOVE raid x2 -> (70,117); assault x1 -> 攻击目标#1204@(75,115)
+[12:13:14] t=3270 MOVE assault x2 -> 攻击目标#1100@(80,122)
+[12:13:26] t=3286 MOVE assault x2 -> 攻击目标#1100@(80,122)
+[12:13:30] t=3292 MOVE aahunt x18 -> (125,84)
+[12:13:38] t=3302 MOVE raid x2 -> (70,117); assault x2 -> 攻击目标#1204@(75,115); guard x1 -> (137,82)
+[12:13:38] t=3302 tick#1650 credits=137 stance=attack | jev 1200 decisions p50=939ms
+[12:13:41] t=3306 ESCORT 坦克#6091 -> 护航矿车@[120, 100]
+[12:13:41] t=3306 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:13:47] t=3314 MOVE assault x2 -> 攻击目标#1100@(80,122)
+[12:13:48] t=3316 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:13:50] t=3318 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:13:51] t=3320 HARASS DRON x2 (have 0)
+[12:13:59] t=3330 MOVE assault x1 -> 攻击目标#1100@(80,122)
+[12:14:00] t=3332 MOVE aahunt x18 -> (125,84)
+[12:14:08] t=3342 MOVE raid x2 -> (70,117); guard x1 -> (137,82)
+[12:14:11] t=3346 MOVE assault x2 -> 攻击目标#1100@(80,122)
+[12:14:14] t=3350 TANK HTNK x1
+[12:14:15] t=3352 ESCORT 坦克#6269 -> 护航矿车@[109, 84]
+[12:14:15] t=3352 tick#1675 credits=966 stance=attack | jev 1200 decisions p50=939ms
+[12:14:23] t=3362 MOVE assault x2 -> 攻击目标#1061@(75,118)
+[12:14:26] t=3366 RETREAT HTNK(6%)
+[12:14:29] t=3370 MOVE assault x3 -> 攻击目标#1122@(83,126)
+[12:14:30] t=3372 MOVE aahunt x18 -> (125,84)
+[12:14:38] t=3382 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:14:38] t=3382 MOVE raid x2 -> (70,117); guard x1 -> (137,82)
+[12:14:41] t=3386 MOVE assault x2 -> 攻击目标#1122@(83,126)
+[12:14:42] t=3388 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:14:45] t=3392 ESCORT 坦克#6224 -> 护航矿车@[117, 135]
+[12:14:53] t=3402 ALARM unit lost -> 攻势保持（塔阵守家, 前线 26 个单位继续进攻）
+[12:14:53] t=3402 MOVE assault x1 -> 攻击目标#1061@(75,118)
+[12:14:53] t=3402 tick#1700 credits=762 stance=attack | jev 1200 decisions p50=939ms
+[12:15:00] t=3412 MOVE aahunt x18 -> (125,84)
+[12:15:05] t=3418 MOVE assault x1 -> 攻击目标#1061@(75,118)
+[12:15:08] t=3422 MOVE raid x2 -> (70,117); guard x1 -> (137,82)
+[12:15:12] t=3428 HARASS DRON x2 (have 0)
+[12:15:15] t=3432 ESCORT 坦克#6326 -> 护航矿车@[117, 133]
+[12:15:17] t=3434 MOVE assault x1 -> 攻击目标#1061@(75,118)
+[12:15:29] t=3450 MOVE assault x3 -> 攻击目标#1061@(75,118)
+[12:15:30] t=3452 MOVE aahunt x18 -> (125,84)
+[12:15:30] t=3452 tick#1725 credits=187 stance=attack | jev 1200 decisions p50=939ms
+[12:15:38] t=3462 MOVE raid x2 -> (70,117); guard x1 -> (137,82)
+[12:15:41] t=3466 MOVE assault x3 -> 攻击目标#1061@(75,118)
+[12:15:42] t=3468 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:15:45] t=3472 ESCORT 坦克#6224 -> 护航矿车@[92, 57]
+[12:15:53] t=3482 MOVE assault x3 -> 攻击目标#1122@(83,126)
+[12:16:00] t=3492 MOVE aahunt x18 -> (125,84)
+[12:16:03] t=3496 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:16:03] t=3496 MOVE assault x2 -> 攻击目标#1046@(71,114)
+[12:16:08] t=3502 MOVE raid x2 -> (70,117); guard x1 -> (137,82)
+[12:16:08] t=3502 tick#1750 credits=712 stance=attack | jev 1200 decisions p50=939ms
+[12:16:09] t=3504 RETREAT HTNK(39%)
+[12:16:12] t=3508 HARASS DRON x2 (have 1)
+[12:16:14] t=3510 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:16:15] t=3512 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:16:15] t=3512 ESCORT 坦克#6091 -> 护航矿车@[91, 69]
+[12:16:15] t=3512 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:16:21] t=3520 RETREAT HTNK(20%)
+[12:16:23] t=3522 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:16:29] t=3530 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:16:30] t=3532 MOVE aahunt x18 -> (125,84)
+[12:16:38] t=3542 MOVE raid x2 -> (70,117); guard x1 -> (137,82)
+[12:16:41] t=3546 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:16:42] t=3548 RETREAT HTNK(8%)
+[12:16:42] t=3548 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:16:45] t=3552 ESCORT 坦克#6515 -> 护航矿车@[128, 104]
+[12:16:45] t=3552 tick#1775 credits=737 stance=attack | jev 1200 decisions p50=939ms
+[12:16:50] t=3558 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:16:51] t=3560 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:16:54] t=3564 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:17:00] t=3572 MOVE aahunt x18 -> (125,84)
+[12:17:02] t=3574 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:17:05] t=3578 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:17:08] t=3582 MOVE raid x2 -> (70,117)
+[12:17:15] t=3592 ESCORT 坦克#6091 -> 护航矿车@[118, 126]
+[12:17:23] t=3602 tick#1800 credits=737 stance=attack | jev 1200 decisions p50=939ms
+[12:17:24] t=3604 HARASS DRON x2 (have 1)
+[12:17:30] t=3612 MOVE assault x1 -> 攻击目标#1122@(83,126); aahunt x18 -> (125,84)
+[12:17:36] t=3620 MOVE guard x1 -> (137,82)
+[12:17:38] t=3622 MOVE raid x2 -> (70,117)
+[12:17:39] t=3624 TANK HTNK x2
+[12:17:41] t=3626 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:17:42] t=3628 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:17:44] t=3630 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:17:48] t=3636 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:17:50] t=3638 ESCORT 坦克#6547 -> 护航矿车@[128, 105]
+[12:17:54] t=3644 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:18:00] t=3652 MOVE aahunt x18 -> (125,84)
+[12:18:01] t=3652 tick#1825 credits=866 stance=attack | jev 1200 decisions p50=939ms
+[12:18:03] t=3656 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:18:06] t=3660 MOVE assault x1 -> 攻击目标#1122@(83,126); guard x1 -> (137,82)
+[12:18:08] t=3662 MOVE raid x2 -> (70,117)
+[12:18:09] t=3664 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:18:11] t=3666 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:18:12] t=3668 RETREAT HTNK(6%)
+[12:18:19] t=3676 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:18:20] t=3678 ESCORT 坦克#6559 -> 护航矿车@[128, 105]
+[12:18:31] t=3692 MOVE assault x1 -> 攻击目标#1122@(83,126); aahunt x18 -> (125,84)
+[12:18:32] t=3694 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:18:38] t=3702 MOVE raid x2 -> (70,117)
+[12:18:38] t=3702 tick#1850 credits=762 stance=attack | jev 1200 decisions p50=939ms
+[12:18:44] t=3710 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:18:50] t=3718 ESCORT 坦克#6553 -> 护航矿车@[116, 135]
+[12:18:51] t=3720 HARASS DRON x2 (have 0)
+[12:18:58] t=3728 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:18:59] t=3730 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:19:01] t=3732 MOVE aahunt x18 -> (125,84)
+[12:19:04] t=3736 MOVE guard x1 -> (137,82)
+[12:19:08] t=3742 MOVE raid x2 -> (70,117)
+[12:19:11] t=3745 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:19:16] t=3751 tick#1875 credits=337 stance=attack | jev 1200 decisions p50=939ms
+[12:19:20] t=3757 ESCORT 坦克#6583 -> 护航矿车@[127, 105]
+[12:19:25] t=3763 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:19:29] t=3769 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:19:29] t=3769 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:19:32] t=3773 MOVE aahunt x18 -> (125,84)
+[12:19:35] t=3777 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:19:38] t=3781 MOVE raid x2 -> (70,117)
+[12:19:44] t=3789 HARASS DRON x2 (have 1)
+[12:19:44] t=3789 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:19:50] t=3797 ESCORT 坦克#6583 -> 护航矿车@[92, 61]
+[12:19:50] t=3797 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:19:53] t=3801 tick#1900 credits=428 stance=attack | jev 1200 decisions p50=939ms
+[12:19:56] t=3805 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:19:56] t=3805 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:20:02] t=3813 MOVE aahunt x18 -> (125,84)
+[12:20:08] t=3821 MOVE raid x2 -> (70,117)
+[12:20:10] t=3823 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:20:14] t=3829 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:20:17] t=3833 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:20:20] t=3837 ESCORT 坦克#6603 -> 护航矿车@[117, 135]
+[12:20:23] t=3841 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:20:31] t=3851 tick#1925 credits=662 stance=attack | jev 1200 decisions p50=939ms
+[12:20:32] t=3853 MOVE aahunt x18 -> (125,84)
+[12:20:38] t=3861 MOVE raid x2 -> (70,117)
+[12:20:44] t=3869 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[12:20:44] t=3869 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:20:58] t=3887 HARASS DRON x2 (have 0)
+[12:21:02] t=3893 MOVE aahunt x18 -> (125,84)
+[12:21:04] t=3895 ESCORT 坦克#6626 -> 护航矿车@[99, 101]
+[12:21:08] t=3901 MOVE raid x2 -> (70,117)
+[12:21:08] t=3901 tick#1950 credits=263 stance=attack | jev 1200 decisions p50=939ms
+[12:21:32] t=3933 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:21:32] t=3933 HARASS DRON x2 (have 1)
+[12:21:32] t=3933 MOVE aahunt x18 -> (125,84)
+[12:21:38] t=3941 MOVE raid x2 -> (70,117)
+[12:21:41] t=3945 ESCORT 坦克#6627 -> 护航矿车@[128, 104]
+[12:21:44] t=3949 MOVE assault x1 -> 攻击目标#1122@(83,126); hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:21:46] t=3951 tick#1975 credits=187 stance=attack | jev 1200 decisions p50=939ms
+[12:21:47] t=3953 TANK HTNK x2
+[12:21:56] t=3965 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:21:59] t=3969 RETREAT HTNK(6%)
+[12:22:01] t=3971 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:22:02] t=3973 MOVE guard x1 -> (137,82)
+[12:22:04] t=3975 MOVE aahunt x18 -> (125,84)
+[12:22:07] t=3979 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:22:08] t=3981 MOVE raid x2 -> (70,117)
+[12:22:11] t=3985 ESCORT 坦克#6627 -> 护航矿车@[117, 134]
+[12:22:13] t=3987 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:22:22] t=3999 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:22:23] t=4001 tick#2000 credits=0 stance=attack | jev 1200 decisions p50=939ms
+[12:22:25] t=4003 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:22:32] t=4013 MOVE guard x1 -> (137,82)
+[12:22:34] t=4015 MOVE aahunt x18 -> (125,84)
+[12:22:37] t=4019 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:22:38] t=4021 MOVE raid x2 -> (70,117)
+[12:22:44] t=4029 ESCORT 坦克#6660 -> 护航矿车@[125, 103]
+[12:22:44] t=4029 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:22:49] t=4035 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:23:01] t=4051 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:23:01] t=4051 tick#2025 credits=112 stance=attack | jev 1200 decisions p50=939ms
+[12:23:02] t=4053 MOVE guard x1 -> (137,82)
+[12:23:04] t=4055 MOVE aahunt x18 -> (125,84)
+[12:23:08] t=4061 MOVE raid x2 -> (70,117)
+[12:23:11] t=4065 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:23:14] t=4069 ESCORT 坦克#6660 -> 护航矿车@[90, 58]
+[12:23:20] t=4077 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:23:22] t=4079 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:23:31] t=4091 HARASS DRON x2 (have 0)
+[12:23:34] t=4095 MOVE aahunt x18 -> (125,84)
+[12:23:37] t=4099 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:23:38] t=4101 MOVE raid x2 -> (70,117)
+[12:23:38] t=4101 tick#2050 credits=389 stance=attack | jev 1200 decisions p50=939ms
+[12:23:41] t=4105 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:23:43] t=4107 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:23:44] t=4109 ESCORT 坦克#6684 -> 护航矿车@[121, 102]
+[12:23:44] t=4109 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:23:55] t=4123 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:24:02] t=4133 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:24:04] t=4135 MOVE aahunt x18 -> (125,84)
+[12:24:08] t=4141 MOVE raid x2 -> (70,117)
+[12:24:11] t=4145 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:24:14] t=4149 ESCORT 坦克#6688 -> 护航矿车@[127, 105]
+[12:24:16] t=4151 tick#2075 credits=437 stance=attack | jev 1200 decisions p50=939ms
+[12:24:22] t=4159 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:24:32] t=4173 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:24:34] t=4175 MOVE aahunt x18 -> (125,84)
+[12:24:38] t=4181 MOVE raid x2 -> (70,117)
+[12:24:43] t=4187 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:24:44] t=4189 ESCORT 坦克#6688 -> 护航矿车@[117, 135]
+[12:24:44] t=4189 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:24:53] t=4201 tick#2100 credits=737 stance=attack | jev 1200 decisions p50=939ms
+[12:25:01] t=4211 HARASS DRON x2 (have 1)
+[12:25:04] t=4215 MOVE aahunt x18 -> (125,84)
+[12:25:08] t=4221 MOVE raid x2 -> (70,117)
+[12:25:13] t=4227 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:25:17] t=4233 TANK HTNK x2
+[12:25:17] t=4233 ESCORT 坦克#6688 -> 护航矿车@[128, 104]
+[12:25:25] t=4243 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:25:29] t=4249 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:25:31] t=4251 tick#2125 credits=841 stance=attack | jev 1200 decisions p50=939ms
+[12:25:32] t=4253 MOVE guard x1 -> (137,82)
+[12:25:34] t=4255 MOVE aahunt x18 -> (125,84)
+[12:25:35] t=4257 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:25:38] t=4261 MOVE raid x2 -> (70,117)
+[12:25:41] t=4265 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:25:46] t=4271 RETREAT HTNK(6%)
+[12:25:46] t=4271 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:25:47] t=4273 ESCORT 坦克#6730 -> 护航矿车@[127, 105]
+[12:25:52] t=4279 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:25:55] t=4283 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:26:02] t=4293 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:26:04] t=4295 MOVE aahunt x18 -> (125,84)
+[12:26:08] t=4301 MOVE raid x2 -> (70,117)
+[12:26:08] t=4301 tick#2150 credits=537 stance=attack | jev 1200 decisions p50=939ms
+[12:26:17] t=4313 ESCORT 坦克#6730 -> 护航矿车@[118, 134]
+[12:26:19] t=4315 HARASS DRON x2 (have 0)
+[12:26:25] t=4323 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:26:28] t=4327 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:26:31] t=4331 MOVE guard x1 -> (137,82)
+[12:26:34] t=4335 MOVE aahunt x18 -> (125,84)
+[12:26:35] t=4337 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:26:38] t=4341 MOVE raid x2 -> (70,117)
+[12:26:46] t=4351 tick#2175 credits=112 stance=attack | jev 1200 decisions p50=939ms
+[12:26:47] t=4353 ESCORT 坦克#6730 -> 护航矿车@[126, 105]
+[12:26:47] t=4353 MOVE assault x1 -> 攻击目标#1046@(71,114); hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:26:53] t=4361 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:26:53] t=4361 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:27:04] t=4375 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:27:04] t=4375 MOVE aahunt x18 -> (125,84)
+[12:27:05] t=4377 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:27:05] t=4377 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:27:08] t=4381 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:27:17] t=4393 ESCORT 坦克#6730 -> 护航矿车@[89, 55]
+[12:27:19] t=4395 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:27:23] t=4401 tick#2200 credits=787 stance=attack | jev 1200 decisions p50=939ms
+[12:27:29] t=4409 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:27:32] t=4413 HARASS DRON x2 (have 0)
+[12:27:34] t=4415 MOVE aahunt x18 -> (125,84)
+[12:27:38] t=4421 MOVE raid x2 -> (70,117)
+[12:27:44] t=4429 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:27:46] t=4431 RETREAT HTNK(38%)
+[12:27:47] t=4433 ESCORT 坦克#6776 -> 护航矿车@[121, 102]
+[12:27:47] t=4433 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:27:56] t=4445 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:28:01] t=4451 tick#2225 credits=812 stance=attack | jev 1200 decisions p50=939ms
+[12:28:04] t=4455 MOVE aahunt x18 -> (125,84)
+[12:28:08] t=4461 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:28:08] t=4461 MOVE raid x2 -> (70,117)
+[12:28:17] t=4473 ESCORT 坦克#6795 -> 护航矿车@[127, 105]
+[12:28:32] t=4493 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:28:32] t=4493 HARASS DRON x2 (have 1)
+[12:28:34] t=4495 MOVE aahunt x18 -> (125,84)
+[12:28:38] t=4501 MOVE raid x2 -> (70,117)
+[12:28:38] t=4501 tick#2250 credits=372 stance=attack | jev 1200 decisions p50=939ms
+[12:28:44] t=4509 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:28:47] t=4513 ESCORT 坦克#6820 -> 护航矿车@[120, 105]
+[12:28:47] t=4513 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:28:49] t=4515 TANK HTNK x1
+[12:28:56] t=4525 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:29:01] t=4531 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:29:02] t=4533 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:29:04] t=4535 MOVE aahunt x18 -> (125,84)
+[12:29:08] t=4541 TANK HTNK x1
+[12:29:08] t=4541 MOVE raid x2 -> (70,117)
+[12:29:10] t=4543 TANK HTNK x1
+[12:29:11] t=4545 TANK HTNK x1
+[12:29:13] t=4547 TANK HTNK x1
+[12:29:13] t=4547 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:29:14] t=4549 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:29:14] t=4549 HARASS DRON x2 (have 1)
+[12:29:16] t=4551 tick#2275 credits=880 stance=attack | jev 1200 decisions p50=939ms
+[12:29:17] t=4553 ESCORT 坦克#6827 -> 护航矿车@[127, 105]
+[12:29:25] t=4563 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:29:26] t=4565 MOVE guard x1 -> (137,82)
+[12:29:32] t=4573 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:29:32] t=4573 RETREAT HTNK(6%)
+[12:29:34] t=4575 MOVE aahunt x18 -> (125,84)
+[12:29:37] t=4579 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:29:38] t=4581 MOVE raid x2 -> (70,117)
+[12:29:47] t=4593 ESCORT 坦克#6838 -> 护航矿车@[128, 105]
+[12:29:47] t=4593 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:29:49] t=4595 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:29:53] t=4601 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:29:53] t=4601 tick#2300 credits=562 stance=attack | jev 1200 decisions p50=939ms
+[12:30:04] t=4615 MOVE assault x1 -> 攻击目标#1122@(83,126); aahunt x18 -> (125,84)
+[12:30:07] t=4619 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:30:08] t=4621 MOVE raid x2 -> (70,117)
+[12:30:17] t=4633 ESCORT 坦克#6827 -> 护航矿车@[115, 133]
+[12:30:19] t=4635 HARASS DRON x2 (have 1)
+[12:30:25] t=4643 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:30:31] t=4651 MOVE assault x1 -> 攻击目标#1122@(83,126); guard x1 -> (137,82)
+[12:30:31] t=4651 tick#2325 credits=512 stance=attack | jev 1200 decisions p50=939ms
+[12:30:34] t=4655 MOVE aahunt x18 -> (125,84)
+[12:30:38] t=4661 MOVE raid x2 -> (70,117)
+[12:30:43] t=4667 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:30:47] t=4673 ESCORT 坦克#6856 -> 护航矿车@[127, 105]
+[12:30:47] t=4673 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:30:49] t=4675 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:30:52] t=4679 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:30:58] t=4687 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:30:59] t=4689 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:31:04] t=4695 MOVE aahunt x18 -> (125,84)
+[12:31:08] t=4701 MOVE raid x2 -> (70,117)
+[12:31:08] t=4701 tick#2350 credits=737 stance=attack | jev 1200 decisions p50=939ms
+[12:31:17] t=4713 ESCORT 坦克#6827 -> 护航矿车@[92, 105]
+[12:31:25] t=4723 HARASS DRON x2 (have 1)
+[12:31:31] t=4731 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:31:32] t=4733 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:31:34] t=4735 MOVE aahunt x18 -> (125,84)
+[12:31:38] t=4741 MOVE raid x2 -> (70,117)
+[12:31:44] t=4749 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:31:46] t=4751 tick#2375 credits=537 stance=attack | jev 1200 decisions p50=939ms
+[12:31:47] t=4753 ESCORT 坦克#6827 -> 护航矿车@[89, 125]
+[12:31:47] t=4753 RETREAT HTNK(23%)
+[12:31:48] t=4753 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:31:55] t=4763 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:32:04] t=4775 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[12:32:04] t=4775 MOVE aahunt x18 -> (125,84)
+[12:32:07] t=4779 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[12:32:07] t=4779 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:32:17] t=4793 ESCORT 坦克#6827 -> 护航矿车@[128, 105]
+[12:32:19] t=4795 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:32:23] t=4801 tick#2400 credits=537 stance=attack | jev 1200 decisions p50=939ms
+[12:32:26] t=4805 HARASS DRON x2 (have 0)
+[12:32:31] t=4811 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:32:32] t=4813 MOVE raid x2 -> (70,117)
+[12:32:34] t=4815 MOVE aahunt x18 -> (125,84)
+[12:32:38] t=4821 TANK HTNK x1
+[12:32:43] t=4827 MOVE assault x1 -> 攻击目标#1122@(83,126)
+[12:32:49] t=4835 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:32:53] t=4841 MOVE guard x1 -> (137,82)
+[12:32:55] t=4843 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:32:56] t=4845 ESCORT 坦克#6928 -> 护航矿车@[102, 98]
+[12:33:01] t=4851 tick#2425 credits=562 stance=attack | jev 1200 decisions p50=939ms
+[12:33:02] t=4853 MOVE raid x2 -> (70,117)
+[12:33:04] t=4855 MOVE aahunt x18 -> (125,84)
+[12:33:07] t=4859 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:33:13] t=4867 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:33:19] t=4875 RETREAT HTNK(6%)
+[12:33:19] t=4875 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:33:22] t=4879 HARASS DRON x2 (have 1)
+[12:33:26] t=4885 ESCORT 坦克#6827 -> 护航矿车@[128, 105]
+[12:33:28] t=4887 MOVE guard x1 -> (137,82)
+[12:33:33] t=4893 MOVE raid x2 -> (70,117); assault x1 -> 攻击目标#1046@(71,114)
+[12:33:34] t=4895 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:33:34] t=4895 MOVE aahunt x18 -> (125,84)
+[12:33:37] t=4899 TANK HTNK x2
+[12:33:39] t=4901 tick#2450 credits=1691 stance=attack | jev 1200 decisions p50=939ms
+[12:33:45] t=4909 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:33:49] t=4915 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:33:55] t=4923 RETREAT HTNK(38%)
+[12:33:56] t=4925 ESCORT 坦克#6827 -> 护航矿车@[88, 56]
+[12:33:57] t=4925 MOVE assault x2 -> 攻击目标#1046@(71,114)
+[12:33:58] t=4927 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:33:58] t=4927 MOVE guard x1 -> (137,82)
+[12:34:03] t=4933 MOVE raid x2 -> (70,117)
+[12:34:04] t=4935 MOVE aahunt x18 -> (125,84)
+[12:34:10] t=4943 MOVE assault x2 -> 攻击目标#1046@(71,114)
+[12:34:16] t=4951 tick#2475 credits=362 stance=attack | jev 1200 decisions p50=939ms
+[12:34:22] t=4959 MOVE assault x2 -> 攻击目标#1046@(71,114)
+[12:34:27] t=4965 ESCORT 坦克#6983 -> 护航矿车@[128, 105]
+[12:34:28] t=4967 MOVE guard x1 -> (137,82)
+[12:34:33] t=4973 MOVE raid x2 -> (70,117)
+[12:34:34] t=4975 MOVE assault x2 -> 攻击目标#1046@(71,114); aahunt x18 -> (125,84)
+[12:34:46] t=4991 MOVE assault x2 -> 攻击目标#1046@(71,114)
+[12:34:49] t=4995 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:34:51] t=4997 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:34:54] t=5001 tick#2500 credits=662 stance=attack | jev 1200 decisions p50=939ms
+[12:34:57] t=5005 ESCORT 坦克#6983 -> 护航矿车@[88, 56]
+[12:34:58] t=5007 MOVE assault x1 -> 攻击目标#1046@(71,114); guard x1 -> (137,82)
+[12:35:03] t=5013 MOVE raid x2 -> (70,117)
+[12:35:04] t=5015 MOVE aahunt x18 -> (125,84)
+[12:35:06] t=5017 HARASS DRON x2 (have 0)
+[12:35:09] t=5021 RETREAT HTNK(29%)
+[12:35:12] t=5025 MOVE assault x2 -> 攻击目标#1046@(71,114)
+[12:35:16] t=5031 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:35:19] t=5035 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:35:24] t=5041 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:35:24] t=5041 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:35:27] t=5045 ESCORT 坦克#7041 -> 护航矿车@[127, 105]
+[12:35:30] t=5049 RETREAT HTNK(38%)
+[12:35:31] t=5051 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:35:31] t=5051 tick#2525 credits=87 stance=attack | jev 1200 decisions p50=939ms
+[12:35:33] t=5053 MOVE raid x2 -> (70,117)
+[12:35:34] t=5055 MOVE aahunt x18 -> (125,84)
+[12:35:49] t=5075 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:35:52] t=5079 TANK HTNK x1
+[12:35:54] t=5081 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[12:35:57] t=5085 ESCORT 坦克#7030 -> 护航矿车@[128, 105]
+[12:36:03] t=5093 MOVE raid x2 -> (70,117)
+[12:36:04] t=5095 MOVE aahunt x18 -> (125,84)
+[12:36:07] t=5099 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:36:09] t=5101 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:36:09] t=5101 tick#2550 credits=162 stance=attack | jev 1200 decisions p50=939ms
+[12:36:19] t=5115 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:36:27] t=5125 ESCORT 坦克#7079 -> 护航矿车@[87, 125]
+[12:36:31] t=5131 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:36:34] t=5135 MOVE aahunt x18 -> (125,84)
+[12:36:36] t=5137 HARASS DRON x2 (have 0)
+[12:36:42] t=5145 MOVE raid x2 -> (70,117)
+[12:36:46] t=5151 tick#2575 credits=892 stance=attack | jev 1200 decisions p50=939ms
+[12:36:48] t=5153 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:36:49] t=5155 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:36:57] t=5165 ESCORT 坦克#7107 -> 护航矿车@[126, 105]
+[12:37:00] t=5169 TANK HTNK x1
+[12:37:00] t=5169 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:37:04] t=5175 MOVE aahunt x18 -> (125,84)
+[12:37:06] t=5177 RETREAT HTNK(6%)
+[12:37:09] t=5181 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:37:12] t=5185 MOVE raid x2 -> (70,117)
+[12:37:15] t=5189 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:37:15] t=5189 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:37:24] t=5201 tick#2600 credits=262 stance=attack | jev 1200 decisions p50=939ms
+[12:37:27] t=5205 ESCORT 坦克#7107 -> 护航矿车@[86, 125]
+[12:37:27] t=5205 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:37:34] t=5215 MOVE aahunt x18 -> (125,84)
+[12:37:40] t=5223 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:37:42] t=5225 MOVE raid x2 -> (70,117)
+[12:37:49] t=5235 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:37:52] t=5239 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:37:54] t=5241 HARASS DRON x2 (have 1)
+[12:37:57] t=5245 ESCORT 坦克#7121 -> 护航矿车@[128, 105]
+[12:38:01] t=5251 tick#2625 credits=539 stance=attack | jev 1200 decisions p50=939ms
+[12:38:04] t=5255 MOVE assault x1 -> 攻击目标#1046@(71,114); aahunt x18 -> (125,84)
+[12:38:06] t=5257 MOVE guard x1 -> (137,82)
+[12:38:12] t=5265 MOVE raid x2 -> (70,117)
+[12:38:16] t=5271 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:38:27] t=5285 ESCORT 坦克#7121 -> 护航矿车@[128, 105]
+[12:38:28] t=5287 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:38:34] t=5295 MOVE aahunt x18 -> (125,84)
+[12:38:36] t=5297 MOVE guard x1 -> (137,82)
+[12:38:39] t=5301 tick#2650 credits=587 stance=attack | jev 1200 decisions p50=939ms
+[12:38:40] t=5303 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:38:40] t=5303 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:38:42] t=5305 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:38:42] t=5305 HARASS DRON x2 (have 1)
+[12:38:42] t=5305 TANK HTNK x1
+[12:38:42] t=5305 MOVE raid x2 -> (70,117)
+[12:38:49] t=5315 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:38:52] t=5319 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:38:57] t=5325 ESCORT 坦克#7121 -> 护航矿车@[92, 56]
+[12:39:04] t=5335 MOVE assault x1 -> 攻击目标#1046@(71,114); aahunt x18 -> (125,84)
+[12:39:06] t=5337 MOVE guard x1 -> (137,82)
+[12:39:13] t=5347 MOVE raid x2 -> (70,117)
+[12:39:16] t=5351 MOVE assault x2 -> 攻击目标#1046@(71,114)
+[12:39:16] t=5351 tick#2675 credits=687 stance=attack | jev 1200 decisions p50=939ms
+[12:39:27] t=5365 ESCORT 坦克#7158 -> 护航矿车@[126, 105]
+[12:39:28] t=5367 MOVE assault x2 -> 攻击目标#1046@(71,114)
+[12:39:31] t=5371 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:39:34] t=5375 MOVE aahunt x18 -> (125,84)
+[12:39:36] t=5377 MOVE guard x1 -> (137,82)
+[12:39:39] t=5381 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:39:40] t=5383 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:39:43] t=5387 MOVE raid x2 -> (70,117)
+[12:39:49] t=5395 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:39:52] t=5399 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:39:54] t=5401 tick#2700 credits=687 stance=attack | jev 1200 decisions p50=939ms
+[12:39:57] t=5405 ESCORT 坦克#7107 -> 护航矿车@[89, 124]
+[12:40:04] t=5415 MOVE assault x1 -> 攻击目标#1046@(71,114); aahunt x18 -> (125,84)
+[12:40:06] t=5417 MOVE guard x1 -> (137,82)
+[12:40:07] t=5419 HARASS DRON x2 (have 1)
+[12:40:13] t=5427 MOVE raid x2 -> (70,117)
+[12:40:16] t=5431 RETREAT HTNK(38%)
+[12:40:16] t=5431 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:40:27] t=5445 ESCORT 坦克#7158 -> 护航矿车@[88, 126]
+[12:40:28] t=5447 TANK HTNK x1
+[12:40:28] t=5447 MOVE assault x2 -> 攻击目标#1046@(71,114)
+[12:40:31] t=5451 tick#2725 credits=966 stance=attack | jev 1200 decisions p50=939ms
+[12:40:34] t=5455 MOVE aahunt x18 -> (125,84)
+[12:40:36] t=5457 MOVE guard x1 -> (137,82)
+[12:40:40] t=5464 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:40:42] t=5466 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:40:42] t=5466 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:40:43] t=5468 MOVE raid x2 -> (70,117)
+[12:40:49] t=5476 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:40:51] t=5478 RETREAT HTNK(6%)
+[12:40:52] t=5480 TANK HTNK x2
+[12:40:54] t=5482 TANK HTNK x2
+[12:40:54] t=5482 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:40:57] t=5486 ESCORT 坦克#7121 -> 护航矿车@[127, 105]
+[12:41:04] t=5496 MOVE aahunt x18 -> (125,84)
+[12:41:06] t=5498 MOVE guard x1 -> (137,82)
+[12:41:07] t=5500 MOVE assault x1 -> 攻击目标#1046@(71,114)
+[12:41:09] t=5502 tick#2750 credits=387 stance=attack | jev 1200 decisions p50=939ms
+[12:41:13] t=5508 MOVE raid x2 -> (70,117)
+[12:41:19] t=5516 MOVE assault x2 -> 攻击目标#1046@(71,114)
+[12:41:22] t=5520 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:41:30] t=5530 ESCORT 坦克#7202 -> 护航矿车@[100, 93]
+[12:41:31] t=5532 MOVE assault x2 -> 攻击目标#1046@(71,114)
+[12:41:34] t=5536 MOVE aahunt x18 -> (125,84)
+[12:41:36] t=5538 MOVE guard x1 -> (137,82)
+[12:41:43] t=5548 MOVE raid x2 -> (70,117); assault x3 -> 攻击目标#1046@(71,114)
+[12:41:46] t=5552 tick#2775 credits=337 stance=attack | jev 1200 decisions p50=939ms
+[12:41:49] t=5556 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:41:51] t=5558 MOVE assault x3 -> 攻击目标#1052@(74,122)
+[12:41:52] t=5560 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:42:00] t=5570 ESCORT 坦克#7219 -> 护航矿车@[127, 105]
+[12:42:01] t=5572 RETREAT HTNK(39%)
+[12:42:04] t=5576 MOVE assault x1 -> 攻击目标#1052@(74,122); aahunt x18 -> (125,84)
+[12:42:06] t=5578 MOVE guard x1 -> (137,82)
+[12:42:12] t=5586 MOVE assault x1 -> 攻击目标#1044@(70,117)
+[12:42:13] t=5588 MOVE raid x2 -> (70,117)
+[12:42:24] t=5602 MOVE assault x1 -> 攻击目标#1052@(74,122)
+[12:42:24] t=5602 tick#2800 credits=337 stance=attack | jev 1200 decisions p50=939ms
+[12:42:30] t=5610 ESCORT 坦克#7212 -> 护航矿车@[88, 57]
+[12:42:34] t=5616 MOVE aahunt x18 -> (125,84)
+[12:42:36] t=5618 MOVE assault x1 -> 攻击目标#1052@(74,122); guard x1 -> (137,82)
+[12:42:42] t=5626 HARASS DRON x2 (have 0)
+[12:42:43] t=5628 MOVE raid x2 -> (70,117)
+[12:42:46] t=5632 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:42:49] t=5636 MOVE assault x1 -> 攻击目标#1052@(74,122); hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:42:54] t=5642 TANK HTNK x1
+[12:43:00] t=5650 ESCORT 坦克#7212 -> 护航矿车@[127, 105]
+[12:43:01] t=5652 MOVE assault x2 -> 攻击目标#1052@(74,122)
+[12:43:01] t=5652 tick#2825 credits=691 stance=attack | jev 1200 decisions p50=939ms
+[12:43:04] t=5656 MOVE aahunt x18 -> (125,84)
+[12:43:06] t=5658 MOVE guard x1 -> (137,82)
+[12:43:09] t=5662 TANK HTNK x1
+[12:43:10] t=5664 TANK HTNK x1
+[12:43:12] t=5666 TANK HTNK x1
+[12:43:13] t=5668 TANK HTNK x1
+[12:43:13] t=5668 MOVE raid x2 -> (70,117)
+[12:43:15] t=5670 TANK HTNK x1
+[12:43:15] t=5670 MOVE assault x3 -> 攻击目标#1052@(74,122)
+[12:43:16] t=5672 TANK HTNK x1
+[12:43:18] t=5674 TANK HTNK x1
+[12:43:19] t=5676 TANK HTNK x1
+[12:43:27] t=5686 MOVE assault x3 -> 攻击目标#1052@(74,122)
+[12:43:30] t=5690 ESCORT 坦克#7304 -> 护航矿车@[128, 105]
+[12:43:31] t=5692 MOVE assault x3 -> 攻击目标#1044@(70,117)
+[12:43:36] t=5698 MOVE aahunt x18 -> (125,84)
+[12:43:37] t=5700 MOVE guard x1 -> (137,82)
+[12:43:39] t=5702 tick#2850 credits=137 stance=attack | jev 1200 decisions p50=939ms
+[12:43:43] t=5708 MOVE raid x3 -> (70,117); assault x3 -> 攻击目标#1044@(70,117)
+[12:43:45] t=5710 ALARM unit lost -> 攻势保持（塔阵守家, 前线 26 个单位继续进攻）
+[12:43:46] t=5712 ALARM unit lost -> 攻势保持（塔阵守家, 前线 26 个单位继续进攻）
+[12:43:49] t=5716 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:43:55] t=5724 MOVE assault x2 -> 攻击目标#1044@(70,117)
+[12:44:00] t=5730 ESCORT 坦克#7219 -> 护航矿车@[87, 127]
+[12:44:01] t=5732 HARASS DRON x2 (have 0)
+[12:44:06] t=5738 MOVE aahunt x18 -> (125,84)
+[12:44:07] t=5740 MOVE assault x3 -> 攻击目标#1044@(70,117); guard x1 -> (137,82)
+[12:44:13] t=5748 MOVE raid x3 -> (70,117)
+[12:44:16] t=5752 tick#2875 credits=87 stance=attack | jev 1200 decisions p50=939ms
+[12:44:19] t=5756 MOVE assault x3 -> 攻击目标#1044@(70,117)
+[12:44:22] t=5760 ALARM unit lost -> 攻势保持（塔阵守家, 前线 26 个单位继续进攻）
+[12:44:30] t=5770 ALARM unit lost -> 攻势保持（塔阵守家, 前线 26 个单位继续进攻）
+[12:44:30] t=5770 ESCORT 坦克#7212 -> 护航矿车@[127, 105]
+[12:44:31] t=5772 MOVE assault x2 -> 攻击目标#1044@(70,117)
+[12:44:36] t=5778 MOVE aahunt x18 -> (125,84)
+[12:44:37] t=5780 RETREAT HTNK(6%)
+[12:44:37] t=5780 MOVE guard x1 -> (137,82)
+[12:44:39] t=5782 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:44:39] t=5782 MOVE assault x1 -> 攻击目标#2728@(74,126)
+[12:44:43] t=5788 MOVE raid x2 -> (70,117)
+[12:44:49] t=5796 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:44:51] t=5798 MOVE assault x1 -> 攻击目标#2728@(74,126)
+[12:44:54] t=5802 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:44:54] t=5802 tick#2900 credits=87 stance=attack | jev 1200 decisions p50=939ms
+[12:45:00] t=5810 ESCORT 坦克#7364 -> 护航矿车@[100, 100]
+[12:45:01] t=5812 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:45:06] t=5818 MOVE aahunt x18 -> (125,84)
+[12:45:13] t=5828 MOVE raid x2 -> (70,117)
+[12:45:25] t=5844 HARASS DRON x2 (have 0)
+[12:45:30] t=5850 ESCORT 坦克#7212 -> 护航矿车@[127, 105]
+[12:45:31] t=5852 MOVE assault x1 -> 攻击目标#2728@(74,126)
+[12:45:31] t=5852 tick#2925 credits=847 stance=attack | jev 1200 decisions p50=939ms
+[12:45:36] t=5858 MOVE aahunt x18 -> (125,84)
+[12:45:37] t=5860 MOVE guard x1 -> (137,82)
+[12:45:42] t=5866 TANK HTNK x2
+[12:45:43] t=5868 MOVE raid x2 -> (70,117); assault x1 -> 攻击目标#2728@(74,126)
+[12:45:48] t=5874 MOVE assault x1 -> 攻击目标#1063@(70,122)
+[12:45:49] t=5876 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:45:54] t=5882 MOVE raid x2 -> (67,118)
+[12:46:00] t=5890 ESCORT 坦克#7516 -> 护航矿车@[128, 105]
+[12:46:00] t=5890 MOVE assault x2 -> 攻击目标#1063@(70,122)
+[12:46:06] t=5898 MOVE aahunt x18 -> (125,84)
+[12:46:07] t=5900 MOVE guard x1 -> (137,82)
+[12:46:09] t=5902 tick#2950 credits=0 stance=attack | jev 1200 decisions p50=939ms
+[12:46:13] t=5908 MOVE assault x2 -> 攻击目标#1063@(70,122)
+[12:46:15] t=5910 MOVE assault x3 -> 攻击目标#1076@(67,115)
+[12:46:24] t=5922 MOVE raid x2 -> (67,118)
+[12:46:27] t=5926 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:46:27] t=5926 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:46:28] t=5928 TANK HTNK x2
+[12:46:30] t=5930 ESCORT 坦克#7219 -> 护航矿车@[89, 120]
+[12:46:36] t=5938 MOVE aahunt x18 -> (125,84)
+[12:46:37] t=5940 MOVE guard x1 -> (137,82)
+[12:46:39] t=5942 MOVE assault x3 -> 攻击目标#1076@(67,115)
+[12:46:46] t=5952 tick#2975 credits=416 stance=attack | jev 1200 decisions p50=939ms
+[12:46:49] t=5956 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:46:51] t=5958 ALARM unit lost -> 攻势保持（塔阵守家, 前线 26 个单位继续进攻）
+[12:46:51] t=5958 MOVE assault x3 -> 攻击目标#1076@(67,115)
+[12:46:54] t=5962 MOVE raid x2 -> (67,118)
+[12:47:00] t=5970 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:47:00] t=5970 ESCORT 坦克#7588 -> 护航矿车@[128, 104]
+[12:47:03] t=5974 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:47:06] t=5978 MOVE aahunt x18 -> (125,84)
+[12:47:07] t=5980 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:47:07] t=5980 MOVE guard x1 -> (137,82)
+[12:47:15] t=5990 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:47:24] t=6002 MOVE raid x2 -> (67,118)
+[12:47:24] t=6002 tick#3000 credits=0 stance=attack | jev 1200 decisions p50=939ms
+[12:47:27] t=6006 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:47:30] t=6010 ESCORT 坦克#7588 -> 护航矿车@[90, 124]
+[12:47:36] t=6018 MOVE aahunt x18 -> (125,84)
+[12:47:37] t=6020 MOVE guard x1 -> (137,82)
+[12:47:39] t=6022 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:47:49] t=6036 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:47:51] t=6038 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:47:51] t=6038 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:47:54] t=6042 MOVE raid x2 -> (67,118)
+[12:48:01] t=6052 HARASS DRON x2 (have 1)
+[12:48:02] t=6052 tick#3025 credits=1312 stance=attack | jev 1200 decisions p50=939ms
+[12:48:03] t=6054 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:48:04] t=6056 ESCORT 坦克#7618 -> 护航矿车@[108, 85]
+[12:48:06] t=6058 MOVE aahunt x18 -> (125,84)
+[12:48:07] t=6060 MOVE guard x1 -> (137,82)
+[12:48:15] t=6070 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:48:24] t=6082 RETREAT HTNK(6%)
+[12:48:24] t=6082 MOVE raid x3 -> (67,118)
+[12:48:28] t=6088 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:48:34] t=6096 TANK HTNK x2
+[12:48:34] t=6096 ESCORT 坦克#7565 -> 护航矿车@[128, 105]
+[12:48:36] t=6098 MOVE aahunt x18 -> (125,84)
+[12:48:37] t=6100 MOVE guard x1 -> (137,82)
+[12:48:39] t=6102 tick#3050 credits=1566 stance=attack | jev 1200 decisions p50=939ms
+[12:48:40] t=6104 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:48:46] t=6112 ALARM unit lost -> 攻势保持（塔阵守家, 前线 26 个单位继续进攻）
+[12:48:49] t=6116 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:48:52] t=6120 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:48:55] t=6124 MOVE raid x3 -> (67,118)
+[12:48:57] t=6126 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:49:06] t=6138 MOVE assault x3 -> 攻击目标#1076@(67,115); aahunt x18 -> (125,84)
+[12:49:08] t=6140 MOVE guard x1 -> (137,82)
+[12:49:13] t=6148 ESCORT 坦克#7565 -> 护航矿车@[91, 113]
+[12:49:17] t=6152 tick#3075 credits=437 stance=attack | jev 1200 decisions p50=939ms
+[12:49:18] t=6154 MOVE assault x3 -> 攻击目标#1076@(67,115)
+[12:49:26] t=6164 MOVE raid x2 -> (67,118)
+[12:49:30] t=6170 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:49:30] t=6170 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:49:36] t=6178 MOVE aahunt x18 -> (125,84)
+[12:49:38] t=6180 MOVE guard x1 -> (137,82)
+[12:49:42] t=6186 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:49:43] t=6188 ESCORT 坦克#7212 -> 护航矿车@[126, 105]
+[12:49:46] t=6192 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:49:50] t=6196 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:49:54] t=6202 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:49:54] t=6202 tick#3100 credits=737 stance=attack | jev 1200 decisions p50=939ms
+[12:49:56] t=6204 MOVE raid x2 -> (67,118)
+[12:50:02] t=6212 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:50:02] t=6212 MOVE assault x1 -> 攻击目标#1063@(70,122)
+[12:50:06] t=6218 MOVE aahunt x18 -> (125,84)
+[12:50:08] t=6220 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:50:14] t=6228 TANK HTNK x2
+[12:50:14] t=6228 ESCORT 坦克#7466 -> 护航矿车@[87, 125]
+[12:50:21] t=6238 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:50:26] t=6244 MOVE raid x2 -> (67,118)
+[12:50:29] t=6248 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:50:32] t=6252 tick#3125 credits=1512 stance=attack | jev 1200 decisions p50=939ms
+[12:50:33] t=6254 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:50:36] t=6258 MOVE aahunt x18 -> (125,84)
+[12:50:42] t=6266 HARASS DRON x2 (have 1)
+[12:50:42] t=6266 MOVE guard x1 -> (137,82)
+[12:50:44] t=6268 ESCORT 坦克#7685 -> 护航矿车@[128, 105]
+[12:50:45] t=6270 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:50:50] t=6276 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:50:51] t=6278 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:50:56] t=6284 MOVE raid x2 -> (67,118)
+[12:50:57] t=6286 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:51:06] t=6298 MOVE aahunt x18 -> (125,84)
+[12:51:09] t=6302 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:51:09] t=6302 tick#3150 credits=412 stance=attack | jev 1200 decisions p50=939ms
+[12:51:14] t=6308 ESCORT 坦克#7694 -> 护航矿车@[91, 102]
+[12:51:14] t=6308 MOVE guard x1 -> (137,82)
+[12:51:21] t=6318 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:51:26] t=6324 MOVE raid x2 -> (67,118)
+[12:51:30] t=6330 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:51:33] t=6334 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:51:36] t=6338 MOVE aahunt x18 -> (125,84)
+[12:51:38] t=6340 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:51:42] t=6346 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:51:44] t=6348 ESCORT 坦克#7633 -> 护航矿车@[98, 93]
+[12:51:45] t=6350 HARASS DRON x2 (have 1)
+[12:51:45] t=6350 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:51:47] t=6352 tick#3175 credits=905 stance=attack | jev 1200 decisions p50=939ms
+[12:51:48] t=6354 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:51:50] t=6356 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:51:56] t=6364 MOVE raid x2 -> (67,118)
+[12:51:59] t=6368 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:52:06] t=6378 MOVE aahunt x18 -> (125,84)
+[12:52:11] t=6384 RETREAT HTNK(6%)
+[12:52:11] t=6384 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:52:14] t=6388 ESCORT 坦克#7732 -> 护航矿车@[126, 105]
+[12:52:24] t=6402 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:52:24] t=6402 tick#3200 credits=212 stance=attack | jev 1200 decisions p50=939ms
+[12:52:26] t=6404 MOVE raid x2 -> (67,118)
+[12:52:36] t=6418 HARASS DRON x2 (have 1)
+[12:52:36] t=6418 MOVE aahunt x18 -> (125,84)
+[12:52:42] t=6426 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:52:44] t=6428 ESCORT 坦克#7732 -> 护航矿车@[82, 92]
+[12:52:48] t=6434 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:52:50] t=6436 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:52:53] t=6440 TANK HTNK x1
+[12:52:56] t=6444 MOVE raid x2 -> (67,118)
+[12:52:57] t=6446 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:53:02] t=6452 tick#3225 credits=841 stance=attack | jev 1200 decisions p50=939ms
+[12:53:08] t=6460 TANK HTNK x1
+[12:53:08] t=6460 MOVE assault x1 -> 攻击目标#1076@(67,115); aahunt x18 -> (125,84)
+[12:53:09] t=6462 TANK HTNK x1
+[12:53:11] t=6464 TANK HTNK x1
+[12:53:12] t=6466 TANK HTNK x1
+[12:53:14] t=6468 TANK HTNK x1
+[12:53:14] t=6468 ESCORT 坦克#7748 -> 护航矿车@[105, 88]
+[12:53:15] t=6470 TANK HTNK x1
+[12:53:17] t=6472 TANK HTNK x1
+[12:53:18] t=6474 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:53:18] t=6474 HARASS DRON x2 (have 1)
+[12:53:20] t=6476 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:53:26] t=6484 MOVE raid x2 -> (67,118)
+[12:53:30] t=6490 MOVE guard x1 -> (137,82)
+[12:53:32] t=6492 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:53:38] t=6500 MOVE aahunt x18 -> (125,84)
+[12:53:39] t=6502 tick#3250 credits=112 stance=attack | jev 1200 decisions p50=939ms
+[12:53:42] t=6506 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:53:44] t=6508 ESCORT 坦克#7761 -> 护航矿车@[126, 105]
+[12:53:44] t=6508 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:53:50] t=6516 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:53:53] t=6520 MOVE assault x1 -> 攻击目标#1063@(70,122)
+[12:53:54] t=6522 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:53:56] t=6524 MOVE raid x2 -> (67,118)
+[12:54:00] t=6530 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[12:54:00] t=6530 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:54:08] t=6540 MOVE aahunt x18 -> (125,84)
+[12:54:12] t=6546 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:54:14] t=6548 ESCORT 坦克#7761 -> 护航矿车@[87, 125]
+[12:54:17] t=6552 tick#3275 credits=487 stance=attack | jev 1200 decisions p50=939ms
+[12:54:24] t=6562 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:54:29] t=6568 HARASS DRON x2 (have 0)
+[12:54:35] t=6576 MOVE raid x2 -> (67,118)
+[12:54:38] t=6580 MOVE aahunt x18 -> (125,84)
+[12:54:41] t=6584 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:54:44] t=6588 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:54:44] t=6588 ESCORT 坦克#7797 -> 护航矿车@[87, 126]
+[12:54:50] t=6596 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:54:54] t=6602 tick#3300 credits=737 stance=attack | jev 1200 decisions p50=939ms
+[12:55:05] t=6616 MOVE raid x2 -> (67,118)
+[12:55:08] t=6620 MOVE aahunt x18 -> (125,84)
+[12:55:14] t=6628 ESCORT 坦克#7797 -> 护航矿车@[89, 126]
+[12:55:23] t=6640 TANK HTNK x1
+[12:55:30] t=6650 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[12:55:32] t=6652 tick#3325 credits=441 stance=attack | jev 1200 decisions p50=939ms
+[12:55:35] t=6656 MOVE raid x2 -> (67,118)
+[12:55:38] t=6660 MOVE assault x1 -> 攻击目标#1076@(67,115); aahunt x18 -> (125,84)
+[12:55:44] t=6668 ESCORT 坦克#7825 -> 护航矿车@[104, 93]
+[12:55:50] t=6676 MOVE assault x1 -> 攻击目标#1076@(67,115); hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:55:57] t=6686 RETREAT HTNK(6%)
+[12:56:02] t=6692 HARASS DRON x2 (have 1)
+[12:56:02] t=6692 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:56:05] t=6696 MOVE raid x2 -> (67,118)
+[12:56:08] t=6700 MOVE aahunt x18 -> (125,84)
+[12:56:09] t=6702 tick#3350 credits=1014 stance=attack | jev 1200 decisions p50=939ms
+[12:56:14] t=6708 ESCORT 坦克#7837 -> 护航矿车@[126, 105]
+[12:56:14] t=6708 MOVE assault x1 -> 攻击目标#1076@(67,115); guard x1 -> (137,82)
+[12:56:18] t=6714 MOVE assault x1 -> 攻击目标#1063@(70,122)
+[12:56:20] t=6716 TANK HTNK x2
+[12:56:20] t=6716 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:56:33] t=6734 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:56:35] t=6736 MOVE raid x2 -> (67,118)
+[12:56:38] t=6740 MOVE aahunt x18 -> (125,84)
+[12:56:44] t=6748 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:56:44] t=6748 ESCORT 坦克#7831 -> 护航矿车@[107, 86]
+[12:56:44] t=6748 MOVE guard x1 -> (137,82)
+[12:56:45] t=6750 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:56:47] t=6752 tick#3375 credits=387 stance=attack | jev 1200 decisions p50=939ms
+[12:56:50] t=6756 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:56:57] t=6766 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:57:05] t=6776 MOVE raid x2 -> (67,118)
+[12:57:08] t=6780 MOVE aahunt x18 -> (125,84)
+[12:57:09] t=6782 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:57:14] t=6788 ESCORT 坦克#7850 -> 护航矿车@[128, 105]
+[12:57:14] t=6788 MOVE guard x1 -> (137,82)
+[12:57:21] t=6798 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:57:21] t=6798 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:57:24] t=6802 tick#3400 credits=687 stance=attack | jev 1200 decisions p50=939ms
+[12:57:26] t=6804 HARASS DRON x2 (have 1)
+[12:57:33] t=6814 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:57:35] t=6816 MOVE raid x2 -> (67,118)
+[12:57:38] t=6820 MOVE aahunt x18 -> (125,84)
+[12:57:44] t=6828 ALARM unit lost -> 攻势保持（塔阵守家, 前线 26 个单位继续进攻）
+[12:57:44] t=6828 ESCORT 坦克#7862 -> 护航矿车@[128, 105]
+[12:57:44] t=6828 MOVE guard x1 -> (137,82)
+[12:57:45] t=6830 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:57:50] t=6836 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:57:53] t=6840 TANK HTNK x1
+[12:57:57] t=6846 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:58:02] t=6852 tick#3425 credits=341 stance=attack | jev 1200 decisions p50=939ms
+[12:58:05] t=6856 MOVE raid x2 -> (67,118)
+[12:58:08] t=6860 MOVE aahunt x18 -> (125,84)
+[12:58:09] t=6862 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[12:58:11] t=6864 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:58:14] t=6868 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:58:14] t=6868 ESCORT 坦克#7798 -> 护航矿车@[89, 126]
+[12:58:14] t=6868 MOVE guard x1 -> (137,82)
+[12:58:21] t=6878 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:58:29] t=6888 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[12:58:33] t=6894 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:58:35] t=6896 MOVE raid x2 -> (67,118)
+[12:58:38] t=6900 MOVE aahunt x18 -> (125,84)
+[12:58:39] t=6902 tick#3450 credits=412 stance=attack | jev 1200 decisions p50=939ms
+[12:58:44] t=6908 ESCORT 坦克#7825 -> 护航矿车@[126, 105]
+[12:58:45] t=6910 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:58:50] t=6916 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:58:59] t=6928 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:59:05] t=6936 MOVE raid x2 -> (67,118)
+[12:59:08] t=6940 MOVE aahunt x18 -> (125,84)
+[12:59:11] t=6944 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:59:14] t=6948 ESCORT 坦克#7882 -> 护航矿车@[82, 98]
+[12:59:17] t=6952 tick#3475 credits=712 stance=attack | jev 1200 decisions p50=939ms
+[12:59:21] t=6958 HARASS DRON x2 (have 1)
+[12:59:24] t=6962 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:59:27] t=6966 MOVE guard x1 -> (137,82)
+[12:59:33] t=6974 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[12:59:35] t=6976 MOVE raid x2 -> (67,118)
+[12:59:36] t=6978 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:59:38] t=6980 MOVE aahunt x18 -> (125,84)
+[12:59:44] t=6988 ESCORT 坦克#7825 -> 护航矿车@[128, 105]
+[12:59:44] t=6988 RETREAT HTNK(6%)
+[12:59:48] t=6994 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[12:59:50] t=6996 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[12:59:54] t=7002 tick#3500 credits=212 stance=attack | jev 1200 decisions p50=939ms
+[12:59:57] t=7006 MOVE guard x1 -> (137,82)
+[12:59:59] t=7008 TANK HTNK x1
+[13:00:00] t=7010 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:00:02] t=7012 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[13:00:03] t=7014 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[13:00:05] t=7016 MOVE raid x2 -> (67,118)
+[13:00:08] t=7020 MOVE aahunt x18 -> (125,84)
+[13:00:14] t=7028 HARASS DRON x2 (have 1)
+[13:00:14] t=7028 ESCORT 坦克#7825 -> 护航矿车@[104, 90]
+[13:00:14] t=7028 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:00:27] t=7046 MOVE assault x2 -> 攻击目标#1076@(67,115); guard x1 -> (137,82)
+[13:00:32] t=7052 tick#3525 credits=537 stance=attack | jev 1200 decisions p50=939ms
+[13:00:35] t=7056 MOVE raid x2 -> (67,118)
+[13:00:38] t=7060 MOVE aahunt x18 -> (125,84)
+[13:00:39] t=7062 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:00:41] t=7064 TANK HTNK x1
+[13:00:44] t=7068 ESCORT 坦克#7947 -> 护航矿车@[90, 102]
+[13:00:50] t=7076 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[13:00:51] t=7078 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:00:57] t=7086 ALARM unit lost -> 攻势保持（塔阵守家, 前线 26 个单位继续进攻）
+[13:00:57] t=7086 TANK HTNK x1
+[13:00:57] t=7086 MOVE guard x1 -> (137,82)
+[13:00:59] t=7088 TANK HTNK x1
+[13:01:00] t=7090 TANK HTNK x1
+[13:01:02] t=7092 TANK HTNK x1
+[13:01:03] t=7094 TANK HTNK x1
+[13:01:03] t=7094 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:01:05] t=7096 TANK HTNK x1
+[13:01:05] t=7096 MOVE raid x2 -> (67,118)
+[13:01:06] t=7098 TANK HTNK x1
+[13:01:08] t=7100 MOVE aahunt x18 -> (125,84)
+[13:01:09] t=7102 tick#3550 credits=716 stance=attack | jev 1200 decisions p50=939ms
+[13:01:12] t=7106 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[13:01:14] t=7108 ESCORT 坦克#7956 -> 护航矿车@[126, 105]
+[13:01:15] t=7110 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:01:27] t=7126 MOVE assault x2 -> 攻击目标#1076@(67,115); guard x1 -> (137,82)
+[13:01:35] t=7136 MOVE raid x2 -> (67,118)
+[13:01:38] t=7140 MOVE aahunt x18 -> (125,84)
+[13:01:39] t=7142 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:01:44] t=7148 ESCORT 坦克#7862 -> 护航矿车@[89, 125]
+[13:01:47] t=7152 tick#3575 credits=387 stance=attack | jev 1200 decisions p50=939ms
+[13:01:50] t=7156 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[13:01:53] t=7160 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:01:57] t=7166 MOVE guard x1 -> (137,82)
+[13:01:59] t=7168 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[13:02:05] t=7176 MOVE raid x2 -> (67,118); assault x1 -> 攻击目标#1076@(67,115)
+[13:02:08] t=7180 RETREAT HTNK(38%)
+[13:02:08] t=7180 MOVE aahunt x18 -> (125,84)
+[13:02:11] t=7184 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[13:02:14] t=7188 ESCORT 坦克#7825 -> 护航矿车@[128, 105]
+[13:02:17] t=7192 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:02:21] t=7198 HARASS DRON x2 (have 1)
+[13:02:24] t=7202 tick#3600 credits=694 stance=attack | jev 1200 decisions p50=939ms
+[13:02:26] t=7204 RETREAT HTNK(38%)
+[13:02:27] t=7206 MOVE guard x1 -> (137,82)
+[13:02:29] t=7208 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[13:02:29] t=7208 MOVE assault x1 -> 攻击目标#1063@(70,122)
+[13:02:33] t=7214 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:02:35] t=7216 MOVE raid x2 -> (67,118)
+[13:02:39] t=7222 MOVE aahunt x18 -> (125,84)
+[13:02:44] t=7228 ESCORT 坦克#7946 -> 护航矿车@[87, 126]
+[13:02:45] t=7230 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:02:50] t=7236 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[13:02:57] t=7246 MOVE assault x1 -> 攻击目标#1076@(67,115); guard x1 -> (137,82)
+[13:02:59] t=7248 TANK HTNK x1
+[13:03:02] t=7252 tick#3625 credits=812 stance=attack | jev 1200 decisions p50=939ms
+[13:03:05] t=7256 MOVE raid x2 -> (67,118)
+[13:03:06] t=7258 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[13:03:09] t=7262 MOVE assault x1 -> 攻击目标#1076@(67,115); aahunt x18 -> (125,84)
+[13:03:11] t=7264 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[13:03:14] t=7268 ESCORT 坦克#8042 -> 护航矿车@[125, 103]
+[13:03:21] t=7278 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:03:30] t=7290 RETREAT HTNK(6%)
+[13:03:35] t=7296 MOVE raid x2 -> (67,118); assault x1 -> 攻击目标#1076@(67,115)
+[13:03:39] t=7302 MOVE aahunt x18 -> (125,84)
+[13:03:39] t=7302 tick#3650 credits=412 stance=attack | jev 1200 decisions p50=939ms
+[13:03:47] t=7312 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:03:50] t=7316 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[13:03:53] t=7320 ESCORT 坦克#7825 -> 护航矿车@[90, 102]
+[13:03:59] t=7328 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:04:05] t=7336 MOVE raid x2 -> (67,118)
+[13:04:09] t=7342 MOVE aahunt x18 -> (125,84)
+[13:04:11] t=7344 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:04:15] t=7350 RETREAT HTNK(38%)
+[13:04:17] t=7352 tick#3675 credits=712 stance=attack | jev 1200 decisions p50=939ms
+[13:04:18] t=7354 ALARM unit lost -> 攻势保持（塔阵守家, 前线 22 个单位继续进攻）
+[13:04:23] t=7360 ESCORT 坦克#7825 -> 护航矿车@[97, 93]
+[13:04:26] t=7364 RETREAT HTNK(35%)
+[13:04:35] t=7376 HARASS DRON x2 (have 1)
+[13:04:35] t=7376 MOVE raid x2 -> (67,118)
+[13:04:39] t=7382 MOVE aahunt x18 -> (125,84)
+[13:04:41] t=7384 MOVE assault x1 -> 攻击目标#1063@(70,122)
+[13:04:47] t=7392 MOVE assault x1 -> 攻击目标#1076@(67,115); guard x1 -> (137,82)
+[13:04:53] t=7399 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[13:04:57] t=7405 ESCORT 坦克#8090 -> 护航矿车@[104, 90]
+[13:05:00] t=7409 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:05:00] t=7409 tick#3700 credits=887 stance=attack | jev 1200 decisions p50=939ms
+[13:05:06] t=7417 MOVE raid x2 -> (67,118)
+[13:05:10] t=7423 MOVE aahunt x18 -> (125,84)
+[13:05:13] t=7427 TANK HTNK x1
+[13:05:13] t=7427 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:05:18] t=7433 MOVE guard x1 -> (137,82)
+[13:05:25] t=7442 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:05:27] t=7445 ESCORT 坦克#8090 -> 护航矿车@[120, 118]
+[13:05:28] t=7447 TANK HTNK x2
+[13:05:30] t=7449 TANK HTNK x2
+[13:05:32] t=7451 TANK HTNK x2
+[13:05:33] t=7453 TANK HTNK x2
+[13:05:34] t=7455 TANK HTNK x2
+[13:05:37] t=7458 TANK HTNK x2
+[13:05:37] t=7458 MOVE raid x2 -> (67,118)
+[13:05:38] t=7460 TANK HTNK x2
+[13:05:39] t=7460 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:05:40] t=7462 tick#3725 credits=2311 stance=attack | jev 1200 decisions p50=939ms
+[13:05:42] t=7464 MOVE aahunt x18 -> (125,84)
+[13:05:50] t=7474 MOVE guard x1 -> (137,82)
+[13:05:52] t=7478 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:05:54] t=7480 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[13:05:57] t=7485 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[13:05:57] t=7485 ESCORT 坦克#8104 -> 护航矿车@[104, 89]
+[13:06:05] t=7495 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:06:08] t=7499 MOVE raid x2 -> (67,118)
+[13:06:12] t=7505 MOVE aahunt x18 -> (125,84)
+[13:06:17] t=7511 MOVE assault x3 -> 攻击目标#1076@(67,115)
+[13:06:18] t=7513 tick#3750 credits=887 stance=attack | jev 1200 decisions p50=939ms
+[13:06:20] t=7515 MOVE guard x1 -> (137,82)
+[13:06:23] t=7519 TANK HTNK x1
+[13:06:28] t=7526 ESCORT 坦克#8104 -> 护航矿车@[89, 126]
+[13:06:29] t=7528 MOVE assault x3 -> 攻击目标#1076@(67,115)
+[13:06:39] t=7540 MOVE raid x3 -> (67,118)
+[13:06:40] t=7542 RETREAT HTNK(38%)
+[13:06:42] t=7543 MOVE assault x3 -> 攻击目标#1076@(67,115)
+[13:06:43] t=7545 ALARM unit lost -> 攻势保持（塔阵守家, 前线 25 个单位继续进攻）
+[13:06:43] t=7545 MOVE aahunt x18 -> (125,84)
+[13:06:51] t=7556 MOVE guard x1 -> (137,82)
+[13:06:54] t=7560 MOVE assault x3 -> 攻击目标#1076@(67,115); hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[13:06:58] t=7565 tick#3775 credits=587 stance=attack | jev 1200 decisions p50=939ms
+[13:06:59] t=7567 ESCORT 坦克#8123 -> 护航矿车@[126, 105]
+[13:07:07] t=7577 RETREAT HTNK(38%)
+[13:07:08] t=7577 MOVE assault x3 -> 攻击目标#1076@(67,115)
+[13:07:09] t=7580 MOVE raid x2 -> (67,118)
+[13:07:11] t=7582 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[13:07:12] t=7582 MOVE assault x2 -> 攻击目标#1063@(70,122)
+[13:07:13] t=7585 MOVE assault x2 -> 攻击目标#1076@(67,115); aahunt x18 -> (125,84)
+[13:07:18] t=7592 RETREAT HTNK(6%)
+[13:07:20] t=7594 RETREAT HTNK(38%)
+[13:07:22] t=7597 MOVE guard x1 -> (137,82)
+[13:07:26] t=7603 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[13:07:26] t=7603 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:07:31] t=7609 ESCORT 坦克#7946 -> 护航矿车@[89, 126]
+[13:07:38] t=7619 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:07:39] t=7619 tick#3800 credits=887 stance=attack | jev 1200 decisions p50=939ms
+[13:07:40] t=7621 MOVE raid x2 -> (67,118)
+[13:07:43] t=7625 TANK HTNK x2
+[13:07:43] t=7625 MOVE aahunt x18 -> (125,84)
+[13:07:51] t=7636 MOVE assault x1 -> 攻击目标#1076@(67,115)
+[13:07:52] t=7638 MOVE guard x1 -> (137,82)
+[13:07:55] t=7642 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[13:08:02] t=7651 ESCORT 坦克#8179 -> 护航矿车@[127, 105]
+[13:08:03] t=7651 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:08:06] t=7656 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[13:08:10] t=7662 MOVE raid x2 -> (67,118); assault x1 -> 攻击目标#1063@(70,122)
+[13:08:13] t=7664 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:08:14] t=7667 RETREAT HTNK(32%)
+[13:08:15] t=7667 MOVE aahunt x18 -> (125,84)
+[13:08:20] t=7673 tick#3825 credits=137 stance=attack | jev 1200 decisions p50=939ms
+[13:08:24] t=7679 MOVE guard x1 -> (137,82)
+[13:08:26] t=7682 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:08:33] t=7692 ESCORT 坦克#8179 -> 护航矿车@[87, 99]
+[13:08:39] t=7700 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:08:40] t=7702 MOVE raid x2 -> (67,118)
+[13:08:45] t=7708 MOVE aahunt x18 -> (125,84)
+[13:08:52] t=7716 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:08:54] t=7720 TANK HTNK x2
+[13:08:55] t=7720 MOVE guard x1 -> (137,82)
+[13:08:56] t=7722 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75)
+[13:08:58] t=7724 tick#3850 credits=1237 stance=attack | jev 1200 decisions p50=939ms
+[13:09:04] t=7733 ESCORT 坦克#7825 -> 护航矿车@[128, 104]
+[13:09:04] t=7733 MOVE assault x2 -> 攻击目标#1076@(67,115)
+[13:09:10] t=7741 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[13:09:11] t=7741 MOVE raid x2 -> (67,118)
+[13:09:17] t=7750 MOVE assault x2 -> 攻击目标#1076@(67,115); aahunt x18 -> (125,84)
+[13:09:27] t=7763 MOVE guard x1 -> (137,82)
+[13:09:28] t=7765 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[13:09:28] t=7765 HARASS DRON x2 (have 1)
+[13:09:31] t=7765 MOVE assault x2 -> 攻击目标#1063@(70,122)
+[13:09:32] t=7771 RETREAT DRON(38%)
+[13:09:34] t=7772 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[13:09:35] t=7774 ESCORT 坦克#8195 -> 护航矿车@[89, 109]
+[13:09:41] t=7778 MOVE raid x2 -> (67,118)
+[13:09:43] t=7783 MOVE assault x3 -> 攻击目标#1063@(70,122)
+[13:09:44] t=7783 tick#3875 credits=262 stance=attack | jev 1200 decisions p50=939ms
+[13:09:50] t=7792 MOVE aahunt x18 -> (125,84)
+[13:09:56] t=7800 MOVE assault x3 -> 攻击目标#1063@(70,122)
+[13:09:57] t=7802 MOVE hold_a x2 -> (133,86); hold_b x2 -> (126,75); guard x1 -> (137,82)
+[13:10:06] t=7816 TANK HTNK x2
+[13:10:06] t=7816 ESCORT 坦克#8214 -> 护航矿车@[88, 124]
+[13:10:08] t=7816 MOVE assault x3 -> 攻击目标#1063@(70,122)
+[13:10:11] t=7822 MOVE raid x2 -> (67,118)
+[13:10:16] t=7828 MOVE assault x3 -> 攻击目标#1047@(67,118)
+[13:10:20] t=7834 ALARM unit lost -> 攻势保持（塔阵守家, 前线 23 个单位继续进攻）
+[13:10:20] t=7834 MOVE aahunt x18 -> (125,84)
+[13:10:28] t=7842 MOVE assault x3 -> 攻击目标#1047@(67,118); guard x1 -> (137,82)
+[13:10:32] t=7849 tick#3900 credits=0 stance=attack | jev 1200 decisions p50=939ms
+[13:10:37] t=7856 ESCORT 坦克#8354 -> 护航矿车@[128, 105]
+[13:10:37] t=7856 MOVE raid x3 -> (65,121); assault x3 -> 攻击目标#1837@(69,125)
+[13:10:42] t=7863 ALARM unit lost -> 攻势保持（塔阵守家, 前线 24 个单位继续进攻）
+[13:10:46] REVIEW game#58 victory → game-0058-review.md | changes=0
