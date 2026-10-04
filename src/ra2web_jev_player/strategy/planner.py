@@ -17,7 +17,7 @@ from .doctrine import (AA_VEHICLES, AIR_UNITS, CONF, DEF_BUILDINGS, HARVEST,
                        MCV_CODES, SCOUT_DOGS, THREAT_FORCE_DEFEND, T,
                        V3_CODES, get_side)
 from .state import (all_combat, available, buildings, combat_tanks, nm,
-                    pick_target, queues_by_type, ucost)
+                    pick_target, queues_by_type, ucost, force_value)
 
 
 class BattleMemory:
@@ -45,6 +45,10 @@ class BattleMemory:
         self.scout2_id = None           # [第37局] 第二侦察车（双车并行）
         self.dogs_queued = False
         self.retreated: dict = {}       # unitId -> 游戏秒(每 300s 只撤一次)
+        self.siege_mode = False         # [第75局 用户拍板] 终局围城锁存: 敌基地
+                                        # 已定位+敌经济死亡+战力≥1.5倍 → 全军总攻
+                                        # (74 局实证: "绝不打塔"铁律把 31 辆坦克锁在
+                                        # 机枪堡壳外 45 分钟零击杀的无限撤退循环)
         self.events: list = []          # 事件流(新→旧渲染时反转)
         self.bld_hp: dict = {}          # buildingId -> (name, hp, mhp, tl)
         self.unit_ids: dict = {}        # unitId -> 中文名(损失检测)
@@ -913,7 +917,10 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
     # RAID=骚扰组 [第31局A++, 第40局②规模, 第41局换装]: DRON 刺客优先入组
     # （400金秒矿车, 死了不心疼）, 坦克补足; 规模随池子 2→4。
     dron_ids = [u["id"] for u in units if u["n"] == "DRON"]
-    if mem.enemy_base and (len(tanks) >= 2 or dron_ids):
+    if getattr(mem, "siege_mode", False):
+        # [第75局] 围城: 机器人打不了建筑, 全部坦克归突击编队(用户"集结大军")
+        sq["raid"] = list(dron_ids)
+    elif mem.enemy_base and (len(tanks) >= 2 or dron_ids):
         n_raid = min(4, max(2, (len(tanks) + len(dron_ids)) // 3))
         # [第70局用户反馈 编队] 突击饥饿保护: 敌基地已定位且坦克池抽完 raid
         # 后突击组 <3 → raid 只用恐怖机器人, 坦克全部留给突击编队——
@@ -925,12 +932,14 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
         sq["raid"] = chosen
         tanks = [u for u in tanks if u["id"] not in chosen_set]
     # GUARD: 1 辆坦克守家（[第63局] 2→1, 用户反馈闲站坦克太多; 剩余≥2 才留）
-    if len(tanks) >= 2:
+    # [第75局] 围城时不留守家坦克——全编入突击(动员兵+塔守家足够)
+    if len(tanks) >= 2 and not getattr(mem, "siege_mode", False):
         sq["guard"] = [u["id"] for u in tanks[:max(1, T["keep_home"] - 1)]]
         tanks = tanks[max(1, T["keep_home"] - 1):]
     sq["assault"] = [u["id"] for u in tanks]
     total_combat = len(sq["raid"]) + len(sq["assault"]) + len(sq["guard"])
-    if mem.enemy_base and stance in ("attack", "rush") and total_combat >= 4:
+    if mem.enemy_base and stance in ("attack", "rush") and total_combat >= 4 \
+            and not getattr(mem, "siege_mode", False):
         # [第63局] 总战争模式: 步兵留 4 人守家, 其余全部参战拆建筑
         sq["hold"] = [u["id"] for u in inf[:4]]
         sq["assault"] += [u["id"] for u in inf[4:]]
@@ -952,9 +961,22 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
       RESERVE -> 家侧翼待机(危机救援优先从这抽人) (60s)
     目标优先级沿用 §4.3 打分; 页内集火含弹头×护甲克制加权(第31局)。
     """
+    acts, logs = [], []
+    # [第75局 用户拍板] 终局围城锁存: 敌基地已定位+进攻态势+敌经济死亡(视野内
+    # 无矿车)+我方战力≥1.5倍 → SIEGE。"绝不打塔"铁律的终局例外——铁律防的是
+    # 中盘白给, 不是终局放生: 74 局 31 辆坦克 45 分钟零击杀(打残→撤退→再派循环)
+    if not mem.siege_mode and mem.enemy_base and stance in ("attack", "rush"):
+        try:
+            my_v, en_v = force_value(s)
+        except Exception:
+            my_v, en_v = 0, 0
+        if not any(h["n"] in HARVEST for h in s["hostile"]) \
+                and my_v >= 1.5 * max(en_v, 1):
+            mem.siege_mode = True
+            logs.append("t=%d SIEGE LOCK-ON (my %d >= 1.5x en %d, 敌经济死亡) 全军集结总攻"
+                        % (s["t"], my_v, en_v))
     sq = assign_squads(s, home, mem, stance=stance)
     mem.last_squads = dict(sq)
-    acts, logs = [], []
     mx, my = s["map"]["width"], s["map"]["height"]
 
     def order(role, ids, x, y, throttle):
@@ -1022,6 +1044,22 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
         logs.append("t=%d AIR-EVADE assault x%d -> home (坦克打不到空中, 等AA猎杀)"
                     % (s["t"], len(sq["assault"])))
+    elif getattr(mem, "siege_mode", False) and mem.enemy_base:
+        # [第75局 围城] 防御壳优先——拔壳=解除对己方火力圈(机枪堡是钢甲, 坦克炮
+        # 正克制; 中盘"绕开塔"的保命规则至此解除), 壳清后按距离清建筑群
+        ref = squad_ref(sq["assault"])
+        defb = [h for h in s["hostile"] if h.get("o") == 2 and h["n"] in DEF_BUILDINGS]
+        bldg = [h for h in s["hostile"] if h.get("o") == 2]
+        pool = defb or bldg
+        if pool and ref and sq["assault"]:
+            b = min(pool, key=lambda h: math.hypot(h["tl"][0] - ref[0],
+                                                   h["tl"][1] - ref[1]))
+            order_obj("assault", sq["assault"], b["id"], b["tl"][0], b["tl"][1], 12)
+            logs.append("t=%d SIEGE %s x%d -> #%s@(%d,%d)"
+                        % (s["t"], "拔防御壳" if defb else "清建筑",
+                           len(sq["assault"]), b["id"], b["tl"][0], b["tl"][1]))
+        else:
+            order("assault", sq["assault"], mem.enemy_base[0], mem.enemy_base[1], 12)
     elif stance in ("attack", "rush") or mem.enemy_base:
         if mem.enemy_base:
             blds = [h for h in s["hostile"] if h["o"] == 2
