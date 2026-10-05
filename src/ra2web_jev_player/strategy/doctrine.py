@@ -173,6 +173,11 @@ build AA. **ENDGAME SIEGE EXCEPTION [user-mandated 2026-10-04]: when the enemy b
 located, their economy is dead (no harvesters) and our force value >= 1.5x theirs,
 SIEGE: the whole army mass-attacks — destroy defensive buildings (pillboxes/towers)
 first to silence their guns, then every remaining building. Do not cycle at the shell.**
+ADAPTIVE DEFENSE [user-mandated 2026-10-04]: do not execute the build formula blindly.
+If an enemy swarm (4+) reaches your door before your army forms and defenders are
+outnumbered, switch to RUSH-DEFENSE: spam conscripts (E2) for tower-line defense,
+ignoring the tank cash line — survival outranks the formula. Resume the normal
+formula the moment the threat clears.
 Five stances: DEVELOP (opening ~5min no contact: build, scout, save) DEFEND (base
 threatened: hold towers) RUSH (first 10 min with 4+ tanks: swap-base strike) ATTACK
 (7+ tanks and enemy base located: focus production buildings, keep 2 home) RECOVER
