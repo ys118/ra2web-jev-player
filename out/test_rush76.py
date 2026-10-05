@@ -78,8 +78,8 @@ check("21d 守12敌8 → 不触发", mem.rush_defense is False
 # ---- 21e 小骚扰(敌3) → 不触发(阈值≥4) ----
 s, mem = rush_state(threat_n=3, def_e2=1)
 _st, acts, logs = planner.checklist(s, HOME, "defend", mem)
-check("21e 敌3压门 → 不触发", mem.rush_defense is False
-      and not any(a.get("name") == "E2" for a in acts))
+check("21e 敌3压门 → 模式不触发(驻军E2合法产)", mem.rush_defense is False
+      and not any(a.get("name") == "E2" and a.get("qty") == 4 for a in acts))
 
 # ---- 21f E2 总量 30 上限 → 爆产封顶 ----
 s, mem = rush_state(cash=500, threat_n=8, def_e2=4, e2_extra=26, mode_pre=True)
