@@ -45,6 +45,8 @@ class BattleMemory:
         self.scout2_id = None           # [第37局] 第二侦察车（双车并行）
         self.dogs_queued = False
         self.retreated: dict = {}       # unitId -> 游戏秒(每 300s 只撤一次)
+        self.gdef_order = (-1, -999)    # [第78局] 哨炮在途判重 (下单时存量, 时刻)
+        self.e2_burst = (-1, -999)      # [第78局] RUSH-DEFENSE E2 爆产在途判重
         self.rush_defense = False       # [第76局 用户反馈] 动态早rush防御模式:
                                         # 敌兵海压门且守军对不上 → 动员兵爆产
                                         # (不受坦克资金线约束); 威胁解除自动恢复
@@ -264,6 +266,17 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     bl = buildings(mine)
     acts, logs = [], []
 
+    def _order_once(key, cur_n, window):
+        """[第78局 bug fix] 确定性生产在途判重: 队列快照滞后(引擎受理延迟)使
+        同一订单在连续 tick 上重复下发——77 局实锤六连 DEFLINE(3000 金被订单
+        黑洞抽干, 第 30 局已知竞态在 checklist 分支复发)。存量未变且未过窗口
+        → 视为在途, 拒绝重下; 存量变化(落地/被拆)或超窗口(疑似拒收, 允许重试)。"""
+        last_n, last_t = getattr(mem, key)
+        if cur_n == last_n and s["t"] - last_t < window:
+            return False
+        setattr(mem, key, (cur_n, s["t"]))
+        return True
+
     # 1) 基地受袭检测（确定性, 不等 jev）：敌人进入防御半径 → 强制 DEFEND。
     #    [第30局] attack/rush 态势下不打回 defend——攻势保持（crisis_response 的
     #    压崩召回兜底），否则敌人赖在 18 格内 = 永远进不了进攻（防守陷阱复辟）。
@@ -385,7 +398,9 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     if mem.rush_defense \
             and qs.get(2, {}).get("s", 0) == 0 \
             and "E2" in available(s["av"], 2) and cred >= ucost("E2") \
-            and len([u for u in mine if u["n"] == "E2"]) < 30:
+            and len([u for u in mine if u["n"] == "E2"]) < 30 \
+            and _order_once("e2_burst",
+                            len([u for u in mine if u["n"] == "E2"]), 30):
         acts.append({"act": "produce", "name": "E2", "qty": 4, "q": 2})
         logs.append("t=%d RUSH-DEFENSE E2 x4 (敌%d压门 守%d)"
                     % (s["t"], threat_n, def_n))
@@ -435,7 +450,8 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     if side["bar"] in bl and bl.get(side["gdef"], 0) < gdef_cap \
             and qs.get(1, {}).get("s", 0) == 0 \
             and side["gdef"] in available(s["av"], 1) and cred >= gdef_cash \
-            and (pw - drain) >= 40:
+            and (pw - drain) >= 40 \
+            and _order_once("gdef_order", bl.get(side["gdef"], 0), 60):
         # [第64局] 余量<40 不上塔: NALASR 吃电, 缺电=塔全瞎(rush 到来瞬间
         # power_low=True 的活局实证), 电厂优先, 塔晚 ~25s 但上线即有效
         acts.append({"act": "produce", "name": side["gdef"], "qty": 1, "q": 1})
