@@ -332,7 +332,10 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     n_harv = len([u for u in mine if u["n"] in HARVEST])
     n_ref = bl.get(side["ref"], 0)
     q3s = qs.get(3, {}).get("s", 0)
-    harv_target = min(4, T["harv_per_ref"] * n_ref)
+    # [第81局 经济军备竞速] 矿车硬顶 4→6: 80 局实锤敌被杀 66 矿车仍滚 25k 大军
+    # (产能差=连败根源), 4 车收入天花板追不平; 配合 71 局精炼厂豁免(ref_cap=3
+    # → 2×3=6 满编可达成), 收入翻倍对冲敌产能。
+    harv_target = min(6, T["harv_per_ref"] * n_ref)
     # [第45局复盘] 第3辆门槛 2800→1500: 见底率69% 的根源是"现金到不了 2800→矿车
     # 不补→收入上不去"死循环（矿车曲线全程仅 2 辆）; 第4辆仍 2800 防抢坦克线
     # [第63局用户反馈] 门槛 1400/1500/2800 → 800/1200/1500: 资金见底时

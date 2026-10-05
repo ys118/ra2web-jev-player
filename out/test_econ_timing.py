@@ -105,4 +105,28 @@ check("16d 3车+现金1250→补第4车(旧门槛1500不下)", any(
     a.get("name") == "HARV" for a in acts), str(logs))
 
 print("\n%s" % ("ALL PASS" if not fails else "FAILED: %s" % fails))
-sys.exit(0 if not fails else 1)
+
+# ---- 18: [第81局 经济军备竞速] 矿车硬顶 4→6 ----
+# 80 局实锤: 敌被杀 66 矿车仍滚 25k 大军, 4 车收入天花板追不平产能差。
+s, mem = econ_state(n_harv=4, cash=1400, n_ref=3)
+act = planner.opening_build(s, mem) or planner.checklist(s, (10, 10), "develop", mem)[1]
+_st, acts, logs = planner.checklist(s, (10, 10), "develop", mem)
+h4 = [a for a in acts if a.get("name") == "HARV" and a.get("act") == "produce"]
+check("18a 4车+ref3 → 第5车放行(旧cap4不放)",
+      bool(h4), str([l for l in logs if "ECON" in l][:1]))
+
+s, mem = econ_state(n_harv=6, cash=1400, n_ref=3)
+_st, acts, logs = planner.checklist(s, (10, 10), "develop", mem)
+h6 = [a for a in acts if a.get("name") == "HARV" and a.get("act") == "produce"]
+check("18b 6车 → 封顶不再补", not h6)
+
+s, mem = econ_state(n_harv=5, cash=1400, n_ref=2)
+_st, acts, logs = planner.checklist(s, (10, 10), "develop", mem)
+h5 = [a for a in acts if a.get("name") == "HARV" and a.get("act") == "produce"]
+check("18c ref2(目标4) 5车超target → 不补", not h5)
+
+print()
+if fails:
+    print("FAILURES:", fails)
+    sys.exit(1)
+print("=== 全部场景通过(含 18 系列 3 场景) ===")
