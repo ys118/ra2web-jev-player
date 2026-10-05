@@ -45,6 +45,10 @@ class BattleMemory:
         self.scout2_id = None           # [第37局] 第二侦察车（双车并行）
         self.dogs_queued = False
         self.retreated: dict = {}       # unitId -> 游戏秒(每 300s 只撤一次)
+        self.rush_defense = False       # [第76局 用户反馈] 动态早rush防御模式:
+                                        # 敌兵海压门且守军对不上 → 动员兵爆产
+                                        # (不受坦克资金线约束); 威胁解除自动恢复
+                                        # 原公式——第一个"按态势切换公式"的自适应机制
         self.siege_mode = False         # [第75局 用户拍板] 终局围城锁存: 敌基地
                                         # 已定位+敌经济死亡+战力≥1.5倍 → 全军总攻
                                         # (74 局实证: "绝不打塔"铁律把 31 辆坦克锁在
@@ -270,6 +274,24 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
             logs.append("t=%d DEFEND trigger: %d hostiles within r=%d"
                         % (s["t"], len(near), T["defend_radius"]))
             stance = "defend"
+    # [第76局 用户反馈①②] 动态早rush防御响应——首个"按战场态势切换公式"的
+    # 自适应机制: 敌兵海压门(近敌≥4)且门口守军对不上(守<1.2x敌) → RUSH-DEFENSE
+    # 模式(动员兵爆产不受坦克资金线约束; 75局实证: 20单位海压家时 13 E2 全灭、
+    # 坦克线来不及, 固定公式被 roll 穿透); 威胁解除自动恢复原公式。
+    threat_n = len(near) if home else 0
+    def_n = 0
+    if home:
+        def_n = len([u for u in mine
+                     if u["o"] in (3, 7) and u["n"] not in HARVEST
+                     and math.hypot(u["tl"][0] - home[0], u["tl"][1] - home[1]) <= 30])
+    if threat_n >= 4 and def_n < 1.2 * threat_n:
+        if not mem.rush_defense:
+            mem.rush_defense = True
+            logs.append("t=%d RUSH-DEFENSE ON (敌%d压门 vs 守%d) 动员兵爆产"
+                        % (s["t"], threat_n, def_n))
+    elif threat_n == 0 and mem.rush_defense:
+        mem.rush_defense = False
+        logs.append("t=%d RUSH-DEFENSE OFF (威胁解除) 恢复原公式" % s["t"])
 
     # 3) 部署基地车：仅 MCV 触发（页内 O.deploy 自带 type===7&&canDeploy 判别 +
     #    45s 节流）。注意不能对"任意 canDeploy 载具"部署——防空履带车等也有
@@ -354,6 +376,17 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
                            max(0, s["t"] - mem.v3_seen_t),
                            max(0, s["t"] - mem.long_fire_t)))
             cred -= aav_cost * qty
+
+    # 8) 不攒钱: 产能线 (坦克预算保护, 第 20 局复盘: 防御支出让位坦克)
+    # [第76局 RUSH-DEFENSE] 动员兵爆产: 模式激活时 q2 空闲即产 x2, 只受造价
+    # 约束(生存>一切), 排在坦克线之前吃现金——75 局 13 E2 对 20 海全灭实证。
+    if mem.rush_defense \
+            and qs.get(2, {}).get("s", 0) == 0 \
+            and "E2" in available(s["av"], 2) and cred >= ucost("E2") \
+            and len([u for u in mine if u["n"] == "E2"]) < 30:
+        acts.append({"act": "produce", "name": "E2", "qty": 2, "q": 2})
+        logs.append("t=%d RUSH-DEFENSE E2 x2 (敌%d压门 守%d)"
+                    % (s["t"], threat_n, def_n))
 
     # 8) 不攒钱: 产能线 (坦克预算保护, 第 20 局复盘: 防御支出让位坦克)
     # [第46局复盘] 矿车补员期给坦克线让路: 矿车数低于下限时坦克线需同时覆盖
@@ -1189,7 +1222,8 @@ def apply_jev(s: dict, ans: dict, stance: str, mem: BattleMemory,
             bl = buildings(s["mine"])
             n_e2 = len([u for u in s["mine"] if u["n"] == "E2"])
             factory_gate = bl.get(side["weap"], 0) == 0 \
-                or s["me"]["credits"] >= T["tank_cash1"]
+                or s["me"]["credits"] >= T["tank_cash1"] \
+                or mem.rush_defense   # [第76局] 防御模式下 E2 不受坦克资金线
             e2_gate = not (i == "E2" and n_e2 >= 30)
             if factory_gate and e2_gate:
                 acts.append({"act": "produce", "name": i, "qty": 1, "q": 2})
