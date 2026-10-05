@@ -23,7 +23,9 @@ from ..paths import KNOWLEDGE_DIR
 T = dict(
     harv_per_ref=2,      # 每精炼厂 2 矿车 (rules.ini 官方配比)
     harv_min=2,          # 矿车下限
-    ref_cap=3,           # 精炼厂上限（速攻期实际只建 1 座, 见 opening_build 的 ref_cap_now）
+    ref_cap=4,           # 精炼厂上限 [第85局] 3→4: 三厂产能(83局)需匹配收入,
+                         # 84 局见底率 52% 实证 6 矿车喂不饱三厂（速攻期实际只
+                         # 建 1 座, 见 opening_build 的 ref_cap_now）
     factory2_cash=1800,  # 第二工厂资金门槛 [第40局①] 4500→3000→[第62局用户指示
                          #   "提升出兵速度和规模"]→2400→[第69局 boost_econ]→1800:
                          #   第 68 局实证二厂实为 2900 双闸(factory2_cash 2400 +
