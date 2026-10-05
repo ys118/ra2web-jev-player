@@ -62,25 +62,25 @@ act = planner.opening_build(s, mem)
 check("15a ref缺额+现金3000→精炼厂优先", act is not None and act["name"] == "NAREFN",
       str(act))
 
-s, mem = open_state(700, 3, 1900)
+s, mem = open_state(700, 4, 1900)
 act = planner.opening_build(s, mem)
-check("15b ref满+现金1900→二厂(旧码为None)", act is not None and act["name"] == "NAWEAP",
+check("15b(85局改) ref满+现金1900→二厂", act is not None and act["name"] == "NAWEAP",
       str(act))
 
-s, mem = open_state(700, 3, 1700)
+s, mem = open_state(700, 4, 1700)
 act = planner.opening_build(s, mem)
-check("15c 现金1700<1800→不下单", act is None, str(act))
+check("15c(85局改) 现金1700<1800→不下单", act is None, str(act))
 
-s, mem = open_state(2500, 3, 100)
+s, mem = open_state(2500, 4, 100)
 act = planner.opening_build(s, mem)
-check("15d late_game(t>2400)→无条件二厂", act is not None and act["name"] == "NAWEAP",
+check("15d(85局改) late_game(t>2400)→无条件二厂", act is not None and act["name"] == "NAWEAP",
       str(act))
 
 s, mem = open_state(700, 2, 2000)
 act = planner.opening_build(s, mem)
 # [第71局] 精炼厂缺额豁免后旧语义被取代: ref 缺额(存量<ref_cap)不再"买不起",
 # 无条件优先于二厂(收入>吞吐); ref=cap 时才回落二厂(见 15d)
-check("15e(71局改) ref缺额豁免: 现金2000<旧闸2900→先补第三矿厂",
+check("15e(71局改) ref缺额豁免: 现金2000<旧闸2900→先补矿厂",
       act is not None and act["name"] == "NAREFN", str(act))
 
 # ---- 16: 矿车门槛 600/900/1200 ----
@@ -118,7 +118,12 @@ check("18a 4车+ref3 → 第5车放行(旧cap4不放)",
 s, mem = econ_state(n_harv=6, cash=1400, n_ref=3)
 _st, acts, logs = planner.checklist(s, (10, 10), "develop", mem)
 h6 = [a for a in acts if a.get("name") == "HARV" and a.get("act") == "produce"]
-check("18b 6车 → 封顶不再补", not h6)
+check("18b ref3 目标6 → 6车封顶不补", not h6)
+
+s, mem = econ_state(n_harv=7, cash=1400, n_ref=4)
+_st, acts, logs = planner.checklist(s, (10, 10), "develop", mem)
+h8 = [a for a in acts if a.get("name") == "HARV" and a.get("act") == "produce"]
+check("18d(85局) ref4 目标8 → 第8车放行", bool(h8), str([l for l in logs if "ECON" in l][:1]))
 
 s, mem = econ_state(n_harv=5, cash=1400, n_ref=2)
 _st, acts, logs = planner.checklist(s, (10, 10), "develop", mem)

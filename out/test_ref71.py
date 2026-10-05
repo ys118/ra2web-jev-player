@@ -46,9 +46,9 @@ s, mem = open_state(700, 2, 0)
 check("17a ref=2 cash=0 NAREFN 放行",
       planner.build_gate(s, planner.ucost("NAREFN"), mem, "NAREFN") is True)
 
-# ---- 17b 封顶: ref=3(=cap) → 仍受坦克资金线约束 ----
-s, mem = open_state(700, 3, 0)
-check("17b ref=3 封顶后 cash=0 仍 HOLD",
+# ---- 17b 封顶: ref=4(=cap, 85局扩容) → 仍受坦克资金线约束 ----
+s, mem = open_state(700, 4, 0)
+check("17b ref=4 封顶后 cash=0 仍 HOLD",
       planner.build_gate(s, planner.ucost("NAREFN"), mem, "NAREFN") is False)
 
 # ---- 17c 非精炼厂建筑闸门行为不变 ----
@@ -62,16 +62,16 @@ mem.current_stance = "recover"
 check("17d RECOVER 放开不变",
       planner.build_gate(s, planner.ucost("NARADR"), mem, "NARADR") is True)
 
-# ---- 17e Jev 路径端到端: ref=2 cash=0 → 下单精炼厂(不再 HOLD) ----
-s, mem = open_state(500, 2, 0)
+# ---- 17e Jev 路径端到端: ref=3(<cap4) cash=0 → 下单精炼厂(不再 HOLD) ----
+s, mem = open_state(500, 3, 0)
 _st, acts, logs = planner.apply_jev(
     s, {"build": {"choice": "NAREFN", "confidence": 0.30}}, "develop", mem)
 check("17e Jev 路径 ref=2 cash=0 → produce NAREFN",
       any(a.get("name") == "NAREFN" and a.get("act") == "produce" for a in acts),
       str(logs[:1]))
 
-# ---- 17f Jev 路径封顶: ref=3 → 无动作(外层 cap 拦截) ----
-s, mem = open_state(500, 3, 0)
+# ---- 17f Jev 路径封顶: ref=4 → 无动作(外层 cap 拦截) ----
+s, mem = open_state(500, 4, 0)
 _st, acts, logs = planner.apply_jev(
     s, {"build": {"choice": "NAREFN", "confidence": 0.30}}, "develop", mem)
 check("17f Jev 路径 ref=3 → 不下单", not acts, str(logs[:1]))

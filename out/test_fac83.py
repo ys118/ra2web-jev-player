@@ -25,7 +25,7 @@ def unit(uid, n, o, tl, hp=100, mhp=100):
 def fac_state(cash, n_weap, extra_av=None):
     BASE = ["NACNST", "NAPOWR", "NAREFN", "NAHAND"]
     mine = [unit("b%d" % i, n, 2, (10 + i, 10)) for i, n in enumerate(BASE)]
-    for i in range(2):                       # 3 矿厂(满足 ref_cap, 跳过缺额优先)
+    for i in range(3):                       # 4 矿厂(满足 ref_cap=4, 85局扩容)
         mine.append(unit("r%d" % i, "NAREFN", 2, (15 + i, 12)))
     for i in range(n_weap):
         mine.append(unit("w%d" % i, "NAWEAP", 2, (20 + i, 10)))
