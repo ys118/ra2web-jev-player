@@ -52684,3 +52684,2278 @@
 [13:13:27] t=635 tick#300 credits=747 stance=defend | jev 300 decisions p50=1233ms
 [13:13:50] t=667 OPENING REJECT NAPOWR (40gs 无进展, 拉黑)
 [13:13:54] REVIEW game#65 defeat → game-0065-review.md | changes=0
+[13:33:10] 进局中(全自动)...
+[13:33:39] === ra2web-jev-player start (tick=1.5s, max_decisions=999999) ===
+[13:33:39] t=2 DEPLOY mcv
+[13:33:41] t=4 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:33:41] t=4 jev STANCE defend->develop (conf 0.91)
+[13:33:42] t=6 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:33:44] t=8 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:33:45] t=10 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:33:47] t=12 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:33:48] t=14 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:33:50] t=16 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:33:51] t=18 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:33:53] t=20 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:33:54] t=22 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:33:56] t=24 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:33:57] t=26 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:33:59] t=28 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:34:00] t=30 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:34:02] t=32 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:34:03] t=34 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:34:05] t=36 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:34:06] t=38 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:34:08] t=40 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:34:09] t=42 OPENING REJECT NAREFN (40gs 无进展, 拉黑)
+[13:34:09] t=42 OPENING FALLBACK -> legacy NAPOWR-first
+[13:34:09] t=42 OPENING BUILD NAPOWR
+[13:34:15] t=50 tick#25 credits=9780 stance=develop | jev 25 decisions p50=846ms
+[13:34:28] t=68 OPENING BUILD NAREFN
+[13:34:53] t=101 tick#50 credits=8628 stance=develop | jev 50 decisions p50=854ms
+[13:35:31] t=151 tick#75 credits=7420 stance=develop | jev 75 decisions p50=886ms
+[13:35:37] t=161 OPENING BUILD NAHAND
+[13:35:55] t=185 DEFLINE NALASR (have 0)
+[13:35:55] t=185 OPENING BUILD NAWEAP
+[13:36:08] t=201 tick#100 credits=6072 stance=develop | jev 100 decisions p50=899ms
+[13:36:13] t=209 DEFLINE NALASR (have 1)
+[13:36:35] t=237 jev INF E2 (conf 0.31)
+[13:36:40] t=243 MOVE hold_a x1 -> (136,86)
+[13:36:46] t=251 tick#125 credits=4718 stance=defend | jev 125 decisions p50=917ms
+[13:36:58] t=269 DEFLINE NALASR (have 1)
+[13:37:03] t=275 ECON harv#2
+[13:37:03] t=275 TANK HTNK x3
+[13:37:04] t=275 jev BUILD NAREFN (conf 0.34)
+[13:37:16] t=292 INSURE AA building
+[13:37:26] t=304 tick#150 credits=4420 stance=defend | jev 150 decisions p50=949ms
+[13:37:41] t=324 MOVE hold_a x1 -> (136,86)
+[13:38:07] t=359 tick#175 credits=1000 stance=defend | jev 175 decisions p50=989ms
+[13:38:11] t=366 POWER plant (reserve -35)
+[13:38:16] t=373 SCOUT #1093->[53, 186]
+[13:38:18] t=375 SCOUT* #1093->[53, 186]
+[13:38:41] t=404 MOVE hold_a x1 -> (136,86)
+[13:38:49] t=415 tick#200 credits=0 stance=defend | jev 200 decisions p50=1143ms
+[13:39:14] t=448 jev BUILD NAREFN (conf 0.28)
+[13:39:24] t=461 MOVE assault x1 -> (137,82)
+[13:39:31] t=470 tick#225 credits=798 stance=defend | jev 225 decisions p50=1180ms
+[13:39:38] t=479 MOVE assault x1 -> (137,82)
+[13:39:41] t=484 MOVE hold_a x1 -> (136,86)
+[13:39:51] t=497 MOVE assault x1 -> (137,82)
+[13:39:53] t=502 ECON harv#4
+[13:39:53] t=502 TANK HTNK x2
+[13:39:55] t=502 MOVE guard x1 -> (137,82)
+[13:40:05] t=515 MOVE assault x1 -> (137,82)
+[13:40:13] t=526 tick#250 credits=1639 stance=defend | jev 250 decisions p50=1215ms
+[13:40:18] t=533 MOVE assault x1 -> (137,82)
+[13:40:21] t=537 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=1117)
+[13:40:23] t=540 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=1064)
+[13:40:25] t=542 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=1010)
+[13:40:25] t=542 MOVE guard x1 -> (137,82)
+[13:40:26] t=544 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=955)
+[13:40:28] t=546 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=901)
+[13:40:30] t=549 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=848)
+[13:40:31] t=551 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=793)
+[13:40:31] t=551 MOVE assault x1 -> (137,82)
+[13:40:33] t=553 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=738)
+[13:40:35] t=555 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=684)
+[13:40:36] t=558 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=629)
+[13:40:38] t=560 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=575)
+[13:40:40] t=562 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=519)
+[13:40:41] t=564 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=464)
+[13:40:41] t=564 MOVE hold_a x1 -> (136,86)
+[13:40:43] t=566 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=407)
+[13:40:43] t=569 ALARM enemy approaching -> counter 3 vs 2 -> [124, 82]
+[13:40:43] t=569 SCOUT* #1093->[14, 114]
+[13:40:50] t=569 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=350)
+[13:40:52] t=578 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=122)
+[13:40:52] t=578 MOVE assault x1 -> (137,82); hold_a x1 -> (132,86)
+[13:40:52] t=580 ALARM NAPOWR under attack -> counter 3 vs 2 -> [133, 77]
+[13:40:54] t=580 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=60)
+[13:40:55] t=583 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:40:57] t=585 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:40:59] t=588 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:41:01] t=590 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:41:01] t=590 MOVE hold_a x1 -> (129,85); guard x1 -> (137,82)
+[13:41:01] t=590 tick#275 credits=0 stance=defend | jev 275 decisions p50=1384ms
+[13:41:01] t=592 ALARM enemy approaching -> TURTLE (3 v 3, 守塔阵不打野战)
+[13:41:03] t=592 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:41:04] t=595 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:41:06] t=597 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:41:08] t=600 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:41:10] t=602 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:41:10] t=602 MOVE assault x1 -> (137,82)
+[13:41:10] t=604 ALARM enemy approaching -> counter 3 vs 2 -> [127, 81]
+[13:41:12] t=604 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:41:12] t=607 RETREAT E2(32%)
+[13:41:13] t=607 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:41:15] t=609 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:41:15] t=611 RETREAT HTNK(32%)
+[13:41:17] t=611 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:41:19] t=614 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=0)
+[13:41:19] t=614 MOVE hold_a x1 -> (132,86)
+[13:41:20] t=616 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=1119)
+[13:41:22] t=618 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=1060)
+[13:41:22] t=618 MOVE assault x1 -> (137,82)
+[13:41:24] t=621 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=999)
+[13:41:26] t=623 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=940)
+[13:41:27] t=625 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=879)
+[13:41:29] t=628 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=821)
+[13:41:29] t=630 ESCORT 坦克#1104 -> 护航矿车@[125, 104]
+[13:41:29] t=630 SCOUT* #1093->[14, 138]; t=630 SCOUT2 #1104->[66, 121]
+[13:41:31] t=630 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=760)
+[13:41:31] t=630 MOVE guard x1 -> (137,82)
+[13:41:33] t=633 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=694)
+[13:41:34] t=635 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=635)
+[13:41:34] t=635 MOVE assault x2 -> (137,82)
+[13:41:36] t=637 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=573)
+[13:41:36] t=640 OPENING BUILD NAWEAP
+[13:41:42] t=647 ALARM enemy approaching -> counter 2 vs 2 -> [116, 80]
+[13:41:45] t=649 jev INF E2 (conf 0.36)
+[13:41:45] t=649 tick#300 credits=1689 stance=defend | jev 300 decisions p50=1398ms
+[13:41:45] t=652 RUSH-DEFENSE ON (敌5压门 vs 守5) 动员兵爆产
+[13:41:49] t=656 RUSH-DEFENSE E2 x4 (敌9压门 守6)
+[13:41:51] t=656 jev INF E2 (conf 0.47)
+[13:41:51] t=656 MOVE assault x2 -> (137,82); t=656 RUSH-DEFENSE tanks x2 -> 塔线协防; hold_a x1 -> (129,85); hold_b x1 -> (129,72)
+[13:41:51] t=659 ALARM enemy approaching -> TURTLE (3 v 9, 守塔阵不打野战)
+[13:41:53] t=659 jev INF E2 (conf 0.46)
+[13:41:55] t=662 jev INF E2 (conf 0.46)
+[13:41:56] t=664 jev INF E2 (conf 0.45)
+[13:41:57] t=666 TANK HTNK x3
+[13:41:58] t=666 jev INF E2 (conf 0.47)
+[13:42:00] t=669 jev INF E2 (conf 0.46)
+[13:42:00] t=669 MOVE t=669 RUSH-DEFENSE tanks x3 -> 塔线协防; hold_a x1 -> (128,85); hold_b x1 -> (130,72)
+[13:42:00] t=672 ALARM enemy approaching -> TURTLE (4 v 8, 守塔阵不打野战)
+[13:42:02] t=672 jev INF E2 (conf 0.48)
+[13:42:04] t=674 jev INF E2 (conf 0.46)
+[13:42:06] t=677 jev INF E2 (conf 0.48)
+[13:42:08] t=679 jev INF E2 (conf 0.48)
+[13:42:09] t=682 jev INF E2 (conf 0.51)
+[13:42:09] t=682 MOVE assault x3 -> (137,82); t=682 RUSH-DEFENSE tanks x3 -> 塔线协防; hold_a x1 -> (128,84); hold_b x1 -> (130,71); guard x1 -> (137,82)
+[13:42:10] t=684 ALARM enemy approaching -> TURTLE (4 v 7, 守塔阵不打野战)
+[13:42:10] t=684 RETREAT HTNK(39%)
+[13:42:12] t=684 jev INF E2 (conf 0.50)
+[13:42:16] t=692 RUSH-DEFENSE E2 x4 (敌5压门 守8)
+[13:42:16] t=692 SCOUT* #1093->[14, 53]
+[13:42:17] t=692 jev INF E2 (conf 0.48)
+[13:42:19] t=694 jev INF E2 (conf 0.45)
+[13:42:19] t=697 ALARM enemy approaching -> TURTLE (5 v 5, 守塔阵不打野战)
+[13:42:21] t=697 jev INF E2 (conf 0.47)
+[13:42:23] t=699 jev INF E2 (conf 0.49)
+[13:42:25] t=702 jev INF E2 (conf 0.46)
+[13:42:26] t=704 jev INF E2 (conf 0.37)
+[13:42:26] t=704 ATTACK (tanks=6)
+[13:42:28] t=706 jev INF E2 (conf 0.46)
+[13:42:28] t=706 MOVE assault x4 -> (137,82); t=706 RUSH-DEFENSE tanks x4 -> 塔线协防
+[13:42:28] t=709 ALARM enemy approaching -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[13:42:30] t=709 jev INF E2 (conf 0.44)
+[13:42:30] t=709 jev STANCE attack->rush (conf 0.46)
+[13:42:30] t=709 ATTACK (tanks=6)
+[13:42:30] t=711 ALARM enemy approaching -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[13:42:32] t=711 jev INF E2 (conf 0.43)
+[13:42:32] t=711 tick#325 credits=736 stance=attack | jev 325 decisions p50=1413ms
+[13:42:32] t=714 ALARM enemy approaching -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[13:42:34] t=714 jev INF E2 (conf 0.44)
+[13:42:34] t=714 jev STANCE attack->rush (conf 0.46)
+[13:42:34] t=714 ATTACK (tanks=6)
+[13:42:34] t=716 ALARM enemy approaching -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[13:42:35] t=716 jev INF E2 (conf 0.41)
+[13:42:35] t=716 MOVE t=716 RUSH-DEFENSE tanks x4 -> 塔线协防; hold_a x2 -> (127,84); hold_b x1 -> (131,71)
+[13:42:36] t=719 ALARM enemy approaching -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[13:42:37] t=719 jev INF E2 (conf 0.41)
+[13:42:37] t=721 ALARM enemy approaching -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[13:42:39] t=723 ALARM enemy approaching -> 攻势保持（塔阵守家, 前线 6 个单位继续进攻）
+[13:42:41] t=723 MOVE assault x4 -> (137,82); t=723 RUSH-DEFENSE tanks x4 -> 塔线协防; guard x1 -> (137,82)
+[13:42:41] t=726 ALARM enemy approaching -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[13:42:43] t=726 jev INF E2 (conf 0.48)
+[13:42:43] t=728 ALARM enemy approaching -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[13:42:43] t=728 POWER plant (reserve 36)
+[13:42:43] t=728 RUSH-DEFENSE E2 x4 (敌1压门 守10)
+[13:42:44] t=728 jev INF E2 (conf 0.49)
+[13:42:45] t=730 RUSH-DEFENSE OFF (威胁解除) 恢复原公式
+[13:42:46] t=730 jev INF E2 (conf 0.32)
+[13:42:46] t=730 MOVE assault x4 -> (66,121)
+[13:42:48] t=733 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[13:42:51] t=737 jev INF E2 HOLD (预算保护 gate=False e2=4)
+[13:42:52] t=740 ALARM enemy approaching -> RESCUE 预备队 3 人驰援远端 [114, 87]
+[13:42:55] t=742 jev STANCE attack->rush (conf 0.46)
+[13:42:55] t=742 ATTACK (tanks=7)
+[13:42:57] t=745 jev STANCE attack->rush (conf 0.47)
+[13:42:57] t=745 ATTACK (tanks=7)
+[13:42:57] t=747 ESCORT 坦克#1104 -> 护航矿车@[129, 104]
+[13:43:01] t=750 MOVE assault x5 -> (120,95); hold_a x2 -> (135,86); hold_b x2 -> (126,78)
+[13:43:01] t=752 ALARM enemy approaching -> RESCUE 预备队 3 人驰援远端 [119, 98]
+[13:43:01] t=752 SCOUT* #1093->[49, 186]
+[13:43:08] t=759 jev INF E2 (conf 0.29)
+[13:43:10] t=762 MOVE assault x5 -> (66,121); hold_a x2 -> (136,86)
+[13:43:11] t=764 MOVE guard x1 -> (137,82)
+[13:43:13] t=767 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[13:43:15] t=769 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=359)
+[13:43:15] t=769 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[13:43:17] t=771 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=359)
+[13:43:17] t=771 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[13:43:17] t=771 tick#350 credits=359 stance=attack | jev 350 decisions p50=1425ms
+[13:43:18] t=774 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=359)
+[13:43:20] t=776 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=359)
+[13:43:22] t=778 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=359)
+[13:43:22] t=778 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[13:43:22] t=778 MOVE assault x6 -> (66,121)
+[13:43:24] t=781 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=359)
+[13:43:24] t=781 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[13:43:25] t=783 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=359)
+[13:43:27] t=785 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=359)
+[13:43:27] t=785 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[13:43:27] t=787 ESCORT 坦克#1104 -> 护航矿车@[125, 106]
+[13:43:29] t=787 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=359)
+[13:43:29] t=787 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[13:43:31] t=790 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=359)
+[13:43:31] t=790 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[13:43:32] t=792 jev BUILD NAHAND HOLD (资金闸门: 坦克优先, cash=359)
+[13:43:32] t=792 jev INF E2 HOLD (预算保护 gate=False e2=5)
+[13:43:33] t=794 TANK HTNK x2
+[13:43:34] t=794 jev BUILD NAHAND (conf 0.18)
+[13:43:34] t=794 MOVE assault x6 -> (66,121)
+[13:43:43] t=806 MOVE guard x1 -> (137,82)
+[13:43:46] t=811 MOVE assault x6 -> (66,121)
+[13:43:47] t=813 ENEMY BASE spotted @[75, 118]
+[13:43:50] t=813 MOVE raid x2 -> (89,115); assault x6 -> 攻击目标#1181@(75,115); hold_a x2 -> (133,86); hold_b x2 -> (126,76)
+[13:43:52] t=818 MOVE raid x2 -> (89,109); hold_b x2 -> (126,75)
+[13:43:54] t=820 jev BUILD NARADR HOLD (资金闸门: 坦克优先, cash=819)
+[13:43:54] t=820 MOVE raid x2 -> (90,106)
+[13:43:56] t=823 jev BUILD NARADR (conf 0.14)
+[13:43:56] t=823 jev INF E2 (conf 0.28)
+[13:43:56] t=823 MOVE raid x2 -> (89,104)
+[13:43:58] t=826 MOVE raid x2 -> (90,102)
+[13:43:58] t=829 ESCORT 坦克#1104 -> 护航矿车@[124, 103]
+[13:44:00] t=829 MOVE raid x2 -> (91,102)
+[13:44:00] t=831 HARASS DRON x2 (have 0)
+[13:44:02] t=831 jev INF E2 (conf 0.43)
+[13:44:02] t=831 MOVE t=831 SIEGE LOCK-ON (my 9540 >= 1.5x en 4510, 敌经济死亡) 全军集结总攻; assault x9 -> 攻击目标#1592@(73,111); t=831 SIEGE 拔防御壳 x9 -> #1592@(73,111)
+[13:44:04] t=834 jev INF E2 (conf 0.46)
+[13:44:04] t=834 tick#375 credits=972 stance=attack | jev 375 decisions p50=1434ms
+[13:44:06] t=837 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:08] t=839 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:08] t=839 MOVE raid x1 -> (74,111); t=839 SIEGE 拔防御壳 x10 -> #1592@(73,111)
+[13:44:11] t=842 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:11] t=842 MOVE raid x1 -> (80,119); t=842 SIEGE 拔防御壳 x10 -> #1592@(73,111)
+[13:44:14] t=846 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:14] t=846 jev VEH HTK HOLD (预算保护 cash=34 aav帽=ok aav=0)
+[13:44:14] t=846 MOVE raid x2 -> (74,111); t=846 SIEGE 拔防御壳 x11 -> #1592@(73,111)
+[13:44:16] t=850 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:16] t=850 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:16] t=850 MOVE raid x2 -> (71,114); assault x11 -> 攻击目标#1659@(76,109); t=850 SIEGE 拔防御壳 x11 -> #1659@(76,109)
+[13:44:18] t=853 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:18] t=853 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:20] t=855 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:20] t=855 jev VEH HTK HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:20] t=855 MOVE raid x2 -> (80,117); t=855 SIEGE 拔防御壳 x11 -> #1659@(76,109)
+[13:44:22] t=858 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:22] t=858 jev VEH HTK HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:22] t=858 MOVE raid x2 -> (81,115); t=858 SIEGE 拔防御壳 x11 -> #1659@(76,109)
+[13:44:24] t=861 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:24] t=861 jev VEH HTK HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:25] t=863 RETREAT HTNK(33%)
+[13:44:26] t=863 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:26] t=863 jev VEH HTK HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:26] t=863 MOVE assault x11 -> 攻击目标#1592@(73,111); t=863 SIEGE 拔防御壳 x11 -> #1592@(73,111)
+[13:44:28] t=866 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:28] t=866 jev VEH HTK HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:29] t=869 ESCORT 坦克#1104 -> 护航矿车@[130, 109]
+[13:44:30] t=869 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:30] t=869 jev VEH HTK HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:30] t=869 MOVE raid x2 -> (81,114); t=869 SIEGE 拔防御壳 x11 -> #1592@(73,111)
+[13:44:31] t=872 RETREAT HTNK(33%)
+[13:44:32] t=872 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:32] t=872 jev VEH DRON HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:32] t=872 MOVE raid x2 -> (71,114); t=872 SIEGE 拔防御壳 x11 -> #1592@(73,111)
+[13:44:35] t=874 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:35] t=874 jev VEH HTK HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:35] t=874 MOVE raid x2 -> (81,120); t=874 SIEGE 拔防御壳 x11 -> #1592@(73,111)
+[13:44:37] t=877 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:37] t=877 jev VEH HTK HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:37] t=880 ALARM unit lost -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[13:44:39] t=880 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:39] t=880 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:39] t=880 MOVE raid x2 -> (120,109); assault x10 -> 攻击目标#1592@(73,111); t=880 SIEGE 拔防御壳 x10 -> #1592@(73,111)
+[13:44:41] t=883 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:41] t=883 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:41] t=883 MOVE raid x2 -> (120,105); t=883 SIEGE 拔防御壳 x10 -> #1592@(73,111)
+[13:44:43] t=885 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:43] t=885 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:43] t=885 MOVE raid x2 -> (120,101); t=885 SIEGE 拔防御壳 x10 -> #1592@(73,111)
+[13:44:43] t=888 ALARM enemy approaching -> RESCUE 预备队 3 人驰援远端 [120, 97]
+[13:44:43] t=888 RETREAT HTNK(36%)
+[13:44:45] t=888 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:45] t=888 jev VEH DRON HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:47] t=891 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:47] t=891 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:49] t=894 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:49] t=894 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:51] t=896 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:51] t=896 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:51] t=899 RETREAT HTNK(29%)
+[13:44:53] t=899 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:53] t=899 jev VEH HTK HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:53] t=899 MOVE raid x2 -> (114,87); assault x10 -> 攻击目标#1592@(73,111); t=899 SIEGE 拔防御壳 x10 -> #1592@(73,111); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[13:44:53] t=902 ALARM unit lost -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[13:44:55] t=902 jev INF E2 HOLD (预算保护 gate=False e2=6)
+[13:44:55] t=902 jev VEH HTK HOLD (预算保护 cash=0 aav帽=ok aav=0)
+[13:44:55] t=902 MOVE raid x1 -> (111,86); t=902 SIEGE 拔防御壳 x9 -> #1592@(73,111)
+[13:44:55] t=905 ALARM enemy approaching -> RESCUE 预备队 3 人驰援远端 [109, 84]
+[13:44:55] t=905 HARASS DRON x2 (have 1)
+[13:44:57] t=905 jev INF E2 (conf 0.26)
+[13:44:57] t=905 tick#400 credits=1068 stance=attack | jev 400 decisions p50=1442ms
+[13:44:58] t=908 RETREAT E2(32%)
+[13:45:00] t=910 ESCORT 坦克#1104 -> 护航矿车@[126, 104]
+[13:45:02] t=913 RETREAT HTNK(32%)
+[13:45:04] t=913 jev INF E2 HOLD (预算保护 gate=False e2=7)
+[13:45:04] t=913 MOVE raid x2 -> (103,93); t=913 SIEGE 拔防御壳 x8 -> #1592@(73,111)
+[13:45:06] t=916 jev INF E2 (conf 0.30)
+[13:45:06] t=916 MOVE raid x2 -> (103,97); assault x8 -> 攻击目标#1592@(73,111); t=916 SIEGE 拔防御壳 x8 -> #1592@(73,111)
+[13:45:06] t=919 RETREAT HTNK(34%)
+[13:45:09] t=919 jev INF FLAKT (conf 0.48)
+[13:45:09] t=919 MOVE raid x2 -> (101,100); t=919 SIEGE 拔防御壳 x8 -> #1592@(73,111)
+[13:45:09] t=923 V3-RESPONSE HTK x2 (alive 0, seen t15 fire t1000000923)
+[13:45:11] t=923 MOVE raid x3 -> (100,101); t=923 SIEGE 拔防御壳 x9 -> #1592@(73,111)
+[13:45:12] t=926 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[13:45:13] t=926 MOVE raid x3 -> (99,102); t=926 SIEGE 拔防御壳 x8 -> #1592@(73,111)
+[13:45:19] t=933 MOVE assault x8 -> 攻击目标#1181@(75,115); t=933 SIEGE 清建筑 x8 -> #1181@(75,115); aahunt x1 -> (125,83)
+[13:45:22] t=936 THREAT 0.58 -> force defend
+[13:45:22] t=936 ATTACK (tanks=10)
+[13:45:22] t=940 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[13:45:22] t=940 V3-RESPONSE HTK x1 (alive 2, seen t4 fire t1000000940)
+[13:45:24] t=940 jev VEH HTK HOLD (预算保护 cash=979 aav帽=ok aav=2)
+[13:45:24] t=940 THREAT 0.63 -> force defend
+[13:45:24] t=940 ATTACK (tanks=10)
+[13:45:24] t=940 MOVE t=940 SIEGE 清建筑 x7 -> #1181@(75,115); aahunt x2 -> (125,84)
+[13:45:24] t=943 V3-RESPONSE HTK x1 (alive 2, seen t7 fire t1000000943)
+[13:45:24] t=943 RETREAT HTNK(38%)
+[13:45:26] t=943 jev VEH HTNK HOLD (预算保护 cash=979 aav帽=ok aav=2)
+[13:45:26] t=943 THREAT 0.63 -> force defend
+[13:45:26] t=943 ATTACK (tanks=10)
+[13:45:26] t=943 MOVE raid x2 -> (96,102); t=943 SIEGE 清建筑 x7 -> #1181@(75,115)
+[13:45:27] t=946 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[13:45:27] t=946 HARASS DRON x2 (have 1)
+[13:45:29] t=946 THREAT 0.61 -> force defend
+[13:45:29] t=946 ATTACK (tanks=9)
+[13:45:29] t=946 MOVE raid x1 -> (94,103); t=946 SIEGE 清建筑 x6 -> #1181@(75,115)
+[13:45:31] t=949 THREAT 0.64 -> force defend
+[13:45:31] t=949 ATTACK (tanks=9)
+[13:45:31] t=949 MOVE raid x1 -> (92,105); assault x6 -> 攻击目标#1181@(75,115); t=949 SIEGE 清建筑 x6 -> #1181@(75,115)
+[13:45:31] t=952 ESCORT 坦克#2240 -> 护航矿车@[128, 105]
+[13:45:33] t=952 THREAT 0.63 -> force defend
+[13:45:33] t=952 ATTACK (tanks=9)
+[13:45:33] t=952 MOVE raid x1 -> (90,106); t=952 SIEGE 清建筑 x6 -> #1181@(75,115)
+[13:45:33] t=955 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[13:45:36] t=955 THREAT 0.57 -> force defend
+[13:45:36] t=955 ATTACK (tanks=9)
+[13:45:36] t=955 MOVE raid x2 -> (88,108); t=955 SIEGE 清建筑 x6 -> #1181@(75,115)
+[13:45:36] t=959 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[13:45:38] t=959 THREAT 0.59 -> force defend
+[13:45:38] t=959 ATTACK (tanks=8)
+[13:45:38] t=959 MOVE raid x2 -> (81,120); t=959 SIEGE 清建筑 x5 -> #1181@(75,115)
+[13:45:41] t=962 jev VEH HTK HOLD (预算保护 cash=179 aav帽=ok aav=2)
+[13:45:41] t=962 THREAT 0.58 -> force defend
+[13:45:41] t=962 ATTACK (tanks=9)
+[13:45:43] t=964 jev VEH HARV HOLD (预算保护 cash=179 aav帽=ok aav=2)
+[13:45:43] t=964 MOVE assault x6 -> 攻击目标#1060@(75,118); t=964 SIEGE 清建筑 x6 -> #1060@(75,118)
+[13:45:45] t=968 jev VEH HARV HOLD (预算保护 cash=179 aav帽=ok aav=2)
+[13:45:47] t=970 jev VEH HTK HOLD (预算保护 cash=179 aav帽=ok aav=2)
+[13:46:06] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:46:06] t=973 MOVE raid x3 -> (81,120); assault x6 -> 攻击目标#1060@(75,118); t=973 SIEGE 清建筑 x6 -> #1060@(75,118); hold_a x4 -> (133,86); hold_b x3 -> (126,75); aahunt x2 -> (125,84)
+[13:46:07] t=999 ALARM unit lost -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[13:46:07] t=999 HARASS DRON x2 (have 1)
+[13:46:07] t=999 V3-RESPONSE HTK x1 (alive 2, seen t0 fire t1000000999)
+[13:46:07] t=999 ESCORT 坦克#2471 -> 护航矿车@[133, 126]
+[13:46:07] t=999 RETREAT HTNK(32%)
+[13:46:25] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:46:25] t=999 MOVE raid x1 -> (79,121); assault x4 -> 攻击目标#1060@(75,118); t=999 SIEGE 清建筑 x4 -> #1060@(75,118)
+[13:46:26] t=1024 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[13:46:26] t=1024 RETREAT HTNK(24%)
+[13:46:29] t=1024 jev VEH DRON HOLD (预算保护 cash=154 aav帽=ok aav=3)
+[13:46:29] t=1024 MOVE raid x2 -> (82,112); assault x5 -> 攻击目标#2656@(72,111); t=1024 SIEGE 拔防御壳 x5 -> #2656@(72,111)
+[13:46:48] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:46:48] t=1029 MOVE raid x2 -> (78,108); assault x5 -> 攻击目标#2656@(72,111); t=1029 SIEGE 拔防御壳 x5 -> #2656@(72,111); aahunt x3 -> (125,84)
+[13:46:48] t=1029 tick#425 credits=154 stance=attack | jev 422 decisions p50=1479ms
+[13:46:48] t=1054 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[13:46:48] t=1054 V3-RESPONSE HTK x1 (alive 3, seen t55 fire t1000001054)
+[13:46:48] t=1054 RETREAT HTNK(14%)
+[13:46:50] t=1054 MOVE raid x2 -> (70,117); t=1054 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[13:46:51] t=1057 ESCORT 坦克#2642 -> 护航矿车@[128, 105]
+[13:46:53] t=1057 THREAT 0.56 -> force defend
+[13:46:53] t=1057 ATTACK (tanks=7)
+[13:46:53] t=1060 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[13:46:55] t=1060 THREAT 0.59 -> force defend
+[13:46:55] t=1063 ALARM unit lost -> TURTLE (10 v 34, 守塔阵不打野战)
+[13:46:57] t=1063 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=4)
+[13:46:59] t=1066 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=4)
+[13:46:59] t=1069 HARASS DRON x2 (have 0)
+[13:46:59] t=1069 TANK HTNK x1
+[13:47:03] t=1074 TESLA coil (have 0)
+[13:47:08] t=1077 ATTACK (tanks=6)
+[13:47:08] t=1077 MOVE raid x1 -> (80,101); assault x1 -> 攻击目标#2828@(71,106); t=1077 SIEGE 拔防御壳 x1 -> #2828@(71,106); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[13:47:10] t=1081 THREAT 0.71 -> force defend
+[13:47:10] t=1081 ATTACK (tanks=6)
+[13:47:10] t=1081 MOVE raid x1 -> (71,111); t=1081 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[13:47:12] t=1083 THREAT 0.70 -> force defend
+[13:47:12] t=1083 ATTACK (tanks=7)
+[13:47:12] t=1083 MOVE raid x2 -> (74,114); t=1083 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[13:47:14] t=1086 THREAT 0.68 -> force defend
+[13:47:14] t=1086 ATTACK (tanks=7)
+[13:47:14] t=1086 MOVE raid x2 -> (75,116); t=1086 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[13:47:16] t=1089 THREAT 0.68 -> force defend
+[13:47:16] t=1089 ATTACK (tanks=7)
+[13:47:19] t=1092 THREAT 0.68 -> force defend
+[13:47:19] t=1092 ATTACK (tanks=7)
+[13:47:19] t=1092 MOVE t=1092 SIEGE 拔防御壳 x2 -> #2828@(71,106); aahunt x4 -> (125,84)
+[13:47:21] t=1095 THREAT 0.68 -> force defend
+[13:47:21] t=1095 ATTACK (tanks=7)
+[13:47:21] t=1095 MOVE assault x2 -> 攻击目标#2828@(71,106); t=1095 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[13:47:21] t=1098 ESCORT 坦克#2910 -> 护航矿车@[122, 104]
+[13:47:23] t=1098 THREAT 0.68 -> force defend
+[13:47:23] t=1098 ATTACK (tanks=7)
+[13:47:25] t=1101 THREAT 0.68 -> force defend
+[13:47:25] t=1101 ATTACK (tanks=7)
+[13:47:27] t=1104 jev VEH HARV HOLD (预算保护 cash=665 aav帽=ok aav=4)
+[13:47:27] t=1104 THREAT 0.68 -> force defend
+[13:47:27] t=1104 ATTACK (tanks=8)
+[13:47:27] t=1104 MOVE raid x2 -> (76,114); t=1104 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[13:47:29] t=1106 jev VEH HARV HOLD (预算保护 cash=597 aav帽=ok aav=4)
+[13:47:29] t=1106 THREAT 0.68 -> force defend
+[13:47:29] t=1106 ATTACK (tanks=8)
+[13:47:29] t=1106 MOVE raid x2 -> (79,115); t=1106 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[13:47:32] t=1109 jev VEH HARV HOLD (预算保护 cash=527 aav帽=ok aav=4)
+[13:47:32] t=1109 THREAT 0.68 -> force defend
+[13:47:32] t=1109 ATTACK (tanks=8)
+[13:47:32] t=1109 MOVE raid x2 -> (78,117); t=1109 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[13:47:34] t=1112 jev VEH HARV HOLD (预算保护 cash=455 aav帽=ok aav=4)
+[13:47:34] t=1112 THREAT 0.69 -> force defend
+[13:47:34] t=1112 ATTACK (tanks=8)
+[13:47:34] t=1112 MOVE raid x2 -> (78,121); assault x3 -> 攻击目标#2828@(71,106); t=1112 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[13:47:36] t=1115 jev VEH HARV HOLD (预算保护 cash=381 aav帽=ok aav=4)
+[13:47:36] t=1115 THREAT 0.70 -> force defend
+[13:47:36] t=1115 ATTACK (tanks=8)
+[13:47:36] t=1115 MOVE raid x2 -> (78,123); t=1115 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[13:47:38] t=1118 jev VEH HARV HOLD (预算保护 cash=311 aav帽=ok aav=4)
+[13:47:38] t=1118 THREAT 0.68 -> force defend
+[13:47:38] t=1118 ATTACK (tanks=8)
+[13:47:38] t=1118 MOVE assault x3 -> 攻击目标#2656@(72,111); t=1118 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[13:47:38] t=1121 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[13:47:40] t=1121 jev VEH HARV HOLD (预算保护 cash=239 aav帽=ok aav=4)
+[13:47:40] t=1121 THREAT 0.71 -> force defend
+[13:47:40] t=1121 ATTACK (tanks=6)
+[13:47:40] t=1121 MOVE assault x1 -> 攻击目标#2828@(71,106); t=1121 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[13:47:43] t=1124 jev VEH HARV HOLD (预算保护 cash=167 aav帽=ok aav=4)
+[13:47:43] t=1124 THREAT 0.70 -> force defend
+[13:47:43] t=1124 ATTACK (tanks=6)
+[13:47:43] t=1124 tick#450 credits=167 stance=attack | jev 447 decisions p50=1495ms
+[13:47:45] t=1127 jev VEH HARV HOLD (预算保护 cash=97 aav帽=ok aav=4)
+[13:47:45] t=1127 THREAT 0.67 -> force defend
+[13:47:45] t=1127 ATTACK (tanks=6)
+[13:47:47] t=1130 jev VEH HARV HOLD (预算保护 cash=102 aav帽=ok aav=4)
+[13:47:47] t=1130 THREAT 0.67 -> force defend
+[13:47:47] t=1130 ATTACK (tanks=6)
+[13:47:49] t=1133 jev VEH HARV HOLD (预算保护 cash=31 aav帽=ok aav=4)
+[13:47:49] t=1133 THREAT 0.67 -> force defend
+[13:47:49] t=1133 ATTACK (tanks=6)
+[13:47:49] t=1133 MOVE t=1133 SIEGE 拔防御壳 x1 -> #2828@(71,106); aahunt x4 -> (125,84)
+[13:47:51] t=1136 jev VEH HTK HOLD (预算保护 cash=0 aav帽=hit aav=4)
+[13:47:51] t=1136 THREAT 0.68 -> force defend
+[13:47:51] t=1136 ATTACK (tanks=6)
+[13:47:51] t=1138 ESCORT 坦克#2912 -> 护航矿车@[127, 105]
+[13:47:53] t=1138 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:47:53] t=1138 THREAT 0.68 -> force defend
+[13:47:53] t=1138 ATTACK (tanks=6)
+[13:47:53] t=1138 MOVE assault x1 -> 攻击目标#2828@(71,106); t=1138 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[13:47:55] t=1141 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:47:55] t=1141 THREAT 0.68 -> force defend
+[13:47:55] t=1141 ATTACK (tanks=6)
+[13:47:58] t=1144 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:47:58] t=1144 THREAT 0.68 -> force defend
+[13:47:58] t=1144 ATTACK (tanks=6)
+[13:48:00] t=1147 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:00] t=1147 THREAT 0.67 -> force defend
+[13:48:00] t=1147 ATTACK (tanks=6)
+[13:48:02] t=1150 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:02] t=1150 THREAT 0.69 -> force defend
+[13:48:02] t=1150 ATTACK (tanks=6)
+[13:48:04] t=1153 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:04] t=1153 THREAT 0.69 -> force defend
+[13:48:04] t=1153 ATTACK (tanks=6)
+[13:48:06] t=1155 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:06] t=1155 THREAT 0.69 -> force defend
+[13:48:06] t=1155 ATTACK (tanks=6)
+[13:48:06] t=1155 MOVE assault x1 -> 攻击目标#2828@(71,106); t=1155 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[13:48:08] t=1158 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:08] t=1158 THREAT 0.69 -> force defend
+[13:48:08] t=1158 ATTACK (tanks=6)
+[13:48:08] t=1158 MOVE t=1158 SIEGE 拔防御壳 x1 -> #2828@(71,106); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[13:48:10] t=1161 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:10] t=1161 THREAT 0.70 -> force defend
+[13:48:10] t=1161 ATTACK (tanks=6)
+[13:48:12] t=1164 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:12] t=1164 THREAT 0.69 -> force defend
+[13:48:12] t=1164 ATTACK (tanks=6)
+[13:48:14] t=1167 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:14] t=1167 THREAT 0.69 -> force defend
+[13:48:14] t=1167 ATTACK (tanks=6)
+[13:48:17] t=1169 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:17] t=1169 THREAT 0.69 -> force defend
+[13:48:17] t=1169 ATTACK (tanks=6)
+[13:48:19] t=1172 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:19] t=1172 THREAT 0.68 -> force defend
+[13:48:19] t=1172 ATTACK (tanks=6)
+[13:48:19] t=1172 MOVE assault x1 -> 攻击目标#2828@(71,106); t=1172 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[13:48:21] t=1175 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:21] t=1175 THREAT 0.68 -> force defend
+[13:48:21] t=1175 ATTACK (tanks=6)
+[13:48:21] t=1175 MOVE assault x1 -> 攻击目标#2656@(72,111); t=1175 SIEGE 拔防御壳 x1 -> #2656@(72,111); aahunt x4 -> (125,84)
+[13:48:23] t=1178 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:23] t=1178 THREAT 0.68 -> force defend
+[13:48:23] t=1178 ATTACK (tanks=6)
+[13:48:23] t=1178 MOVE assault x1 -> 攻击目标#2828@(71,106); t=1178 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[13:48:23] t=1181 ESCORT 坦克#2912 -> 护航矿车@[117, 133]
+[13:48:25] t=1181 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:25] t=1181 THREAT 0.66 -> force defend
+[13:48:25] t=1181 ATTACK (tanks=6)
+[13:48:25] t=1181 MOVE assault x1 -> 攻击目标#2656@(72,111); t=1181 SIEGE 拔防御壳 x1 -> #2656@(72,111)
+[13:48:27] t=1184 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:27] t=1184 THREAT 0.68 -> force defend
+[13:48:27] t=1184 ATTACK (tanks=6)
+[13:48:29] t=1186 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:29] t=1186 THREAT 0.68 -> force defend
+[13:48:29] t=1186 ATTACK (tanks=6)
+[13:48:31] t=1189 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:31] t=1189 THREAT 0.68 -> force defend
+[13:48:31] t=1189 ATTACK (tanks=6)
+[13:48:34] t=1192 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:34] t=1192 THREAT 0.67 -> force defend
+[13:48:34] t=1192 ATTACK (tanks=6)
+[13:48:34] t=1195 RETREAT HTNK(33%)
+[13:48:36] t=1195 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:36] t=1195 THREAT 0.67 -> force defend
+[13:48:36] t=1195 ATTACK (tanks=6)
+[13:48:36] t=1195 tick#475 credits=0 stance=attack | jev 472 decisions p50=1525ms
+[13:48:38] t=1198 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:38] t=1198 THREAT 0.65 -> force defend
+[13:48:38] t=1198 ATTACK (tanks=6)
+[13:48:38] t=1198 MOVE assault x1 -> 攻击目标#2656@(72,111); t=1198 SIEGE 拔防御壳 x1 -> #2656@(72,111)
+[13:48:40] t=1201 jev VEH HARV HOLD (预算保护 cash=0 aav帽=ok aav=4)
+[13:48:40] t=1201 THREAT 0.65 -> force defend
+[13:48:40] t=1201 ATTACK (tanks=6)
+[13:48:42] t=1204 jev VEH HTK HOLD (预算保护 cash=0 aav帽=hit aav=4)
+[13:48:42] t=1204 THREAT 0.63 -> force defend
+[13:48:42] t=1204 ATTACK (tanks=6)
+[13:48:43] t=1207 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[13:48:45] t=1207 jev VEH HARV HOLD (预算保护 cash=276 aav帽=ok aav=4)
+[13:48:45] t=1207 THREAT 0.63 -> force defend
+[13:48:45] t=1210 POWER plant (reserve 51)
+[13:48:45] t=1210 RETREAT E2(32%)
+[13:48:47] t=1210 jev VEH HARV HOLD (预算保护 cash=1379 aav帽=ok aav=4)
+[13:48:47] t=1213 HARASS DRON x2 (have 0)
+[13:48:51] t=1216 MOVE aahunt x4 -> (125,84)
+[13:48:54] t=1222 ESCORT 坦克#3065 -> 护航矿车@[120, 108]
+[13:48:56] t=1222 ATTACK (tanks=6)
+[13:48:56] t=1222 MOVE raid x1 -> (77,111); assault x1 -> 攻击目标#3064@(76,116); t=1222 SIEGE 拔防御壳 x1 -> #3064@(76,116)
+[13:48:58] t=1225 THREAT 0.68 -> force defend
+[13:48:58] t=1225 ATTACK (tanks=6)
+[13:48:58] t=1225 MOVE raid x1 -> (77,107); t=1225 SIEGE 拔防御壳 x1 -> #3064@(76,116)
+[13:49:00] t=1228 jev VEH HARV HOLD (预算保护 cash=83 aav帽=ok aav=4)
+[13:49:00] t=1228 THREAT 0.67 -> force defend
+[13:49:00] t=1228 ATTACK (tanks=7)
+[13:49:00] t=1228 MOVE raid x2 -> (78,103); t=1228 SIEGE 拔防御壳 x2 -> #3064@(76,116)
+[13:49:02] t=1231 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=4)
+[13:49:02] t=1231 THREAT 0.68 -> force defend
+[13:49:02] t=1231 ATTACK (tanks=7)
+[13:49:02] t=1231 MOVE raid x2 -> (80,100); t=1231 SIEGE 拔防御壳 x2 -> #3064@(76,116)
+[13:49:03] t=1233 TANK HTNK x1
+[13:49:05] t=1233 THREAT 0.59 -> force defend
+[13:49:05] t=1233 ATTACK (tanks=7)
+[13:49:05] t=1233 MOVE raid x2 -> (70,117); t=1233 SIEGE 拔防御壳 x2 -> #3064@(76,116)
+[13:49:07] t=1236 THREAT 0.59 -> force defend
+[13:49:07] t=1236 ATTACK (tanks=7)
+[13:49:07] t=1236 MOVE assault x2 -> 攻击目标#2828@(71,106); t=1236 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[13:49:09] t=1239 THREAT 0.60 -> force defend
+[13:49:09] t=1239 ATTACK (tanks=7)
+[13:49:09] t=1239 MOVE t=1239 SIEGE 拔防御壳 x2 -> #2828@(71,106); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[13:49:11] t=1242 THREAT 0.60 -> force defend
+[13:49:11] t=1242 ATTACK (tanks=7)
+[13:49:13] t=1245 THREAT 0.61 -> force defend
+[13:49:13] t=1245 ATTACK (tanks=7)
+[13:49:15] t=1248 THREAT 0.60 -> force defend
+[13:49:15] t=1248 ATTACK (tanks=7)
+[13:49:16] t=1251 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[13:49:17] t=1251 THREAT 0.64 -> force defend
+[13:49:17] t=1251 ATTACK (tanks=6)
+[13:49:17] t=1251 MOVE assault x1 -> 攻击目标#3064@(76,116); t=1251 SIEGE 拔防御壳 x1 -> #3064@(76,116)
+[13:49:20] t=1254 jev VEH HARV HOLD (预算保护 cash=204 aav帽=ok aav=4)
+[13:49:20] t=1254 THREAT 0.62 -> force defend
+[13:49:20] t=1254 ATTACK (tanks=7)
+[13:49:22] t=1256 jev VEH HARV HOLD (预算保护 cash=204 aav帽=ok aav=4)
+[13:49:22] t=1256 THREAT 0.62 -> force defend
+[13:49:22] t=1256 ATTACK (tanks=7)
+[13:49:22] t=1256 MOVE t=1256 SIEGE 拔防御壳 x2 -> #3064@(76,116); aahunt x4 -> (125,84)
+[13:49:22] t=1259 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[13:49:24] t=1259 jev VEH HARV HOLD (预算保护 cash=204 aav帽=ok aav=4)
+[13:49:24] t=1259 THREAT 0.59 -> force defend
+[13:49:24] t=1259 ATTACK (tanks=6)
+[13:49:24] t=1262 ESCORT 坦克#3081 -> 护航矿车@[127, 105]
+[13:49:26] t=1262 jev VEH HARV HOLD (预算保护 cash=204 aav帽=ok aav=4)
+[13:49:26] t=1262 THREAT 0.59 -> force defend
+[13:49:26] t=1262 ATTACK (tanks=6)
+[13:49:28] t=1265 jev VEH DRON HOLD (预算保护 cash=204 aav帽=ok aav=4)
+[13:49:28] t=1265 THREAT 0.66 -> force defend
+[13:49:28] t=1265 ATTACK (tanks=6)
+[13:49:28] t=1268 HARASS DRON x2 (have 0)
+[13:49:30] t=1268 THREAT 0.64 -> force defend
+[13:49:30] t=1268 ATTACK (tanks=6)
+[13:49:30] t=1268 MOVE assault x1 -> 攻击目标#3064@(76,116); t=1268 SIEGE 拔防御壳 x1 -> #3064@(76,116)
+[13:49:30] t=1268 tick#500 credits=1329 stance=attack | jev 497 decisions p50=1586ms
+[13:49:33] t=1271 THREAT 0.56 -> force defend
+[13:49:33] t=1271 ATTACK (tanks=6)
+[13:49:35] t=1274 THREAT 0.56 -> force defend
+[13:49:35] t=1274 ATTACK (tanks=6)
+[13:49:37] t=1277 THREAT 0.55 -> force defend
+[13:49:37] t=1277 ATTACK (tanks=7)
+[13:49:37] t=1277 MOVE raid x1 -> (78,114); t=1277 SIEGE 拔防御壳 x2 -> #3064@(76,116)
+[13:49:39] t=1279 THREAT 0.56 -> force defend
+[13:49:39] t=1279 ATTACK (tanks=7)
+[13:49:39] t=1279 MOVE raid x1 -> (78,117); t=1279 SIEGE 拔防御壳 x2 -> #3064@(76,116)
+[13:49:41] t=1282 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:49:41] t=1282 THREAT 0.56 -> force defend
+[13:49:41] t=1282 ATTACK (tanks=8)
+[13:49:41] t=1282 MOVE raid x2 -> (78,121); t=1282 SIEGE 拔防御壳 x3 -> #3064@(76,116)
+[13:49:44] t=1285 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:49:44] t=1285 THREAT 0.55 -> force defend
+[13:49:44] t=1285 ATTACK (tanks=8)
+[13:49:44] t=1285 MOVE raid x2 -> (78,123); assault x3 -> 攻击目标#3064@(76,116); t=1285 SIEGE 拔防御壳 x3 -> #3064@(76,116)
+[13:49:46] t=1288 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:49:46] t=1288 MOVE assault x3 -> 攻击目标#2828@(71,106); t=1288 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[13:49:48] t=1291 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:49:48] t=1291 THREAT 0.55 -> force defend
+[13:49:48] t=1291 ATTACK (tanks=8)
+[13:49:48] t=1291 MOVE raid x2 -> (77,123); t=1291 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[13:49:50] t=1294 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:49:52] t=1297 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:49:52] t=1297 MOVE raid x2 -> (77,121); t=1297 SIEGE 拔防御壳 x3 -> #2828@(71,106); aahunt x4 -> (125,84)
+[13:49:53] t=1300 RETREAT HTNK(32%)
+[13:49:55] t=1300 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:49:55] t=1300 MOVE raid x2 -> (77,117); t=1300 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[13:49:55] t=1303 ESCORT 坦克#3094 -> 护航矿车@[120, 109]
+[13:49:57] t=1303 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:49:57] t=1303 MOVE raid x2 -> (77,113); t=1303 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[13:49:57] t=1306 ALARM unit lost -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[13:49:59] t=1306 jev VEH HTK HOLD (预算保护 cash=529 aav帽=hit aav=4)
+[13:49:59] t=1306 THREAT 0.64 -> force defend
+[13:49:59] t=1306 ATTACK (tanks=7)
+[13:49:59] t=1306 MOVE raid x1 -> (77,109); assault x2 -> 攻击目标#2828@(71,106); t=1306 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[13:50:01] t=1309 jev VEH DRON HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:50:01] t=1309 THREAT 0.61 -> force defend
+[13:50:01] t=1309 ATTACK (tanks=7)
+[13:50:01] t=1309 MOVE raid x1 -> (77,105); assault x2 -> 攻击目标#3064@(76,116); t=1309 SIEGE 拔防御壳 x2 -> #3064@(76,116)
+[13:50:04] t=1312 jev VEH HTK HOLD (预算保护 cash=529 aav帽=hit aav=4)
+[13:50:04] t=1312 THREAT 0.61 -> force defend
+[13:50:04] t=1312 ATTACK (tanks=7)
+[13:50:04] t=1312 MOVE raid x1 -> (79,102); t=1312 SIEGE 拔防御壳 x2 -> #3064@(76,116)
+[13:50:06] t=1315 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:50:06] t=1315 THREAT 0.62 -> force defend
+[13:50:06] t=1315 ATTACK (tanks=7)
+[13:50:06] t=1315 MOVE raid x1 -> (70,117); t=1315 SIEGE 拔防御壳 x2 -> #3064@(76,116)
+[13:50:08] t=1318 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:50:08] t=1318 THREAT 0.61 -> force defend
+[13:50:08] t=1318 ATTACK (tanks=7)
+[13:50:10] t=1321 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:50:10] t=1321 THREAT 0.60 -> force defend
+[13:50:10] t=1321 ATTACK (tanks=7)
+[13:50:10] t=1321 MOVE t=1321 SIEGE 拔防御壳 x2 -> #3064@(76,116); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[13:50:12] t=1324 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:50:12] t=1324 THREAT 0.60 -> force defend
+[13:50:12] t=1324 ATTACK (tanks=7)
+[13:50:14] t=1327 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:50:14] t=1327 THREAT 0.60 -> force defend
+[13:50:14] t=1327 ATTACK (tanks=7)
+[13:50:14] t=1327 MOVE assault x2 -> 攻击目标#3064@(76,116); t=1327 SIEGE 拔防御壳 x2 -> #3064@(76,116)
+[13:50:17] t=1329 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:50:17] t=1329 THREAT 0.61 -> force defend
+[13:50:17] t=1329 ATTACK (tanks=7)
+[13:50:19] t=1332 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:50:19] t=1332 THREAT 0.61 -> force defend
+[13:50:19] t=1332 ATTACK (tanks=7)
+[13:50:21] t=1335 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=4)
+[13:50:21] t=1335 THREAT 0.61 -> force defend
+[13:50:21] t=1335 ATTACK (tanks=7)
+[13:50:21] t=1338 HARASS DRON x2 (have 1)
+[13:50:21] t=1338 RETREAT DRON(10%)
+[13:50:23] t=1338 THREAT 0.58 -> force defend
+[13:50:23] t=1338 ATTACK (tanks=7)
+[13:50:23] t=1338 MOVE t=1338 SIEGE 拔防御壳 x2 -> #3064@(76,116); aahunt x4 -> (125,84)
+[13:50:23] t=1341 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[13:50:25] t=1341 THREAT 0.56 -> force defend
+[13:50:25] t=1341 ATTACK (tanks=6)
+[13:50:25] t=1341 tick#525 credits=820 stance=attack | jev 522 decisions p50=1697ms
+[13:50:25] t=1344 ESCORT 坦克#3081 -> 护航矿车@[116, 133]
+[13:50:27] t=1344 MOVE assault x1 -> 攻击目标#3064@(76,116); t=1344 SIEGE 拔防御壳 x1 -> #3064@(76,116)
+[13:50:30] t=1350 RETREAT HTNK(25%)
+[13:50:32] t=1352 TANK HTNK x2
+[13:50:34] t=1352 MOVE raid x2 -> (80,100); t=1352 SIEGE 拔防御壳 x3 -> #3064@(76,116)
+[13:50:34] t=1355 ALARM unit lost -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[13:50:36] t=1355 MOVE raid x2 -> (80,104); t=1355 SIEGE 拔防御壳 x2 -> #3064@(76,116)
+[13:50:38] t=1358 MOVE raid x2 -> (80,108); t=1358 SIEGE 拔防御壳 x2 -> #3064@(76,116)
+[13:50:41] t=1361 MOVE raid x2 -> (80,112); assault x2 -> 攻击目标#3064@(76,116); t=1361 SIEGE 拔防御壳 x2 -> #3064@(76,116)
+[13:50:43] t=1364 MOVE raid x2 -> (80,116); assault x2 -> 攻击目标#2828@(71,106); t=1364 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[13:50:45] t=1368 MOVE raid x2 -> (80,120); t=1368 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[13:50:47] t=1370 MOVE raid x2 -> (78,123); t=1370 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[13:50:52] t=1376 MOVE raid x2 -> (77,123); assault x3 -> 攻击目标#3064@(76,116); t=1376 SIEGE 拔防御壳 x3 -> #3064@(76,116)
+[13:50:54] t=1379 MOVE t=1379 SIEGE 拔防御壳 x3 -> #3064@(76,116); aahunt x4 -> (125,84)
+[13:50:54] t=1382 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[13:50:56] t=1385 ESCORT 坦克#3238 -> 护航矿车@[128, 104]
+[13:51:05] t=1394 MOVE assault x1 -> 攻击目标#3064@(76,116); t=1394 SIEGE 拔防御壳 x1 -> #3064@(76,116)
+[13:51:09] t=1400 jev VEH DRON HOLD (预算保护 cash=629 aav帽=ok aav=4)
+[13:51:11] t=1403 jev VEH DRON HOLD (预算保护 cash=629 aav帽=ok aav=4)
+[13:51:11] t=1403 MOVE t=1403 SIEGE 拔防御壳 x2 -> #3064@(76,116); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[13:51:14] t=1405 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=4)
+[13:51:14] t=1408 HARASS DRON x2 (have 0)
+[13:51:14] t=1408 TANK HTNK x1
+[13:51:18] t=1411 MOVE assault x2 -> 攻击目标#2828@(71,106); t=1411 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[13:51:20] t=1414 tick#550 credits=1443 stance=attack | jev 547 decisions p50=1779ms
+[13:51:22] t=1417 MOVE raid x1 -> (70,117); assault x3 -> 攻击目标#3064@(76,116); t=1417 SIEGE 拔防御壳 x3 -> #3064@(76,116)
+[13:51:24] t=1420 MOVE t=1420 SIEGE 拔防御壳 x3 -> #3064@(76,116); aahunt x4 -> (125,84)
+[13:51:27] t=1425 ESCORT 坦克#3257 -> 护航矿车@[126, 103]
+[13:51:35] t=1434 MOVE assault x4 -> 攻击目标#3064@(76,116); t=1434 SIEGE 拔防御壳 x4 -> #3064@(76,116)
+[13:51:42] t=1443 jev VEH DRON HOLD (预算保护 cash=54 aav帽=ok aav=4)
+[13:51:42] t=1443 MOVE raid x2 -> (80,99); t=1443 SIEGE 拔防御壳 x5 -> #3064@(76,116)
+[13:51:44] t=1446 jev VEH DRON HOLD (预算保护 cash=54 aav帽=ok aav=4)
+[13:51:44] t=1446 MOVE raid x2 -> (80,103); assault x5 -> 攻击目标#2828@(71,106); t=1446 SIEGE 拔防御壳 x5 -> #2828@(71,106)
+[13:51:46] t=1449 jev VEH DRON HOLD (预算保护 cash=54 aav帽=ok aav=4)
+[13:51:46] t=1449 MOVE raid x2 -> (80,107); t=1449 SIEGE 拔防御壳 x5 -> #2828@(71,106)
+[13:51:48] t=1452 jev VEH DRON HOLD (预算保护 cash=54 aav帽=ok aav=4)
+[13:51:48] t=1452 MOVE raid x2 -> (80,111); t=1452 SIEGE 拔防御壳 x5 -> #2828@(71,106)
+[13:51:50] t=1455 jev VEH DRON HOLD (预算保护 cash=54 aav帽=ok aav=4)
+[13:51:50] t=1455 MOVE raid x2 -> (80,115); assault x5 -> 攻击目标#3064@(76,116); t=1455 SIEGE 拔防御壳 x5 -> #3064@(76,116)
+[13:51:53] t=1458 jev VEH DRON HOLD (预算保护 cash=54 aav帽=ok aav=4)
+[13:51:53] t=1458 MOVE raid x2 -> (80,119); t=1458 SIEGE 拔防御壳 x5 -> #3064@(76,116)
+[13:51:55] t=1461 jev VEH DRON HOLD (预算保护 cash=54 aav帽=ok aav=4)
+[13:51:55] t=1461 MOVE raid x2 -> (78,123); t=1461 SIEGE 拔防御壳 x5 -> #3064@(76,116); aahunt x4 -> (125,84)
+[13:51:57] t=1464 jev VEH DRON HOLD (预算保护 cash=54 aav帽=ok aav=4)
+[13:51:57] t=1467 ESCORT 坦克#3258 -> 护航矿车@[114, 134]
+[13:51:57] t=1467 RETREAT HTNK(38%)
+[13:52:00] t=1467 jev VEH DRON HOLD (预算保护 cash=504 aav帽=ok aav=4)
+[13:52:00] t=1470 ALARM unit lost -> 攻势保持（塔阵守家, 前线 13 个单位继续进攻）
+[13:52:02] t=1470 jev VEH DRON HOLD (预算保护 cash=504 aav帽=ok aav=4)
+[13:52:02] t=1470 MOVE raid x1 -> (77,123); t=1470 SIEGE 拔防御壳 x4 -> #3064@(76,116)
+[13:52:21] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:52:21] t=1473 MOVE assault x4 -> 攻击目标#2828@(71,106); t=1473 SIEGE 拔防御壳 x4 -> #2828@(71,106); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[13:52:21] t=1498 ALARM unit lost -> 攻势保持（塔阵守家, 前线 13 个单位继续进攻）
+[13:52:21] t=1498 HARASS DRON x2 (have 1)
+[13:52:21] t=1498 TANK HTNK x1
+[13:52:24] t=1498 MOVE raid x1 -> (80,119); assault x3 -> 攻击目标#3064@(76,116); t=1498 SIEGE 拔防御壳 x3 -> #3064@(76,116)
+[13:52:43] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:52:43] t=1502 MOVE assault x3 -> 攻击目标#2828@(71,106); t=1502 SIEGE 拔防御壳 x3 -> #2828@(71,106); aahunt x4 -> (125,84)
+[13:52:43] t=1527 ALARM unit lost -> 攻势保持（塔阵守家, 前线 13 个单位继续进攻）
+[13:52:43] t=1527 ESCORT 坦克#3461 -> 护航矿车@[127, 105]
+[13:52:43] t=1527 RETREAT HTNK(30%)
+[13:52:43] t=1527 RETREAT E2(32%)
+[13:52:45] t=1527 MOVE raid x2 -> (80,119); assault x4 -> 攻击目标#3064@(76,116); t=1527 SIEGE 拔防御壳 x4 -> #3064@(76,116)
+[13:53:04] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:53:04] t=1531 MOVE raid x2 -> (80,101); assault x4 -> 攻击目标#3064@(76,116); t=1531 SIEGE 拔防御壳 x4 -> #3064@(76,116)
+[13:53:05] t=1556 ALARM unit lost -> 攻势保持（塔阵守家, 前线 14 个单位继续进攻）
+[13:53:05] t=1556 TANK HTNK x1
+[13:53:23] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:53:23] t=1556 MOVE raid x2 -> (78,123); assault x4 -> 攻击目标#3064@(76,116); t=1556 SIEGE 拔防御壳 x4 -> #3064@(76,116); hold_a x4 -> (133,86); hold_b x3 -> (126,75); aahunt x4 -> (125,84)
+[13:53:24] t=1556 tick#575 credits=1054 stance=attack | jev 568 decisions p50=1813ms
+[13:53:24] t=1582 ALARM unit lost -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[13:53:24] t=1582 HARASS DRON x2 (have 0)
+[13:53:24] t=1582 ESCORT 坦克#3266 -> 护航矿车@[115, 132]
+[13:53:24] t=1582 RETREAT HTNK(19%)
+[13:53:43] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:53:43] t=1582 MOVE assault x3 -> 攻击目标#3064@(76,116); t=1582 SIEGE 拔防御壳 x3 -> #3064@(76,116)
+[13:53:43] t=1607 TANK HTNK x2
+[13:53:43] t=1607 RETREAT HTNK(32%)
+[13:53:45] t=1607 MOVE raid x2 -> (81,120); t=1607 SIEGE 拔防御壳 x7 -> #3064@(76,116)
+[13:53:48] t=1613 ALARM unit lost -> 攻势保持（塔阵守家, 前线 14 个单位继续进攻）
+[13:53:54] t=1619 MOVE assault x6 -> 攻击目标#2828@(71,106); t=1619 SIEGE 拔防御壳 x6 -> #2828@(71,106); aahunt x2 -> (125,84)
+[13:53:54] t=1622 ESCORT 坦克#3656 -> 护航矿车@[127, 105]
+[13:54:07] t=1636 MOVE raid x2 -> (81,120); assault x7 -> 攻击目标#2828@(71,106); t=1636 SIEGE 拔防御壳 x7 -> #2828@(71,106)
+[13:54:09] t=1639 MOVE assault x7 -> 攻击目标#3064@(76,116); t=1639 SIEGE 拔防御壳 x7 -> #3064@(76,116)
+[13:54:30] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:54:30] t=1645 MOVE raid x2 -> (80,99); assault x7 -> 攻击目标#3064@(76,116); t=1645 SIEGE 拔防御壳 x7 -> #3064@(76,116); hold_a x4 -> (133,86); hold_b x3 -> (126,75); aahunt x2 -> (125,84)
+[13:54:30] t=1670 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[13:54:30] t=1670 ESCORT 坦克#3709 -> 护航矿车@[127, 105]
+[13:54:49] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:54:49] t=1670 MOVE assault x5 -> 攻击目标#3064@(76,116); t=1670 SIEGE 拔防御壳 x5 -> #3064@(76,116)
+[13:54:49] t=1695 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[13:55:08] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:55:08] t=1695 MOVE assault x4 -> 攻击目标#3064@(76,116); t=1695 SIEGE 拔防御壳 x4 -> #3064@(76,116); aahunt x2 -> (125,84)
+[13:55:08] t=1721 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[13:55:08] t=1721 HARASS DRON x2 (have 0)
+[13:55:08] t=1721 ESCORT 坦克#3709 -> 护航矿车@[106, 87]
+[13:55:27] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:55:27] t=1721 MOVE assault x4 -> 攻击目标#3064@(76,116); t=1721 SIEGE 拔防御壳 x4 -> #3064@(76,116)
+[13:55:27] t=1746 TANK HTNK x1
+[13:55:46] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:55:46] t=1746 MOVE raid x2 -> (77,123); assault x6 -> 攻击目标#3064@(76,116); t=1746 SIEGE 拔防御壳 x6 -> #3064@(76,116); hold_a x4 -> (133,86); hold_b x3 -> (126,75); aahunt x2 -> (125,84)
+[13:55:46] t=1771 ALARM unit lost -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[13:55:46] t=1771 TANK HTNK x2
+[13:55:46] t=1771 ESCORT 坦克#3942 -> 护航矿车@[128, 105]
+[13:56:05] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:56:05] t=1771 MOVE raid x2 -> (80,101); assault x6 -> 攻击目标#3064@(76,116); t=1771 SIEGE 拔防御壳 x6 -> #3064@(76,116)
+[13:56:05] t=1797 TANK HTNK x2
+[13:56:05] t=1797 RETREAT HTNK(22%)
+[13:56:24] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:56:24] t=1797 MOVE raid x2 -> (79,78); assault x6 -> 攻击目标#2828@(71,106); t=1797 SIEGE 拔防御壳 x6 -> #2828@(71,106); aahunt x2 -> (125,84)
+[13:56:24] t=1822 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[13:56:24] t=1822 ESCORT 坦克#3844 -> 护航矿车@[120, 137]
+[13:56:43] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:56:43] t=1822 MOVE assault x4 -> 攻击目标#2828@(71,106); t=1822 SIEGE 拔防御壳 x4 -> #2828@(71,106)
+[13:56:43] t=1848 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[13:56:43] t=1848 RETREAT E2(32%)
+[13:56:46] t=1848 jev VEH HTNK HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[13:56:48] t=1851 jev VEH HTNK HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[13:56:48] t=1851 MOVE t=1851 SIEGE 拔防御壳 x4 -> #2828@(71,106); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[13:56:48] t=1854 RETREAT HTNK(39%)
+[13:56:50] t=1854 jev VEH HTNK HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[13:56:50] t=1854 tick#600 credits=79 stance=attack | jev 584 decisions p50=1829ms
+[13:57:09] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:57:09] t=1857 MOVE assault x4 -> 攻击目标#2828@(71,106); t=1857 SIEGE 拔防御壳 x4 -> #2828@(71,106); aahunt x2 -> (125,84)
+[13:57:09] t=1882 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[13:57:09] t=1882 ESCORT 坦克#4308 -> 护航矿车@[127, 105]
+[13:57:28] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:57:28] t=1882 MOVE assault x3 -> 攻击目标#4353@(73,107); t=1882 SIEGE 拔防御壳 x3 -> #4353@(73,107)
+[13:57:28] t=1907 RETREAT HTNK(17%)
+[13:57:30] t=1907 jev VEH DRON HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[13:57:31] t=1911 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[13:57:31] t=1911 HARASS DRON x2 (have 0)
+[13:57:31] t=1911 RETREAT HTNK(32%)
+[13:57:39] t=1919 MOVE raid x1 -> (80,91); t=1919 SIEGE 拔防御壳 x3 -> #4353@(73,107); aahunt x2 -> (125,84)
+[13:57:41] t=1922 MOVE raid x1 -> (80,94); assault x3 -> 攻击目标#4353@(73,107); t=1922 SIEGE 拔防御壳 x3 -> #4353@(73,107)
+[13:57:41] t=1925 RETREAT HTNK(26%)
+[13:57:43] t=1925 MOVE raid x1 -> (80,97); t=1925 SIEGE 拔防御壳 x3 -> #4353@(73,107)
+[13:57:44] t=1928 ESCORT 坦克#4308 -> 护航矿车@[95, 102]
+[13:57:46] t=1928 jev VEH DRON HOLD (预算保护 cash=404 aav帽=ok aav=2)
+[13:57:46] t=1928 MOVE raid x2 -> (80,100); t=1928 SIEGE 拔防御壳 x4 -> #4353@(73,107)
+[13:57:46] t=1931 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[13:57:48] t=1931 jev VEH DRON HOLD (预算保护 cash=404 aav帽=ok aav=2)
+[13:57:48] t=1931 MOVE raid x2 -> (80,103); t=1931 SIEGE 拔防御壳 x3 -> #4353@(73,107); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[13:57:50] t=1934 jev VEH DRON HOLD (预算保护 cash=404 aav帽=ok aav=2)
+[13:57:50] t=1934 MOVE raid x2 -> (80,106); t=1934 SIEGE 拔防御壳 x3 -> #4353@(73,107)
+[13:57:52] t=1937 jev VEH DRON HOLD (预算保护 cash=404 aav帽=ok aav=2)
+[13:57:52] t=1937 MOVE raid x2 -> (80,109); t=1937 SIEGE 拔防御壳 x3 -> #4353@(73,107)
+[13:57:54] t=1940 jev VEH DRON HOLD (预算保护 cash=404 aav帽=ok aav=2)
+[13:57:54] t=1940 MOVE raid x2 -> (80,111); assault x3 -> 攻击目标#4353@(73,107); t=1940 SIEGE 拔防御壳 x3 -> #4353@(73,107)
+[13:57:57] t=1943 jev VEH HARV HOLD (预算保护 cash=704 aav帽=ok aav=2)
+[13:57:57] t=1943 MOVE raid x2 -> (80,114); t=1943 SIEGE 拔防御壳 x3 -> #4353@(73,107)
+[13:57:59] t=1946 jev VEH HARV HOLD (预算保护 cash=704 aav帽=ok aav=2)
+[13:57:59] t=1946 MOVE raid x2 -> (80,117); t=1946 SIEGE 拔防御壳 x3 -> #4353@(73,107)
+[13:58:01] t=1949 jev VEH DRON HOLD (预算保护 cash=704 aav帽=ok aav=2)
+[13:58:01] t=1949 MOVE raid x2 -> (80,120); t=1949 SIEGE 拔防御壳 x3 -> #4353@(73,107)
+[13:58:01] t=1951 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[13:58:03] t=1951 jev VEH DRON HOLD (预算保护 cash=704 aav帽=ok aav=2)
+[13:58:03] t=1951 MOVE raid x1 -> (78,122); t=1951 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:58:05] t=1954 jev VEH DRON HOLD (预算保护 cash=704 aav帽=ok aav=2)
+[13:58:05] t=1954 MOVE raid x1 -> (78,123); t=1954 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:58:07] t=1957 jev VEH DRON HOLD (预算保护 cash=704 aav帽=ok aav=2)
+[13:58:07] t=1957 MOVE assault x2 -> 攻击目标#4353@(73,107); t=1957 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:58:08] t=1960 HARASS DRON x2 (have 1)
+[13:58:08] t=1960 RETREAT HTNK(37%)
+[13:58:10] t=1960 MOVE raid x1 -> (77,123); t=1960 SIEGE 拔防御壳 x2 -> #4353@(73,107); aahunt x2 -> (125,84)
+[13:58:12] t=1966 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[13:58:14] t=1966 THREAT 0.55 -> force defend
+[13:58:14] t=1969 ESCORT 坦克#4308 -> 护航矿车@[120, 138]
+[13:58:16] t=1969 MOVE raid x1 -> (79,120); t=1969 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:58:18] t=1972 MOVE raid x1 -> (79,116); t=1972 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:58:18] t=1972 tick#625 credits=517 stance=defend | jev 607 decisions p50=1846ms
+[13:58:19] t=1974 ALARM unit lost -> TURTLE (9 v 29, 守塔阵不打野战)
+[13:58:39] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[13:58:39] t=1977 MOVE raid x2 -> (80,111); assault x2 -> 攻击目标#4353@(73,107); t=1977 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:58:40] t=2002 ALARM unit lost -> TURTLE (9 v 31, 守塔阵不打野战)
+[13:58:42] t=2002 jev VEH HTNK HOLD (预算保护 cash=354 aav帽=ok aav=2)
+[13:58:44] t=2006 jev VEH HARV HOLD (预算保护 cash=354 aav帽=ok aav=2)
+[13:58:44] t=2008 HARASS DRON x2 (have 1)
+[13:58:46] t=2011 ESCORT 坦克#4759 -> 护航矿车@[128, 105]
+[13:58:48] t=2011 MOVE raid x1 -> (80,119); t=2011 SIEGE 拔防御壳 x1 -> #4353@(73,107); hold_a x4 -> (133,86); hold_b x3 -> (126,75); aahunt x2 -> (125,84)
+[13:58:52] t=2017 MOVE assault x2 -> 攻击目标#4353@(73,107); t=2017 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:58:59] t=2025 jev VEH HARV HOLD (预算保护 cash=679 aav帽=ok aav=2)
+[13:58:59] t=2025 ATTACK (tanks=6)
+[13:59:01] t=2028 jev VEH HARV HOLD (预算保护 cash=679 aav帽=ok aav=2)
+[13:59:01] t=2031 TESLA coil (have 1)
+[13:59:03] t=2031 jev VEH HARV HOLD (预算保护 cash=1804 aav帽=ok aav=2)
+[13:59:03] t=2034 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[13:59:03] t=2034 TANK HTNK x2
+[13:59:05] t=2034 MOVE assault x2 -> 攻击目标#4353@(73,107); t=2034 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:59:09] t=2039 MOVE raid x2 -> (80,119); t=2039 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:59:11] t=2042 MOVE raid x2 -> (78,78); t=2042 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:59:12] t=2045 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[13:59:13] t=2045 MOVE raid x1 -> (79,80); t=2045 SIEGE 拔防御壳 x1 -> #4353@(73,107)
+[13:59:16] t=2048 MOVE raid x1 -> (80,84); t=2048 SIEGE 拔防御壳 x1 -> #4353@(73,107)
+[13:59:18] t=2051 MOVE raid x1 -> (80,88); assault x1 -> 攻击目标#4353@(73,107); t=2051 SIEGE 拔防御壳 x1 -> #4353@(73,107)
+[13:59:18] t=2054 ESCORT 坦克#4776 -> 护航矿车@[115, 133]
+[13:59:20] t=2054 MOVE raid x1 -> (80,92); t=2054 SIEGE 拔防御壳 x2 -> #4353@(73,107); aahunt x2 -> (125,84)
+[13:59:22] t=2057 MOVE raid x1 -> (80,96); t=2057 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:59:24] t=2060 MOVE raid x1 -> (80,100); t=2060 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:59:26] t=2062 MOVE raid x1 -> (80,103); t=2062 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:59:29] t=2065 MOVE raid x1 -> (78,79); t=2065 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:59:29] t=2065 tick#650 credits=0 stance=attack | jev 631 decisions p50=1850ms
+[13:59:31] t=2068 MOVE raid x1 -> (80,83); assault x2 -> 攻击目标#4353@(73,107); t=2068 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[13:59:31] t=2071 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[13:59:33] t=2071 THREAT 0.59 -> force defend
+[13:59:44] t=2085 MOVE assault x1 -> 攻击目标#4353@(73,107); t=2085 SIEGE 拔防御壳 x1 -> #4353@(73,107)
+[13:59:48] t=2094 ESCORT 坦克#4794 -> 护航矿车@[117, 134]
+[13:59:50] t=2094 MOVE t=2094 SIEGE 拔防御壳 x1 -> #4353@(73,107); hold_a x4 -> (133,86); hold_b x3 -> (126,75); aahunt x2 -> (125,84)
+[13:59:56] t=2102 MOVE assault x1 -> 攻击目标#4353@(73,107); t=2102 SIEGE 拔防御壳 x1 -> #4353@(73,107)
+[14:00:09] t=2119 MOVE assault x1 -> 攻击目标#4353@(73,107); t=2119 SIEGE 拔防御壳 x1 -> #4353@(73,107)
+[14:00:20] t=2136 ESCORT 坦克#4794 -> 护航矿车@[127, 105]
+[14:00:22] t=2136 MOVE assault x1 -> 攻击目标#4353@(73,107); t=2136 SIEGE 拔防御壳 x1 -> #4353@(73,107); aahunt x2 -> (125,84)
+[14:00:22] t=2136 tick#675 credits=0 stance=defend | jev 656 decisions p50=1850ms
+[14:00:45] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:00:45] t=2144 MOVE assault x2 -> 攻击目标#4353@(73,107); t=2144 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[14:00:45] t=2170 HARASS DRON x2 (have 0)
+[14:00:45] t=2170 RETREAT E2(32%)
+[14:01:04] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:01:04] t=2170 MOVE assault x2 -> 攻击目标#4353@(73,107); t=2170 SIEGE 拔防御壳 x2 -> #4353@(73,107); hold_a x4 -> (133,86); hold_b x3 -> (126,75); aahunt x2 -> (125,84)
+[14:01:04] t=2195 ESCORT 坦克#4847 -> 护航矿车@[120, 110]
+[14:01:04] t=2195 RETREAT HTNK(37%)
+[14:01:23] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:01:23] t=2195 ATTACK (tanks=6)
+[14:01:23] t=2195 MOVE raid x1 -> (80,115); assault x3 -> 攻击目标#4353@(73,107); t=2195 SIEGE 拔防御壳 x3 -> #4353@(73,107)
+[14:01:23] t=2220 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:01:23] t=2220 RETREAT HTNK(32%)
+[14:01:42] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:01:42] t=2220 MOVE raid x1 -> (79,115); assault x2 -> 攻击目标#4353@(73,107); t=2220 SIEGE 拔防御壳 x2 -> #4353@(73,107); aahunt x2 -> (125,84)
+[14:01:42] t=2246 ESCORT 坦克#4904 -> 护航矿车@[117, 135]
+[14:01:42] t=2246 RETREAT HTNK(29%)
+[14:02:01] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:02:01] t=2246 MOVE raid x2 -> (80,82); assault x3 -> 攻击目标#4353@(73,107); t=2246 SIEGE 拔防御壳 x3 -> #4353@(73,107)
+[14:02:01] t=2271 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:02:01] t=2271 HARASS DRON x2 (have 1)
+[14:02:03] t=2271 MOVE raid x1 -> (79,119); t=2271 SIEGE 拔防御壳 x1 -> #4353@(73,107)
+[14:02:05] t=2274 MOVE t=2274 SIEGE 拔防御壳 x1 -> #4353@(73,107); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[14:02:07] t=2277 THREAT 0.55 -> force defend
+[14:02:14] t=2285 MOVE assault x2 -> 攻击目标#4353@(73,107); t=2285 SIEGE 拔防御壳 x2 -> #4353@(73,107); aahunt x2 -> (125,84)
+[14:02:14] t=2288 ESCORT 坦克#5143 -> 护航矿车@[127, 105]
+[14:02:16] t=2288 jev VEH HTK HOLD (预算保护 cash=54 aav帽=ok aav=2)
+[14:02:16] t=2288 ATTACK (tanks=6)
+[14:02:18] t=2291 jev VEH HTK HOLD (预算保护 cash=54 aav帽=ok aav=2)
+[14:02:20] t=2294 jev VEH HTK HOLD (预算保护 cash=54 aav帽=ok aav=2)
+[14:02:20] t=2297 V3-RESPONSE HTK x2 (alive 2, seen t0 fire t1000002297)
+[14:02:39] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:02:39] t=2297 MOVE raid x3 -> (79,80); assault x3 -> 攻击目标#4353@(73,107); t=2297 SIEGE 拔防御壳 x3 -> #4353@(73,107)
+[14:02:39] t=2322 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[14:02:58] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:02:58] t=2322 MOVE raid x1 -> (80,109); assault x1 -> 攻击目标#4353@(73,107); t=2322 SIEGE 拔防御壳 x1 -> #4353@(73,107); aahunt x4 -> (125,84)
+[14:03:17] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:03:17] t=2347 MOVE raid x1 -> (83,123); assault x1 -> 攻击目标#4353@(73,107); t=2347 SIEGE 拔防御壳 x1 -> #4353@(73,107); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[14:03:17] t=2373 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:03:17] t=2373 HARASS DRON x2 (have 0)
+[14:03:36] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:03:36] t=2373 MOVE aahunt x4 -> (125,84)
+[14:03:36] t=2398 ESCORT 坦克#5198 -> 护航矿车@[128, 105]
+[14:03:55] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:03:55] t=2398 MOVE raid x2 -> (81,83); assault x2 -> 攻击目标#4353@(73,107); t=2398 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[14:04:14] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:04:14] t=2423 MOVE raid x2 -> (80,89); assault x2 -> 攻击目标#4353@(73,107); t=2423 SIEGE 拔防御壳 x2 -> #4353@(73,107); aahunt x4 -> (125,84)
+[14:04:14] t=2449 ESCORT 坦克#5197 -> 护航矿车@[126, 104]
+[14:04:33] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:04:33] t=2449 MOVE raid x2 -> (79,121); assault x2 -> 攻击目标#4353@(73,107); t=2449 SIEGE 拔防御壳 x2 -> #4353@(73,107); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[14:04:33] t=2474 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:04:33] t=2474 HARASS DRON x2 (have 0)
+[14:04:33] t=2474 RETREAT E2(32%)
+[14:04:52] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:04:52] t=2474 MOVE aahunt x4 -> (125,84)
+[14:04:52] t=2499 ESCORT 坦克#5351 -> 护航矿车@[83, 92]
+[14:05:11] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:05:11] t=2499 MOVE raid x2 -> (81,94); assault x2 -> 攻击目标#4353@(73,107); t=2499 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[14:05:11] t=2499 tick#700 credits=679 stance=attack | jev 667 decisions p50=1850ms
+[14:05:11] t=2525 TANK HTNK x2
+[14:05:11] t=2525 RETREAT HTNK(32%)
+[14:05:30] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:05:30] t=2525 MOVE raid x2 -> (83,84); assault x2 -> 攻击目标#4353@(73,107); t=2525 SIEGE 拔防御壳 x2 -> #4353@(73,107); aahunt x4 -> (125,84)
+[14:05:30] t=2550 ALARM unit lost -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[14:05:30] t=2550 ESCORT 坦克#5387 -> 护航矿车@[128, 105]
+[14:05:49] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:05:49] t=2550 MOVE raid x1 -> (87,63); assault x2 -> 攻击目标#4353@(73,107); t=2550 SIEGE 拔防御壳 x2 -> #4353@(73,107); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[14:05:49] t=2576 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[14:06:08] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:06:08] t=2576 MOVE assault x1 -> 攻击目标#4353@(73,107); t=2576 SIEGE 拔防御壳 x1 -> #4353@(73,107); aahunt x4 -> (125,84)
+[14:06:08] t=2601 HARASS DRON x2 (have 0)
+[14:06:08] t=2601 ESCORT 坦克#5387 -> 护航矿车@[117, 135]
+[14:06:27] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:06:27] t=2601 MOVE assault x2 -> 攻击目标#4353@(73,107); t=2601 SIEGE 拔防御壳 x2 -> #4353@(73,107)
+[14:06:46] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:06:46] t=2626 MOVE raid x2 -> (89,62); assault x4 -> 攻击目标#4353@(73,107); t=2626 SIEGE 拔防御壳 x4 -> #4353@(73,107); aahunt x4 -> (125,84)
+[14:06:46] t=2651 ESCORT 坦克#5409 -> 护航矿车@[127, 105]
+[14:07:05] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:07:05] t=2651 MOVE raid x2 -> (83,94); assault x4 -> 攻击目标#4353@(73,107); t=2651 SIEGE 拔防御壳 x4 -> #4353@(73,107); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[14:07:05] t=2677 TANK HTNK x1
+[14:07:05] t=2677 RETREAT HTNK(29%)
+[14:07:24] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:07:24] t=2677 MOVE raid x2 -> (84,123); assault x4 -> 攻击目标#4353@(73,107); t=2677 SIEGE 拔防御壳 x4 -> #4353@(73,107); aahunt x4 -> (125,84)
+[14:07:25] t=2702 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[14:07:25] t=2702 ESCORT 坦克#5404 -> 护航矿车@[89, 58]
+[14:07:25] t=2702 RETREAT DRON(10%)
+[14:07:43] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:07:43] t=2702 MOVE raid x1 -> (83,104); assault x4 -> 攻击目标#4353@(73,107); t=2702 SIEGE 拔防御壳 x4 -> #4353@(73,107)
+[14:07:44] t=2728 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[14:07:45] t=2728 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=4)
+[14:07:45] t=2728 MOVE raid x1 -> (83,74); assault x3 -> 攻击目标#2656@(72,111); t=2728 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[14:07:48] t=2731 jev VEH DRON HOLD (预算保护 cash=629 aav帽=ok aav=4)
+[14:07:48] t=2731 MOVE raid x1 -> (83,70); assault x3 -> 攻击目标#2828@(71,106); t=2731 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:07:48] t=2734 RETREAT HTNK(31%)
+[14:07:50] t=2734 jev VEH DRON HOLD (预算保护 cash=629 aav帽=ok aav=4)
+[14:07:50] t=2734 MOVE raid x1 -> (84,66); t=2734 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:07:50] t=2737 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[14:07:52] t=2737 jev VEH DRON HOLD (预算保护 cash=629 aav帽=ok aav=4)
+[14:07:52] t=2737 MOVE raid x1 -> (86,64); t=2737 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:07:52] t=2739 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[14:07:54] t=2739 jev VEH DRON HOLD (预算保护 cash=629 aav帽=ok aav=4)
+[14:07:56] t=2742 jev VEH DRON HOLD (预算保护 cash=629 aav帽=ok aav=4)
+[14:07:56] t=2742 MOVE t=2742 SIEGE 拔防御壳 x1 -> #2828@(71,106); aahunt x4 -> (125,84)
+[14:07:56] t=2745 ESCORT 坦克#5517 -> 护航矿车@[117, 135]
+[14:07:58] t=2745 jev VEH DRON HOLD (预算保护 cash=629 aav帽=ok aav=4)
+[14:07:59] t=2748 HARASS DRON x2 (have 0)
+[14:08:00] t=2748 MOVE assault x1 -> 攻击目标#2828@(71,106); t=2748 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:08:07] t=2756 MOVE raid x1 -> (90,59); t=2756 SIEGE 拔防御壳 x2 -> #2828@(71,106); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[14:08:09] t=2759 MOVE raid x1 -> (90,58); t=2759 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:08:13] t=2765 jev VEH DRON HOLD (预算保护 cash=579 aav帽=ok aav=4)
+[14:08:13] t=2765 MOVE assault x3 -> 攻击目标#2828@(71,106); t=2765 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:08:15] t=2768 jev VEH DRON HOLD (预算保护 cash=579 aav帽=ok aav=4)
+[14:08:17] t=2770 jev VEH DRON HOLD (预算保护 cash=579 aav帽=ok aav=4)
+[14:08:20] t=2773 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:20] t=2773 tick#725 credits=579 stance=attack | jev 684 decisions p50=1850ms
+[14:08:20] t=2776 RETREAT E2(32%)
+[14:08:22] t=2776 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:24] t=2779 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:24] t=2779 MOVE raid x2 -> (89,59); t=2779 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:08:26] t=2782 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:26] t=2782 MOVE assault x3 -> 攻击目标#2828@(71,106); t=2782 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:08:28] t=2785 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:28] t=2785 MOVE t=2785 SIEGE 拔防御壳 x3 -> #2828@(71,106); aahunt x4 -> (125,84)
+[14:08:28] t=2787 ESCORT 坦克#5649 -> 护航矿车@[127, 105]
+[14:08:30] t=2787 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:32] t=2790 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:34] t=2793 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:34] t=2793 MOVE raid x2 -> (90,60); t=2793 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:08:35] t=2796 ALARM unit lost -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[14:08:36] t=2796 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:38] t=2799 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:38] t=2799 MOVE assault x2 -> 攻击目标#2828@(71,106); t=2799 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:08:41] t=2801 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:43] t=2804 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:43] t=2804 MOVE raid x1 -> (91,59); t=2804 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:08:45] t=2807 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:47] t=2810 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:49] t=2812 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:49] t=2815 RETREAT HTNK(38%)
+[14:08:51] t=2815 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:51] t=2815 MOVE assault x2 -> 攻击目标#2828@(71,106); t=2815 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:08:53] t=2818 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:53] t=2818 MOVE raid x1 -> (91,62); t=2818 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:08:55] t=2821 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:55] t=2821 MOVE raid x1 -> (91,65); t=2821 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:08:57] t=2824 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:08:57] t=2824 MOVE raid x1 -> (91,69); t=2824 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:08:58] t=2827 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[14:08:58] t=2827 RETREAT HTNK(32%)
+[14:09:00] t=2827 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:09:00] t=2827 MOVE raid x1 -> (91,72); t=2827 SIEGE 拔防御壳 x1 -> #2828@(71,106); aahunt x4 -> (125,84)
+[14:09:00] t=2829 ESCORT 坦克#5649 -> 护航矿车@[128, 105]
+[14:09:02] t=2829 jev VEH HTK HOLD (预算保护 cash=579 aav帽=hit aav=4)
+[14:09:02] t=2829 MOVE raid x1 -> (70,117); t=2829 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:09:02] t=2832 HARASS DRON x2 (have 1)
+[14:09:04] t=2832 MOVE assault x1 -> 攻击目标#2828@(71,106); t=2832 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:09:06] t=2835 MOVE raid x1 -> (91,84); t=2835 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:09:06] t=2838 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:09:08] t=2838 MOVE hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[14:09:10] t=2841 MOVE raid x1 -> (85,90); t=2841 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:09:12] t=2844 MOVE raid x1 -> (84,93); t=2844 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:09:12] t=2844 tick#750 credits=179 stance=attack | jev 709 decisions p50=1847ms
+[14:09:15] t=2847 MOVE raid x1 -> (82,96); t=2847 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:09:17] t=2849 jev VEH HTK HOLD (预算保护 cash=154 aav帽=hit aav=4)
+[14:09:17] t=2849 MOVE raid x2 -> (82,100); assault x2 -> 攻击目标#2828@(71,106); t=2849 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:09:19] t=2852 jev VEH HTK HOLD (预算保护 cash=154 aav帽=hit aav=4)
+[14:09:19] t=2852 MOVE raid x2 -> (82,104); t=2852 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:09:21] t=2855 jev VEH HTK HOLD (预算保护 cash=154 aav帽=hit aav=4)
+[14:09:21] t=2855 MOVE raid x2 -> (81,106); t=2855 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:09:23] t=2858 jev VEH HTK HOLD (预算保护 cash=529 aav帽=hit aav=4)
+[14:09:23] t=2858 MOVE raid x2 -> (82,108); t=2858 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:09:25] t=2861 jev VEH HTK HOLD (预算保护 cash=529 aav帽=hit aav=4)
+[14:09:25] t=2861 MOVE raid x2 -> (82,111); t=2861 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:09:27] t=2864 jev VEH HTK HOLD (预算保护 cash=529 aav帽=hit aav=4)
+[14:09:27] t=2864 MOVE raid x2 -> (82,115); t=2864 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:09:29] t=2866 jev VEH HTK HOLD (预算保护 cash=529 aav帽=hit aav=4)
+[14:09:29] t=2866 MOVE raid x2 -> (82,119); assault x2 -> 攻击目标#2828@(71,106); t=2866 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:09:32] t=2869 jev VEH HTK HOLD (预算保护 cash=529 aav帽=hit aav=4)
+[14:09:32] t=2869 MOVE raid x2 -> (83,122); t=2869 SIEGE 拔防御壳 x2 -> #2828@(71,106); aahunt x4 -> (125,84)
+[14:09:34] t=2872 jev VEH HTK HOLD (预算保护 cash=529 aav帽=hit aav=4)
+[14:09:34] t=2872 MOVE raid x2 -> (84,123); assault x2 -> 攻击目标#2656@(72,111); t=2872 SIEGE 拔防御壳 x2 -> #2656@(72,111)
+[14:09:36] t=2875 jev VEH HTK HOLD (预算保护 cash=529 aav帽=hit aav=4)
+[14:09:36] t=2878 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[14:09:36] t=2878 ESCORT 坦克#5807 -> 护航矿车@[122, 103]
+[14:09:38] t=2878 jev VEH HTK HOLD (预算保护 cash=529 aav帽=hit aav=4)
+[14:09:38] t=2878 MOVE raid x1 -> (83,123); t=2878 SIEGE 拔防御壳 x1 -> #2656@(72,111)
+[14:09:40] t=2881 jev VEH HTK HOLD (预算保护 cash=529 aav帽=hit aav=4)
+[14:09:40] t=2883 HARASS DRON x2 (have 1)
+[14:09:44] t=2886 MOVE raid x1 -> (83,120); t=2886 SIEGE 拔防御壳 x1 -> #2656@(72,111)
+[14:09:44] t=2889 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:09:48] t=2892 MOVE raid x1 -> (83,113); assault x1 -> 攻击目标#2828@(71,106); t=2892 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:09:51] t=2895 MOVE raid x1 -> (84,111); t=2895 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:09:53] t=2897 MOVE raid x1 -> (83,109); t=2897 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:09:53] t=2900 TANK HTNK x2
+[14:09:55] t=2900 MOVE raid x2 -> (83,107); t=2900 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:09:57] t=2903 MOVE raid x2 -> (83,103); t=2903 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:09:59] t=2906 MOVE raid x2 -> (83,99); t=2906 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:10:01] t=2909 MOVE raid x2 -> (82,96); assault x2 -> 攻击目标#2828@(71,106); t=2909 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:10:03] t=2912 MOVE raid x2 -> (82,92); t=2912 SIEGE 拔防御壳 x2 -> #2828@(71,106); aahunt x4 -> (125,84)
+[14:10:06] t=2915 MOVE raid x2 -> (84,89); t=2915 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:10:06] t=2915 tick#775 credits=588 stance=attack | jev 734 decisions p50=1839ms
+[14:10:08] t=2918 MOVE raid x2 -> (87,86); t=2918 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:10:08] t=2920 ESCORT 坦克#5827 -> 护航矿车@[128, 105]
+[14:10:10] t=2920 MOVE raid x2 -> (87,82); t=2920 SIEGE 拔防御壳 x3 -> #2828@(71,106); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[14:10:12] t=2923 MOVE raid x2 -> (87,78); t=2923 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:10:14] t=2926 MOVE raid x2 -> (89,75); assault x3 -> 攻击目标#2828@(71,106); t=2926 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:10:16] t=2929 MOVE raid x2 -> (91,72); t=2929 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:10:19] t=2932 MOVE raid x2 -> (91,68); t=2932 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:10:21] t=2935 MOVE raid x2 -> (91,64); t=2935 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:10:23] t=2938 MOVE raid x2 -> (91,62); t=2938 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:10:23] t=2941 ALARM unit lost -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[14:10:25] t=2941 MOVE raid x1 -> (91,59); t=2941 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:10:27] t=2943 MOVE assault x2 -> 攻击目标#2828@(71,106); t=2943 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:10:33] t=2952 MOVE raid x1 -> (90,58); t=2952 SIEGE 拔防御壳 x2 -> #2828@(71,106); aahunt x4 -> (125,84)
+[14:10:40] t=2960 MOVE assault x2 -> 攻击目标#2828@(71,106); t=2960 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:10:40] t=2963 ESCORT 坦克#5827 -> 护航矿车@[127, 105]
+[14:10:44] t=2966 MOVE raid x1 -> (91,57); t=2966 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:10:52] t=2977 MOVE assault x2 -> 攻击目标#2828@(71,106); t=2977 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:10:52] t=2980 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[14:10:54] t=2980 MOVE assault x1 -> 攻击目标#5821@(72,110); t=2980 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:10:59] t=2985 tick#800 credits=0 stance=attack | jev 759 decisions p50=1829ms
+[14:11:03] t=2991 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=0)
+[14:11:05] t=2994 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=0)
+[14:11:05] t=2994 MOVE t=2994 SIEGE 拔防御壳 x1 -> #5821@(72,110); aahunt x4 -> (125,84)
+[14:11:07] t=2996 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=0)
+[14:11:07] t=2996 MOVE assault x1 -> 攻击目标#5821@(72,110); t=2996 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:11:09] t=2999 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=0)
+[14:11:11] t=3002 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=0)
+[14:11:11] t=3002 MOVE t=3002 SIEGE 拔防御壳 x1 -> #5821@(72,110); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[14:11:11] t=3005 ESCORT 坦克#5827 -> 护航矿车@[88, 56]
+[14:11:13] t=3005 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=0)
+[14:11:15] t=3008 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=0)
+[14:11:18] t=3011 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=374)
+[14:11:20] t=3013 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=329)
+[14:11:20] t=3013 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:11:20] t=3013 MOVE assault x2 -> 攻击目标#2828@(71,106); t=3013 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:11:22] t=3016 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=329)
+[14:11:22] t=3016 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:11:22] t=3019 RETREAT HTNK(36%)
+[14:11:24] t=3019 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=329)
+[14:11:24] t=3019 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:11:26] t=3022 jev VEH DRON HOLD (预算保护 cash=629 aav帽=ok aav=4)
+[14:11:28] t=3025 jev VEH DRON HOLD (预算保护 cash=629 aav帽=ok aav=4)
+[14:11:30] t=3027 jev VEH DRON HOLD (预算保护 cash=629 aav帽=ok aav=4)
+[14:11:30] t=3030 HARASS DRON x2 (have 0)
+[14:11:32] t=3030 MOVE assault x2 -> 攻击目标#2828@(71,106); t=3030 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:11:36] t=3036 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=547)
+[14:11:36] t=3036 MOVE t=3036 SIEGE 拔防御壳 x2 -> #2828@(71,106); aahunt x4 -> (125,84)
+[14:11:37] t=3039 ALARM unit lost -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[14:11:39] t=3039 MOVE raid x1 -> (91,79); t=3039 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:11:41] t=3041 MOVE raid x1 -> (91,83); t=3041 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:11:43] t=3044 MOVE raid x1 -> (89,86); t=3044 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:11:43] t=3047 ESCORT 坦克#6055 -> 护航矿车@[127, 105]
+[14:11:45] t=3047 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=54)
+[14:11:45] t=3047 jev VEH HTK HOLD (预算保护 cash=54 aav帽=hit aav=4)
+[14:11:45] t=3047 MOVE raid x2 -> (86,89); assault x3 -> 攻击目标#2828@(71,106); t=3047 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:11:47] t=3050 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=54)
+[14:11:47] t=3050 jev VEH HTK HOLD (预算保护 cash=54 aav帽=hit aav=4)
+[14:11:47] t=3050 MOVE raid x2 -> (85,92); t=3050 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:11:49] t=3053 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=429)
+[14:11:49] t=3053 jev VEH HTK HOLD (预算保护 cash=429 aav帽=hit aav=4)
+[14:11:49] t=3053 MOVE raid x2 -> (82,95); t=3053 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:11:51] t=3056 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=429)
+[14:11:51] t=3056 jev VEH HTK HOLD (预算保护 cash=429 aav帽=hit aav=4)
+[14:11:51] t=3056 MOVE raid x2 -> (82,99); t=3056 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:11:52] t=3056 tick#825 credits=429 stance=attack | jev 784 decisions p50=1825ms
+[14:11:54] t=3059 jev VEH HTK HOLD (预算保护 cash=429 aav帽=hit aav=4)
+[14:11:54] t=3059 MOVE raid x2 -> (82,103); t=3059 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:11:56] t=3061 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=429)
+[14:11:56] t=3061 jev VEH HTK HOLD (预算保护 cash=429 aav帽=hit aav=4)
+[14:11:56] t=3061 MOVE raid x2 -> (82,107); t=3061 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:11:58] t=3064 jev VEH HTK HOLD (预算保护 cash=429 aav帽=hit aav=4)
+[14:11:58] t=3064 MOVE raid x2 -> (82,111); assault x3 -> 攻击目标#2828@(71,106); t=3064 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:12:00] t=3067 jev VEH HTK HOLD (预算保护 cash=429 aav帽=hit aav=4)
+[14:12:00] t=3067 MOVE raid x2 -> (82,114); t=3067 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:12:02] t=3070 jev VEH HTK HOLD (预算保护 cash=429 aav帽=hit aav=4)
+[14:12:02] t=3070 MOVE raid x2 -> (82,118); assault x3 -> 攻击目标#5821@(72,110); t=3070 SIEGE 拔防御壳 x3 -> #5821@(72,110)
+[14:12:04] t=3073 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=429)
+[14:12:04] t=3073 jev VEH HTK HOLD (预算保护 cash=429 aav帽=hit aav=4)
+[14:12:04] t=3073 MOVE raid x2 -> (83,122); t=3073 SIEGE 拔防御壳 x3 -> #5821@(72,110)
+[14:12:06] t=3076 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=429)
+[14:12:06] t=3076 jev VEH HTK HOLD (预算保护 cash=429 aav帽=hit aav=4)
+[14:12:06] t=3076 MOVE raid x2 -> (84,123); t=3076 SIEGE 拔防御壳 x3 -> #5821@(72,110); aahunt x4 -> (125,84)
+[14:12:07] t=3079 RETREAT DRON(26%)
+[14:12:07] t=3079 RETREAT DRON(38%)
+[14:12:07] t=3079 RETREAT E2(32%)
+[14:12:09] t=3079 jev VEH HTK HOLD (预算保护 cash=429 aav帽=hit aav=4)
+[14:12:09] t=3082 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:12:11] t=3082 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=429)
+[14:12:11] t=3082 jev VEH HTK HOLD (预算保护 cash=429 aav帽=hit aav=4)
+[14:12:11] t=3082 MOVE raid x1 -> (83,123); assault x2 -> 攻击目标#2656@(72,111); t=3082 SIEGE 拔防御壳 x2 -> #2656@(72,111)
+[14:12:13] t=3085 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=429)
+[14:12:13] t=3085 jev VEH HTK HOLD (预算保护 cash=429 aav帽=hit aav=4)
+[14:12:13] t=3085 MOVE t=3085 SIEGE 拔防御壳 x2 -> #2656@(72,111); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[14:12:13] t=3087 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:12:13] t=3087 ESCORT 坦克#5967 -> 护航矿车@[118, 134]
+[14:12:15] t=3087 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=429)
+[14:12:15] t=3087 jev VEH HTK HOLD (预算保护 cash=429 aav帽=hit aav=4)
+[14:12:15] t=3087 MOVE assault x1 -> 攻击目标#5821@(72,110); t=3087 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:12:17] t=3090 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=429)
+[14:12:17] t=3090 jev VEH DRON HOLD (预算保护 cash=429 aav帽=ok aav=4)
+[14:12:19] t=3093 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=429)
+[14:12:19] t=3093 jev VEH DRON HOLD (预算保护 cash=429 aav帽=ok aav=4)
+[14:12:22] t=3096 jev BUILD NATECH HOLD (资金闸门: 坦克优先, cash=429)
+[14:12:22] t=3096 jev VEH DRON HOLD (预算保护 cash=429 aav帽=ok aav=4)
+[14:12:24] t=3099 jev VEH DRON HOLD (预算保护 cash=429 aav帽=ok aav=4)
+[14:12:26] t=3102 jev VEH DRON HOLD (预算保护 cash=429 aav帽=ok aav=4)
+[14:12:26] t=3104 RETREAT HTNK(30%)
+[14:12:28] t=3104 jev VEH DRON HOLD (预算保护 cash=429 aav帽=ok aav=4)
+[14:12:28] t=3104 MOVE assault x1 -> 攻击目标#5821@(72,110); t=3104 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:12:30] t=3107 jev VEH DRON HOLD (预算保护 cash=429 aav帽=ok aav=4)
+[14:12:30] t=3110 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:12:32] t=3110 jev VEH DRON HOLD (预算保护 cash=429 aav帽=ok aav=4)
+[14:12:34] t=3113 jev VEH DRON HOLD (预算保护 cash=429 aav帽=ok aav=4)
+[14:12:36] t=3115 jev VEH DRON HOLD (预算保护 cash=429 aav帽=ok aav=4)
+[14:12:38] t=3118 jev VEH DRON HOLD (预算保护 cash=429 aav帽=ok aav=4)
+[14:12:38] t=3118 MOVE aahunt x4 -> (125,84)
+[14:12:40] t=3121 jev VEH DRON HOLD (预算保护 cash=429 aav帽=ok aav=4)
+[14:12:43] t=3124 jev VEH DRON HOLD (预算保护 cash=429 aav帽=ok aav=4)
+[14:12:43] t=3127 HARASS DRON x2 (have 0)
+[14:12:45] t=3127 MOVE assault x2 -> 攻击目标#2828@(71,106); t=3127 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:12:45] t=3127 tick#850 credits=804 stance=attack | jev 809 decisions p50=1822ms
+[14:12:45] t=3130 RETREAT HTNK(32%)
+[14:12:49] t=3135 ESCORT 坦克#6202 -> 护航矿车@[118, 126]
+[14:12:51] t=3135 MOVE raid x2 -> (87,124); t=3135 SIEGE 拔防御壳 x4 -> #2828@(71,106)
+[14:12:55] t=3141 MOVE raid x2 -> (70,117); t=3141 SIEGE 拔防御壳 x4 -> #2828@(71,106)
+[14:12:57] t=3144 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=4)
+[14:12:57] t=3144 MOVE assault x5 -> 攻击目标#2828@(71,106); t=3144 SIEGE 拔防御壳 x5 -> #2828@(71,106)
+[14:12:58] t=3146 ALARM unit lost -> 攻势保持（塔阵守家, 前线 12 个单位继续进攻）
+[14:12:59] t=3146 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=4)
+[14:13:01] t=3149 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=4)
+[14:13:03] t=3152 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=4)
+[14:13:05] t=3155 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=4)
+[14:13:08] t=3157 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=4)
+[14:13:08] t=3160 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[14:13:10] t=3160 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=4)
+[14:13:10] t=3160 MOVE assault x3 -> 攻击目标#2828@(71,106); t=3160 SIEGE 拔防御壳 x3 -> #2828@(71,106); aahunt x2 -> (125,84)
+[14:13:12] t=3163 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=4)
+[14:13:14] t=3166 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=4)
+[14:13:14] t=3166 MOVE assault x4 -> 攻击目标#5821@(72,110); t=3166 SIEGE 拔防御壳 x4 -> #5821@(72,110); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[14:13:16] t=3169 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=4)
+[14:13:16] t=3171 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[14:13:18] t=3171 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=4)
+[14:13:20] t=3174 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=4)
+[14:13:20] t=3177 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:13:22] t=3177 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=4)
+[14:13:23] t=3180 RETREAT HTK(4%)
+[14:13:24] t=3180 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=4)
+[14:13:24] t=3180 THREAT 0.56 -> force defend
+[14:13:25] t=3183 ALARM unit lost -> TURTLE (9 v 33, 守塔阵不打野战)
+[14:13:27] t=3183 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=3)
+[14:13:29] t=3185 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=3)
+[14:13:29] t=3188 RETREAT HTK(33%)
+[14:13:31] t=3188 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=3)
+[14:13:33] t=3191 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:13:35] t=3193 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:13:37] t=3196 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=2)
+[14:13:37] t=3196 tick#875 credits=529 stance=defend | jev 834 decisions p50=1817ms
+[14:13:39] t=3199 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=2)
+[14:13:41] t=3201 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=2)
+[14:13:41] t=3201 MOVE aahunt x2 -> (125,84)
+[14:13:43] t=3204 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=2)
+[14:13:45] t=3207 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=2)
+[14:13:47] t=3210 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=2)
+[14:13:49] t=3212 jev VEH HARV HOLD (预算保护 cash=529 aav帽=ok aav=2)
+[14:13:49] t=3215 HARASS DRON x2 (have 0)
+[14:13:55] t=3223 ESCORT 坦克#6358 -> 护航矿车@[121, 104]
+[14:13:57] t=3223 MOVE raid x1 -> (70,117); assault x1 -> 攻击目标#2828@(71,106); t=3223 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:14:01] t=3231 TANK HTNK x2
+[14:14:09] t=3240 MOVE assault x2 -> 攻击目标#2828@(71,106); t=3240 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:14:11] t=3242 MOVE t=3242 SIEGE 拔防御壳 x2 -> #2828@(71,106); aahunt x2 -> (125,84)
+[14:14:15] t=3248 MOVE t=3248 SIEGE 拔防御壳 x2 -> #2828@(71,106); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[14:14:18] t=3251 ATTACK (tanks=6)
+[14:14:18] t=3253 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:14:20] t=3253 THREAT 0.61 -> force defend
+[14:14:22] t=3256 MOVE assault x2 -> 攻击目标#2828@(71,106); t=3256 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:14:26] t=3264 ESCORT 坦克#6359 -> 护航矿车@[117, 134]
+[14:14:28] t=3264 MOVE raid x1 -> (70,117); t=3264 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:14:28] t=3264 tick#900 credits=493 stance=defend | jev 859 decisions p50=1813ms
+[14:14:32] t=3270 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:32] t=3270 ATTACK (tanks=6)
+[14:14:34] t=3272 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:34] t=3272 THREAT 0.59 -> force defend
+[14:14:34] t=3272 ATTACK (tanks=6)
+[14:14:34] t=3272 MOVE assault x3 -> 攻击目标#2828@(71,106); t=3272 SIEGE 拔防御壳 x3 -> #2828@(71,106)
+[14:14:36] t=3275 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:36] t=3275 THREAT 0.57 -> force defend
+[14:14:36] t=3275 ATTACK (tanks=6)
+[14:14:38] t=3278 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:38] t=3278 THREAT 0.57 -> force defend
+[14:14:38] t=3278 ATTACK (tanks=6)
+[14:14:38] t=3280 RETREAT DRON(12%)
+[14:14:40] t=3280 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:40] t=3280 THREAT 0.57 -> force defend
+[14:14:40] t=3280 ATTACK (tanks=6)
+[14:14:40] t=3283 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:14:42] t=3283 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:42] t=3283 MOVE t=3283 SIEGE 拔防御壳 x2 -> #2828@(71,106); aahunt x2 -> (125,84)
+[14:14:44] t=3286 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:46] t=3289 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:46] t=3289 MOVE assault x2 -> 攻击目标#2828@(71,106); t=3289 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:14:48] t=3291 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:50] t=3294 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:52] t=3297 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:54] t=3300 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:57] t=3303 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:57] t=3305 ESCORT 坦克#6377 -> 护航矿车@[127, 105]
+[14:14:59] t=3305 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:14:59] t=3305 MOVE assault x2 -> 攻击目标#2828@(71,106); t=3305 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:15:01] t=3308 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:03] t=3311 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:05] t=3314 jev VEH HTNK HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:07] t=3317 jev VEH HTNK HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:09] t=3319 jev VEH HTNK HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:11] t=3322 jev VEH HTNK HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:11] t=3322 MOVE assault x2 -> 攻击目标#2828@(71,106); t=3322 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:15:13] t=3325 jev VEH HTNK HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:13] t=3325 MOVE t=3325 SIEGE 拔防御壳 x2 -> #2828@(71,106); aahunt x2 -> (125,84)
+[14:15:16] t=3328 jev VEH HTNK HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:16] t=3328 MOVE assault x2 -> 攻击目标#5821@(72,110); t=3328 SIEGE 拔防御壳 x2 -> #5821@(72,110); hold_a x4 -> (133,86); hold_b x3 -> (126,75)
+[14:15:18] t=3331 jev VEH HTNK HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:18] t=3334 RETREAT HTNK(36%)
+[14:15:20] t=3334 jev VEH HTNK HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:20] t=3334 tick#925 credits=329 stance=attack | jev 884 decisions p50=1809ms
+[14:15:22] t=3337 jev VEH HTNK HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:24] t=3340 jev VEH HTNK HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:25] t=3342 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:15:26] t=3342 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:28] t=3345 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:28] t=3345 MOVE assault x1 -> 攻击目标#5821@(72,110); t=3345 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:15:29] t=3348 ESCORT 坦克#6377 -> 护航矿车@[128, 105]
+[14:15:31] t=3348 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:33] t=3351 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:35] t=3354 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:37] t=3356 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:37] t=3359 RETREAT HTNK(21%)
+[14:15:39] t=3359 jev VEH DRON HOLD (预算保护 cash=329 aav帽=ok aav=2)
+[14:15:39] t=3362 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:15:39] t=3362 HARASS DRON x2 (have 0)
+[14:15:45] t=3368 MOVE aahunt x2 -> (125,84)
+[14:15:48] t=3371 MOVE raid x1 -> (80,119); assault x1 -> 攻击目标#2828@(71,106); t=3371 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:15:54] t=3379 jev VEH HTK HOLD (预算保护 cash=429 aav帽=ok aav=2)
+[14:15:54] t=3382 RETREAT E2(32%)
+[14:15:56] t=3382 jev VEH HARV HOLD (预算保护 cash=429 aav帽=ok aav=2)
+[14:15:56] t=3382 MOVE raid x2 -> (88,123); t=3382 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:15:58] t=3385 jev VEH HARV HOLD (预算保护 cash=429 aav帽=ok aav=2)
+[14:16:00] t=3388 jev VEH HARV HOLD (预算保护 cash=429 aav帽=ok aav=2)
+[14:16:00] t=3388 MOVE assault x2 -> 攻击目标#2828@(71,106); t=3388 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:16:01] t=3390 ESCORT 坦克#6688 -> 护航矿车@[88, 58]
+[14:16:03] t=3390 jev VEH HARV HOLD (预算保护 cash=429 aav帽=ok aav=2)
+[14:16:03] t=3390 MOVE raid x2 -> (80,119); t=3390 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:16:05] t=3393 jev VEH HARV HOLD (预算保护 cash=429 aav帽=ok aav=2)
+[14:16:07] t=3396 jev VEH HARV HOLD (预算保护 cash=429 aav帽=ok aav=2)
+[14:16:09] t=3399 jev VEH HARV HOLD (预算保护 cash=429 aav帽=ok aav=2)
+[14:16:09] t=3402 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:16:09] t=3402 HARASS DRON x2 (have 1)
+[14:16:13] t=3405 MOVE raid x1 -> (84,115); assault x1 -> 攻击目标#2828@(71,106); t=3405 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:16:13] t=3405 tick#950 credits=724 stance=attack | jev 909 decisions p50=1808ms
+[14:16:15] t=3408 MOVE raid x1 -> (88,111); assault x1 -> 攻击目标#5821@(72,110); t=3408 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:16:16] t=3411 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:16:18] t=3411 MOVE raid x1 -> (90,108); assault x1 -> 攻击目标#2828@(71,106); t=3411 SIEGE 拔防御壳 x1 -> #2828@(71,106); hold_a x4 -> (133,86); hold_b x3 -> (126,75); aahunt x2 -> (125,84)
+[14:16:20] t=3414 MOVE raid x1 -> (90,107); t=3414 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:16:22] t=3417 jev VEH HARV HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:24] t=3419 jev VEH HARV HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:26] t=3422 jev VEH HARV HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:28] t=3425 jev VEH HARV HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:30] t=3428 jev VEH HARV HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:30] t=3428 MOVE assault x2 -> 攻击目标#2828@(71,106); t=3428 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:16:32] t=3430 jev VEH HARV HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:33] t=3433 ESCORT 坦克#6714 -> 护航矿车@[128, 105]
+[14:16:33] t=3433 RETREAT HTNK(32%)
+[14:16:35] t=3433 jev VEH HARV HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:37] t=3436 jev VEH DRON HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:37] t=3436 MOVE raid x2 -> (89,120); t=3436 SIEGE 拔防御壳 x2 -> #2828@(71,106)
+[14:16:37] t=3439 RETREAT DRON(26%)
+[14:16:39] t=3439 jev VEH DRON HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:39] t=3439 MOVE raid x2 -> (89,117); assault x2 -> 攻击目标#5821@(72,110); t=3439 SIEGE 拔防御壳 x2 -> #5821@(72,110)
+[14:16:39] t=3442 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:16:41] t=3442 jev VEH DRON HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:41] t=3442 MOVE raid x1 -> (89,112); assault x1 -> 攻击目标#2828@(71,106); t=3442 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:16:43] t=3445 jev VEH DRON HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:43] t=3445 MOVE raid x1 -> (89,109); t=3445 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:16:46] t=3448 jev VEH DRON HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:46] t=3448 MOVE raid x1 -> (90,105); t=3448 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:16:48] t=3451 jev VEH DRON HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:48] t=3451 MOVE t=3451 SIEGE 拔防御壳 x1 -> #2828@(71,106); aahunt x2 -> (125,84)
+[14:16:50] t=3454 jev VEH DRON HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:50] t=3454 MOVE raid x1 -> (91,105); t=3454 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:16:52] t=3457 jev VEH DRON HOLD (预算保护 cash=79 aav帽=ok aav=2)
+[14:16:52] t=3459 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:16:54] t=3459 jev VEH DRON HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:16:56] t=3462 jev VEH DRON HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:16:58] t=3465 jev VEH DRON HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:17:00] t=3468 jev VEH DRON HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:17:03] t=3471 jev VEH DRON HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:17:21] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:17:21] t=3473 MOVE hold_a x4 -> (133,86); hold_b x3 -> (126,75); aahunt x2 -> (125,84)
+[14:17:40] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:17:40] t=3499 tick#975 credits=379 stance=attack | jev 932 decisions p50=1808ms
+[14:17:41] t=3524 V3-RESPONSE HTK x1 (alive 2, seen t0 fire t1000003524)
+[14:17:59] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:17:59] t=3524 MOVE aahunt x2 -> (125,84)
+[14:18:00] t=3549 ALARM enemy approaching -> RESCUE 预备队 3 人驰援远端 [109, 85]
+[14:18:00] t=3549 HARASS DRON x2 (have 0)
+[14:18:18] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:18:19] t=3574 ALARM NAREFN under attack -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[14:18:19] t=3574 RUSH-DEFENSE ON (敌14压门 vs 守13) 动员兵爆产
+[14:18:19] t=3574 V3-RESPONSE HTK x1 (alive 3, seen t0 fire t1000003574)
+[14:18:19] t=3574 TANK HTNK x1
+[14:18:19] t=3574 ESCORT 坦克#6842 -> 护航矿车@[120, 109]
+[14:18:37] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:18:37] t=3574 MOVE raid x2 -> (102,98); assault x2 -> (137,82); t=3574 RUSH-DEFENSE tanks x2 -> 塔线协防; hold_a x4 -> (133,86); hold_b x3 -> (126,75); aahunt x3 -> 攻击目标#6743@(110,83)
+[14:18:38] t=3600 ALARM unit lost -> 攻势保持（塔阵守家, 前线 11 个单位继续进攻）
+[14:18:56] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:18:56] t=3600 MOVE assault x1 -> (137,82); t=3600 RUSH-DEFENSE tanks x1 -> 塔线协防; aahunt x4 -> 攻击目标#6743@(111,81)
+[14:18:57] t=3625 RUSH-DEFENSE OFF (威胁解除) 恢复原公式
+[14:18:57] t=3625 ESCORT 坦克#7025 -> 护航矿车@[128, 105]
+[14:19:15] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:19:15] t=3625 MOVE assault x1 -> 攻击目标#2828@(71,106); t=3625 SIEGE 拔防御壳 x1 -> #2828@(71,106); aahunt x4 -> (125,84)
+[14:19:16] t=3651 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:19:34] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:19:34] t=3651 MOVE assault x1 -> 攻击目标#2828@(71,106); t=3651 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:19:35] t=3676 ESCORT 坦克#7025 -> 护航矿车@[90, 58]
+[14:19:53] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:19:53] t=3676 MOVE assault x1 -> 攻击目标#2828@(71,106); t=3676 SIEGE 拔防御壳 x1 -> #2828@(71,106); hold_a x3 -> (133,86); hold_b x3 -> (126,75); aahunt x4 -> (125,84)
+[14:19:54] t=3701 ALARM enemy approaching -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:19:54] t=3701 HARASS DRON x2 (have 0)
+[14:19:54] t=3701 RETREAT E2(32%)
+[14:20:12] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:20:12] t=3701 MOVE assault x1 -> 攻击目标#2828@(71,106); t=3701 SIEGE 拔防御壳 x1 -> #2828@(71,106)
+[14:20:13] t=3727 TANK HTNK x1
+[14:20:13] t=3727 ESCORT 坦克#7222 -> 护航矿车@[128, 104]
+[14:20:31] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:20:31] t=3727 MOVE raid x2 -> (103,96); assault x3 -> 攻击目标#2828@(71,106); t=3727 SIEGE 拔防御壳 x3 -> #2828@(71,106); aahunt x4 -> (125,84)
+[14:20:32] t=3752 RETREAT HTNK(20%)
+[14:20:50] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:20:50] t=3752 MOVE raid x2 -> (120,104); assault x3 -> 攻击目标#5821@(72,110); t=3752 SIEGE 拔防御壳 x3 -> #5821@(72,110)
+[14:20:51] t=3777 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:20:51] t=3777 ESCORT 坦克#7426 -> 护航矿车@[117, 131]
+[14:21:09] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:21:09] t=3777 MOVE assault x1 -> 攻击目标#5821@(72,110); t=3777 SIEGE 拔防御壳 x1 -> #5821@(72,110); hold_a x3 -> (133,86); hold_b x3 -> (126,75); aahunt x4 -> (125,84)
+[14:21:28] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:21:28] t=3803 MOVE assault x1 -> 攻击目标#5821@(72,110); t=3803 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:21:29] t=3828 ESCORT 坦克#7426 -> 护航矿车@[105, 89]
+[14:21:29] t=3828 RETREAT HTK(27%)
+[14:21:48] jev ERR typesafe failed: HTTP Error 500: Internal Server Error
+[14:21:48] t=3828 MOVE assault x1 -> 攻击目标#2749@(71,108); t=3828 SIEGE 拔防御壳 x1 -> #2749@(71,108); aahunt x4 -> (125,84)
+[14:21:50] t=3853 jev VEH DRON HOLD (预算保护 cash=779 aav帽=ok aav=4)
+[14:21:50] t=3853 MOVE assault x1 -> 攻击目标#5821@(72,110); t=3853 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:21:52] t=3857 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=4)
+[14:21:54] t=3859 jev VEH DRON HOLD (预算保护 cash=779 aav帽=ok aav=4)
+[14:21:56] t=3862 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=4)
+[14:21:58] t=3865 jev VEH DRON HOLD (预算保护 cash=779 aav帽=ok aav=4)
+[14:22:00] t=3868 jev VEH DRON HOLD (预算保护 cash=779 aav帽=ok aav=4)
+[14:22:01] t=3871 ESCORT 坦克#7426 -> 护航矿车@[127, 105]
+[14:22:03] t=3871 jev VEH DRON HOLD (预算保护 cash=779 aav帽=ok aav=4)
+[14:22:03] t=3871 MOVE assault x1 -> 攻击目标#5821@(72,110); t=3871 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:22:05] t=3874 jev VEH DRON HOLD (预算保护 cash=779 aav帽=ok aav=4)
+[14:22:05] t=3876 HARASS DRON x2 (have 0)
+[14:22:11] t=3882 MOVE t=3882 SIEGE 拔防御壳 x1 -> #5821@(72,110); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:22:11] t=3885 RETREAT HTNK(29%)
+[14:22:14] t=3885 MOVE raid x1 -> (80,119); t=3885 SIEGE 拔防御壳 x2 -> #5821@(72,110)
+[14:22:14] t=3885 tick#1000 credits=684 stance=attack | jev 944 decisions p50=1808ms
+[14:22:16] t=3889 MOVE assault x2 -> 攻击目标#5821@(72,110); t=3889 SIEGE 拔防御壳 x2 -> #5821@(72,110)
+[14:22:19] t=3892 jev VEH HARV HOLD (预算保护 cash=354 aav帽=ok aav=4)
+[14:22:19] t=3892 MOVE t=3892 SIEGE 拔防御壳 x3 -> #5821@(72,110); aahunt x4 -> (125,84)
+[14:22:21] t=3895 jev VEH HARV HOLD (预算保护 cash=354 aav帽=ok aav=4)
+[14:22:23] t=3897 jev VEH HARV HOLD (预算保护 cash=354 aav帽=ok aav=4)
+[14:22:25] t=3900 jev VEH HARV HOLD (预算保护 cash=354 aav帽=ok aav=4)
+[14:22:25] t=3903 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:22:27] t=3903 jev VEH HARV HOLD (预算保护 cash=354 aav帽=ok aav=4)
+[14:22:29] t=3906 jev VEH HARV HOLD (预算保护 cash=354 aav帽=ok aav=4)
+[14:22:29] t=3906 MOVE assault x2 -> 攻击目标#5821@(72,110); t=3906 SIEGE 拔防御壳 x2 -> #5821@(72,110)
+[14:22:31] t=3909 jev VEH HARV HOLD (预算保护 cash=354 aav帽=ok aav=4)
+[14:22:32] t=3912 ESCORT 坦克#7663 -> 护航矿车@[87, 125]
+[14:22:33] t=3912 jev VEH HARV HOLD (预算保护 cash=354 aav帽=ok aav=4)
+[14:22:36] t=3914 jev VEH HARV HOLD (预算保护 cash=354 aav帽=ok aav=4)
+[14:22:36] t=3914 MOVE raid x2 -> (80,119); t=3914 SIEGE 拔防御壳 x2 -> #5821@(72,110)
+[14:22:38] t=3917 jev VEH HARV HOLD (预算保护 cash=354 aav帽=ok aav=4)
+[14:22:40] t=3920 jev VEH HARV HOLD (预算保护 cash=354 aav帽=ok aav=4)
+[14:22:42] t=3923 jev VEH HARV HOLD (预算保护 cash=354 aav帽=ok aav=4)
+[14:22:42] t=3923 MOVE assault x2 -> 攻击目标#5821@(72,110); t=3923 SIEGE 拔防御壳 x2 -> #5821@(72,110)
+[14:22:42] t=3926 TANK HTNK x1
+[14:22:50] t=3934 MOVE t=3934 SIEGE 拔防御壳 x2 -> #5821@(72,110); aahunt x4 -> (125,84)
+[14:22:53] t=3940 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:22:55] t=3940 MOVE assault x1 -> 攻击目标#5821@(72,110); t=3940 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:22:55] t=3943 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:23:07] t=3957 tick#1025 credits=0 stance=attack | jev 969 decisions p50=1811ms
+[14:23:11] t=3962 MOVE hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:23:14] t=3968 HARASS DRON x2 (have 0)
+[14:23:14] t=3968 ESCORT 坦克#7702 -> 护航矿车@[128, 104]
+[14:23:16] t=3968 MOVE assault x1 -> 攻击目标#5821@(72,110); t=3968 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:23:22] t=3976 MOVE raid x1 -> (80,119); t=3976 SIEGE 拔防御壳 x2 -> #5821@(72,110); aahunt x4 -> (125,84)
+[14:23:28] t=3985 jev VEH HTK HOLD (预算保护 cash=604 aav帽=hit aav=4)
+[14:23:28] t=3985 MOVE assault x3 -> 攻击目标#5821@(72,110); t=3985 SIEGE 拔防御壳 x3 -> #5821@(72,110)
+[14:23:30] t=3988 jev VEH HTK HOLD (预算保护 cash=604 aav帽=hit aav=4)
+[14:23:33] t=3990 jev VEH HTK HOLD (预算保护 cash=604 aav帽=hit aav=4)
+[14:23:35] t=3993 jev VEH HTK HOLD (预算保护 cash=604 aav帽=hit aav=4)
+[14:23:37] t=3996 jev VEH HTK HOLD (预算保护 cash=604 aav帽=hit aav=4)
+[14:23:37] t=3996 MOVE assault x3 -> 攻击目标#2749@(71,108); t=3996 SIEGE 拔防御壳 x3 -> #2749@(71,108)
+[14:23:39] t=3999 jev VEH HTK HOLD (预算保护 cash=604 aav帽=hit aav=4)
+[14:23:39] t=4002 RETREAT E2(32%)
+[14:23:41] t=4002 jev VEH HTK HOLD (预算保护 cash=604 aav帽=hit aav=4)
+[14:23:43] t=4004 jev VEH HTK HOLD (预算保护 cash=604 aav帽=hit aav=4)
+[14:23:43] t=4004 MOVE raid x2 -> (80,119); t=4004 SIEGE 拔防御壳 x3 -> #2749@(71,108)
+[14:23:45] t=4007 jev VEH HTK HOLD (预算保护 cash=604 aav帽=hit aav=4)
+[14:23:45] t=4007 MOVE assault x3 -> 攻击目标#5821@(72,110); t=4007 SIEGE 拔防御壳 x3 -> #5821@(72,110)
+[14:23:45] t=4010 ESCORT 坦克#7702 -> 护航矿车@[126, 104]
+[14:23:47] t=4010 jev VEH HTK HOLD (预算保护 cash=604 aav帽=hit aav=4)
+[14:23:49] t=4013 jev VEH HTK HOLD (预算保护 cash=604 aav帽=hit aav=4)
+[14:23:50] t=4016 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:23:51] t=4016 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=4)
+[14:23:52] t=4018 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:23:54] t=4018 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=4)
+[14:23:54] t=4018 MOVE t=4018 SIEGE 拔防御壳 x1 -> #5821@(72,110); aahunt x4 -> (125,84)
+[14:23:56] t=4021 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=4)
+[14:23:58] t=4024 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=4)
+[14:23:58] t=4024 MOVE assault x1 -> 攻击目标#5821@(72,110); t=4024 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:24:00] t=4027 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=4)
+[14:24:00] t=4027 tick#1050 credits=604 stance=attack | jev 994 decisions p50=1811ms
+[14:24:02] t=4030 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=4)
+[14:24:04] t=4032 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=4)
+[14:24:06] t=4035 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=4)
+[14:24:08] t=4038 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=4)
+[14:24:10] t=4041 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=4)
+[14:24:10] t=4041 MOVE assault x1 -> 攻击目标#5821@(72,110); t=4041 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:24:12] t=4043 jev VEH HARV HOLD (预算保护 cash=754 aav帽=ok aav=4)
+[14:24:12] t=4043 MOVE t=4043 SIEGE 拔防御壳 x1 -> #5821@(72,110); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:24:14] t=4046 jev VEH HARV HOLD (预算保护 cash=754 aav帽=ok aav=4)
+[14:24:17] t=4049 jev VEH HARV HOLD (预算保护 cash=754 aav帽=ok aav=4)
+[14:24:17] t=4052 ESCORT 坦克#7702 -> 护航矿车@[83, 98]
+[14:24:19] t=4052 jev VEH HARV HOLD (预算保护 cash=754 aav帽=ok aav=4)
+[14:24:19] t=4055 HARASS DRON x2 (have 0)
+[14:24:19] t=4055 RETREAT HTNK(8%)
+[14:24:19] t=4055 RETREAT HTNK(38%)
+[14:24:23] t=4058 MOVE assault x1 -> 攻击目标#2749@(71,108); t=4058 SIEGE 拔防御壳 x1 -> #2749@(71,108)
+[14:24:25] t=4061 MOVE t=4061 SIEGE 拔防御壳 x1 -> #2749@(71,108); aahunt x4 -> (125,84)
+[14:24:27] t=4063 MOVE raid x1 -> (80,119); assault x2 -> 攻击目标#5821@(72,110); t=4063 SIEGE 拔防御壳 x2 -> #5821@(72,110)
+[14:24:32] t=4072 TANK HTNK x1
+[14:24:36] t=4077 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:24:40] t=4080 MOVE assault x2 -> 攻击目标#5821@(72,110); t=4080 SIEGE 拔防御壳 x2 -> #5821@(72,110)
+[14:24:46] t=4091 TANK HTNK x2
+[14:24:48] t=4091 jev VEH HARV HOLD (预算保护 cash=1279 aav帽=ok aav=4)
+[14:24:48] t=4091 MOVE raid x2 -> (80,119); t=4091 SIEGE 拔防御壳 x3 -> #5821@(72,110)
+[14:24:49] t=4094 TANK HTNK x2
+[14:24:49] t=4094 ESCORT 坦克#7742 -> 护航矿车@[127, 105]
+[14:24:50] t=4094 jev VEH HARV HOLD (预算保护 cash=1279 aav帽=ok aav=4)
+[14:24:51] t=4097 TANK HTNK x2
+[14:24:53] t=4097 jev VEH HARV HOLD (预算保护 cash=1279 aav帽=ok aav=4)
+[14:24:53] t=4097 MOVE assault x3 -> 攻击目标#5821@(72,110); t=4097 SIEGE 拔防御壳 x3 -> #5821@(72,110)
+[14:24:53] t=4097 tick#1075 credits=1279 stance=attack | jev 1019 decisions p50=1812ms
+[14:24:53] t=4100 TANK HTNK x2
+[14:24:55] t=4100 jev VEH HARV HOLD (预算保护 cash=1279 aav帽=ok aav=4)
+[14:24:55] t=4103 TANK HTNK x2
+[14:24:57] t=4103 jev VEH HARV HOLD (预算保护 cash=1279 aav帽=ok aav=4)
+[14:24:57] t=4103 MOVE t=4103 SIEGE 拔防御壳 x3 -> #5821@(72,110); aahunt x4 -> (125,84)
+[14:24:57] t=4106 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:24:57] t=4106 HARASS DRON x2 (have 1)
+[14:25:03] t=4114 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:25:05] t=4114 MOVE assault x2 -> 攻击目标#5821@(72,110); t=4114 SIEGE 拔防御壳 x2 -> #5821@(72,110)
+[14:25:09] t=4119 MOVE raid x1 -> (80,119); t=4119 SIEGE 拔防御壳 x2 -> #5821@(72,110)
+[14:25:11] t=4122 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=4)
+[14:25:13] t=4125 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=4)
+[14:25:13] t=4125 MOVE t=4125 SIEGE 拔防御壳 x3 -> #5821@(72,110); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:25:16] t=4128 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=4)
+[14:25:16] t=4131 RETREAT HTK(19%)
+[14:25:18] t=4131 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=4)
+[14:25:18] t=4131 MOVE assault x3 -> 攻击目标#2749@(71,108); t=4131 SIEGE 拔防御壳 x3 -> #2749@(71,108)
+[14:25:20] t=4133 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=4)
+[14:25:20] t=4133 MOVE assault x3 -> 攻击目标#5821@(72,110); t=4133 SIEGE 拔防御壳 x3 -> #5821@(72,110)
+[14:25:20] t=4136 ESCORT 坦克#7755 -> 护航矿车@[90, 109]
+[14:25:22] t=4136 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=4)
+[14:25:24] t=4139 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=4)
+[14:25:26] t=4142 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=4)
+[14:25:28] t=4145 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=4)
+[14:25:28] t=4145 MOVE t=4145 SIEGE 拔防御壳 x3 -> #5821@(72,110); aahunt x4 -> (125,84)
+[14:25:29] t=4148 TANK HTNK x1
+[14:25:30] t=4148 MOVE raid x2 -> (80,119); t=4148 SIEGE 拔防御壳 x3 -> #5821@(72,110)
+[14:25:33] t=4150 MOVE assault x3 -> 攻击目标#5821@(72,110); t=4150 SIEGE 拔防御壳 x3 -> #5821@(72,110)
+[14:25:37] t=4159 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:25:43] t=4167 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:25:45] t=4167 MOVE assault x1 -> 攻击目标#5821@(72,110); t=4167 SIEGE 拔防御壳 x1 -> #5821@(72,110)
+[14:25:45] t=4167 tick#1100 credits=0 stance=attack | jev 1044 decisions p50=1810ms
+[14:25:49] t=4173 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:25:52] t=4176 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:25:52] t=4179 ESCORT 坦克#7755 -> 护航矿车@[87, 125]
+[14:25:54] t=4179 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:25:54] t=4181 RETREAT HTNK(35%)
+[14:25:56] t=4181 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:25:58] t=4184 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:25:58] t=4184 MOVE assault x2 -> 攻击目标#2656@(72,111); t=4184 SIEGE 拔防御壳 x2 -> #2656@(72,111)
+[14:26:00] t=4187 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:26:00] t=4187 MOVE t=4187 SIEGE 拔防御壳 x2 -> #2656@(72,111); aahunt x4 -> (125,84)
+[14:26:02] t=4190 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:26:04] t=4193 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:26:06] t=4195 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:26:07] t=4198 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:26:08] t=4198 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:08] t=4198 MOVE assault x1 -> 攻击目标#2749@(71,108); t=4198 SIEGE 拔防御壳 x1 -> #2749@(71,108)
+[14:26:10] t=4201 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:13] t=4204 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:15] t=4207 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:15] t=4207 MOVE t=4207 SIEGE 拔防御壳 x1 -> #2749@(71,108); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:26:17] t=4209 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:19] t=4212 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:21] t=4215 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:21] t=4215 MOVE assault x1 -> 攻击目标#2749@(71,108); t=4215 SIEGE 拔防御壳 x1 -> #2749@(71,108)
+[14:26:23] t=4218 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:23] t=4221 ESCORT 坦克#7786 -> 护航矿车@[128, 104]
+[14:26:25] t=4221 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:27] t=4224 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:29] t=4226 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:32] t=4229 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:32] t=4229 MOVE t=4229 SIEGE 拔防御壳 x3 -> #2749@(71,108); aahunt x2 -> (125,84)
+[14:26:34] t=4232 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:34] t=4232 MOVE assault x3 -> 攻击目标#2749@(71,108); t=4232 SIEGE 拔防御壳 x3 -> #2749@(71,108)
+[14:26:36] t=4235 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:38] t=4238 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:38] t=4238 tick#1125 credits=329 stance=attack | jev 1069 decisions p50=1812ms
+[14:26:40] t=4240 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:42] t=4243 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:26:44] t=4246 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:46] t=4249 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:26:46] t=4249 MOVE assault x3 -> 攻击目标#2749@(71,108); t=4249 SIEGE 拔防御壳 x3 -> #2749@(71,108)
+[14:26:48] t=4251 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:26:50] t=4254 jev VEH HTK HOLD (预算保护 cash=329 aav帽=hit aav=4)
+[14:26:52] t=4257 jev VEH HARV HOLD (预算保护 cash=329 aav帽=ok aav=4)
+[14:26:55] t=4260 jev VEH HTK HOLD (预算保护 cash=704 aav帽=hit aav=4)
+[14:26:55] t=4263 ESCORT 坦克#7786 -> 护航矿车@[89, 126]
+[14:26:57] t=4263 jev VEH HTK HOLD (预算保护 cash=704 aav帽=hit aav=4)
+[14:26:59] t=4265 jev VEH HTK HOLD (预算保护 cash=704 aav帽=hit aav=4)
+[14:26:59] t=4265 MOVE assault x3 -> 攻击目标#2749@(71,108); t=4265 SIEGE 拔防御壳 x3 -> #2749@(71,108)
+[14:27:01] t=4268 jev VEH HTK HOLD (预算保护 cash=704 aav帽=hit aav=4)
+[14:27:01] t=4268 MOVE assault x3 -> 攻击目标#2656@(72,111); t=4268 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[14:27:03] t=4271 jev VEH HTK HOLD (预算保护 cash=704 aav帽=hit aav=4)
+[14:27:03] t=4271 MOVE t=4271 SIEGE 拔防御壳 x3 -> #2656@(72,111); aahunt x2 -> (125,84)
+[14:27:05] t=4274 jev VEH HTK HOLD (预算保护 cash=704 aav帽=hit aav=4)
+[14:27:07] t=4276 jev VEH HTK HOLD (预算保护 cash=704 aav帽=hit aav=4)
+[14:27:07] t=4279 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:27:09] t=4279 jev VEH HARV HOLD (预算保护 cash=704 aav帽=ok aav=3)
+[14:27:11] t=4282 jev VEH HARV HOLD (预算保护 cash=704 aav帽=ok aav=3)
+[14:27:11] t=4285 HARASS DRON x2 (have 0)
+[14:27:13] t=4285 MOVE assault x2 -> 攻击目标#2656@(72,111); t=4285 SIEGE 拔防御壳 x2 -> #2656@(72,111)
+[14:27:15] t=4288 MOVE t=4288 SIEGE 拔防御壳 x2 -> #2656@(72,111); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:27:20] t=4293 MOVE raid x1 -> (80,119); assault x3 -> 攻击目标#2749@(71,108); t=4293 SIEGE 拔防御壳 x3 -> #2749@(71,108)
+[14:27:24] t=4302 TANK HTNK x1
+[14:27:26] t=4305 ESCORT 坦克#7786 -> 护航矿车@[85, 100]
+[14:27:26] t=4305 RETREAT E2(32%)
+[14:27:30] t=4307 tick#1150 credits=746 stance=attack | jev 1094 decisions p50=1811ms
+[14:27:32] t=4310 MOVE assault x4 -> 攻击目标#2749@(71,108); t=4310 SIEGE 拔防御壳 x4 -> #2749@(71,108)
+[14:27:34] t=4313 MOVE t=4313 SIEGE 拔防御壳 x4 -> #2749@(71,108); aahunt x2 -> (125,84)
+[14:27:37] t=4319 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:27:41] t=4321 jev VEH HARV HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:27:41] t=4321 MOVE raid x2 -> (80,119); t=4321 SIEGE 拔防御壳 x4 -> #2749@(71,108)
+[14:27:43] t=4324 jev VEH HARV HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:27:45] t=4327 jev VEH HARV HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:27:45] t=4327 MOVE assault x4 -> 攻击目标#2749@(71,108); t=4327 SIEGE 拔防御壳 x4 -> #2749@(71,108)
+[14:27:45] t=4330 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:27:45] t=4330 RETREAT HTNK(29%)
+[14:27:47] t=4330 jev VEH HARV HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:27:49] t=4333 jev VEH HARV HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:27:51] t=4335 jev VEH HARV HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:27:52] t=4338 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:27:53] t=4338 jev VEH HARV HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:27:55] t=4341 jev VEH HARV HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:27:57] t=4344 jev VEH HTK HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:27:57] t=4344 MOVE raid x2 -> (70,117); assault x3 -> 攻击目标#2656@(72,111); t=4344 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[14:27:58] t=4347 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:27:58] t=4347 ESCORT 坦克#7847 -> 护航矿车@[126, 105]
+[14:28:00] t=4347 jev VEH HTK HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:28:02] t=4349 jev VEH HTK HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:28:02] t=4352 RETREAT DRON(10%)
+[14:28:04] t=4352 jev VEH HTK HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:28:04] t=4355 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:28:06] t=4355 jev VEH HTK HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:28:06] t=4355 MOVE assault x1 -> 攻击目标#2749@(71,108); t=4355 SIEGE 拔防御壳 x1 -> #2749@(71,108); aahunt x2 -> (125,84)
+[14:28:06] t=4357 RETREAT HTNK(8%)
+[14:28:08] t=4357 jev VEH HTK HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:28:10] t=4360 jev VEH HTK HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:28:12] t=4363 jev VEH HTK HOLD (预算保护 cash=129 aav帽=ok aav=2)
+[14:28:14] t=4365 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:16] t=4368 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:16] t=4368 MOVE t=4368 SIEGE 拔防御壳 x1 -> #2749@(71,108); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:28:18] t=4371 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:18] t=4371 MOVE assault x1 -> 攻击目标#2749@(71,108); t=4371 SIEGE 拔防御壳 x1 -> #2749@(71,108)
+[14:28:20] t=4374 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:22] t=4376 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:22] t=4376 MOVE assault x1 -> 攻击目标#2656@(72,111); t=4376 SIEGE 拔防御壳 x1 -> #2656@(72,111)
+[14:28:22] t=4376 tick#1175 credits=504 stance=attack | jev 1119 decisions p50=1810ms
+[14:28:24] t=4379 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:26] t=4382 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:28] t=4384 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:28] t=4387 ESCORT 坦克#7847 -> 护航矿车@[105, 89]
+[14:28:30] t=4387 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:32] t=4390 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:34] t=4393 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:34] t=4393 MOVE assault x1 -> 攻击目标#2656@(72,111); t=4393 SIEGE 拔防御壳 x1 -> #2656@(72,111)
+[14:28:36] t=4395 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:36] t=4395 MOVE t=4395 SIEGE 拔防御壳 x1 -> #2656@(72,111); aahunt x2 -> (125,84)
+[14:28:38] t=4398 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:40] t=4401 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:42] t=4404 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:44] t=4406 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:46] t=4409 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:46] t=4409 MOVE assault x1 -> 攻击目标#2749@(71,108); t=4409 SIEGE 拔防御壳 x1 -> #2749@(71,108)
+[14:28:48] t=4412 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:50] t=4414 jev VEH HTK HOLD (预算保护 cash=504 aav帽=ok aav=2)
+[14:28:51] t=4417 HARASS DRON x2 (have 0)
+[14:28:59] t=4425 MOVE raid x1 -> (70,117); assault x2 -> 攻击目标#2749@(71,108); t=4425 SIEGE 拔防御壳 x2 -> #2749@(71,108)
+[14:28:59] t=4428 ESCORT 坦克#7847 -> 护航矿车@[117, 135]
+[14:29:05] t=4433 jev VEH HTK HOLD (预算保护 cash=154 aav帽=ok aav=2)
+[14:29:07] t=4436 jev VEH HTK HOLD (预算保护 cash=154 aav帽=ok aav=2)
+[14:29:07] t=4436 MOVE t=4436 SIEGE 拔防御壳 x3 -> #2749@(71,108); aahunt x2 -> (125,84)
+[14:29:07] t=4439 RETREAT HTNK(35%)
+[14:29:09] t=4439 jev VEH HTK HOLD (预算保护 cash=154 aav帽=ok aav=2)
+[14:29:11] t=4442 jev VEH HTK HOLD (预算保护 cash=154 aav帽=ok aav=2)
+[14:29:11] t=4442 MOVE assault x3 -> 攻击目标#2749@(71,108); t=4442 SIEGE 拔防御壳 x3 -> #2749@(71,108)
+[14:29:11] t=4444 TANK HTNK x1
+[14:29:13] t=4444 tick#1200 credits=1079 stance=attack | jev 1144 decisions p50=1809ms
+[14:29:17] t=4450 MOVE t=4450 SIEGE 拔防御壳 x3 -> #2749@(71,108); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:29:23] t=4458 MOVE assault x3 -> 攻击目标#2749@(71,108); t=4458 SIEGE 拔防御壳 x3 -> #2749@(71,108)
+[14:29:24] t=4461 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:29:25] t=4461 MOVE assault x2 -> 攻击目标#3070@(70,107); t=4461 SIEGE 拔防御壳 x2 -> #3070@(70,107)
+[14:29:27] t=4464 jev VEH HTK HOLD (预算保护 cash=479 aav帽=ok aav=2)
+[14:29:27] t=4464 MOVE assault x3 -> 攻击目标#2656@(72,111); t=4464 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[14:29:28] t=4466 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:29:29] t=4466 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=2)
+[14:29:29] t=4466 MOVE raid x1 -> (70,117); t=4466 SIEGE 拔防御壳 x2 -> #2656@(72,111)
+[14:29:30] t=4469 ESCORT 坦克#7933 -> 护航矿车@[128, 105]
+[14:29:31] t=4469 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=2)
+[14:29:34] t=4472 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=2)
+[14:29:36] t=4475 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=2)
+[14:29:36] t=4477 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:29:38] t=4477 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=2)
+[14:29:38] t=4477 MOVE t=4477 SIEGE 拔防御壳 x1 -> #2656@(72,111); aahunt x2 -> (125,84)
+[14:29:40] t=4480 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=2)
+[14:29:40] t=4480 MOVE assault x1 -> 攻击目标#2656@(72,111); t=4480 SIEGE 拔防御壳 x1 -> #2656@(72,111)
+[14:29:42] t=4483 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=2)
+[14:29:44] t=4485 jev VEH HARV HOLD (预算保护 cash=479 aav帽=ok aav=2)
+[14:29:44] t=4488 HARASS DRON x2 (have 0)
+[14:29:44] t=4488 TANK HTNK x1
+[14:29:50] t=4494 MOVE assault x1 -> 攻击目标#3070@(70,107); t=4494 SIEGE 拔防御壳 x1 -> #3070@(70,107)
+[14:29:52] t=4496 MOVE assault x2 -> 攻击目标#2656@(72,111); t=4496 SIEGE 拔防御壳 x2 -> #2656@(72,111)
+[14:30:00] t=4507 MOVE raid x2 -> (70,117); t=4507 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[14:30:00] t=4510 ESCORT 坦克#7933 -> 护航矿车@[89, 125]
+[14:30:04] t=4512 MOVE assault x3 -> 攻击目标#2656@(72,111); t=4512 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[14:30:04] t=4512 tick#1225 credits=314 stance=attack | jev 1169 decisions p50=1809ms
+[14:30:08] t=4518 MOVE t=4518 SIEGE 拔防御壳 x3 -> #2656@(72,111); aahunt x2 -> (125,84)
+[14:30:16] t=4529 MOVE assault x3 -> 攻击目标#2656@(72,111); t=4529 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[14:30:18] t=4532 MOVE t=4532 SIEGE 拔防御壳 x3 -> #2656@(72,111); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:30:20] t=4534 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:30:21] t=4537 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:30:22] t=4537 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:30:23] t=4540 HARASS DRON x2 (have 1)
+[14:30:29] t=4545 MOVE assault x3 -> 攻击目标#2656@(72,111); t=4545 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[14:30:29] t=4548 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:30:31] t=4548 MOVE raid x1 -> (70,117); t=4548 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[14:30:31] t=4551 ESCORT 坦克#7933 -> 护航矿车@[87, 124]
+[14:30:37] t=4556 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:30:39] t=4559 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:30:39] t=4559 MOVE t=4559 SIEGE 拔防御壳 x4 -> #2656@(72,111); aahunt x2 -> (125,84)
+[14:30:41] t=4562 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:30:41] t=4562 MOVE assault x4 -> 攻击目标#2656@(72,111); t=4562 SIEGE 拔防御壳 x4 -> #2656@(72,111)
+[14:30:43] t=4564 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:30:45] t=4567 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:30:47] t=4570 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:30:49] t=4573 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:30:51] t=4575 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:30:53] t=4578 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:30:53] t=4578 MOVE assault x4 -> 攻击目标#2656@(72,111); t=4578 SIEGE 拔防御壳 x4 -> #2656@(72,111)
+[14:30:55] t=4581 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:30:55] t=4581 tick#1250 credits=604 stance=attack | jev 1194 decisions p50=1804ms
+[14:30:57] t=4583 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:30:59] t=4586 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:30:59] t=4589 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:31:01] t=4589 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:01] t=4589 MOVE raid x1 -> (70,117); t=4589 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[14:31:01] t=4591 ESCORT 坦克#7951 -> 护航矿车@[127, 105]
+[14:31:03] t=4591 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:05] t=4594 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:05] t=4594 MOVE assault x3 -> 攻击目标#2656@(72,111); t=4594 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[14:31:07] t=4597 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:08] t=4600 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:31:09] t=4600 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:09] t=4600 MOVE t=4600 SIEGE 拔防御壳 x2 -> #2656@(72,111); aahunt x2 -> (125,84)
+[14:31:10] t=4602 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:31:11] t=4602 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:13] t=4605 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:14] t=4608 RETREAT E2(32%)
+[14:31:15] t=4608 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:18] t=4610 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:18] t=4610 MOVE assault x1 -> 攻击目标#2656@(72,111); t=4610 SIEGE 拔防御壳 x1 -> #2656@(72,111)
+[14:31:20] t=4613 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:20] t=4613 MOVE t=4613 SIEGE 拔防御壳 x1 -> #2656@(72,111); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:31:22] t=4616 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:24] t=4619 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:26] t=4621 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:28] t=4624 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:30] t=4627 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:30] t=4627 MOVE assault x1 -> 攻击目标#2656@(72,111); t=4627 SIEGE 拔防御壳 x1 -> #2656@(72,111)
+[14:31:32] t=4630 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:32] t=4632 ESCORT 坦克#7951 -> 护航矿车@[89, 126]
+[14:31:34] t=4632 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:36] t=4635 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:38] t=4638 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:38] t=4640 RETREAT HTNK(35%)
+[14:31:40] t=4640 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:40] t=4640 MOVE t=4640 SIEGE 拔防御壳 x1 -> #2656@(72,111); aahunt x2 -> (125,84)
+[14:31:42] t=4643 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:42] t=4643 MOVE assault x1 -> 攻击目标#2656@(72,111); t=4643 SIEGE 拔防御壳 x1 -> #2656@(72,111)
+[14:31:42] t=4646 ALARM unit lost -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[14:31:44] t=4646 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:46] t=4649 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:46] t=4649 tick#1275 credits=604 stance=attack | jev 1219 decisions p50=1799ms
+[14:31:48] t=4651 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:50] t=4654 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:52] t=4657 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:31:52] t=4660 HARASS DRON x2 (have 0)
+[14:31:52] t=4660 RETREAT HTNK(8%)
+[14:32:00] t=4668 MOVE raid x1 -> (70,117); assault x1 -> 攻击目标#2656@(72,111); t=4668 SIEGE 拔防御壳 x1 -> #2656@(72,111)
+[14:32:03] t=4673 ESCORT 坦克#8030 -> 护航矿车@[104, 94]
+[14:32:07] t=4676 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:09] t=4679 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:11] t=4681 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:11] t=4681 MOVE t=4681 SIEGE 拔防御壳 x2 -> #2656@(72,111); aahunt x2 -> (125,84)
+[14:32:13] t=4684 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:13] t=4684 MOVE assault x2 -> 攻击目标#2656@(72,111); t=4684 SIEGE 拔防御壳 x2 -> #2656@(72,111)
+[14:32:15] t=4687 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:17] t=4689 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:17] t=4692 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:32:19] t=4692 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:21] t=4695 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:21] t=4695 MOVE t=4695 SIEGE 拔防御壳 x2 -> #2656@(72,111); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:32:23] t=4698 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:25] t=4700 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:25] t=4700 MOVE assault x2 -> 攻击目标#2656@(72,111); t=4700 SIEGE 拔防御壳 x2 -> #2656@(72,111)
+[14:32:27] t=4703 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:29] t=4706 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:31] t=4709 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:31] t=4709 MOVE raid x2 -> (70,117); t=4709 SIEGE 拔防御壳 x2 -> #2656@(72,111)
+[14:32:31] t=4711 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:32:33] t=4711 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:34] t=4714 ESCORT 坦克#8030 -> 护航矿车@[128, 105]
+[14:32:35] t=4714 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:37] t=4717 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:37] t=4717 MOVE assault x2 -> 攻击目标#2656@(72,111); t=4717 SIEGE 拔防御壳 x2 -> #2656@(72,111)
+[14:32:37] t=4717 tick#1300 credits=629 stance=attack | jev 1244 decisions p50=1785ms
+[14:32:39] t=4720 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:42] t=4723 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:42] t=4723 MOVE t=4723 SIEGE 拔防御壳 x2 -> #2656@(72,111); aahunt x2 -> (125,84)
+[14:32:44] t=4725 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:46] t=4728 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:48] t=4731 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:50] t=4733 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:50] t=4733 MOVE assault x2 -> 攻击目标#2656@(72,111); t=4733 SIEGE 拔防御壳 x2 -> #2656@(72,111)
+[14:32:52] t=4736 jev VEH HARV HOLD (预算保护 cash=629 aav帽=ok aav=2)
+[14:32:52] t=4739 TANK HTNK x2
+[14:32:58] t=4747 ALARM unit lost -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[14:33:00] t=4750 ALARM unit lost -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[14:33:02] t=4750 MOVE raid x1 -> (70,117); assault x1 -> 攻击目标#2656@(72,111); t=4750 SIEGE 拔防御壳 x1 -> #2656@(72,111)
+[14:33:03] t=4753 ALARM unit lost -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[14:33:07] t=4758 ESCORT 坦克#8066 -> 护航矿车@[90, 94]
+[14:33:12] t=4763 MOVE t=4763 SIEGE 拔防御壳 x1 -> #2656@(72,111); aahunt x2 -> (125,84)
+[14:33:14] t=4766 MOVE assault x1 -> 攻击目标#2656@(72,111); t=4766 SIEGE 拔防御壳 x1 -> #2656@(72,111)
+[14:33:21] t=4777 HARASS DRON x2 (have 0)
+[14:33:23] t=4777 MOVE t=4777 SIEGE 拔防御壳 x2 -> #2656@(72,111); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:33:27] t=4783 MOVE assault x2 -> 攻击目标#2656@(72,111); t=4783 SIEGE 拔防御壳 x2 -> #2656@(72,111)
+[14:33:29] t=4785 tick#1325 credits=942 stance=attack | jev 1269 decisions p50=1769ms
+[14:33:33] t=4791 MOVE raid x1 -> (70,117); t=4791 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[14:33:35] t=4794 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:33:37] t=4797 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:33:38] t=4799 ESCORT 坦克#8066 -> 护航矿车@[90, 109]
+[14:33:40] t=4799 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:33:40] t=4799 MOVE assault x4 -> 攻击目标#2656@(72,111); t=4799 SIEGE 拔防御壳 x4 -> #2656@(72,111)
+[14:33:42] t=4802 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:33:44] t=4805 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:33:44] t=4805 MOVE t=4805 SIEGE 拔防御壳 x4 -> #2656@(72,111); aahunt x2 -> (125,84)
+[14:33:46] t=4808 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:33:48] t=4811 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:33:50] t=4813 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:33:52] t=4816 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:33:52] t=4816 MOVE assault x4 -> 攻击目标#2656@(72,111); t=4816 SIEGE 拔防御壳 x4 -> #2656@(72,111)
+[14:33:54] t=4819 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:33:56] t=4822 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:33:58] t=4825 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:00] t=4827 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:03] t=4830 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:03] t=4833 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:34:05] t=4833 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:05] t=4833 MOVE raid x1 -> (70,117); assault x3 -> 攻击目标#2656@(72,111); t=4833 SIEGE 拔防御壳 x3 -> #2656@(72,111)
+[14:34:05] t=4836 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:34:07] t=4836 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:09] t=4839 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:09] t=4841 ESCORT 坦克#8071 -> 护航矿车@[126, 105]
+[14:34:11] t=4841 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:11] t=4844 RETREAT HTNK(35%)
+[14:34:13] t=4844 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:15] t=4847 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:15] t=4847 MOVE t=4847 SIEGE 拔防御壳 x2 -> #2656@(72,111); aahunt x2 -> (125,84)
+[14:34:17] t=4850 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:17] t=4850 MOVE assault x2 -> 攻击目标#2656@(72,111); t=4850 SIEGE 拔防御壳 x2 -> #2656@(72,111)
+[14:34:19] t=4853 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:21] t=4855 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:21] t=4855 tick#1350 credits=604 stance=attack | jev 1294 decisions p50=1769ms
+[14:34:24] t=4858 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:24] t=4858 MOVE t=4858 SIEGE 拔防御壳 x2 -> #2656@(72,111); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:34:26] t=4861 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:26] t=4861 MOVE assault x2 -> 攻击目标#3646@(71,111); t=4861 SIEGE 拔防御壳 x2 -> #3646@(71,111)
+[14:34:26] t=4864 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:34:28] t=4864 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:30] t=4867 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:32] t=4869 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:34] t=4872 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:36] t=4875 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:38] t=4878 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:34:38] t=4878 MOVE assault x1 -> 攻击目标#3646@(71,111); t=4878 SIEGE 拔防御壳 x1 -> #3646@(71,111)
+[14:34:39] t=4881 HARASS DRON x2 (have 0)
+[14:34:39] t=4881 TANK HTNK x1
+[14:34:41] t=4884 ESCORT 坦克#8071 -> 护航矿车@[88, 126]
+[14:34:47] t=4889 MOVE raid x1 -> (70,117); assault x2 -> 攻击目标#3070@(70,107); t=4889 SIEGE 拔防御壳 x2 -> #3070@(70,107); aahunt x2 -> (125,84)
+[14:34:47] t=4892 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:34:59] t=4906 MOVE assault x2 -> 攻击目标#3070@(70,107); t=4906 SIEGE 拔防御壳 x2 -> #3070@(70,107)
+[14:35:01] t=4911 RETREAT E2(32%)
+[14:35:05] t=4914 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:07] t=4916 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:09] t=4919 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:11] t=4922 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:11] t=4922 MOVE assault x3 -> 攻击目标#3070@(70,107); t=4922 SIEGE 拔防御壳 x3 -> #3070@(70,107)
+[14:35:12] t=4925 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:35:12] t=4925 ESCORT 坦克#8129 -> 护航矿车@[127, 105]
+[14:35:14] t=4925 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:14] t=4925 tick#1375 credits=779 stance=attack | jev 1319 decisions p50=1768ms
+[14:35:16] t=4928 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:18] t=4930 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:18] t=4930 MOVE raid x1 -> (70,117); t=4930 SIEGE 拔防御壳 x2 -> #3070@(70,107); aahunt x2 -> (125,84)
+[14:35:20] t=4933 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:22] t=4936 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:24] t=4939 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:24] t=4939 MOVE assault x2 -> 攻击目标#3070@(70,107); t=4939 SIEGE 拔防御壳 x2 -> #3070@(70,107); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:35:26] t=4942 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:26] t=4944 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:35:28] t=4944 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:30] t=4947 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:32] t=4950 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:34] t=4952 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:36] t=4955 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:36] t=4955 MOVE assault x1 -> 攻击目标#3070@(70,107); t=4955 SIEGE 拔防御壳 x1 -> #3070@(70,107)
+[14:35:38] t=4958 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:39] t=4961 RETREAT HTNK(8%)
+[14:35:40] t=4961 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:42] t=4963 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:43] t=4966 ESCORT 坦克#8129 -> 护航矿车@[128, 105]
+[14:35:45] t=4966 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:46] t=4969 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:48] t=4971 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:48] t=4971 MOVE assault x1 -> 攻击目标#3070@(70,107); t=4971 SIEGE 拔防御壳 x1 -> #3070@(70,107); aahunt x2 -> (125,84)
+[14:35:51] t=4974 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:53] t=4977 jev VEH HARV HOLD (预算保护 cash=779 aav帽=ok aav=2)
+[14:35:53] t=4980 HARASS DRON x2 (have 0)
+[14:35:59] t=4985 MOVE assault x1 -> 攻击目标#3646@(71,111); t=4985 SIEGE 拔防御壳 x1 -> #3646@(71,111)
+[14:36:01] t=4988 MOVE raid x1 -> (70,117); assault x2 -> 攻击目标#3070@(70,107); t=4988 SIEGE 拔防御壳 x2 -> #3070@(70,107)
+[14:36:05] t=4993 tick#1400 credits=763 stance=attack | jev 1344 decisions p50=1762ms
+[14:36:07] t=4996 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:36:09] t=4999 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:36:11] t=5002 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:36:13] t=5004 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:36:13] t=5004 MOVE assault x3 -> 攻击目标#3070@(70,107); t=5004 SIEGE 拔防御壳 x3 -> #3070@(70,107)
+[14:36:14] t=5007 ESCORT 坦克#8154 -> 护航矿车@[90, 58]
+[14:36:15] t=5007 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:36:18] t=5010 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:36:20] t=5013 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:36:20] t=5013 MOVE t=5013 SIEGE 拔防御壳 x3 -> #3070@(70,107); aahunt x2 -> (125,84)
+[14:36:22] t=5016 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:36:24] t=5018 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:36:24] t=5021 TANK HTNK x1
+[14:36:26] t=5021 MOVE assault x3 -> 攻击目标#3070@(70,107); t=5021 SIEGE 拔防御壳 x3 -> #3070@(70,107); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:36:28] t=5027 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:36:32] t=5029 MOVE raid x1 -> (70,117); t=5029 SIEGE 拔防御壳 x2 -> #3070@(70,107)
+[14:36:38] t=5038 MOVE assault x2 -> 攻击目标#3646@(71,111); t=5038 SIEGE 拔防御壳 x2 -> #3646@(71,111)
+[14:36:38] t=5040 HARASS DRON x2 (have 1)
+[14:36:38] t=5040 TANK HTNK x1
+[14:36:40] t=5040 MOVE assault x3 -> 攻击目标#3070@(70,107); t=5040 SIEGE 拔防御壳 x3 -> #3070@(70,107)
+[14:36:41] t=5043 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:36:41] t=5043 RETREAT HTNK(34%)
+[14:36:44] t=5046 MOVE assault x2 -> 攻击目标#3646@(71,111); t=5046 SIEGE 拔防御壳 x2 -> #3646@(71,111)
+[14:36:45] t=5049 ESCORT 坦克#8129 -> 护航矿车@[88, 56]
+[14:36:49] t=5054 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:36:51] t=5054 MOVE t=5054 SIEGE 拔防御壳 x2 -> #3646@(71,111); aahunt x2 -> (125,84)
+[14:36:51] t=5057 TANK HTNK x1
+[14:36:57] t=5062 MOVE assault x3 -> 攻击目标#3646@(71,111); t=5062 SIEGE 拔防御壳 x3 -> #3646@(71,111)
+[14:36:57] t=5062 tick#1425 credits=634 stance=attack | jev 1369 decisions p50=1759ms
+[14:37:03] t=5070 MOVE raid x2 -> (70,117); t=5070 SIEGE 拔防御壳 x3 -> #3646@(71,111)
+[14:37:07] t=5076 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:09] t=5079 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:09] t=5079 MOVE assault x4 -> 攻击目标#3646@(71,111); t=5079 SIEGE 拔防御壳 x4 -> #3646@(71,111)
+[14:37:11] t=5081 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:13] t=5084 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:15] t=5087 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:15] t=5090 ESCORT 坦克#8212 -> 护航矿车@[89, 122]
+[14:37:17] t=5090 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:19] t=5092 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:21] t=5095 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:21] t=5095 MOVE assault x4 -> 攻击目标#3646@(71,111); t=5095 SIEGE 拔防御壳 x4 -> #3646@(71,111); aahunt x2 -> (125,84)
+[14:37:23] t=5098 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:26] t=5101 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:28] t=5104 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:28] t=5104 MOVE t=5104 SIEGE 拔防御壳 x4 -> #3646@(71,111); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:37:28] t=5106 ALARM unit lost -> 攻势保持（塔阵守家, 前线 10 个单位继续进攻）
+[14:37:30] t=5106 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:32] t=5109 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:34] t=5112 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:34] t=5112 MOVE raid x1 -> (70,117); assault x3 -> 攻击目标#3646@(71,111); t=5112 SIEGE 拔防御壳 x3 -> #3646@(71,111)
+[14:37:36] t=5115 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:36] t=5117 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:37:38] t=5117 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:40] t=5120 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:42] t=5123 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:44] t=5126 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:46] t=5128 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:46] t=5128 MOVE assault x2 -> 攻击目标#3646@(71,111); t=5128 SIEGE 拔防御壳 x2 -> #3646@(71,111)
+[14:37:46] t=5131 ESCORT 坦克#8196 -> 护航矿车@[87, 124]
+[14:37:48] t=5131 jev VEH HARV HOLD (预算保护 cash=4 aav帽=ok aav=2)
+[14:37:48] t=5131 tick#1450 credits=4 stance=attack | jev 1394 decisions p50=1757ms
+[14:37:50] t=5134 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:37:50] t=5136 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:37:52] t=5136 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:37:52] t=5136 MOVE t=5136 SIEGE 拔防御壳 x1 -> #3646@(71,111); aahunt x2 -> (125,84)
+[14:37:54] t=5139 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:37:56] t=5142 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:37:58] t=5144 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:37:58] t=5144 MOVE assault x1 -> 攻击目标#3646@(71,111); t=5144 SIEGE 拔防御壳 x1 -> #3646@(71,111)
+[14:38:00] t=5147 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:38:02] t=5150 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:38:04] t=5153 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:38:06] t=5155 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:38:09] t=5158 jev VEH HARV HOLD (预算保护 cash=379 aav帽=ok aav=2)
+[14:38:09] t=5161 HARASS DRON x2 (have 0)
+[14:38:11] t=5161 MOVE assault x1 -> 攻击目标#3646@(71,111); t=5161 SIEGE 拔防御壳 x1 -> #3646@(71,111)
+[14:38:11] t=5164 ALARM unit lost -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[14:38:17] t=5169 MOVE raid x1 -> (70,117); t=5169 SIEGE 拔防御壳 x1 -> #3646@(71,111)
+[14:38:17] t=5172 ESCORT 坦克#8258 -> 护航矿车@[87, 126]
+[14:38:23] t=5178 jev VEH HARV HOLD (预算保护 cash=29 aav帽=ok aav=2)
+[14:38:23] t=5178 MOVE assault x2 -> 攻击目标#3646@(71,111); t=5178 SIEGE 拔防御壳 x2 -> #3646@(71,111); aahunt x2 -> (125,84)
+[14:38:25] t=5181 jev VEH HARV HOLD (预算保护 cash=29 aav帽=ok aav=2)
+[14:38:28] t=5184 jev VEH HARV HOLD (预算保护 cash=29 aav帽=ok aav=2)
+[14:38:30] t=5186 jev VEH HARV HOLD (预算保护 cash=29 aav帽=ok aav=2)
+[14:38:30] t=5186 MOVE t=5186 SIEGE 拔防御壳 x2 -> #3646@(71,111); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:38:32] t=5189 jev VEH HARV HOLD (预算保护 cash=29 aav帽=ok aav=2)
+[14:38:34] t=5192 jev VEH HARV HOLD (预算保护 cash=29 aav帽=ok aav=2)
+[14:38:34] t=5195 TANK HTNK x1
+[14:38:36] t=5195 MOVE assault x2 -> 攻击目标#3646@(71,111); t=5195 SIEGE 拔防御壳 x2 -> #3646@(71,111)
+[14:38:40] t=5200 tick#1475 credits=884 stance=attack | jev 1419 decisions p50=1757ms
+[14:38:42] t=5205 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:38:48] t=5211 MOVE raid x1 -> (70,117); assault x1 -> 攻击目标#3646@(71,111); t=5211 SIEGE 拔防御壳 x1 -> #3646@(71,111)
+[14:38:48] t=5214 HARASS DRON x2 (have 1)
+[14:38:48] t=5214 ESCORT 坦克#8271 -> 护航矿车@[127, 105]
+[14:38:48] t=5214 RETREAT E2(32%)
+[14:38:50] t=5216 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:38:54] t=5219 MOVE t=5219 SIEGE 拔防御壳 x1 -> #3646@(71,111); aahunt x2 -> (125,84)
+[14:39:00] t=5227 MOVE assault x2 -> 攻击目标#3646@(71,111); t=5227 SIEGE 拔防御壳 x2 -> #3646@(71,111)
+[14:39:02] t=5230 jev VEH HARV HOLD (预算保护 cash=204 aav帽=ok aav=2)
+[14:39:05] t=5233 jev VEH HARV HOLD (预算保护 cash=204 aav帽=ok aav=2)
+[14:39:07] t=5236 jev VEH HARV HOLD (预算保护 cash=204 aav帽=ok aav=2)
+[14:39:09] t=5238 jev VEH HARV HOLD (预算保护 cash=204 aav帽=ok aav=2)
+[14:39:11] t=5241 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:13] t=5244 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:13] t=5244 MOVE assault x3 -> 攻击目标#3646@(71,111); t=5244 SIEGE 拔防御壳 x3 -> #3646@(71,111)
+[14:39:15] t=5246 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:17] t=5249 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:19] t=5251 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:19] t=5251 MOVE raid x2 -> (70,117); t=5251 SIEGE 拔防御壳 x3 -> #3646@(71,111)
+[14:39:21] t=5254 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:21] t=5257 ESCORT 坦克#8274 -> 护航矿车@[88, 100]
+[14:39:23] t=5257 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:25] t=5260 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:25] t=5260 MOVE assault x3 -> 攻击目标#3646@(71,111); t=5260 SIEGE 拔防御壳 x3 -> #3646@(71,111); aahunt x2 -> (125,84)
+[14:39:25] t=5263 RETREAT HTNK(8%)
+[14:39:27] t=5263 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:29] t=5265 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:31] t=5268 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:31] t=5268 MOVE t=5268 SIEGE 拔防御壳 x3 -> #3646@(71,111); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:39:31] t=5268 tick#1500 credits=579 stance=attack | jev 1444 decisions p50=1756ms
+[14:39:31] t=5271 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:39:33] t=5271 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:35] t=5274 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:37] t=5276 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:37] t=5276 MOVE assault x2 -> 攻击目标#3646@(71,111); t=5276 SIEGE 拔防御壳 x2 -> #3646@(71,111)
+[14:39:39] t=5279 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:41] t=5282 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:43] t=5284 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:43] t=5287 ALARM unit lost -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[14:39:45] t=5287 jev VEH HARV HOLD (预算保护 cash=579 aav帽=ok aav=2)
+[14:39:45] t=5290 HARASS DRON x2 (have 0)
+[14:39:49] t=5293 MOVE assault x1 -> 攻击目标#3646@(71,111); t=5293 SIEGE 拔防御壳 x1 -> #3646@(71,111)
+[14:39:52] t=5298 ESCORT 坦克#8271 -> 护航矿车@[89, 58]
+[14:39:54] t=5298 MOVE raid x1 -> (70,117); assault x2 -> 攻击目标#1096@(80,122); t=5298 SIEGE 清建筑 x2 -> #1096@(80,122)
+[14:39:56] t=5302 MOVE t=5302 SIEGE 清建筑 x2 -> #1096@(80,122); aahunt x2 -> (125,84)
+[14:39:57] t=5304 TANK HTNK x1
+[14:40:07] t=5316 MOVE assault x3 -> 攻击目标#1096@(80,122); t=5316 SIEGE 清建筑 x3 -> #1096@(80,122)
+[14:40:13] t=5324 jev VEH HARV HOLD (预算保护 cash=229 aav帽=ok aav=2)
+[14:40:15] t=5327 jev VEH HARV HOLD (预算保护 cash=229 aav帽=ok aav=2)
+[14:40:17] t=5330 jev VEH HARV HOLD (预算保护 cash=229 aav帽=ok aav=2)
+[14:40:19] t=5332 jev VEH HARV HOLD (预算保护 cash=229 aav帽=ok aav=2)
+[14:40:19] t=5332 MOVE assault x4 -> 攻击目标#1096@(80,122); t=5332 SIEGE 清建筑 x4 -> #1096@(80,122)
+[14:40:21] t=5335 jev VEH HARV HOLD (预算保护 cash=229 aav帽=ok aav=2)
+[14:40:23] t=5338 jev VEH HARV HOLD (预算保护 cash=229 aav帽=ok aav=2)
+[14:40:23] t=5338 tick#1525 credits=229 stance=attack | jev 1469 decisions p50=1758ms
+[14:40:24] t=5341 ESCORT 坦克#8330 -> 护航矿车@[127, 105]
+[14:40:26] t=5341 jev VEH HARV HOLD (预算保护 cash=229 aav帽=ok aav=2)
+[14:40:26] t=5341 MOVE raid x2 -> (70,117); t=5341 SIEGE 清建筑 x4 -> #1096@(80,122)
+[14:40:28] t=5344 jev VEH HARV HOLD (预算保护 cash=229 aav帽=ok aav=2)
+[14:40:28] t=5344 MOVE t=5344 SIEGE 清建筑 x4 -> #1096@(80,122); aahunt x2 -> (125,84)
+[14:40:30] t=5347 jev VEH HARV HOLD (预算保护 cash=229 aav帽=ok aav=2)
+[14:40:32] t=5349 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:32] t=5349 MOVE assault x4 -> 攻击目标#1096@(80,122); t=5349 SIEGE 清建筑 x4 -> #1096@(80,122); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:40:34] t=5352 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:36] t=5355 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:38] t=5358 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:40] t=5360 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:42] t=5363 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:44] t=5366 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:44] t=5366 MOVE assault x4 -> 攻击目标#1096@(80,122); t=5366 SIEGE 清建筑 x4 -> #1096@(80,122)
+[14:40:46] t=5369 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:48] t=5371 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:51] t=5374 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:53] t=5377 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:55] t=5380 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:55] t=5382 ESCORT 坦克#8322 -> 护航矿车@[89, 125]
+[14:40:57] t=5382 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:57] t=5382 MOVE raid x2 -> (70,117); assault x4 -> 攻击目标#1096@(80,122); t=5382 SIEGE 清建筑 x4 -> #1096@(80,122)
+[14:40:59] t=5385 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:40:59] t=5385 MOVE t=5385 SIEGE 清建筑 x4 -> #1096@(80,122); aahunt x2 -> (125,84)
+[14:41:01] t=5388 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:41:03] t=5391 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:41:03] t=5391 MOVE assault x4 -> 攻击目标#3248@(75,118); t=5391 SIEGE 清建筑 x4 -> #3248@(75,118)
+[14:41:05] t=5394 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:41:07] t=5397 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:41:10] t=5399 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:41:10] t=5399 MOVE assault x4 -> 攻击目标#1096@(80,122); t=5399 SIEGE 清建筑 x4 -> #1096@(80,122)
+[14:41:12] t=5402 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:41:14] t=5405 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:41:16] t=5408 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:41:16] t=5408 tick#1550 credits=604 stance=attack | jev 1494 decisions p50=1759ms
+[14:41:18] t=5411 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:41:20] t=5413 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:41:20] t=5413 MOVE assault x4 -> 攻击目标#1117@(83,126); t=5413 SIEGE 清建筑 x4 -> #1117@(83,126)
+[14:41:22] t=5416 jev VEH HARV HOLD (预算保护 cash=604 aav帽=ok aav=2)
+[14:41:22] t=5419 TANK HTNK x1
+[14:41:27] t=5425 ESCORT 坦克#8322 -> 护航矿车@[89, 126]
+[14:41:28] t=5425 MOVE raid x2 -> (70,117); t=5425 SIEGE 清建筑 x4 -> #1117@(83,126)
+[14:41:31] t=5427 MOVE t=5427 SIEGE 清建筑 x4 -> #1117@(83,126); aahunt x2 -> (125,84)
+[14:41:33] t=5430 MOVE assault x4 -> 攻击目标#1117@(83,126); t=5430 SIEGE 清建筑 x4 -> #1117@(83,126); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:41:35] t=5433 MOVE assault x4 -> 攻击目标#1052@(74,122); t=5433 SIEGE 清建筑 x4 -> #1052@(74,122)
+[14:41:37] t=5436 MOVE assault x4 -> 攻击目标#1117@(83,126); t=5436 SIEGE 清建筑 x4 -> #1117@(83,126)
+[14:41:39] t=5439 jev VEH HARV HOLD (预算保护 cash=154 aav帽=ok aav=2)
+[14:41:39] t=5441 TANK HTNK x1
+[14:41:41] t=5441 jev VEH HARV HOLD (预算保护 cash=904 aav帽=ok aav=2)
+[14:41:41] t=5444 TANK HTNK x2
+[14:41:43] t=5444 jev VEH HARV HOLD (预算保护 cash=1204 aav帽=ok aav=2)
+[14:41:43] t=5447 TANK HTNK x2
+[14:41:45] t=5447 jev VEH HARV HOLD (预算保护 cash=1204 aav帽=ok aav=2)
+[14:41:45] t=5450 TANK HTNK x2
+[14:41:47] t=5450 jev VEH HARV HOLD (预算保护 cash=1204 aav帽=ok aav=2)
+[14:41:47] t=5452 TANK HTNK x2
+[14:41:49] t=5452 MOVE assault x5 -> 攻击目标#1117@(83,126); t=5452 SIEGE 清建筑 x5 -> #1117@(83,126)
+[14:41:58] t=5466 ESCORT 坦克#8399 -> 护航矿车@[128, 104]
+[14:42:00] t=5466 MOVE raid x2 -> (70,117); t=5466 SIEGE 清建筑 x5 -> #1117@(83,126)
+[14:42:02] t=5469 MOVE assault x5 -> 攻击目标#1117@(83,126); t=5469 SIEGE 清建筑 x5 -> #1117@(83,126); aahunt x2 -> (125,84)
+[14:42:13] t=5478 MOVE assault x6 -> 攻击目标#3248@(75,118); t=5478 SIEGE 清建筑 x6 -> #3248@(75,118)
+[14:42:13] t=5478 tick#1575 credits=0 stance=attack | jev 1519 decisions p50=1760ms
+[14:42:14] t=5487 RETREAT DRON(10%)
+[14:42:16] t=5487 MOVE assault x6 -> 攻击目标#1046@(71,114); t=5487 SIEGE 清建筑 x6 -> #1046@(71,114)
+[14:42:16] t=5490 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:42:16] t=5490 RETREAT DRON(38%)
+[14:42:18] t=5493 ALARM unit lost -> 攻势保持（塔阵守家, 前线 9 个单位继续进攻）
+[14:42:28] t=5504 MOVE assault x4 -> 攻击目标#1046@(71,114); t=5504 SIEGE 清建筑 x4 -> #1046@(71,114)
+[14:42:29] t=5507 ESCORT 坦克#8399 -> 护航矿车@[90, 111]
+[14:42:33] t=5510 MOVE assault x4 -> 攻击目标#1052@(74,122); t=5510 SIEGE 清建筑 x4 -> #1052@(74,122); hold_a x3 -> (133,86); hold_b x3 -> (126,75); aahunt x2 -> (125,84)
+[14:42:35] t=5516 RETREAT E2(32%)
+[14:42:39] t=5519 MOVE assault x4 -> 攻击目标#1044@(70,117); t=5519 SIEGE 清建筑 x4 -> #1044@(70,117)
+[14:42:48] t=5530 MOVE assault x4 -> 攻击目标#1052@(74,122); t=5530 SIEGE 清建筑 x4 -> #1052@(74,122)
+[14:42:57] t=5542 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:42:57] t=5542 MOVE assault x5 -> 攻击目标#1044@(70,117); t=5542 SIEGE 清建筑 x5 -> #1044@(70,117)
+[14:42:59] t=5545 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:42:59] t=5548 ESCORT 坦克#8421 -> 护航矿车@[95, 94]
+[14:42:59] t=5548 RETREAT HTNK(35%)
+[14:43:01] t=5548 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:43:03] t=5551 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:43:03] t=5551 MOVE t=5551 SIEGE 清建筑 x5 -> #1044@(70,117); aahunt x2 -> (125,84)
+[14:43:05] t=5554 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:43:07] t=5557 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:43:07] t=5557 tick#1600 credits=729 stance=attack | jev 1544 decisions p50=1761ms
+[14:43:10] t=5559 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:43:10] t=5559 MOVE assault x5 -> 攻击目标#1044@(70,117); t=5559 SIEGE 清建筑 x5 -> #1044@(70,117)
+[14:43:12] t=5562 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:43:12] t=5565 RETREAT HTNK(8%)
+[14:43:14] t=5565 jev VEH HARV HOLD (预算保护 cash=729 aav帽=ok aav=2)
+[14:43:14] t=5568 HARASS DRON x2 (have 0)
+[14:43:20] t=5574 MOVE assault x5 -> 攻击目标#1074@(67,115); t=5574 SIEGE 清建筑 x5 -> #1074@(67,115)
+[14:43:22] t=5576 MOVE raid x1 -> (67,118); t=5576 SIEGE 清建筑 x6 -> #1074@(67,115)
+[14:43:29] t=5585 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:31] t=5588 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:31] t=5590 ESCORT 坦克#8769 -> 护航矿车@[127, 105]
+[14:43:33] t=5590 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:33] t=5590 MOVE assault x7 -> 攻击目标#1074@(67,115); t=5590 SIEGE 清建筑 x7 -> #1074@(67,115); hold_a x3 -> (133,86); hold_b x3 -> (126,75)
+[14:43:35] t=5593 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:35] t=5593 MOVE t=5593 SIEGE 清建筑 x7 -> #1074@(67,115); aahunt x2 -> (125,84)
+[14:43:37] t=5596 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:39] t=5599 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:41] t=5602 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:43] t=5604 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:45] t=5607 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:45] t=5607 MOVE assault x7 -> 攻击目标#1074@(67,115); t=5607 SIEGE 清建筑 x7 -> #1074@(67,115)
+[14:43:47] t=5610 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:49] t=5612 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:51] t=5615 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:53] t=5618 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:53] t=5618 MOVE raid x2 -> (67,118); t=5618 SIEGE 清建筑 x7 -> #1074@(67,115)
+[14:43:55] t=5620 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:57] t=5623 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:57] t=5623 MOVE assault x7 -> 攻击目标#1047@(67,118); t=5623 SIEGE 清建筑 x7 -> #1047@(67,118)
+[14:43:59] t=5626 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:43:59] t=5626 tick#1625 credits=304 stance=attack | jev 1569 decisions p50=1763ms
+[14:44:01] t=5629 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:02] t=5631 ESCORT 坦克#8645 -> 护航矿车@[83, 94]
+[14:44:03] t=5631 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:05] t=5634 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:05] t=5634 MOVE t=5634 SIEGE 清建筑 x7 -> #1047@(67,118); aahunt x2 -> (125,84)
+[14:44:07] t=5637 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:07] t=5637 MOVE raid x2 -> (65,121); assault x7 -> 攻击目标#1468@(65,121); t=5637 SIEGE 清建筑 x7 -> #1468@(65,121)
+[14:44:08] t=5640 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:44:10] t=5640 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:12] t=5642 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:12] t=5645 ALARM unit lost -> 攻势保持（塔阵守家, 前线 8 个单位继续进攻）
+[14:44:14] t=5645 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:16] t=5648 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:18] t=5650 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:18] t=5650 MOVE assault x5 -> 攻击目标#1638@(69,125); t=5650 SIEGE 清建筑 x5 -> #1638@(69,125); hold_a x3 -> (134,86); hold_b x3 -> (126,76)
+[14:44:20] t=5653 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:22] t=5656 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:24] t=5658 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:26] t=5661 jev VEH HARV HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:26] t=5664 ALARM unit lost -> 攻势保持（塔阵守家, 前线 7 个单位继续进攻）
+[14:44:28] t=5664 jev VEH HTNK HOLD (预算保护 cash=304 aav帽=ok aav=2)
+[14:44:28] t=5666 HARASS DRON x2 (have 0)
+[14:44:30] t=5666 MOVE assault x4 -> 攻击目标#1638@(69,125); t=5666 SIEGE 清建筑 x4 -> #1638@(69,125)
+[14:44:32] t=5672 ESCORT 坦克#8399 -> 护航矿车@[84, 93]
+[14:44:36] t=5675 MOVE raid x1 -> (69,125); t=5675 SIEGE 清建筑 x5 -> #1638@(69,125); aahunt x2 -> (125,84)
+[14:44:40] t=5683 TANK HTNK x1
+[14:44:42] t=5683 MOVE assault x6 -> 攻击目标#1638@(69,125); t=5683 SIEGE 清建筑 x6 -> #1638@(69,125)
+[14:44:50] t=5693 tick#1650 credits=624 stance=attack | jev 1594 decisions p50=1759ms
+[14:44:56] t=5701 jev VEH HARV HOLD (预算保护 cash=254 aav帽=ok aav=2)
+[14:44:56] t=5701 MOVE assault x7 -> 攻击目标#1638@(69,125); t=5701 SIEGE 清建筑 x7 -> #1638@(69,125)
+[14:44:57] REVIEW game#66 victory → game-0066-review.md | changes=0
