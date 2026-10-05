@@ -539,6 +539,10 @@ def build_gate(s: dict, cost: int, mem: BattleMemory | None = None,
         return True
     if code == side["ref"] and bl.get(side["ref"], 0) < T["ref_cap"]:
         return True
+    # [第83局] 战车工厂(2→3 扩产)与确定性线同闸: factory2_cash, 不再要求
+    # 造价+tank_cash1(两条路径统一阈值, 第三厂=产能翻倍配套)
+    if code == side["weap"] and bl.get(side["weap"], 0) < 3:
+        return s["me"]["credits"] >= T["factory2_cash"]
     return s["me"]["credits"] >= cost + T["tank_cash1"]
 
 
@@ -613,7 +617,9 @@ def opening_build(s: dict, mem: BattleMemory):
         if bl0.get(side["ref"], 0) < T["ref_cap"] and side["ref"] in av0 \
                 and build_gate(s, ucost(side["ref"]), mem, side["ref"]):
             opening_next = side["ref"]
-        elif bl0.get(side["weap"], 0) < 2 and side["weap"] in av0 \
+        # [第83局 经济军备竞速II] 战车工厂 2→3: 6 矿车收入(81局)下双厂产坦克
+        # 追不上敌产能(80局实锤), 第三厂=产能翻倍; 资金闸沿用 factory2_cash。
+        elif bl0.get(side["weap"], 0) < 3 and side["weap"] in av0 \
                 and (late_game or s["me"]["credits"] > T["factory2_cash"]):
             opening_next = side["weap"]
     if opening_next and qs.get(0, {}).get("s", 0) == 0 and opening_next in av0:
@@ -1292,7 +1298,11 @@ def apply_jev(s: dict, ans: dict, stance: str, mem: BattleMemory,
             bl_now = buildings(s["mine"])
             if not (b == side["ref"] and n_ref >= T["ref_cap"]) \
                     and not (b == side["bar"] and n_bar >= 2) \
-                    and not (b != side["ref"] and bl_now.get(b, 0) >= 2):
+                    and not (b != side["ref"] and b != side["weap"]
+                             and bl_now.get(b, 0) >= 2) \
+                    and not (b == side["weap"] and bl_now.get(b, 0) >= 3):
+                # [第83局] 战车工厂豁免"同类≥2"通用帽(2→3): 6 矿车收入下产能
+                # 翻倍; 其余建筑帽不变([第32局] jev 曾连买 30 电厂的防线保留)
                 if build_gate(s, ucost(b), mem, b):
                     acts.append({"act": "produce", "name": b, "qty": 1, "q": 0})
                     logs.append("t=%d jev BUILD %s (conf %.2f)"
