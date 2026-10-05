@@ -1,0 +1,20 @@
+{
+  "result": "victory",
+  "t": 4323,
+  "ticks": 1478,
+  "crisis_ticks": 237,
+  "stance": "attack",
+  "jev": {
+    "decisions": 1477,
+    "errors": 0,
+    "input_tokens": 5440636,
+    "output_tokens": 0,
+    "p50_ms": 1774,
+    "p95_ms": 3213
+  },
+  "enemy_base": [
+    67,
+    115
+  ],
+  "ts": "2026-10-05 21:11:08"
+}
