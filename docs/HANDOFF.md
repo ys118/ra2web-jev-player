@@ -8,13 +8,13 @@
 | 项 | 状态 |
 |---|---|
 | 项目 | `D:/projects/ra2web-jev-player`，GitHub 私有库 `ys118/ra2web-jev-player`（master，最新提交见 `git log -1`） |
-| 战绩 | **78 局：16 胜**（[73]=🏆clef首胜 [78]=🏆第二胜(t=5704马拉松): 击破26310史上最大苏联大军——订单节流+RUSH-DEFENSE+SIEGE围城+防空/资金校正四变量首次全链闭环生效, SIEGE 首验成功; [75/76/77]三连rush速败为修复链提供了全部实证; 详见 LESSONS 尾部） |
+| 战绩 | **80 局：16 胜**（[73]=🏆clef首胜 [78]=🏆第二胜(26310史上最大大军, 四变量全链闭环) [79]部分局叫停(磁暴环僵局→催生总攻决心包) [80]defeat t=2798(敌25170, 本日巨型roll四连发25-26k已成常态, 总攻决心包未获SIEGE触发条件; 骚扰断根66矿车仍追不平敌产能); 详见 LESSONS 尾部） |
 | **暂停(2026-10-04 用户指示)** | **暂停开新局**: 用户 Jev 服务余额耗尽, 另一 session 正在接**本地部署 clef-flash 替代 Jev**; 恢复对战前先确认新后端接入+联调。→ **已就绪(2026-10-04)**: 本地引擎+影子评测完成, 全档见 **`docs/CLEF-LOCAL.md`**；**切流已实施(同日 §八)**: 端点/threat 0.55/预算分流/teacher 四项落盘, 服务 q8 重启在驻, **待用户号令开第 70 局** |
 | **clef 接入指引** | JevClient 已环境变量驱动(`src/ra2web_jev_player/jev/client.py`): `JEV_BASE_URL`(默认 api.typesafe.ai/v1, 端点契约 POST {base_url}/systemone, body {state,questions,model}) / `JEV_MODEL` / `JEV_MAX_CALLS` / 密钥 `TYPESAFE_API_KEY`(绝不入库)。本地 clef 若实现同契约→零代码改; 若是 OpenAI 兼容 API→client.py 加适配层。决策预算上限由 CLI `--max-decisions`(现 1200)传入, 长局触顶候选上调。✅ **已实测(2026-10-04)**: llama.cpp 的 clef 实现=同契约, 逐字段核对一致(noul 答案键=`noul`), `JEV_BASE_URL=http://127.0.0.1:8085/v1`+dummy key 即零代码切; 阈值建议(threat 0.6→0.55 / stance 0.45 保持)与切换手册见 `docs/CLEF-LOCAL.md` §四.4/§五。**2026-10-04 已切流**: client.py 默认端点/模型改本地(`127.0.0.1:8085`/`clef-flash`), Jev 云端两行注释保留可回切 |
 | 速度定谳 | 前 50 局速度滑条未生效(已修为真实方向键)。3 档=1.33x(用户定谳默认), 墙钟完整局 20-30 分钟 |
 | 数据分层 | 第 1-50 局=6 档 / 51=1 档 / 52=2 档 / **53 起=3 档**。节奏类结论跨层不可比 |
 | Jev 投喂 | 63 局起全面英文化 + DYNAMIC SITUATION 动态上下文段; **[第69局] Jev 决策预算 1200 触顶(长局后半纯确定性)——已实施(2026-10-04): 预算按后端分流, 本地 clef 实质不限/云 Jev 保持 1200, 第70局实证全局无断崖** |
-| 遗留(下一局主攻) | **待用户拍板**: A=零改动再战积累胜局样本(推荐) / B=DRON 骚扰 40k 金消耗评估(78局101台阵亡, 可选微变量); 78局修复链全验证(订单节流/RUSH-DEFENSE/SIEGE/防空资金校正); 已定谳修复(2026-10-05): 该「偶发 HTTP 500」= payload 超批被拒——clef 单 prefill 不可分块, mario-clef-player ~4.1K tok state 撞 -b 4096 上限; start_clef-flash.bat 已调 -b/-ub 8192 并重启(5.3K tok 实测通过, 显存 12.7/16GB, 详见 CLEF-LOCAL.md §2.3); **运维: llama-server 挂起监控, 对局脱离会话独立控制台启动** |
+| 遗留(下一局主攻) | **第81局候选(待用户拍板)**: A=经济军备竞速(矿车cap 4→6收入翻倍对冲敌产能——80局敌被杀66矿车仍滚25k大军, 产能差实锤) / B=SIEGE触发线降档(敌经济死亡即锁存不再要求1.5x, 快速收割) / C=换家制RUSH-RACE(敌大军离家直扑敌基地); 总攻决心包(80局)已实施未获触发(终局收割器, 不解决中盘对耗); 已定谳修复(2026-10-05, 另一session): 「偶发 HTTP 500」=payload超批——clef单prefill不可分块, ~4.1K tok state 撞 -b 4096 上限; start_clef-flash.bat 已调 -b/-ub 8192 并重启(详见 CLEF-LOCAL.md §2.3); **运维: 跨session agent-browser互杀铁律(见79局条), 对局独立控制台启动** |
 
 ## 一.2、本 session 关键教训（均已入 docs/LESSONS.md，此处防重蹈）
 
