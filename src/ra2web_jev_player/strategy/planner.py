@@ -996,7 +996,15 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
         tanks = tanks[max(1, T["keep_home"] - 1):]
     sq["assault"] = [u["id"] for u in tanks]
     total_combat = len(sq["raid"]) + len(sq["assault"]) + len(sq["guard"])
-    if mem.enemy_base and stance in ("attack", "rush") and total_combat >= 4 \
+    if getattr(mem, "siege_mode", False) \
+            and not any(u.get("o") == 2 and u["n"] in DEF_BUILDINGS
+                        for u in s["hostile"]):
+        # [第80局 用户反馈"总攻决心"] 围城扫荡阶段(防御壳已清): 步兵全员跟上
+        # 参战拆建筑——30 动员兵蹲家看戏=79 局教训; 壳未清时步兵仍留守(磁暴/
+        # 机枪堡屠步兵, 由坦克 mass-push 先拔壳)
+        sq["hold"] = []
+        sq["assault"] += [u["id"] for u in inf]
+    elif mem.enemy_base and stance in ("attack", "rush") and total_combat >= 4 \
             and not getattr(mem, "siege_mode", False) \
             and not getattr(mem, "rush_defense", False):
         # [第63局] 总战争模式: 步兵留 4 人守家, 其余全部参战拆建筑
@@ -1107,20 +1115,26 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
         logs.append("t=%d AIR-EVADE assault x%d -> home (坦克打不到空中, 等AA猎杀)"
                     % (s["t"], len(sq["assault"])))
-    elif getattr(mem, "rush_defense", False) and home:
-        # [第77局 防御深化II] 防御模式: 早期坦克驻守塔线协防(不再前出)——
-        # 75 局唯一首坦前出阵亡; 76 局重坦峰值 1 也耗在前沿
-        order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
-        logs.append("t=%d RUSH-DEFENSE tanks x%d -> 塔线协防"
-                    % (s["t"], len(sq["assault"])))
     elif getattr(mem, "siege_mode", False) and mem.enemy_base:
         # [第75局 围城] 防御壳优先——拔壳=解除对己方火力圈(机枪堡是钢甲, 坦克炮
         # 正克制; 中盘"绕开塔"的保命规则至此解除), 壳清后按距离清建筑群
+        # [第80局 用户反馈"总攻决心"] ①SIEGE 时 rush_defense 让位(79 局实证:
+        #   敌残兵赖在防御半径内使 RUSH-DEFENSE 常驻 ON, 38 单位被按在家里);
+        # ②mass-push: 突击组 <8 辆先在集结点攒兵(3 辆一组添油喂磁暴=79 局
+        #   9 分钟只拔 1 座线圈), 攒齐一波齐冲, 磁暴塔逐个点名跟不上集火;
+        # ③壳清空(清建筑阶段)步兵全员跟上扫荡(总动员, 快速取胜)。
+        if getattr(mem, "rush_defense", False):
+            mem.rush_defense = False
+            logs.append("t=%d SIEGE overrides RUSH-DEFENSE (总攻决心)" % s["t"])
         ref = squad_ref(sq["assault"])
         defb = [h for h in s["hostile"] if h.get("o") == 2 and h["n"] in DEF_BUILDINGS]
         bldg = [h for h in s["hostile"] if h.get("o") == 2]
         pool = defb or bldg
-        if pool and ref and sq["assault"]:
+        if sq["assault"] and len(sq["assault"]) < T["siege_push_n"] and defb:
+            order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
+            logs.append("t=%d SIEGE STAGING x%d/%d (攒兵团, 齐冲再上)"
+                        % (s["t"], len(sq["assault"]), T["siege_push_n"]))
+        elif pool and ref and sq["assault"]:
             b = min(pool, key=lambda h: math.hypot(h["tl"][0] - ref[0],
                                                    h["tl"][1] - ref[1]))
             order_obj("assault", sq["assault"], b["id"], b["tl"][0], b["tl"][1], 12)
@@ -1129,6 +1143,11 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
                            len(sq["assault"]), b["id"], b["tl"][0], b["tl"][1]))
         else:
             order("assault", sq["assault"], mem.enemy_base[0], mem.enemy_base[1], 12)
+    elif getattr(mem, "rush_defense", False) and home:
+        # [第77局 防御深化II] 防御模式(未围城时): 坦克驻守塔线协防(不再前出)
+        order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
+        logs.append("t=%d RUSH-DEFENSE tanks x%d -> 塔线协防"
+                    % (s["t"], len(sq["assault"])))
     elif stance in ("attack", "rush") or mem.enemy_base:
         if mem.enemy_base:
             blds = [h for h in s["hostile"] if h["o"] == 2

@@ -67,8 +67,11 @@ README 明说 API fully compatible。**不是聊天模型**：输入 state（文
 
 GPU 关键参数（脚本注释有逐条理由）：`-ngl 99`（全层常驻 GPU，i5-11400F 纯旁观）、
 `-fa on`、`-c 16384`（决策 payload ~2-3K tok 的 5 倍余量；**不要开模型默认 256K**，KV 白吃显存）、
-**KV 保 f16 不量化**（决策模型的价值就是校准概率，不省这笔）、`-b/-ub 4096`（≥单请求体，
-规避 llama.cpp #29902 同路径的多问批量 n_ubatch 中止）。热请求延迟 **0.5-0.7s**（单次 prefill，
+**KV 保 f16 不量化**（决策模型的价值就是校准概率，不省这笔）、`-b/-ub 8192`
+（2026-10-05 由 4096 上调：clef 单次 prefill **不可分块**，payload 超 batch 即被硬拒
+`input is too large to process`——当日 mario-clef-player 的 state 实测 4.1K tok 连片 500；
+8192 给 2 倍余量，外顶 -c 16384；原「≥单请求体」要求继续满足，规避 llama.cpp #29902
+同路径的多问批量 n_ubatch 中止）。热请求延迟 **0.5-0.7s**（单次 prefill，
 GPU 100% 脉冲），优于云端 Jev 的 ~1.1s RTT。
 
 ### 2.4 端口地图（防冲突）
