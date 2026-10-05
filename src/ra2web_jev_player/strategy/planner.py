@@ -378,14 +378,16 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
             cred -= aav_cost * qty
 
     # 8) 不攒钱: 产能线 (坦克预算保护, 第 20 局复盘: 防御支出让位坦克)
-    # [第76局 RUSH-DEFENSE] 动员兵爆产: 模式激活时 q2 空闲即产 x2, 只受造价
+    # [第76局 RUSH-DEFENSE] 动员兵爆产: 模式激活时 q2 空闲即产, 只受造价
     # 约束(生存>一切), 排在坦克线之前吃现金——75 局 13 E2 对 20 海全灭实证。
+    # [第77局 防御深化II] x2→x4/单: 连续两局苏联 20+ 兵海(75/76)实证 x2 爆产
+    # 速度跟不上敌爆兵速度(E2 击杀 17 仍被磨穿)。
     if mem.rush_defense \
             and qs.get(2, {}).get("s", 0) == 0 \
             and "E2" in available(s["av"], 2) and cred >= ucost("E2") \
             and len([u for u in mine if u["n"] == "E2"]) < 30:
-        acts.append({"act": "produce", "name": "E2", "qty": 2, "q": 2})
-        logs.append("t=%d RUSH-DEFENSE E2 x2 (敌%d压门 守%d)"
+        acts.append({"act": "produce", "name": "E2", "qty": 4, "q": 2})
+        logs.append("t=%d RUSH-DEFENSE E2 x4 (敌%d压门 守%d)"
                     % (s["t"], threat_n, def_n))
 
     # 8) 不攒钱: 产能线 (坦克预算保护, 第 20 局复盘: 防御支出让位坦克)
@@ -426,9 +428,13 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     #     1 座哨炮撑不住重开局 rush（第 42 局 25 分钟速败的直接原因）,
     #     多花 500 金换开局生存, rush 推迟 ~30s 可接受
     gdef_cap = 2
+    # [第77局 防御深化II] RUSH-DEFENSE 激活时第二哨炮插单: 现金闸 1500→500
+    # (75/76 局双速败实证: 兵海压门时第二塔被 1500 闸卡死, 防线无纵深);
+    # 电力余量闸不放松(缺电=塔全瞎, 第 64 局教训)。
+    gdef_cash = 500 if mem.rush_defense else 1500
     if side["bar"] in bl and bl.get(side["gdef"], 0) < gdef_cap \
             and qs.get(1, {}).get("s", 0) == 0 \
-            and side["gdef"] in available(s["av"], 1) and cred >= 1500 \
+            and side["gdef"] in available(s["av"], 1) and cred >= gdef_cash \
             and (pw - drain) >= 40:
         # [第64局] 余量<40 不上塔: NALASR 吃电, 缺电=塔全瞎(rush 到来瞬间
         # power_low=True 的活局实证), 电厂优先, 塔晚 ~25s 但上线即有效
@@ -953,6 +959,9 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
     if getattr(mem, "siege_mode", False):
         # [第75局] 围城: 机器人打不了建筑, 全部坦克归突击编队(用户"集结大军")
         sq["raid"] = list(dron_ids)
+    elif getattr(mem, "rush_defense", False) and mem.enemy_base:
+        # [第77局 防御深化II] 防御模式: 坦克不外出骚扰, 全部留塔线协防
+        sq["raid"] = list(dron_ids)
     elif mem.enemy_base and (len(tanks) >= 2 or dron_ids):
         n_raid = min(4, max(2, (len(tanks) + len(dron_ids)) // 3))
         # [第70局用户反馈 编队] 突击饥饿保护: 敌基地已定位且坦克池抽完 raid
@@ -972,8 +981,10 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
     sq["assault"] = [u["id"] for u in tanks]
     total_combat = len(sq["raid"]) + len(sq["assault"]) + len(sq["guard"])
     if mem.enemy_base and stance in ("attack", "rush") and total_combat >= 4 \
-            and not getattr(mem, "siege_mode", False):
+            and not getattr(mem, "siege_mode", False) \
+            and not getattr(mem, "rush_defense", False):
         # [第63局] 总战争模式: 步兵留 4 人守家, 其余全部参战拆建筑
+        # [第77局] RUSH-DEFENSE 时不适用——步兵全员驻家守塔
         sq["hold"] = [u["id"] for u in inf[:4]]
         sq["assault"] += [u["id"] for u in inf[4:]]
     else:
@@ -998,7 +1009,10 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     # [第75局 用户拍板] 终局围城锁存: 敌基地已定位+进攻态势+敌经济死亡(视野内
     # 无矿车)+我方战力≥1.5倍 → SIEGE。"绝不打塔"铁律的终局例外——铁律防的是
     # 中盘白给, 不是终局放生: 74 局 31 辆坦克 45 分钟零击杀(打残→撤退→再派循环)
-    if not mem.siege_mode and mem.enemy_base and stance in ("attack", "rush"):
+    if not mem.siege_mode and mem.enemy_base and stance in ("attack", "rush") \
+            and not mem.rush_defense:
+        # [第77局] 防御模式激活时围城让位(生存优先: 兵海压门时先守, 威胁解除
+        # 后围城锁存自然生效)
         try:
             my_v, en_v = force_value(s)
         except Exception:
@@ -1076,6 +1090,12 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     if air_threat_near and home:
         order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
         logs.append("t=%d AIR-EVADE assault x%d -> home (坦克打不到空中, 等AA猎杀)"
+                    % (s["t"], len(sq["assault"])))
+    elif getattr(mem, "rush_defense", False) and home:
+        # [第77局 防御深化II] 防御模式: 早期坦克驻守塔线协防(不再前出)——
+        # 75 局唯一首坦前出阵亡; 76 局重坦峰值 1 也耗在前沿
+        order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
+        logs.append("t=%d RUSH-DEFENSE tanks x%d -> 塔线协防"
                     % (s["t"], len(sq["assault"])))
     elif getattr(mem, "siege_mode", False) and mem.enemy_base:
         # [第75局 围城] 防御壳优先——拔壳=解除对己方火力圈(机枪堡是钢甲, 坦克炮
