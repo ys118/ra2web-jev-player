@@ -47,6 +47,7 @@ class BattleMemory:
         self.retreated: dict = {}       # unitId -> 游戏秒(每 300s 只撤一次)
         self.gdef_order = (-1, -999)    # [第78局] 哨炮在途判重 (下单时存量, 时刻)
         self.e2_burst = (-1, -999)      # [第78局] RUSH-DEFENSE E2 爆产在途判重
+        self.e2_garrison = (-1, -999)   # [第84局] 开局驻军 E2 在途判重
         self.ghost_ids: set = set()     # [第82局] 幻影建筑拉黑(攻击150gs不倒=假目标)
         self.siege_target_hist: dict = {}  # [第82局] 围城目标首攻时刻 {id: t}
         self.gap_seen = False           # [第82局] 本局见过裂缝产生器(拉黑清空闸)
@@ -410,6 +411,22 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         acts.append({"act": "produce", "name": "E2", "qty": 4, "q": 2})
         logs.append("t=%d RUSH-DEFENSE E2 x4 (敌%d压门 守%d)"
                     % (s["t"], threat_n, def_n))
+
+    # 7.9) [第84局 防守起手] 开局步兵前置: 兵营落地且坦克场真空(无机动坦克
+    #     ——涵盖首坦成熟前 t<273 硬窗口与坦克全灭后的自愈)时, 常备 ≥4 动员兵
+    #     守塔线。83 局实证: 大 roll 兵海在首坦成熟前磨穿防线, 反应式
+    #     RUSH-DEFENSE 触发时已 late, 常驻驻军是硬窗口唯一保险; 造价可忽略。
+    e2_alive = len([u for u in mine if u["n"] == "E2"])
+    tanks_out = any(u["o"] == 7 and u["n"] not in HARVEST
+                    and u["n"] not in MCV_CODES for u in mine)
+    if bl.get(side["bar"], 0) >= 1 and not tanks_out \
+            and not mem.rush_defense \
+            and qs.get(2, {}).get("s", 0) == 0 \
+            and "E2" in available(s["av"], 2) and cred >= ucost("E2") \
+            and e2_alive < 4 and _order_once("e2_garrison", e2_alive, 30):
+        acts.append({"act": "produce", "name": "E2", "qty": 2, "q": 2})
+        logs.append("t=%d GARRISON E2 x2 (坦克真空期常驻驻军, have %d)"
+                    % (s["t"], e2_alive))
 
     # 8) 不攒钱: 产能线 (坦克预算保护, 第 20 局复盘: 防御支出让位坦克)
     # [第46局复盘] 矿车补员期给坦克线让路: 矿车数低于下限时坦克线需同时覆盖
