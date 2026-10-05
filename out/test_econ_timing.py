@@ -123,7 +123,8 @@ check("18b ref3 目标6 → 6车封顶不补", not h6)
 s, mem = econ_state(n_harv=7, cash=1400, n_ref=4)
 _st, acts, logs = planner.checklist(s, (10, 10), "develop", mem)
 h8 = [a for a in acts if a.get("name") == "HARV" and a.get("act") == "produce"]
-check("18d(85局) ref4 目标8 → 第8车放行", bool(h8), str([l for l in logs if "ECON" in l][:1]))
+# [第86局回滚] 8车过度开采致矿区枯竭(85局), 目标回滚 6
+check("18d(86局改) 目标回滚6 → 7车不补", not h8)
 
 s, mem = econ_state(n_harv=5, cash=1400, n_ref=2)
 _st, acts, logs = planner.checklist(s, (10, 10), "develop", mem)
