@@ -8,13 +8,13 @@
 | 项 | 状态 |
 |---|---|
 | 项目 | `D:/projects/ra2web-jev-player`，GitHub 私有库 `ys118/ra2web-jev-player`（master，最新提交见 `git log -1`） |
-| 战绩 | **76 局：15 胜**（[73]=🏆clef时代首胜 [74]部分局叫停(优势僵局→催生SIEGE) [75]t=485速败 [76]t=668速败——连续两局苏联镜像20+兵海rush, RUSH-DEFENSE机制工作但强度不足(换比8:16→20:24改善仍不够); 详见 LESSONS 尾部） |
+| 战绩 | **77 局：15 胜**（[73]=🏆clef首胜 [74]部分局叫停 [75/76/77]=连续三局苏联20+兵海rush速败(t=485/668/671)——RUSH-DEFENSE+深化II全链路工作换比三连改善(8:16→20:24→23:24)仍不够, 💥重复下单竞态复发实锤(六连DEFLINE抽干3000金, 第30局已知竞态在checklist分支复发); 详见 LESSONS 尾部） |
 | **暂停(2026-10-04 用户指示)** | **暂停开新局**: 用户 Jev 服务余额耗尽, 另一 session 正在接**本地部署 clef-flash 替代 Jev**; 恢复对战前先确认新后端接入+联调。→ **已就绪(2026-10-04)**: 本地引擎+影子评测完成, 全档见 **`docs/CLEF-LOCAL.md`**；**切流已实施(同日 §八)**: 端点/threat 0.55/预算分流/teacher 四项落盘, 服务 q8 重启在驻, **待用户号令开第 70 局** |
 | **clef 接入指引** | JevClient 已环境变量驱动(`src/ra2web_jev_player/jev/client.py`): `JEV_BASE_URL`(默认 api.typesafe.ai/v1, 端点契约 POST {base_url}/systemone, body {state,questions,model}) / `JEV_MODEL` / `JEV_MAX_CALLS` / 密钥 `TYPESAFE_API_KEY`(绝不入库)。本地 clef 若实现同契约→零代码改; 若是 OpenAI 兼容 API→client.py 加适配层。决策预算上限由 CLI `--max-decisions`(现 1200)传入, 长局触顶候选上调。✅ **已实测(2026-10-04)**: llama.cpp 的 clef 实现=同契约, 逐字段核对一致(noul 答案键=`noul`), `JEV_BASE_URL=http://127.0.0.1:8085/v1`+dummy key 即零代码切; 阈值建议(threat 0.6→0.55 / stance 0.45 保持)与切换手册见 `docs/CLEF-LOCAL.md` §四.4/§五。**2026-10-04 已切流**: client.py 默认端点/模型改本地(`127.0.0.1:8085`/`clef-flash`), Jev 云端两行注释保留可回切 |
 | 速度定谳 | 前 50 局速度滑条未生效(已修为真实方向键)。3 档=1.33x(用户定谳默认), 墙钟完整局 20-30 分钟 |
 | 数据分层 | 第 1-50 局=6 档 / 51=1 档 / 52=2 档 / **53 起=3 档**。节奏类结论跨层不可比 |
 | Jev 投喂 | 63 局起全面英文化 + DYNAMIC SITUATION 动态上下文段; **[第69局] Jev 决策预算 1200 触顶(长局后半纯确定性)——已实施(2026-10-04): 预算按后端分流, 本地 clef 实质不限/云 Jev 保持 1200, 第70局实证全局无断崖** |
-| 遗留(下一局主攻) | **第77局单变量: 防御深化包II已实施待实战验证**(①爆产x2→x4/单 ②模式期第二哨炮插单 1500→500 ③早期坦克驻塔协防+步兵全员驻家+raid仅机器人; 边界: RUSH-DEFENSE 激活时 SIEGE 让位; test_def77.py 7场景+全套回归过); SIEGE/RUSH-DEFENSE 双模式均待实战复核; **运维: llama-server 挂起监控, 对局脱离会话独立控制台启动** |
+| 遗留(下一局主攻) | **第78局候选(待用户拍板)**: A=防御订单节流bug fix(💥六连DEFLINE/三连E2x4重复下单竞态实锤——q1/q2快照滞后+确定性分支无在途判重, rush期3000金被订单黑洞抽干; 第30局已知竞态复发) / B=换家制RUSH-RACE(敌倾巢=家空, 坦克直扑敌基地, 动员兵拆建筑极慢) / C=A+B组合; 防御深化II验证: 全链路工作换比三连改善仍不足; **运维: llama-server 挂起监控, 对局脱离会话独立控制台启动** |
 
 ## 一.2、本 session 关键教训（均已入 docs/LESSONS.md，此处防重蹈）
 
