@@ -53,8 +53,8 @@ def rush_state(cash=500, threat_n=8, def_e2=3, def_tank=0, e2_extra=0,
 # ---- 21a 触发: 敌 8 压门 vs 守 3 → RUSH-DEFENSE ON + E2 x2 爆产 ----
 s, mem = rush_state(cash=500, threat_n=8, def_e2=3)
 _st, acts, logs = planner.checklist(s, HOME, "defend", mem)
-check("21a 敌8压门守3 → ON+E2x2", mem.rush_defense is True
-      and any(a.get("name") == "E2" and a.get("qty") == 2 for a in acts)
+check("21a 敌8压门守3 → ON+E2爆产", mem.rush_defense is True
+      and any(a.get("name") == "E2" and a.get("qty") == 4 for a in acts)
       and any("RUSH-DEFENSE ON" in l for l in logs),
       str([a for a in acts if a.get("name") == "E2"][:1]))
 
