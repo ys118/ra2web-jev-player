@@ -47,6 +47,9 @@ class BattleMemory:
         self.retreated: dict = {}       # unitId -> 游戏秒(每 300s 只撤一次)
         self.gdef_order = (-1, -999)    # [第78局] 哨炮在途判重 (下单时存量, 时刻)
         self.e2_burst = (-1, -999)      # [第78局] RUSH-DEFENSE E2 爆产在途判重
+        self.ghost_ids: set = set()     # [第82局] 幻影建筑拉黑(攻击150gs不倒=假目标)
+        self.siege_target_hist: dict = {}  # [第82局] 围城目标首攻时刻 {id: t}
+        self.gap_seen = False           # [第82局] 本局见过裂缝产生器(拉黑清空闸)
         self.rush_defense = False       # [第76局 用户反馈] 动态早rush防御模式:
                                         # 敌兵海压门且守军对不上 → 动员兵爆产
                                         # (不受坦克资金线约束); 威胁解除自动恢复
@@ -1129,10 +1132,39 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         if getattr(mem, "rush_defense", False):
             mem.rush_defense = False
             logs.append("t=%d SIEGE overrides RUSH-DEFENSE (总攻决心)" % s["t"])
+        # [第82局 幻影识别] 裂缝产生器(CANRCT)投影 GHOST* 假建筑——81 局实证:
+        # 63 辆坦克对幻影打了 20 分钟零伤害(击杀冻结, 敌值永不动)。
+        canrcpt = any(h.get("n") == "CANRCT" for h in s["hostile"])
+        if canrcpt:
+            mem.gap_seen = True
+        # 停滞拉黑: 同一建筑持续集火 >150gs 仍在场 = 幻影(真建筑在 8+ 坦克
+        # 集火下秒级倒), 拉黑换下一个
+        for h in [x for x in s["hostile"] if x.get("o") == 2]:
+            ft = mem.siege_target_hist.get(h["id"])
+            if ft is not None and s["t"] - ft > 150 \
+                    and h["id"] not in mem.ghost_ids:
+                mem.ghost_ids.add(h["id"])
+                mem.siege_target_hist.pop(h["id"], None)
+                logs.append("t=%d GHOST detected #%s@%s (集火150gs不倒, 拉黑)"
+                            % (s["t"], h["id"], list(h["tl"])))
+        if mem.gap_seen and not canrcpt \
+                and (mem.ghost_ids or mem.siege_target_hist):
+            mem.ghost_ids.clear()
+            mem.siege_target_hist.clear()   # 源头已灭, 幻影消散, 全目标重扫
+            mem.gap_seen = False
         ref = squad_ref(sq["assault"])
-        defb = [h for h in s["hostile"] if h.get("o") == 2 and h["n"] in DEF_BUILDINGS]
-        bldg = [h for h in s["hostile"] if h.get("o") == 2]
-        pool = defb or bldg
+        def _ghostfree(units):
+            # GHOST* 假目标与已拉黑 id 不入目标池
+            return [h for h in units
+                    if not str(h.get("n", "")).startswith("GHOST")
+                    and h["id"] not in mem.ghost_ids]
+        defb = _ghostfree([h for h in s["hostile"]
+                           if h.get("o") == 2 and h["n"] in DEF_BUILDINGS])
+        bldg = _ghostfree([h for h in s["hostile"] if h.get("o") == 2])
+        # 裂缝产生器优先(源头拆掉=幻影消散, 真建筑显形)
+        gap = [h for h in (defb or bldg)
+               if "NRCT" in str(h.get("n", ""))]
+        pool = gap or defb or bldg
         if sq["assault"] and len(sq["assault"]) < T["siege_push_n"] and defb:
             order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
             logs.append("t=%d SIEGE STAGING x%d/%d (攒兵团, 齐冲再上)"
@@ -1140,10 +1172,12 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         elif pool and ref and sq["assault"]:
             b = min(pool, key=lambda h: math.hypot(h["tl"][0] - ref[0],
                                                    h["tl"][1] - ref[1]))
+            mem.siege_target_hist.setdefault(b["id"], s["t"])
             order_obj("assault", sq["assault"], b["id"], b["tl"][0], b["tl"][1], 12)
+            tag = ("拔裂缝产生器" if gap else "拔防御壳" if defb else "清建筑")
             logs.append("t=%d SIEGE %s x%d -> #%s@(%d,%d)"
-                        % (s["t"], "拔防御壳" if defb else "清建筑",
-                           len(sq["assault"]), b["id"], b["tl"][0], b["tl"][1]))
+                        % (s["t"], tag, len(sq["assault"]),
+                           b["id"], b["tl"][0], b["tl"][1]))
         else:
             order("assault", sq["assault"], mem.enemy_base[0], mem.enemy_base[1], 12)
     elif getattr(mem, "rush_defense", False) and home:
