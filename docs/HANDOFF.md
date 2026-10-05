@@ -8,13 +8,13 @@
 | 项 | 状态 |
 |---|---|
 | 项目 | `D:/projects/ra2web-jev-player`，GitHub 私有库 `ys118/ra2web-jev-player`（master，最新提交见 `git log -1`） |
-| 战绩 | **77 局：15 胜**（[73]=🏆clef首胜 [74]部分局叫停 [75/76/77]=连续三局苏联20+兵海rush速败(t=485/668/671)——RUSH-DEFENSE+深化II全链路工作换比三连改善(8:16→20:24→23:24)仍不够, 💥重复下单竞态复发实锤(六连DEFLINE抽干3000金, 第30局已知竞态在checklist分支复发); 详见 LESSONS 尾部） |
+| 战绩 | **78 局：16 胜**（[73]=🏆clef首胜 [78]=🏆第二胜(t=5704马拉松): 击破26310史上最大苏联大军——订单节流+RUSH-DEFENSE+SIEGE围城+防空/资金校正四变量首次全链闭环生效, SIEGE 首验成功; [75/76/77]三连rush速败为修复链提供了全部实证; 详见 LESSONS 尾部） |
 | **暂停(2026-10-04 用户指示)** | **暂停开新局**: 用户 Jev 服务余额耗尽, 另一 session 正在接**本地部署 clef-flash 替代 Jev**; 恢复对战前先确认新后端接入+联调。→ **已就绪(2026-10-04)**: 本地引擎+影子评测完成, 全档见 **`docs/CLEF-LOCAL.md`**；**切流已实施(同日 §八)**: 端点/threat 0.55/预算分流/teacher 四项落盘, 服务 q8 重启在驻, **待用户号令开第 70 局** |
 | **clef 接入指引** | JevClient 已环境变量驱动(`src/ra2web_jev_player/jev/client.py`): `JEV_BASE_URL`(默认 api.typesafe.ai/v1, 端点契约 POST {base_url}/systemone, body {state,questions,model}) / `JEV_MODEL` / `JEV_MAX_CALLS` / 密钥 `TYPESAFE_API_KEY`(绝不入库)。本地 clef 若实现同契约→零代码改; 若是 OpenAI 兼容 API→client.py 加适配层。决策预算上限由 CLI `--max-decisions`(现 1200)传入, 长局触顶候选上调。✅ **已实测(2026-10-04)**: llama.cpp 的 clef 实现=同契约, 逐字段核对一致(noul 答案键=`noul`), `JEV_BASE_URL=http://127.0.0.1:8085/v1`+dummy key 即零代码切; 阈值建议(threat 0.6→0.55 / stance 0.45 保持)与切换手册见 `docs/CLEF-LOCAL.md` §四.4/§五。**2026-10-04 已切流**: client.py 默认端点/模型改本地(`127.0.0.1:8085`/`clef-flash`), Jev 云端两行注释保留可回切 |
 | 速度定谳 | 前 50 局速度滑条未生效(已修为真实方向键)。3 档=1.33x(用户定谳默认), 墙钟完整局 20-30 分钟 |
 | 数据分层 | 第 1-50 局=6 档 / 51=1 档 / 52=2 档 / **53 起=3 档**。节奏类结论跨层不可比 |
 | Jev 投喂 | 63 局起全面英文化 + DYNAMIC SITUATION 动态上下文段; **[第69局] Jev 决策预算 1200 触顶(长局后半纯确定性)——已实施(2026-10-04): 预算按后端分流, 本地 clef 实质不限/云 Jev 保持 1200, 第70局实证全局无断崖** |
-| 遗留(下一局主攻) | **第78局: 防御订单节流 bug fix 已实施待实战验证**(💥77局六连DEFLINE/三连E2x4重复下单竞态——_order_once 在途判重: 存量未变60gs/30gs内不重下, 落地/被拆/超窗即放行; test_fix78.py 6场景+全套回归过); 观察项: fresh-mem 幽灵V3威胁(v3_seen_t=0, 被帽封顶危害有限); 换家制RUSH-RACE仍是候选; **运维: llama-server 挂起监控, 对局脱离会话独立控制台启动** |
+| 遗留(下一局主攻) | **待用户拍板**: A=零改动再战积累胜局样本(推荐) / B=DRON 骚扰 40k 金消耗评估(78局101台阵亡, 可选微变量); 78局修复链全验证(订单节流/RUSH-DEFENSE/SIEGE/防空资金校正); 观察项: 服务端偶发 HTTP 500(56次瞬断被重试吸收, 低优先级); **运维: llama-server 挂起监控, 对局脱离会话独立控制台启动** |
 
 ## 一.2、本 session 关键教训（均已入 docs/LESSONS.md，此处防重蹈）
 
