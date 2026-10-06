@@ -57,10 +57,20 @@ def mk_state(cash=600, threat_n=8, def_e2=3, def_tank=2, gdef=1,
 
 
 # ---- 22a 爆产 x4/单 ----
-s, mem = mk_state(mode=True)
+#     [第89局] cash 提至 1200(≥HTNK 地板 900): 充裕期维持 x4 大爆语义
+s, mem = mk_state(mode=True, cash=1200)
 _st, acts, logs = planner.checklist(s, HOME, "defend", mem)
 b = [a for a in acts if a.get("name") == "E2"]
 check("22a RUSH-DEFENSE E2 x4", b and b[0].get("qty") == 4,
+      str(b[:1]))
+
+# ---- 22e [第89局] cash 600(<地板900) → x1 续兵(坦克资金保护) ----
+s, mem = mk_state(mode=True, cash=600)
+_st, acts, logs = planner.checklist(s, HOME, "defend", mem)
+b = [a for a in acts if a.get("name") == "E2"]
+check("22e cash<地板 → x1 续兵不击穿坦克线",
+      b and b[0].get("qty") == 1
+      and any("资金地板续兵" in l for l in logs),
       str(b[:1]))
 
 # ---- 22b 防御模式: 第二哨炮插单(cash 600 < 1500 旧闸) ----

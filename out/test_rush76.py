@@ -30,6 +30,7 @@ HOME = (10, 10)
 def rush_state(cash=500, threat_n=8, def_e2=3, def_tank=0, e2_extra=0,
                mode_pre=False):
     mine = [unit("b%d" % i, n, 2, (10 + i, 10)) for i, n in enumerate(BASE_BLD)]
+    mine += [unit("h1", "HARV", 7, (12, 16)), unit("h2", "HARV", 7, (13, 16))]
     for i in range(def_e2):
         mine.append(unit("e%d" % i, "E2", 3, (12 + i, 12)))
     for i in range(e2_extra):
@@ -50,17 +51,22 @@ def rush_state(cash=500, threat_n=8, def_e2=3, def_tank=0, e2_extra=0,
     return s, mem
 
 
-# ---- 21a 触发: 敌 8 压门 vs 守 3 → RUSH-DEFENSE ON + E2 x2 爆产 ----
-s, mem = rush_state(cash=500, threat_n=8, def_e2=3)
+# ---- 21a 触发: 敌 8 压门 vs 守 3 → RUSH-DEFENSE ON + E2 x4 大爆 ----
+#     [第89局] cash 提至 1200(≥HTNK 地板 900): 充裕期维持 x4 大爆语义
+s, mem = rush_state(cash=1200, threat_n=8, def_e2=3)
 _st, acts, logs = planner.checklist(s, HOME, "defend", mem)
 check("21a 敌8压门守3 → ON+E2爆产", mem.rush_defense is True
       and any(a.get("name") == "E2" and a.get("qty") == 4 for a in acts)
       and any("RUSH-DEFENSE ON" in l for l in logs),
       str([a for a in acts if a.get("name") == "E2"][:1]))
 
-# ---- 21b 现金 500(<坦克线800) 也爆产(不受坦克资金线约束) ----
-check("21b cash=500 爆产不受坦克资金线", mem.rush_defense is True,
-      "cash=500 < tank_cash1=800, 21a 已实证下单")
+# ---- 21b [第89局] 现金 500(<地板900) → 降 x1 续兵(坦克资金保护) ----
+s, mem = rush_state(cash=500, threat_n=8, def_e2=3, mode_pre=True)
+_st, acts, logs = planner.checklist(s, HOME, "defend", mem)
+check("21b cash=500 <地板 → x1 续兵不击穿坦克线",
+      any(a.get("name") == "E2" and a.get("qty") == 1 for a in acts)
+      and any("资金地板续兵" in l for l in logs),
+      str([a for a in acts if a.get("name") == "E2"][:1]))
 
 # ---- 21c 威胁解除 → 自动 OFF 恢复原公式 ----
 s, mem = rush_state(mode_pre=True, threat_n=0, def_e2=6)
