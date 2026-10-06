@@ -402,15 +402,23 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     # 约束(生存>一切), 排在坦克线之前吃现金——75 局 13 E2 对 20 海全灭实证。
     # [第77局 防御深化II] x2→x4/单: 连续两局苏联 20+ 兵海(75/76)实证 x2 爆产
     # 速度跟不上敌爆兵速度(E2 击杀 17 仍被磨穿)。
+    # [第89局 坦克资金地板] 88 局死因链: 敌 17+ 大兵海下 x4 爆产(360/波, 先于
+    #     坦克线执行且无地板)把现金钉死在坦克出手价(800)之下 → 全场坦克峰值 0
+    #     → 守住 900s 仍无进攻能力耗死。地板=HTNK 造价(900): cred≥900 维持 x4
+    #     大爆(开局现金充裕期行为不变); 跌破降 x1 续兵(防线不断兵, 30s 一兵),
+    #     现金蓄回 900 坦克线即恢复出手——坦克+步兵双线并行。
+    e2_burst_floor = ucost("HTNK")
     if mem.rush_defense \
             and qs.get(2, {}).get("s", 0) == 0 \
             and "E2" in available(s["av"], 2) and cred >= ucost("E2") \
             and len([u for u in mine if u["n"] == "E2"]) < 30 \
             and _order_once("e2_burst",
                             len([u for u in mine if u["n"] == "E2"]), 30):
-        acts.append({"act": "produce", "name": "E2", "qty": 4, "q": 2})
-        logs.append("t=%d RUSH-DEFENSE E2 x4 (敌%d压门 守%d)"
-                    % (s["t"], threat_n, def_n))
+        e2_qty = 4 if cred >= e2_burst_floor else 1
+        acts.append({"act": "produce", "name": "E2", "qty": e2_qty, "q": 2})
+        logs.append("t=%d RUSH-DEFENSE E2 x%d (敌%d压门 守%d%s)"
+                    % (s["t"], e2_qty, threat_n, def_n,
+                       "" if e2_qty == 4 else ", 资金地板续兵"))
 
     # 7.9) [第84局 防守起手] 开局步兵前置: 兵营落地且坦克场真空(无机动坦克
     #     ——涵盖首坦成熟前 t<273 硬窗口与坦克全灭后的自愈)时, 常备 ≥[第87局
