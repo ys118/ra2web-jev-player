@@ -58,6 +58,8 @@ class BattleMemory:
                                         # ~2600 → q3 僵尸订单饿死堵死, 坦克绝产
         self.focus_id = None            # [第92局 用户反馈②] 坦克点名集火目标 id
         self.focus_t = 0                # [第92局] 点名目标选定时刻(重选节流用)
+        self.enval_freeze_since = None  # [第95局 击杀冻结检测] 冻结起始游戏秒
+        self.last_en_val = None         # [第95局] 上个 tick 敌战力值
         self.rush_defense = False       # [第76局 用户反馈] 动态早rush防御模式:
                                         # 敌兵海压门且守军对不上 → 动员兵爆产
                                         # (不受坦克资金线约束); 威胁解除自动恢复
@@ -677,6 +679,32 @@ def opening_build(s: dict, mem: BattleMemory):
         return {"act": "produce", "name": opening_next, "qty": 1, "q": 0,
                 "tag": "OPENING BUILD %s" % opening_next}
     return None
+
+
+def kill_freeze(mem: BattleMemory, s: dict, stance: str) -> int:
+    """[第95局 击杀冻结检测] 94 局假僵局定谳: t=2127 起敌战力值恒 12300/
+    击杀冻结 6600s——敌兵海被全歼后残部卡在打不到的位置(地形卡位), 我方
+    6.4 倍战力物理上无法结束游戏, 白耗 100 分钟。返回冻结持续游戏秒
+    (0=未冻结), 调用方按阈值(3000gs)终止僵尸局。
+
+    冻结判定: attack/rush 态势下 ①敌战力值一个 tick 都不动 ②我方战力
+    ≥2.5 倍碾压(排除均势拉锯的数值巧合)。只在进攻态判——发展/防守期
+    敌值不动是常态; 敌真在建军战力值会变化即自动复位。"""
+    try:
+        my_v, en_v = force_value(s)
+    except Exception:
+        mem.enval_freeze_since = None
+        return 0
+    frozen = (stance in ("attack", "rush") and en_v > 0
+              and my_v >= 2.5 * max(en_v, 1)
+              and mem.last_en_val == en_v)
+    mem.last_en_val = en_v
+    if not frozen:
+        mem.enval_freeze_since = None
+        return 0
+    if mem.enval_freeze_since is None:
+        mem.enval_freeze_since = s["t"]
+    return s["t"] - mem.enval_freeze_since
 
 
 def contact_edge(s: dict, home, pos):
