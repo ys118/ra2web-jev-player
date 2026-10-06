@@ -112,6 +112,18 @@ class BattleSession:
         if micro_outcome:
             return {"result": micro_outcome["result"], "t": s["t"]}
 
+        # [第95局 击杀冻结检测] 94 局假僵局(enval 冻结 6600s, 90 坦克 6.4 倍
+        # 战力物理上打不到卡位残部)白耗 100 分钟——冻结满 3000gs 优雅退出,
+        # report result=stalled, 复盘照跑。
+        try:
+            frozen_s = planner.kill_freeze(self.mem, s, self.stance)
+            if frozen_s >= 3000:
+                self.audit.log("t=%s ZOMBIE-FREEZE %ds (enval 不动+我方碾压) - 终止僵尸局"
+                               % (s["t"], frozen_s))
+                return {"result": "stalled", "t": s["t"]}
+        except Exception as e:
+            self.audit.log("freeze ERR %s" % str(e)[:100])
+
         home = yard_tile(s)
         # 战斗记录: 我方损失/敌方消失差分（复盘的兵力曲线与交换比数据源;
         # 敌方消失含"失去视野"的近似, 解读时参考）
