@@ -100,10 +100,15 @@ home_push = [a for a in acts if a.get("act") == "attack_move"
              and a.get("x") == 13 and a.get("y") == 13
              and any(str(i).startswith("t") for i in a.get("ids", []))]
 tanks_in = sum(1 for i in sq["assault"] if str(i).startswith("t"))
-check("22e 模式ON 坦克驻塔(13,13)+raid仅机器人+SIEGE让位",
-      bool(home_push) and sq["raid"] == ["d0"] and tanks_in == 2
-      and "RUSH-DEFENSE tanks" in log_s and "SIEGE LOCK-ON" not in log_s,
-      "raid=%s tanks_in=%d" % (sq["raid"], tanks_in))
+# [第92局改] 模式ON+近旁敌步兵 → 点名集火(用户指示: 坦克被步兵打时全组
+# 集中打击一个敌单位, 敌步兵优先), 不再原地驻塔挨打
+ff = [a for a in acts if a.get("act") == "attack_obj"]
+check("22e(92局改) 模式ON 近旁敌步兵 → 全组点名(敌步兵优先)+raid仅机器人",
+      ff and str(ff[0].get("tid", "")).startswith("h") and tanks_in == 2
+      and sq["raid"] == ["d0"] and "FOCUS-FIRE" in log_s
+      and "SIEGE LOCK-ON" not in log_s,
+      "raid=%s tanks_in=%d ff=%s" % (sq["raid"], tanks_in,
+                                     [a.get("tid") for a in ff]))
 
 # ---- 22f 防御模式: 步兵全员驻家(总战争模式不适用) ----
 s, mem = mk_state(mode=True, def_e2=6, def_tank=2)

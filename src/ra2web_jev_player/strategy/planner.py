@@ -56,6 +56,8 @@ class BattleMemory:
                                         # 局死因: 各决策器独立读原始现金, 同 tick
                                         # HARV+HTNK x4+NAHAND 叠 5500 债 vs 现金
                                         # ~2600 → q3 僵尸订单饿死堵死, 坦克绝产
+        self.focus_id = None            # [第92局 用户反馈②] 坦克点名集火目标 id
+        self.focus_t = 0                # [第92局] 点名目标选定时刻(重选节流用)
         self.rush_defense = False       # [第76局 用户反馈] 动态早rush防御模式:
                                         # 敌兵海压门且守军对不上 → 动员兵爆产
                                         # (不受坦克资金线约束); 威胁解除自动恢复
@@ -1047,7 +1049,6 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
         sq["guard"] = [u["id"] for u in tanks[:max(1, T["keep_home"] - 1)]]
         tanks = tanks[max(1, T["keep_home"] - 1):]
     sq["assault"] = [u["id"] for u in tanks]
-    total_combat = len(sq["raid"]) + len(sq["assault"]) + len(sq["guard"])
     if getattr(mem, "siege_mode", False) \
             and not any(u.get("o") == 2 and u["n"] in DEF_BUILDINGS
                         for u in s["hostile"]):
@@ -1056,15 +1057,22 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
         # 机枪堡屠步兵, 由坦克 mass-push 先拔壳)
         sq["hold"] = []
         sq["assault"] += [u["id"] for u in inf]
-    elif mem.enemy_base and stance in ("attack", "rush") and total_combat >= 4 \
-            and not getattr(mem, "siege_mode", False) \
-            and not getattr(mem, "rush_defense", False):
-        # [第63局] 总战争模式: 步兵留 4 人守家, 其余全部参战拆建筑
-        # [第77局] RUSH-DEFENSE 时不适用——步兵全员驻家守塔
-        sq["hold"] = [u["id"] for u in inf[:4]]
-        sq["assault"] += [u["id"] for u in inf[4:]]
+    elif sq["assault"] and not getattr(mem, "siege_mode", False) \
+            and (mem.enemy_base or stance in ("attack", "rush")):
+        # [第92局 用户反馈① 步坦协同] 坦克编队出击 → 步兵跟随, 不再要求
+        # stance=attack(91 局实证: defend 态势下坦克照常波次出击, 步兵 14-15
+        # 全程蹲伏击位看戏, 坦克被敌步兵白打——这就是"步坦脱节")。
+        # 围城阶段不适用(80 局规则: 壳未清步兵留守防磁暴屠步兵)。
+        # 留守 escort_home_n(4)守家伏击, 超出全部编入突击组跟随坦克:
+        # 敌步兵打我坦克时, 我方步兵上前反制(动员兵海反步兵强)。
+        # rush_defense 时留守抬到驻军地板(8)守塔线——敌兵海压门时塔线火力
+        # 优先, 但超出地板的步兵仍随坦克协防反步兵, 不再全员蹲伏击位。
+        keep = T["escort_home_n"] if not getattr(mem, "rush_defense", False) \
+            else max(T["escort_home_n"], 8)
+        sq["hold"] = [u["id"] for u in inf[:keep]]
+        sq["assault"] += [u["id"] for u in inf[keep:]]
     else:
-        # 防守/发展期: 步兵全员驻家([第62局用户指示])
+        # 防守/发展期(坦克未出击): 步兵全员驻家([第62局用户指示])
         sq["hold"] = [u["id"] for u in inf]
     sq["reserve"] = []
     return sq
@@ -1136,6 +1144,44 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
             return None
         return (sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts))
 
+    def _assault_advance(logs):
+        """[第92局] 无近旁敌单位时的突击组行为(原推进/协防分支收拢至此)。
+        优先级: rush_defense 塔线协防 > 敌基地已知点名非防御建筑 >
+        attack/rush 前出(打分目标/镜像角) > 回防/前哨。"""
+        if getattr(mem, "rush_defense", False) and home:
+            order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
+            logs.append("t=%d RUSH-DEFENSE tanks x%d -> 塔线协防"
+                        % (s["t"], len(sq["assault"])))
+        elif mem.enemy_base:
+            blds = [h for h in s["hostile"] if h["o"] == 2
+                    and h["n"] not in DEF_BUILDINGS]
+            ref = squad_ref(sq["assault"])
+            if blds and ref:
+                b = min(blds, key=lambda h: math.hypot(h["tl"][0] - ref[0],
+                                                       h["tl"][1] - ref[1]))
+                order_obj("assault", sq["assault"], b["id"], b["tl"][0], b["tl"][1], 12)
+            else:
+                order("assault", sq["assault"], mem.enemy_base[0], mem.enemy_base[1], 12)
+        elif stance in ("attack", "rush"):
+            tgt_u = pick_target(s, home)
+            if tgt_u:
+                tgt = list(tgt_u["tl"])
+            elif home:
+                # [第31局 Route A] 无情报也压向镜像角（用接触找基地, 不龟缩）
+                tgt = [max(mx - home[0], 8), max(my - home[1], 8)]
+            else:
+                tgt = forward_post(s, home, mem)
+            order("assault", sq["assault"], tgt[0], tgt[1], 12)
+        elif home:
+            inside = [h for h in s["hostile"]
+                      if math.hypot(h["tl"][0] - home[0],
+                                    h["tl"][1] - home[1]) <= 10]
+            if inside or len(sq["assault"]) < 4:
+                order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
+            else:
+                p = forward_post(s, home, mem)
+                order("assault", sq["assault"], p[0], p[1], 12)
+
     # RAID=骚扰组 [第31局A++]: 优先咬可见的最近敌矿车(断经济) — [第57局] 无矿车
     # 视野时咬最近的敌载具(机器人打不了建筑, 塔区站桩=白给), 再无则随突击组行动
     if mem.enemy_base and sq["raid"]:
@@ -1167,6 +1213,38 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
         logs.append("t=%d AIR-EVADE assault x%d -> home (坦克打不到空中, 等AA猎杀)"
                     % (s["t"], len(sq["assault"])))
+    elif not getattr(mem, "siege_mode", False) and sq["assault"]:
+        # [第92局 用户反馈②] 坦克编队野战点名集中火力: 敌单位距编组重心
+        # ≤focus_radius → 全组 order_obj 点名同一目标。打分: 敌步行单位(o!=7,
+        # 动员兵等反坦克步兵)优先——坦克被步兵缠斗时逐个挨打无还手, 全组先
+        # 歼灭步兵; 同级取距重心最近。mem.focus_id 存活且在视野内则续打
+        # (一个一个歼灭, 不每 tick 换目标), 死亡/出视野/12s 超时才重选。
+        # 围城阶段不适用(拔壳/清建筑目标链优先); 无近旁敌单位落回原推进逻辑。
+        ref = squad_ref(sq["assault"])
+        _units = [h for h in s["hostile"]
+                  if h.get("o") in (3, 7)
+                  and not str(h.get("n", "")).startswith("GHOST")]
+        _near = [h for h in _units
+                 if ref and math.hypot(h["tl"][0] - ref[0],
+                                       h["tl"][1] - ref[1]) <= T["focus_radius"]]
+        cur = next((h for h in _near if h["id"] == mem.focus_id), None)
+        if cur and s["t"] - mem.focus_t <= 12:
+            order_obj("assault", sq["assault"], cur["id"],
+                      cur["tl"][0], cur["tl"][1], 12)
+        elif _near:
+            b = min(_near, key=lambda h: (h.get("o") == 7,
+                                          math.hypot(h["tl"][0] - ref[0],
+                                                     h["tl"][1] - ref[1])))
+            mem.focus_id, mem.focus_t = b["id"], s["t"]
+            order_obj("assault", sq["assault"], b["id"],
+                      b["tl"][0], b["tl"][1], 12)
+            logs.append("t=%d FOCUS-FIRE x%d -> #%s@(%d,%d)%s"
+                        % (s["t"], len(sq["assault"]), b["id"],
+                           b["tl"][0], b["tl"][1],
+                           "(敌步兵优先)" if b.get("o") != 7 else ""))
+        else:
+            mem.focus_id = None
+            _assault_advance(logs)
     elif getattr(mem, "siege_mode", False) and mem.enemy_base:
         # [第75局 围城] 防御壳优先——拔壳=解除对己方火力圈(机枪堡是钢甲, 坦克炮
         # 正克制; 中盘"绕开塔"的保命规则至此解除), 壳清后按距离清建筑群
@@ -1226,41 +1304,8 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
                            b["id"], b["tl"][0], b["tl"][1]))
         else:
             order("assault", sq["assault"], mem.enemy_base[0], mem.enemy_base[1], 12)
-    elif getattr(mem, "rush_defense", False) and home:
-        # [第77局 防御深化II] 防御模式(未围城时): 坦克驻守塔线协防(不再前出)
-        order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
-        logs.append("t=%d RUSH-DEFENSE tanks x%d -> 塔线协防"
-                    % (s["t"], len(sq["assault"])))
-    elif stance in ("attack", "rush") or mem.enemy_base:
-        if mem.enemy_base:
-            blds = [h for h in s["hostile"] if h["o"] == 2
-                    and h["n"] not in DEF_BUILDINGS]
-            ref = squad_ref(sq["assault"])
-            if blds and ref:
-                b = min(blds, key=lambda h: math.hypot(h["tl"][0] - ref[0],
-                                                       h["tl"][1] - ref[1]))
-                order_obj("assault", sq["assault"], b["id"], b["tl"][0], b["tl"][1], 12)
-            else:
-                order("assault", sq["assault"], mem.enemy_base[0], mem.enemy_base[1], 12)
-        else:
-            tgt_u = pick_target(s, home)
-            if tgt_u:
-                tgt = list(tgt_u["tl"])
-            elif home:
-                # [第31局 Route A] 无情报也压向镜像角（用接触找基地, 不龟缩）
-                tgt = [max(mx - home[0], 8), max(my - home[1], 8)]
-            else:
-                tgt = forward_post(s, home, mem)
-            order("assault", sq["assault"], tgt[0], tgt[1], 12)
-    else:
-        if home:
-            inside = [h for h in s["hostile"]
-                      if math.hypot(h["tl"][0] - home[0], h["tl"][1] - home[1]) <= 10]
-            if inside or len(sq["assault"]) < 4:
-                order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
-            else:
-                p = forward_post(s, home, mem)
-                order("assault", sq["assault"], p[0], p[1], 12)
+    # [第92局] 原 rush_defense 协防 / attack 推进 / 回防 三分支已收拢进
+    # _assault_advance(点名分支的 else 路径), 行为保持不变。
     if home:
         # HOLD: 两个伏击位分兵
         posts = _hold_posts(s, home, mem)
