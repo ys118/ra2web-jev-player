@@ -413,9 +413,10 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
                     % (s["t"], threat_n, def_n))
 
     # 7.9) [第84局 防守起手] 开局步兵前置: 兵营落地且坦克场真空(无机动坦克
-    #     ——涵盖首坦成熟前 t<273 硬窗口与坦克全灭后的自愈)时, 常备 ≥4 动员兵
-    #     守塔线。83 局实证: 大 roll 兵海在首坦成熟前磨穿防线, 反应式
-    #     RUSH-DEFENSE 触发时已 late, 常驻驻军是硬窗口唯一保险; 造价可忽略。
+    #     ——涵盖首坦成熟前 t<273 硬窗口与坦克全灭后的自愈)时, 常备 ≥[第87局
+    #     4→8] 动员兵守塔线。83 局实证: 大 roll 兵海在首坦成熟前磨穿防线,
+    #     反应式 RUSH-DEFENSE 触发时已 late, 常驻驻军是硬窗口唯一保险;
+    #     [第86局] 86 局 20+ 驻军仍被 20 单位海磨穿 → 地板 4→8 加厚。
     e2_alive = len([u for u in mine if u["n"] == "E2"])
     tanks_out = any(u["o"] == 7 and u["n"] not in HARVEST
                     and u["n"] not in MCV_CODES for u in mine)
@@ -423,7 +424,7 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
             and not mem.rush_defense \
             and qs.get(2, {}).get("s", 0) == 0 \
             and "E2" in available(s["av"], 2) and cred >= ucost("E2") \
-            and e2_alive < 4 and _order_once("e2_garrison", e2_alive, 30):
+            and e2_alive < 8 and _order_once("e2_garrison", e2_alive, 30):
         acts.append({"act": "produce", "name": "E2", "qty": 2, "q": 2})
         logs.append("t=%d GARRISON E2 x2 (坦克真空期常驻驻军, have %d)"
                     % (s["t"], e2_alive))
@@ -465,7 +466,9 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     # 6.5) 地面防御线: [第36局 A] 之后 2 座; [第42局①] 速攻期也保 2 座——
     #     1 座哨炮撑不住重开局 rush（第 42 局 25 分钟速败的直接原因）,
     #     多花 500 金换开局生存, rush 推迟 ~30s 可接受
-    gdef_cap = 2
+    #     [第87局 防御纵深] 2→3 座: 75/76/83/86 四局 rush 死法实证双塔纵深
+    #     不足, 第三座补死角(rush_defense 时现金闸 500 已有)。
+    gdef_cap = 3
     # [第77局 防御深化II] RUSH-DEFENSE 激活时第二哨炮插单: 现金闸 1500→500
     # (75/76 局双速败实证: 兵海压门时第二塔被 1500 闸卡死, 防线无纵深);
     # 电力余量闸不放松(缺电=塔全瞎, 第 64 局教训)。
@@ -623,6 +626,13 @@ def opening_build(s: dict, mem: BattleMemory):
             and bl0.get(side["ref"], 0) < ref_cap_now and side["ref"] in av0 \
             and build_gate(s, ucost(side["ref"]), mem, side["ref"]):
         opening_next = side["ref"]
+    # [第87局 防御纵深] 第二兵营前置: 首厂落地即补——步兵双队列对爆 rush
+    # 硬窗口产能(86 局 20+ 驻军仍被单队列补给速度磨穿); 兵营 500cr,
+    # cash>=1200 闸不夺坦克线。
+    if opening_next is None and bl0.get(side["weap"], 0) >= 1 \
+            and bl0.get(side["bar"], 0) < 2 and side["bar"] in av0 \
+            and s["me"]["credits"] >= 1200:
+        opening_next = side["bar"]
     if opening_next is None and s["t"] > T["rush_t1"]:
         # [第42局②] 后期产能解锁: t>2400s 仍单工厂时无条件补第二座——
         # 第 41 局 80 分钟拉锯暴露: 敌方后期波次无上限, 单工厂补充速度跟不上。

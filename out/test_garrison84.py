@@ -67,10 +67,13 @@ for dt in range(4):
     total += len(e2_orders(acts))
 check("27b 连续 tick 仅 1 单", total == 1, "orders=%d" % total)
 
-# ---- 27c e2 达标 4 → 不产 ----
+# ---- 27c [87局改] 地板 4→8: e2=4 仍补产, e2=8 才达标 ----
 s, mem = gar_state(e2_n=4)
 _st, acts, _ = planner.checklist(s, HOME, "develop", mem)
-check("27c e2=4 达标 → 不产", not e2_orders(acts))
+check("27c(87局改) e2=4<8 → 驻军补产", len(e2_orders(acts)) == 1)
+s, mem = gar_state(e2_n=8)
+_st, acts, _ = planner.checklist(s, HOME, "develop", mem)
+check("27c-2 e2=8 达标 → 不产", not e2_orders(acts))
 
 # ---- 27d 坦克在场 → 不产(真空期语义) ----
 s, mem = gar_state(e2_n=2, tanks=1)

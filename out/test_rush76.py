@@ -65,8 +65,8 @@ check("21b cash=500 爆产不受坦克资金线", mem.rush_defense is True,
 # ---- 21c 威胁解除 → 自动 OFF 恢复原公式 ----
 s, mem = rush_state(mode_pre=True, threat_n=0, def_e2=6)
 _st, acts, logs = planner.checklist(s, HOME, "defend", mem)
-check("21c 威胁清空 → OFF+无爆产", mem.rush_defense is False
-      and not any(a.get("name") == "E2" for a in acts)
+check("21c(87局改) 威胁清空 → OFF+无爆产(驻军E2合法)", mem.rush_defense is False
+      and not any(a.get("name") == "E2" and a.get("qty") == 4 for a in acts)
       and any("RUSH-DEFENSE OFF" in l for l in logs))
 
 # ---- 21d 守军充足(12 vs 8) → 不切换(避免小骚扰空转公式) ----

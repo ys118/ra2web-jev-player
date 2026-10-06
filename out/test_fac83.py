@@ -22,13 +22,15 @@ def unit(uid, n, o, tl, hp=100, mhp=100):
             "idle": True, "dep": False, "depd": None, "z": 0}
 
 
-def fac_state(cash, n_weap, extra_av=None):
-    BASE = ["NACNST", "NAPOWR", "NAREFN", "NAHAND"]
+def fac_state(cash, n_weap, extra_av=None, n_bar=1):
+    BASE = ["NACNST", "NAPOWR", "NAREFN"]   # 兵营数由 n_bar 控制
     mine = [unit("b%d" % i, n, 2, (10 + i, 10)) for i, n in enumerate(BASE)]
     for i in range(3):                       # 4 矿厂(满足 ref_cap=4, 85局扩容)
         mine.append(unit("r%d" % i, "NAREFN", 2, (15 + i, 12)))
     for i in range(n_weap):
         mine.append(unit("w%d" % i, "NAWEAP", 2, (20 + i, 10)))
+    for i in range(n_bar):
+        mine.append(unit("h%d" % i, "NAHAND", 2, (25 + i, 10)))
     mine += [unit("h1", "HARV", 7, (12, 16)), unit("h2", "HARV", 7, (13, 16))]
     av0 = ["NAPOWR", "NAREFN", "NAHAND", "NAWEAP"] + (extra_av or [])
     s = {"t": 700, "mine": mine, "hostile": [], "enemy": [],
@@ -40,21 +42,21 @@ def fac_state(cash, n_weap, extra_av=None):
     return s, planner.BattleMemory()
 
 
-# ---- 26a 双厂+现金 2000(>1800闸) → 下单第三厂 ----
+# ---- 26a [87局改] 双厂+现金2000 → 第二兵营前置(防御纵深优先于三厂) ----
 s, mem = fac_state(2000, 2)
 act = planner.opening_build(s, mem)
-check("26a 双厂+cash2000 → 第三厂", bool(act) and act.get("name") == "NAWEAP",
-      str(act))
+check("26a(87局改) 双厂+单兵营 → 第二兵营优先",
+      bool(act) and act.get("name") == "NAHAND", str(act))
 
 # ---- 26b 双厂+现金 1000(<1800闸) → 不下(资金闸保留) ----
 s, mem = fac_state(1000, 2)
 act = planner.opening_build(s, mem)
 check("26b cash1000<1800 → 不下单", act is None, str(act))
 
-# ---- 26c 三厂已满 → 不再下第四厂 ----
-s, mem = fac_state(3000, 3)
+# ---- 26c [87局改] 三厂+双兵营均满 → 无单 ----
+s, mem = fac_state(3000, 3, n_bar=2)
 act = planner.opening_build(s, mem)
-check("26c 三厂封顶 → 不下单", act is None, str(act))
+check("26c(87局改) 三厂双营封顶 → 不下单", act is None, str(act))
 
 # ---- 26d Jev 路径: 双厂存在 → BUILD NAWEAP 放行(原通用帽拦) ----
 s, mem = fac_state(2600, 2)
