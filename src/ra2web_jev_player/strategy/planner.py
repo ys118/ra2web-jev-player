@@ -346,7 +346,11 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     # [第85局 收入再扩容→第86局回滚] 8 车过度开采实证: 85 局 t≈2400 本地矿区
     # 枯竭(6 矿车在场但现金冻结=无矿可采), 中盘收入断绝致败; 78/82/84 三胜
     # 全为 6 车配置。矿车目标回滚 6(保留 ref_cap=4 的扩产弹性)。
-    harv_target = min(6, T["harv_per_ref"] * n_ref)
+    # [第94局 单变量] 公式 +1 容错: min(6, 2×n_ref+1)——88/92/93 三局第二
+    # 精炼厂在敌第一波 rush 时段夭折, n_ref=1 时 2 车采集力撑不起爆产消耗
+    # (93 局 t=442 起 cash=0 防线断粮)。一矿 3 车=+收入 20-30%+被杀 1 车
+    # 不致收入崩盘(87-91 局矿车 2→7 的胜负分界全在这条曲线上)。
+    harv_target = min(6, T["harv_per_ref"] * n_ref + 1)
     # [第45局复盘] 第3辆门槛 2800→1500: 见底率69% 的根源是"现金到不了 2800→矿车
     # 不补→收入上不去"死循环（矿车曲线全程仅 2 辆）; 第4辆仍 2800 防抢坦克线
     # [第63局用户反馈] 门槛 1400/1500/2800 → 800/1200/1500: 资金见底时
@@ -355,7 +359,10 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     # 见底率 68%/41%, 矿车折损(68局损2车)在现金细流期补不上; 低于 tank_cash1
     # 的闲钱转收入, harv_reserve 同步降低=坦克线也更早解锁
     harv_cost_gate = 600 if n_harv < 2 else (900 if n_harv == 2 else 1200)
+    # [第94局] 敌兵海压门期(rush_defense)矿车补员让位防线——1400 大件插在
+    # 爆产段之前会把现金抽穿(21a/27e 回归暴露), 威胁解除后自动恢复补员。
     if q3s == 0 and n_ref >= 1 and n_harv < harv_target \
+            and not mem.rush_defense \
             and side["harv"] in available(s["av"], 3) and cred >= harv_cost_gate:
         acts.append({"act": "produce", "name": side["harv"], "qty": 1, "q": 3})
         logs.append("t=%d ECON harv#%d" % (s["t"], n_harv + 1))
