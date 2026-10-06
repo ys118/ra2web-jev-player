@@ -1,0 +1,467 @@
+[16:09:27] 进局中(全自动)...
+[16:11:06] {"kind": "start", "policy": "ra2web-jev-player/1.0", "maxDecisions": 999999, "micro": {"events": [{"kind": "micro", "t": 0, "what": "start"}], "loopN": 1, "on": true, "outcome": null, "stall": false}, "ts": "16:11:06"}
+[16:11:06] === ra2web-jev-player start (tick=1.5s, max_decisions=999999) ===
+[16:11:06] t=1 DEPLOY mcv
+[16:11:06] {"kind": "action", "what": "deploy", "ids": [1042], "ts": "16:11:06"}
+[16:11:06] {"kind": "action", "what": "deploy", "name": null, "qty": null, "tid": null, "ts": "16:11:06"}
+[16:11:08] t=3 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:08] t=3 jev STANCE defend->develop (conf 0.91)
+[16:11:10] t=5 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:11] t=7 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:13] t=9 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:14] t=11 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:16] t=13 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:17] t=15 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:19] t=17 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:20] t=19 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:22] t=21 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:23] t=23 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:25] t=25 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:26] t=27 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:28] t=29 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:29] t=31 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:31] t=33 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:32] t=35 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:34] t=37 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:35] t=39 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[16:11:36] t=41 OPENING REJECT NAREFN (40gs 无进展, 拉黑)
+[16:11:36] t=41 OPENING FALLBACK -> legacy NAPOWR-first
+[16:11:36] {"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "tid": null, "ts": "16:11:36"}
+[16:11:36] t=41 OPENING BUILD NAPOWR
+[16:11:43] t=49 tick#25 credits=9780 stance=develop | jev 25 decisions p50=816ms
+[16:11:56] {"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "tid": null, "ts": "16:11:56"}
+[16:11:56] t=67 OPENING BUILD NAREFN
+[16:12:21] t=99 tick#50 credits=8629 stance=develop | jev 50 decisions p50=828ms
+[16:12:58] t=149 tick#75 credits=7421 stance=develop | jev 75 decisions p50=870ms
+[16:13:05] {"kind": "action", "what": "produce", "name": "NAHAND", "qty": 1, "tid": null, "ts": "16:13:05"}
+[16:13:05] t=159 OPENING BUILD NAHAND
+[16:13:23] t=183 GARRISON E2 x2 (坦克真空期常驻驻军, have 0)
+[16:13:23] t=183 DEFLINE NALASR (have 0)
+[16:13:23] {"kind": "action", "what": "produce", "name": "E2", "qty": 2, "tid": null, "ts": "16:13:23"}
+[16:13:23] {"kind": "action", "what": "produce", "name": "NALASR", "qty": 1, "tid": null, "ts": "16:13:23"}
+[16:13:23] {"kind": "action", "what": "produce", "name": "NAWEAP", "qty": 1, "tid": null, "ts": "16:13:23"}
+[16:13:23] t=183 OPENING BUILD NAWEAP
+[16:13:26] t=187 ALARM enemy approaching -> counter 1 vs 1 -> [69, 120]
+[16:13:26] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:13:26"}
+[16:13:29] t=191 GARRISON E2 x2 (坦克真空期常驻驻军, have 1)
+[16:13:30] t=191 jev INF E2 (conf 0.44)
+[16:13:30] t=193 GARRISON E2 x2 (坦克真空期常驻驻军, have 0)
+[16:13:31] t=193 jev INF E2 (conf 0.54)
+[16:13:33] t=195 jev INF E2 (conf 0.55)
+[16:13:34] t=197 jev INF E2 (conf 0.52)
+[16:13:36] t=199 jev INF E2 (conf 0.64)
+[16:13:36] t=199 tick#100 credits=5895 stance=defend | jev 100 decisions p50=891ms
+[16:13:37] t=201 jev INF E2 (conf 0.61)
+[16:13:39] t=203 jev INF E2 (conf 0.59)
+[16:13:40] t=205 jev INF E2 (conf 0.62)
+[16:13:41] t=207 DEFLINE NALASR (have 1)
+[16:13:42] t=207 jev INF E2 (conf 0.60)
+[16:13:43] t=209 jev INF E2 (conf 0.60)
+[16:13:45] t=211 jev INF E2 (conf 0.60)
+[16:13:46] t=213 jev INF E2 (conf 0.56)
+[16:13:48] t=215 jev INF E2 (conf 0.56)
+[16:13:48] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "16:13:48"}
+[16:13:51] t=221 GARRISON E2 x2 (坦克真空期常驻驻军, have 1)
+[16:13:52] t=221 jev INF E2 (conf 0.42)
+[16:13:52] t=221 MOVE hold_a x1 -> (74,123)
+[16:13:52] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:13:52"}
+[16:13:54] t=223 jev INF E2 (conf 0.41)
+[16:13:55] t=225 jev INF E2 (conf 0.41)
+[16:13:57] t=227 jev INF E2 (conf 0.43)
+[16:13:58] t=229 jev INF E2 (conf 0.43)
+[16:14:00] t=231 jev INF E2 (conf 0.41)
+[16:14:01] t=233 jev INF E2 (conf 0.42)
+[16:14:03] t=235 jev INF E2 (conf 0.42)
+[16:14:04] t=237 jev INF E2 (conf 0.41)
+[16:14:06] t=239 jev INF E2 (conf 0.42)
+[16:14:07] t=241 jev INF E2 (conf 0.42)
+[16:14:09] t=243 jev INF E2 (conf 0.40)
+[16:14:10] t=245 jev INF E2 (conf 0.42)
+[16:14:12] t=247 jev INF E2 (conf 0.41)
+[16:14:13] t=249 jev INF E2 (conf 0.42)
+[16:14:14] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "16:14:14"}
+[16:14:14] t=249 tick#125 credits=4538 stance=defend | jev 125 decisions p50=902ms
+[16:14:17] t=255 GARRISON E2 x2 (坦克真空期常驻驻军, have 2)
+[16:14:18] t=255 jev INF E2 (conf 0.45)
+[16:14:18] t=255 MOVE hold_b x1 -> (62,119)
+[16:14:18] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:14:18"}
+[16:14:19] t=257 jev INF E2 (conf 0.46)
+[16:14:21] t=259 jev INF E2 (conf 0.45)
+[16:14:22] t=261 jev INF E2 (conf 0.45)
+[16:14:24] t=263 jev INF E2 (conf 0.44)
+[16:14:25] t=265 jev INF E2 (conf 0.44)
+[16:14:26] t=267 DEFLINE NALASR (have 1)
+[16:14:26] {"kind": "action", "what": "produce", "name": "NALASR", "qty": 1, "tid": null, "ts": "16:14:26"}
+[16:14:27] t=267 jev INF E2 (conf 0.43)
+[16:14:28] t=269 jev INF E2 (conf 0.48)
+[16:14:30] t=271 jev INF E2 (conf 0.47)
+[16:14:30] t=273 ECON harv#2
+[16:14:30] t=273 TANK HTNK x4
+[16:14:30] {"kind": "action", "what": "produce", "name": "HARV", "qty": 1, "tid": null, "ts": "16:14:30"}
+[16:14:30] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 4, "tid": null, "ts": "16:14:30"}
+[16:14:30] t=273 DEBT-GATE NAHAND x1 (debt=5000 eff=1 < 500)
+[16:14:32] t=273 jev BUILD NAREFN (conf 0.31)
+[16:14:32] t=273 jev INF E2 (conf 0.45)
+[16:14:32] t=273 DEBT-GATE NAREFN x1 (debt=5000 eff=1 < 2000)
+[16:14:32] {"kind": "action", "what": "produce", "name": "NAHAND", "qty": 1, "tid": null, "ts": "16:14:32"}
+[16:14:32] t=275 OPENING BUILD NAHAND
+[16:14:33] t=275 jev INF E2 (conf 0.44)
+[16:14:35] t=277 jev INF E2 (conf 0.44)
+[16:14:37] t=279 jev INF E2 (conf 0.44)
+[16:14:38] t=282 jev INF E2 (conf 0.44)
+[16:14:40] t=284 jev INF E2 (conf 0.43)
+[16:14:40] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "16:14:40"}
+[16:14:43] t=290 GARRISON E2 x2 (坦克真空期常驻驻军, have 3)
+[16:14:43] t=290 INSURE AA building
+[16:14:43] t=290 DEFLINE NALASR (have 2)
+[16:14:43] {"kind": "action", "what": "produce", "name": "NAFLAK", "qty": 1, "tid": null, "ts": "16:14:43"}
+[16:14:45] t=290 jev INF E2 (conf 0.49)
+[16:14:47] t=293 jev INF E2 (conf 0.48)
+[16:14:48] t=295 jev INF E2 (conf 0.49)
+[16:14:50] t=297 jev INF E2 (conf 0.49)
+[16:14:50] t=299 POWER plant (reserve 55)
+[16:14:50] {"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "tid": null, "ts": "16:14:50"}
+[16:14:51] t=299 jev INF E2 (conf 0.45)
+[16:14:53] t=301 jev INF E2 (conf 0.42)
+[16:14:53] t=301 MOVE hold_a x2 -> (74,123)
+[16:14:53] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:14:53"}
+[16:14:53] t=301 tick#150 credits=3049 stance=defend | jev 150 decisions p50=916ms
+[16:14:55] t=304 jev INF E2 (conf 0.45)
+[16:14:56] t=306 jev INF E2 (conf 0.43)
+[16:14:58] t=308 jev INF E2 (conf 0.45)
+[16:15:00] t=310 jev INF E2 (conf 0.40)
+[16:15:01] t=312 jev INF E2 (conf 0.40)
+[16:15:03] t=314 jev INF E2 (conf 0.45)
+[16:15:05] t=317 jev INF E2 (conf 0.46)
+[16:15:05] t=319 ALARM enemy approaching -> counter 3 vs 1 -> [81, 114]
+[16:15:05] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:15:05"}
+[16:15:06] t=319 jev INF E2 (conf 0.55)
+[16:15:06] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "16:15:06"}
+[16:15:08] t=323 RUSH-DEFENSE ON (敌4压门 vs 守3) 动员兵爆产
+[16:15:10] t=323 jev BUILD NAREFN (conf 0.13)
+[16:15:10] {"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "tid": null, "ts": "16:15:10"}
+[16:15:10] t=326 RUSH-DEFENSE E2 x4 (敌4压门 守4)
+[16:15:12] t=326 jev INF E2 (conf 0.71)
+[16:15:13] t=328 jev INF E2 (conf 0.75)
+[16:15:13] t=328 MOVE hold_a x2 -> (74,110); hold_b x2 -> (74,123)
+[16:15:13] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:15:13"}
+[16:15:13] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:15:13"}
+[16:15:14] t=330 ALARM NAREFN under attack -> TURTLE (4 v 5, 守塔阵不打野战)
+[16:15:14] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:15:14"}
+[16:15:15] t=330 jev INF E2 (conf 0.75)
+[16:15:17] t=333 jev INF E2 (conf 0.76)
+[16:15:17] t=335 RETREAT E2(3%)
+[16:15:17] {"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "16:15:17"}
+[16:15:19] t=335 jev INF E2 (conf 0.79)
+[16:15:19] t=338 RUSH-DEFENSE E2 x1 (敌10压门 守3, 资金地板续兵)
+[16:15:20] t=338 jev INF E2 (conf 0.81)
+[16:15:22] t=340 jev INF E2 (conf 0.76)
+[16:15:22] t=342 ALARM NAREFN under attack -> TURTLE (2 v 10, 守塔阵不打野战)
+[16:15:22] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:15:22"}
+[16:15:22] t=342 RETREAT E2(5%)
+[16:15:22] {"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "16:15:22"}
+[16:15:24] t=342 jev INF E2 (conf 0.75)
+[16:15:24] t=345 RUSH-DEFENSE E2 x1 (敌10压门 守2, 资金地板续兵)
+[16:15:26] t=345 jev INF E2 (conf 0.79)
+[16:15:27] t=347 jev INF E2 (conf 0.76)
+[16:15:29] t=349 jev INF E2 (conf 0.78)
+[16:15:31] t=352 jev INF E2 (conf 0.76)
+[16:15:31] t=354 ALARM NAREFN under attack -> TURTLE (2 v 10, 守塔阵不打野战)
+[16:15:31] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:15:31"}
+[16:15:33] t=354 jev INF E2 (conf 0.76)
+[16:15:33] t=354 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:34] t=356 jev INF E2 (conf 0.80)
+[16:15:34] t=356 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:36] t=359 jev INF E2 (conf 0.80)
+[16:15:36] t=359 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:36] t=359 tick#175 credits=0 stance=defend | jev 175 decisions p50=1032ms
+[16:15:36] t=361 RETREAT E2(23%)
+[16:15:37] {"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "16:15:37"}
+[16:15:38] t=361 jev INF E2 (conf 0.78)
+[16:15:38] t=361 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:40] t=363 jev INF E2 (conf 0.81)
+[16:15:40] t=363 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:40] t=366 ALARM enemy approaching -> TURTLE (2 v 13, 守塔阵不打野战)
+[16:15:40] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:15:40"}
+[16:15:41] t=366 jev INF E2 (conf 0.80)
+[16:15:41] t=366 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:43] t=368 jev INF E2 (conf 0.81)
+[16:15:43] t=368 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:45] t=370 jev INF E2 (conf 0.79)
+[16:15:45] t=370 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:47] t=373 jev INF E2 (conf 0.79)
+[16:15:47] t=373 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:48] t=375 jev INF E2 (conf 0.78)
+[16:15:48] t=375 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:48] t=375 MOVE hold_a x1 -> (68,109); hold_b x1 -> (77,118)
+[16:15:48] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:15:48"}
+[16:15:48] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:15:48"}
+[16:15:49] t=377 ALARM NAHAND under attack -> TURTLE (2 v 15, 守塔阵不打野战)
+[16:15:49] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:15:49"}
+[16:15:50] t=377 jev INF E2 (conf 0.78)
+[16:15:50] t=377 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:50] t=379 RETREAT E2(15%)
+[16:15:50] {"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "16:15:50"}
+[16:15:52] t=379 jev INF E2 (conf 0.78)
+[16:15:52] t=379 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:53] t=382 jev INF E2 (conf 0.79)
+[16:15:53] t=382 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:55] t=384 jev INF E2 (conf 0.79)
+[16:15:55] t=384 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:57] t=386 jev INF E2 (conf 0.78)
+[16:15:57] t=386 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:15:57] t=388 ALARM NAHAND under attack -> TURTLE (1 v 15, 守塔阵不打野战)
+[16:15:57] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:15:57"}
+[16:15:59] t=388 jev INF E2 (conf 0.79)
+[16:15:59] t=388 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:00] t=391 jev INF E2 (conf 0.79)
+[16:16:00] t=391 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:02] t=393 jev INF E2 (conf 0.79)
+[16:16:02] t=393 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:04] t=395 jev INF E2 (conf 0.79)
+[16:16:04] t=395 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:05] t=397 jev INF E2 (conf 0.79)
+[16:16:05] t=397 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:06] t=400 ALARM NAHAND under attack -> TURTLE (1 v 14, 守塔阵不打野战)
+[16:16:06] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:16:06"}
+[16:16:07] t=400 jev INF E2 (conf 0.79)
+[16:16:07] t=400 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:09] t=402 jev INF E2 (conf 0.80)
+[16:16:09] t=402 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:10] t=404 jev INF E2 (conf 0.80)
+[16:16:10] t=404 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:12] t=407 jev INF E2 (conf 0.80)
+[16:16:12] t=407 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:14] t=409 jev INF E2 (conf 0.80)
+[16:16:14] t=409 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:14] t=411 ALARM NAHAND under attack -> TURTLE (1 v 13, 守塔阵不打野战)
+[16:16:14] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:16:14"}
+[16:16:16] t=411 jev INF E2 (conf 0.80)
+[16:16:16] t=411 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:17] t=413 jev INF E2 (conf 0.80)
+[16:16:17] t=413 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:19] t=416 jev INF E2 (conf 0.79)
+[16:16:19] t=416 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:19] t=416 tick#200 credits=0 stance=defend | jev 200 decisions p50=1189ms
+[16:16:21] t=418 jev INF E2 (conf 0.80)
+[16:16:21] t=418 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:22] t=420 jev INF E2 (conf 0.81)
+[16:16:22] t=420 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:23] t=422 ALARM NAHAND under attack -> TURTLE (1 v 13, 守塔阵不打野战)
+[16:16:23] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:16:23"}
+[16:16:24] t=422 jev INF E2 (conf 0.81)
+[16:16:24] t=422 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:26] t=425 jev INF E2 (conf 0.81)
+[16:16:26] t=425 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:27] t=427 jev INF E2 (conf 0.81)
+[16:16:27] t=427 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:29] t=429 jev INF E2 (conf 0.81)
+[16:16:29] t=429 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:31] t=431 jev INF E2 (conf 0.82)
+[16:16:31] t=431 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:31] t=434 ALARM NAHAND under attack -> TURTLE (1 v 12, 守塔阵不打野战)
+[16:16:31] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:16:31"}
+[16:16:33] t=434 jev INF E2 (conf 0.81)
+[16:16:33] t=434 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:34] t=436 jev INF E2 (conf 0.81)
+[16:16:34] t=436 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:36] t=438 jev INF E2 (conf 0.79)
+[16:16:36] t=438 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:38] t=441 jev INF E2 (conf 0.80)
+[16:16:38] t=441 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:39] t=443 jev INF E2 (conf 0.81)
+[16:16:39] t=443 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:39] t=445 ALARM NAHAND under attack -> TURTLE (1 v 12, 守塔阵不打野战)
+[16:16:40] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:16:40"}
+[16:16:41] t=445 jev INF E2 (conf 0.80)
+[16:16:41] t=445 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:43] t=447 jev INF E2 (conf 0.80)
+[16:16:43] t=447 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:44] t=450 jev INF E2 (conf 0.79)
+[16:16:44] t=450 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:46] t=452 jev INF E2 (conf 0.80)
+[16:16:46] t=452 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:46] t=454 RETREAT E2(33%)
+[16:16:46] {"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "16:16:46"}
+[16:16:48] t=454 jev INF E2 (conf 0.81)
+[16:16:48] t=454 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:48] t=454 MOVE hold_a x1 -> (73,109); hold_b x1 -> (75,122)
+[16:16:48] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:16:48"}
+[16:16:48] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:16:48"}
+[16:16:48] t=456 ALARM NACNST under attack -> TURTLE (1 v 12, 守塔阵不打野战)
+[16:16:48] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:16:48"}
+[16:16:50] t=456 jev INF E2 (conf 0.82)
+[16:16:50] t=456 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:51] t=459 jev INF E2 (conf 0.82)
+[16:16:51] t=459 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:53] t=461 jev INF E2 (conf 0.83)
+[16:16:53] t=461 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:55] t=463 jev INF E2 (conf 0.84)
+[16:16:55] t=463 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:56] t=466 jev INF E2 (conf 0.83)
+[16:16:56] t=466 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:16:56] t=466 MOVE hold_a x1 -> (74,110)
+[16:16:56] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "16:16:56"}
+[16:16:58] t=468 jev INF E2 (conf 0.86)
+[16:16:58] t=468 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:00] t=470 jev INF E2 (conf 0.86)
+[16:17:00] t=470 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:02] t=472 jev INF E2 (conf 0.87)
+[16:17:02] t=472 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:02] t=472 tick#225 credits=0 stance=defend | jev 225 decisions p50=1197ms
+[16:17:03] t=475 jev INF E2 (conf 0.87)
+[16:17:03] t=475 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:05] t=477 jev INF E2 (conf 0.87)
+[16:17:05] t=477 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:07] t=479 jev INF E2 (conf 0.88)
+[16:17:07] t=479 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:08] t=481 jev INF E2 (conf 0.88)
+[16:17:08] t=481 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:10] t=484 jev INF E2 (conf 0.88)
+[16:17:10] t=484 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:12] t=486 jev INF E2 (conf 0.87)
+[16:17:12] t=486 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:13] t=488 jev INF E2 (conf 0.88)
+[16:17:13] t=488 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:15] t=490 jev INF E2 (conf 0.88)
+[16:17:15] t=490 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:17] t=493 jev INF E2 (conf 0.88)
+[16:17:17] t=493 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:18] t=495 jev INF E2 (conf 0.88)
+[16:17:18] t=495 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:20] t=497 jev INF E2 (conf 0.88)
+[16:17:20] t=497 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:22] t=500 jev INF E2 (conf 0.88)
+[16:17:22] t=500 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:24] t=502 jev INF E2 (conf 0.88)
+[16:17:24] t=502 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:25] t=504 jev INF E2 (conf 0.88)
+[16:17:25] t=504 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:27] t=506 jev INF E2 (conf 0.87)
+[16:17:27] t=506 DEBT-GATE E2 x1 (debt=0 eff=0 < 90)
+[16:17:27] t=509 RUSH-DEFENSE OFF (威胁解除) 恢复原公式
+[16:17:27] t=509 GARRISON E2 x2 (坦克真空期常驻驻军, have 4)
+[16:17:27] {"kind": "action", "what": "produce", "name": "E2", "qty": 2, "tid": null, "ts": "16:17:27"}
+[16:17:30] t=513 ALARM NAWEAP under attack -> TURTLE (3 v 12, 守塔阵不打野战)
+[16:17:33] t=517 GARRISON E2 x2 (坦克真空期常驻驻军, have 3)
+[16:17:34] t=517 jev INF E2 HOLD (预算保护 gate=False e2=3)
+[16:17:36] t=519 jev INF E2 HOLD (预算保护 gate=False e2=3)
+[16:17:38] t=521 jev INF E2 HOLD (预算保护 gate=False e2=2)
+[16:17:39] t=523 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[16:17:39] t=525 ALARM NAPOWR under attack -> TURTLE (1 v 9, 守塔阵不打野战)
+[16:17:41] t=525 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[16:17:42] t=527 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[16:17:42] t=527 tick#250 credits=0 stance=defend | jev 250 decisions p50=1208ms
+[16:17:44] t=529 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:17:45] t=531 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:17:47] t=533 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:17:48] t=535 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:17:50] t=537 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:17:51] t=539 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:17:53] t=541 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:17:54] t=543 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:17:56] t=545 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:17:56] t=547 OPENING REJECT NAREFN (40gs 无进展, 拉黑)
+[16:17:57] t=547 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:17:59] t=549 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:17:59] t=551 ALARM NAFLAK under attack -> TURTLE (1 v 4, 守塔阵不打野战)
+[16:18:01] t=551 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[16:18:02] t=553 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[16:18:04] t=556 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:05] t=558 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:07] t=560 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:08] t=562 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:10] t=564 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:11] t=566 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:13] t=568 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:14] t=570 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:16] t=572 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:17] t=574 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:19] t=576 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:21] t=578 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:21] t=578 tick#275 credits=0 stance=defend | jev 275 decisions p50=1260ms
+[16:18:22] t=580 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:24] t=582 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:25] t=584 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:27] t=586 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:28] t=588 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:30] t=590 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:31] t=592 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:33] t=594 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:34] t=596 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:36] t=598 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:37] t=600 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:39] t=602 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:40] t=605 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:42] t=607 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:44] t=609 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:45] t=611 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:47] t=613 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:48] t=615 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:50] t=617 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:52] t=619 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:53] t=621 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:55] t=623 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:18:55] t=626 ALARM NALASR under attack -> TURTLE (1 v 3, 守塔阵不打野战)
+[16:18:56] t=626 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[16:18:58] t=628 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[16:18:59] t=630 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[16:18:59] t=630 tick#300 credits=0 stance=defend | jev 300 decisions p50=1283ms
+[16:19:01] t=632 jev INF E2 HOLD (预算保护 gate=False e2=1)
+[16:19:04] t=636 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:06] t=638 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:07] t=640 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:09] t=642 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:10] t=644 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:12] t=646 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:13] t=649 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:15] t=651 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:17] t=653 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:18] t=655 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:20] t=657 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:21] t=659 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:23] t=661 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:24] t=663 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:26] t=665 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:26] t=667 OPENING REJECT NAPOWR (40gs 无进展, 拉黑)
+[16:19:27] t=667 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:29] t=669 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:30] t=671 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:32] t=673 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:34] t=675 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:35] t=677 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:37] t=679 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:38] t=681 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:38] t=681 tick#325 credits=0 stance=defend | jev 325 decisions p50=1303ms
+[16:19:40] t=684 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:41] t=686 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:43] t=688 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:44] t=690 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:46] t=692 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:47] t=694 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:49] t=696 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[16:19:51] t=698 jev INF E2 HOLD (预算保护 gate=False e2=0)
+[2026-10-06 16:20:10] {"kind": "report", "result": "defeat", "t": 726, "ticks": 347, "crisis_ticks": 193, "stance": "defend", "jev": {"decisions": 346, "errors": 0, "input_tokens": 961405, "output_tokens": 0, "p50_ms": 1304, "p95_ms": 1492}, "enemy_base": null, "ts": "2026-10-06 16:20:10"}
+[16:20:11] REVIEW game#78 defeat → game-0078-review.md | changes=0
+{
+  "result": "defeat",
+  "t": 726,
+  "ticks": 347,
+  "crisis_ticks": 193,
+  "stance": "defend",
+  "jev": {
+    "decisions": 346,
+    "errors": 0,
+    "input_tokens": 961405,
+    "output_tokens": 0,
+    "p50_ms": 1304,
+    "p95_ms": 1492
+  },
+  "enemy_base": null,
+  "ts": "2026-10-06 16:20:10",
+  "review": {
+    "game_no": 78,
+    "rootcause": "no_target",
+    "auto_tuned": 0
+  }
+}

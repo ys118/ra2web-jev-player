@@ -773,6 +773,16 @@ def scouting(s: dict, home, mem: BattleMemory):
         waypoints = []
         for _y in range(12, my - 10, 18):                # 行距 18 = 2×犬视野 9
             waypoints += [[12, _y], [mx - 12, _y]]
+        # [第93局 fix_scout(Jev 连续 4 局 0.9 置信)] 路标网注入腹部+镜像锚点:
+        # 原两列边缘网探不到地图腹部(87-91 局敌基地全在 (67,115) 一带=腹部);
+        # 且敌兵海压家时"最安全"悖论把军犬吸去远角(92 局犬探 (188,*) 死角,
+        # 敌基地近在镜像区却永无访次) → raid/assault 无目标断不了敌经济。
+        _mirror = [max(mx - home[0], 8), max(my - home[1], 8)]
+        waypoints += [_mirror,                            # 镜像角(31局 Route A 假设)
+                      [mx // 2, my // 2],                 # 地图中心
+                      [mx // 3, my // 3], [2 * mx // 3, my // 3],
+                      [mx // 3, 2 * my // 3], [2 * mx // 3, 2 * my // 3],
+                      [max(mx - home[0], 8), 12], [12, max(my - home[1], 8)]]
         acts, logs = [], []
 
         def dispatch(d, target, tag, evade=False):
