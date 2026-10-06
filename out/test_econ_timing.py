@@ -64,12 +64,13 @@ check("15a ref缺额+现金3000→精炼厂优先", act is not None and act["nam
 
 s, mem = open_state(700, 4, 1900)
 act = planner.opening_build(s, mem)
-check("15b(85局改) ref满+现金1900→二厂", act is not None and act["name"] == "NAWEAP",
+check("15b(87局改) ref满+现金1900→第二兵营(纵深优先)", act is not None and act["name"] == "NAHAND",
       str(act))
 
 s, mem = open_state(700, 4, 1700)
 act = planner.opening_build(s, mem)
-check("15c(85局改) 现金1700<1800→不下单", act is None, str(act))
+check("15c(87局改) 现金1700≥1200→第二兵营", act is not None and act["name"] == "NAHAND",
+      str(act))
 
 s, mem = open_state(2500, 4, 100)
 act = planner.opening_build(s, mem)

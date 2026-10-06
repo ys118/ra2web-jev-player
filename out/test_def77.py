@@ -74,10 +74,10 @@ s, mem = mk_state(mode=False, cash=600, gdef=1, threat_n=0)
 _st, acts, logs = planner.checklist(s, HOME, "defend", mem)
 check("22c 模式OFF+无威胁 原闸1500生效", not any(a.get("name") == "NALASR" for a in acts))
 
-# ---- 22d 哨炮已满 2 → 不再加 ----
-s, mem = mk_state(mode=True, cash=600, gdef=2)
+# ---- 22d [87局改] 哨炮帽 2→3: gdef=3 封顶 ----
+s, mem = mk_state(mode=True, cash=600, gdef=3)
 _st, acts, logs = planner.checklist(s, HOME, "defend", mem)
-check("22d gdef=2 封顶", not any(a.get("name") == "NALASR" for a in acts))
+check("22d(87局改) gdef=3 封顶", not any(a.get("name") == "NALASR" for a in acts))
 
 # ---- 22e 防御模式: 坦克驻塔线协防(不前出) + raid 仅机器人 ----
 s, mem = mk_state(mode=True, def_tank=3)
