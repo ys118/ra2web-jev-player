@@ -19,7 +19,7 @@ from .jev import JevBudgetExceeded, JevClient, JevError
 from .strategy import planner
 from .strategy.doctrine import AA_VEHICLES, HARVEST
 from .strategy.questions import build_questions
-from .strategy.state import combat_tanks, force_value, yard_tile
+from .strategy.state import combat_tanks, force_value, yard_tile, ucost
 from .werhd.inject import WerhdClient
 
 
@@ -83,6 +83,7 @@ class BattleSession:
     def _tick(self) -> dict | None:
         self.tick_n += 1
         self._q_used = {0: False, 1: False, 2: False, 3: False}   # 本 tick 已下单的队列
+        self.mem.tick_debt = 0          # [第90局] 统一生产账本: 每 tick 清零
         t0 = time.time()
         s = self.c.snapshot()
         if s.get("dead"):
@@ -270,6 +271,21 @@ class BattleSession:
                         self.audit.event({"kind": "produce_skip", "q": q,
                                           "name": name})
                         continue
+                    # [第90局 统一生产账本] 全局债务闸(唯一执行入口, 覆盖 checklist/
+                    # opening/jev 全部下单路径): 同 tick 各决策器独立读原始现金互不
+                    # 知晓 → 队列债务失控(88/89 局: 同 tick HARV+HTNK x4+NAHAND 叠
+                    # 5500 债 vs 现金 ~2600, q3 僵尸订单饿死堵死 → 坦克全程绝产)。
+                    # 游戏下单即锁队列, 现金不足时生产线全线暂停且已入队订单不退款。
+                    # 拒单不设冷却——现金恢复后同单即可重发。
+                    _cost = ucost(name) * max(1, a.get("qty", 1))
+                    if s["me"]["credits"] - self.mem.tick_debt < _cost:
+                        self.audit.log("t=%s DEBT-GATE %s x%s (debt=%d eff=%d < %d)"
+                                       % (s["t"], name, a.get("qty", 1),
+                                          self.mem.tick_debt,
+                                          s["me"]["credits"] - self.mem.tick_debt,
+                                          _cost))
+                        continue
+                    self.mem.tick_debt += _cost
                     if q is not None:
                         self._q_cd[cd_key] = time.time()
                         self._q_used[q] = True
