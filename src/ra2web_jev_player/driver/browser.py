@@ -39,6 +39,15 @@ class Browser:
     def __init__(self, config=None):
         from ..config import DriverConfig
         self.cfg = config or DriverConfig()
+        # [95局事故] agent-browser 自带 Chrome 151.0.7922.77 突发 WebGL 丧失
+        # (headed/headless+全套 swiftshader 参数均 NO-WEBGL, 该二进制 headless
+        # 跑用例直接挂起; 系统 Chrome 正常) → 默认改用系统 Chrome; 环境变量
+        # RA2WEB_CHROME_PATH 可覆盖; 路径不存在则回退 agent-browser 自带。
+        _chrome = os.environ.get(
+            "RA2WEB_CHROME_PATH",
+            r"C:\Program Files\Google\Chrome\Application\chrome.exe")
+        _env_exec = {"AGENT_BROWSER_EXECUTABLE_PATH": _chrome} \
+            if os.path.isfile(_chrome) else {}
         self._env = dict(os.environ,
                          AGENT_BROWSER_SESSION=self.cfg.session,
                          AGENT_BROWSER_RESTORE=self.cfg.restore,
@@ -50,7 +59,8 @@ class Browser:
                          AGENT_BROWSER_DEFAULT_TIMEOUT=str(self.cfg.default_timeout_ms),
                          # headless 页面默认会被 Chrome 做 setTimeout 节流(~1s/次)，
                          # 微操 150ms 循环必须禁掉；对 rAF 无效，但 headless 页面 rAF 本就正常
-                         AGENT_BROWSER_ARGS=self.cfg.chrome_args)
+                         AGENT_BROWSER_ARGS=self.cfg.chrome_args,
+                         **_env_exec)
 
     # 启动参数只在浏览器冷启动时生效；改过之后需要 agent-browser close 再重启会话
     DEFAULT_CHROME_ARGS = ("--disable-background-timer-throttling,"

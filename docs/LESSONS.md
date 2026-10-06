@@ -1588,3 +1588,24 @@ headless 迁移与浏览器 daemon 恢复流程。下一 session 从 `docs/HANDO
   3000gs → 优雅退出 result=stalled(复盘照跑, 终止前不再白耗)。
 - **测试**: test_freeze95.py 5 场景(态势豁免/计时增长/敌值变化复位/均势豁免/
   回落复位), 全套回归 11 文件全过。
+
+## 95 局运维事故 —— 2026-10-06 agent-browser 自带 Chrome 突发 WebGL 丧失
+
+- **现象**: 游戏页报"浏览器无法创建 WebGL 图形环境"(引擎必需 WebGL),
+  95 局启动被 preflight 拦下(此前这形态会被 launcher 当'主选单未出现'
+  白耗 3 轮)。
+- **排查链(逐层剥离)**: ①系统 Chrome headless WebGL 正常(ANGLE/D3D11 软
+  渲染)→机器 GPU/驱动没坏; ②agent-browser 自带 Chrome 151.0.7922.77:
+  headed/headless+全套软渲染参数(--enable-unsafe-swiftshader/--use-gl=
+  angle/--use-angle=swiftshader/--disable-gpu)全部 NO-WEBGL, 且该二进制
+  headless 跑用例直接挂起 5 分钟→**二进制本身故障**(疑似当日自动更新/
+  下载损坏); ③--executable-path 切系统 Chrome→WEBGL-OK 实证修复。
+- **修复(两处固化)**: ①src browser.py: AGENT_BROWSER_EXECUTABLE_PATH 默认
+  指系统 Chrome(RA2WEB_CHROME_PATH 可覆盖, 路径不存在回退自带); ②out/
+  preflight.py: 新增 webgl 前置检查步(about:blank 探测, LOST 时给出可行动
+  提示)+全部调用统一带 executable-path env。
+- **新铁律**: ①daemon 按 session 复用——**任何 agent-browser 调用都必须带
+  executable-path env, 否则会拉起坏 daemon 毒化后续 launcher**(环境只在
+  daemon 冷启动时生效); ②换浏览器配置后必须先清 daemon(doctor 查 PID,
+  按 PID 精确杀/会话级 close)再冷启动; ③preflight 是启动守门员, 探测步
+  与 launcher 必须同环境, 否则探测结果不可信。
