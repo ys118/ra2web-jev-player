@@ -99,6 +99,32 @@ check("30d 第一单过第二单拒(3000<3600)",
       g.c.calls == [("HTNK", 2)] and g.mem.tick_debt == 1800,
       "calls=%s debt=%d" % (g.c.calls, g.mem.tick_debt))
 
+# ---- 30e [第91局] 矿车负债豁免: 现金 633 买 HARV(1400) 应放行(87局胜负手) ----
+g = mk_game(633)
+run(g, produce_acts(("HARV", 1)))
+check("30e 现金633<1400 但矿车负债≤1200 放行",
+      ("HARV", 1) in g.c.calls and g.mem.tick_debt == 1400,
+      "calls=%s debt=%d" % (g.c.calls, g.mem.tick_debt))
+
+# ---- 30f [第91局] 精炼厂负债豁免: 现金 984 买 NAREFN(2000) 应放行 ----
+g = mk_game(984)
+run(g, produce_acts(("NAREFN", 1)))
+check("30f 现金984<2000 但精炼厂负债≤1200 放行",
+      ("NAREFN", 1) in g.c.calls, "calls=%s" % g.c.calls)
+
+# ---- 30g [第91局] 负债豁免有界: 现金 500 买 NAREFN(2000, 需≥800) 应拒 ----
+g = mk_game(500)
+run(g, produce_acts(("NAREFN", 1)))
+check("30g 负债超过1200限仍拒(500<800)",
+      ("NAREFN", 1) not in g.c.calls, "calls=%s" % g.c.calls)
+
+# ---- 30h [第91局] 消费大单不豁免: 现金 2600 同 tick HARV+HTNK x4 仍拦 HTNK ----
+g = mk_game(2600)
+run(g, produce_acts(("HARV", 1), ("HTNK", 4), ("NAHAND", 1)))
+check("30h 矿车放行但坦克大单仍拦(豁免只给收入引擎)",
+      ("HARV", 1) in g.c.calls and ("HTNK", 4) not in g.c.calls,
+      str(g.c.calls))
+
 print()
 if fails:
     print("FAILURES:", fails)

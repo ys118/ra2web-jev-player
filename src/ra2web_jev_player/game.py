@@ -277,13 +277,17 @@ class BattleSession:
                     # 5500 债 vs 现金 ~2600, q3 僵尸订单饿死堵死 → 坦克全程绝产)。
                     # 游戏下单即锁队列, 现金不足时生产线全线暂停且已入队订单不退款。
                     # 拒单不设冷却——现金恢复后同单即可重发。
+                    # [第91局 收入引擎负债豁免] 90 局实证: 债务闸把矿车/精炼厂
+                    # (收入引擎)也拦死 → 矿车卡 1-2 辆收入断绝死循环(87 胜局
+                    # 矿车是负债下单爬到 6 辆的)。HARV/精炼厂允许负债 ≤1200
+                    # 放行(收入落地即回血); 坦克群/普通建筑维持全额拦截。
                     _cost = ucost(name) * max(1, a.get("qty", 1))
-                    if s["me"]["credits"] - self.mem.tick_debt < _cost:
+                    _eff = s["me"]["credits"] - self.mem.tick_debt
+                    _invest = name in ("HARV", "NAREFN", "GAREFN")
+                    if _eff < _cost and not (_invest and _eff >= _cost - 1200):
                         self.audit.log("t=%s DEBT-GATE %s x%s (debt=%d eff=%d < %d)"
                                        % (s["t"], name, a.get("qty", 1),
-                                          self.mem.tick_debt,
-                                          s["me"]["credits"] - self.mem.tick_debt,
-                                          _cost))
+                                          self.mem.tick_debt, _eff, _cost))
                         continue
                     self.mem.tick_debt += _cost
                     if q is not None:
