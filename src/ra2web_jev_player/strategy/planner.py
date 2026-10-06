@@ -51,6 +51,11 @@ class BattleMemory:
         self.ghost_ids: set = set()     # [第82局] 幻影建筑拉黑(攻击150gs不倒=假目标)
         self.siege_target_hist: dict = {}  # [第82局] 围城目标首攻时刻 {id: t}
         self.gap_seen = False           # [第82局] 本局见过裂缝产生器(拉黑清空闸)
+        self.tick_debt: int = 0         # [第90局 统一生产账本] 本 tick 已承诺
+                                        # 队列债务(同 tick 三决策器共享)——88/89
+                                        # 局死因: 各决策器独立读原始现金, 同 tick
+                                        # HARV+HTNK x4+NAHAND 叠 5500 债 vs 现金
+                                        # ~2600 → q3 僵尸订单饿死堵死, 坦克绝产
         self.rush_defense = False       # [第76局 用户反馈] 动态早rush防御模式:
                                         # 敌兵海压门且守军对不上 → 动员兵爆产
                                         # (不受坦克资金线约束); 威胁解除自动恢复
