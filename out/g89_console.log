@@ -1,0 +1,317 @@
+[13:17:31] 进局中(全自动)...
+[13:18:37] {"kind": "start", "policy": "ra2web-jev-player/1.0", "maxDecisions": 999999, "micro": {"events": [{"kind": "micro", "t": 2, "what": "start"}], "loopN": 1, "on": true, "outcome": null, "stall": false}, "ts": "13:18:37"}
+[13:18:37] === ra2web-jev-player start (tick=1.5s, max_decisions=999999) ===
+[13:18:37] t=2 DEPLOY mcv
+[13:18:37] {"kind": "action", "what": "deploy", "ids": [1042], "ts": "13:18:37"}
+[13:18:37] {"kind": "action", "what": "deploy", "name": null, "qty": null, "tid": null, "ts": "13:18:37"}
+[13:18:40] t=4 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:18:40] t=4 jev STANCE defend->develop (conf 0.93)
+[13:18:41] t=6 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:18:43] t=8 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:18:44] t=10 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:18:46] t=12 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:18:47] t=14 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:18:49] t=16 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:18:50] t=18 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:18:52] t=20 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:18:53] t=22 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:18:55] t=24 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:18:56] t=26 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:18:58] t=28 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:18:59] t=30 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:19:01] t=32 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:19:02] t=34 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:19:04] t=36 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:19:05] t=38 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:19:07] t=40 jev BUILD NAPOWR HOLD (开局序列前置位保护: 等 NAREFN)
+[13:19:07] t=42 OPENING REJECT NAREFN (40gs 无进展, 拉黑)
+[13:19:07] t=42 OPENING FALLBACK -> legacy NAPOWR-first
+[13:19:07] {"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "tid": null, "ts": "13:19:07"}
+[13:19:07] t=42 OPENING BUILD NAPOWR
+[13:19:14] t=50 tick#25 credits=9780 stance=develop | jev 25 decisions p50=813ms
+[13:19:27] {"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "tid": null, "ts": "13:19:27"}
+[13:19:27] t=68 OPENING BUILD NAREFN
+[13:19:52] t=100 tick#50 credits=8629 stance=develop | jev 50 decisions p50=820ms
+[13:20:29] t=150 tick#75 credits=7421 stance=develop | jev 75 decisions p50=869ms
+[13:20:36] {"kind": "action", "what": "produce", "name": "NAHAND", "qty": 1, "tid": null, "ts": "13:20:36"}
+[13:20:36] t=160 OPENING BUILD NAHAND
+[13:20:54] t=184 GARRISON E2 x2 (坦克真空期常驻驻军, have 0)
+[13:20:54] t=184 DEFLINE NALASR (have 0)
+[13:20:54] {"kind": "action", "what": "produce", "name": "E2", "qty": 2, "tid": null, "ts": "13:20:54"}
+[13:20:54] {"kind": "action", "what": "produce", "name": "NALASR", "qty": 1, "tid": null, "ts": "13:20:54"}
+[13:20:54] {"kind": "action", "what": "produce", "name": "NAWEAP", "qty": 1, "tid": null, "ts": "13:20:54"}
+[13:20:54] t=184 OPENING BUILD NAWEAP
+[13:20:57] t=188 ALARM enemy approaching -> counter 1 vs 1 -> [69, 120]
+[13:20:57] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:20:57"}
+[13:21:00] t=192 GARRISON E2 x2 (坦克真空期常驻驻军, have 1)
+[13:21:01] t=192 jev INF E2 (conf 0.44)
+[13:21:01] t=194 GARRISON E2 x2 (坦克真空期常驻驻军, have 0)
+[13:21:03] t=194 jev INF E2 (conf 0.55)
+[13:21:04] t=196 jev INF E2 (conf 0.57)
+[13:21:06] t=198 jev INF E2 (conf 0.56)
+[13:21:07] t=200 jev INF E2 (conf 0.66)
+[13:21:07] t=200 tick#100 credits=5892 stance=defend | jev 100 decisions p50=877ms
+[13:21:09] t=202 jev INF E2 (conf 0.62)
+[13:21:10] t=204 jev INF E2 (conf 0.63)
+[13:21:12] t=206 jev INF E2 (conf 0.62)
+[13:21:12] t=208 DEFLINE NALASR (have 1)
+[13:21:13] t=208 jev INF E2 (conf 0.65)
+[13:21:15] t=210 jev INF E2 (conf 0.65)
+[13:21:16] t=212 jev INF E2 (conf 0.64)
+[13:21:18] t=214 jev INF E2 (conf 0.60)
+[13:21:19] t=216 jev INF E2 (conf 0.59)
+[13:21:19] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "13:21:19"}
+[13:21:22] t=222 GARRISON E2 x2 (坦克真空期常驻驻军, have 1)
+[13:21:24] t=222 jev INF E2 (conf 0.45)
+[13:21:24] t=222 MOVE hold_a x1 -> (74,123)
+[13:21:24] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:21:24"}
+[13:21:25] t=224 jev INF E2 (conf 0.45)
+[13:21:27] t=226 jev INF E2 (conf 0.43)
+[13:21:28] t=228 jev INF E2 (conf 0.46)
+[13:21:30] t=230 jev INF E2 (conf 0.43)
+[13:21:31] t=232 jev INF E2 (conf 0.43)
+[13:21:33] t=234 jev INF E2 (conf 0.43)
+[13:21:34] t=236 jev INF E2 (conf 0.45)
+[13:21:36] t=238 jev INF E2 (conf 0.46)
+[13:21:37] t=240 jev INF E2 (conf 0.42)
+[13:21:39] t=242 jev INF E2 (conf 0.43)
+[13:21:40] t=244 jev INF E2 (conf 0.43)
+[13:21:42] t=246 jev INF E2 (conf 0.43)
+[13:21:43] t=248 jev INF E2 (conf 0.43)
+[13:21:45] t=250 jev INF E2 (conf 0.43)
+[13:21:45] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "13:21:45"}
+[13:21:45] t=250 tick#125 credits=4538 stance=defend | jev 125 decisions p50=886ms
+[13:21:48] t=256 GARRISON E2 x2 (坦克真空期常驻驻军, have 2)
+[13:21:49] t=256 jev INF E2 (conf 0.49)
+[13:21:49] t=256 MOVE hold_b x1 -> (62,119)
+[13:21:49] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:21:49"}
+[13:21:51] t=258 jev INF E2 (conf 0.48)
+[13:21:52] t=260 jev INF E2 (conf 0.47)
+[13:21:54] t=262 jev INF E2 (conf 0.46)
+[13:21:55] t=264 jev INF E2 (conf 0.48)
+[13:21:57] t=266 jev INF E2 (conf 0.48)
+[13:21:57] t=268 DEFLINE NALASR (have 1)
+[13:21:57] {"kind": "action", "what": "produce", "name": "NALASR", "qty": 1, "tid": null, "ts": "13:21:57"}
+[13:21:58] t=268 jev INF E2 (conf 0.47)
+[13:22:00] t=270 jev INF E2 (conf 0.48)
+[13:22:01] t=272 jev INF E2 (conf 0.47)
+[13:22:02] t=274 ECON harv#2
+[13:22:02] t=274 TANK HTNK x4
+[13:22:02] {"kind": "action", "what": "produce", "name": "HARV", "qty": 1, "tid": null, "ts": "13:22:02"}
+[13:22:02] {"kind": "action", "what": "produce", "name": "HTNK", "qty": 4, "tid": null, "ts": "13:22:02"}
+[13:22:02] {"kind": "action", "what": "produce", "name": "NAHAND", "qty": 1, "tid": null, "ts": "13:22:02"}
+[13:22:02] t=274 OPENING BUILD NAHAND
+[13:22:03] t=274 jev INF E2 (conf 0.47)
+[13:22:05] t=276 jev INF E2 (conf 0.47)
+[13:22:06] t=278 jev INF E2 (conf 0.46)
+[13:22:08] t=280 jev INF E2 (conf 0.46)
+[13:22:09] t=283 jev INF E2 (conf 0.48)
+[13:22:11] t=285 jev INF E2 (conf 0.45)
+[13:22:11] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "13:22:11"}
+[13:22:15] t=291 GARRISON E2 x2 (坦克真空期常驻驻军, have 3)
+[13:22:15] t=291 INSURE AA building
+[13:22:15] t=291 DEFLINE NALASR (have 2)
+[13:22:15] {"kind": "action", "what": "produce", "name": "NAFLAK", "qty": 1, "tid": null, "ts": "13:22:15"}
+[13:22:16] t=291 jev INF E2 (conf 0.48)
+[13:22:18] t=294 jev INF E2 (conf 0.50)
+[13:22:19] t=296 jev INF E2 (conf 0.50)
+[13:22:21] t=298 jev INF E2 (conf 0.52)
+[13:22:21] t=300 POWER plant (reserve 55)
+[13:22:21] {"kind": "action", "what": "produce", "name": "NAPOWR", "qty": 1, "tid": null, "ts": "13:22:21"}
+[13:22:23] t=300 jev INF E2 (conf 0.46)
+[13:22:24] t=302 jev INF E2 (conf 0.49)
+[13:22:24] t=302 MOVE hold_a x2 -> (74,123)
+[13:22:24] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:22:24"}
+[13:22:24] t=302 tick#150 credits=3047 stance=defend | jev 150 decisions p50=893ms
+[13:22:26] t=305 jev INF E2 (conf 0.49)
+[13:22:28] t=307 jev INF E2 (conf 0.47)
+[13:22:29] t=309 jev INF E2 (conf 0.48)
+[13:22:31] t=311 jev INF E2 (conf 0.44)
+[13:22:33] t=313 jev INF E2 (conf 0.45)
+[13:22:34] t=316 jev INF E2 (conf 0.49)
+[13:22:36] t=318 jev INF E2 (conf 0.48)
+[13:22:36] t=320 ALARM enemy approaching -> counter 3 vs 1 -> [81, 114]
+[13:22:36] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:22:36"}
+[13:22:38] t=320 jev INF E2 (conf 0.57)
+[13:22:38] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "13:22:38"}
+[13:22:40] t=325 RUSH-DEFENSE ON (敌4压门 vs 守3) 动员兵爆产
+[13:22:41] t=325 jev BUILD NAREFN (conf 0.15)
+[13:22:41] {"kind": "action", "what": "produce", "name": "NAREFN", "qty": 1, "tid": null, "ts": "13:22:41"}
+[13:22:42] t=327 RUSH-DEFENSE E2 x4 (敌5压门 守4)
+[13:22:43] t=327 jev INF E2 (conf 0.77)
+[13:22:45] t=330 jev INF E2 (conf 0.71)
+[13:22:45] t=330 MOVE t=330 RUSH-DEFENSE tanks x0 -> 塔线协防; hold_a x2 -> (74,110); hold_b x2 -> (74,123)
+[13:22:45] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:22:45"}
+[13:22:45] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:22:45"}
+[13:22:45] t=332 ALARM NAREFN under attack -> TURTLE (4 v 6, 守塔阵不打野战)
+[13:22:45] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:22:45"}
+[13:22:47] t=332 jev INF E2 (conf 0.76)
+[13:22:47] t=334 RETREAT E2(33%)
+[13:22:47] {"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "13:22:47"}
+[13:22:49] t=334 jev INF E2 (conf 0.76)
+[13:22:49] t=337 RUSH-DEFENSE E2 x1 (敌9压门 守3, 资金地板续兵)
+[13:22:50] t=337 jev INF E2 (conf 0.80)
+[13:22:52] t=339 jev INF E2 (conf 0.79)
+[13:22:52] t=342 RETREAT E2(36%)
+[13:22:52] {"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "13:22:52"}
+[13:22:54] t=342 jev INF E2 (conf 0.79)
+[13:22:54] t=344 ALARM NAREFN under attack -> TURTLE (2 v 10, 守塔阵不打野战)
+[13:22:54] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:22:54"}
+[13:22:54] t=344 RUSH-DEFENSE E2 x1 (敌10压门 守2, 资金地板续兵)
+[13:22:56] t=344 jev INF E2 (conf 0.78)
+[13:22:58] t=347 jev INF E2 (conf 0.76)
+[13:22:59] t=349 jev INF E2 (conf 0.76)
+[13:23:01] t=351 jev INF E2 (conf 0.76)
+[13:23:03] t=354 jev INF E2 (conf 0.78)
+[13:23:03] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "13:23:03"}
+[13:23:03] t=356 ALARM NAREFN under attack -> TURTLE (2 v 11, 守塔阵不打野战)
+[13:23:03] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:23:03"}
+[13:23:09] t=361 tick#175 credits=0 stance=defend | jev 175 decisions p50=1018ms
+[13:23:12] t=366 MOVE t=366 RUSH-DEFENSE tanks x0 -> 塔线协防; hold_a x1 -> (68,109); hold_b x1 -> (77,118)
+[13:23:12] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:23:12"}
+[13:23:12] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:23:12"}
+[13:23:12] t=368 ALARM NAHAND under attack -> TURTLE (2 v 15, 守塔阵不打野战)
+[13:23:12] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:23:12"}
+[13:23:21] t=379 ALARM NAHAND under attack -> TURTLE (2 v 18, 守塔阵不打野战)
+[13:23:21] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:23:21"}
+[13:23:29] t=391 ALARM NAHAND under attack -> TURTLE (2 v 18, 守塔阵不打野战)
+[13:23:29] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:23:29"}
+[13:23:38] t=402 ALARM NAHAND under attack -> TURTLE (2 v 18, 守塔阵不打野战)
+[13:23:38] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:23:38"}
+[13:23:46] t=414 ALARM NAHAND under attack -> TURTLE (1 v 16, 守塔阵不打野战)
+[13:23:46] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:23:46"}
+[13:23:46] t=414 RETREAT E2(26%)
+[13:23:46] {"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "13:23:46"}
+[13:23:51] t=419 tick#200 credits=0 stance=defend | jev 200 decisions p50=1181ms
+[13:23:55] t=425 ALARM enemy approaching -> TURTLE (2 v 16, 守塔阵不打野战)
+[13:23:55] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:23:55"}
+[13:24:03] t=435 MOVE t=435 RUSH-DEFENSE tanks x0 -> 塔线协防; hold_a x1 -> (74,110)
+[13:24:04] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:24:04"}
+[13:24:04] t=437 ALARM NACNST under attack -> TURTLE (1 v 16, 守塔阵不打野战)
+[13:24:04] {"kind": "action", "what": "attack_move", "name": null, "qty": null, "tid": null, "ts": "13:24:04"}
+[13:24:07] t=441 RETREAT E2(18%)
+[13:24:07] {"kind": "action", "what": "move", "name": null, "qty": null, "tid": null, "ts": "13:24:07"}
+[13:24:28] t=469 ALARM NAPOWR under attack -> TURTLE (5 v 16, 守塔阵不打野战)
+[13:24:28] t=469 RUSH-DEFENSE OFF (威胁解除) 恢复原公式
+[13:24:31] t=473 GARRISON E2 x2 (坦克真空期常驻驻军, have 4)
+[13:24:31] {"kind": "action", "what": "produce", "name": "E2", "qty": 2, "tid": null, "ts": "13:24:31"}
+[13:24:34] t=475 tick#225 credits=224 stance=defend | jev 225 decisions p50=1188ms
+[13:24:37] t=481 ALARM NAPOWR under attack -> TURTLE (1 v 15, 守塔阵不打野战)
+[13:24:55] t=506 OPENING REJECT NAREFN (40gs 无进展, 拉黑)
+[13:25:00] t=512 ALARM NAWEAP under attack -> TURTLE (1 v 10, 守塔阵不打野战)
+[13:25:12] t=526 tick#250 credits=0 stance=defend | jev 250 decisions p50=1196ms
+[13:25:23] t=542 ALARM NAHAND under attack -> TURTLE (5 v 6, 守塔阵不打野战)
+[13:25:23] t=542 GARRISON E2 x2 (坦克真空期常驻驻军, have 5)
+[13:25:23] {"kind": "action", "what": "produce", "name": "E2", "qty": 2, "tid": null, "ts": "13:25:23"}
+[13:25:32] t=554 ALARM NAPOWR under attack -> TURTLE (3 v 3, 守塔阵不打野战)
+[13:25:42] t=566 jev INF E2 (conf 0.67)
+[13:25:44] t=568 jev INF E2 (conf 0.48)
+[13:25:45] t=570 jev INF E2 (conf 0.47)
+[13:25:45] t=572 GARRISON E2 x2 (坦克真空期常驻驻军, have 5)
+[13:25:47] t=572 jev INF E2 (conf 0.46)
+[13:25:48] t=575 jev INF E2 (conf 0.47)
+[13:25:48] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "13:25:48"}
+[13:25:50] t=576 tick#275 credits=461 stance=defend | jev 275 decisions p50=1191ms
+[13:25:52] t=580 GARRISON E2 x2 (坦克真空期常驻驻军, have 6)
+[13:25:53] t=580 jev INF E2 (conf 0.31)
+[13:25:53] t=582 OPENING REJECT NAWEAP (40gs 无进展, 拉黑)
+[13:25:54] t=582 jev INF E2 (conf 0.32)
+[13:25:56] t=584 jev INF E2 (conf 0.32)
+[13:25:57] t=586 jev INF E2 (conf 0.32)
+[13:25:59] t=588 jev INF E2 (conf 0.31)
+[13:26:00] t=590 jev INF E2 (conf 0.32)
+[13:26:02] t=592 jev INF E2 (conf 0.31)
+[13:26:03] t=595 jev INF E2 (conf 0.27)
+[13:26:05] t=597 jev INF E2 (conf 0.26)
+[13:26:06] t=599 jev INF E2 (conf 0.28)
+[13:26:08] t=601 jev INF E2 (conf 0.31)
+[13:26:09] t=603 jev INF E2 (conf 0.40)
+[13:26:11] t=605 jev INF E2 (conf 0.40)
+[13:26:12] t=607 jev INF E2 (conf 0.38)
+[13:26:14] t=608 jev INF E2 (conf 0.38)
+[13:26:14] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "13:26:14"}
+[13:26:17] t=614 GARRISON E2 x2 (坦克真空期常驻驻军, have 7)
+[13:26:18] t=614 jev INF E2 (conf 0.38)
+[13:26:20] t=616 jev INF E2 (conf 0.37)
+[13:26:21] t=619 jev INF E2 (conf 0.37)
+[13:26:23] t=621 jev INF E2 (conf 0.35)
+[13:26:24] t=623 jev INF E2 (conf 0.35)
+[13:26:26] t=625 jev INF E2 (conf 0.36)
+[13:26:27] t=627 jev INF E2 (conf 0.37)
+[13:26:27] t=627 tick#300 credits=260 stance=defend | jev 300 decisions p50=1184ms
+[13:26:29] t=629 jev INF E2 (conf 0.39)
+[13:26:30] t=631 jev INF E2 (conf 0.40)
+[13:26:32] t=633 jev INF E2 (conf 0.32)
+[13:26:33] t=635 jev INF E2 (conf 0.32)
+[13:26:35] t=637 jev INF E2 (conf 0.32)
+[13:26:36] t=639 jev INF E2 (conf 0.34)
+[13:26:38] t=641 jev INF E2 (conf 0.33)
+[13:26:38] t=643 ALARM unit lost -> TURTLE (2 v 3, 守塔阵不打野战)
+[13:26:38] t=643 GARRISON E2 x2 (坦克真空期常驻驻军, have 6)
+[13:26:39] t=643 jev INF E2 (conf 0.41)
+[13:26:39] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "13:26:39"}
+[13:26:43] t=649 GARRISON E2 x2 (坦克真空期常驻驻军, have 3)
+[13:26:44] t=649 jev INF E2 (conf 0.48)
+[13:26:44] t=651 GARRISON E2 x2 (坦克真空期常驻驻军, have 2)
+[13:26:45] t=651 jev INF E2 (conf 0.42)
+[13:26:47] t=653 jev INF E2 (conf 0.42)
+[13:26:48] t=655 jev INF E2 (conf 0.39)
+[13:26:50] t=657 jev INF E2 (conf 0.39)
+[13:26:50] t=659 ALARM NALASR under attack -> TURTLE (1 v 3, 守塔阵不打野战)
+[13:26:51] t=659 jev INF E2 (conf 0.46)
+[13:26:53] t=661 jev INF E2 (conf 0.47)
+[13:26:54] t=663 jev INF E2 (conf 0.47)
+[13:26:55] t=665 GARRISON E2 x2 (坦克真空期常驻驻军, have 1)
+[13:26:56] t=665 jev INF E2 (conf 0.53)
+[13:26:57] t=667 jev INF E2 (conf 0.52)
+[13:26:59] t=669 jev INF E2 (conf 0.54)
+[13:26:59] t=671 ALARM NALASR under attack -> TURTLE (1 v 5, 守塔阵不打野战)
+[13:27:00] t=671 jev INF E2 (conf 0.56)
+[13:27:02] t=673 jev INF E2 (conf 0.55)
+[13:27:03] t=675 jev INF E2 (conf 0.51)
+[13:27:05] t=677 jev INF E2 (conf 0.52)
+[13:27:05] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "13:27:05"}
+[13:27:05] t=677 tick#325 credits=170 stance=defend | jev 325 decisions p50=1184ms
+[13:27:09] t=683 jev INF E2 (conf 0.60)
+[13:27:10] t=685 ALARM NAPOWR under attack -> TURTLE (1 v 8, 守塔阵不打野战)
+[13:27:11] t=685 jev INF E2 (conf 0.58)
+[13:27:12] t=687 jev INF E2 (conf 0.58)
+[13:27:14] t=689 jev INF E2 (conf 0.63)
+[13:27:15] t=691 jev INF E2 (conf 0.58)
+[13:27:17] t=693 jev INF E2 (conf 0.53)
+[13:27:18] t=695 jev INF E2 (conf 0.57)
+[13:27:20] t=697 jev INF E2 (conf 0.57)
+[13:27:21] t=699 jev INF E2 (conf 0.54)
+[13:27:23] t=701 jev INF E2 (conf 0.64)
+[13:27:24] t=703 jev INF E2 (conf 0.67)
+[13:27:26] t=705 jev INF E2 (conf 0.63)
+[13:27:27] t=707 jev INF E2 (conf 0.62)
+[13:27:29] t=709 jev INF E2 (conf 0.64)
+[13:27:30] t=711 jev INF E2 (conf 0.62)
+[13:27:30] {"kind": "action", "what": "produce", "name": "E2", "qty": 1, "tid": null, "ts": "13:27:30"}
+[13:27:42] t=727 tick#350 credits=0 stance=defend | jev 350 decisions p50=1185ms
+[13:27:44] t=731 OPENING REJECT NAPOWR (40gs 无进展, 拉黑)
+[2026-10-06 13:27:47] {"kind": "report", "result": "defeat", "t": 735, "ticks": 354, "crisis_ticks": 164, "stance": "defend", "jev": {"decisions": 353, "errors": 0, "input_tokens": 947988, "output_tokens": 0, "p50_ms": 1185, "p95_ms": 1529}, "enemy_base": null, "ts": "2026-10-06 13:27:47"}
+[13:27:48] REVIEW game#75 defeat → game-0075-review.md | changes=0
+{
+  "result": "defeat",
+  "t": 735,
+  "ticks": 354,
+  "crisis_ticks": 164,
+  "stance": "defend",
+  "jev": {
+    "decisions": 353,
+    "errors": 0,
+    "input_tokens": 947988,
+    "output_tokens": 0,
+    "p50_ms": 1185,
+    "p95_ms": 1529
+  },
+  "enemy_base": null,
+  "ts": "2026-10-06 13:27:47",
+  "review": {
+    "game_no": 75,
+    "rootcause": "no_target",
+    "auto_tuned": 0
+  }
+}
