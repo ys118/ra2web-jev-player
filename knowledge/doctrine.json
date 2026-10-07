@@ -3,7 +3,7 @@
   "T": {
     "tank_cash1": 800,
     "tank_cash2": 1200,
-    "defend_radius": 26
+    "defend_radius": 28
   },
   "history": [
     {
@@ -44,6 +44,18 @@
           "key": "defend_radius",
           "from": 18,
           "to": 26
+        }
+      ]
+    },
+    {
+      "game": 76,
+      "ts": "2026-10-06 13:59",
+      "reason": "Jev复盘: def overrun",
+      "changes": [
+        {
+          "key": "defend_radius",
+          "from": 26,
+          "to": 28
         }
       ]
     }
