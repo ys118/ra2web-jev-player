@@ -1,21 +1,36 @@
 # HANDOFF —— 新 session 冷启动指南
 
-> 本文件由上一个 session 在收尾时更新（**2026-10-06 凌晨, clef-flash 切流+连迭代
-> 四弧线收官**）。按 `README.md` 看全貌、`docs/ARCHITECTURE.md` 看架构；本文件只讲
-> **从哪继续、怎么跑起来、注意什么**。**下一局=第 87 局（防御纵深包验证局, 已就绪）**。
+> 本文件由上一个 session 在收尾时更新（**2026-10-07, 100 局里程碑收官+101 局
+> 迭代包就绪**）。按 `README.md` 看全貌、`docs/ARCHITECTURE.md` 看架构；本文件只讲
+> **从哪继续、怎么跑起来、注意什么**。**下一局=第 101 局（三修复实战验证局, 已就绪）**。
 
 ## 一、当前状态（截至交接时）
 
 | 项 | 状态 |
 |---|---|
 | 项目 | `D:/projects/ra2web-jev-player`，GitHub 私有库 `ys118/ra2web-jev-player`（master，最新提交见 `git log -1`） |
-| 战绩 | **86 局：18 胜**（连迭代II弧线[84/85/86]: [84]=🏆第四胜(t=3489, 开局驻军闭环+三厂落地, JUMPJET73架新高) [85]defeat(矿区枯竭新死法: 8车过度开采t≈2400采空, 敌31120本日最大) [86]defeat(rush变异再发, 驻军20+兵仍t=724失守); 开局rush窗口=最大残留方差(4局死于此); 详见 LESSONS 尾部 |
+| 战绩 | **100 局：21 胜**（milestone 达成）。近期弧线: 87 防御纵深包🏆→88-90 经济三连修(坦克资金地板/统一生产账本/收入负债豁免)→91 🏆矿车7辆翻盘→92-93 步坦协同+FOCUS-FIRE+侦察路标网(用户战术反馈)→94 矿车+1容错→95 击杀冻结检测器🏆→96 用户叫停僵持局→97-98 打破僵局包两连胜→99 大roll消耗战partial→100 收官defeat(老死法复现)。详见 LESSONS 尾部 |
 | **暂停(2026-10-04 用户指示)** | **暂停开新局**: 用户 Jev 服务余额耗尽, 另一 session 正在接**本地部署 clef-flash 替代 Jev**; 恢复对战前先确认新后端接入+联调。→ **已就绪(2026-10-04)**: 本地引擎+影子评测完成, 全档见 **`docs/CLEF-LOCAL.md`**；**切流已实施(同日 §八)**: 端点/threat 0.55/预算分流/teacher 四项落盘, 服务 q8 重启在驻, **待用户号令开第 70 局** |
 | **clef 接入指引** | JevClient 已环境变量驱动(`src/ra2web_jev_player/jev/client.py`): `JEV_BASE_URL`(默认 api.typesafe.ai/v1, 端点契约 POST {base_url}/systemone, body {state,questions,model}) / `JEV_MODEL` / `JEV_MAX_CALLS` / 密钥 `TYPESAFE_API_KEY`(绝不入库)。本地 clef 若实现同契约→零代码改; 若是 OpenAI 兼容 API→client.py 加适配层。决策预算上限由 CLI `--max-decisions`(现 1200)传入, 长局触顶候选上调。✅ **已实测(2026-10-04)**: llama.cpp 的 clef 实现=同契约, 逐字段核对一致(noul 答案键=`noul`), `JEV_BASE_URL=http://127.0.0.1:8085/v1`+dummy key 即零代码切; 阈值建议(threat 0.6→0.55 / stance 0.45 保持)与切换手册见 `docs/CLEF-LOCAL.md` §四.4/§五。**2026-10-04 已切流**: client.py 默认端点/模型改本地(`127.0.0.1:8085`/`clef-flash`), Jev 云端两行注释保留可回切 |
 | 速度定谳 | 前 50 局速度滑条未生效(已修为真实方向键)。3 档=1.33x(用户定谳默认), 墙钟完整局 20-30 分钟 |
 | 数据分层 | 第 1-50 局=6 档 / 51=1 档 / 52=2 档 / **53 起=3 档**。节奏类结论跨层不可比 |
 | Jev 投喂 | 63 局起全面英文化 + DYNAMIC SITUATION 动态上下文段; **[第69局] Jev 决策预算 1200 触顶(长局后半纯确定性)——已实施(2026-10-04): 预算按后端分流, 本地 clef 实质不限/云 Jev 保持 1200, 第70局实证全局无断崖** |
-| 遗留(下一局主攻) | **第87局变量: 防御纵深包已实施待实战验证**(用户拍板三优化点全执行: ①第二兵营前置cash≥1200 ②GARRISON地板4→8 ③哨炮2→3; test_def87.py 7场景+全套回归过, 开局rush窗口=最大残留方差4局死于此);矿车8→6回滚铁律+ref_cap=4弹性在案; **运维: 跨session agent-browser互杀铁律(79局条), 对局独立控制台启动** |
+| 遗留(下一局主攻) | **第101局: 三修复实战验证(已实施+测试+push)**——①矿车重建通道(DEBT-GATE豁免分层: n_harv<2时HARV全额/单厂期二厂1900) ②rush_defense协防期坦克镜像探图常态化(_order_raw独立槽) ③myval_zero 300gs优雅退出; test_rebuild101 5场景+全套回归14文件全过; **最深残留裂缝: 敌大roll下收入死循环+rush窗口×侦察缺失复合死法(100局复现)** |
+
+## 一.1、本 session(87-101 局)新增运维定谳（均已入 LESSONS，防重蹈）
+
+- **agent-browser 自带 Chrome 151 损坏事故**: WebGL 全丧失+headless 挂死
+  (升级残留), `agent-browser install` 重装 155.0.8059.39 修复(真 GPU 确认);
+  旧版 428MB 已清理。RA2WEB_CHROME_PATH 仅应急。
+- **站点 0.87.0 更新三件套**: ①音频许可弹窗(goto 后 ~10s)——根治=chrome_args
+  加 --autoplay-policy=no-user-gesture-required(env 会覆盖全局 config args);
+  launcher 前置轮询点确定兜底 ②资金滑条应用内上限 9100(DOM max 仍 10000)
+  ——launcher 接受 ≥9000 ③弹窗期 body 仅 53 字符曾被误判"站点白屏故障"。
+- **preflight 启动自检**(out/preflight.py, g88 起): clef→webgl(eval 探测)
+  →stale close→site 串行——close 后立即 eval 会挂 150s(daemon 内浏览器
+  重启路径), 顺序勿倒; open 命令挂=47 局老问题, 测健康用 eval。
+- **对局启动统一走 out/run_gNN.bat**(含 preflight); watcher 后台轮询
+  REVIEW 行; 僵尸局两检测器: kill_freeze(attack态 3000gs)/myval_zero(300gs)。
 
 ## 一.2、本 session 关键教训（均已入 docs/LESSONS.md，此处防重蹈）
 
