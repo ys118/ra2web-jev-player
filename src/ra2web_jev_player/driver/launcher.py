@@ -223,9 +223,20 @@ class GameLauncher:
         v = self._set_slider(0, m.speed)
         if v != m.speed:
             raise LaunchError("速度滑条设不到 %d（现为 %s）" % (m.speed, v))
-        v = self._set_slider(1, m.credits)
-        if v != m.credits:
-            raise LaunchError("资金滑条设不到 %d（现为 %s）" % (m.credits, v))
+        # [第100局] 站点 0.87.0 资金滑条上限疑似从 10000 降至 ~9100(连续两局
+        # 校准停在 9100)——目标改为 min(配置, 滑条实际 max), 读不到 max 时
+        # 用配置值(保留"宁可失败不可假成功"的校验)。
+        _cmax = None
+        try:
+            _cmax = self.b.eval(
+                "(function(){var s=document.querySelectorAll('input[type=range]')[1];"
+                "return s?parseInt(s.max,10):null})()")
+        except Exception:
+            _cmax = None
+        _ctarget = m.credits if not _cmax else min(m.credits, int(_cmax))
+        v = self._set_slider(1, _ctarget)
+        if v != _ctarget:
+            raise LaunchError("资金滑条设不到 %d（现为 %s）" % (_ctarget, v))
         v = self._set_slider(2, 0)
         if v != 0:
             raise LaunchError("初始部队滑条设不到 0（现为 %s）" % v)
