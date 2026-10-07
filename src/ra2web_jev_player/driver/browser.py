@@ -39,15 +39,14 @@ class Browser:
     def __init__(self, config=None):
         from ..config import DriverConfig
         self.cfg = config or DriverConfig()
-        # [95局事故] agent-browser 自带 Chrome 151.0.7922.77 突发 WebGL 丧失
-        # (headed/headless+全套 swiftshader 参数均 NO-WEBGL, 该二进制 headless
-        # 跑用例直接挂起; 系统 Chrome 正常) → 默认改用系统 Chrome; 环境变量
-        # RA2WEB_CHROME_PATH 可覆盖; 路径不存在则回退 agent-browser 自带。
-        _chrome = os.environ.get(
-            "RA2WEB_CHROME_PATH",
-            r"C:\Program Files\Google\Chrome\Application\chrome.exe")
+        # [95局事故] agent-browser 自带 Chrome 151.0.7922.77 突发 WebGL 丧失+
+        # headless 挂死(升级残留损坏); `agent-browser install` 重装为 155 后
+        # 自带浏览器 WebGL 正常(真 GPU RTX 4060 Ti)——**终态=用自家浏览器,
+        # 不依赖系统 Chrome**。环境变量 RA2WEB_CHROME_PATH 仍可显式指定
+        # executable(应急), 未设则用 agent-browser 自带的。
+        _chrome = os.environ.get("RA2WEB_CHROME_PATH", "")
         _env_exec = {"AGENT_BROWSER_EXECUTABLE_PATH": _chrome} \
-            if os.path.isfile(_chrome) else {}
+            if _chrome and os.path.isfile(_chrome) else {}
         self._env = dict(os.environ,
                          AGENT_BROWSER_SESSION=self.cfg.session,
                          AGENT_BROWSER_RESTORE=self.cfg.restore,
