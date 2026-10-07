@@ -70,21 +70,21 @@ check("24a SIEGE 覆盖 rush_defense: 强制 OFF+拔壳出击",
       and assault_obj_of_tanks(acts) is not None,
       log_s[:120])
 
-# ---- 24b mass-push: 突击组 5 辆(<8)且有防御壳 → STAGING 集结待命 ----
-s, mem = siege_state(assault_n=5)
+# ---- 24b [97局改] 3辆<5 且有防御壳 → STAGING 前沿集结(不再回基地转圈) ----
+s, mem = siege_state(assault_n=3)
 acts, logs = planner.movement(s, HOME, "attack", mem)
 log_s = logs if isinstance(logs, str) else "; ".join(logs)
 stage = [a for a in acts if a.get("act") == "attack_move"
-         and a.get("x") == 13 and a.get("y") == 13]
-check("24b 5辆<8 → STAGING 在家攒兵",
+         and a.get("x") == 59 and a.get("y") == 44]
+check("24b(97局改) 3辆<5 → STAGING 前沿集结(59,44)",
       bool(stage) and "SIEGE STAGING" in log_s, log_s[:120])
 
-# ---- 24c mass-push: 攒齐 8 辆 → 齐冲拔壳 ----
-s, mem = siege_state(assault_n=8)
+# ---- 24c [97局改] 攒齐 5 辆 → 齐冲拔壳 ----
+s, mem = siege_state(assault_n=5)
 acts, logs = planner.movement(s, HOME, "attack", mem)
 a = assault_obj_of_tanks(acts)
-check("24c 8辆≥阈值 → 齐冲防御壳",
-      bool(a) and a.get("tid") == "p0" and len(a.get("ids", [])) == 8,
+check("24c(97局改) 5辆≥阈值 → 齐冲防御壳",
+      bool(a) and a.get("tid") == "p0" and len(a.get("ids", [])) == 5,
       str(bool(a)))
 
 # ---- 24d 扫荡阶段(壳清空): 步兵全员编入突击 ----
