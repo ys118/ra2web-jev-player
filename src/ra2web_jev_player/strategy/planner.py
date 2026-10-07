@@ -60,6 +60,8 @@ class BattleMemory:
         self.focus_t = 0                # [第92局] 点名目标选定时刻(重选节流用)
         self.enval_freeze_since = None  # [第95局 击杀冻结检测] 冻结起始游戏秒
         self.last_en_val = None         # [第95局] 上个 tick 敌战力值
+        self.mirror_scout_t = 0         # [第101局] 塔线协防期镜像探图时刻(120s 节流)
+        self.myval_zero_since = None    # [第101局] 我方无机动单位起始时刻(终局判定)
         self.rush_defense = False       # [第76局 用户反馈] 动态早rush防御模式:
                                         # 敌兵海压门且守军对不上 → 动员兵爆产
                                         # (不受坦克资金线约束); 威胁解除自动恢复
@@ -713,6 +715,23 @@ def opening_build(s: dict, mem: BattleMemory):
     return None
 
 
+def myval_zero(mem: BattleMemory, s: dict) -> int:
+    """[第101局] 我方无机动单位超时(99 局教训): myval=0=防线已亡, 敌拆建筑
+    拖沓或敌方 AI 卡住时游戏永不判负——defend/develop 态势下 myval=0 持续
+    300gs 即优雅退出(无翻盘路径)。返回持续秒数(0=未触发)。"""
+    try:
+        my_v, _ = force_value(s)
+    except Exception:
+        mem.myval_zero_since = None
+        return 0
+    if my_v > 0 or s["me"].get("defeated"):
+        mem.myval_zero_since = None
+        return 0
+    if mem.myval_zero_since is None:
+        mem.myval_zero_since = s["t"]
+    return s["t"] - mem.myval_zero_since
+
+
 def kill_freeze(mem: BattleMemory, s: dict, stance: str) -> int:
     """[第95局 击杀冻结检测] 94 局假僵局定谳: t=2127 起敌战力值恒 12300/
     击杀冻结 6600s——敌兵海被全歼后残部卡在打不到的位置(地形卡位), 我方
@@ -1211,6 +1230,15 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         acts.append({"act": "attack_move", "ids": ids, "x": x, "y": y})
         logs.append("%s x%d -> (%d,%d)" % (role, len(ids), x, y))
 
+    def _order_raw(role, ids, x, y, throttle):
+        """[第101局] 绕过 role 槽节流的直接下令(mirror-scout 与协防
+        同 tick 并发, 共享槽会互相覆盖丢指令)。"""
+        ids = list(ids or [])
+        if not ids:
+            return
+        acts.append({"act": "attack_move", "ids": ids, "x": x, "y": y})
+        logs.append("%s x%d -> (%d,%d)" % (role, len(ids), x, y))
+
     def order_obj(role, ids, tid, x, y, throttle):
         """[第57局] 显式攻击指定目标(建筑/载具 id), 走 order type 2——
         attack_move 会被防御塔吸火, 显式目标让坦克只打该打的东西。"""
@@ -1241,6 +1269,17 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
             order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
             logs.append("t=%d RUSH-DEFENSE tanks x%d -> 塔线协防"
                         % (s["t"], len(sq["assault"])))
+            # [第101局 fix_scout 深化(Jev 连续 6 局 0.9 置信)] 敌基地未知时
+            # 抽 1 辆坦克常态化镜像探图(120s 节流, 不再等军犬独自探)——
+            # 99/100 局"侦察缺失+无目标"复合死法的对攻解。
+            if not mem.enemy_base and len(sq["assault"]) >= 2                     and s["t"] - mem.mirror_scout_t > 120:
+                _mx, _my = s["map"]["width"], s["map"]["height"]
+                _m = [max(_mx - home[0], 8), max(_my - home[1], 8)]
+                # 独立 role: 与协防指令不同 squad_wp 槽, 互不覆盖
+                _order_raw("mscout", sq["assault"][:1], _m[0], _m[1], 120)
+                mem.mirror_scout_t = s["t"]
+                logs.append("t=%d MIRROR-SCOUT x1 -> %s (协防期镜像探图)"
+                            % (s["t"], _m))
         elif mem.enemy_base:
             blds = [h for h in s["hostile"] if h["o"] == 2
                     and h["n"] not in DEF_BUILDINGS]
