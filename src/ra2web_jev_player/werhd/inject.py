@@ -85,6 +85,14 @@ class WerhdClient:
     def produce(self, name, qty=1):
         return self.call("__rj.o.produce(%s,%d)" % (json.dumps(name), qty))
 
+    def can_place(self, name, x, y):
+        """[第100局] 指定落点可建判定(建筑迎敌面前置用)。"""
+        return self.call("__rj.o.canPlace(%s,%d,%d)" % (json.dumps(name), x, y))
+
+    def place(self, name, x, y):
+        """[第100局] 建筑指定落点放置(替代自动落点)。"""
+        return self.call("__rj.o.place(%s,%d,%d)" % (json.dumps(name), x, y))
+
     def micro_start(self, rally=None, camera=True, cfg=None):
         args = []
         if cfg:

@@ -305,7 +305,26 @@ class BattleSession:
                     if q is not None:
                         self._q_cd[cd_key] = time.time()
                         self._q_used[q] = True
-                    self.c.produce(name, a.get("qty", 1))
+                    if a.get("x") is not None:
+                        # [第100局] 建筑指定落点(迎敌面前沿): canPlace 不行则
+                        # 逐级向 home 收缩, 全部失败回退自动落点 produce。
+                        try:
+                            _home = yard_tile(s)
+                            _bx, _by = a["x"], a["y"]
+                            _placed = False
+                            for _f in (1.0, 0.7, 0.45, 0.25):
+                                _px = int(_home[0] + (_bx - _home[0]) * _f)
+                                _py = int(_home[1] + (_by - _home[1]) * _f)
+                                if self.c.can_place(name, _px, _py):
+                                    self.c.place(name, _px, _py)
+                                    _placed = True
+                                    break
+                            if not _placed:
+                                self.c.produce(name, a.get("qty", 1))
+                        except Exception:
+                            self.c.produce(name, a.get("qty", 1))
+                    else:
+                        self.c.produce(name, a.get("qty", 1))
                 elif kind == "attack_move":
                     self.c.attack_move(a["ids"], a["x"], a["y"])
                 elif kind == "attack_obj":
