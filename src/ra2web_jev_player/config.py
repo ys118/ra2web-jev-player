@@ -39,7 +39,12 @@ class DriverConfig:
     restore: str = os.environ.get("RA2WEB_RESTORE", "ra2web")
     headed: bool = os.environ.get("RA2WEB_HEADED", "") != ""
     chrome_args: str = ("--disable-background-timer-throttling,"
-                        "--disable-backgrounding-occluded-windows")
+                        "--disable-backgrounding-occluded-windows,"
+                        # [第95局] 站点 0.87.0 音频许可弹窗(游戏需要您的许可来
+                        # 播放音频)的根治: 允许站点免手势自动播放——AGENT_BROWSER_
+                        # ARGS env 会覆盖全局 config 的 args, 所以必须写在这里;
+                        # launcher 的弹窗点击轮询保留作兜底。
+                        "--autoplay-policy=no-user-gesture-required")
     idle_timeout: str = "0"      # 0 = 禁用空闲自动关浏览器（长局保活）
     default_timeout_ms: int = 25000
     eval_timeout_s: float = 25.0
