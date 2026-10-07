@@ -127,9 +127,9 @@ _acts6, _log6 = planner.movement(s, HOME, "develop", mem)
 sq = mem.last_squads
 _inf_out = len([i for i in sq["assault"]
                 if any(u["id"] == i and u["n"] == "E2" for u in s["mine"])])
-check("31h 坦克不出击时步兵仍驻家(不误伤 62 局规则)",
-      len(sq["hold"]) == 8 and _inf_out == 0,
-      "hold=%d 步兵外出=%d" % (len(sq["hold"]), _inf_out))
+check("31h(100局改) 坦克未出击 → 守备6+扫荡队2(步兵任务化, 不蜷家)",
+      len(sq["hold"]) == 6 and len(sq["sweep"]) == 2,
+      "hold=%d sweep=%d" % (len(sq["hold"]), len(sq["sweep"])))
 
 print()
 if fails:

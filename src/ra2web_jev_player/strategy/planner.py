@@ -1085,7 +1085,7 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
     tanks = [u for u in units if u["o"] == 7]
     inf = [u for u in units if u["o"] != 7]
     sq = {"raid": [], "assault": [], "hold": [], "guard": [], "reserve": [],
-          "aahunt": aav_ids}
+          "aahunt": aav_ids, "sweep": []}
     # RAID=骚扰组 [第31局A++, 第40局②规模, 第41局换装]: DRON 刺客优先入组
     # （400金秒矿车, 死了不心疼）, 坦克补足; 规模随池子 2→4。
     dron_ids = [u["id"] for u in units if u["n"] == "DRON"]
@@ -1135,8 +1135,18 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
         sq["hold"] = [u["id"] for u in inf[:keep]]
         sq["assault"] += [u["id"] for u in inf[keep:]]
     else:
-        # 防守/发展期(坦克未出击): 步兵全员驻家([第62局用户指示])
-        sq["hold"] = [u["id"] for u in inf]
+        # [第100局 用户反馈③] 步兵任务化: 坦克未出击时步兵也不蜷家——
+        # 守备 4 + 超额的一半编扫荡队(咬敌矿车/守前哨); rush_defense 例外
+        # (全员驻塔线, 保命优先; 62 局"全员驻家"由本条升级)。
+        if getattr(mem, "rush_defense", False)                 or getattr(mem, "siege_mode", False):
+            # 围城壳未清时步兵留守(80 局规则: 防磁暴屠步兵)
+            sq["hold"] = [u["id"] for u in inf]
+        else:
+            extra = inf[4:]
+            half = (len(extra) + 1) // 2
+            sq["sweep"] = [u["id"] for u in extra[:half]] if len(extra) >= 2 else []
+            sq["hold"] = ([u["id"] for u in inf[:4]]
+                          + [u["id"] for u in extra[half:]])
     sq["reserve"] = []
     return sq
 
@@ -1272,10 +1282,26 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     air_threat_near = bool(air_units) and sq["assault"] and any(
         math.hypot(h["tl"][0] - u["tl"][0], h["tl"][1] - u["tl"][1]) <= T["air_evade"]
         for h in air_units for u in s["mine"] if u["id"] in assault_set)
+    # [第100局 用户反馈②] 敌采矿车摸进我方基地/矿区 → 拦截目标
+    inv_harv = None
+    if home:
+        _inv = [h for h in s["hostile"] if h["n"] in HARVEST
+                and math.hypot(h["tl"][0] - home[0], h["tl"][1] - home[1]) <= 22]
+        if _inv:
+            inv_harv = min(_inv, key=lambda h: math.hypot(
+                h["tl"][0] - home[0], h["tl"][1] - home[1]))
     if air_threat_near and home:
         order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
         logs.append("t=%d AIR-EVADE assault x%d -> home (坦克打不到空中, 等AA猎杀)"
                     % (s["t"], len(sq["assault"])))
+    elif inv_harv and (sq["assault"] or sq["raid"]):
+        # [第100局 用户反馈②] 敌矿车入侵拦截: 敌采矿车摸进我方矿区(≤22 格)
+        # → 主力先集中火力消灭它(断敌经济+护我矿区), 优先于点名/STAGING。
+        order_obj("assault", sq["assault"] or sq["raid"], inv_harv["id"],
+                  inv_harv["tl"][0], inv_harv["tl"][1], 12)
+        logs.append("t=%d INTRUDER-HUNT x%d -> 敌矿车#%s@%s (护矿拦截)"
+                    % (s["t"], len(sq["assault"] or sq["raid"]),
+                       inv_harv["id"], inv_harv["tl"]))
     elif not getattr(mem, "siege_mode", False) and sq["assault"]:
         # [第92局 用户反馈②] 坦克编队野战点名集中火力: 敌单位距编组重心
         # ≤focus_radius → 全组 order_obj 点名同一目标。打分: 敌步行单位(o!=7,
@@ -1383,6 +1409,21 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         order("hold_b", sq["hold"][half:], posts[1][0], posts[1][1], 60)
         order("guard", sq["guard"], home[0] + 3, home[1] + 3, 30)
         order("reserve", sq["reserve"], home[0], home[1] + 8, 60)
+        # [第100局 用户反馈③] 扫荡队: 优先咬可见敌矿车(距家 ≤60 格),
+        # 无可见矿车则占前哨要点——步兵始终有任务, 不蜷家。
+        if sq.get("sweep"):
+            _sh = [h for h in s["hostile"] if h["n"] in HARVEST and home
+                   and math.hypot(h["tl"][0] - home[0],
+                                  h["tl"][1] - home[1]) <= 60]
+            if _sh:
+                _h = min(_sh, key=lambda h: math.hypot(
+                    h["tl"][0] - home[0], h["tl"][1] - home[1]))
+                order("sweep", sq["sweep"], _h["tl"][0], _h["tl"][1], 30)
+            elif mem.enemy_base:
+                order("sweep", sq["sweep"], mem.enemy_base[0], mem.enemy_base[1], 60)
+            else:
+                _p = forward_post(s, home, mem)
+                order("sweep", sq["sweep"], _p[0], _p[1], 60)
         # [第66局 V3反制] AA 屏: 有可见 V3(26 格内) → 全组显式攻击最近家的那台
         # (速度 8 追速度 4, 途中顺带拦火箭); 否则守威胁方向 10 格拦截位
         # (塔线内侧, 等火箭进拦截射程)。同一 tick 只发一种指令防打架。
@@ -1400,12 +1441,26 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
             else:
                 # [第73局 用户反馈②③] 防空主动猎杀: 可见空中单位 → 全组显式
                 # 攻击最近的一台(上前消灭, 不龟缩拦截位); 无可见空中才守拦截位
+                # [第100局 用户反馈①] AA 自保: 火箭人附近(≤12 格)有敌地面
+                # 战车护航时, 防空车不上去送死——先退回坦克线后方, 让克制
+                # 地面战车的我方坦克(FOCUS-FIRE 会点名)先清场, 再猎火箭人。
                 airs = [h for h in s["hostile"] if h["n"] in AIR_UNITS]
                 a = min(airs, key=lambda h: math.hypot(
                     h["tl"][0] - home[0], h["tl"][1] - home[1])) if airs else None
                 if a:
-                    order_obj("aahunt", sq["aahunt"], a["id"],
-                              a["tl"][0], a["tl"][1], 12)
+                    escort = [h for h in s["hostile"]
+                              if h.get("o") == 7 and h["n"] not in HARVEST
+                              and h["n"] not in AIR_UNITS
+                              and math.hypot(h["tl"][0] - a["tl"][0],
+                                             h["tl"][1] - a["tl"][1]) <= 12]
+                    # 判据=火箭人附近有护航(接近途中必被集火), 而非护航已贴近
+                    if escort and sq["assault"]:
+                        order("aahunt", sq["aahunt"], home[0] + 6, home[1] + 6, 12)
+                        logs.append("t=%d AA-HOLD x%d (敌战车护航火箭人, 待坦克清场)"
+                                    % (s["t"], len(sq["aahunt"])))
+                    else:
+                        order_obj("aahunt", sq["aahunt"], a["id"],
+                                  a["tl"][0], a["tl"][1], 12)
                 else:
                     if mem.enemy_base:
                         dx, dy = mem.enemy_base[0] - home[0], mem.enemy_base[1] - home[1]
