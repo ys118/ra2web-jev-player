@@ -1600,12 +1600,16 @@ headless 迁移与浏览器 daemon 恢复流程。下一 session 从 `docs/HANDO
   angle/--use-angle=swiftshader/--disable-gpu)全部 NO-WEBGL, 且该二进制
   headless 跑用例直接挂起 5 分钟→**二进制本身故障**(疑似当日自动更新/
   下载损坏); ③--executable-path 切系统 Chrome→WEBGL-OK 实证修复。
-- **修复(两处固化)**: ①src browser.py: AGENT_BROWSER_EXECUTABLE_PATH 默认
-  指系统 Chrome(RA2WEB_CHROME_PATH 可覆盖, 路径不存在回退自带); ②out/
-  preflight.py: 新增 webgl 前置检查步(about:blank 探测, LOST 时给出可行动
-  提示)+全部调用统一带 executable-path env。
-- **新铁律**: ①daemon 按 session 复用——**任何 agent-browser 调用都必须带
-  executable-path env, 否则会拉起坏 daemon 毒化后续 launcher**(环境只在
-  daemon 冷启动时生效); ②换浏览器配置后必须先清 daemon(doctor 查 PID,
-  按 PID 精确杀/会话级 close)再冷启动; ③preflight 是启动守门员, 探测步
-  与 launcher 必须同环境, 否则探测结果不可信。
+- **终态修复(用户指示"用 agent-browser 自己的 chrome")**: `agent-browser
+  install` 重装浏览器二进制 151→**155.0.8059.39** 后自带浏览器 WebGL 正常
+  ——而且用的是**真 GPU(RTX 4060 Ti)**, 机器硬件从来没坏(此前"系统 Chrome
+  只有软渲染"是测试加了 --disable-gpu 的假象)。根因定谳=151 二进制损坏
+  (疑似升级残留), 终态=自家浏览器, 不依赖系统 Chrome; RA2WEB_CHROME_PATH
+  仅留作应急覆盖。
+- **排查时的假信号(重要)**: ①"open 挂起"是 47 局已知的 open 等 window load
+  卡死老问题, 不是新故障——launcher 真实路径 goto(eval 导航+自轮询) 0.7s
+  就通; 测试浏览器健康用 eval, 别用 open。②eval 挂死是坏 daemon 毒化
+  (daemon 按 session 复用, 配置在冷启动时锁定)——换任何浏览器配置后必须
+  会话级 close+杀 daemon(按 PID)再冷启动。
+- **固化**: preflight 新增 webgl 前置检查步(close→eval 探测, LOST 给可行动
+  提示, BLOCKED 拦启动)。

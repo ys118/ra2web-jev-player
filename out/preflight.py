@@ -10,13 +10,12 @@ import sys
 import time
 import urllib.request
 
-# [95局事故] agent-browser 自带 Chrome WebGL 丧失 → 全部调用统一走系统 Chrome
-# (与 src browser.py 的 RA2WEB_CHROME_PATH 逻辑一致; daemon 按 session 复用,
-#  必须在首次 open 前设好, 否则会拉起坏 daemon 毒化后续 launcher)
-_CHROME = os.environ.get(
-    "RA2WEB_CHROME_PATH",
-    r"C:\Program Files\Google\Chrome\Application\chrome.exe")
-if os.path.isfile(_CHROME):
+# [95局事故] 自带 Chrome 151 损坏 → `agent-browser install` 重装 155 后自家
+# 浏览器 WebGL 正常(终态=用自家浏览器, 不依赖系统 Chrome)。RA2WEB_CHROME_PATH
+# 环境变量仍可应急指定 executable; daemon 按 session 复用, 任何 executable
+# 覆盖必须在首次 open 前设好, 否则会拉起旧 daemon 毒化后续 launcher。
+_CHROME = os.environ.get("RA2WEB_CHROME_PATH", "")
+if _CHROME and os.path.isfile(_CHROME):
     os.environ["AGENT_BROWSER_EXECUTABLE_PATH"] = _CHROME
 
 AB = ["C:/Program Files/nodejs/agent-browser.cmd", "--session", "ra2web"]
@@ -61,10 +60,11 @@ def step_webgl():
     """[95局事故] 浏览器 WebGL 前置检查: agent-browser 自带 Chrome 突发
     WebGL 丧失时, launcher 会在'主选单未出现'上白耗 3 轮——这里提前拦截
     并给出可行动修复(切系统 Chrome RA2WEB_CHROME_PATH)。"""
-    ab(["open", "about:blank"], timeout=90)
-    time.sleep(3)
-    r = ab(["eval", _WEBGL_JS], timeout=45)
+    # 注意: 不用 open(47 局已知: open 等 window load 会卡死); close 后 eval
+    # 触发 daemon 冷启动, eval 本身就能测 WebGL。
     ab(["close"], timeout=45)
+    time.sleep(2)
+    r = ab(["eval", _WEBGL_JS], timeout=150)
     ok = "WEBGL-OK" in r
     print("[preflight] webgl: %s" % ("OK" if ok else
           "LOST (95局事故形态; 修复=设 RA2WEB_CHROME_PATH 指向系统 Chrome 或重装 agent-browser)"))
