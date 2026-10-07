@@ -121,6 +121,12 @@ class BattleSession:
                 self.audit.log("t=%s ZOMBIE-FREEZE %ds (enval 不动+我方碾压) - 终止僵尸局"
                                % (s["t"], frozen_s))
                 return {"result": "stalled", "t": s["t"]}
+            # [第101局] 我方无机动单位超时(99 局: myval=0 拖 15 分钟不判负)
+            zero_s = planner.myval_zero(self.mem, s)
+            if zero_s >= 300:
+                self.audit.log("t=%s MYVAL-ZERO %ds (防线已亡无翻盘路径) - 终止"
+                               % (s["t"], zero_s))
+                return {"result": "stalled", "t": s["t"]}
         except Exception as e:
             self.audit.log("freeze ERR %s" % str(e)[:100])
 
@@ -293,10 +299,25 @@ class BattleSession:
                     # (收入引擎)也拦死 → 矿车卡 1-2 辆收入断绝死循环(87 胜局
                     # 矿车是负债下单爬到 6 辆的)。HARV/精炼厂允许负债 ≤1200
                     # 放行(收入落地即回血); 坦克群/普通建筑维持全额拦截。
+                    # [第101局 矿车重建通道(99 局教训)] ①矿车重建期(n_harv<2)
+                    # HARV 全额豁免(收入即时回血>一切); ②单厂期(t>500 且
+                    # n_ref==1)二厂豁免 1200→1900——99 局死环: 二厂 NAREFN
+                    # 被拦 → n_ref 卡 1 → 矿车上限卡死 → 收入永不回血。
                     _cost = ucost(name) * max(1, a.get("qty", 1))
                     _eff = s["me"]["credits"] - self.mem.tick_debt
                     _invest = name in ("HARV", "NAREFN", "GAREFN")
-                    if _eff < _cost and not (_invest and _eff >= _cost - 1200):
+                    if _invest:
+                        _mine = s.get("mine") or []
+                        _nh = len([u for u in _mine if u.get("n") in
+                                   ("HARV", "CMIN") and u.get("o") != 2])
+                        _nr = len([u for u in _mine if u.get("n") in
+                                   ("NAREFN", "GAREFN") and u.get("o") == 2])
+                        _slack = 1400 if (name in ("HARV", "CMIN") and _nh < 2) else (
+                            1900 if (name in ("NAREFN", "GAREFN")
+                                     and _nr == 1 and s["t"] > 500) else 1200)
+                    else:
+                        _slack = 0
+                    if _eff < _cost and not (_invest and _eff >= _cost - _slack):
                         self.audit.log("t=%s DEBT-GATE %s x%s (debt=%d eff=%d < %d)"
                                        % (s["t"], name, a.get("qty", 1),
                                           self.mem.tick_debt, _eff, _cost))
