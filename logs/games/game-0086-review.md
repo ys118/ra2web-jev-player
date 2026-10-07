@@ -1,0 +1,33 @@
+# 第 86 局复盘 —— 2026-10-07 15:19
+
+- **结果**: defeat（t=6074 游戏秒, 2364 ticks, 危机 813 ticks）
+- **开局建造**: NAPOWR@41s → NAREFN@67s → NAHAND@159s → NAWEAP@183s → NAHAND@273s → NAPOWR@298s → NAREFN@323s → NAREFN@581s → NAREFN@584s → NAREFN@586s → NAREFN@588s → NAREFN@591s → NAREFN@593s → NAREFN@596s → NAREFN@598s → NAREFN@600s → NAREFN@794s → NAREFN@797s → NAREFN@799s → NAREFN@801s → NAREFN@804s → NAREFN@806s → NAREFN@808s → NAREFN@811s → NAREFN@813s → NAREFN@816s → NAREFN@818s → NAREFN@821s → NAREFN@823s → NAREFN@826s → NAREFN@828s → NAREFN@831s → NAREFN@834s → NAREFN@836s → NAREFN@839s → NAREFN@841s → NAREFN@844s → NAREFN@847s → NAPOWR@849s → NAREFN@877s → NARADR@1299s → NAWEAP@1437s → NAPOWR@1758s → NAREFN@1964s → NAREFN@1966s → NAREFN@1969s → NAREFN@2596s → NAREFN@2598s → NAREFN@2601s → NAREFN@2604s → NAREFN@2607s → NAREFN@2609s → NAREFN@2612s → NAREFN@2614s → NAREFN@2617s → NAREFN@2620s → NAREFN@2623s → NAREFN@2625s → NAREFN@2628s → NAREFN@2631s → NAREFN@2633s → NAREFN@2636s → NAREFN@2639s → NAREFN@2642s → NAREFN@2644s → NAREFN@2647s → NAREFN@2650s → NAREFN@2653s → NAREFN@2655s → NAREFN@2658s → NAREFN@2661s → NAREFN@2664s → NAREFN@2666s → NAREFN@2669s → NAREFN@2672s → NAREFN@2674s → NAREFN@2677s → NAREFN@2680s → NAREFN@2683s → NAREFN@2685s → NAREFN@2688s → NAREFN@2691s → NAREFN@2694s → NAREFN@2696s → NAREFN@2699s → NAREFN@2702s → NAREFN@2704s → NAREFN@2707s → NAREFN@2710s → NAREFN@2713s → NAREFN@2715s → NAREFN@2718s → NAREFN@2721s → NAREFN@2723s → NAREFN@2726s → NAREFN@2729s → NAREFN@2731s → NAREFN@2734s → NAREFN@2737s → NAREFN@2739s → NAREFN@5326s → NAREFN@5329s → NAREFN@5332s → NAREFN@5335s → NAREFN@5337s → NAREFN@5340s → NAREFN@5343s → NAREFN@5345s → NAREFN@5348s → NAREFN@5351s → NAREFN@5354s → NAREFN@5357s → NAREFN@5359s → NAREFN@5362s → NAREFN@5365s → NAREFN@5368s → NAREFN@5371s → NAREFN@5373s → NAREFN@5376s → NAREFN@5379s → NAREFN@5382s → NAREFN@5385s → NAREFN@5390s → NAREFN@5421s → NAREFN@5424s → NAREFN@5427s → NAREFN@5430s → NAREFN@5441s → NAREFN@5447s → NAREFN@5449s → NAREFN@5452s → NAREFN@5455s → NAREFN@5461s → NAREFN@5464s
+- **首坦克**: t=273 | 敌基地: 未定位
+- **经济**: 平均 542 / 峰值 9782 / 见底率 69%
+- **兵力**: 峰值我方 5170 vs 敌 16050 | 坦克峰值 2(重坦口径) | 损失 124 / 可见击杀 308
+- **终局构成**: 重坦 0 / 防空车 0 / 步兵 0
+- **态势分布**: {'defend': 0.97, 'develop': 0.03} | ALARM 187（反击 51 / TURTLE 67）| 停摆 0
+- **Jev**: 2363 次决策, 0 错误, P50 1133ms / P95 1887ms, 态势变更 1 次
+
+## 确定性发现
+
+- [high] 敌基地全程未定位 → ATTACK/RUSH 无目标，无法取胜
+- [med] 资金长期见底（<200 金占比 69%），坦克生产线被步兵/防御挤占
+- [med] 15 分钟后坦克峰值仅 2 辆（总攻门槛 6）——产能/资金被别处吃掉
+- [high] 敌潮时刻防线重坦仅 0 辆（防空车 0/步兵 0）——对地 mass 缺失
+- [high] 态势 97% 时间在 defend：纯被动挨打，缺进攻闭环
+- [med] 危机 tick 占比 34%（813/2364）——长期处于被袭状态
+
+## Jev 复盘
+
+- **根因**: no_target — 侦察失败/敌基地未定位, 进攻态势无目标可打, 全程被动（置信 0.73）
+- **下局优先**: fix_scout — 修侦察链路: 保证敌基地定位(军犬+坦克镜像探图), 让进攻有目标（置信 0.73）
+- **调参支持度**: 0.5481751498160528
+
+## 参数迭代（自动, 白名单+限幅）
+
+- 无
+
+## 待办改进（人工/下个 session）
+
+- [ ] 按上表核对下局验证点
