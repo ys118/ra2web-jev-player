@@ -234,8 +234,17 @@ class GameLauncher:
         except Exception:
             _cmax = None
         _ctarget = m.credits if not _cmax else min(m.credits, int(_cmax))
-        v = self._set_slider(1, _ctarget)
-        if v != _ctarget:
+        v = None
+        for _try in range(3):
+            v = self._set_slider(1, _ctarget)
+            if v == _ctarget:
+                break
+            time.sleep(2)
+            self._dismiss_overlays()   # [100局] 校准失效疑因焦点被弹窗抢走
+        # [100局] 0.87.0 实测定谳: DOM max=10000 但应用内把值 clamp 在 9100
+        # (3 轮重试精确停 9100=稳定上限, 非焦点抖动)——接受 ≥9000 的现实
+        # 上限(起步差 9% 可接受), 低于 9000 才是校准失败。
+        if v is None or int(v) < 9000:
             raise LaunchError("资金滑条设不到 %d（现为 %s）" % (_ctarget, v))
         v = self._set_slider(2, 0)
         if v != 0:
