@@ -522,7 +522,21 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
             and _order_once("gdef_order", bl.get(side["gdef"], 0), 60):
         # [第64局] 余量<40 不上塔: NALASR 吃电, 缺电=塔全瞎(rush 到来瞬间
         # power_low=True 的活局实证), 电厂优先, 塔晚 ~25s 但上线即有效
-        acts.append({"act": "produce", "name": side["gdef"], "qty": 1, "q": 1})
+        # [第100局 用户反馈②] 塔建在迎敌面前沿: home→敌方向 10 格(游戏自动
+        # 落点在基地后方=塔够不着来敌); canPlace 不行由 _exec 向 home 回退。
+        _ax, _ay = home
+        _dir = None
+        if mem.enemy_base:
+            _dir = (mem.enemy_base[0] - home[0], mem.enemy_base[1] - home[1])
+        elif mem.last_alarm_pos:
+            _dir = (mem.last_alarm_pos[0] - home[0], mem.last_alarm_pos[1] - home[1])
+        if _dir:
+            _n = max(math.hypot(_dir[0], _dir[1]), 1.0)
+            acts.append({"act": "produce", "name": side["gdef"], "qty": 1, "q": 1,
+                         "x": int(home[0] + _dir[0] / _n * 10),
+                         "y": int(home[1] + _dir[1] / _n * 10)})
+        else:
+            acts.append({"act": "produce", "name": side["gdef"], "qty": 1, "q": 1})
         logs.append("t=%d DEFLINE %s (have %d)"
                     % (s["t"], side["gdef"], bl.get(side["gdef"], 0)))
         cred -= 500
@@ -1042,10 +1056,12 @@ def _hold_posts(s: dict, home, mem: BattleMemory) -> list:
         ang = math.atan2(mem.last_alarm_pos[1] - home[1], mem.last_alarm_pos[0] - home[0])
     else:
         ang = math.atan2(my / 2.0 - home[1], mx / 2.0 - home[0])
+    # [第100局 用户反馈①] 伏击位前移到迎敌正面(半径 12、±30°)——
+    # 原半径 8±55° 躲在基地两侧后面, 敌来时接敌慢; 12 格仍在塔火力圈边缘。
     posts = []
-    for da in (-0.96, 0.96):
-        x = int(min(max(home[0] + 8 * math.cos(ang + da), 4), mx - 4))
-        y = int(min(max(home[1] + 8 * math.sin(ang + da), 4), my - 4))
+    for da in (-0.5, 0.5):
+        x = int(min(max(home[0] + 12 * math.cos(ang + da), 4), mx - 4))
+        y = int(min(max(home[1] + 12 * math.sin(ang + da), 4), my - 4))
         posts.append((x, y))
     return posts
 
@@ -1407,7 +1423,14 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         half = (len(sq["hold"]) + 1) // 2
         order("hold_a", sq["hold"][:half], posts[0][0], posts[0][1], 60)
         order("hold_b", sq["hold"][half:], posts[1][0], posts[1][1], 60)
-        order("guard", sq["guard"], home[0] + 3, home[1] + 3, 30)
+        # [第100局] guard 前移到迎敌方向 6 格(不再蹲基地正中心)
+        _gx, _gy = home[0] + 3, home[1] + 3
+        if mem.enemy_base:
+            _d = (mem.enemy_base[0] - home[0], mem.enemy_base[1] - home[1])
+            _gn = max(math.hypot(_d[0], _d[1]), 1.0)
+            _gx = int(home[0] + _d[0] / _gn * 6)
+            _gy = int(home[1] + _d[1] / _gn * 6)
+        order("guard", sq["guard"], _gx, _gy, 30)
         order("reserve", sq["reserve"], home[0], home[1] + 8, 60)
         # [第100局 用户反馈③] 扫荡队: 优先咬可见敌矿车(距家 ≤60 格),
         # 无可见矿车则占前哨要点——步兵始终有任务, 不蜷家。
