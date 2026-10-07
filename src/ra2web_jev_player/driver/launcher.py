@@ -144,6 +144,22 @@ class GameLauncher:
         nav = self.b.goto(GAME_URL, deadline_s=120, force=True)
         if not nav.get("ok"):
             raise LaunchError("打开游戏站失败: %s" % nav)
+        # [第95局] 站点 0.87.0 音频许可弹窗: goto 后 ~10s 出现("游戏需要您的
+        # 许可来播放音频…确定"), 挡住引擎启动与主选单(弹窗期 body 仅弹窗文案
+        # 53 字符, 曾被误判为'站点白屏故障')。提前轮询点掉——按钮是标准
+        # <button>确定, 每次点击顺带探测主选单; 出现"单机模式"即完成等待,
+        # 超时也不 raise(交给下方 menu 重试循环兜底)。
+        for _ in range(12):
+            r = self.b.eval(
+                "(function(){var t=document.body?document.body.innerText:'';"
+                "var menu=t.indexOf('\\u5355\\u673a\\u6a21\\u5f0f')>=0;"
+                "var b=[...document.querySelectorAll('button')]"
+                ".filter(function(x){return x.innerText.trim()==='\\u786e\\u5b9a'});"
+                "if(b.length){b[b.length-1].click();return 'clicked menu='+menu}"
+                "return 'no-dialog menu='+menu})()")
+            if isinstance(r, str) and "menu=True" in r:
+                break
+            time.sleep(5)
         menu_ok = False
         for attempt in range(3):
             self._dismiss_overlays()
