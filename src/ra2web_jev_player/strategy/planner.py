@@ -413,6 +413,24 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
                            max(0, s["t"] - mem.long_fire_t)))
             cred -= aav_cost * qty
 
+    # 7.7) [第97局 用户反馈②] 空军反制生产: 可见敌空中单位(JUMPJET 火箭
+    #     飞行兵等) → HTK 优先补产(帽内)——96 局实证: 敌空军压制下 aav=0,
+    #     坦克每次出击都被 AIR-EVADE 赶回家 = "出击→回家"死循环僵持。
+    #     反制到位后 AIR-EVADE 窗口自然关闭, 进攻恢复。结构与 V3-RESPONSE
+    #     一致(插在坦克线之前)。
+    air_on = any(h["n"] in AIR_UNITS for h in s["hostile"])
+    if air_on and side["aa_v"] and bl.get(side["weap"], 0) >= 1 and q3s == 0 \
+            and not v3_on \
+            and side["aa_v"] in available(s["av"], 3):
+        aav_cost = ucost(side["aa_v"])
+        if n_aav < T["aa_htk_cap"] and cred >= aav_cost:
+            qty = max(1, min(2 if cred >= aav_cost * 2 else 1,
+                             T["aa_htk_cap"] - n_aav))
+            acts.append({"act": "produce", "name": side["aa_v"], "qty": qty, "q": 3})
+            logs.append("t=%d AIR-RESPONSE %s x%d (alive %d, 敌空军在场)"
+                        % (s["t"], side["aa_v"], qty, n_aav))
+            cred -= aav_cost * qty
+
     # 8) 不攒钱: 产能线 (坦克预算保护, 第 20 局复盘: 防御支出让位坦克)
     # [第76局 RUSH-DEFENSE] 动员兵爆产: 模式激活时 q2 空闲即产, 只受造价
     # 约束(生存>一切), 排在坦克线之前吃现金——75 局 13 E2 对 20 海全灭实证。
@@ -1334,9 +1352,15 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         gap = [h for h in (defb or bldg)
                if "NRCT" in str(h.get("n", ""))]
         pool = gap or defb or bldg
+        # [第97局 用户反馈①] STAGING 不再撤回基地门口攒兵(=在基地转圈)——
+        # 集结点改为敌基地方向前沿(home→敌基地连线 55% 处, 前出待命), 攒齐
+        # 直接齐冲; 阈值 siege_push_n 8→5(用户: 不要空等待)。
         if sq["assault"] and len(sq["assault"]) < T["siege_push_n"] and defb:
-            order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
-            logs.append("t=%d SIEGE STAGING x%d/%d (攒兵团, 齐冲再上)"
+            dx, dy = mem.enemy_base[0] - home[0], mem.enemy_base[1] - home[1]
+            fx = int(home[0] + dx * 0.55)
+            fy = int(home[1] + dy * 0.55)
+            order("assault", sq["assault"], fx, fy, 12)
+            logs.append("t=%d SIEGE STAGING x%d/%d (前沿集结, 齐冲再上)"
                         % (s["t"], len(sq["assault"]), T["siege_push_n"]))
         elif pool and ref and sq["assault"]:
             b = min(pool, key=lambda h: math.hypot(h["tl"][0] - ref[0],
