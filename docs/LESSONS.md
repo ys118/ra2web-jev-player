@@ -1613,3 +1613,13 @@ headless 迁移与浏览器 daemon 恢复流程。下一 session 从 `docs/HANDO
   会话级 close+杀 daemon(按 PID)再冷启动。
 - **固化**: preflight 新增 webgl 前置检查步(close→eval 探测, LOST 给可行动
   提示, BLOCKED 拦启动)。
+
+## 95 局事故补遗(2026-10-07) —— 排查假信号清单与 preflight 顺序修复
+
+- **open 挂起=47 局老问题非新故障**(open 等 window load 卡死); 浏览器健康
+  探测一律用 eval(goto 也是 eval 路径, 实测 0.7s)。
+- **close 后立即 eval 会挂 150s**(daemon 内浏览器重启路径, 95 局排查实证)
+  ——preflight 步骤顺序改为 webgl(eval 探测)在前、stale_session(close)在
+  后; webgl 步带冷启动重试。
+- **有头/无头对照判别站点故障**: 两种模式站点均白屏(werhd undefined)→站点
+  自身故障, 与浏览器无关; 页面上下文 WebGL 实测 RTX 4060 Ti 正常。

@@ -57,17 +57,17 @@ _WEBGL_JS = ("(function(){var c=document.createElement('canvas');"
 
 
 def step_webgl():
-    """[95局事故] 浏览器 WebGL 前置检查: agent-browser 自带 Chrome 突发
-    WebGL 丧失时, launcher 会在'主选单未出现'上白耗 3 轮——这里提前拦截
-    并给出可行动修复(切系统 Chrome RA2WEB_CHROME_PATH)。"""
-    # 注意: 不用 open(47 局已知: open 等 window load 会卡死); close 后 eval
-    # 触发 daemon 冷启动, eval 本身就能测 WebGL。
-    ab(["close"], timeout=45)
-    time.sleep(2)
-    r = ab(["eval", _WEBGL_JS], timeout=150)
+    """[95局事故] 浏览器 WebGL 前置检查: 浏览器 WebGL 丧失时, launcher 会在
+    '主选单未出现'上白耗 3 轮——这里提前拦截并给出可行动修复提示。"""
+    # 注意: ①不用 open(47 局已知: open 等 window load 会卡死); ②不在 close
+    # 后立即 eval(daemon 内浏览器重启路径会挂 150s, 95局排查实证)——直接对
+    # 活着的浏览器 eval 探测, close 交给后面的 stale_session 步。
+    r = ab(["eval", _WEBGL_JS], timeout=90)
+    if "TIMEOUT" in r or not r:            # 无 daemon: 冷启动后重测一次
+        r = ab(["eval", _WEBGL_JS], timeout=120)
     ok = "WEBGL-OK" in r
     print("[preflight] webgl: %s" % ("OK" if ok else
-          "LOST (95局事故形态; 修复=设 RA2WEB_CHROME_PATH 指向系统 Chrome 或重装 agent-browser)"))
+          "LOST (重装浏览器: agent-browser install; 或 RA2WEB_CHROME_PATH 指定可用 executable)"))
     return ok
 
 
@@ -85,6 +85,8 @@ def step_site():
 
 
 if __name__ == "__main__":
-    ok = step_clef() and step_stale_session() and step_webgl() and step_site()
+    # 顺序: webgl 探测必须在 stale_session(close) 之前——close 后立即 eval
+    # 会踩 daemon 内浏览器重启挂死(95局排查实证)。
+    ok = step_clef() and step_webgl() and step_stale_session() and step_site()
     print("[preflight] %s" % ("READY" if ok else "BLOCKED"))
     sys.exit(0 if ok else 1)
