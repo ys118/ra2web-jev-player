@@ -40,7 +40,7 @@ uv tool run git-filter-repo --force --invert-paths \
 # note: git-filter-repo drops the origin remote on purpose (history was rewritten)
 
 # ---------- 3) re-add what the public tree should keep ----------
-git checkout -b "$BRANCH"
+# (git-filter-repo keeps the branch name, so no checkout needed)
 mkdir -p artifacts dataset references/research
 cp "$here/artifacts/README.md" artifacts/README.md
 cp "$here/dataset/README.md" dataset/README.md
