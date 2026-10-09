@@ -3,7 +3,7 @@
 > 本文档记录 2026-10-04 一个独立 session 完成的 Clef 本地化全链路：模型调研 →
 > llama.cpp 引擎升级与自编译 → 双量化档部署 → 828 条历史决策影子评测 → 阈值
 > 漂移结论与切换手册。**对应 HANDOFF §一"暂停开新局（Jev 余额耗尽）"的解法。**
-> 全程未调用 Jev 云 API（账号已无余额，所有 Jev 对照答案取自 `logs/games/run-*/`
+> 全程未调用 Jev 云 API（账号已无余额，所有 Jev 对照答案取自 `artifacts/games/run-*/`
 > 的历史落盘记录）。
 
 ## 〇、当前状态速览
@@ -12,7 +12,7 @@
 |---|---|
 | 本地服务 | ✅ 已部署并留驻：`http://127.0.0.1:8085/v1/systemone`（llama.cpp） |
 | 契约 | ✅ 与 TypeSafe 逐字段核对一致（answers 按 qid 键控 / choice+confidence+probabilities / **noul 答案键是 `noul` 不是 `probability`**） |
-| 影子评测 | ✅ 完成：828/828 条重放零失败，报告 `out/shadow_eval/report.md` |
+| 影子评测 | ✅ 完成：828/828 条重放零失败，报告 `artifacts/shadow_eval/report.md` |
 | 切换 | ✅ **已切流（2026-10-04）**：`client.py` 默认 base_url/model 改 `127.0.0.1:8085` + `clef-flash`，Jev 云端两行注释保留可回切；threat 0.55 与 max_decisions 上调仍**待用户拍板** |
 | 默认档 | Q8_0（最佳校准精度）；Q4_K_M 保留为共存档 |
 
@@ -98,8 +98,8 @@ laya=8000 / gemma+ornith=8080 / **clef-flash=8085** / SemIf=8122。
   共 14045 条，**分层等步抽样 828 条**（按局按时间均匀覆盖，t 从 11 到 6727 游戏秒，
   含 63 局前中文投喂与 63 局后英文投喂两时代）。
 - 重放：原始 (state, questions) 原样打本地 Q8_0，与存档 Jev 答案对照。零失败。
-- 工具：`out/shadow_eval.py`（replay/analyze 两段式，results.jsonl 断点续跑；
-  全量重放约 4 小时，跑 `python out/shadow_eval.py replay` 自动补齐）。
+- 工具：`scripts/shadow_eval.py`（replay/analyze 两段式，results.jsonl 断点续跑；
+  全量重放约 4 小时，跑 `uv run python scripts/shadow_eval.py replay` 自动补齐）。
 
 ### 4.2 主结果（en 时代 n=535，全样本趋势一致）
 
@@ -172,9 +172,9 @@ laya=8000 / gemma+ornith=8080 / **clef-flash=8085** / SemIf=8122。
 
 | 项 | 位置 |
 |---|---|
-| 影子评测工具 | `out/shadow_eval.py` |
-| 影子评测结果 | `out/shadow_eval/results.jsonl`（828 条，可续跑全量） |
-| 影子评测报告 | `out/shadow_eval/report.md`（含本文件 §四 全部数字） |
+| 影子评测工具 | `scripts/shadow_eval.py` |
+| 影子评测结果 | `artifacts/shadow_eval/results.jsonl`（828 条，可续跑全量） |
+| 影子评测报告 | `artifacts/shadow_eval/report.md`（含本文件 §四 全部数字） |
 | 启停脚本 | `D:\model-scripts\{start,stop,status}_clef-flash.bat`（说明：`D:\model-scripts\README.md`） |
 | 引擎 | `D:\Tools\llama-cuda`（master 11fe021）/ 备份 `llama-cuda-b11206` / 源码 `D:\Tools\llama.cpp-src` |
 | 模型 | `E:\models\Clef-Flash-{Q8_0,Q4_K_M}.gguf` |

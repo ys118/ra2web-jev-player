@@ -2,13 +2,13 @@
 """作战手册与阈值常量 —— 20 局实战复盘的全部沉淀，从 legacy_bot 原样迁移。
 
 来源标注：
-- T 阈值表 = knowledge/RA2-BIBLE.md §10.2（每局复盘逐条迭代，第 18-20 局定稿）
+- T 阈值表 = docs/knowledge/RA2-BIBLE.md §10.2（每局复盘逐条迭代，第 18-20 局定稿）
 - COUNTERS = Bible §1.6/§2 弹头×护甲克制
 - TARGET_SCORE = Bible §4.3 进攻目标优先级
-- DOCTRINE = knowledge/AI-OPERATING-CARD.md 蒸馏文本（喂 Jev 的作战手册）
+- DOCTRINE = docs/knowledge/AI-OPERATING-CARD.md 蒸馏文本（喂 Jev 的作战手册）
 改任何一条都必须有新对局的复盘证据（docs/METHODOLOGY.md）。
 
-参数迭代机制：knowledge/doctrine.json 的覆盖值在 import 时加载进 T（复盘驱动的
+参数迭代机制：docs/knowledge/doctrine.json 的覆盖值在 import 时加载进 T（复盘驱动的
 学习闭环）；每条覆盖带局次出处与理由，git 历史即调参审计轨迹。
 """
 import json
@@ -68,8 +68,8 @@ T = dict(
                          # rush_defense 时留守抬到 GARRISON 地板(8)守塔线
 )
 
-# 复盘驱动的参数迭代（学习闭环）：knowledge/doctrine.json 里的覆盖值加载到 T。
-# 文件由 review.py 在复盘后按"白名单+限幅+Jev 置信闸门"自动写入（或人工编辑），
+# 复盘驱动的参数迭代（学习闭环）：docs/knowledge/doctrine.json 里的覆盖值加载到 T。
+# 文件由 review 包（review/tuning.py）在复盘后按"白名单+限幅+置信闸门"自动写入（或人工编辑），
 # 每条覆盖带局次出处与理由；git 历史即调参审计轨迹。加载失败/键名不认→静默用默认值。
 _DOCTRINE_OVERRIDES = KNOWLEDGE_DIR / "doctrine.json"
 _T_DEFAULTS = dict(T)
@@ -106,8 +106,6 @@ COUNTERS = {
     "heavy":     [("HTNK", "犀牛(100%,5炮杀犀牛)"), ("TESLA", "磁暴线圈(100%,2炮)"), ("SHK", "磁爆步兵(100%)"), ("APOC", "天启(100%×2)")],
     "special_2": [("NAFLAK", "防空炮(150%,射程12)"), ("HTK", "防空车(150%,射程10)"), ("FLAKT", "防空步兵(100%)")],
     "special_1": [("E2", "动员兵枪(100%)"), ("NALASR", "哨戒炮(100%)")],  # 蜘蛛: 只怕机枪
-
-"special_1": [("E2", "conscript rifle (100%)"), ("NALASR", "sentry gun (100%)")],
     "concrete":  [("HTNK", "犀牛(60%)"), ("APOC", "天启(70%)"), ("V3", "V3火箭(30%)")],
     "wood":      [("HTNK", "犀牛(65%)"), ("APOC", "天启(100%)")],
     "steel":     [("APOC", "天启(100%)"), ("V3", "V3火箭(50%)")],

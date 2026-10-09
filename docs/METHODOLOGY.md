@@ -13,15 +13,15 @@
          危机响应 / 交换比 / 错误指纹 —— 能用代码算的绝不给模型
       ② Jev 语义复盘: 败因归类(rootcause) + 下局最优先事项(topfix) +
          是否值得调参(tune noul) —— 语义拍板
-      ③ 落账: logs/games/game-XXXX-review.md(每局报告)
+      ③ 落账: artifacts/games/game-XXXX-review.md(每局报告)
               + docs/LESSONS.md(经验账本, 追加式)
-  → 迭代: 根因命中白名单且 tune>0.6 → knowledge/doctrine.json 自动微调
+  → 迭代: 根因命中白名单且 tune>0.6 → docs/knowledge/doctrine.json 自动微调
          (限幅: 每项一步、有下限; 出处与理由写入文件, git 历史即审计轨迹)
          工程bug/大改 → 进 LESSONS 待办, 由人/agent 实施
   → 下一局: doctrine.load_overrides() 加载覆盖参数, 新局验证, 循环
 ```
 
-- 每局复盘报告: `logs/games/game-XXXX-review.md`；账本: `docs/LESSONS.md`；调参: `knowledge/doctrine.json`。
+- 每局复盘报告: `artifacts/games/game-XXXX-review.md`；账本: `docs/LESSONS.md`；调参: `docs/knowledge/doctrine.json`；训练数据: `dataset/`。
 - 手动复盘任意一局: `uv run ra2web-jev-review [--game N]`。
 - 单变量原则不变：自动调参每局最多触发一组（按根因），限幅+下限防止单局噪声破坏 doctrine。
 

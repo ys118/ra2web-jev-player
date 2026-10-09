@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-"""审计：logs/bot.log 行日志 + logs/jev-events.jsonl 逐事件审计。
+"""审计：artifacts/logs/bot.log 行日志 + artifacts/logs/jev-events.jsonl 逐事件审计。
 
-沿用既有日志格式（legacy_bot 的 bot.log 行格式、官方体系时代的 jev-events.jsonl
+沿用既有日志格式（legacy/bot.py 的 bot.log 行格式、官方体系时代的 jev-events.jsonl
 事件格式），保证历史工具与复盘流程继续可用。无任何网络组件。
 """
 from __future__ import annotations

@@ -1,4 +1,6 @@
-import subprocess, time, base64, sys
+import subprocess
+import time
+
 AB = ["C:/Program Files/nodejs/agent-browser.cmd", "--session", "gonghui"]
 print("probe start", flush=True)
 t0 = time.time()

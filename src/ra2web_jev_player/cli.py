@@ -17,11 +17,11 @@ import sys
 
 from .audit import Audit
 from .config import DriverConfig, MatchConfig
-from .paths import LOG_DIR
 from .driver.browser import Browser
 from .driver.launcher import GameLauncher
 from .game import BattleSession
 from .jev import JevClient
+from .paths import LOG_DIR
 
 LOCK_PATH = LOG_DIR / ".play.lock"
 
@@ -87,7 +87,7 @@ def _wire(args) -> tuple:
 def main_play(argv=None) -> int:
     args = _common(sys.argv[1:] if argv is None else argv)
     if not _acquire_lock():
-        print("已有对局进程在运行（logs/.play.lock）。先停掉它或设 RA2WEB_NO_LOCK=1 强制。",
+        print("已有对局进程在运行（artifacts/logs/.play.lock）。先停掉它或设 RA2WEB_NO_LOCK=1 强制。",
               file=sys.stderr)
         return 2
     try:
@@ -143,7 +143,7 @@ def main_attach(argv=None) -> int:
 def main_review(argv=None) -> int:
     p = argparse.ArgumentParser(description="复盘最后一段对局（生成 review.md + LESSONS + 调参）")
     p.add_argument("--game", type=int, default=None, help="局号(默认自动: 已有最大局号+1)")
-    p.add_argument("--log", default=None, help="指定 bot.log 路径(默认 logs/bot.log)")
+    p.add_argument("--log", default=None, help="指定 bot.log 路径(默认 artifacts/logs/bot.log)")
     args = p.parse_args(sys.argv[1:] if argv is None else argv)
     from pathlib import Path
 
