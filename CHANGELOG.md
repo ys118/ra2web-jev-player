@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Publishing workflow for the two-repository model, recorded in `AGENTS.md` and
+  `docs/PUBLISHING.md`: private-first pull requests, then a regenerated code-only
+  mirror (`scripts/publish_public.sh`, `--branch` mode for a public pull request).
 - Open-source governance files: `LICENSE`, `THIRD_PARTY_NOTICES.md`,
   `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `.editorconfig`,
   `.gitattributes`, issue/PR templates and a CI workflow.
