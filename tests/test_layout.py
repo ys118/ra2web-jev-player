@@ -10,8 +10,14 @@ import re
 import sys
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
+
+# 公开仓库只发布代码与文档；对局数据（artifacts/、dataset/）保持私有。
+DATA_SHIPPED = (ROOT / "artifacts" / "games").is_dir() and \
+    (ROOT / "dataset" / "MANIFEST.jsonl").is_file()
 
 from ra2web_jev_player import paths  # noqa: E402
 from ra2web_jev_player.strategy import doctrine, planner, state  # noqa: E402
@@ -38,13 +44,26 @@ def test_layout_dirs_resolve_to_new_locations():
 
 
 def test_data_dirs_exist_and_are_not_empty():
-    """数据资产目录必须在位（红线：禁删/禁清空）。"""
+    """数据资产目录必须在位（红线：禁删/禁清空）。
+
+    仅在维护者的完整检出里断言：公开仓库只发布代码与文档，对局数据
+    （artifacts/、dataset/）保持私有，因此公开检出里该用例跳过。
+    """
+    if not DATA_SHIPPED:
+        pytest.skip("match data is kept private and is not shipped in the public repository")
     assert (ROOT / "dataset" / "MANIFEST.jsonl").is_file()
     assert any((ROOT / "artifacts" / "games").glob("game-*-review.md"))
     assert (ROOT / "artifacts" / "logs" / "bot.log").is_file()
-    assert (ROOT / "docs" / "knowledge" / "RA2-BIBLE.md").is_file()
-    assert (ROOT / "references" / "werhd" / "player-console-api.md").is_file()
     assert (ROOT / "references" / "research" / "rules.ini").is_file()
+
+
+def test_shipped_docs_and_derived_data_present():
+    """公开检出也必须具备的东西：派生知识库、参考文档与数据目录说明。"""
+    assert (ROOT / "docs" / "knowledge" / "RA2-BIBLE.md").is_file()
+    assert (ROOT / "docs" / "knowledge" / "RA2-UNITS.json").is_file()
+    assert (ROOT / "references" / "werhd" / "player-console-api.md").is_file()
+    assert (ROOT / "artifacts" / "README.md").is_file()
+    assert (ROOT / "dataset" / "README.md").is_file()
 
 
 def test_knowledge_unit_db_loads():

@@ -17,6 +17,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Two-repository model**: the public repository is regenerated from the private
+  working repository with `scripts/publish_public.sh` and ships code, docs, derived
+  knowledge and official API snapshots only; recorded match data (`artifacts/`,
+  `dataset/`) and data-mining material (`references/research/`) stay private. See
+  `docs/PUBLISHING.md`.
+- Recorded data files no longer contain the maintainer's local user path
+  (`C:\Users\<user>` in 298 traceback lines).
 - Public-facing documentation translated to English: `README.md`,
   `docs/ARCHITECTURE.md`, `docs/LAYOUT.md`, `docs/METHODOLOGY.md`, the
   per-directory READMEs, and all module/class/function docstrings in the package.
