@@ -122,5 +122,5 @@ secondaryWeapon/ammo(己方飞机)/transport(载员)/garrison(驻扎)/hasWrenchR
 ## 六、本机环境速查
 
 - `agent-browser`（Rust CLI，自带 Chrome for Testing）。技能入口 `agent-browser skills get core`。
-- Python 环境（2026-09-26 起）：项目统一 **uv**——repo 根 `uv sync` 后用 `uv run <命令>`（uv 自管 CPython 3.12.10，venv 在 `.venv/`，`.python-version` 已固定）。后备：`/c/Users/15652/miniconda3/python.exe`；裸 `python` 是 hermes venv（3.11，缺依赖），别用于本项目。
-- TypeSafe 判定 CLI：`python $TSJ_SCRIPT`（本机外部工具, 路径自定; 见项目根的 tsj 技能）（stdin 传 `{state, questions}`，criteria 形状见 `docs/JEV-INTEGRATION.md`）。
+- Python 环境（2026-09-26 起）：项目统一 **uv**——repo 根 `uv sync` 后用 `uv run <命令>`（uv 自管 CPython 3.12.10，venv 在 `.venv/`，`.python-version` 已固定）。后备：系统自带/自装的 Python 3.11+ 亦可（`uv run` 之外请勿用裸 `python` 跑本项目）。
+- TypeSafe 判定 CLI：`python $TSJ_SCRIPT`（外部工具, 路径自定）（stdin 传 `{state, questions}`，criteria 形状见 `docs/JEV-INTEGRATION.md`）。
