@@ -45,10 +45,14 @@ mkdir -p artifacts dataset references/research
 cp "$here/artifacts/README.md" artifacts/README.md
 cp "$here/dataset/README.md" dataset/README.md
 cp "$here/references/research/README.md" references/research/README.md
+# drop the data-repository note about these paths being tracked, then ignore them
+grep -v -e '数据资产。在本库' -e '因此\*\*不在此忽略\*\*' -e '公开代码库由 scripts/publish_public.sh'      .gitignore > .gitignore.public
+mv .gitignore.public .gitignore
 cat >> .gitignore <<'EOF'
 
-# Match data is not published: keep a contributor's own runs out of commits.
-# (The maintainer's data repository tracks these paths instead.)
+# Match data is not published: this repository ships code and docs only.
+# The maintainer's data repository tracks these paths; here they are ignored so a
+# contributor's own match data never ends up in a commit (see docs/PUBLISHING.md).
 artifacts/
 dataset/
 EOF

@@ -45,8 +45,9 @@ training asset:
    `uv run python scripts/build_dataset.py`, which is idempotent; conventions and
    numbering caveats are in `dataset/README.md`);
 3. **Red line: never clean, overwrite or delete any historical data under
-   `artifacts/` or `dataset/`.** Data directories are not gitignored; they are
-   persisted and pushed with git;
+   `artifacts/` or `dataset/`.** In the data repository (this working repository)
+   they are not gitignored — they are persisted and pushed with git. The public
+   code repository never contains them (see `docs/PUBLISHING.md`);
 4. If a report finds data missing, corrupted or unarchived, tell the user
    immediately;
 5. Data-format changes (adding/removing fields in `decisions`, changes to
