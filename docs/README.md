@@ -14,6 +14,7 @@ Two kinds of documents live here, deliberately in two languages:
 |---|---|---|
 | [ARCHITECTURE.md](ARCHITECTURE.md) | English | The self-contained architecture: layers, data flow, design trade-offs, and how it differs from the earlier bridge-based design. |
 | [LAYOUT.md](LAYOUT.md) | English | Repository layout contract, the old → new migration table, and the invariants that must not be broken. |
+| [PUBLISHING.md](PUBLISHING.md) | English | The two-repository model: what is public (code, docs, derived knowledge) and what stays private (match data, data-mining material), plus the one-command publish script. |
 | [METHODOLOGY.md](METHODOLOGY.md) | English | How the project iterates: single-variable changes, the evidence rule, the review loop, and how a threshold may be changed. |
 | [HANDOFF.md](HANDOFF.md) | Chinese | Cold-start hand-off for the maintainer: current state, how to resume, operational rules learned the hard way. |
 | [LESSONS.md](LESSONS.md) | Chinese | Append-only ledger, one entry per match: what failed, the root cause, the parameter change, the follow-up. The most valuable file in the repository. |

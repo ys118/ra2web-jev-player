@@ -131,6 +131,13 @@ directory has its own README.
 | `docs/` | architecture, layout, methodology, hand-off notes, per-match lessons, game knowledge ([index](docs/README.md)) |
 | `references/` | external material: official API docs and examples, game data-mining pipeline ([README](references/README.md)) |
 
+**Public repository vs. maintainer checkout.** The public repository ships code,
+tests, scripts, docs, the derived knowledge base and the official API reference
+snapshots. Recorded match data (`artifacts/`, `dataset/`) and the data-mining
+material (`references/research/`) are kept in the maintainer's private working
+repository — those directories contain only their README here. See
+[docs/PUBLISHING.md](docs/PUBLISHING.md).
+
 ## The learning loop
 
 ```
