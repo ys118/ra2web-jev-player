@@ -1,15 +1,51 @@
 # HANDOFF —— 新 session 冷启动指南
 
-> 本文件由上一个 session 在收尾时更新（**2026-10-07, 100 局里程碑收官+101 局
-> 迭代包就绪**）。按 `README.md` 看全貌、`docs/ARCHITECTURE.md` 看架构；本文件只讲
-> **从哪继续、怎么跑起来、注意什么**。**下一局=第 101 局（三修复实战验证局, 已就绪）**。
+> 本文件由上一个 session 在收尾时更新（**2026-10-09, 开源上线收官**）。按 `README.md`
+> 看全貌、`docs/ARCHITECTURE.md` 看架构、`docs/LAYOUT.md` 看目录契约、`docs/PUBLISHING.md`
+> 看双库发布；本文件只讲 **从哪继续、怎么跑起来、注意什么**。
+> **对战侧下一局 = 第 101 局（三修复实战验证局, 已就绪）；仓库侧已开源, 日常工作流改为
+> 「私有库开发 → 发布镜像 → 公开库合并 PR」（见 §一.0）**。
+
+## 一.0、开源已上线（2026-10-09 收官, 最重要的一条）
+
+**两个仓库, 各司其职**（用户拍板: 只公开代码, 数据保持私有）:
+
+| 仓库 | 可见性 | 角色 |
+|---|---|---|
+| `ys118/ra2web-jev-player` | **PUBLIC** | 代码/测试/脚本/docs/派生知识 `docs/knowledge/`/官方 API 快照 `references/werhd/`。**无对局数据** |
+| `ys118/ra2web-jev-player-data` | private | **source of truth**：全量历史 + `artifacts/`、`dataset/`、`references/research/`。本地 `origin` 指向它（**旧名 `ra2web-jev-player` 已改名, 旧 URL 自动重定向**） |
+
+**日常发布（用户指定工作流）**: 私有库 branch → PR → merge → 跑
+`bash scripts/publish_public.sh`（`git filter-repo` 过滤全部历史 → 推 `mirror/sync` 分支
+→ 自动开 PR）→ 在公开库 review 后用 **merge commit** 合并。没事可发布时脚本自动报
+`already up to date` 静默退出。完整模型/一次性设置见 **`docs/PUBLISHING.md`**。
+
+**公开库已配好的保护与惯例**（改动前先读 `docs/PUBLISHING.md`）:
+- ruleset「master protection」(id 24795305): **PR 必需 + 1 approve + CI 双检查(py3.11/3.12)
+  通过 + 会话 resolved + 只能 merge commit + 禁直推/force/删分支**;
+  **bypass 名单含 Repository admin**——GitHub 禁止自 approve, 单维护者的自建 PR 只能走
+  `gh pr merge --merge --admin <PR>`（或网页 bypass 按钮）; 他人 PR 必须你 approve 才能合。
+- 社区规范 100%: LICENSE(MIT, **必须保持纯 MIT 文本**, 附加说明放 `THIRD_PARTY_NOTICES.md`,
+  否则 GitHub 识别不出许可证)/CONTRIBUTING/CODE_OF_CONDUCT/SECURITY/CHANGELOG/issue 表单/
+  PR 模板; Discussions 开、wiki 关、自动删分支、私密漏洞上报、secret scanning +
+  push protection、Dependabot(alerts + security updates + 月度分组 `.github/dependabot.yml`);
+  v0.2.0 Release。
+- **语言政策**: 公开面英文（README/治理/CI/pyproject/**全部 docstring**）;
+  `docs/LESSONS.md`、`HANDOFF.md`、`SESSION-REPORT.md`、`ENGINEERING-NOTES.md`、
+  `CLEF-LOCAL.md`、`JEV-INTEGRATION.md`、`docs/knowledge/` 内容、代码内联 `# [第N局]` 注释、
+  **运行时日志串**（review 引擎解析它们）保留中文——见 `docs/README.md`。
+- 隐私: 数据文件里的本机用户名已清（`C:/Users/<user>`）; 代码/脚本/文档无个人路径;
+  `agent-browser` 与 `TSJ_SCRIPT` 一律走环境变量（`AGENT_BROWSER_CMD` / `TSJ_SCRIPT`）。
+
+**已发布**: PR #3/#4（镜像同步）已合并, 公开 master 与私有库内容一致; 幂等性实测通过。
+**收尾时若又攒了改动**: 跑一次 `scripts/publish_public.sh` 并按提示合并 PR 即可。
 
 ## 一、当前状态（截至交接时）
 
 | 项 | 状态 |
 |---|---|
 | **结构重构(2026-10-09)** | **仓库整理为标准 uv 工程(代码/文档/数据/资料分区; planner 与 review 拆包; `uv run pytest` 26 场景 + 布局守卫全过)——操作路径全部变更, 对照表见 `docs/LAYOUT.md`; 决策行为零改动** |
-| 项目 | `<repo>`，GitHub 私有库 `ys118/ra2web-jev-player`（master，最新提交见 `git log -1`） |
+| 项目 | `<repo>`（= 数据仓 `ys118/ra2web-jev-player-data` 的本地检出; `origin` 指向它, master 直推）。公开镜像 `ys118/ra2web-jev-player` 走 PR（§一.0） |
 | 战绩 | **100 局：21 胜**（milestone 达成）。近期弧线: 87 防御纵深包🏆→88-90 经济三连修(坦克资金地板/统一生产账本/收入负债豁免)→91 🏆矿车7辆翻盘→92-93 步坦协同+FOCUS-FIRE+侦察路标网(用户战术反馈)→94 矿车+1容错→95 击杀冻结检测器🏆→96 用户叫停僵持局→97-98 打破僵局包两连胜→99 大roll消耗战partial→100 收官defeat(老死法复现)。详见 LESSONS 尾部 |
 | **暂停(2026-10-04 用户指示)** | **暂停开新局**: 用户 Jev 服务余额耗尽, 另一 session 正在接**本地部署 clef-flash 替代 Jev**; 恢复对战前先确认新后端接入+联调。→ **已就绪(2026-10-04)**: 本地引擎+影子评测完成, 全档见 **`docs/CLEF-LOCAL.md`**；**切流已实施(同日 §八)**: 端点/threat 0.55/预算分流/teacher 四项落盘, 服务 q8 重启在驻, **待用户号令开第 70 局** |
 | **clef 接入指引** | JevClient 已环境变量驱动(`src/ra2web_jev_player/jev/client.py`): `JEV_BASE_URL`(默认 api.typesafe.ai/v1, 端点契约 POST {base_url}/systemone, body {state,questions,model}) / `JEV_MODEL` / `JEV_MAX_CALLS` / 密钥 `TYPESAFE_API_KEY`(绝不入库)。本地 clef 若实现同契约→零代码改; 若是 OpenAI 兼容 API→client.py 加适配层。决策预算上限由 CLI `--max-decisions`(现 1200)传入, 长局触顶候选上调。✅ **已实测(2026-10-04)**: llama.cpp 的 clef 实现=同契约, 逐字段核对一致(noul 答案键=`noul`), `JEV_BASE_URL=http://127.0.0.1:8085/v1`+dummy key 即零代码切; 阈值建议(threat 0.6→0.55 / stance 0.45 保持)与切换手册见 `docs/CLEF-LOCAL.md` §四.4/§五。**2026-10-04 已切流**: client.py 默认端点/模型改本地(`127.0.0.1:8085`/`clef-flash`), Jev 云端两行注释保留可回切 |
