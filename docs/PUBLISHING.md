@@ -21,6 +21,32 @@ Why two repositories:
   never deleted. The private repository keeps that guarantee; the public
   repository simply never contains it.
 
+## Development workflow (user-mandated, 2026-10-09)
+
+The rule, in one line: **the private repository is the source of truth and every
+change is reviewed there first; the public repository is a regenerated mirror that
+receives the same change through its own pull request.**
+
+1. **Develop privately first.** Branch off `master` in the private repository, open
+   a pull request there, merge it. All data-producing work (matches, dataset
+   rebuilds) happens only here.
+2. **Publish the mirror.** `scripts/publish_public.sh` regenerates the public
+   history. The rewrite is deterministic, so this is normally a fast-forward and
+   the public commit ids line up with the filtered private ones.
+3. **The same change as a public pull request.** `scripts/publish_public.sh
+   --branch <name>` pushes a data-free copy of that branch to the public
+   repository; open the pull request there against `master` and merge it. The
+   public review therefore sees exactly the change that was already reviewed
+   privately, with no match data attached.
+4. **Never let the two diverge.** A push rejected as non-fast-forward means the
+   public repository has commits the private one does not (typically a pull
+   request merged only there). Bring them in first —
+   `git fetch public && git merge public/master` — then publish again. Use
+   `--force` only when you intend to discard the public-side history.
+5. **Keep code and data commits separate.** The filter drops the data part of a
+   commit silently, which is correct but makes the public history harder to read if
+   the two are mixed in one commit.
+
 ## Publishing a revision
 
 The public history is **regenerated** from the private repository, so the two

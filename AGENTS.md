@@ -53,6 +53,26 @@ training asset:
 5. Data-format changes (adding/removing fields in `decisions`, changes to
    dataset metadata) must be reported first and must keep old data readable.
 
+## Publishing workflow (user-mandated, 2026-10-09)
+
+Development happens in the **private** repository (`ys118/ra2web-jev-player-data`,
+the checkout you are in); the public repository
+(`ys118/ra2web-jev-player`) is a regenerated code-only mirror:
+
+1. Branch → pull request → merge **here first**; match data and dataset rebuilds
+   only ever happen here.
+2. Then publish the same change to the public repository:
+   `scripts/publish_public.sh` (mirror, fast-forward) and, when a public review
+   record is wanted, `scripts/publish_public.sh --branch <name>` followed by a pull
+   request on the public repository.
+3. If the publish push is rejected, the public repository has commits this one does
+   not: pull them in (`git fetch public && git merge public/master`) before
+   publishing; never `--force` over them unless discarding them is intended.
+4. Keep code commits and data commits separate, so the published history stays
+   readable after the data is filtered out.
+
+Full model, recovery steps and the one-time repository setup: `docs/PUBLISHING.md`.
+
 ## Other standing rules (aligned with `docs/HANDOFF.md` §4)
 
 - Use only the game's public werhd API; play single-player skirmish only, never
