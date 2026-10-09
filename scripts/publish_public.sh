@@ -135,6 +135,6 @@ ancestors, so later syncs only contain what actually changed.")"
     echo "==> pull request opened: $PR_URL"
 fi
 echo
-echo "    next: review and merge it (merge commit). CI must be green first:"
-echo "      gh pr checks --repo $PUBLIC_REPO"
-echo "      gh pr merge --repo $PUBLIC_REPO --merge $PR_URL"
+echo "    next: review and merge it with a merge commit once CI is green:"
+echo "      gh pr checks $PR_URL"
+echo "      gh pr merge --merge $PR_URL"
