@@ -46,14 +46,7 @@ cp "$here/artifacts/README.md" artifacts/README.md
 cp "$here/dataset/README.md" dataset/README.md
 cp "$here/references/research/README.md" references/research/README.md
 # .gitignore: use the published-repository variant (data paths ignored)
-cp "$here/scripts/public.gitignore" .gitignore'
-
-# Match data is not published: this repository ships code and docs only.
-# The maintainer's data repository tracks these paths; here they are ignored so a
-# contributor's own match data never ends up in a commit (see docs/PUBLISHING.md).
-artifacts/
-dataset/
-EOF
+cp "$here/scripts/public.gitignore" .gitignore
 git add -A
 git commit -q -m "chore: publish code-only tree (match data and third-party bulk stay private)
 
