@@ -15,7 +15,7 @@ set -euo pipefail
 PUBLIC_REPO="${PUBLIC_REPO:-git@github.com:ys118/ra2web-jev-player.git}"
 PRIVATE_REMOTE="${PRIVATE_REMOTE:-origin}"
 BRANCH="${BRANCH:-master}"
-SCRATCH="${SCRATCH:-$LOCALAPPDATA/Temp/ra2web-jev-player-public}"
+SCRATCH="${SCRATCH:-${TMPDIR:-/tmp}/ra2web-jev-player-public}"
 DRY_RUN=0
 [ "${1:-}" = "--dry-run" ] && DRY_RUN=1
 
