@@ -9,7 +9,7 @@
 | 项 | 状态 |
 |---|---|
 | **结构重构(2026-10-09)** | **仓库整理为标准 uv 工程(代码/文档/数据/资料分区; planner 与 review 拆包; `uv run pytest` 26 场景 + 布局守卫全过)——操作路径全部变更, 对照表见 `docs/LAYOUT.md`; 决策行为零改动** |
-| 项目 | `D:/projects/ra2web-jev-player`，GitHub 私有库 `ys118/ra2web-jev-player`（master，最新提交见 `git log -1`） |
+| 项目 | `<repo>`，GitHub 私有库 `ys118/ra2web-jev-player`（master，最新提交见 `git log -1`） |
 | 战绩 | **100 局：21 胜**（milestone 达成）。近期弧线: 87 防御纵深包🏆→88-90 经济三连修(坦克资金地板/统一生产账本/收入负债豁免)→91 🏆矿车7辆翻盘→92-93 步坦协同+FOCUS-FIRE+侦察路标网(用户战术反馈)→94 矿车+1容错→95 击杀冻结检测器🏆→96 用户叫停僵持局→97-98 打破僵局包两连胜→99 大roll消耗战partial→100 收官defeat(老死法复现)。详见 LESSONS 尾部 |
 | **暂停(2026-10-04 用户指示)** | **暂停开新局**: 用户 Jev 服务余额耗尽, 另一 session 正在接**本地部署 clef-flash 替代 Jev**; 恢复对战前先确认新后端接入+联调。→ **已就绪(2026-10-04)**: 本地引擎+影子评测完成, 全档见 **`docs/CLEF-LOCAL.md`**；**切流已实施(同日 §八)**: 端点/threat 0.55/预算分流/teacher 四项落盘, 服务 q8 重启在驻, **待用户号令开第 70 局** |
 | **clef 接入指引** | JevClient 已环境变量驱动(`src/ra2web_jev_player/jev/client.py`): `JEV_BASE_URL`(默认 api.typesafe.ai/v1, 端点契约 POST {base_url}/systemone, body {state,questions,model}) / `JEV_MODEL` / `JEV_MAX_CALLS` / 密钥 `TYPESAFE_API_KEY`(绝不入库)。本地 clef 若实现同契约→零代码改; 若是 OpenAI 兼容 API→client.py 加适配层。决策预算上限由 CLI `--max-decisions`(现 1200)传入, 长局触顶候选上调。✅ **已实测(2026-10-04)**: llama.cpp 的 clef 实现=同契约, 逐字段核对一致(noul 答案键=`noul`), `JEV_BASE_URL=http://127.0.0.1:8085/v1`+dummy key 即零代码切; 阈值建议(threat 0.6→0.55 / stance 0.45 保持)与切换手册见 `docs/CLEF-LOCAL.md` §四.4/§五。**2026-10-04 已切流**: client.py 默认端点/模型改本地(`127.0.0.1:8085`/`clef-flash`), Jev 云端两行注释保留可回切 |
@@ -69,7 +69,7 @@
 
 ```bash
 # 1) 一条命令全自动（需 TYPESAFE_API_KEY 环境变量，已配用户级）
-cd D:/projects/ra2web-jev-player
+cd <repo>
 uv sync                        # 首次/依赖变更后
 uv run ra2web-jev-play         # 进局→注入→托管整局→终局自动复盘→账本+调参
 

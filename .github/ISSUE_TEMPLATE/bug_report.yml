@@ -1,0 +1,64 @@
+name: Bug report
+description: Something behaves incorrectly (a match failure, a crash, wrong decisions)
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing: this project plays *single-player skirmish* matches against
+        the built-in AI. Losing a match is normal and not a bug — a bug is when the
+        code misbehaves (crash, wrong order, stuck loop, data loss).
+
+        Please do not paste API keys, cookies or full console logs containing
+        personal paths.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Describe the observed behaviour, and what you expected instead.
+    validations:
+      required: true
+
+  - type: input
+    id: match
+    attributes:
+      label: Match / run id
+      description: If it happened during a match, give the run directory name (e.g. `run-20261007-195626`) or review number.
+      placeholder: run-YYYYMMDD-HHMMSS
+    validations:
+      required: false
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Commands you ran and what you saw. Trim logs to the relevant lines.
+      placeholder: |
+        1. `uv run ra2web-jev-play --loop 1`
+        2. at t=300 the log shows ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version (`uv run python -V`), how you run the browser (`agent-browser --version`), and the decision backend (local endpoint or cloud).
+      placeholder: |
+        OS: Windows 11
+        Python: 3.12.10
+        agent-browser: 0.9.x
+        backend: local clef-flash at 127.0.0.1:8085
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight
+      options:
+        - label: I ran `uv run pytest` and `uv run ruff check`, and they are clean.
+          required: false
+        - label: I did not include secrets (API keys, cookies) or personal paths in this report.
+          required: true

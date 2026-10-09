@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-"""复盘产出: 每局 review.md + 事件切片 + LESSONS 账本追加（追加式, 不覆盖）。
+"""Review output: per-game review.md + event slice + LESSONS ledger append (append-only,
+never overwritten).
 
-(自 review.py 原样拆出: 函数逐行搬运, 行为零改动; 复盘口径注释保留在各函数处。)
+(Extracted verbatim from review.py: functions moved line by line, behavior unchanged; the
+review conventions comments are kept at each function.)
 """
 from __future__ import annotations
 
@@ -106,11 +108,14 @@ def append_lessons(rec: GameRecord, findings: list, answers: dict,
 
 
 def link_run_dir(game_no: int, review_path: Path) -> None:
-    """[训练数据管道] 在最新 run 目录落 game.json：局号 ↔ run 目录 链接。
+    """[training-data pipeline] Drop game.json into the newest run directory: the game number
+    <-> run directory link.
 
-    局号在复盘时才确定（run 目录创建于开局），因此由复盘侧写回；
-    scripts/build_dataset.py 依此把新局增量并入 dataset/。
-    链接只是训练数据管道的辅助件，写失败不阻断复盘。
+    The game number is only fixed at review time (the run directory is created at game start),
+    so the review side writes it back; scripts/build_dataset.py uses it to merge the new
+    game's increment into dataset/.
+    The link is only an auxiliary artifact of the training-data pipeline; a failed write does
+    not block the review.
     """
     try:
         run_dir = latest_run_dir()

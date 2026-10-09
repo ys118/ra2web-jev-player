@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-"""启动前自检(第88局起固化, 2026-10-06 运维事故教训):
-①clef-flash 本地决策服务健康 ②游戏 session 残留清理(会话级 close, 铁律允许)
-③站点串行探测(必须无 launcher 并发, 87 局事故: probe 与 launcher 同 session
-打架致 eval 挂死)。全部通过 exit 0, 否则 exit 1。
+"""Pre-launch self-check (codified from game 88 on; lesson of the 2026-10-06 ops incident):
+(1) local clef-flash decision service health (2) stale game-session cleanup (session-scoped close, which
+the iron rule allows) (3) serial site probing (no concurrent launcher allowed; game 87 incident: probe and
+launcher fighting over the same session hung eval). Exit 0 only if everything passes, otherwise exit 1.
 """
 import os
+import shutil
 import subprocess
 import sys
 import time
@@ -21,7 +22,19 @@ _CHROME = os.environ.get("RA2WEB_CHROME_PATH", "")
 if _CHROME and os.path.isfile(_CHROME):
     os.environ["AGENT_BROWSER_EXECUTABLE_PATH"] = _CHROME
 
-AB = ["C:/Program Files/nodejs/agent-browser.cmd", "--session", "ra2web"]
+def _agent_browser():
+    """agent-browser CLI path: env AGENT_BROWSER_CMD wins, else PATH."""
+    env = os.environ.get("AGENT_BROWSER_CMD")
+    if env:
+        return env
+    for name in ("agent-browser", "agent-browser.cmd", "agent-browser.exe"):
+        found = shutil.which(name)
+        if found:
+            return found
+    return "agent-browser"
+
+
+AB = [_agent_browser(), "--session", os.environ.get("RA2WEB_SESSION", "ra2web")]
 
 
 def ab(args, timeout=90):
@@ -46,7 +59,8 @@ def step_clef():
 
 
 def step_stale_session():
-    """残留会话清理: 只做会话级 close(不碰其他 session, 不按名杀进程)。"""
+    """Stale-session cleanup: session-scoped close only (never touches other sessions, never kills
+    processes by name)."""
     r = ab(["close"], timeout=45)
     print("[preflight] stale session: %s" % ("clean" if "closed" in r.lower() or r else r[:40]))
     return True
@@ -60,8 +74,8 @@ _WEBGL_JS = ("(function(){var c=document.createElement('canvas');"
 
 
 def step_webgl():
-    """[95局事故] 浏览器 WebGL 前置检查: 浏览器 WebGL 丧失时, launcher 会在
-    '主选单未出现'上白耗 3 轮——这里提前拦截并给出可行动修复提示。"""
+    """[game 95 incident] Browser WebGL pre-check: when the browser has lost WebGL, the launcher wastes
+    3 rounds on 'main menu did not appear' -- catch it here early and give an actionable fix hint."""
     # 注意: ①不用 open(47 局已知: open 等 window load 会卡死); ②不在 close
     # 后立即 eval(daemon 内浏览器重启路径会挂 150s, 95局排查实证)——直接对
     # 活着的浏览器 eval 探测, close 交给后面的 stale_session 步。

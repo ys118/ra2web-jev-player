@@ -1,15 +1,19 @@
 # -*- coding: utf-8 -*-
-"""作战手册与阈值常量 —— 20 局实战复盘的全部沉淀，从 legacy_bot 原样迁移。
+"""Battle manual and threshold constants - the full distillation of 20 live-game
+reviews, migrated verbatim from legacy_bot.
 
-来源标注：
-- T 阈值表 = docs/knowledge/RA2-BIBLE.md §10.2（每局复盘逐条迭代，第 18-20 局定稿）
-- COUNTERS = Bible §1.6/§2 弹头×护甲克制
-- TARGET_SCORE = Bible §4.3 进攻目标优先级
-- DOCTRINE = docs/knowledge/AI-OPERATING-CARD.md 蒸馏文本（喂 Jev 的作战手册）
-改任何一条都必须有新对局的复盘证据（docs/METHODOLOGY.md）。
+Provenance:
+- T threshold table = docs/knowledge/RA2-BIBLE.md §10.2 (iterated entry by entry
+  per game review, finalized in games 18-20)
+- COUNTERS = Bible §1.6/§2 warhead x armor counters
+- TARGET_SCORE = Bible §4.3 attack target priority
+- DOCTRINE = distilled text of docs/knowledge/AI-OPERATING-CARD.md (the battle
+  manual fed to Jev)
+Changing any entry requires review evidence from a new game (docs/METHODOLOGY.md).
 
-参数迭代机制：docs/knowledge/doctrine.json 的覆盖值在 import 时加载进 T（复盘驱动的
-学习闭环）；每条覆盖带局次出处与理由，git 历史即调参审计轨迹。
+Parameter iteration mechanism: overrides in docs/knowledge/doctrine.json are loaded
+into T at import time (the review-driven learning loop); every override carries its
+game of origin and rationale, so git history is the tuning audit trail.
 """
 import json
 import os
@@ -76,7 +80,8 @@ _T_DEFAULTS = dict(T)
 
 
 def load_overrides() -> dict:
-    """重新加载 doctrine.json 覆盖到 T（新对局开始时调用，保证 --loop 生效）。"""
+    """Reload the doctrine.json overrides into T (called at the start of each new
+    game so --loop picks them up)."""
     try:
         with open(_DOCTRINE_OVERRIDES, encoding="utf-8") as f:
             ov = json.load(f) or {}
@@ -219,9 +224,11 @@ SOVIET_COUNTRIES = {"Russians", "Confederation", "Africans", "Arabs"}
 
 
 def get_side(s: dict) -> dict:
-    """按 me().country 返回阵营代码表; country 缺失时按建筑/可造列表推断兜底。
+    """Return the faction code table from me().country; when country is missing,
+    infer it from buildings/buildable lists as a fallback.
 
-    (第 18 局复盘: country 漏传导致开局序列静默失效 450 秒, 推断兜底是必修保险)
+    (game 18 review: a missing country silently disabled the opening sequence for
+    450 seconds, so this inference fallback is mandatory insurance)
     """
     country = (s.get("me", {}).get("country") or "")
     if not country:

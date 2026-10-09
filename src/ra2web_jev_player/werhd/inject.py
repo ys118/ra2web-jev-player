@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-"""页内客户端注入器：把 client.js 注入游戏页（挂 window.__rj）并提供 Python 侧代理。
+"""In-page client injector: injects client.js into the game page (attached as window.__rj) and provides the
+Python-side proxy.
 
-注入走 `agent-browser eval --stdin`（client.js ~15KB，超过 cmd.exe 8191 字符
-argv 上限，`eval -b` 装不下）。之后的零散调用都是小表达式，走 `eval -b`。
+Injection goes through `agent-browser eval --stdin` (client.js is ~15KB, over cmd.exe's 8191-character
+argv limit, so `eval -b` cannot carry it). All later scattered calls are small expressions and go through
+`eval -b`.
 """
 from __future__ import annotations
 
@@ -16,7 +18,7 @@ CLIENT_PATH = Path(__file__).with_name("client.js")
 
 
 class WerhdClient:
-    """页内 __rj 客户端的 Python 侧代理（thin wrapper）。"""
+    """Python-side proxy for the in-page __rj client (thin wrapper)."""
 
     def __init__(self, browser: Browser):
         self.b = browser
@@ -25,9 +27,10 @@ class WerhdClient:
     # ---------- 生命周期 ----------
 
     def inject(self, timeout: float = 90, retries: int = 3) -> dict:
-        """注入 client.js 并验证 __rj 存在。必须在对局进行中调用。
+        """Inject client.js and verify that __rj exists. Must be called while a match is in progress.
 
-        页面导航/重载进行中 eval 可能落到旧页或空档，验证失败时重试。
+        While page navigation/reload is in progress an eval may land on the old page or in a gap; retry
+        when verification fails.
         """
         src = CLIENT_PATH.read_text(encoding="utf-8")
         last = None
@@ -50,10 +53,10 @@ class WerhdClient:
     # ---------- 通用调用 ----------
 
     def call(self, expr: str, timeout: float | None = None):
-        """求值 __rj 上的表达式并返回还原后的 Python 值。
+        """Evaluate an expression on __rj and return the restored Python value.
 
-        不需要再包 JSON.stringify：agent-browser 的 eval 本身就打印
-        JSON.stringify(表达式值)，b.eval 已统一还原。
+        No extra JSON.stringify wrapper is needed: agent-browser's eval itself prints
+        JSON.stringify(expression value), and b.eval already restores it uniformly.
         """
         return self.b.eval(expr, timeout=timeout)
 
@@ -86,11 +89,11 @@ class WerhdClient:
         return self.call("__rj.o.produce(%s,%d)" % (json.dumps(name), qty))
 
     def can_place(self, name, x, y):
-        """[第100局] 指定落点可建判定(建筑迎敌面前置用)。"""
+        """[game 100] Can-build check at a given tile (used to pre-position buildings facing the enemy)."""
         return self.call("__rj.o.canPlace(%s,%d,%d)" % (json.dumps(name), x, y))
 
     def place(self, name, x, y):
-        """[第100局] 建筑指定落点放置(替代自动落点)。"""
+        """[game 100] Place a building at a given tile (replaces automatic placement)."""
         return self.call("__rj.o.place(%s,%d,%d)" % (json.dumps(name), x, y))
 
     def micro_start(self, rally=None, camera=True, cfg=None):

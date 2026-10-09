@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-"""单局结构化记录 GameRecord: 从事件流 + 行日志解析出兵种/经济/态势曲线。
+"""Per-game structured record GameRecord: parses unit composition / economy / stance curves
+from the event stream + line log.
 
-(自 review.py 原样拆出: 函数逐行搬运, 行为零改动; 复盘口径注释保留在各函数处。)
+(Extracted verbatim from review.py: functions moved line by line, behavior unchanged; the
+review conventions comments are kept at each function.)
 """
 from __future__ import annotations
 
@@ -9,7 +11,7 @@ import re
 
 
 class GameRecord:
-    """一局的结构化记录（从事件流 + 行日志解析）。"""
+    """Structured record of one game (parsed from the event stream + line log)."""
 
     def __init__(self, events: list, loglines: list):
         self.events = events

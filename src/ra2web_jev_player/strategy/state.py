@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-"""快照访问与知识库：从 __rj.snapshot() 的形状提取战术视图 + RA2-UNITS.json 术语表。
+"""Snapshot access and knowledge base: extract tactical views from the shape of
+__rj.snapshot() plus the RA2-UNITS.json glossary.
 
-snapshot 形状见 werhd/client.js snapshot()：mine/enemy/hostile 数组的元素是
-{id,n,o,tl:[rx,ry],hp,mhp,idle,dep,depd,z}，o = ObjectType（2 建筑/3 步兵/7 载具/1 飞机）。
+For the snapshot shape see werhd/client.js snapshot(): elements of the
+mine/enemy/hostile arrays are {id,n,o,tl:[rx,ry],hp,mhp,idle,dep,depd,z}, where
+o = ObjectType (2 building / 3 infantry / 7 vehicle / 1 aircraft).
 """
 from __future__ import annotations
 
@@ -30,13 +32,15 @@ WH: dict = _UDB_RAW.get("warheads") or {}
 
 
 def nm(code: str) -> str:
-    """代号→中文名（Jev 语义术语表的生命线：零信息 gloss 会让模型分票瞎蒙）。"""
+    """Code -> Chinese name (the lifeline of Jev's semantic glossary: a
+    zero-information gloss makes the model split its vote and guess blindly)."""
     u = UDB.get(code)
     return ("%s" % u["cn"]) if u else (code or "")
 
 
 def nm_en(code: str) -> str:
-    """代号→英文名（[第63局] Jev 英文投喂: 英文理解优于中文, 用户指示）。"""
+    """Code -> English name ([game 63] English prompts for Jev: better English
+    comprehension than Chinese, user directive)."""
     u = UDB.get(code) or {}
     return u.get("name") or (code or "")
 
@@ -49,7 +53,7 @@ def ucost(code: str) -> int:
 # ================= 视图提取 =================
 
 def buildings(mine: list) -> dict:
-    """建筑代号→数量。"""
+    """Building code -> count."""
     bl = {}
     for u in mine:
         if u["o"] == 2:
@@ -75,7 +79,7 @@ def available(av: dict, t: int) -> list:
 
 
 def combat_tanks(mine: list, keep_wounded: bool = True) -> list:
-    """可机动作战载具（排除矿车/MCV；残血按需过滤）。"""
+    """Mobile combat vehicles (harvesters/MCV excluded; wounded filtered on demand)."""
     out = []
     for u in mine:
         if u["o"] != 7 or u["n"] in HARVEST or u["n"] in MCV_CODES:
@@ -87,10 +91,12 @@ def combat_tanks(mine: list, keep_wounded: bool = True) -> list:
 
 
 def all_combat(mine: list, keep_wounded: bool = True) -> list:
-    """全部可指挥战斗单位：坦克 + 步兵（排除矿车/MCV/军犬/工程师/残血可选）。
+    """All commandable combat units: tanks + infantry (harvesters/MCV/scout
+    dogs/engineers excluded; wounded optional).
 
-    [第 30 局, 用户观察] movement 原先只指挥坦克——步兵从未收到宏观指令，
-    几十个动员兵在基地站桩/被微操遛来遛去。进攻波次必须带上步兵。
+    [game 30, user observation] movement used to command tanks only - infantry never
+    received macro orders, so dozens of conscripts stood around at the base or got
+    herded about by micro. Attack waves must include infantry.
     """
     out = []
     for u in mine:
@@ -107,7 +113,8 @@ def all_combat(mine: list, keep_wounded: bool = True) -> list:
 
 
 def yard_tile(s: dict):
-    """基地/建造厂位置（mine 里第一座 NACNST/GACNST；开局可能是载具形态 MCV）。"""
+    """Base/construction yard position (first NACNST/GACNST in mine; at game start
+    it may be a vehicle-form MCV)."""
     for u in s["mine"]:
         if u["o"] == 2 and u["n"] in ("NACNST", "GACNST"):
             return list(u["tl"])
@@ -122,7 +129,7 @@ def enemy_air_present(hostile: list) -> bool:
 
 
 def force_value(s: dict) -> tuple:
-    """双方机动力量按造价折算: (我方, 视野内敌方)。"""
+    """Both sides' mobile strength valued by cost: (mine, visible enemy)."""
     my_val = sum(ucost(u["n"]) for u in s["mine"]
                  if u["o"] in (3, 7) and u["n"] not in HARVEST)
     en_val = sum(ucost(h["n"]) for h in s["hostile"])
@@ -130,7 +137,8 @@ def force_value(s: dict) -> tuple:
 
 
 def pick_target(s: dict, home):
-    """§4.3 目标优先级打分: 矿车>防御塔>生产建筑>…; 距离衰减。返回敌单位或 None。"""
+    """§4.3 target priority scoring: harvester > defense tower > production
+    building > ...; distance decay. Returns an enemy unit or None."""
     best, bestv = None, -1
     for h in s["hostile"]:
         base = TARGET_SCORE.get(h["n"], 50 if h["o"] != 2 else 45)
@@ -143,7 +151,8 @@ def pick_target(s: dict, home):
 
 
 def enemy_intel_lines(hostile: list) -> str:
-    """敌情按护甲归类 + 自动附克制建议（喂 Jev 的关键上下文）。"""
+    """Enemy intel grouped by armor + automatic counter suggestions (key context
+    fed to Jev)."""
     if not hostile:
         return "视野内无敌军"
     byarm: dict = {}
@@ -164,7 +173,8 @@ def enemy_intel_lines(hostile: list) -> str:
 
 
 def enemy_intel_lines_en(hostile: list) -> str:
-    """敌情英文版 [第63局]: 按护甲归类 + 英文克制建议。"""
+    """English enemy intel [game 63]: grouped by armor + English counter
+    suggestions."""
     if not hostile:
         return "No enemy units in view"
     byarm: dict = {}

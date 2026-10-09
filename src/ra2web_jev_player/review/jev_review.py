@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-"""Jev 语义复盘: 败因归类 + 最优先改进 + 是否值得自动调参（语义拍板）。
+"""Jev semantic review: defeat-cause classification + top-priority improvement + whether
+auto-tuning is worthwhile (the semantic call).
 
-state = summary_text(确定性素材), questions = rootcause/topfix/tune 三问。
-(自 review.py 原样拆出: 函数逐行搬运, 行为零改动; 复盘口径注释保留在各函数处。)
+state = summary_text(deterministic material), questions = the rootcause/topfix/tune trio.
+(Extracted verbatim from review.py: functions moved line by line, behavior unchanged; the
+review conventions comments are kept at each function.)
 """
 from __future__ import annotations
 
@@ -12,7 +14,7 @@ from .record import GameRecord
 # ================= Jev 语义复盘 =================
 
 def summary_text(rec: GameRecord, findings: list) -> str:
-    """战报 → 紧凑中文复盘素材（喂 Jev 的 state）。"""
+    """Battle report -> compact Chinese review material (the state fed to Jev)."""
     eco, curve, lk = rec.economy(), rec.army_curve(), rec.loss_kill()
     bo = " → ".join("%s@%ds" % (n, t) for t, n in rec.build_order[:10]) or "无建筑建成"
     lines = [
@@ -59,7 +61,8 @@ TOPFIX_CRITERIA = {
 
 
 def jev_review(rec: GameRecord, findings: list, jev: JevClient) -> dict:
-    """Jev 语义复盘：败因归类 + 最优先改进 + 是否值得自动调参。"""
+    """Jev semantic review: defeat-cause classification + top-priority improvement + whether
+    auto-tuning is worthwhile."""
     state = summary_text(rec, findings)
     answers = jev.ask(state, {
         "rootcause": {"type": "choice",

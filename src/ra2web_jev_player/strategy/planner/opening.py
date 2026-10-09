@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-"""开局建造序列(Bible §5.1/§5.2, 阵营感知): 序列推进 + 建筑购买闸门
-+ 引擎拒收自愈回退。
+"""Opening build sequence (Bible §5.1/§5.2, faction aware): sequence advance +
+building purchase gate + engine-rejection self-heal fallback.
 
-自 strategy/planner.py 原样拆出（2026-10-09 结构重构）:
-代码逐行搬运, 行为零改动; 每条局次标注的迭代注释保留在各函数处。
+Split verbatim out of strategy/planner.py (2026-10-09 structural refactor):
+code moved line by line, zero behavior change; every game-tagged iteration comment
+stays at its function.
 """
 from __future__ import annotations
 
@@ -19,17 +20,21 @@ _OPENING_LEGACY = ["NAPOWR", "NAREFN", "NAHAND", "NAWEAP"]
 
 def build_gate(s: dict, cost: int, mem: BattleMemory | None = None,
                code: str | None = None) -> bool:
-    """建筑购买闸门（第 28 局复盘 + 第 31 局 Route A）。
+    """Building purchase gate (game 28 review + game 31 Route A).
 
-    战车工厂落地后，现金必须 ≥ 造价+tank_cash1 才许买建筑——否则建筑一笔接一笔
-    排队（精炼厂 1500/座、维修），坦克资金线永远够不着。
-    例外：① 工厂落地前不设限（基建就是优先级）；② RECOVER 态势放开
-    （rush 失败后要补经济出二波，Route A 的二波机制）；
-    ③ [第71局] 精炼厂缺额豁免——存量<ref_cap 时不受坦克资金线约束。
-      第 70 局(clef 首局)实证: 见底率 67% 下现金永远凑不齐 造价+tank_cash1,
-      确定性两线与 Jev 线三路同闸 → 三矿厂死锁、收入端饿死(坦克峰值 14 vs
-      69 局 26)。本条把第 69 局"收入>吞吐"原则补全到闸门本身;
-      ref_cap=3 封顶控制暴露面, 非精炼厂建筑闸门行为不变。
+    After the war factory lands, cash must be >= cost + tank_cash1 before buying a
+    building - otherwise buildings queue up one after another (refinery 1500 each,
+    repairs) and the tank funding line is never reached.
+    Exceptions: (1) no limit before the factory lands (infrastructure is the
+    priority); (2) the RECOVER stance opens it up (after a failed rush the economy
+    must be rebuilt for a second wave, Route A's second-wave mechanism);
+    (3) [game 71] refinery shortfall exemption - while stock < ref_cap it is not
+    bound by the tank funding line. Game 70 (clef's first game) proved it: at a 67%
+    bottom-out rate cash never reaches cost + tank_cash1, and the two deterministic
+    lines plus the Jev line share the same gate -> triple-refinery deadlock and a
+    starved income side (tank peak 14 vs 26 in game 69). This completes game 69's
+    "income > throughput" principle in the gate itself; the ref_cap=3 cap bounds the
+    exposure, and the gate behavior for non-refinery buildings is unchanged.
     """
     bl = buildings(s["mine"])
     side = get_side(s)
@@ -47,8 +52,10 @@ def build_gate(s: dict, cost: int, mem: BattleMemory | None = None,
 
 
 def opening_next_code(s: dict, mem: BattleMemory | None = None):
-    """开工序列第一个未建成项（建造序列真相源）。[第58局] 工厂前置位保护用;
-    [第67局] 感知自愈回退: open_fallback 时按旧合法序, 黑名单项跳过。"""
+    """First not-yet-built item of the opening sequence (source of truth for the
+    build order). [game 58] Used by the factory front-slot protection;
+    [game 67] aware self-heal fallback: with open_fallback follow the legacy legal
+    order, skipping blacklisted items."""
     side = get_side(s)
     bl0 = buildings(s["mine"])
     opening = _OPENING_LEGACY if (mem and mem.open_fallback) else side["opening"]
@@ -60,14 +67,19 @@ def opening_next_code(s: dict, mem: BattleMemory | None = None):
 
 
 def opening_build(s: dict, mem: BattleMemory):
-    """开局确定性序列：[第67局] 精炼厂→兵营→战车工厂→电厂(精炼厂先行链, 老
-    33-37 局快开局同构, 首坦克 430→~350); 引擎拒收自愈网: 下单后 40gs q0 仍
-    idle 且建筑未落地 = 拒收 → 拉黑该建筑; NAREFN 被拒 = 无电厂精炼厂先行不可
-    行 → 整体回退旧合法序(NAPOWR 先行, 第 18-59 局实证)。电厂后置的电力缺口
-    由电厂应急闸门(战厂条件)与 DEFLINE 余量闸兜底。工厂后立即补二矿（第 20 局
-    复盘）；t>rush_t1 且资金 >4500 补第二工厂。[第31局 Route A] 速攻期(t<rush_t1)
-    精炼厂只建 1 座、不建第二工厂——全部现金转坦克；RECOVER 后闸门放开补经济
-    出二波。返回 action 或 None。"""
+    """Deterministic opening sequence: [game 67] refinery -> barracks -> war factory
+    -> power plant (refinery-first chain, isomorphic to the fast openings of games
+    33-37, first tank 430 -> ~350); engine-rejection self-heal net: 40gs after
+    ordering q0 is still idle and the building has not landed = rejected ->
+    blacklist that building; NAREFN rejected = refinery-first without a power plant
+    is impossible -> fall back wholesale to the legacy legal order (NAPOWR first,
+    proven in games 18-59). The power gap from deferring the plant is covered by
+    the power emergency gate (war factory condition) and the DEFLINE margin gate.
+    Right after the factory, top up a second refinery (game 20 review); when
+    t > rush_t1 and cash > 4500, add the second factory. [game 31 Route A] During
+    the rush window (t < rush_t1) build only 1 refinery and no second factory - all
+    cash goes to tanks; after RECOVER the gates open to rebuild the economy for a
+    second wave. Returns an action or None."""
     side = get_side(s)
     qs = queues_by_type(s["queues"])
     av0 = available(s["av"], 0)

@@ -1,37 +1,42 @@
-# tests —— 测试
+# tests — tests
 
-## 怎么跑
+## How to run
 
 ```bash
-uv run pytest                       # 全套（布局守卫 + 26 个回归场景）
-uv run pytest -k freeze             # 单个场景（按文件名过滤）
-uv run pytest tests/test_layout.py  # 只跑布局/契约守卫
-uv run python tests/regression/test_freeze95.py   # 直接跑某个场景脚本（等价）
+uv run pytest                       # full suite (layout guards + 26 regression scenarios)
+uv run pytest -k freeze             # a single scenario (filter by filename)
+uv run pytest tests/test_layout.py  # layout/contract guards only
+uv run python tests/regression/test_freeze95.py   # run one scenario script directly (equivalent)
 ```
 
-## 结构
+## Layout
 
-| 路径 | 说明 |
+| Path | Description |
 |---|---|
-| `test_layout.py` | 仓库布局与包契约守卫：路径常量必须指向定稿布局、数据资产目录必须非空、RA2-UNITS.json 必须真加载、planner/ review 对外 API 稳定、`python -m` 无参不发起对局、版本号两处一致。**任何一次目录/改名忘了同步代码，这里立刻红** |
-| `test_review_flow.py` | 复盘链路端到端（离线沙箱，`JEV_*` 环境变量指向临时目录）：events → 确定性分析 → stub 语义复盘 → review.md/LESSONS/doctrine 调参 → `run-*/game.json` 局号链接。覆盖错误指纹分支（历史漏 `import re` 缺陷点） |
-| `test_regression_suite.py` | 把 `regression/` 下的场景脚本逐个子进程执行并断言退出码 0 |
-| `regression/test_*.py` | 历次迭代的**单变量离线场景测试**（第 30-101 局弧线积累）：喂 state 快照，断言 planner/game 的确定性行为。文件名里的数字=当时局次，docstring 写清"测什么、为什么" |
+| `test_layout.py` | Repo-layout and package-contract guards: path constants must point at the final layout, data-asset directories must be non-empty, RA2-UNITS.json must actually load, the planner/review public APIs must stay stable, `python -m` with no arguments must not start a match, and the version number must agree in both places. **Any directory change or rename that forgot to update the code turns this red immediately** |
+| `test_review_flow.py` | End-to-end review pipeline (offline sandbox, `JEV_*` env vars pointed at a temp directory): events → deterministic analysis → stub semantic review → review.md/LESSONS/doctrine tuning → `run-*/game.json` match-number link. Covers the error-fingerprint branch (the historical spot that missed `import re`) |
+| `test_regression_suite.py` | Runs each scenario script under `regression/` in a subprocess and asserts exit code 0 |
+| `regression/test_*.py` | **Single-variable offline scenario tests** from past iterations (accumulated over the match 30-101 arc): feed a state snapshot and assert the deterministic behavior of planner/game. The number in the filename is the match number at the time; the docstring states what it tests and why |
 
-## 约定
+## Conventions
 
-- 场景脚本是"文件即用例"：顶层执行 + 逐条打印 `PASS/FAIL` + 失败 `sys.exit(1)`；
-  `regression/conftest.py` 已让 pytest 不直接收集它们（避免 import 期 SystemExit）。
-- 新增场景测试：放 `tests/regression/`，文件名 `test_<主题><局次>.py`，
-  用仓库根相对方式加 `src` 到 `sys.path`（照抄既有文件头部一行）。
-- 顶层执行的场景脚本用 `python <file>` 或 pytest 驱动均可，无需 fixture。
+- Scenario scripts are "the file is the test case": top-level execution + per-check `PASS/FAIL`
+  printing + `sys.exit(1)` on failure; `regression/conftest.py` already keeps pytest from collecting
+  them directly (avoiding a SystemExit during import).
+- New scenario tests go in `tests/regression/`, named `test_<topic><match>.py`, and add `src` to
+  `sys.path` relative to the repo root (copy the first line of an existing file).
+- Top-level scenario scripts can be driven by either `python <file>` or pytest; no fixtures needed.
 
-## 已知陈旧断言（xfail，待人工核对）
+## Known stale assertions (xfail, pending manual verification)
 
-| 文件 | 冲突点 |
+| File | Conflict |
 |---|---|
-| `regression/test_dog62.py` | 断言驻家名额为 10，现行 garrison 语义（第 84/92 局迭代）给 9 —— 需确认是"测试过时"还是"语义回退" |
-| `regression/test_gate.py` | 断言日志文案 `工厂前置位保护`，第 67 局改名为 `开局序列前置位保护` |
+| `regression/test_dog62.py` | Asserts 10 home-guard slots, while the current garrison semantics (match 84/92 iterations) give 9 — need to confirm whether the test is stale or the semantics regressed |
+| `regression/test_gate.py` | Asserts the log text "factory pre-slot guard", renamed in match 67 to "opening-sequence pre-slot guard" |
 
-两者与 2026-10-09 的结构重构无关（重构前即失败，已记录基线）。修好任一条后
-从 `KNOWN_STALE`（`tests/test_regression_suite.py`）里删掉即可。
+Neither assertion is related to the 2026-10-09 structure refactor (both already failed before it;
+the baseline is recorded). Once either one is fixed, delete it from `KNOWN_STALE`
+(`tests/test_regression_suite.py`).
+
+*(The two log strings quoted in the table are Chinese literals in the scenario scripts; they are
+shown here in translation.)*

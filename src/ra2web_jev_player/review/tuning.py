@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
-"""参数自动微调: 根因 → 白名单参数(限幅) · Jev 置信 >0.6 才执行。
+"""Automatic parameter tuning: rootcause -> whitelisted parameters (clamped); only executed
+when Jev confidence > 0.6.
 
-写入 docs/knowledge/doctrine.json, 由 doctrine.load_overrides() 在新局加载。
-git 历史即调参审计轨迹。
-(自 review.py 原样拆出: 函数逐行搬运, 行为零改动; 复盘口径注释保留在各函数处。)
+Writes docs/knowledge/doctrine.json, loaded for the next game by doctrine.load_overrides().
+The git history is the tuning audit trail.
+(Extracted verbatim from review.py: functions moved line by line, behavior unchanged; the
+review conventions comments are kept at each function.)
 """
 from __future__ import annotations
 
@@ -29,7 +31,8 @@ def _clamp(v: float, lo: float) -> float:
 
 
 def auto_tune(rootcause: str, tune_conf: float, game_no: int, reason: str) -> list:
-    """根因 → 白名单参数微调（限幅）。tune_conf > 0.6 才执行。返回变更描述。"""
+    """Rootcause -> whitelisted parameter tuning (clamped). Only runs when tune_conf > 0.6.
+    Returns the change descriptions."""
     if tune_conf <= 0.6 or rootcause not in TUNING_RULES:
         return []
     load_overrides()          # 副作用: 覆盖值写入 T

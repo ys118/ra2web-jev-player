@@ -1,19 +1,25 @@
 # -*- coding: utf-8 -*-
-"""复盘引擎(包) —— 学习闭环的"记录→分析→总结→迭代"段。
+"""Review engine (package) -- the "record -> analyze -> summarize -> iterate" leg of the
+learning loop.
 
-闭环：实战(game.py) → 逐事件审计(audit.py) → 本包复盘 →
-  ① artifacts/games/game-XXXX-review.md  每局完整复盘报告
-  ② docs/LESSONS.md                      经验账本（追加式，人/agent 可读）
-  ③ docs/knowledge/doctrine.json         参数覆盖（白名单+限幅+Jev 置信闸门，git 可审计）
-→ 下一局 doctrine.T 加载覆盖值（doctrine.load_overrides），新局验证。
+The loop: live play (game.py) -> per-event audit (audit.py) -> review by this package ->
+  1) artifacts/games/game-XXXX-review.md  full per-game review report
+  2) docs/LESSONS.md                      lessons ledger (append-only, human/agent readable)
+  3) docs/knowledge/doctrine.json         parameter overrides (whitelist + clamps + Jev
+                                          confidence gate, git-auditable)
+-> the next game loads the override values into doctrine.T (doctrine.load_overrides), and the
+new game validates them.
 
-复盘分两层（METHODOLOGY 原则）：
-- 确定性分析（analyze.py）：开局时序 vs 手册窗口、经济/兵力曲线、态势分布、
-  危机响应、损失交换比、错误指纹——能用代码算的绝不给模型；
-- Jev 语义复盘（jev_review.py，TypeSafe）：败因归类、最优先改进项、是否值得自动调参。
+Review has two layers (METHODOLOGY principle):
+- Deterministic analysis (analyze.py): opening timeline vs. playbook windows, economy/army
+  curves, stance distribution, crisis response, loss exchange ratio, error fingerprints --
+  anything computable in code is never handed to the model;
+- Jev semantic review (jev_review.py, TypeSafe): defeat-cause classification, top-priority
+  improvement, whether auto-tuning is worthwhile.
 
-子模块: inputs(数据采集) · record(结构化记录) · analyze(确定性分析) ·
-jev_review(语义复盘) · tuning(参数微调) · emit(产出) · 本文件(入口)。
+Submodules: inputs (data collection) - record (structured record) - analyze (deterministic
+analysis) - jev_review (semantic review) - tuning (parameter tuning) - emit (output) -
+this file (entry point).
 """
 from __future__ import annotations
 
@@ -54,9 +60,10 @@ def next_game_number() -> int:
 def review_last_game(jev: JevClient, audit: Audit | None = None,
                      game_no: int | None = None,
                      log_path: Path | None = None) -> dict:
-    """复盘最后一段对局（ run 目录 events.jsonl / jev-events.jsonl 最后一个 start → report）。
+    """Review the last game segment (the last start -> report in the run directory's
+    events.jsonl / jev-events.jsonl).
 
-    返回 {game_no, outcome, findings, answers, changes, review_path}。
+    Returns {game_no, outcome, findings, answers, changes, review_path}.
     """
     audit = audit or Audit(echo=False)
     game_no = game_no or next_game_number()

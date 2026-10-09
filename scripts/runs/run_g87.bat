@@ -1,5 +1,5 @@
 @echo off
-cd /d D:\projects\ra2web-jev-player
+cd /d "%~dp0..\.."
 set PYTHONUTF8=1
 set PYTHONIOENCODING=utf-8
 chcp 65001 >nul

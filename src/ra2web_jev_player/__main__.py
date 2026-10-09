@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-"""``python -m ra2web_jev_player`` —— 无参打印入口说明；带参等价于 ra2web-jev-play。
+"""``python -m ra2web_jev_player`` -- with no arguments it prints the entry-point usage; with arguments
+it is equivalent to ra2web-jev-play.
 
-不设默认动作：真要对局必须显式给参数（避免误触发起一整局），
-玩法参数与 ``uv run ra2web-jev-play`` 完全一致（同一 argparse）。
+There is no default action: a real match requires explicit arguments (so an accidental invocation cannot
+start a whole game), and the gameplay arguments are identical to ``uv run ra2web-jev-play`` (the same
+argparse).
 """
 from __future__ import annotations
 

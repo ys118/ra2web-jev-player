@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-"""Jev 答案应用(闸门在 doctrine.CONF): 批量答案 → 动作 + 态势采信。
+"""Applying Jev answers (gates in doctrine.CONF): batched answers -> actions +
+stance adoption.
 
-自 strategy/planner.py 原样拆出（2026-10-09 结构重构）:
-代码逐行搬运, 行为零改动; 每条局次标注的迭代注释保留在各函数处。
+Split verbatim out of strategy/planner.py (2026-10-09 structural refactor):
+code moved line by line, zero behavior change; every game-tagged iteration comment
+stays at its function.
 """
 from __future__ import annotations
 
@@ -15,10 +17,13 @@ from .opening import build_gate, opening_next_code
 
 def apply_jev(s: dict, ans: dict, stance: str, mem: BattleMemory,
               used: dict | None = None) -> tuple:
-    """把 Jev 批量答案转成动作 + 态势采信。返回 (stance, actions, logs)。
+    """Convert batched Jev answers into actions + stance adoption. Returns
+    (stance, actions, logs).
 
-    used: 本 tick 确定性层已占用的队列 {0/1/2/3: bool} —— 生产指令异步生效,
-    快照里队列状态滞后一个 tick, 不查会双造(legacy 同款竞态)。
+    used: queues already claimed by the deterministic layer this tick
+    {0/1/2/3: bool} - production orders take effect asynchronously, so the queue
+    state in the snapshot lags one tick; without this check items get built twice
+    (same race as legacy).
     """
     used = used or {}
     side = get_side(s)

@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-"""复盘数据采集: 取最后一段对局的事件流与行日志。
+"""Review data collection: fetch the event stream and line log of the last game segment.
 
-数据源优先级: 最新 run 目录的 events.jsonl(每局完整镜像) > 全局 jev-events.jsonl 切片。
-(自 review.py 原样拆出: 函数逐行搬运, 行为零改动; 复盘口径注释保留在各函数处。)
+Data source priority: the newest run directory's events.jsonl (complete per-game mirror) >
+a slice of the global jev-events.jsonl.
+(Extracted verbatim from review.py: functions moved line by line, behavior unchanged; the
+review conventions comments are kept at each function.)
 """
 from __future__ import annotations
 
@@ -14,7 +16,7 @@ from ..paths import GAMES_DIR, LOG_DIR
 # ================= 数据采集 =================
 
 def latest_run_dir():
-    """[训练数据] 最新的 run 目录（每局独立存档）。"""
+    """[training data] Newest run directory (per-game standalone archive)."""
     runs = GAMES_DIR.glob("run-*/events.jsonl")
     try:
         return max(runs, key=lambda p: p.stat().st_mtime).parent
@@ -23,10 +25,11 @@ def latest_run_dir():
 
 
 def slice_events() -> list:
-    """取最后一段对局的 jsonl 事件。
+    """Fetch the jsonl events of the last game segment.
 
-    优先读最新 run 目录的 events.jsonl（训练数据镜像, 单局完整）;
-    无 run 目录时回退到全局 jev-events.jsonl 切片（最后一个 start 之后）。
+    Prefers the newest run directory's events.jsonl (training-data mirror, complete for a
+    single game); falls back to a slice of the global jev-events.jsonl (everything after the
+    last "start") when there is no run directory.
     """
     run_dir = latest_run_dir()
     if run_dir:
@@ -61,7 +64,7 @@ def slice_events() -> list:
 
 
 def slice_botlog(log_path: Path | None = None) -> list:
-    """取最后一段对局的 bot.log 行（最后一个 start banner 之后）。"""
+    """Fetch the last game segment's bot.log lines (after the last start banner)."""
     path = log_path or (LOG_DIR / "bot.log")
     lines = []
     with open(path, encoding="utf-8") as f:

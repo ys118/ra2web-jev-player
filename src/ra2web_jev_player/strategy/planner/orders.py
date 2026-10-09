@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-"""§10.1 确定性清单: 按优先级产出确定性动作(建造/造兵/防御/撤退),
-以及 V3 威胁活跃判定(生产闸门)。
+"""§10.1 deterministic checklist: emit deterministic actions in priority order
+(build/train/defend/retreat), plus the V3 threat-active test (production gate).
 
-自 strategy/planner.py 原样拆出（2026-10-09 结构重构）:
-代码逐行搬运, 行为零改动; 每条局次标注的迭代注释保留在各函数处。
+Split verbatim out of strategy/planner.py (2026-10-09 structural refactor):
+code moved line by line, zero behavior change; every game-tagged iteration comment
+stays at its function.
 """
 from __future__ import annotations
 
@@ -18,14 +19,15 @@ from .opening import opening_next_code
 # ================= §10.1 确定性清单 =================
 
 def v3_threat_active(s: dict, mem: BattleMemory) -> bool:
-    """[第66局 V3反制] V3 威胁是否活跃: 600gs 内目击过 V3, 或 120gs 内有
-    远程火力签名(建筑掉血+视野内无攻击者)。任一命中即开生产闸门。"""
+    """[game 66 V3 counter] Is the V3 threat active: a V3 was spotted within 600gs,
+    or there was a long-range fire signature within 120gs (building damage with no
+    visible attacker). Either hit opens the production gate."""
     return (s["t"] - mem.v3_seen_t <= T["v3_seen_window"]
             or s["t"] - mem.long_fire_t <= T["v3_fire_window"])
 
 
 def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
-    """按 §10.1 优先级产出确定性动作。返回 (stance, actions, logs)。"""
+    """Emit deterministic actions in §10.1 priority order. Returns (stance, actions, logs)."""
     side = get_side(s)
     cred = s["me"]["credits"]
     pw = s["me"]["power"].get("total", 0)
@@ -36,10 +38,13 @@ def checklist(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
     acts, logs = [], []
 
     def _order_once(key, cur_n, window):
-        """[第78局 bug fix] 确定性生产在途判重: 队列快照滞后(引擎受理延迟)使
-        同一订单在连续 tick 上重复下发——77 局实锤六连 DEFLINE(3000 金被订单
-        黑洞抽干, 第 30 局已知竞态在 checklist 分支复发)。存量未变且未过窗口
-        → 视为在途, 拒绝重下; 存量变化(落地/被拆)或超窗口(疑似拒收, 允许重试)。"""
+        """[game 78 bug fix] Deterministic-production in-flight dedup: the queue
+        snapshot lags (engine acceptance delay), so the same order is re-issued on
+        consecutive ticks - game 77 proved six consecutive DEFLINEs (3000 credits
+        drained into the order black hole; the race already known from game 30
+        recurred in the checklist branch). Stock unchanged and window not elapsed
+        -> treat as in-flight, refuse to re-order; stock changed (landed/destroyed)
+        or window elapsed (suspected rejection, retry allowed) -> allow re-order."""
         last_n, last_t = getattr(mem, key)
         if cur_n == last_n and s["t"] - last_t < window:
             return False

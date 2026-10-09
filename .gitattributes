@@ -1,0 +1,15 @@
+# Keep GitHub's language statistics meaningful: the bulk of this repository is
+# recorded data and third-party material, not source code.
+artifacts/**            linguist-vendored
+dataset/**              linguist-vendored
+references/research/**  linguist-vendored
+references/werhd/**     linguist-documentation
+docs/**                 linguist-documentation
+
+*.jsonl                 linguist-generated
+*.ini                   linguist-vendored
+*.mjs                   linguist-vendored
+*.csf                   linguist-vendored binary
+*.png                   binary
+*.jpg                   binary
+*.gif                   binary

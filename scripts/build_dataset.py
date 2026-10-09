@@ -1,36 +1,40 @@
 # -*- coding: utf-8 -*-
-"""训练数据资产构建器：把对战数据整理为 dataset/ 规范结构（幂等，可重复运行）。
+"""Training-data asset builder: organizes match data into the canonical dataset/ structure (idempotent,
+safe to re-run).
 
-dataset/ 是训练数据（SFT/RL）的主目录，两种来源分两个子区：
+dataset/ is the main directory for training data (SFT/RL); the two sources occupy two sub-areas:
 
-  A. dataset/game-NNNN/     历史回填（第 1-65 局，来自全局事件流切片与人工核对映射）
-  B. dataset/runs/run-<ts>/ 增量并入（第 45 局起的每局 run 目录，见下）
+  A. dataset/game-NNNN/     historical backfill (games 1-65, from global event-stream slices and a
+                            manually verified mapping)
+  B. dataset/runs/run-<ts>/ incremental ingest (the per-game run dirs from game 45 onward, see below)
 
-A. game-NNNN 结构（历史）:
-  meta.json      单局元数据（游戏号/日期/结果/数据质量层/文件指针）
-  events.jsonl   该局事件流（有源才存）
-  review.md      复盘报告（有源才存）
-  run.log        进程 stdout 日志（文件名与局号可对上才存）
-  decisions.jsonl  SFT 元组（有源才存）
+A. game-NNNN structure (historical):
+  meta.json      per-game metadata (game number / date / result / data tier / file pointers)
+  events.jsonl   that game's event stream (stored only when a source exists)
+  review.md      review report (stored only when a source exists)
+  run.log        process stdout log (stored only when filename and game number can be matched)
+  decisions.jsonl  SFT tuples (stored only when a source exists)
 
-B. runs/run-<ts> 结构（增量，每局一份规范化副本）:
-  meta.json      含 report 三元组 + review 链接（review_no 为**流水号**，见 dataset/README.md）
+B. runs/run-<ts> structure (incremental, one canonical copy per game):
+  meta.json      holds the report triple + review link (review_no is a **serial number**, see
+                 dataset/README.md)
   events.jsonl / decisions.jsonl / report.json / review.md
 
-  run → 流水号 的两种链接方式:
-    ① run-*/game.json —— 新局由 review 复盘时写回（权威）
-    ② report.json (result,t,ticks,crisis_ticks) 与 game-XXXX-review.md 头三元组
-       精确匹配（历史 run 补链；对齐结果单调才接受，多候选不猜）
+  Two ways to link run -> serial number:
+    (1) run-*/game.json -- written back by review when a new game is reviewed (authoritative)
+    (2) report.json (result,t,ticks,crisis_ticks) exactly matches the triple in the header of
+        game-XXXX-review.md (back-linking for historical runs; accepted only when the alignment
+        resolves to a single candidate, multiple candidates are never guessed)
 
-数据分层（tier）:
-  rl-trajectory  事件流完整 + 终局已知（RL 轨迹 + 回报标签）
-  sft-full       run 目录完整（含 decisions.jsonl 的 (state,questions,answers) 元组）
-  partial        中止局/并发污染局——事件部分可用
-  legacy-meta    第 1-22 局（旧架构）仅元数据，原始行日志在 artifacts/logs/bot.log
+Data tiers:
+  rl-trajectory  complete event stream + known outcome (RL trajectories + return labels)
+  sft-full       complete run dir (including the (state,questions,answers) tuples in decisions.jsonl)
+  partial        aborted or concurrency-polluted games -- events partly usable
+  legacy-meta    games 1-22 (old architecture) metadata only; raw line logs in artifacts/logs/bot.log
 
-用法:
-  uv run python scripts/build_dataset.py            # 全量构建（幂等）
-  uv run python scripts/build_dataset.py --check    # 只报告现状，不写盘
+Usage:
+  uv run python scripts/build_dataset.py            # full build (idempotent)
+  uv run python scripts/build_dataset.py --check    # report current state only, no writes
 """
 import argparse
 import json
@@ -110,7 +114,7 @@ REVIEW_RESULT = re.compile(
 # ================= 通用 =================
 
 def split_segments():
-    """按 kind==start 切分全局事件流。返回 [(idx, events)]。"""
+    """Split the global event stream on kind==start. Returns [(idx, events)]."""
     segs, cur = [], None
     with open(LOGS / "jev-events.jsonl", encoding="utf-8") as f:
         for line in f:
@@ -134,7 +138,7 @@ def split_segments():
 
 
 def seg_meta(events):
-    """从分段提取元数据。"""
+    """Extract metadata from a segment."""
     meta = {"events_count": len(events)}
     for ev in events:
         if ev.get("kind") == "report":
@@ -187,7 +191,8 @@ def copy_file(src, dst, dry):
 # ================= A. 历史回填（1-65 局） =================
 
 def review_result_index():
-    """流水号 → (result, t, ticks, crisis_ticks)：复盘文件头的三元组（补链用）。"""
+    """Serial number -> (result, t, ticks, crisis_ticks): the triple in the review file header (used for
+    back-linking)."""
     idx = {}
     for p in sorted(GAMES.glob("game-*-review.md")):
         txt = p.read_text(encoding="utf-8")
@@ -199,10 +204,11 @@ def review_result_index():
 
 
 def link_runs(dry):
-    """run 目录 → 流水号 对齐（game.json 优先, 否则 report 三元组精确匹配）。
+    """Align run dirs -> serial numbers (game.json first, otherwise exact report-triple matching).
 
-    返回 {run_name: {"review_no": N|None, "match": "...", "year": ...}}。
-    多候选（结果三元组相同）不猜：记 ambiguous，交由人工在 dataset/README 的对齐表登记。
+    Returns {run_name: {"review_no": N|None, "match": "...", "year": ...}}.
+    Multiple candidates (identical result triples) are never guessed: they are recorded as ambiguous and
+    left for a human to register in the alignment table in dataset/README.
     """
     by_triple = {}
     for rev_no, triple in review_result_index().items():
@@ -236,7 +242,8 @@ def link_runs(dry):
 
 
 def backfill_legacy(manifest, dry):
-    """第 1-65 局：全局事件流切片 + 人工核对映射（原有资产, 不改写既有结果）。"""
+    """Games 1-65: global event-stream slices + manually verified mapping (existing assets; existing
+    results are never rewritten)."""
     segs = split_segments()
 
     # 1-22: legacy/official 元数据层
@@ -323,10 +330,15 @@ def backfill_legacy(manifest, dry):
 # ================= B. 增量并入（每局 run 目录） =================
 
 def ingest_runs(manifest, links, dry):
-    """把 artifacts/games/run-*/ 逐局规范化并入 dataset/runs/<run>/（幂等）。
+    """Register each artifacts/games/run-*/ as an index entry under dataset/runs/<run>/ (idempotent).
 
-    判据 = 每局 run 目录自带 report.json（有终局的 run 才是训练轨迹）;
-    无 report.json 的 run 是中止局, 只登记不并入（保真、可追溯）。
+    Criterion = the run dir carries its own report.json (only a run with an outcome is a training
+    trajectory); a run without report.json was aborted and is indexed but not ingested (fidelity,
+    traceability).
+
+    Only meta.json + review.md (small text) are written; the payloads (events/decisions/report) are
+    **not copied** -- meta.source_dir points at artifacts/games/<run>/ (single source, avoiding two
+    copies of multi-MB decisions.jsonl inside the repository -- public-repo size considerations).
     """
     ingested, skipped_aborted = 0, []
     runs_dir = OUT / "runs"
@@ -348,17 +360,15 @@ def ingest_runs(manifest, links, dry):
                 "review_no": rev_no,             # 流水号（artifacts/games 命名口径）
                 "review_file": rev_file,          # 该局复盘文件（有则指向）
                 "review_link": rec["match"],      # game.json | report-triple | ambiguous:… | none
+                "source_dir": "artifacts/games/%s" % d.name,   # 载荷单一来源
+                "payloads": ["events.jsonl", "decisions.jsonl", "report.json"],
                 "result": rep.get("result"), "t": rep.get("t"),
                 "ticks": rep.get("ticks"), "crisis_ticks": rep.get("crisis_ticks"),
                 "stance": rep.get("stance"), "ts": rep.get("ts"),
                 "sft_tuples": n_sft, "events_count": len(evs),
                 "tier": "sft-full" if n_sft else "partial",
-                "note": "每局 run 目录规范化副本（含 SFT 元组）; 局号口径见 dataset/README.md"}
+                "note": "索引条目: 载荷在 source_dir（不重复存储）; 局号口径见 dataset/README.md"}
         write_json(dest / "meta.json", meta, dry)
-        write_jsonl(dest / "events.jsonl", evs, dry)
-        copy_file(d / "report.json", dest / "report.json", dry)
-        if n_sft:
-            copy_file(d / "decisions.jsonl", dest / "decisions.jsonl", dry)
         if rev_no and rev_file:
             copy_file(GAMES / rev_file, dest / "review.md", dry)
         manifest.append(meta)

@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
-"""游戏启动状态机：从冷浏览器到"遭遇战进行中"的全自动导航。
+"""Game launch state machine: fully automatic navigation from a cold browser to "skirmish in progress".
 
-菜单流程（2026-09-26 快照实测，refs 无任何菜单自动化文档，全靠 a11y snapshot 驱动）：
-  打开 https://gonghui.k0s.cn/ → [音频授权弹窗"确定"] → 主选单"单机模式"
-  → "遭遇战" → 设置屏（阵营=苏俄、速度=2、资金=10000、AI-简单、初始部队=0）
-  → "开始游戏" → 轮询 `typeof werhd === 'object'` → 注入页内客户端。
+Menu flow (measured from snapshots on 2026-09-26; refs contain no menu-automation documentation at all,
+so this is driven entirely by a11y snapshots):
+  open https://gonghui.k0s.cn/ -> [audio-permission dialog "确定" (OK)] -> main menu "单机模式" (Single Player)
+  -> "遭遇战" (Skirmish) -> setup screen (faction=Soviet, speed=2, credits=10000, AI-Easy, starting units=0)
+  -> "开始游戏" (Start Game) -> poll `typeof werhd === 'object'` -> inject the in-page client.
 
-关键不变量：页面重载后遭遇战设置全部重置为"随机/速度6/资金10000"，
-因此 launcher 每次都面对全新设置屏——玩家阵营选择器是快照里第一个"随机（???）"。
-已知坑（docs/ENGINEERING-NOTES.md §3）：冷加载黑屏、音频弹窗每次重载出现、
-结算屏开着时注入会被识别为对局已结束。
+Key invariant: after a page reload all skirmish settings reset to "Random / speed 6 / credits 10000", so
+the launcher faces a fresh setup screen every time -- the player faction selector is the first
+"随机（???）" (Random) entry in the snapshot.
+Known pitfalls (docs/ENGINEERING-NOTES.md §3): black screen on cold load, the audio dialog reappearing on
+every reload, and an injection made while the result screen is open being read as the match already ended.
 """
 from __future__ import annotations
 
@@ -21,7 +23,7 @@ from ..werhd.inject import WerhdClient
 
 
 class LaunchError(RuntimeError):
-    """进局流程失败。"""
+    """The match-join flow failed."""
 
 
 class GameLauncher:
@@ -37,7 +39,7 @@ class GameLauncher:
         return self.b.snapshot(interactive_only=True)
 
     def _find_ref(self, shot: str, label: str) -> str | None:
-        """精确匹配文本标签对应的可交互 ref。"""
+        """Return the interactive ref whose text label matches exactly."""
         for line in shot.splitlines():
             if '"%s"' % label in line and "[ref=" in line:
                 return line.split("[ref=")[1].split("]")[0].strip()
@@ -79,7 +81,7 @@ class GameLauncher:
         return v if isinstance(v, list) else []
 
     def _wait_sliders(self, timeout: float = 15) -> list:
-        """设置屏重渲染期间滑条可能短暂不在 DOM，等它出现。"""
+        """During setup-screen re-renders the sliders may briefly be absent from the DOM; wait for them."""
         t0 = time.time()
         while time.time() - t0 < timeout:
             vals = self._slider_values()
@@ -89,17 +91,19 @@ class GameLauncher:
         return []
 
     def _set_slider(self, index: int, target: int, max_presses: int = 40) -> int:
-        """只用真实方向键(CDP 可信事件)设滑条值。
+        """Set a slider value using only real arrow keys (trusted CDP events).
 
-        第 51 局事故定谳: 旧法"s.value 直设 + 派发合成 input/change"会让 DOM
-        回读等于目标值, 但 React/引擎状态从未收到可信事件——校准循环见
-        delta==0 一次键都不按即返回。前 50 局速度滑条从未生效, 全程跑页面
-        默认 6 档（用户 2026-09-29 亲眼确认开局停在 6 档）。
+        Verdict from the game-51 incident: the old method "assign s.value directly + dispatch synthetic
+        input/change" made the DOM read back the target value, while React/engine state never received a
+        trusted event -- the calibration loop then returns without pressing a single key once delta==0.
+        Through the first 50 games the speed slider never took effect; everything ran at the page default
+        level 6 (the user confirmed on 2026-09-29 that games stopped at level 6).
 
-        现流程: 聚焦 → ArrowLeft 压底(按键前的 DOM 值不可信, 先洗到最小) →
-        ArrowRight 步进到目标。真实按键触发浏览器原生步进 + 可信 input 事件,
-        应用状态必然跟随。按键若推不动, 回读到不了目标, 调用方按"设不到"
-        抛 LaunchError——宁可失败不可假成功。
+        Current flow: focus -> ArrowLeft to the floor (the DOM value before pressing is untrustworthy,
+        wash it down to the minimum first) -> ArrowRight step up to the target. Real key presses trigger
+        the browser's native stepping plus trusted input events, so application state must follow. If the
+        keys cannot move it and the read-back never reaches the target, the caller raises LaunchError as
+        "cannot set" -- failure is preferable to fake success.
         """
         def cur():
             vals = self._slider_values()
@@ -134,12 +138,13 @@ class GameLauncher:
     # ---------- 主流程 ----------
 
     def launch(self) -> WerhdClient:
-        """冷浏览器 → 遭遇战进行中（返回已注入的 WerhdClient）。
+        """Cold browser -> skirmish in progress (returns an already-injected WerhdClient).
 
-        强制重载：无论当前停在主选单、对局中还是结算屏，刷新后都回到干净的主选单
-        （resign() 会弹 canvas 确认框且 DOM 不可见，弃局唯一可靠途径就是刷新）。
-        冷加载偶发黑屏/资源慢（第 27 局实测 >90s）：主选单等待做重试循环，
-        空白页就再刷一次。
+        Forced reload: whether it currently sits at the main menu, in a match, or on the result screen, a
+        refresh returns to a clean main menu (resign() pops a canvas confirmation box that is invisible to
+        the DOM, so a refresh is the only reliable way to abandon a game).
+        Cold loads occasionally go black / load resources slowly (measured >90s in game 27): the main-menu
+        wait is a retry loop, refreshing again on a blank page.
         """
         nav = self.b.goto(GAME_URL, deadline_s=120, force=True)
         if not nav.get("ok"):
@@ -192,15 +197,17 @@ class GameLauncher:
         return self._wait_battle()
 
     def attach(self) -> WerhdClient:
-        """人工已开局时的兜底入口：只等对局出现并注入，不碰菜单。"""
+        """Fallback entry when a human already started the match: only wait for the match to appear and
+        inject, without touching the menus."""
         return self._wait_battle(timeout=60)
 
     def _dismiss_overlays(self) -> None:
-        """音频授权弹窗 / 上局结算屏，有则点掉。
+        """Audio-permission dialog / previous game's result screen: click them away if present.
 
-        [第53局] a11y ref 可能落在 message-box-footer 容器上, click 无效,
-        弹窗不消 → 主选单永远出不来。ref 循环后加 JS 兜底: 直点真正的
-        <button>（弹窗已消时按钮不存在, 天然 no-op）。
+        [game 53] the a11y ref may land on the message-box-footer container, where click has no effect and
+        the dialog never disappears -> the main menu can never appear. After the ref loop, a JS fallback
+        clicks the real <button> directly (once the dialog is gone the button does not exist, a natural
+        no-op).
         """
         for label in ("确定", "返回主选单"):
             for _ in range(3):
@@ -255,10 +262,12 @@ class GameLauncher:
                 raise LaunchError("敌方难度不是 AI-简单 且选不上")
 
     def _pick_faction(self, faction: str) -> None:
-        """选阵营。设置屏是全新重置的（玩家选择器显示'随机（???）'）：
-        点第一个'随机（???）'开下拉 → 等下拉渲染（轮询"美国"出现, 第47局:
-        headless 渲染慢于 1s 时盲目重点 opener 会把下拉切换关掉）→ 点目标阵营
-        → 确认下拉收起。若玩家已是目标阵营（重入未重置），点它开下拉再点即幂等。
+        """Pick a faction. The setup screen is freshly reset (the player selector shows '随机（???）'):
+        click the first '随机（???）' to open the dropdown -> wait for the dropdown to really render (poll for
+        "美国" to appear; game 47: when headless rendering is slower than 1s, blindly re-clicking the opener
+        toggles the dropdown closed) -> click the target faction -> confirm the dropdown collapsed. If the
+        player is already the target faction (re-entry without a reset), clicking it to open the dropdown and
+        clicking again is idempotent.
         """
         for _ in range(3):
             shot = self._shot()

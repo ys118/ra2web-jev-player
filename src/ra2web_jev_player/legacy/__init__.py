@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
-"""历史归档：第 1-20 局的自研主循环（legacy-bot），官方体系上线后保留作对照。
+"""Historical archive: the homegrown main loop for games 1-20 (legacy-bot), kept for comparison after the
+official system went live.
 
-- 运行（仅作历史复现，非工程主线）：``uv run python -m ra2web_jev_player.legacy.bot``
-- 对照材料：``docs/SESSION-REPORT.md``（二十局进化史）、``docs/LESSONS.md`` 头部
-- 工程主线在 ``game.py`` + ``strategy/planner/``（自包含体系）；本包不做功能演进，
-  保留原样以便复盘第 1-20 局时对照当时的实现。
+- Run (historical reproduction only, not the engineering mainline):
+  ``uv run python -m ra2web_jev_player.legacy.bot``
+- Comparison material: ``docs/SESSION-REPORT.md`` (the twenty-game evolution history), head of
+  ``docs/LESSONS.md``
+- The engineering mainline is ``game.py`` + ``strategy/planner/`` (the self-contained system); this package
+  does not evolve -- it is kept as it was so reviews of games 1-20 can compare against the implementation
+  of that time.
 """

@@ -1,36 +1,63 @@
-# knowledge —— 攻略与数值（AI 决策依据）
+# knowledge — strategy guides and numbers (the AI's decision basis)
 
-> 本目录是喂给 Jev / 决策层的**知识底座**，三份文件分工不同、来源同一套数据。
-> 原始数据与复现方法见 `../_research/README.md`。
+> This directory is the **knowledge base** fed to Jev / the decision layer: three files with
+> different roles, all from the same data set.
+> Raw data and reproduction method: `references/research/README.md`.
 
-## 一、三份文件怎么用
+## 1. How to use the three files
 
-| 文件 | 是什么 | 用法 |
+| File | What it is | How to use it |
 |---|---|---|
-| `RA2-BIBLE.md` | 全维度攻略（638 行）：基础概念/兵种图谱/经济/战斗/开局/战术/微操/**兵法映射**/**决策清单** | 长上下文知识库；做策略迭代、复盘归因、写新规则时查 |
-| `AI-OPERATING-CARD.md` | 压缩操作卡（~6 KB）：十条铁律、每 tick 清单、阈值表、五态机、禁止清单 | **直接作为系统提示词**喂给决策模型（比 Bible 省 token） |
-| `RA2-UNITS.json` | 机器可读数值：40+ 单位/建筑（造价·血量·护甲·武器）+ 27 种弹头 × 11 种护甲倍率 + 全局参数 | 代码 `import json` 直接读；不要从 Markdown 里解析数字 |
+| `RA2-BIBLE.md` | All-dimension strategy guide (638 lines): basic concepts / unit catalog / economy / combat / opening / tactics / micro / **Art of War mapping** / **decision checklist** | Long-context knowledge base; consult it when iterating strategy, attributing a review, or writing new rules |
+| `AI-OPERATING-CARD.md` | Compressed operating card (~6 KB): ten iron rules, per-tick checklist, threshold table, five-state machine, forbidden list | Fed to the decision model **directly as the system prompt** (cheaper in tokens than the Bible) |
+| `RA2-UNITS.json` | Machine-readable numbers: 40+ units/buildings (cost, HP, armor, weapon) + 27 warheads × 11 armor multipliers + global parameters | Read directly from code with `import json`; never parse numbers out of the Markdown |
 
-配合方式（本项目的实践）：`RA2-UNITS.json` → 反制/选兵逻辑；`AI-OPERATING-CARD.md` 蒸馏成固定 DOCTRINE 文本 + 实时战场文本一起喂 Jev；`RA2-BIBLE.md` 供人/agent 查阅与迭代。
+How they fit together (this project's practice): `RA2-UNITS.json` → counter/pick logic;
+`AI-OPERATING-CARD.md` distilled into the fixed DOCTRINE text and fed to Jev together with the live
+battlefield text; `RA2-BIBLE.md` for humans/agents to consult and iterate on.
 
-## 二、出处与版本（重要）
+The directory also holds `doctrine.json`: the override values written back by the automatic review
+tuning (bounded, one step per item, with a floor; provenance and reason are recorded in the file and
+git history is the audit trail — see `docs/METHODOLOGY.md`).
 
-- **数值**：游戏客户端原文件 `rules.ini` + `ra2.csf`（抓取于 **2026-09-20**，客户端 **v0.87.0-r79e73e7**，`mod id = gonghui`）。中文名由 CSF 解码得到。
-- **战术**：社区攻略 43 篇（红警之家 uc129 / 游侠 / 贴吧 / 萌娘百科），原文在 `../_research/pages/`。
-- **工程约束**：自研直调 werhd 的 20 局实战复盘（`../src/ra2web_jev_player/legacy_bot.py`、`../docs/SESSION-REPORT.md`、`../docs/ENGINEERING-NOTES.md`）。
+## 2. Provenance and version (important)
 
-⚠️ **数值与版本绑定**：游戏更新后（首页可看版本号）须按 `../_research/README.md` 的流程重抓重生成，再跑 `verify.py` 对账。
+- **Numbers**: the original game-client files `rules.ini` + `ra2.csf` (scraped on **2026-09-20**,
+  client **v0.87.0-r79e73e7**, `mod id = gonghui`). The Chinese names come from decoding the CSF.
+- **Tactics**: 43 community guide articles (the Red Alert Home site uc129, Youxia, Tieba, Moegirlpedia),
+  originals in `references/research/pages/`.
+- **Engineering constraints**: reviews of 20 real matches played through the in-house direct werhd
+  integration (`src/ra2web_jev_player/legacy/bot.py`, `docs/SESSION-REPORT.md`,
+  `docs/ENGINEERING-NOTES.md`).
 
-## 三、使用注意（避免误用）
+⚠️ **The numbers are bound to the version**: after a game update (the version number is visible on the
+home page) you must re-scrape and regenerate following the flow in `references/research/README.md`,
+then run `verify.py` to reconcile.
 
-1. **`RA2-BIBLE.md` §8/§10 里"每批 ≤5 单位、同目标 12s 节流、部署 45s 节流"是"自研直调 werhd"时代的约束**；官方 `werhd-jev-player` 的适配层会自动分批并带单位级冷却（见 `../docs/ENGINEERING-NOTES.md` §二）。两套体系不要混着照抄。
-2. **数值是"这个 mod 的这个版本"的真值**，不是原版 RA2 的通用值；社区文章的个别说法（如"共辉幻影前置低""刷钱工具"）在 rules.ini 中找不到对应实现，Bible §11.3 已单列不确定项。
-3. **比例关系比绝对值更耐用**：例如"犀牛 5 炮杀犀牛、灰熊 7 炮才杀犀牛"来自 `伤害 × 弹头倍率 ÷ 血量`，即使版本微调也基本成立。
-4. **`RA2-UNITS.json` 的 `verses` 顺序**固定为 `none, flak, plate, light, medium, heavy, wood, steel, concrete, special_1, special_2`（见文件内 `meta.armor_classes`），乘算即伤害：`damage × burst × verses[护甲]`。
+## 3. Usage caveats (avoid misusing them)
 
-## 四、已知不确定项（摘要，详见 `RA2-BIBLE.md` §11.3）
+1. The "at most 5 units per batch, 12s per-target throttle, 45s deploy throttle" rules in
+   `RA2-BIBLE.md` §8/§10 are constraints from the era of the **in-house direct werhd integration**;
+   the official `werhd-jev-player` adapter batches automatically and carries per-unit cooldowns (see
+   `docs/ENGINEERING-NOTES.md` §2). Do not copy rules from one system into the other.
+2. The numbers are ground truth for **this version of this mod**, not generic stock-RA2 values; a few
+   claims in community articles (e.g. "this mod's Mirage Tank has a low prerequisite", "money-farming
+   tools") have no corresponding implementation in rules.ini, and Bible §11.3 lists them separately
+   as uncertain items.
+3. **Ratios are more durable than absolute values**: for example, "a Rhino kills a Rhino in 5 shots,
+   a Grizzly needs 7 shots to kill a Rhino" follows from `damage × warhead multiplier ÷ HP`, and
+   holds even under small version tweaks.
+4. The `verses` order in `RA2-UNITS.json` is fixed as
+   `none, flak, plate, light, medium, heavy, wood, steel, concrete, special_1, special_2`
+   (see `meta.armor_classes` in the file); the multiplier is the damage:
+   `damage × burst × verses[armor]`.
 
-- 建造时间：`rules.ini` 无 `BuildTime` 字段，只能按造价推算相对快慢。
-- 采矿单趟金额：ini 给"25 金/格 × 45 格"，社区实测约 1000/趟（武矿 ≈ 超时空 2 倍）——按后者用。
-- 升级击杀门槛公式未在引擎里逐条验证；可靠结论是"门槛与造价成正比"。
-- 防空履带车（HTK）对空数值具备（35/25/10），但**实战击杀验证**建议在复盘里记录一例。
+## 4. Known uncertainties (summary; details in `RA2-BIBLE.md` §11.3)
+
+- Build time: `rules.ini` has no `BuildTime` field, so relative speed can only be inferred from cost.
+- Ore per trip: the ini gives "25 credits/cell × 45 cells", while community measurements say about
+  1000 per trip (war miner ≈ 2× chrono miner) — the latter is what the project uses.
+- The kill-threshold formula for promotion has not been verified in the engine line by line; the
+  reliable conclusion is that the threshold is proportional to cost.
+- Anti-air tracked vehicle (HTK): the anti-air values are present (35/25/10), but a **real-combat
+  kill verification** is recommended to be recorded as one instance in a review.

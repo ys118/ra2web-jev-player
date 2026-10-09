@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
-"""确定性分析: 能用代码算的绝不给模型（METHODOLOGY 原则）。
+"""Deterministic analysis: anything computable in code is never handed to the model
+(METHODOLOGY principle).
 
-产出 (severity, 标题, 证据) 三元组列表, 喂给 Jev 语义复盘与复盘 md。
-(自 review.py 原样拆出: 函数逐行搬运, 行为零改动; 复盘口径注释保留在各函数处。)
+Produces a list of (severity, title, evidence) triples, fed to the Jev semantic review and
+the review md.
+(Extracted verbatim from review.py: functions moved line by line, behavior unchanged; the
+review conventions comments are kept at each function.)
 """
 from __future__ import annotations
 
@@ -18,7 +21,7 @@ BUILD_WINDOWS = {"NAPOWR": 45, "NAREFN": 120, "NAHAND": 240, "NAWEAP": 330}
 # ================= 确定性分析 =================
 
 def analyze(rec: GameRecord) -> list:
-    """确定性发现：每条 (severity, 标题, 证据)。"""
+    """Deterministic findings: each entry is a (severity, title, evidence) triple."""
     out = []
     # 1) 开局时序 vs 手册窗口（build_order 元素是 (t, code)，取每个代号首次建成时间）
     built: dict = {}

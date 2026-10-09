@@ -1,0 +1,52 @@
+name: Feature request
+description: Propose a strategy, tooling or documentation improvement
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This project iterates **single-variable at a time**: a behaviour change
+        must be attributable to one cause and backed by evidence (a match, a
+        scenario test, or reasoning about the engine). See
+        `docs/METHODOLOGY.md`. Proposals that bundle several changes are hard to
+        evaluate — split them.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / opportunity
+      description: What is wrong or missing today? Be concrete (e.g. "loses to early infantry rushes before the first tank").
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: The single change you want, and where it would live (module/function if you know).
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Match number, log excerpt, scenario test, or the engine/API fact that supports it.
+    validations:
+      required: true
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks / what could regress
+      description: Which existing behaviour might this break, and how would we detect it?
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This stays within single-player skirmish against the built-in AI, using only the official public player API.
+          required: true

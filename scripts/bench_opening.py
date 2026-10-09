@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""[第67局前引擎微基准] 精炼厂先行链实测(当前引擎):
-  Q1 无电厂时 NAREFN 是否可造(prereq POWER 的真实判定)?
-  Q2 NAREFN→NAHAND→NAWEAP 各建筑实际建造时长(对比第66局电厂先行链)?
-  Q3 低电力(isLowPower)是否拖慢建造/生产?
-只做基准不托管对战, 结束关浏览器。"""
+"""Engine micro-benchmark before game 67: refinery-first chain measured on the current engine:
+  Q1 Is NAREFN buildable without a power plant (the real prereq POWER check)?
+  Q2 Actual construction time of each of NAREFN->NAHAND->NAWEAP (vs the game-66 power-plant-first chain)?
+  Q3 Does low power (isLowPower) slow construction/production?
+Benchmarks only, no match management; closes the browser at the end."""
 import json
 import sys
 import time

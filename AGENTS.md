@@ -1,42 +1,69 @@
-# ra2web-jev-player —— 工作区指令
+# AGENTS.md — project conventions for maintainers and AI agents
 
-> 仓库布局（2026-10-09 结构重构定稿）见 `docs/LAYOUT.md`：代码在 `src/`，文档在 `docs/`
-> （含 `docs/knowledge/`），运行现场在 `artifacts/`，训练数据在 `dataset/`，
-> 外部资料在 `references/`，脚本在 `scripts/`，测试在 `tests/`。
+> Repository layout is defined in `docs/LAYOUT.md`: code in `src/`, docs in
+> `docs/` (including `docs/knowledge/`), runtime record in `artifacts/`, training
+> data in `dataset/`, external material in `references/`, scripts in `scripts/`,
+> tests in `tests/`.
+>
+> Language policy: public-facing docs, docstrings and commit messages are
+> English; historical ledgers, per-match inline annotations and runtime log
+> strings stay Chinese (see `docs/README.md`).
 
-## 对局汇报规则（用户指定，2026-09-26）
+## Match reporting rule (user-mandated, 2026-09-26)
 
-**每执行完一局（无论胜败、无论是否 `--loop` 连跑中的中间局），必须立即停下来，
-向用户做汇报，等用户给出反馈后才能继续下一局或进行迭代。**
+**After every match — win or loss, and including every match inside a `--loop`
+run — stop immediately and report to the user. Wait for feedback before playing
+another match or starting an iteration.**
 
-汇报至少包含：
-1. 战报：结果、时长、关键时间线（开局建造/首坦克/敌基地定位/终局态势）；
-2. 复盘要点：`artifacts/games/game-XXXX-review.md` 的确定性发现 + 模型根因判定；
-3. 本局学到了什么、拟议的下一步迭代（单变量），交由用户确认后再执行。
+The report must contain at least:
 
-禁止：连跑多局不等反馈、跳过汇报直接迭代、未经用户同意自动开始下一局。
+1. Match report: result, duration, key timeline (opening build, first tank, enemy
+   base located, final situation);
+2. Review highlights: the deterministic findings from
+   `artifacts/games/game-XXXX-review.md` plus the model's root-cause verdict;
+3. What this match taught us and the proposed next iteration (single variable),
+   to be confirmed by the user before execution.
 
-## 训练数据资产（用户指定，2026-09-29，最高优先级之一）
+Forbidden: running several matches without reporting, skipping the report and
+iterating directly, starting the next match without the user's go-ahead.
 
-用户将在基座模型之上做**模型后训练（SFT/RL）**——每局对战数据都是训练资产：
+## Training-data assets (user-mandated, 2026-09-29, top priority)
 
-1. **每局自动存档**至 `artifacts/games/run-<时间戳>/`：
-   - `decisions.jsonl`——决策元组（完整 state + questions + answers + 态势上下文），SFT 核心数据；
-   - `events.jsonl`——本局全事件流（决策/动作/损失/击杀/观测快照）；
-   - `report.json`——终局战报（复盘后另写 `game.json`：局号↔run 目录链接）；
-2. 复盘产物 `artifacts/games/game-XXXX-review.md` 与账本 `docs/LESSONS.md` 同为数据资产，
-   一并持久化；训练侧规范化出口是 `dataset/`（`uv run python scripts/build_dataset.py` 幂等并入，
-   规范与编号口径见 `dataset/README.md`）；
-3. **红线：禁止清理/覆盖/删除 `artifacts/`、`dataset/` 下任何历史数据**；
-   数据目录不进 .gitignore，随 git 持久化推送；
-4. 汇报时发现数据缺失/损坏/未存档，立即向用户报告；
-5. 涉及数据格式变更（如 decisions 字段增删、dataset 字段变化）需先汇报再改，保证旧数据可读。
+The user will fine-tune a base model on this data (SFT/RL) — every match is a
+training asset:
 
-## 其他既有红线（与 docs/HANDOFF.md §四 一致）
+1. **Every match is archived automatically** to `artifacts/games/run-<timestamp>/`:
+   - `decisions.jsonl` — decision tuples (full state + questions + answers +
+     situation context), the core SFT data;
+   - `events.jsonl` — the full event stream of the match (decisions, actions,
+     losses, kills, observation snapshots);
+   - `report.json` — the end-of-match report (the review later writes
+     `game.json`, linking the archive to its review number);
+2. The review output `artifacts/games/game-XXXX-review.md` and the ledger
+   `docs/LESSONS.md` are data assets too and must be persisted. The curated
+   training-data export is `dataset/` (rebuild with
+   `uv run python scripts/build_dataset.py`, which is idempotent; conventions and
+   numbering caveats are in `dataset/README.md`);
+3. **Red line: never clean, overwrite or delete any historical data under
+   `artifacts/` or `dataset/`.** Data directories are not gitignored; they are
+   persisted and pushed with git;
+4. If a report finds data missing, corrupted or unarchived, tell the user
+   immediately;
+5. Data-format changes (adding/removing fields in `decisions`, changes to
+   dataset metadata) must be reported first and must keep old data readable.
 
-- 只用游戏公开的 werhd API；只打单机遭遇战，不打排位/联机；
-- 决策模型密钥只在 Python 进程内，绝不写进页面/日志/代码；
-- 未经确认入库不删除任何工作目录（数据目录默认禁删）；
-- 学习闭环的调参走 `docs/knowledge/doctrine.json`（白名单+限幅+置信闸门），结构性改动先汇报；
-- 结构性重构（目录搬迁/模块拆分）必须先保证：`uv run pytest` 全过（26 场景 + 布局守卫，
-  陈旧断言在 `tests/README.md` 登记）、决策行为零改动。
+## Other standing rules (aligned with `docs/HANDOFF.md` §4)
+
+- Use only the game's public werhd API; play single-player skirmish only, never
+  ranked or multiplayer;
+- The decision-model key lives only inside the Python process — never in the
+  page, logs, or code;
+- Never delete a working directory that has not been confirmed for archiving
+  (data directories are protected by default);
+- Learning-loop parameter changes go through `docs/knowledge/doctrine.json`
+  (whitelist + capped deltas + confidence gate); structural changes must be
+  reported first;
+- Structural refactors (directory moves, module splits) must satisfy: `uv run
+  pytest` fully green (26 scenarios + layout guards; stale assertions are listed
+  in `tests/README.md`) and zero change in decision behaviour;
+- Commit messages are English (user-mandated, 2026-10-09).

@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
-"""决策模型客户端（TypeSafe Jev / 本地 clef-flash 同契约）—— 对外模型调用的唯一封装。
+"""Decision-model client (same contract for TypeSafe Jev and local clef-flash) -- the only wrapper for
+outbound model calls.
 
-端点: {base_url}/systemone, POST {"state", "questions", "model"}
-后端: 默认本地 clef-flash（2026-10-04 切，Jev 云端两行注释保留可回切）；
-      backend 属性 = "clef"|"jev"，供 sft_tuple teacher 溯源（docs/CLEF-LOCAL.md §八）
-题型: choice(多选一, criteria=选项→描述字典) / score(评分, criteria=有序档位数组≥2) /
-      noul(概率判定, criteria 可省)
-返回: answers[qid] = {"type", "choice"|"score"|"noul", "confidence", "probabilities"}
-注意: noul 答案的键是 "noul" 而不是 "probability"（实测）。
-密钥从环境变量 TYPESAFE_API_KEY 读取，绝不写进页面、日志或代码。
+Endpoint: {base_url}/systemone, POST {"state", "questions", "model"}
+Backend: local clef-flash by default (switched on 2026-10-04; the two cloud-Jev lines stay commented out
+         so it can be switched back); the backend attribute = "clef"|"jev", used for sft_tuple teacher
+         provenance (docs/CLEF-LOCAL.md §8)
+Question types: choice (pick one, criteria=option->description dict) / score (rating, criteria=ordered
+         level array with >=2 entries) / noul (probability judgement, criteria optional)
+Response: answers[qid] = {"type", "choice"|"score"|"noul", "confidence", "probabilities"}
+Note: the key of a noul answer is "noul", not "probability" (measured).
+The key is read from the environment variable TYPESAFE_API_KEY and is never written to the page, the logs,
+or the code.
 """
 from __future__ import annotations
 
@@ -39,11 +42,11 @@ LOCAL_MAX_CALLS = 999999    # 大数占位而非去掉上限判断, 零改动预
 
 
 class JevError(RuntimeError):
-    """调用失败（重试耗尽 / 配置错误 / 未知题型）。"""
+    """Call failed (retries exhausted / config error / unknown question type)."""
 
 
 class JevBudgetExceeded(JevError):
-    """达到决策预算上限（JEV_MAX_CALLS）。"""
+    """Decision budget cap reached (JEV_MAX_CALLS)."""
 
 
 def _pct(sorted_latencies, q):
@@ -54,7 +57,8 @@ def _pct(sorted_latencies, q):
 
 
 class JevClient:
-    """批量语义判断客户端。一次请求问全部问题（比逐问省 ~10x 延迟与费用）。"""
+    """Batch semantic-judgement client. One request asks every question (saves ~10x latency and cost
+    compared with asking one by one)."""
 
     def __init__(self, api_key=None, base_url=None, model=None, max_calls=None):
         self.api_key = api_key if api_key is not None else os.environ.get("TYPESAFE_API_KEY", "")
@@ -104,7 +108,7 @@ class JevClient:
         return out
 
     def ask(self, state, questions: dict, timeout: float = 40) -> dict:
-        """一次请求批量问全部问题；返回 answers 字典（失败抛 JevError）。"""
+        """Ask every question in one batched request; returns the answers dict (raises JevError on failure)."""
         if not questions:
             return {}
         with self._lock:
@@ -141,7 +145,8 @@ class JevClient:
         raise JevError("typesafe failed: %s" % last)
 
     def ask_groups(self, state, groups: dict, timeout: float = 40) -> dict:
-        """官方候选组形状的便捷封装：{gid: {instructions, criteria{选项→描述}}} → 每组一道 choice。"""
+        """Convenience helper for the official candidate-group shape: {gid: {instructions, criteria
+        {option->description}}} -> one choice question per group."""
         questions = {gid: {"type": "choice", "instructions": g.get("instructions", ""),
                            "criteria": g.get("criteria") or {}}
                      for gid, g in groups.items()}
