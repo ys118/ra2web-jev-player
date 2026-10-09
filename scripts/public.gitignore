@@ -16,5 +16,8 @@ dist/
 # Match data is not published: this repository ships code and docs only.
 # Recorded match data lives in the maintainer's private data repository; ignoring
 # these paths here keeps a contributor's own match data out of commits.
-artifacts/
-dataset/
+# (dir/* + negation, because a re-include is impossible under an excluded dir.)
+artifacts/*
+!artifacts/README.md
+dataset/*
+!dataset/README.md

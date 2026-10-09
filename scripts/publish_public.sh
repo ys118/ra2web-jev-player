@@ -48,6 +48,7 @@ cp "$here/references/research/README.md" references/research/README.md
 # .gitignore: use the published-repository variant (data paths ignored)
 cp "$here/scripts/public.gitignore" .gitignore
 git add -A
+git add -f artifacts/README.md dataset/README.md references/research/README.md
 git commit -q -m "chore: publish code-only tree (match data and third-party bulk stay private)
 
 The public repository ships code, tests, scripts, docs, derived knowledge and the
