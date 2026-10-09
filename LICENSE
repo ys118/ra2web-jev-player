@@ -19,11 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-The MIT license above covers the source code and documentation authored in this
-repository. It does NOT cover third-party material bundled for research and
-reference purposes — see THIRD_PARTY_NOTICES.md. Do not redistribute this
-repository as a whole if you do not have the right to redistribute that
-material.
