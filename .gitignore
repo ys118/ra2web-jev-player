@@ -1,3 +1,6 @@
+# .gitignore for the PUBLISHED code repository (see docs/PUBLISHING.md).
+# scripts/publish_public.sh copies this file over .gitignore in the filtered tree:
+# the maintainer's data repository tracks artifacts/ and dataset/, this one must not.
 __pycache__/
 *.pyc
 .venv/
@@ -5,11 +8,16 @@ dist/
 .zcode/
 .video_agent/
 
-# 工具缓存（pytest / ruff / mypy）
+# tool caches (pytest / ruff / mypy)
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
 
-# 注意：artifacts/ 与 dataset/ 是数据资产。在本库（数据仓）它们随 git 持久化，
-# 因此**不在此忽略**；公开代码库由 scripts/publish_public.sh 追加忽略规则
-# （见 AGENTS.md 与 docs/PUBLISHING.md）。
+# Match data is not published: this repository ships code and docs only.
+# Recorded match data lives in the maintainer's private data repository; ignoring
+# these paths here keeps a contributor's own match data out of commits.
+# (dir/* + negation, because a re-include is impossible under an excluded dir.)
+artifacts/*
+!artifacts/README.md
+dataset/*
+!dataset/README.md
