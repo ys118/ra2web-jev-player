@@ -1,0 +1,20 @@
+# .gitignore for the PUBLISHED code repository (see docs/PUBLISHING.md).
+# scripts/publish_public.sh copies this file over .gitignore in the filtered tree:
+# the maintainer's data repository tracks artifacts/ and dataset/, this one must not.
+__pycache__/
+*.pyc
+.venv/
+dist/
+.zcode/
+.video_agent/
+
+# tool caches (pytest / ruff / mypy)
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Match data is not published: this repository ships code and docs only.
+# Recorded match data lives in the maintainer's private data repository; ignoring
+# these paths here keeps a contributor's own match data out of commits.
+artifacts/
+dataset/
