@@ -20,6 +20,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- `docs/HANDOFF.md` (maintainer cold-start notes) is private-only: the publish
+  filter strips it from every commit of the public mirror, and published docs no
+  longer link to it.
 - **Two-repository model**: the public repository is regenerated from the private
   working repository with `scripts/publish_public.sh` and ships code, docs, derived
   knowledge and official API snapshots only; recorded match data (`artifacts/`,

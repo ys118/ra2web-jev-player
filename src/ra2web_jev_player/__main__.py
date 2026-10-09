@@ -20,7 +20,7 @@ _USAGE = """ra2web-jev-player —— 网页红警2 的 Jev 自动对战玩家
   uv run python -m ra2web_jev_player --help    # 本说明
 
 常用参数: --faction 苏俄 --speed 3 --credits 10000 --headed --loop N --debug
-入口代码: src/ra2web_jev_player/cli.py · 文档: README.md / docs/HANDOFF.md
+入口代码: src/ra2web_jev_player/cli.py · 文档: README.md / docs/LAYOUT.md
 """
 
 

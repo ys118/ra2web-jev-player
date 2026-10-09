@@ -332,48 +332,61 @@ def backfill_legacy(manifest, dry):
 def ingest_runs(manifest, links, dry):
     """Register each artifacts/games/run-*/ as an index entry under dataset/runs/<run>/ (idempotent).
 
-    Criterion = the run dir carries its own report.json (only a run with an outcome is a training
-    trajectory); a run without report.json was aborted and is indexed but not ingested (fidelity,
-    traceability).
+    Criterion = the run dir carries a payload (events.jsonl / decisions.jsonl). A game that ended
+    with a terminal report gets tier sft-full; a run terminated externally (no report.json: user
+    stop, stall guard, killed process) is still a training asset -- its (state,questions,answers)
+    tuples are complete and only the outcome label is missing -- so it is ingested as tier
+    `partial` with result=null. Only a run with no payload at all is skipped (nothing to train on).
 
     Only meta.json + review.md (small text) are written; the payloads (events/decisions/report) are
     **not copied** -- meta.source_dir points at artifacts/games/<run>/ (single source, avoiding two
     copies of multi-MB decisions.jsonl inside the repository -- public-repo size considerations).
     """
-    ingested, skipped_aborted = 0, []
+    ingested, partial_nodes, empty = 0, [], []
     runs_dir = OUT / "runs"
     for d in sorted(GAMES.glob("run-*")):
         rec = links.get(d.name, {"review_no": None, "match": "none"})
-        report = d / "report.json"
-        if not report.exists():
-            skipped_aborted.append(d.name)
-            continue
-        rep = json.loads(report.read_text(encoding="utf-8"))
         evs = read_jsonl(d / "events.jsonl")
         n_sft = len(read_jsonl(d / "decisions.jsonl"))
+        report = d / "report.json"
+        if not evs and not n_sft:
+            empty.append(d.name)
+            continue
+        rep = json.loads(report.read_text(encoding="utf-8")) if report.exists() else {}
         dest = runs_dir / d.name
         if not dry:
             dest.mkdir(parents=True, exist_ok=True)
         rev_no = rec["review_no"]
         rev_file = "game-%04d-review.md" % rev_no if rev_no else None
+        terminal = report.exists()
+        if terminal:
+            tier = "sft-full" if n_sft else "partial"
+            note = "索引条目: 载荷在 source_dir（不重复存储）; 局号口径见 dataset/README.md"
+        else:
+            tier = "partial"
+            note = ("无终局 report.json（对局被外部终止: 用户叫停/停摆守卫/进程被杀）——"
+                    "事件流与 (state,questions,answers) 元组完整, 无胜负标签"
+                    + ("; 复盘 %s 记为 unknown" % rev_file if rev_file else ""))
+            partial_nodes.append(d.name)
         meta = {"run": d.name, "kind": "run-ingest",
                 "review_no": rev_no,             # 流水号（artifacts/games 命名口径）
                 "review_file": rev_file,          # 该局复盘文件（有则指向）
                 "review_link": rec["match"],      # game.json | report-triple | ambiguous:… | none
                 "source_dir": "artifacts/games/%s" % d.name,   # 载荷单一来源
-                "payloads": ["events.jsonl", "decisions.jsonl", "report.json"],
+                "payloads": [p for p in ("events.jsonl", "decisions.jsonl", "report.json")
+                             if (d / p).exists()],
+                "terminal_report": terminal,      # False = 外部终止, 无胜负标签
                 "result": rep.get("result"), "t": rep.get("t"),
                 "ticks": rep.get("ticks"), "crisis_ticks": rep.get("crisis_ticks"),
                 "stance": rep.get("stance"), "ts": rep.get("ts"),
                 "sft_tuples": n_sft, "events_count": len(evs),
-                "tier": "sft-full" if n_sft else "partial",
-                "note": "索引条目: 载荷在 source_dir（不重复存储）; 局号口径见 dataset/README.md"}
+                "tier": tier, "note": note}
         write_json(dest / "meta.json", meta, dry)
         if rev_no and rev_file:
             copy_file(GAMES / rev_file, dest / "review.md", dry)
         manifest.append(meta)
         ingested += 1
-    return ingested, skipped_aborted
+    return ingested, partial_nodes, empty
 
 
 # ================= 入口 =================
@@ -391,7 +404,7 @@ def main(argv=None):
     manifest = []
     if not args.skip_legacy:
         backfill_legacy(manifest, dry)
-    n_ingest, aborted = ingest_runs(manifest, links, dry)
+    n_ingest, partial_nodes, empty = ingest_runs(manifest, links, dry)
 
     # 排序: game-NNNN 在前（按局号）, run 条目在后（按 run 名）
     def sort_key(m):
@@ -411,8 +424,11 @@ def main(argv=None):
     print("dataset %s: %d 条 (历史 %d + run 增量 %d) | tiers=%s | results=%s"
           % ("[check]" if dry else "生成完毕", len(manifest),
              len(manifest) - n_ingest, n_ingest, tiers, results))
-    print("run 目录: %d 个 (中止无终局 %d: %s)" % (
-        len(links), len(aborted), ", ".join(aborted[:4]) + ("…" if len(aborted) > 4 else "")))
+    print("run 目录: %d 个 | 并入 dataset %d (无终局报告 partial %d%s) | 无载荷丢弃 %d" % (
+        len(links), n_ingest, len(partial_nodes),
+        (": " + ", ".join(partial_nodes[:3]) + ("…" if len(partial_nodes) > 3 else ""))
+        if partial_nodes else "",
+        len(empty)))
     print("run→复盘流水号: 已链 %d, 未链 %d%s%s" % (
         len(links) - len(unmatched), len(unmatched),
         (" | 歧义 %s" % ambiguous) if ambiguous else "",

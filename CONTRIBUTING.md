@@ -56,7 +56,7 @@ Fixing either one is a welcome first contribution.
   [docs/LAYOUT.md](docs/LAYOUT.md).
 - **English in public surfaces**: README, governance docs, packaging metadata,
   CI, and module/class/function docstrings. **Chinese is intentional** in
-  `docs/LESSONS.md`, `docs/HANDOFF.md`, `docs/SESSION-REPORT.md`,
+  `docs/LESSONS.md`, `docs/SESSION-REPORT.md`,
   `docs/ENGINEERING-NOTES.md`, `docs/CLEF-LOCAL.md`, `docs/JEV-INTEGRATION.md`,
   the game-strategy content under `docs/knowledge/`, and in inline comments that
   record per-match lessons (e.g. `# [game 67] ...`). Runtime log messages are

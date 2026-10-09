@@ -43,7 +43,7 @@ ra2web-jev-player/
 │   ├── runs/run-<ts>/         # index entry per archived match (meta + review; payload stays in artifacts/games/)
 │   ├── MANIFEST.jsonl · run-links.json
 ├── docs/                      # all documentation
-│   ├── ARCHITECTURE.md · METHODOLOGY.md · ENGINEERING-NOTES.md · HANDOFF.md
+│   ├── ARCHITECTURE.md · METHODOLOGY.md · ENGINEERING-NOTES.md
 │   ├── JEV-INTEGRATION.md · CLEF-LOCAL.md · SESSION-REPORT.md · LESSONS.md
 │   └── knowledge/             # the three strategy guides + doctrine (was knowledge/)
 └── references/                # external material (old refs/ + _research/ merged)

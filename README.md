@@ -23,7 +23,7 @@ the next match. Every match also produces training data (complete
 `state → questions → answers` tuples) for later SFT/RL work.
 
 > **Documentation language.** Public-facing docs, docstrings and commit messages
-> are English. `docs/LESSONS.md`, `docs/HANDOFF.md`, `docs/SESSION-REPORT.md`,
+> are English. `docs/LESSONS.md`, `docs/SESSION-REPORT.md`,
 > `docs/ENGINEERING-NOTES.md`, `docs/CLEF-LOCAL.md`, `docs/JEV-INTEGRATION.md`
 > and the game-strategy content under `docs/knowledge/` are **Chinese by design** —
 > they are the project's per-match engineering log. See
