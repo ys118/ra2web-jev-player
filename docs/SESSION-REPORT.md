@@ -230,7 +230,7 @@
 
 ## 六点十、架构升级：接入官方 Jev 玩家体系（2026-09-21 傍晚）
 
-用户指出官方 API 文档位于 `D:/projects/ra2web.github.io/docs/`（尤其 `player-console-api.md`），
+用户指出官方 API 文档位于 `the official documentation repository (ra2web-werhd / ra2web.github.io)`（尤其 `player-console-api.md`），
 对照学习后完成架构级切换：**弃用自研 Python 主循环，改用官方 werhd-jev-player.mjs + 自建 Python 桥接**。
 
 **官方文档的关键收获（纠错 + 新能力）**

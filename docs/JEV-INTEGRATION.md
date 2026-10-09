@@ -71,7 +71,7 @@ special/cancel/sell/deploy/attack/move。
 
 ## 五、官方资料的复制来源
 
-`references/werhd/` 内容复制自 `D:/projects/ra2web.github.io/docs/`（官方文档仓库）；
+`references/werhd/` 内容复制自 the official documentation repository (ra2web-werhd / ra2web.github.io)；
 **类型真相源** `werhd-player-api.d.ts` 在官方仓库根（refs 快照没有，已复制到
 `src/ra2web_jev_player/werhd/`）。官方曾在本地 v6 完整获胜 16:24（摧毁 40/损失 3），
 v8.3-recovery-naval 为当前版本线。
@@ -115,7 +115,7 @@ v8.3-recovery-naval 为当前版本线。
 
 ## 四、官方资料的复制来源
 
-`references/werhd/` 下所有内容复制自 `D:/projects/ra2web.github.io/docs/`（游戏官方文档仓库）：
+`references/werhd/` 下所有内容复制自 the official documentation repository (ra2web-werhd / ra2web.github.io)：
 `player-console-api.md`（werhd 完整 API）、`jev-player-local.md`（官方 Jev 玩家接入规格、启动步骤、六局实测记录——**官方曾以 16:24 获胜：摧毁 40/损失 3**）、`jev-player-goal-audit.md`（阶段验收）、`examples/`（玩家/目录/策略/特殊行动/摄像机/看板源码，v8.3）。
 
 ## 六、本地 clef-flash 候选后端（2026-10-04，影子评测完成）
