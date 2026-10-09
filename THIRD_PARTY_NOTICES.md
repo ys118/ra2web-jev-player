@@ -1,9 +1,11 @@
 # Third-party notices
 
 The MIT license in [LICENSE](LICENSE) covers the source code and documentation
-authored in this repository. It does **not** cover the material listed below,
-which is bundled for research, interoperability and reference purposes. All
-rights in that material remain with its respective owners.
+authored in this repository — nothing else. It does **not** cover the material
+listed below, which is bundled for research, interoperability and reference
+purposes; all rights in that material remain with its respective owners. Do not
+redistribute this repository as a whole if you do not have the right to
+redistribute that material.
 
 If you are a rights holder and want something removed, open an issue or contact
 the maintainer — it will be deleted promptly.
