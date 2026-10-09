@@ -1,87 +1,90 @@
-# LAYOUT —— 仓库布局与迁移对照（2026-10-09 结构重构）
+# LAYOUT — repository layout and migration mapping (2026-10-09 structure refactor)
 
-> 本次重构把仓库从"根目录平铺"整理为标准 uv Python 工程：**代码在 `src/`，
-> 文档在 `docs/`（含 knowledge），数据分 `artifacts/`（运行现场）与 `dataset/`
-> （训练数据），外部资料合并在 `references/`，脚本在 `scripts/`，测试在 `tests/`。**
-> 本文是布局的单一事实来源；历史的局次复盘文字（`LESSONS.md` 等）保留当时路径写法，
-> 读旧记录时按文末对照表换算。
+> This refactor took the repo from a "flat root directory" to a standard uv Python project:
+> **code in `src/`, documentation in `docs/` (including knowledge), data split into `artifacts/`
+> (runtime working state) and `dataset/` (training data), external material merged into
+> `references/`, scripts in `scripts/`, tests in `tests/`.**
+> This document is the single source of truth for the layout; historical per-match review text
+> (`LESSONS.md` etc.) keeps the path style of its time — when reading old records, convert with
+> the mapping table at the end of this file.
 
-## 一、定稿布局
+## 1. Final layout
 
 ```
 ra2web-jev-player/
-├── pyproject.toml / uv.lock / .python-version    # uv 工程（src 布局, uv_build）
-├── README.md / AGENTS.md                          # 全貌 / 协作红线
-├── src/ra2web_jev_player/                         # Python 包（工程的唯一代码源）
-│   ├── __main__.py            # python -m ra2web_jev_player（无参只打印用法）
-│   ├── paths.py               # 全项目路径常量（唯一来源, env 可覆盖）
+├── pyproject.toml / uv.lock / .python-version    # uv project (src layout, uv_build)
+├── README.md / AGENTS.md                          # overview / collaboration red lines
+├── src/ra2web_jev_player/                         # Python package (the project's only code source)
+│   ├── __main__.py            # python -m ra2web_jev_player (prints usage when called with no args)
+│   ├── paths.py               # project-wide path constants (single source, env-overridable)
 │   ├── config.py              # MatchConfig / DriverConfig
-│   ├── cli.py                 # 四个命令入口
-│   ├── audit.py               # 行日志 + 事件流审计
-│   ├── game.py                # BattleSession 对局编排（1.5s 宏观循环）
-│   ├── driver/                # browser(agent-browser 封装) + launcher(进局状态机)
-│   ├── jev/                   # 决策模型客户端（clef-flavored Jev 契约）
-│   ├── werhd/                 # 游戏 API：api.md + client.js + inject.py + d.ts
-│   ├── strategy/              # doctrine(阈值/手册) + questions(五问) + state(视图)
-│   │   └── planner/           # 确定性决策层（原 1642 行单文件按职责拆包）
-│   ├── review/                # 复盘引擎（原 497 行单文件拆包）+ 局号↔run 链接
-│   └── legacy/bot.py          # 第 1-20 局的自研主循环（历史对照, 不演进）
-├── scripts/                   # 仓库级运维/数据脚本（见 scripts/README.md）
-│   ├── run_game.bat           # 通用对局启动器（新局用这个）
-│   └── runs/run_g72..g100.bat # 历史启动脚本存档
-├── tests/                     # pytest：布局守卫 + 回归场景驱动（见 tests/README.md）
-│   └── regression/            # 26 个单变量离线场景脚本（原 out/test_*.py）
-├── artifacts/                 # 运行现场（原 logs/ + out/ 的数据部分）
-│   ├── logs/                  # bot.log · jev-events.jsonl · 进程 stdout · .play.lock
+│   ├── cli.py                 # the four command entry points
+│   ├── audit.py               # line log + event-stream audit
+│   ├── game.py                # BattleSession match orchestration (1.5s macro loop)
+│   ├── driver/                # browser (agent-browser wrapper) + launcher (match-entry state machine)
+│   ├── jev/                   # decision-model client (clef-flavored Jev contract)
+│   ├── werhd/                 # game API: api.md + client.js + inject.py + d.ts
+│   ├── strategy/              # doctrine (thresholds/manual) + questions (the five questions) + state (view)
+│   │   └── planner/           # deterministic decision layer (was a 1642-line single file, split by responsibility)
+│   ├── review/                # review engine (was a 497-line single file, split) + game-number↔run links
+│   └── legacy/bot.py          # the in-house main loop for matches 1-20 (historical reference, not evolved)
+├── scripts/                   # repo-level ops/data scripts (see scripts/README.md)
+│   ├── run_game.bat           # general match launcher (use this for new matches)
+│   └── runs/run_g72..g100.bat # archived historical launch scripts
+├── tests/                     # pytest: layout guards + regression scenario driver (see tests/README.md)
+│   └── regression/            # 26 single-variable offline scenario scripts (was out/test_*.py)
+├── artifacts/                 # runtime working state (the data part of the old logs/ + out/)
+│   ├── logs/                  # bot.log · jev-events.jsonl · process stdout · .play.lock
 │   ├── games/                 # game-XXXX-review.md · game-XXXX-events.jsonl · run-<ts>/
-│   ├── console/               # gNN_console.log（对局控制台输出）
+│   ├── console/               # gNN_console.log (match console output)
 │   ├── screenshots/ · bench/ · shadow_eval/
-├── dataset/                   # 训练数据资产（见 dataset/README.md）
-│   ├── game-NNNN/             # 1-65 局历史回填
-│   ├── runs/run-<ts>/         # 每局 run 目录的规范化增量副本（含 SFT 元组）
+├── dataset/                   # training-data assets (see dataset/README.md)
+│   ├── game-NNNN/             # backfilled from matches 1-65
+│   ├── runs/run-<ts>/         # index entry per archived match (meta + review; payload stays in artifacts/games/)
 │   ├── MANIFEST.jsonl · run-links.json
-├── docs/                      # 全部文档
+├── docs/                      # all documentation
 │   ├── ARCHITECTURE.md · METHODOLOGY.md · ENGINEERING-NOTES.md · HANDOFF.md
 │   ├── JEV-INTEGRATION.md · CLEF-LOCAL.md · SESSION-REPORT.md · LESSONS.md
-│   └── knowledge/             # 攻略三件套 + 作战手册（原 knowledge/）
-└── references/                # 外部资料（原 refs/ + _research/ 合并）
-    ├── werhd/                 # API 文档快照 + 官方示例（原 refs/）
-    └── research/              # 数值真值 + 数据挖掘流水线（原 _research/）
+│   └── knowledge/             # the three strategy guides + doctrine (was knowledge/)
+└── references/                # external material (old refs/ + _research/ merged)
+    ├── werhd/                 # API documentation snapshots + official examples (was refs/)
+    └── research/              # numeric ground truth + data-mining pipeline (was _research/)
 ```
 
-## 二、迁移对照（旧 → 新）
+## 2. Migration mapping (old → new)
 
-| 旧路径 | 新路径 | 备注 |
+| Old path | New path | Notes |
 |---|---|---|
-| `logs/bot.log`、`logs/jev-events.jsonl`、`logs/play*-run.log` | `artifacts/logs/…` | 内容不变 |
-| `logs/games/` | `artifacts/games/` | 每局复盘与 run 存档 |
+| `logs/bot.log`, `logs/jev-events.jsonl`, `logs/play*-run.log` | `artifacts/logs/…` | contents unchanged |
+| `logs/games/` | `artifacts/games/` | per-match review and run archives |
 | `logs/screenshots/` | `artifacts/screenshots/` | |
-| `out/*.log`（gNN_console 等） | `artifacts/console/` | |
+| `out/*.log` (gNN_console etc.) | `artifacts/console/` | |
 | `out/bench_result.txt` | `artifacts/bench/` | |
 | `out/shadow_eval/` | `artifacts/shadow_eval/` | |
-| `out/test_*.py` | `tests/regression/` | 场景脚本；由 pytest 驱动 |
-| `out/preflight.py`、`out/site_probe.py`、`out/bench_opening.py`、`out/shadow_eval.py` | `scripts/…` | 内部路径改为仓库根相对 |
-| `out/run_gNN.bat` | `scripts/runs/run_gNN.bat` | 历史存档；新局用 `scripts/run_game.bat <局号>` |
-| `out/play68_watch.sh`、`out/bench_watch.sh` | `scripts/play_watch.sh`、`scripts/bench_watch.sh` | |
-| `scripts/build_training_assets.py` | `scripts/build_dataset.py` | 同一职责 + 新增增量并入 |
-| `knowledge/` | `docs/knowledge/` | 攻略与作战手册 |
-| `refs/`（API 文档+示例） | `references/werhd/` | |
-| `_research/`（数值/挖掘） | `references/research/` | 同上，复现流程见其 README |
-| `src/ra2web_jev_player/legacy_bot.py` | `src/ra2web_jev_player/legacy/bot.py` | 运行方式：`python -m ra2web_jev_player.legacy.bot` |
-| `src/ra2web_jev_player/planner.py`（单一文件） | `src/ra2web_jev_player/strategy/planner/`（包） | 对外 API 不变（`planner.checklist` 等照旧） |
-| `src/ra2web_jev_player/review.py`（单一文件） | `src/ra2web_jev_player/review/`（包） | `review.review_last_game` 等对外名不变 |
+| `out/test_*.py` | `tests/regression/` | scenario scripts; driven by pytest |
+| `out/preflight.py`, `out/site_probe.py`, `out/bench_opening.py`, `out/shadow_eval.py` | `scripts/…` | internal paths now relative to the repo root |
+| `out/run_gNN.bat` | `scripts/runs/run_gNN.bat` | historical archive; for new matches use `scripts/run_game.bat <game number>` |
+| `out/play68_watch.sh`, `out/bench_watch.sh` | `scripts/play_watch.sh`, `scripts/bench_watch.sh` | |
+| `scripts/build_training_assets.py` | `scripts/build_dataset.py` | same responsibility + incremental indexing of new matches |
+| `knowledge/` | `docs/knowledge/` | strategy guides and doctrine |
+| `refs/` (API docs + examples) | `references/werhd/` | |
+| `_research/` (numbers/mining) | `references/research/` | same as above; reproduction flow in its README |
+| `src/ra2web_jev_player/legacy_bot.py` | `src/ra2web_jev_player/legacy/bot.py` | how to run: `python -m ra2web_jev_player.legacy.bot` |
+| `src/ra2web_jev_player/planner.py` (single file) | `src/ra2web_jev_player/strategy/planner/` (package) | public API unchanged (`planner.checklist` etc. as before) |
+| `src/ra2web_jev_player/review.py` (single file) | `src/ra2web_jev_player/review/` (package) | public names such as `review.review_last_game` unchanged |
 
-环境变量（`JEV_*`）也已随之更新：`JEV_ARTIFACTS_DIR` / `JEV_LOG_DIR` / `JEV_GAMES_DIR` /
-`JEV_DATASET_DIR` / `JEV_DOCS_DIR` / `JEV_KNOWLEDGE_DIR` / `JEV_REFERENCES_DIR`，
-全部可选，未设时按上表默认；`JEV_PROJECT_ROOT` 仍是"仓库不在默认位置"时的总开关。
+The environment variables (`JEV_*`) were updated along with the move: `JEV_ARTIFACTS_DIR` / `JEV_LOG_DIR` / `JEV_GAMES_DIR` /
+`JEV_DATASET_DIR` / `JEV_DOCS_DIR` / `JEV_KNOWLEDGE_DIR` / `JEV_REFERENCES_DIR`,
+all optional; when unset, the defaults above apply. `JEV_PROJECT_ROOT` remains the master switch
+for when the repo is not in its default location.
 
-## 三、不变的红线与不变量
+## 3. Red lines and invariants that did not change
 
-1. **数据不可删**：`artifacts/`、`dataset/`、`docs/knowledge/doctrine.json` 都是资产，
-   随 git 持久化（`AGENTS.md`）；清理任何目录树前先按用户级红线做链接检查。
-2. **对局运行链路不变**：`uv run ra2web-jev-play` 全自动；启动前自检走 `scripts/preflight.py`；
-   单实例锁在 `artifacts/logs/.play.lock`。
-3. **决策行为零改动**：本次重构是搬运与组织（函数体逐行保留），所有阈值、
-   局次注释、行为参数均未改；26 个回归场景脚本 + 布局守卫测试守护这一点。
-4. **代码里不许出现写死路径**：所有目录从 `paths.py` 取（唯一例外是 `scripts/*.bat` 的
-   `cd /d %~dp0..`，它自己定位仓库根）。
+1. **Data must not be deleted**: `artifacts/`, `dataset/` and `docs/knowledge/doctrine.json` are all assets,
+   persisted with git (`AGENTS.md`); before cleaning any directory tree, run the link check required by the user-level red line.
+2. **The match-running path is unchanged**: `uv run ra2web-jev-play` is fully automatic; the pre-launch self-check runs `scripts/preflight.py`;
+   the single-instance lock is `artifacts/logs/.play.lock`.
+3. **Zero change to decision behavior**: this refactor is a move and a re-organization (function bodies preserved line by line); no threshold,
+   match-number comment or behavior parameter was changed; 26 regression scenario scripts + layout guard tests protect this.
+4. **No hard-coded paths in code**: every directory is taken from `paths.py` (the only exception is `cd /d %~dp0..`
+   in `scripts/*.bat`, which locates the repo root by itself).

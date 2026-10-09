@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
-"""命令行入口：
+"""Command-line entry points:
 
-- ra2web-jev-play    全自动：冷浏览器 → 进局 → 注入 → 托管整局 → 复盘入账本
-                     （--loop N 连跑 N 局，构成"实战→记录→复盘→调参→实战"闭环）
-- ra2web-jev-launch  只执行"打开网页+进局+注入"（驱动层调试）
-- ra2web-jev-attach  人工已开局时注入托管（菜单自动化失效时的兜底）
-- ra2web-jev-review  复盘最后一段对局（也可用于补复盘历史局）
+- ra2web-jev-play    fully automatic: cold browser -> join match -> inject -> manage the whole game ->
+                     review into the ledger (--loop N runs N games, forming the
+                     "play -> record -> review -> tune -> play" loop)
+- ra2web-jev-launch  only "open the page + join match + inject" (driver-layer debugging)
+- ra2web-jev-attach  inject and manage when a human already started the match (fallback when the menu
+                     automation fails)
+- ra2web-jev-review  review the most recent match (also usable to back-fill reviews for historical games)
 """
 from __future__ import annotations
 
@@ -27,9 +29,11 @@ LOCK_PATH = LOG_DIR / ".play.lock"
 
 
 def _acquire_lock() -> bool:
-    """单实例锁（第 29-31 局事故：三个对局进程并发共用一个浏览器/日志，数据互相污染）。
+    """Single-instance lock (games 29-31 incident: three match processes shared one browser/log
+    concurrently and corrupted each other's data).
 
-    锁文件存 PID；PID 已死则视为陈旧锁自动接管。--force 可无视。
+    The lock file stores a PID; a dead PID counts as a stale lock and is taken over automatically.
+    --force ignores it.
     """
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     if LOCK_PATH.exists() and os.environ.get("RA2WEB_NO_LOCK", "") == "":

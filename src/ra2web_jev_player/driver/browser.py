@@ -1,29 +1,48 @@
 # -*- coding: utf-8 -*-
-"""agent-browser CLI 封装 —— 浏览器驱动的唯一通道。
+"""agent-browser CLI wrapper -- the single channel for browser driving.
 
-本机实测要点（详见 docs/ENGINEERING-NOTES.md §四）：
-- `.cmd` shim 走 cmd.exe：参数一律 ASCII；复杂 JS 用 `eval -b <base64>`（agent-browser
-  官方文档推荐的传输方式）；
-- Popen 必须 `stdin=DEVNULL`（继承 stdin 会永久挂死）；超时后 `taskkill /T /F` 连树强杀；
-- 每个命名 session 一个常驻 daemon，浏览器跨命令存活；`--idle-timeout 0`（env
-  AGENT_BROWSER_IDLE_TIMEOUT_MS）防止长局被 1h 空闲超时自动关闭；
-- `--restore`（env AGENT_BROWSER_RESTORE）把 cookie/localStorage 落盘并在下次导航前恢复。
+Measured on this machine (details in docs/ENGINEERING-NOTES.md §4):
+- the `.cmd` shim goes through cmd.exe: keep all arguments ASCII; use `eval -b <base64>` for complex JS
+  (the transport method recommended by the agent-browser docs);
+- Popen MUST use `stdin=DEVNULL` (inheriting stdin hangs forever); on timeout, `taskkill /T /F` kills the
+  whole process tree;
+- each named session has a resident daemon, so the browser survives across commands; `--idle-timeout 0`
+  (env AGENT_BROWSER_IDLE_TIMEOUT_MS) keeps a long game from being auto-closed by the 1h idle timeout;
+- `--restore` (env AGENT_BROWSER_RESTORE) persists cookies/localStorage to disk and restores them before
+  the next navigation.
 """
 from __future__ import annotations
 
 import base64
 import json
 import os
+import shutil
 import subprocess
 import time
 from urllib.parse import urlparse
 
-AGENT_BROWSER = os.environ.get("AGENT_BROWSER_CMD",
-                               "C:/Program Files/nodejs/agent-browser.cmd")
+
+def resolve_agent_browser() -> str:
+    """Locate the agent-browser CLI: env AGENT_BROWSER_CMD wins, else PATH lookup.
+
+    Windows ships it as a .cmd shim, which CreateProcess cannot launch by bare
+    name, so PATH lookup must go through shutil.which (which honours PATHEXT).
+    """
+    env = os.environ.get("AGENT_BROWSER_CMD")
+    if env:
+        return env
+    for name in ("agent-browser", "agent-browser.cmd", "agent-browser.exe"):
+        found = shutil.which(name)
+        if found:
+            return found
+    return "agent-browser"          # not installed: let the OS error surface
+
+
+AGENT_BROWSER = resolve_agent_browser()
 
 
 class BrowserError(RuntimeError):
-    """agent-browser 命令失败或挂死。"""
+    """An agent-browser command failed or hung."""
 
 
 def agent_browser_version() -> str:
@@ -34,7 +53,7 @@ def agent_browser_version() -> str:
 
 
 class Browser:
-    """一个命名 session 的浏览器通道。所有方法线程不安全（单线程循环使用）。"""
+    """Browser channel for one named session. All methods are thread-unsafe (used from a single loop)."""
 
     def __init__(self, config=None):
         from ..config import DriverConfig
@@ -68,9 +87,10 @@ class Browser:
     # ---------- 底层 ----------
 
     def run(self, *args: str, timeout: float | None = None, check: bool = True) -> str:
-        """执行一条 agent-browser 命令，返回 stdout 文本。
+        """Run one agent-browser command and return its stdout text.
 
-        Popen 偶发 WinError 2（第 28 局实测 15 连发后自愈）→ 重试一次。
+        Popen occasionally raises WinError 2 (measured in game 28: it healed after 15 consecutive
+        failures) -> retry once.
         """
         timeout = timeout or self.cfg.default_timeout_ms / 1000.0 + 5
         argv = [AGENT_BROWSER] + [str(a) for a in args]
@@ -100,16 +120,19 @@ class Browser:
     # ---------- 页面生命周期 ----------
 
     def launch(self, timeout: float = 120) -> str:
-        """只启动浏览器（停在 about:blank，不导航）。首次冷启动可能要几十秒。"""
+        """Only start the browser (it stops at about:blank, no navigation). The first cold start can take
+        tens of seconds."""
         return self.run("open", timeout=timeout, check=False)
 
     def goto(self, url: str, deadline_s: float = 45, force: bool = False) -> dict:
-        """eval 导航 + 自轮询 readyState。
+        """Navigate via eval + self-polled readyState.
 
-        不用 `open <url>`：它会等 window load 事件，新 profile 下被墙的第三方
-        资源会把 load 卡到外网超时（本机实测 2 分钟+ 不返回）。
-        轮询接受 interactive/complete（SPA 永远等不到 complete 也放行到超时）。
-        force=True 时同 URL 也强制重载（弃掉进行中的对局回到主选单）。
+        `open <url>` is not used: it waits for the window load event, and under a fresh profile blocked
+        third-party resources push load out to the external-network timeout (measured on this machine:
+        2+ minutes without returning).
+        Polling accepts interactive/complete (an SPA never reaches complete, so it is let through at
+        timeout). force=True reloads even for the same URL (abandons the match in progress and returns
+        to the main menu).
         """
         # setTimeout 延迟跳转：直接赋值 location.href 会触发导航，CLI 的 eval 会等
         # 页面稳定而卡死（同 open 的 load 等待问题）；延迟 50ms 让 eval 先返回。
@@ -147,7 +170,7 @@ class Browser:
         return self.run("wait", ms)
 
     def wait_fn(self, js_expr: str, timeout_ms: int | None = None) -> str:
-        """等待 JS 表达式为真。"""
+        """Wait until the JS expression becomes true."""
         args = ["wait", "--fn", js_expr]
         if timeout_ms:
             args += ["--timeout", timeout_ms]
@@ -165,13 +188,13 @@ class Browser:
     # ---------- eval（游戏页指令/状态通道） ----------
 
     def eval_raw(self, code: str, timeout: float | None = None) -> str:
-        """执行 JS 表达式，返回 stdout 原文。"""
+        """Evaluate a JS expression and return the raw stdout."""
         b64 = base64.b64encode(code.encode("utf-8")).decode("ascii")
         return self.run("eval", "-b", b64, timeout=timeout or self.cfg.eval_timeout_s + 5)
 
     def eval_stdin(self, code: str, timeout: float | None = None) -> str:
-        """大段 JS 经 stdin（`eval --stdin`）传输——cmd.exe 有 8191 字符 argv 上限，
-        注入整份页内客户端必须走这条通道。"""
+        """Large JS is transported over stdin (`eval --stdin`) -- cmd.exe has an 8191-character argv
+        limit, so injecting the whole in-page client must go through this channel."""
         timeout = timeout or self.cfg.eval_timeout_s + 5
         p = subprocess.Popen([AGENT_BROWSER, "eval", "--stdin"], stdin=subprocess.PIPE,
                              stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=self._env)
@@ -188,11 +211,12 @@ class Browser:
         return text
 
     def eval(self, code: str, timeout: float | None = None):
-        """执行 JS 表达式并返回 Python 对象。
+        """Evaluate a JS expression and return a Python object.
 
-        契约（实测）：agent-browser 总是打印 `JSON.stringify(表达式值)` ——
-        字符串会带引号、对象是 JSON 文本。这里统一 json.loads 一次还原原值；
-        调用方再自行 JSON.stringify 的（如 call()），拿到的是内层 JSON 字符串。
+        Contract (measured): agent-browser always prints `JSON.stringify(expression value)` -- strings
+        come back quoted and objects come back as JSON text. This uniformly restores the original value
+        with a single json.loads; callers that JSON.stringify again themselves (such as call()) receive
+        the inner JSON string.
         """
         text = self.eval_raw(code, timeout=timeout)
         if not text or text in ("null", "undefined"):
@@ -203,7 +227,7 @@ class Browser:
             return text                   # 兜底返回原文（多行输出等）
 
     def eval_json(self, js_body: str, timeout: float | None = None):
-        """便捷封装：把 JS 语句包进 IIFE 并 JSON.stringify 后 eval。"""
+        """Convenience helper: wrap JS statements in an IIFE, JSON.stringify the result, then eval."""
         return self.eval("JSON.stringify((()=>{%s})())" % js_body, timeout=timeout)
 
     # ---------- UI 自动化（launcher 菜单状态机用） ----------

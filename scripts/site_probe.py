@@ -1,10 +1,26 @@
 # -*- coding: utf-8 -*-
-"""站点恢复探测(单次): 弹窗点掉 + 检查主选单是否渲染。exit 0=恢复, 1=未恢复。"""
+"""Single-shot site recovery probe: dismiss dialogs + check whether the main menu rendered.
+exit 0 = recovered, 1 = not recovered."""
+import os
+import shutil
 import subprocess
 import sys
 import time
 
-AB = ["C:/Program Files/nodejs/agent-browser.cmd", "--session", "ra2web"]
+
+def _agent_browser():
+    """agent-browser CLI path: env AGENT_BROWSER_CMD wins, else PATH."""
+    env = os.environ.get("AGENT_BROWSER_CMD")
+    if env:
+        return env
+    for name in ("agent-browser", "agent-browser.cmd", "agent-browser.exe"):
+        found = shutil.which(name)
+        if found:
+            return found
+    return "agent-browser"
+
+
+AB = [_agent_browser(), "--session", os.environ.get("RA2WEB_SESSION", "ra2web")]
 
 
 def run(args, timeout=90):

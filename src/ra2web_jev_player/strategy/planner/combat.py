@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-"""五态机确定性入口 + 进攻执行(第 18-20 局定稿): 前哨/编组/机动指挥。
+"""Five-stance machine deterministic entry + attack execution (finalized in games
+18-20): forward post / squad assignment / movement command.
 
-自 strategy/planner.py 原样拆出（2026-10-09 结构重构）:
-代码逐行搬运, 行为零改动; 每条局次标注的迭代注释保留在各函数处。
+Split verbatim out of strategy/planner.py (2026-10-09 structural refactor):
+code moved line by line, zero behavior change; every game-tagged iteration comment
+stays at its function.
 """
 from __future__ import annotations
 
@@ -17,10 +19,12 @@ from .orders import v3_threat_active
 # ================= 五态机确定性入口 =================
 
 def stance_overrides(s: dict, stance: str, mem: BattleMemory) -> tuple:
-    """RECOVER/RUSH/ATTACK 的确定性入口（jev 投票之外的硬约束）。返回 (stance, logs)。
+    """Deterministic entry for RECOVER/RUSH/ATTACK (hard constraints beyond the jev
+    vote). Returns (stance, logs).
 
-    [第 28 局] ATTACK 入口加 defend——第 27 局实测：ALARM 把态势锁死在 defend 后，
-    27 辆坦克也永远出不去（防守陷阱）；进攻时 ALARM 的危机保护仍然生效（crisis_response）。
+    [game 28] The ATTACK entry also accepts defend - game 27 measured that once
+    ALARM locked the stance in defend, even 27 tanks could never leave (defense
+    trap); while attacking, ALARM's crisis protection still applies (crisis_response).
     """
     logs = []
     n_tank = len(combat_tanks(s["mine"]))
@@ -47,9 +51,11 @@ def stance_overrides(s: dict, stance: str, mem: BattleMemory) -> tuple:
 # ================= 进攻执行 (第 18-20 局定稿) =================
 
 def forward_post(s: dict, home, mem: BattleMemory) -> list:
-    """前哨位置：从基地朝敌情方向前出 ~12 格（路口前置优于贴家环形, Bible 防御三件套）。
+    """Forward post position: ~12 tiles out from the base toward the enemy (a
+    road-junction post beats a home-hugging ring; Bible defensive triad).
 
-    朝向优先级: 已知敌基地 > 最近 ALARM 位置 > 地图中心（镜像近似）。
+    Facing priority: known enemy base > latest ALARM position > map center (mirror
+    approximation).
     """
     mx, my = s["map"]["width"], s["map"]["height"]
     if mem.enemy_base:
@@ -66,10 +72,11 @@ def forward_post(s: dict, home, mem: BattleMemory) -> list:
 
 
 def _hold_posts(s: dict, home, mem: BattleMemory) -> list:
-    """两个伏击位：以基地为圆心、敌方向 ±55°。
+    """Two ambush posts: centered on the base, at the enemy bearing ±55°.
 
-    [第64局] 半径 14→8: 伏击位贴塔线(哨戒炮射程内), 原先前出 14-20 格正好卡在
-    敌 rush 行军线上——14 个动员兵被逐个点名(活局损失曲线实证)。
+    [game 64] radius 14 -> 8: ambush posts hug the tower line (inside sentry gun
+    range); the old 14-20 tiles out sat exactly on the enemy rush path - 14
+    conscripts were picked off one by one (proven by the live-game loss curve).
     """
     mx, my = s["map"]["width"], s["map"]["height"]
     if mem.enemy_base:
@@ -89,13 +96,18 @@ def _hold_posts(s: dict, home, mem: BattleMemory) -> list:
 
 
 def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> dict:
-    """多线分组（第 31 局, 用户观察: 分职责多线执行, 步兵不再游荡）。
+    """Multi-line squad assignment (game 31, user observation: execute by role on
+    several lines, infantry no longer wandering).
 
-    RAID(坦克奇袭断经济) / ASSAULT(主攻) / HOLD(伏击把手, 步兵为主) /
-    GUARD(守家) / RESERVE(机动支援池, 危机救援从这抽人)。
-    分配按池子顺序切分, 单位死亡自然缩编, 新兵落到 assault。
-    [第63局用户反馈] 敌基地已定位+总攻态势 → 步兵留 4 人守家、其余全部编入
-    突击组参战（动员兵蹲伏击位看戏=浪费; 动员兵海拆无防御建筑很强）。
+    RAID (tank raid to cut economy) / ASSAULT (main attack) / HOLD (ambush posts,
+    mostly infantry) / GUARD (home defense) / RESERVE (mobile support pool, crisis
+    rescue draws from here).
+    Assignment slices the pools in order; unit deaths shrink a squad naturally and
+    new units land in assault.
+    [game 63 user feedback] Enemy base located + total-attack stance -> keep 4
+    infantry home and fold all the rest into the assault squad (conscripts squatting
+    at ambush posts watching = waste; a conscript swarm is strong at tearing down
+    undefended buildings).
     """
     units = [u for u in all_combat(s["mine"], keep_wounded=True)
              if u["id"] != mem.scout_id]
@@ -190,15 +202,16 @@ def assign_squads(s: dict, home, mem: BattleMemory, stance: str = "defend") -> d
 
 
 def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
-    """多线编组指挥（第 31 局重构）。返回 (actions, log)。
+    """Multi-line squad movement command (game 31 refactor). Returns (actions, log).
 
-    各组职责与节流:
-      RAID    -> 敌基地/矿区 断经济           (30s)
-      ASSAULT -> 敌基地(已知)或打分目标/前哨  (12s)
-      HOLD    -> 敌方向两侧伏击位             (60s)
-      GUARD   -> 家门口                        (30s)
-      RESERVE -> 家侧翼待机(危机救援优先从这抽人) (60s)
-    目标优先级沿用 §4.3 打分; 页内集火含弹头×护甲克制加权(第31局)。
+    Roles and throttles:
+      RAID    -> enemy base/harvest area, cut economy              (30s)
+      ASSAULT -> enemy base (if known) or scored target/post       (12s)
+      HOLD    -> ambush posts on both sides of the enemy bearing   (60s)
+      GUARD   -> home entrance                                     (30s)
+      RESERVE -> standby on the home flank (crisis rescue draws from here first) (60s)
+    Target priority follows the §4.3 score; in-page focus fire includes warhead x
+    armor counter weighting (game 31).
     """
     acts, logs = [], []
     # [第75局 用户拍板] 终局围城锁存: 敌基地已定位+进攻态势+敌经济死亡(视野内
@@ -234,8 +247,9 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("%s x%d -> (%d,%d)" % (role, len(ids), x, y))
 
     def _order_raw(role, ids, x, y, throttle):
-        """[第101局] 绕过 role 槽节流的直接下令(mirror-scout 与协防
-        同 tick 并发, 共享槽会互相覆盖丢指令)。"""
+        """[game 101] Direct order bypassing the role-slot throttle (mirror-scout
+        and base reinforcement run concurrently in the same tick; a shared slot
+        would overwrite each other and lose orders)."""
         ids = list(ids or [])
         if not ids:
             return
@@ -243,8 +257,9 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("%s x%d -> (%d,%d)" % (role, len(ids), x, y))
 
     def order_obj(role, ids, tid, x, y, throttle):
-        """[第57局] 显式攻击指定目标(建筑/载具 id), 走 order type 2——
-        attack_move 会被防御塔吸火, 显式目标让坦克只打该打的东西。"""
+        """[game 57] Explicitly attack a designated target (building/vehicle id) via
+        order type 2 - attack_move gets its fire drawn by defense towers, while an
+        explicit target makes tanks hit only what they should."""
         ids = list(ids or [])
         if not ids or not tid:
             return
@@ -257,7 +272,8 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         logs.append("%s x%d -> 攻击目标#%s@(%d,%d)" % (role, len(ids), tid, x, y))
 
     def squad_ref(ids):
-        """编组平均位置(选最近目标用, 减少穿过塔区的路程)。"""
+        """Squad average position (used to pick the nearest target, reducing travel
+        through tower zones)."""
         idset = set(ids or [])
         pts = [u["tl"] for u in s["mine"] if u["id"] in idset]
         if not pts:
@@ -265,9 +281,11 @@ def movement(s: dict, home, stance: str, mem: BattleMemory) -> tuple:
         return (sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts))
 
     def _assault_advance(logs):
-        """[第92局] 无近旁敌单位时的突击组行为(原推进/协防分支收拢至此)。
-        优先级: rush_defense 塔线协防 > 敌基地已知点名非防御建筑 >
-        attack/rush 前出(打分目标/镜像角) > 回防/前哨。"""
+        """[game 92] Assault-squad behavior when no enemy unit is nearby (the old
+        advance / base-reinforcement branches collapsed here).
+        Priority: rush_defense tower-line reinforcement > enemy base known, target
+        non-defense buildings > attack/rush move out (scored target/mirror corner)
+        > fall back/forward post."""
         if getattr(mem, "rush_defense", False) and home:
             order("assault", sq["assault"], home[0] + 3, home[1] + 3, 12)
             logs.append("t=%d RUSH-DEFENSE tanks x%d -> 塔线协防"

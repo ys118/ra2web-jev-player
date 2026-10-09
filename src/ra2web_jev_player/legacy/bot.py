@@ -1,22 +1,25 @@
 # -*- coding: utf-8 -*-
-"""王二火大(Chrono Divide) jev 自动对战驱动 v2 —— 攻略驱动版
-知识来源: RA2-BIBLE.md / AI-OPERATING-CARD.md / RA2-UNITS.json (rules.ini 真值)
-loop: eval拉状态 -> 确定性规则(兵法清单§10.1) -> jev语义决策 -> werhd原始order执行
-历史: 第 1-20 局的主循环（原 legacy-bot/bot.py），官方体系上线后保留作对照，见 docs/SESSION-REPORT.md
-运行: uv run python -m ra2web_jev_player.legacy.bot
+"""王二火大 (Chrono Divide) jev automated match driver v2 -- strategy-guide driven
+Knowledge sources: RA2-BIBLE.md / AI-OPERATING-CARD.md / RA2-UNITS.json (rules.ini ground truth)
+loop: eval pulls state -> deterministic rules (tactics checklist §10.1) -> jev semantic decisions ->
+execute raw werhd orders
+History: the main loop for games 1-20 (originally legacy-bot/bot.py), kept for comparison after the
+official system went live, see docs/SESSION-REPORT.md
+Run: uv run python -m ra2web_jev_player.legacy.bot
 """
 import json, subprocess, time, sys, os, base64, math
 
 from ..paths import LOG_DIR, KNOWLEDGE_DIR
 
 WS = str(LOG_DIR)
-TSJ = os.environ.get("TSJ_SCRIPT", "C:/Users/15652/.agents/bin/tsj.py")
-AB = ["C:/Program Files/nodejs/agent-browser.cmd", "--session", "gonghui"]
+TSJ = os.environ.get("TSJ_SCRIPT", "")      # external judge CLI (required for this legacy path)
+AB = [os.environ.get("AGENT_BROWSER_CMD") or "agent-browser", "--session", "gonghui"]
 _LOG_FH = None
 
 
 def _logfile():
-    """惰性打开 bot.log（原实现 import 即开文件，目录不存在时连 import 都失败）。"""
+    """Lazily open bot.log (the original implementation opened the file at import time, so a missing
+    directory broke even the import)."""
     global _LOG_FH
     if _LOG_FH is None:
         os.makedirs(WS, exist_ok=True)
@@ -178,7 +181,8 @@ def deploy_all():
     return d
 
 def place_ready(qtype):
-    """队列就绪->围绕基地螺旋找位放置 (阵营无关: NACNST/GACNST 都认)"""
+    """Queue ready -> spiral around the base to find a placement tile (faction-agnostic: accepts both
+    NACNST and GACNST)"""
     code = r"""
 const w=werhd; const q=w.production.queues().find(x=>(x.t??x.type)===%d);
 if(!q||(q.s??q.status)!==3) return null;
@@ -197,7 +201,7 @@ def produce(name, qty=1):
     return json.loads(exec_js("werhd.produce(%s,%d); return 'ok'" % (json.dumps(name), qty)))
 
 def raw_order(ids, otype, x, y):
-    """原始order原语; ≤5/批; 封装move/attackMove在本版本失效"""
+    """Raw order primitive; <=5 per batch; the wrapped move/attackMove is broken in this game version"""
     for i in range(0, len(ids), 5):
         exec_js("werhd.order(%s, %d, %d, %d); return 'ok'" % (json.dumps(ids[i:i + 5]), otype, x, y))
 
@@ -211,7 +215,8 @@ def yard_tile(state):
 SOVIET_COUNTRIES = {"Russians", "Confederation", "Africans", "Arabs"}
 
 def get_side(s):
-    """按 me().country 返回阵营代码表; country缺失时按建筑/可造列表推断兜底"""
+    """Return the faction code table from me().country; when country is missing, fall back to inferring it
+    from the buildings/buildable list"""
     country = (s.get("me", {}).get("country") or "")
     if not country:
         probe = " ".join([u.get("n", "") for u in (s.get("mine") or [])] +
@@ -239,7 +244,7 @@ MEM = {"enemy_base": None, "last_scout": 0.0, "scout_sent": False,
 
 # ================= 确定性兵法层 (Bible §10.1 清单) =================
 def checklist(s, home, stance):
-    """按§10.1优先级执行确定性动作; 返回覆盖态势或None"""
+    """Execute deterministic actions in §10.1 priority order; returns an overriding stance or None"""
     side = get_side(s)
     cred = s["me"]["credits"]
     pw, drain = s["me"]["power"].get("total", 0), s["me"]["power"].get("drain", 0)
@@ -342,7 +347,7 @@ def checklist(s, home, stance):
 
 # ================= 侦察与敌基地定位 =================
 def sense_events(s, home):
-    """tick间差分: 秒级感知战场动态 -> MEM.events / MEM.alarm"""
+    """Inter-tick diffing: second-granularity perception of battlefield dynamics -> MEM.events / MEM.alarm"""
     ev = MEM["events"]
     alarm = None
     # a) 我方建筑掉血 = 正在被攻击 (最早信号, 比敌人进入半径更早)
@@ -405,7 +410,7 @@ def update_enemy_base(s):
     return False
 
 def scouting(s, home):
-    """军犬侦察 + 坦克探图; 记录 last_scout"""
+    """Attack-dog scouting + tank map exploration; records last_scout"""
     side = get_side(s)
     seen = MEM["enemy_base"] is not None
     # 兵营好后第一批: 3军犬 (视野9, 最便宜的情报)
@@ -429,7 +434,7 @@ def scouting(s, home):
 
 # ================= 进攻执行 =================
 def pick_target(s, home):
-    """§4.3 目标优先级打分: 矿车>防御塔>生产建筑>…; 距离衰减"""
+    """§4.3 target priority scoring: ore miner > defense tower > production building > ...; distance decay"""
     best, bestv = None, -1
     for h in s["hostile"]:
         base = TARGET_SCORE.get(h["n"], 50 if h["o"] != 2 else 45)

@@ -1,25 +1,32 @@
 # -*- coding: utf-8 -*-
-"""确定性决策层(包) —— 原单文件 planner.py(1642 行)按职责拆分, 行为零改动。
+"""Deterministic decision layer (package) - the former single-file planner.py
+(1642 lines) split by responsibility, zero behavior change.
 
-从 legacy_bot 原样迁移（第 18-20 局复盘定稿版）后, 只做过两处架构性改动：
-1. 纯函数化：函数吃 (state, home, mem) 吐 action 列表，由 game.py 经页内客户端执行，
-   离线可测；
-2. 职责去重：建筑落位/维修划归页内微操（150ms 级反应更快），本层不再做。
+After migrating verbatim from legacy_bot (the version finalized by the games 18-20
+reviews), only two architectural changes were made:
+1. Pure functions: functions take (state, home, mem) and emit action lists, executed
+   by game.py through the in-page client, so they are testable offline;
+2. Responsibility dedup: building placement/repair moved to in-page micro (faster
+   reaction at the 150ms level), no longer done in this layer.
 
-行为参数零改动 —— 每条阈值都有局次复盘背书（doctrine.T / CONF / THREAT_FORCE_DEFEND）。
+Behavior parameters unchanged - every threshold is backed by a game review
+(doctrine.T / CONF / THREAT_FORCE_DEFEND).
 
-子模块（依赖方向单向, 无环）:
-- memory    单局记忆 BattleMemory（其余模块的地基）
-- sense     秒级战场感知: ALARM 识别与危机速应
-- scout     侦察与敌基地定位（军犬路标网/坦克镜像探图/敌影反推）
-- orders    §10.1 确定性清单 + V3 威胁判定
-- opening   开局建造序列（阵营感知, 含引擎拒收自愈回退）
-- guard     僵尸局守卫（击杀冻结/无机动单位优雅退出）
-- combat    五态机确定性入口 + 进攻执行（前哨/编组/机动指挥）
-- jev_apply Jev 批量答案 → 动作 + 态势采信
+Submodules (dependency direction is one-way, no cycles):
+- memory    per-game memory BattleMemory (the foundation of the other modules)
+- sense     second-level battlefield awareness: ALARM recognition and crisis response
+- scout     reconnaissance and enemy base location (dog waypoint net / tank mirror
+            scouting / enemy-shadow inference)
+- orders    §10.1 deterministic checklist + V3 threat test
+- opening   opening build sequence (faction aware, with engine-rejection self-heal fallback)
+- guard     zombie-game guard (kill-freeze / graceful exit with no mobile units)
+- combat    five-stance machine deterministic entry + attack execution
+            (forward post / squad assignment / movement command)
+- jev_apply Jev batched answers -> actions + stance adoption
 
-对外 API 与原 planner.py 完全一致（game.py 与回归测试按名调用）; 本文件把
-子模块的名字统一转出, 调用方 `from .strategy import planner` 无需改动。
+The public API is identical to the original planner.py (game.py and the regression
+tests call it by name); this file re-exports the submodule names, so callers doing
+`from .strategy import planner` need no changes.
 """
 from __future__ import annotations
 

@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
-"""对局编排：注入页内客户端 → 宏观主循环 → 终局战报。
+"""Game orchestration: inject the in-page client -> macro main loop -> final battle report.
 
-宏观 tick（~1.5s）：快照 → 停摆/终局守卫 → 事件感知(ALARM 危机速应) → §10.1 确定性清单
-→ 开局建造 → 侦察 → Jev 五问(危机时跳过, 先打后想) → 态势裁决 → 机动指挥。
-微观 150ms 循环（集火/找矿/维修/落位/镜头）在页内 client.js，零网络。
+Macro tick (~1.5s): snapshot -> stall/endgame guards -> event sensing (ALARM crisis fast
+response) -> §10.1 deterministic checklist -> opening build -> scouting -> the Jev five
+questions (skipped during a crisis: fight first, think later) -> stance ruling -> movement
+orders.
+The 150ms micro loop (focus fire / ore search / repair / positioning / camera) lives in the
+in-page client.js and uses zero network.
 
-决策分工原则（docs/METHODOLOGY.md）：确定性代码管机制，Jev 只做语义拍板。
+Division-of-labor principle (docs/METHODOLOGY.md): deterministic code owns mechanics, Jev only
+makes the semantic calls.
 """
 from __future__ import annotations
 
@@ -50,7 +54,7 @@ class BattleSession:
     # ---------- 生命周期 ----------
 
     def run(self) -> dict:
-        """托管整局直到分出胜负。返回战报 dict。"""
+        """Play a whole game to a decision. Returns the battle report dict."""
         self.c.micro_start()
         self.audit.event({"kind": "start", "policy": "ra2web-jev-player/1.0",
                           "maxDecisions": self.match.max_decisions,
@@ -270,8 +274,9 @@ class BattleSession:
     # ---------- 执行与 Jev ----------
 
     def _exec(self, s: dict, acts: list) -> bool:
-        """执行动作列表。返回是否有动作真正执行（produce 冷却跳过不算, 第36局
-        复盘噪音: 意图日志不能当建成统计）。"""
+        """Execute an action list. Returns whether any action really ran (produce cooldown
+        skips do not count -- game 36 review noise: intent logs must not be counted as
+        built statistics)."""
         executed = False
         for a in acts or []:
             try:
@@ -387,10 +392,12 @@ class BattleSession:
         return answers
 
     def _page_outcome(self) -> dict:
-        """werhd 已摘除 → 从结算页文本判断胜负。
+        """werhd already detached -> decide the outcome from the result page text.
 
-        结算屏可能短暂显示后客户端自动重载（第32局实测：胜利后直接跳加载页）,
-        轮询 20s 抓文本, 抓不到按"敌全歼=我方正在进攻中"判胜。
+        The result screen may show only briefly before the client auto-reloads (observed in
+        game 32: after a victory it jumps straight to the loading page); poll for the text
+        for 20s, and if it is not captured, rule a victory on "all enemies destroyed = we are
+        still attacking".
         """
         deadline = time.time() + 20
         while time.time() < deadline:

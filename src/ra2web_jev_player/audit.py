@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-"""审计：artifacts/logs/bot.log 行日志 + artifacts/logs/jev-events.jsonl 逐事件审计。
+"""Audit: artifacts/logs/bot.log line log + artifacts/logs/jev-events.jsonl per-event audit.
 
-沿用既有日志格式（legacy/bot.py 的 bot.log 行格式、官方体系时代的 jev-events.jsonl
-事件格式），保证历史工具与复盘流程继续可用。无任何网络组件。
+Keeps the existing log formats (legacy/bot.py's bot.log line format, the official-stack-era
+jev-events.jsonl event format) so historical tools and the review flow keep working.
+Contains no network component.
 """
 from __future__ import annotations
 
@@ -31,7 +32,7 @@ class Audit:
             if mirror_path else None   # [训练数据] 每局独立镜像（run 目录）
 
     def attach_mirror(self, path) -> None:
-        """挂载每局独立镜像文件（run 目录），log/event 双写。"""
+        """Attach the per-game mirror file (run directory); log/event lines are dual-written."""
         with self._lock:
             if self._mirror:
                 try:
@@ -41,8 +42,8 @@ class Audit:
             self._mirror = open(path, "a", buffering=1, encoding="utf-8")
 
     def log(self, msg: str) -> None:
-        """[训练数据] 文本行日志只进全局 bot.log——run 镜像保持纯 jsonl
-        （第 45 局: 混写导致 events.jsonl 无法解析）。"""
+        """[training data] Text line logs go only to the global bot.log -- the run mirror stays
+        pure jsonl (game 45: mixed writes made events.jsonl unparsable)."""
         line = "[%s] %s" % (time.strftime("%H:%M:%S"), msg)
         with self._lock:
             self._bot.write(line + "\n")

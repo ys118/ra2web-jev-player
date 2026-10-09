@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-"""僵尸局守卫(第 95/101 局): 击杀冻结与无机动单位两个优雅退出检测器。
+"""Zombie-game guard (games 95/101): two graceful-exit detectors, kill-freeze and
+no-mobile-units.
 
-自 strategy/planner.py 原样拆出（2026-10-09 结构重构）:
-代码逐行搬运, 行为零改动; 每条局次标注的迭代注释保留在各函数处。
+Split verbatim out of strategy/planner.py (2026-10-09 structural refactor):
+code moved line by line, zero behavior change; every game-tagged iteration comment
+stays at its function.
 """
 from __future__ import annotations
 
@@ -11,9 +13,11 @@ from .memory import BattleMemory
 
 
 def myval_zero(mem: BattleMemory, s: dict) -> int:
-    """[第101局] 我方无机动单位超时(99 局教训): myval=0=防线已亡, 敌拆建筑
-    拖沓或敌方 AI 卡住时游戏永不判负——defend/develop 态势下 myval=0 持续
-    300gs 即优雅退出(无翻盘路径)。返回持续秒数(0=未触发)。"""
+    """[game 101] My no-mobile-units timeout (game 99 lesson): myval=0 = the defense
+    is dead; when the enemy demolishes buildings slowly or the enemy AI is stuck,
+    the game never declares a loss - in defend/develop stance myval=0 lasting 300gs
+    means a graceful exit (no comeback path). Returns the duration in seconds
+    (0 = not triggered)."""
     try:
         my_v, _ = force_value(s)
     except Exception:
@@ -28,14 +32,18 @@ def myval_zero(mem: BattleMemory, s: dict) -> int:
 
 
 def kill_freeze(mem: BattleMemory, s: dict, stance: str) -> int:
-    """[第95局 击杀冻结检测] 94 局假僵局定谳: t=2127 起敌战力值恒 12300/
-    击杀冻结 6600s——敌兵海被全歼后残部卡在打不到的位置(地形卡位), 我方
-    6.4 倍战力物理上无法结束游戏, 白耗 100 分钟。返回冻结持续游戏秒
-    (0=未冻结), 调用方按阈值(3000gs)终止僵尸局。
+    """[game 95 kill-freeze detector] Game 94's false stalemate confirmed: from
+    t=2127 the enemy force value stayed at 12300 / kills froze for 6600s - after the
+    enemy swarm was wiped out the remnants were stuck somewhere unreachable (terrain
+    block), and at 6.4x force value we physically could not end the game, burning
+    100 minutes for nothing. Returns the freeze duration in game seconds (0 = not
+    frozen); the caller terminates the zombie game at the threshold (3000gs).
 
-    冻结判定: attack/rush 态势下 ①敌战力值一个 tick 都不动 ②我方战力
-    ≥2.5 倍碾压(排除均势拉锯的数值巧合)。只在进攻态判——发展/防守期
-    敌值不动是常态; 敌真在建军战力值会变化即自动复位。"""
+    Freeze test: in attack/rush stance (1) the enemy force value does not move for a
+    single tick and (2) our force value crushes at >= 2.5x (excluding numeric
+    coincidences of an even back-and-forth). Judged only in attack stance - during
+    develop/defend a static enemy value is normal; if the enemy really is building
+    up, the value changes and the timer resets automatically."""
     try:
         my_v, en_v = force_value(s)
     except Exception:

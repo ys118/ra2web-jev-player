@@ -1,91 +1,92 @@
-# 方法论：如何让 AI 越打越好
+# Methodology: how to make the AI fight better every match
 
-> 本项目最有价值的产出不是代码，而是这套**可复制的迭代方法论**：
-> 把"实时对战 AI"的改进过程，变成可审计、可累积、每局都进化的工程循环。
+> The project's most valuable output is not the code but this **replicable iteration methodology**:
+> it turns the improvement of a "real-time battle AI" into an engineering loop that is auditable,
+> cumulative and evolves with every match.
 
-## 〇、自动化闭环（2026-09-26 起，本方法论的程序化实现）
-
-```
-实战(ra2web-jev-play, --loop N 连跑)
-  → 记录: jev-events.jsonl 逐事件(决策/动作/损失/击杀/观测快照) + bot.log 行日志
-  → 复盘(review.py, 终局自动执行):
-      ① 确定性分析: 开局时序 vs 手册窗口 / 经济·兵力曲线 / 态势分布 /
-         危机响应 / 交换比 / 错误指纹 —— 能用代码算的绝不给模型
-      ② Jev 语义复盘: 败因归类(rootcause) + 下局最优先事项(topfix) +
-         是否值得调参(tune noul) —— 语义拍板
-      ③ 落账: artifacts/games/game-XXXX-review.md(每局报告)
-              + docs/LESSONS.md(经验账本, 追加式)
-  → 迭代: 根因命中白名单且 tune>0.6 → docs/knowledge/doctrine.json 自动微调
-         (限幅: 每项一步、有下限; 出处与理由写入文件, git 历史即审计轨迹)
-         工程bug/大改 → 进 LESSONS 待办, 由人/agent 实施
-  → 下一局: doctrine.load_overrides() 加载覆盖参数, 新局验证, 循环
-```
-
-- 每局复盘报告: `artifacts/games/game-XXXX-review.md`；账本: `docs/LESSONS.md`；调参: `docs/knowledge/doctrine.json`；训练数据: `dataset/`。
-- 手动复盘任意一局: `uv run ra2web-jev-review [--game N]`。
-- 单变量原则不变：自动调参每局最多触发一组（按根因），限幅+下限防止单局噪声破坏 doctrine。
-
-## 一、总原则
-
-1. **分层决策**：确定性代码管机制（部署/落位/建造序列/产量保底/节流/阈值），Jev 只做语义拍板（态势/威胁/取舍/时机）。能用代码算的绝不给模型——反之，模型只用在代码算不出的地方。
-2. **机制优先于战术**：先保证指令真的被执行（异步队列、节流、分批），再谈战术优劣。本项目大量时间花在"指令没生效"这一层（见 `ENGINEERING-NOTES.md`）。
-3. **单变量迭代**：每局只改 1-3 个明确参数，让结果可归因。改前写进文档，局后对答案。
-4. **证据链完整**：每个结论必须能回溯到日志行/截图/API 读数。拒绝"感觉"。
-
-## 二、每局复盘闭环（用户指定的方法论，第 18 局起执行）
+## 0. Automated closed loop (since 2026-09-26; the programmatic implementation of this methodology)
 
 ```
-① 战果提取    → 结算画面（时间/摧毁/损失/建造/分数）+ bot.log 时间线
-② 败因链定位  → 从"最早异常"顺藤摸瓜（例：开局 450 秒空窗 → 阵营误判 bug → 状态层漏传 country）
-③ bot 参数迭代 → 确定性层改动（阈值/顺序/规则），写入代码并注明"来自第 N 局复盘"
-④ jev 参数迭代 → 上下文补充 / 指令措辞 / 置信度阈值 / 候选增删
-⑤ 文档记录    → SESSION-REPORT.md 追加（每局：结果/时间线/暴露问题/进化点）
-⑥ 下一局验证  → 只观察、不中途重启；验证上局迭代是否生效
+Live match (ra2web-jev-play, --loop N consecutive matches)
+  → Record: jev-events.jsonl event by event (decisions/actions/losses/kills/observation snapshots) + bot.log line log
+  → Review (review.py, run automatically at endgame):
+      1) Deterministic analysis: opening timeline vs doctrine windows / economy·force curves / situation distribution /
+         crisis response / exchange ratio / error fingerprints —— anything code can compute never goes to the model
+      2) Jev semantic review: defeat rootcause + next-match top priority (topfix) +
+         whether tuning is worthwhile (tune noul) —— the semantic call
+      3) Bookkeeping: artifacts/games/game-XXXX-review.md (per-match report)
+                    + docs/LESSONS.md (lessons ledger, append-only)
+  → Iterate: rootcause hits the whitelist and tune>0.6 → docs/knowledge/doctrine.json is auto-tuned slightly
+             (bounds: one step per item, with a floor; provenance and reason written into the file, git history is the audit trail)
+             engineering bug/major change → goes to the LESSONS todo list, implemented by a human/agent
+  → Next match: doctrine.load_overrides() loads the overridden parameters, the new match validates, loop
 ```
 
-### 闭环实例（第 18-20 局，每局一条）
+- Per-match review report: `artifacts/games/game-XXXX-review.md`; ledger: `docs/LESSONS.md`; tuning: `docs/knowledge/doctrine.json`; training data: `dataset/`.
+- Manually review any match: `uv run ra2web-jev-review [--game N]`.
+- The single-variable principle is unchanged: auto-tuning triggers at most one group per match (by rootcause); bounds + floors keep one match's noise from damaging the doctrine.
 
-| 局 | 复盘发现 | 迭代 |
+## 1. General principles
+
+1. **Layered decisions**: deterministic code handles mechanism (deployment/placement/build order/production floor/throttling/thresholds), and Jev only makes the semantic calls (situation/threat/trade-offs/timing). Anything code can compute never goes to the model — and conversely the model is used only where code cannot compute.
+2. **Mechanism before tactics**: first make sure orders actually execute (async queue, throttle, batching), then discuss tactical quality. This project spent a lot of time at the "the order did not take effect" layer (see `ENGINEERING-NOTES.md`).
+3. **Single-variable iteration**: change only 1-3 explicit parameters per match, so results stay attributable. Write it into the docs beforehand, check the answer after the match.
+4. **Complete evidence chain**: every conclusion must be traceable to a log line/screenshot/API reading. "Feelings" are rejected.
+
+## 2. Per-match review loop (the user-mandated methodology, in force since match 18)
+
+```
+1) Result extraction   → score screen (time/destroyed/lost/built/score) + bot.log timeline
+2) Defeat chain locate → follow the thread from the "earliest anomaly" (e.g.: 450s dead air at the opening → side-misjudgement bug → state layer failed to pass country)
+3) bot parameter iteration → deterministic-layer changes (thresholds/order/rules), written into code annotated "from match N review"
+4) jev parameter iteration → context additions / instruction wording / confidence thresholds / candidate add-remove
+5) Documentation       → append to SESSION-REPORT.md (per match: result/timeline/problems exposed/evolution points)
+6) Next-match validation → observe only, no mid-match restart; verify whether the last iteration took effect
+```
+
+### Loop examples (matches 18-20, one per match)
+
+| Match | Review finding | Iteration |
 |---|---|---|
-| 18 | 阵营误判 bug 白耗 450 秒开局 | STATE_JS 补 `country` + `get_side` 推断兜底（bot）；jev 上下文加"受袭 N 次/2 分钟"（jev） |
-| 19 | ALARM 反击把我军**分批喂给优势敌军**（37→0 匀速消耗） | 条件化反击：兵力 <2× 敌军时改 TURTLE（守塔不打野战） |
-| 20 | 防御支出吞噬坦克预算（6200 金防御 vs 0 坦克）；TURTLE 阈值过高导致永不反击 | checklist 重排（电厂→矿车→**坦克**→防御）；TURTLE 阈值 2×→1.2×；哨炮 4→3；工厂后立即补二矿 |
+| 18 | side-misjudgement bug wasted 450s of the opening | STATE_JS gains `country` + a `get_side` inference fallback (bot); jev context gains "under attack N times / 2 minutes" (jev) |
+| 19 | ALARM counterattack **fed our army to the superior enemy in batches** (steady 37→0 attrition) | conditional counterattack: with force <2× the enemy, switch to TURTLE (hold the tower, no field battle) |
+| 20 | defense spending devoured the tank budget (6200 gold on defense vs 0 tanks); the TURTLE threshold was too high so it never counterattacked | checklist reordered (power plant→miner→**tank**→defense); TURTLE threshold 2×→1.2×; sentry guns 4→3; add a second ore refinery right after the factory |
 
-## 三、Jev 调用参数的迭代法
+## 3. How to iterate the Jev call parameters
 
-> 模型能力固定，"喂什么"决定决策质量。本项目总结出的调参清单：
+> Model capability is fixed; "what you feed it" determines decision quality. The tuning checklist this project distilled:
 
-1. **语义术语表是第一杠杆**：内部代码必须翻译成中文语义（`NAHAND`→"苏军兵营(战车工厂前置)"）。曾因 gloss 为零信息，Jev 在 hold(0.42)/电厂(0.40) 之间分票瞎蒙，150 游戏秒不花钱。
-2. **上下文分层投喂**：
-   - 战场快照（资金/电力/建筑/部队/队列/可造列表，带中文名+造价）；
-   - **敌情按护甲归类 + 自动附克制建议**（灰熊=重甲 → 犀牛/线圈/磁暴步兵）；
-   - **事件流**（受击明细/损失/敌逼近距离，新→旧）；
-   - **力量对比**（我方≈X vs 敌军≈Y，按造价折算）+ 受袭频率；
-   - **作战手册（DOCTRINE）**：铁律/克制常识/目标优先级/五态态势机，一并作为 state 字段。
-3. **判断要点纪律**：
-   - 一次请求批量问全部问题（比逐问省 ~10× 延迟/费用）；
-   - 选项必须全覆盖 + 带 `hold/wait`；
-   - 置信度闸门（态势切换 ≥0.45，低置信保持原态势防摇摆）；
-   - 独立问题并行问（威胁概率/态势/生产选择各不相同）。
-4. **每个参数的来历都要能追溯**：阈值表（资金线/兵力门槛/雷达半径）都标注了来自哪一局的复盘。
+1. **The semantic glossary is the first lever**: internal codes must be glossed in Chinese (`NAHAND`→"Soviet barracks (war-factory prerequisite)"). Once, when the gloss carried zero information, Jev split its vote between hold(0.42) and power plant(0.40) and guessed, spending nothing for 150 game seconds.
+2. **Layered context feeding**:
+   - Battlefield snapshot (funds/power/buildings/units/queue/buildable list, with Chinese names + build cost);
+   - **Enemy composition grouped by armor + auto-attached counter suggestions** (Grizzly = heavy armor → Rhino/tesla coil/tesla trooper);
+   - **Event stream** (hit detail/losses/enemy approach distance, newest→oldest);
+   - **Force comparison** (ours ≈X vs enemy ≈Y, converted from build cost) + attack frequency;
+   - **Doctrine (DOCTRINE)**: iron rules / counter knowledge / target priorities / five-state situation machine, all as state fields.
+3. **Judgment-point discipline**:
+   - Ask all questions in one batched request (saves ~10× latency/cost versus asking one by one);
+   - Options must cover everything + include `hold/wait`;
+   - Confidence gates (situation switch ≥0.45; low confidence keeps the current situation against oscillation);
+   - Independent questions asked in parallel (threat probability/situation/production choice are all different).
+4. **Every parameter's provenance must be traceable**: the threshold table (funds lines/force gates/radar radius) annotates which match's review each value came from.
 
-## 四、工程调试法（被反复验证的套路）
+## 4. Engineering debugging method (battle-tested patterns)
 
-1. **先证实"指令管道"再调策略**：`produce/place` 动了但 `move` 没动 → 一步步缩小到"封装失效/批量上限/节流"。四步验证：单单位 → 小队 → 大批量 → 换 API 原语。
-2. **栈转储定位卡死**：`faulthandler.dump_traceback_later(30, repeat=True)` 一次抓到"卡在哪个分支空转"（曾定位到"状态缺 tick 键"的静默循环）。
-3. **隔离变量重启**：怀疑环境时，用最小复现脚本（`scripts/probe.py`）在**前台**与**后台**分别跑，证明是环境还是代码。
-4. **对照实验定根因**：如 junction 删除风险一样，"两条命令哪个穿透"就分别测（本项目：5 辆 vs 34 辆指令投递）。
-5. **时间线对齐**：真实时间（日志时间戳）与游戏时间（`werhd.time()`）分开看——两者背离就是"节流/冻结"信号。
+1. **Prove the "order pipeline" before tuning strategy**: `produce/place` moved but `move` did not → narrow it down step by step to "wrapper failed/batch cap/throttle". Four-step verification: single unit → squad → large batch → switch API primitive.
+2. **Stack dump to locate a hang**: `faulthandler.dump_traceback_later(30, repeat=True)` catches "which branch is spinning" in one shot (it once located a silent loop caused by "state missing the tick key").
+3. **Restart to isolate a variable**: when the environment is suspect, use a minimal reproduction script (`scripts/probe.py`) run **in the foreground** and **in the background** separately, to prove whether it is the environment or the code.
+4. **Controlled experiment to pin the root cause**: as with the junction deletion risk, "which of the two commands pierces through" — test them separately (this project: 5-tank vs 34-tank order delivery).
+5. **Timeline alignment**: read real time (log timestamps) and game time (`werhd.time()`) separately — a divergence is the signal for "throttling/freeze".
 
-## 五、环境与硬件事实（影响可靠性，务必记住）
+## 5. Environment and hardware facts (they affect reliability; remember them)
 
-- 页面**必须保持可见**（`document.visibilityState === "visible"`）：隐藏/最小化会停 rAF → 模拟冻结；无头模式的页面默认可见，是长时间托管的首选。
-- 详细坑表与规避方案 → `ENGINEERING-NOTES.md`。
-- 官方玩家与桥接的协议细节、参数调节记录 → `JEV-INTEGRATION.md`。
+- The page **must stay visible** (`document.visibilityState === "visible"`): hiding/minimizing stops rAF → simulated freeze; a headless-mode page is visible by default and is the first choice for long unattended runs.
+- Detailed pitfall table and workarounds → `ENGINEERING-NOTES.md`.
+- Protocol details of the official player and the bridge, parameter-tuning records → `JEV-INTEGRATION.md`.
 
-## 六、验收标准（每阶段结束时）
+## 6. Acceptance criteria (at the end of each stage)
 
-- 功能闭环：开局部署 → 建造序列 → 生产 → 侦察 → 防御 → 进攻全链路有日志证据；
-- 稳定性：单局 0 次脚本崩溃、0 次超时失控（超时必须有树杀兜底）；
-- 决策质量：Jev 答案与手册一致性抽样（如"见敌飞行兵 → 选防空"）；
-- 迭代可审计：每个参数有来历，每次改动有局次对账。
+- Functional loop: opening deployment → build order → production → scouting → defense → attack; the whole chain has log evidence;
+- Stability: 0 script crashes and 0 runaway timeouts per match (timeouts must have a tree-kill fallback);
+- Decision quality: sample-check Jev answers against the doctrine (e.g. "enemy Rocketeer sighted → pick anti-air");
+- Auditable iteration: every parameter has a provenance, every change has a match-number reconciliation.

@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-"""秒级战场感知(第 13 局引入, 1 tick 内响应): ALARM 事件识别与危机速应。
+"""Second-level battlefield awareness (introduced in game 13, responds within 1
+tick): ALARM event recognition and crisis response.
 
-自 strategy/planner.py 原样拆出（2026-10-09 结构重构）:
-代码逐行搬运, 行为零改动; 每条局次标注的迭代注释保留在各函数处。
+Split verbatim out of strategy/planner.py (2026-10-09 structural refactor):
+code moved line by line, zero behavior change; every game-tagged iteration comment
+stays at its function.
 """
 from __future__ import annotations
 
@@ -16,9 +18,11 @@ from .memory import BattleMemory
 # ================= 秒级战场感知 (第 13 局引入, 1 tick 内响应) =================
 
 def sense_events(s: dict, home, mem: BattleMemory):
-    """tick 间差分：建筑掉血/单位损失/敌逼近/新敌 → 事件流 + alarm。
+    """Inter-tick diff: building damage / unit losses / enemy closing in / new
+    enemies -> event stream + alarm.
 
-    建筑掉血是最早的被袭信号（比敌人进入半径更早）。返回 alarm 或 None。
+    Building damage is the earliest under-attack signal (earlier than enemies
+    entering the radius). Returns alarm or None.
     """
     ev = mem.events
     alarm = None
@@ -102,14 +106,18 @@ def sense_events(s: dict, home, mem: BattleMemory):
 
 def crisis_response(s: dict, home, alarm: dict, mem: BattleMemory,
                     stance: str = "defend") -> tuple:
-    """ALARM 危机速应（第 19/20 局复盘 + 第 27/30 局用户观察）。
+    """ALARM crisis response (games 19/20 reviews + games 27/30 user observations).
 
-    - 进攻/突击态势下**不全员回撤**（第 29 局教训：ALARM 一响全军拉回=攻势中断、
-      敌方回血）：家门口交火交给塔阵+微操；只有敌军压崩防线（深入 10 格且敌≥6）
-      才召回主力。
-    - 防守态势：兵力 ≥1.2x 才反击，否则 TURTLE 守塔阵（37→0 匀速送人头的教训）。
-    - 远端告警（矿车在敌区被袭）：派最近 2-3 辆支援，不动用主力。
-    返回 (actions, logline)。
+    - In attack/rush stance do **not** recall everyone (game 29 lesson: pulling the
+      whole army home the moment ALARM rings = offense interrupted, enemy
+      regenerates): fights at the door are left to the tower line + micro; the main
+      force is recalled only if the enemy collapses the line (10 tiles deep and
+      6+ enemies).
+    - Defend stance: counter only at >= 1.2x strength, otherwise TURTLE on the tower
+      line (lesson of feeding kills at a steady 37->0).
+    - Remote alarm (harvesters hit in enemy territory): send the nearest 2-3 units
+      as support, without touching the main force.
+    Returns (actions, logline).
     """
     defenders = [u for u in s["mine"]
                  if u["o"] in (3, 7) and u["n"] not in HARVEST

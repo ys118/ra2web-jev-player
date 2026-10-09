@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-"""侦察与敌基地定位: 军犬路标网 + 坦克镜像探图 + 敌影/ALARM 反推。
+"""Reconnaissance and enemy base location: scout-dog waypoint net + tank mirror
+scouting + enemy-shadow/ALARM inference.
 
-自 strategy/planner.py 原样拆出（2026-10-09 结构重构）:
-代码逐行搬运, 行为零改动; 每条局次标注的迭代注释保留在各函数处。
+Split verbatim out of strategy/planner.py (2026-10-09 structural refactor):
+code moved line by line, zero behavior change; every game-tagged iteration comment
+stays at its function.
 """
 from __future__ import annotations
 
@@ -15,9 +17,11 @@ from .memory import BattleMemory
 
 
 def contact_edge(s: dict, home, pos):
-    """从家沿接触点方向的单位向量延伸到地图边缘（~92% 处）的探查点。
+    """Probe point ~92% of the way to the map edge, along the unit vector from home
+    toward a contact point.
 
-    [第37局 敌影推定 / 第49局 ALARM 反推共用] dist<3 视为家门口无方向信息。
+    [shared by game 37 enemy-shadow inference / game 49 ALARM inference] dist < 3
+    counts as no direction information (contact right at the door).
     """
     if not home or pos is None:
         return None
@@ -46,8 +50,8 @@ def contact_edge(s: dict, home, pos):
 
 
 def shadow_target(s: dict, home, mem: BattleMemory):
-    """敌影推定 [第37局, Jev 0.88]: 敌人最早出现的位置反推基地方向。
-    无接触记录返回 None。"""
+    """Enemy-shadow inference [game 37, Jev 0.88]: infer the base direction from
+    where enemies first appeared. Returns None without a contact record."""
     return contact_edge(s, home, mem.first_hostile_pos)
 
 
@@ -64,12 +68,15 @@ def update_enemy_base(s: dict, mem: BattleMemory) -> bool:
 
 
 def scouting(s: dict, home, mem: BattleMemory):
-    """军犬单骑侦察 + 专职侦察车网格探图。
+    """Single scout dog + dedicated scout-vehicle grid mapping.
 
-    [第62局用户逐条指示] 军犬: 只养 1 只, 任务=探图找敌基地; 一律 move 指令
-    (中途绝不主动攻击); 遇敌 8 格内立即规避撤回家, 脱险 14 格再出发; 探到敌基地
-    立即撤回; 阵亡由补员补 1 只。路标=割草机网格(行距 18=视野 9×2 无缝)。
-    坦克侦察车: 多路标轮转 150s 节流 + ALARM 反推破节流([第49局]) + 双车([第37局])。
+    [game 62 user itemized directive] Dogs: keep exactly 1, task = map the terrain to
+    find the enemy base; always move orders (never attack on the way); evade home
+    immediately when an enemy is within 8 tiles, set out again once 14 tiles are
+    clear; retreat immediately when the enemy base is found; on death a replacement
+    is queued. Waypoints = lawnmower grid (row spacing 18 = vision 9 x 2, seamless).
+    Scout vehicles: multi-waypoint rotation with a 150s throttle + ALARM inference
+    breaking the throttle ([game 49]) + a second vehicle ([game 37]).
     """
     side = get_side(s)
     qs = queues_by_type(s["queues"])
@@ -134,7 +141,8 @@ def scouting(s: dict, home, mem: BattleMemory):
                                                " (遇敌规避)" if evade else ""))
 
         def safety(w):
-            """路标安全度: 距所有可见敌军的最近距离(无可见敌=足够大)。"""
+            """Waypoint safety: distance to the nearest visible enemy (large enough
+            when no enemy is visible)."""
             if not s["hostile"]:
                 return 999.0
             return min(math.hypot(w[0] - h["tl"][0], w[1] - h["tl"][1])

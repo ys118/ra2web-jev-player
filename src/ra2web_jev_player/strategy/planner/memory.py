@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
-"""单局记忆(BattleMemory) —— 字段与 legacy_bot MEM 一致, 对局结束即弃。
+"""Per-game memory (BattleMemory) - fields identical to legacy_bot MEM, discarded
+when the game ends.
 
-自 strategy/planner.py 原样拆出（2026-10-09 结构重构）:
-代码逐行搬运, 行为零改动; 每条局次标注的迭代注释保留在各函数处。
+Split verbatim out of strategy/planner.py (2026-10-09 structural refactor):
+code moved line by line, zero behavior change; every game-tagged iteration comment
+stays at its function.
 """
 from __future__ import annotations
 
 
 class BattleMemory:
-    """单局记忆（进程内，对局结束即弃）。字段与 legacy_bot MEM 一致。"""
+    """Per-game memory (in-process, discarded when the game ends). Fields identical
+    to legacy_bot MEM."""
 
     def __init__(self):
         self.enemy_base = None          # 最近一次看见的敌建筑坐标

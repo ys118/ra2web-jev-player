@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
-"""Jev 五问构造（build/inf/veh/stance/threat）。
+"""Construction of Jev's five questions (build/inf/veh/stance/threat).
 
-[第63局用户指示] 全部投喂改为英文（Jev 对英文理解优于中文），并补充战场
-动态上下文（趋势/告警史/损失交换/侦察进度/敌军方位/态势史）——原先只有
-静态快照+最近 5 条事件，Jev "不知道战场动态"。内部代号走本地 _en()（英文名+代号标注）。
+[game 63 user directive] All prompts switched to English (Jev understands English
+better than Chinese), plus battlefield dynamics context (trends/alarm history/loss
+exchanges/scout progress/enemy bearings/stance history) - previously there was only
+a static snapshot plus the last 5 events, so Jev "did not know the battlefield
+dynamics". Internal unit codes go through the local _en() (English name + code tag).
 """
 from __future__ import annotations
 
@@ -19,7 +21,8 @@ def _en(code: str) -> str:
 
 
 def build_dynamic_section(s: dict, home, mem) -> str:
-    """[第63局] 战场动态上下文: 趋势曲线/告警史/交换比/侦察进度/敌军方位/态势史。"""
+    """[game 63] Battlefield dynamics context: trend curve / alarm history / exchange
+    ratio / scout progress / enemy bearings / stance history."""
     lines = []
 
     # 1) 经济与兵力趋势(最近 6 个观测点, ~37 游戏秒一个)
@@ -89,7 +92,8 @@ def build_dynamic_section(s: dict, home, mem) -> str:
 
 
 def build_state_text(s: dict, home, mem) -> str:
-    """战场快照 → 分层英文战报（[第63局] 英文投喂 + 动态上下文段）。"""
+    """Battlefield snapshot -> layered English report ([game 63] English prompts +
+    dynamic context section)."""
     cred = s["me"]["credits"]
     pw = s["me"]["power"].get("total", 0)
     drain = s["me"]["power"].get("drain", 0)
@@ -146,7 +150,8 @@ def _avl(s: dict, t: int) -> str:
 
 
 def build_questions(s: dict, home, mem, stance: str = "develop") -> tuple:
-    """返回 (state, questions)。候选里已剔除超限项（精炼厂≤3/兵营≤2）。"""
+    """Return (state, questions). Candidates already exclude over-limit items
+    (refineries <= 3 / barracks <= 2)."""
     side = get_side(s)
     n_ref = len([u for u in s["mine"] if u["n"] == side["ref"]])
     n_bar = len([u for u in s["mine"] if u["n"] == side["bar"]])
