@@ -91,23 +91,38 @@ if [ "$DRY_RUN" = "1" ]; then
 fi
 
 # ---------- 5) push ----------
-git remote add origin "$PUBLIC_REPO"
+# The mirror is updated by MERGING the filtered branch into the public master, not
+# by force-pushing: pull requests merged on the public repository stay reachable,
+# and the sync is visible as one merge commit per publish.
 if [ "$FORCE" = "1" ]; then
+    git remote add origin "$PUBLIC_REPO" 2>/dev/null || true
     git push --force -u origin "$BRANCH"
-else
-    if ! git push -u origin "$BRANCH"; then
-        cat >&2 <<'EOF'
-
-==> push rejected: the public repository has commits this repository does not.
-    Either bring them in first (recommended):
-
-        git remote add public git@github.com:ys118/ra2web-jev-player.git
-        git fetch public && git merge public/master     # data-free by construction
-        scripts/publish_public.sh
-
-    or re-run with --force to replace them (their history is then lost).
-EOF
-        exit 1
-    fi
+    echo "==> force-pushed branch '$BRANCH' to $PUBLIC_REPO (public-side history replaced)"
+    exit 0
 fi
-echo "==> pushed branch '$BRANCH' to $PUBLIC_REPO"
+
+MIRROR_CLONE="${SCRATCH}-mirror"
+rm -rf "$MIRROR_CLONE"
+if ! git clone --quiet "$PUBLIC_REPO" "$MIRROR_CLONE" 2>/dev/null; then
+    echo "==> public repository is empty: seeding it with the filtered history"
+    git remote add origin "$PUBLIC_REPO"
+    git push -u origin "$BRANCH"
+    echo "==> pushed branch '$BRANCH' to $PUBLIC_REPO"
+    exit 0
+fi
+
+cd "$MIRROR_CLONE"
+git checkout --quiet "$BRANCH" 2>/dev/null || git checkout --quiet -b "$BRANCH"
+git remote add filtered "$SCRATCH"
+git fetch --quiet filtered "$BRANCH"
+if git merge-base --is-ancestor "filtered/$BRANCH" HEAD; then
+    echo "==> public repository is already up to date (nothing to publish)"
+    exit 0
+fi
+git merge --no-ff --no-edit -m "chore: mirror sync from the private repository
+
+Code-only sync: match data (artifacts/, dataset/) and the data-mining material
+(references/research/) are filtered out of the private history before it lands
+here — see docs/PUBLISHING.md." "filtered/$BRANCH"
+git push --quiet origin "$BRANCH"
+echo "==> merged the filtered history into $PUBLIC_REPO ($BRANCH)"

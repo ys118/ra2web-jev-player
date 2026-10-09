@@ -30,19 +30,23 @@ receives the same change through its own pull request.**
 1. **Develop privately first.** Branch off `master` in the private repository, open
    a pull request there, merge it. All data-producing work (matches, dataset
    rebuilds) happens only here.
-2. **Publish the mirror.** `scripts/publish_public.sh` regenerates the public
-   history. The rewrite is deterministic, so this is normally a fast-forward and
-   the public commit ids line up with the filtered private ones.
+2. **Publish the mirror.** `scripts/publish_public.sh` filters the private history
+   and **merges** it into the public `master` (one `chore: mirror sync` merge commit
+   per publish). Merging rather than force-pushing means pull requests that were
+   merged on the public repository stay reachable.
 3. **The same change as a public pull request.** `scripts/publish_public.sh
    --branch <name>` pushes a data-free copy of that branch to the public
    repository; open the pull request there against `master` and merge it. The
    public review therefore sees exactly the change that was already reviewed
    privately, with no match data attached.
-4. **Never let the two diverge.** A push rejected as non-fast-forward means the
-   public repository has commits the private one does not (typically a pull
-   request merged only there). Bring them in first —
-   `git fetch public && git merge public/master` — then publish again. Use
-   `--force` only when you intend to discard the public-side history.
+4. **Bring public-side merges back.** A pull request merged only on the public
+   repository lives there but not here, so the private repository is then missing
+   that change. Pull it in (`git remote add public
+   git@github.com:ys118/ra2web-jev-player.git && git fetch public && git merge
+   public/master`) before doing more work on it. The mirror sync never deletes
+   public-side commits, but the private repository is the source of truth.
+   `--force` replaces the public history wholesale and is only for rule changes
+   (a different filter keep-list), not for routine publishing.
 5. **Keep code and data commits separate.** The filter drops the data part of a
    commit silently, which is correct but makes the public history harder to read if
    the two are mixed in one commit.
@@ -70,8 +74,8 @@ What the script does:
 4. Runs the test suite and the linter in the filtered checkout — the public tree
    must be green on its own (`tests/test_layout.py` skips the data assertions
    when the private data is absent).
-5. Pushes the result to the public repository (force, because the history is
-   rewritten by design).
+5. Merges the filtered history into the public `master` and pushes (fast-forward
+   on the public side; `--force` is reserved for changes to the filter rules).
 
 Requirements: `git-filter-repo` (run through `uv tool run`, so no global install
 is needed) and an authenticated `gh`/git for the push.

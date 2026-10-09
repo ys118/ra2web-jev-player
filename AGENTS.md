@@ -65,9 +65,11 @@ the checkout you are in); the public repository
    `scripts/publish_public.sh` (mirror, fast-forward) and, when a public review
    record is wanted, `scripts/publish_public.sh --branch <name>` followed by a pull
    request on the public repository.
-3. If the publish push is rejected, the public repository has commits this one does
-   not: pull them in (`git fetch public && git merge public/master`) before
-   publishing; never `--force` over them unless discarding them is intended.
+3. The publish merges the filtered history into the public `master` (so public
+   pull-request merges stay reachable). A pull request merged *only* on the public
+   repository must be pulled back here (`git fetch public && git merge public/master`)
+   — this repository is the source of truth. `--force` is only for filter-rule
+   changes.
 4. Keep code commits and data commits separate, so the published history stays
    readable after the data is filtered out.
 
