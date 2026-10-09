@@ -53,7 +53,7 @@
 
 ## 四、官方候选组设计（未来演进参考）
 
-官方 `werhd-jev-player.mjs` v8.3（`refs/examples/jev/`，只读参考）把决策组织成
+官方 `werhd-jev-player.mjs` v8.3（`references/werhd/examples/jev/`，只读参考）把决策组织成
 **候选组**：construction/vehicles/infantry/deployment/tactics/scouting 六个基础组，
 special 层按需注入 garrison/transport/engineering/salvage/defenses/navy/aircraft；
 每次请求**筛出 criteria>1 的组、按优先级+最久未问排序、取前 8 组**一次发出。
@@ -71,7 +71,7 @@ special/cancel/sell/deploy/attack/move。
 
 ## 五、官方资料的复制来源
 
-`refs/` 内容复制自 `D:/projects/ra2web.github.io/docs/`（官方文档仓库）；
+`references/werhd/` 内容复制自 `D:/projects/ra2web.github.io/docs/`（官方文档仓库）；
 **类型真相源** `werhd-player-api.d.ts` 在官方仓库根（refs 快照没有，已复制到
 `src/ra2web_jev_player/werhd/`）。官方曾在本地 v6 完整获胜 16:24（摧毁 40/损失 3），
 v8.3-recovery-naval 为当前版本线。
@@ -115,7 +115,7 @@ v8.3-recovery-naval 为当前版本线。
 
 ## 四、官方资料的复制来源
 
-`refs/` 下所有内容复制自 `D:/projects/ra2web.github.io/docs/`（游戏官方文档仓库）：
+`references/werhd/` 下所有内容复制自 `D:/projects/ra2web.github.io/docs/`（游戏官方文档仓库）：
 `player-console-api.md`（werhd 完整 API）、`jev-player-local.md`（官方 Jev 玩家接入规格、启动步骤、六局实测记录——**官方曾以 16:24 获胜：摧毁 40/损失 3**）、`jev-player-goal-audit.md`（阶段验收）、`examples/`（玩家/目录/策略/特殊行动/摄像机/看板源码，v8.3）。
 
 ## 六、本地 clef-flash 候选后端（2026-10-04，影子评测完成）
@@ -129,5 +129,5 @@ dummy key 即零代码切换。影子评测（828 条历史 decisions.jsonl 重�
 0.45 闸门保持、build/inf/veh 对齐率与分歧风格详见报告。
 
 **全量档案（部署定谳/GPU 预算/影子评测/阈值建议/切换手册/踩坑）：
-`docs/CLEF-LOCAL.md`；影子评测工具 `out/shadow_eval.py`，报告
-`out/shadow_eval/report.md`。**
+`docs/CLEF-LOCAL.md`；影子评测工具 `scripts/shadow_eval.py`，报告
+`artifacts/shadow_eval/report.md`。**

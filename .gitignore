@@ -4,3 +4,10 @@ __pycache__/
 dist/
 .zcode/
 .video_agent/
+
+# 工具缓存（pytest / ruff / mypy）
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# 注意：artifacts/ 与 dataset/ 是数据资产，**不进本文件**（随 git 持久化，见 AGENTS.md）

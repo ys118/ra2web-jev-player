@@ -167,7 +167,8 @@ class GameLauncher:
                 menu_ok = True
                 break
             self._debug_shot("menu-retry-%d" % attempt)
-            body = self.b.eval("document.body ? document.body.innerHTML.length : -1")
+            # 诊断探针: 黑屏/卡加载时这里会挂或返回 -1, 结果只用于人工排查
+            self.b.eval("document.body ? document.body.innerHTML.length : -1")
             self.b.goto(GAME_URL, deadline_s=120, force=True)   # 黑屏/卡加载 → 再刷
         if not menu_ok:
             raise LaunchError("主选单未出现（重试 3 轮仍失败）")

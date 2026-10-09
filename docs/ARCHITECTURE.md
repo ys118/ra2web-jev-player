@@ -19,9 +19,11 @@
 │   driver/browser.py   CLI 封装：会话/eval/快照/点击/超时树杀                          │
 │   driver/launcher.py  启动状态机：冷浏览器→弹窗→菜单→配置→开局→注入（全自动 ~25s）    │
 │   game.py             宏观循环 ~1.5s：快照→感知→清单→开局→侦察→Jev→机动→战报         │
-│   strategy/           确定性决策层 + Jev 五问（20 局复盘沉淀，参数零改动迁移）        │
-│   jev/client.py       TypeSafe /v1/systemone 封装（批量/重试/gzip/统计，密钥不出Python）│
-│   audit.py            logs/bot.log + logs/jev-events.jsonl 审计                      │
+│   strategy/planner/   确定性决策层（包: 记忆/感知/清单/开局/侦察/五态/机动/答案应用）  │
+│   strategy/           阈值与作战手册(doctrine) + Jev 五问(questions) + 快照视图(state)│
+│   review/             终局复盘引擎（包: 采集/记录/确定性分析/语义复盘/调参/产出）      │
+│   jev/client.py       决策模型 /v1/systemone 封装（批量/重试/gzip/统计，密钥不出Python）│
+│   audit.py            artifacts/logs/bot.log + jev-events.jsonl 审计                 │
 └────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -30,7 +32,7 @@
 | 层 | 频率 | 职责 | 位置 |
 |---|---|---|---|
 | 微操 | 150ms | 集火、矿车恢复、维修、落位、镜头、停摆/终局检测 | 页内 client.js（零网络） |
-| 机制 | ~1.5s | 开局序列、经济保底、坦克预算、防空保险、防御线、残血撤退 | strategy/planner.py（确定性） |
+| 机制 | ~1.5s | 开局序列、经济保底、坦克预算、防空保险、防御线、残血撤退 | strategy/planner/（确定性） |
 | 语义 | ~1.5s | 态势五态裁决、建造/步兵/载具选择、威胁评估 | jev（TypeSafe Jev） |
 
 - 能用代码算的绝不给模型；Jev 只在代码算不出的地方拍板（`docs/METHODOLOGY.md`）。
@@ -46,10 +48,11 @@
 3. **微操**：client.js 内部 setTimeout 链直接读写 werhd，不经 Python。
 4. **指令**：Python 决策 → `__rj.o.attackMove/produce/deploy/...` → 页内统一走
    ≤5 分批、同目标 12s 节流、per-unit 18 tick 冷却、deploy 45s 节流（api.md §六实测约束）。
-5. **审计与学习闭环**：`logs/bot.log`（行日志）+ `logs/jev-events.jsonl`（决策/动作/
-   损失/击杀/观测快照逐事件）→ 终局自动复盘（`review.py`：确定性分析 + Jev 语义复盘）→
-   `logs/games/game-XXXX-review.md` 每局报告 + `docs/LESSONS.md` 经验账本 +
-   `knowledge/doctrine.json` 限幅自动调参（`docs/METHODOLOGY.md` §〇）→ 下一局加载验证。
+5. **审计与学习闭环**：`artifacts/logs/bot.log`（行日志）+ `artifacts/logs/jev-events.jsonl`
+   （决策/动作/损失/击杀/观测快照逐事件）→ 每局存档 `artifacts/games/run-<时间戳>/`（训练数据）
+   → 终局自动复盘（`review/` 包：确定性分析 + 模型语义复盘）→ `artifacts/games/game-XXXX-review.md`
+   每局报告 + `docs/LESSONS.md` 经验账本 + `docs/knowledge/doctrine.json` 限幅自动调参
+   （`docs/METHODOLOGY.md` §〇）→ 下一局加载验证；训练侧由 `scripts/build_dataset.py` 并入 `dataset/`。
 
 ## 四、关键设计取舍
 
@@ -68,7 +71,7 @@
 | 页内脚本 | 官方 werhd-jev-player.mjs（HTTP 下发） | 自有 client.js（eval 注入） |
 | 决策服务 | bridge.py HTTP 服务（/decide /event） | Python 进程内直调 TypeSafe |
 | 进局方式 | 人工点菜单 | launcher 全自动（attach 兜底） |
-| API 真相源 | refs/ 快照 | werhd/api.md + d.ts 副本（refs/ 仍留作官方原文） |
+| API 真相源 | `references/werhd/` 快照 | werhd/api.md + d.ts 副本（references/werhd/ 仍留作官方原文） |
 | 微操代码 | 官方 v8.3 黑盒 | 自有、可改、参数自有化 |
 
 ## 六、演进方向（未做，留给后续复盘迭代）

@@ -3,15 +3,14 @@
 
 [第63局用户指示] 全部投喂改为英文（Jev 对英文理解优于中文），并补充战场
 动态上下文（趋势/告警史/损失交换/侦察进度/敌军方位/态势史）——原先只有
-静态快照+最近 5 条事件，Jev "不知道战场动态"。内部代号仍走 nm_en() 英文名。
+静态快照+最近 5 条事件，Jev "不知道战场动态"。内部代号走本地 _en()（英文名+代号标注）。
 """
 from __future__ import annotations
 
 import math
 
 from .doctrine import DOCTRINE_EN, T, get_side
-from .state import (UDB, available, buildings, enemy_intel_lines_en, force_value,
-                    nm_en, ucost)
+from .state import UDB, available, buildings, enemy_intel_lines_en, force_value, ucost
 
 
 def _en(code: str) -> str:

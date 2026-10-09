@@ -10,8 +10,7 @@ import json
 import math
 
 from ..paths import KNOWLEDGE_DIR
-from .doctrine import (AIR_UNITS, COUNTERS, COUNTERS_EN, HARVEST, MCV_CODES,
-                       SCOUT_DOGS, TARGET_SCORE)
+from .doctrine import AIR_UNITS, COUNTERS, COUNTERS_EN, HARVEST, MCV_CODES, SCOUT_DOGS, TARGET_SCORE
 
 # ================= RA2-UNITS.json 术语表 (代号→中文名/造价/护甲) =================
 _UDB_RAW = {}

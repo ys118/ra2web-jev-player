@@ -1,3 +1,13 @@
+# LESSONS —— 逐局经验账本（追加式，人/agent 可读）
+
+> **路径换算（2026-10-09 结构重构；本账本正文是历史记录，写法保留不改）**：
+> `logs/` → `artifacts/logs/`｜`logs/games/` → `artifacts/games/`｜`out/` 的脚本 → `scripts/`
+> ｜`out/*.log` → `artifacts/console/`｜`knowledge/` → `docs/knowledge/`
+> ｜`refs/` → `references/werhd/`｜`_research/` → `references/research/`。
+> 定稿布局与完整对照见 `docs/LAYOUT.md`；今后新条目直接写新路径。
+> 每条对应 `artifacts/games/game-XXXX-review.md`（XXXX 为复盘编号），
+> 训练数据出口为 `dataset/`。
+
 
 ## 第 24 局 —— 2026-09-26 21:09 | defeat | t=1893 | 详见 game-0024-review.md
 

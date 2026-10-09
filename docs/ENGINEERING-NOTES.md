@@ -4,7 +4,7 @@
 
 ## 一、游戏内 API（`window.werhd`）事实
 
-### 1.1 API 全貌（官方文档 `refs/player-console-api.md`）
+### 1.1 API 全貌（官方文档 `references/werhd/player-console-api.md`）
 
 - 查询：`me() / players() / tick() / time() / units(relation) / unit(id) / selected() / crates() /
   map.size() / map.tile(x,y) / map.visible(x,y) / canPlace(name,x,y) / elevation(...) /

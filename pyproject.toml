@@ -1,9 +1,10 @@
 [project]
 name = "ra2web-jev-player"
-version = "0.1.0"
-description = "网页版红警2《王二火大/Chrono Divide》的 Jev 自动对战玩家：页内官方玩家 + 本机桥接 + TypeSafe Jev 决策"
+version = "0.2.0"
+description = "网页版红警2《王二火大/Chrono Divide》的 Jev 自动对战玩家：页内官方玩家 + 本机驱动 + TypeSafe Jev 决策"
 readme = "README.md"
 requires-python = ">=3.11"
+keywords = ["ra2", "red-alert-2", "chrono-divide", "agent", "typesafe", "jev", "automation"]
 dependencies = []
 
 [project.scripts]
@@ -13,8 +14,11 @@ ra2web-jev-attach = "ra2web_jev_player.cli:main_attach"
 ra2web-jev-review = "ra2web_jev_player.cli:main_review"
 
 [dependency-groups]
-# _research/ 抓取脚本（web.py / fetch_pages.py 等）使用；bridge 与 legacy_bot 仅用标准库
+# 默认路径只跑标准库；依赖按用途分组安装（uv sync --group research）
+# research: references/research/ 下的历史抓取脚本（web.py / fetch_pages.py 等）使用
 research = ["requests>=2.31"]
+# dev: 测试与静态检查（uv run pytest / uv run ruff check）
+dev = ["pytest>=8.0", "ruff>=0.6"]
 
 [build-system]
 requires = ["uv_build>=0.12,<0.14"]
@@ -23,3 +27,27 @@ build-backend = "uv_build"
 # uv 缓存(C:)与项目(D:)跨盘，硬链接不可用；固定 copy 模式免警告
 [tool.uv]
 link-mode = "copy"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# tests/regression/ 的历史陈旧断言标记 xfail（见 tests/README.md）
+xfail_strict = false
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+src = ["src", "tests", "scripts"]
+# 参考资料与历史归档不参与静态检查（一次性抓取脚本 / 第 1-20 局归档）
+extend-exclude = ["references", "src/ra2web_jev_player/legacy", "artifacts"]
+
+[tool.ruff.lint]
+# 求稳: 只启用"真问题"类规则(语法级错误 + 未定义名 + 未用导入/变量 + import 排序),
+# 不启用风格规则 —— 仓库有大量带局次标注的中文注释, 风格规则会淹没 Signal。
+select = ["E4", "E7", "E9", "F", "I"]
+ignore = [
+    "E402",   # 场景脚本/工具脚本需要先 sys.path.insert 再 import
+]
+
+[tool.ruff.lint.per-file-ignores]
+# 回归场景脚本: 文件即用例(顶层执行 + 紧凑写法), 只保留"真会炸"的规则
+"tests/regression/*" = ["F401", "F841", "E741", "E401", "E701", "E702", "I001"]

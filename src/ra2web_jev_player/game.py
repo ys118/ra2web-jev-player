@@ -14,12 +14,12 @@ import time
 
 from .audit import Audit
 from .config import MatchConfig
-from .paths import LOG_DIR
 from .jev import JevBudgetExceeded, JevClient, JevError
+from .paths import GAMES_DIR
 from .strategy import planner
 from .strategy.doctrine import AA_VEHICLES, HARVEST
 from .strategy.questions import build_questions
-from .strategy.state import combat_tanks, force_value, yard_tile, ucost
+from .strategy.state import combat_tanks, force_value, ucost, yard_tile
 from .werhd.inject import WerhdClient
 
 
@@ -31,7 +31,7 @@ class BattleSession:
         self.match = match or MatchConfig()
         # [训练数据] 每局独立 run 目录: decisions.jsonl(Jev 决策元组) + events.jsonl
         # (镜像) + report.json —— 后训练(SFT/RL)的数据资产, 见 AGENTS.md
-        self.run_dir = LOG_DIR / "games" / time.strftime("run-%Y%m%d-%H%M%S")
+        self.run_dir = GAMES_DIR / time.strftime("run-%Y%m%d-%H%M%S")
         self.run_dir.mkdir(parents=True, exist_ok=True)
         audit.attach_mirror(self.run_dir / "events.jsonl")
         self.audit = audit
@@ -145,11 +145,9 @@ class BattleSession:
                 self.mem.kill_log = self.mem.kill_log[-12:]
         self.prev_mine, self.prev_enemy = mine_ids, enemy_ids
         # 秒级战场感知: 危机速应不等 jev (先打后想, 省 ~1s)
-        crisis = False
         try:
             alarm = planner.sense_events(s, home, self.mem)
             if alarm:
-                crisis = True
                 self.crisis_ticks += 1
                 acts, logline = planner.crisis_response(s, home, alarm, self.mem,
                                                         stance=self.stance)
@@ -186,8 +184,8 @@ class BattleSession:
         except Exception as e:
             import traceback
             lines = traceback.format_exc().strip().splitlines()
-            tb_src = next((l.strip() for l in reversed(lines)
-                           if "planner.py" in l or "game.py" in l), lines[-1])
+            tb_src = next((ln.strip() for ln in reversed(lines)
+                           if "planner" in ln or "game.py" in ln), lines[-1])
             self.audit.log("scout ERR %s | %s" % (e, tb_src[:160]))
 
         if self.mem.current_stance != self.stance:   # [第63局] 态势史(Jev 动态上下文)

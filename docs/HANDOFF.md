@@ -8,6 +8,7 @@
 
 | 项 | 状态 |
 |---|---|
+| **结构重构(2026-10-09)** | **仓库整理为标准 uv 工程(代码/文档/数据/资料分区; planner 与 review 拆包; `uv run pytest` 26 场景 + 布局守卫全过)——操作路径全部变更, 对照表见 `docs/LAYOUT.md`; 决策行为零改动** |
 | 项目 | `D:/projects/ra2web-jev-player`，GitHub 私有库 `ys118/ra2web-jev-player`（master，最新提交见 `git log -1`） |
 | 战绩 | **100 局：21 胜**（milestone 达成）。近期弧线: 87 防御纵深包🏆→88-90 经济三连修(坦克资金地板/统一生产账本/收入负债豁免)→91 🏆矿车7辆翻盘→92-93 步坦协同+FOCUS-FIRE+侦察路标网(用户战术反馈)→94 矿车+1容错→95 击杀冻结检测器🏆→96 用户叫停僵持局→97-98 打破僵局包两连胜→99 大roll消耗战partial→100 收官defeat(老死法复现)。详见 LESSONS 尾部 |
 | **暂停(2026-10-04 用户指示)** | **暂停开新局**: 用户 Jev 服务余额耗尽, 另一 session 正在接**本地部署 clef-flash 替代 Jev**; 恢复对战前先确认新后端接入+联调。→ **已就绪(2026-10-04)**: 本地引擎+影子评测完成, 全档见 **`docs/CLEF-LOCAL.md`**；**切流已实施(同日 §八)**: 端点/threat 0.55/预算分流/teacher 四项落盘, 服务 q8 重启在驻, **待用户号令开第 70 局** |
@@ -42,7 +43,7 @@
   开局驻军 GARRISON(84)。
 - **铁律新增**: ①矿车 8→6 回滚(85 局矿区枯竭: 扩容有度, 矿区是有限资源);
   ②跨 session agent-browser 互杀——只许会话级 close/锁 PID 精确杀, 禁按名按树
-  (79 局条); ③对局必须脱离会话独立控制台启动(out/run_g8X.bat)。
+  (79 局条); ③对局必须脱离会话独立控制台启动(现: `scripts\run_game.bat <局号>`; 历史脚本存 `scripts/runs/`)。
 - **残留最大方差**: 开局 rush 窗口(t<400, 6 败中 4 局死于此)——第 87 局防御
   纵深包(双兵营+驻军8+哨炮3)待验证。
 
@@ -73,13 +74,13 @@ uv sync                        # 首次/依赖变更后
 uv run ra2web-jev-play         # 进局→注入→托管整局→终局自动复盘→账本+调参
 
 # 2) 监控（另开终端）
-tail -f logs/bot.log                       # 行日志
-tail -f logs/games/run-*/events.jsonl      # 当前局的逐事件（jsonl）
-# 或读最近 run 目录: ls -dt logs/games/run-* | head -1
+tail -f artifacts/logs/bot.log                       # 行日志
+tail -f artifacts/games/run-*/events.jsonl      # 当前局的逐事件（jsonl）
+# 或读最近 run 目录: ls -dt artifacts/games/run-* | head -1
 
 # 3) 复盘/数据
 uv run ra2web-jev-review                   # 手动补复盘最后一段对局
-uv run python scripts/build_training_assets.py   # 重建 dataset/（含新局）
+uv run python scripts/build_dataset.py   # 重建 dataset/（含新局）
 ```
 
 4. **浏览器 daemon 挂死恢复**（eval 超时/挂死时）：
@@ -102,7 +103,7 @@ uv run python scripts/build_training_assets.py   # 重建 dataset/（含新局�
 1. **继续实战训练闭环**（用户指定主任务）：`uv run ra2web-jev-play` 逐局跑，
    **每局结束必须停下向用户汇报**（AGENTS.md 规则），等反馈再继续。
    参考基线：近 5 局 3 胜；对手是"AI-简单"随机阵营 roll。
-2. **训练数据持续积累**：每局后跑一次 `scripts/build_training_assets.py` 把新局
+2. **训练数据持续积累**：每局后跑一次 `scripts/build_dataset.py` 把新局
    并入 `dataset/`；sft-full 元组是后续 SFT/RL 的核心燃料。
 3. **策略演进（下一局主攻 = V3 反制, 待用户拍板）**：
    - 第 65 局敌方 V3 导弹车（射程 12+ 塔射程 8）远程拆战厂 → 坦克峰值 0;
@@ -112,21 +113,21 @@ uv run python scripts/build_training_assets.py   # 重建 dataset/（含新局�
      后待复测；改动走单变量原则（`docs/METHODOLOGY.md`）。
 4. **调参观察**：本 session 支持度 0.39-0.59 均未过闸，tank_cash1=900/cash2=1200
    维持；`knowledge/doctrine.json` 的 history 字段有完整出处。
-5. **数据刷新（游戏更新后必做）**：按 `_research/README.md` 重抓数值；同时对照
+5. **数据刷新（游戏更新后必做）**：按 `references/research/README.md` 重抓数值；同时对照
    `werhd/werhd-player-api.d.ts` 是否有 API 变化。
 6. **站点故障处理**：`gonghui.k0s.cn` 偶发故障（页面加载完成但游戏引擎不启动,
-   `window.werhd` undefined + 白屏）。探测脚本 `out/site_probe.py`（exit 0=恢复）;
+   `window.werhd` undefined + 白屏）。探测脚本 `scripts/site_probe.py`（exit 0=恢复）;
    处理=等恢复后重开, 不是代码问题。
 
 ## 四、红线（不要越过）
 
 - **每局必须停下汇报，等用户反馈**（AGENTS.md §1，用户明确指定）；
-- **禁止清理/覆盖/删除 `logs/` 下任何历史数据**（训练资产）；
+- **禁止清理/覆盖/删除 `artifacts/`、`dataset/` 下任何历史数据**（训练资产）；
 - **活局期间绝不从外部 agent-browser CLI 连游戏 session**（会抢绑空白页弄断
   eval 通道；活体观察只读 events.jsonl）；
 - 只用官方公开的 werhd API；不打排位/联机（只打单机遭遇战）；
 - Jev 密钥只在 Python 进程内，绝不写进页面/日志/代码；
-- 学习闭环调参走 `knowledge/doctrine.json`；结构性改动先汇报。
+- 学习闭环调参走 `docs/knowledge/doctrine.json`；结构性改动先汇报。
 
 ## 五、关键文件索引
 
@@ -134,15 +135,17 @@ uv run python scripts/build_training_assets.py   # 重建 dataset/（含新局�
 |---|---|
 | 项目全貌 / 快速跑 | `README.md` |
 | 架构定稿（分层/数据流/取舍） | `docs/ARCHITECTURE.md` |
+| 测试与已知陈旧断言 | `tests/README.md`（`uv run pytest`） |
 | **逐局战史与全部教训（最重要）** | `docs/LESSONS.md` |
 | 训练数据资产结构与分层 | `dataset/README.md` + `dataset/MANIFEST.jsonl` |
+| **仓库布局与迁移对照** | **`docs/LAYOUT.md`** |
 | 自有 API 定义（含实测约束） | `src/ra2web_jev_player/werhd/api.md`（类型真相源: 同目录 d.ts） |
 | 怎么迭代 / 怎么调 Jev | `docs/METHODOLOGY.md` |
 | 所有引擎/环境坑 | `docs/ENGINEERING-NOTES.md` |
 | 桥接协议史 / 官方候选组设计 | `docs/JEV-INTEGRATION.md` |
 | 20 局自研时代进化史 | `docs/SESSION-REPORT.md` |
-| 官方 API 原文 | `refs/player-console-api.md` |
-| 攻略/数值真值 | `knowledge/RA2-BIBLE.md`、`knowledge/RA2-UNITS.json` |
-| 数值/攻略的复现与刷新 | `_research/README.md` |
-| 站点恢复探测 | `out/site_probe.py`（exit 0=恢复） |
-| **Clef 本地决策后端全档** | **`docs/CLEF-LOCAL.md`**（引擎/模型/契约实测/828 条影子评测/阈值建议/切换手册/踩坑；影子工具 `out/shadow_eval.py`） |
+| 官方 API 原文 | `references/werhd/player-console-api.md` |
+| 攻略/数值真值 | `docs/knowledge/RA2-BIBLE.md`、`docs/knowledge/RA2-UNITS.json` |
+| 数值/攻略的复现与刷新 | `references/research/README.md` |
+| 站点恢复探测 | `scripts/site_probe.py`（exit 0=恢复） |
+| **Clef 本地决策后端全档** | **`docs/CLEF-LOCAL.md`**（引擎/模型/契约实测/828 条影子评测/阈值建议/切换手册/踩坑；影子工具 `scripts/shadow_eval.py`） |
