@@ -9,9 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Publishing workflow for the two-repository model, recorded in `AGENTS.md` and
-  `docs/PUBLISHING.md`: private-first pull requests, then a regenerated code-only
-  mirror (`scripts/publish_public.sh`, `--branch` mode for a public pull request).
 - Open-source governance files: `LICENSE`, `THIRD_PARTY_NOTICES.md`,
   `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `.editorconfig`,
   `.gitattributes`, issue/PR templates and a CI workflow.
@@ -20,14 +17,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- `docs/HANDOFF.md` (maintainer cold-start notes) is private-only: the publish
-  filter strips it from every commit of the public mirror, and published docs no
-  longer link to it.
-- **Two-repository model**: the public repository is regenerated from the private
-  working repository with `scripts/publish_public.sh` and ships code, docs, derived
-  knowledge and official API snapshots only; recorded match data (`artifacts/`,
-  `dataset/`) and data-mining material (`references/research/`) stay private. See
-  `docs/PUBLISHING.md`.
+- This repository ships code, tests, scripts, docs, the derived knowledge base and
+  the official API reference snapshots. Recorded match data (`artifacts/`) and the
+  data-mining material (`references/research/`) are not published; those directories
+  hold their READMEs only, and the ignore rules keep contributors' own match data
+  out of commits.
 - Recorded data files no longer contain the maintainer's local user path
   (`C:\Users\<user>` in 298 traceback lines).
 - Public-facing documentation translated to English: `README.md`,

@@ -75,12 +75,9 @@ Fixing either one is a welcome first contribution.
 
 ## Data assets: read before touching
 
-`artifacts/` and `dataset/` are recorded match data and are treated as
-append-only assets. **In the public repository these directories contain only
-their README** — the recorded data lives in the maintainer's private repository
-([docs/PUBLISHING.md](docs/PUBLISHING.md)), and the public `.gitignore` keeps
-your own match data out of commits. The rules below apply wherever the data is
-present:
+`artifacts/` and `dataset/` hold recorded match data. They are **not part of this
+repository** — only their READMEs are, and the `.gitignore` keeps a contributor's
+own match data out of commits. Treat them as append-only wherever they exist:
 
 - Never delete, truncate or rewrite files under those directories.
 - `artifacts/` is the runtime record (logs, per-match archives, screenshots).

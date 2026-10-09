@@ -14,7 +14,7 @@ Self-contained architecture (no HTTP bridge, no dependency on the official playe
 
 Entry points: ra2web-jev-play / ra2web-jev-launch / ra2web-jev-attach / ra2web-jev-review
       (see cli.py); `python -m ra2web_jev_player` prints usage.
-Docs: README.md, docs/ARCHITECTURE.md, docs/LAYOUT.md, docs/PUBLISHING.md.
+Docs: README.md, docs/ARCHITECTURE.md, docs/LAYOUT.md.
 """
 
 __version__ = "0.2.0"

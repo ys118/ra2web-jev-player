@@ -14,9 +14,8 @@ Two kinds of documents live here, deliberately in two languages:
 |---|---|---|
 | [ARCHITECTURE.md](ARCHITECTURE.md) | English | The self-contained architecture: layers, data flow, design trade-offs, and how it differs from the earlier bridge-based design. |
 | [LAYOUT.md](LAYOUT.md) | English | Repository layout contract, the old → new migration table, and the invariants that must not be broken. |
-| [PUBLISHING.md](PUBLISHING.md) | English | The two-repository model: what is public (code, docs, derived knowledge) and what stays private (match data, data-mining material), plus the one-command publish script. |
 | [METHODOLOGY.md](METHODOLOGY.md) | English | How the project iterates: single-variable changes, the evidence rule, the review loop, and how a threshold may be changed. |
-| `docs/HANDOFF.md` | Chinese | Cold-start hand-off for the maintainer: current state, how to resume, operational rules learned the hard way. **Kept in the private data repository only** — it is filtered out of the public mirror (see [PUBLISHING.md](PUBLISHING.md)). |
+| `docs/HANDOFF.md` | Chinese | Cold-start hand-off for the maintainer: current state, how to resume, operational rules learned the hard way. **Not part of this repository** (maintainer notes). |
 | [LESSONS.md](LESSONS.md) | Chinese | Append-only ledger, one entry per match: what failed, the root cause, the parameter change, the follow-up. The most valuable file in the repository. |
 | [SESSION-REPORT.md](SESSION-REPORT.md) | Chinese | History of the first 20 matches (the in-house bot era) and the reasoning that produced the current strategy layer. |
 | [ENGINEERING-NOTES.md](ENGINEERING-NOTES.md) | Chinese | Engine, browser and environment pitfalls: page lifecycle, throttling, eval transport limits, daemon hangs. |
