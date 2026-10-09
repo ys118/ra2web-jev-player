@@ -74,8 +74,11 @@ What the script does:
 4. Runs the test suite and the linter in the filtered checkout — the public tree
    must be green on its own (`tests/test_layout.py` skips the data assertions
    when the private data is absent).
-5. Merges the filtered history into the public `master` and pushes (fast-forward
-   on the public side; `--force` is reserved for changes to the filter rules).
+5. Pushes the filtered history as the `mirror/sync` branch and opens (or updates) a
+   pull request against the protected `master`. Review it and merge with a merge
+   commit — that merge is what lands the code, and keeping the filtered commits as
+   ancestors keeps later syncs small. `--force` pushes straight to a branch and is
+   reserved for changes to the filter rules.
 
 Requirements: `git-filter-repo` (run through `uv tool run`, so no global install
 is needed) and an authenticated `gh`/git for the push.
@@ -106,6 +109,33 @@ After going public, finish the repository settings:
 - Confirm the license is detected as MIT (GitHub reads `LICENSE`).
 - CI runs on `master`; the badge in `README.md` starts reporting after the first
   public run.
+
+## Branch protection on the public repository
+
+`master` is protected by a repository ruleset (id 24795305, "master protection"):
+
+| Rule | Effect |
+|---|---|
+| Pull request required | No direct commits to `master`; every change arrives as a PR |
+| 1 approving review, stale reviews dismissed, last push must be approved | A PR cannot be merged without a review of its final state |
+| Required status checks | `lint + tests (py3.11)` and `lint + tests (py3.12)` must pass |
+| Conversation resolution required | Review threads must be resolved first |
+| Merge commits only | The mirror's filtered commits must become ancestors, otherwise every later sync would show the whole history as new commits |
+| No force pushes, no branch deletion | History on `master` is append-only |
+
+**One caveat, and why the ruleset has an admin bypass.** GitHub does not let you
+approve your own pull request, and this repository has a single maintainer — so a
+strict approval requirement would make the maintainer's own PRs (including mirror
+syncs) impossible to merge. The ruleset therefore lists **Repository admin** as a
+bypass actor: the maintainer can merge their own PRs (GitHub labels it as a
+bypass) and, technically, could still push to `master` directly. The rule that
+matters in practice is the one applied to everybody else: only the maintainer has
+write access, and any PR from another contributor needs the maintainer's approval
+before it can be merged. If the approval gate must bind the maintainer too, add a
+second reviewer account (or a GitHub App) as a collaborator and remove the bypass
+actor.
+
+## Publishing a revision
 
 ## What the public tree deliberately excludes
 

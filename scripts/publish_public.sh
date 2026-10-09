@@ -6,7 +6,8 @@
 #   2. strip the private-only trees from every commit (git filter-repo)
 #   3. re-add the small files that document those trees + the public .gitignore
 #   4. verify (ruff + pytest) in the filtered checkout
-#   5. push to the public repository
+#   5. push the filtered history as a branch and open/update a pull request
+#      (master is protected: PR + review + CI, no direct pushes)
 #
 # Usage:
 #   scripts/publish_public.sh                  # publish master (fast-forward expected)
@@ -14,10 +15,9 @@
 #   scripts/publish_public.sh --branch NAME    # publish a feature branch (for a public PR)
 #   scripts/publish_public.sh --force          # allow a non-fast-forward push
 #
-# The rewrite is deterministic (same inputs + same rules => same commit ids), so a
-# normal publish is a fast-forward. A rejected push means the public repository has
-# commits this one does not (for example a PR merged only there): pull them into the
-# private repository first, or pass --force if you really mean to discard them.
+# Merging that pull request with a merge commit keeps the filtered commits as
+# ancestors, so the next publish only contains what actually changed. --force pushes
+# straight to the branch and is reserved for filter-rule changes.
 # See docs/PUBLISHING.md for the model, the workflow and the one-time setup.
 set -euo pipefail
 
@@ -90,39 +90,51 @@ if [ "$DRY_RUN" = "1" ]; then
     exit 0
 fi
 
-# ---------- 5) push ----------
-# The mirror is updated by MERGING the filtered branch into the public master, not
-# by force-pushing: pull requests merged on the public repository stay reachable,
-# and the sync is visible as one merge commit per publish.
+# ---------- 5) publish through a pull request ----------
+# master on the public repository is protected: a pull request, one approving
+# review and passing CI are required, and direct pushes are blocked. So the mirror
+# is published as a branch plus a pull request that the maintainer merges (merge
+# commit only — the filtered commits must become ancestors, otherwise every later
+# publish would show the whole history as "new commits").
+HEAD_BRANCH="${HEAD_BRANCH:-mirror/sync}"
+[ "$BRANCH" != "master" ] && HEAD_BRANCH="$BRANCH"
+
+git remote add origin "$PUBLIC_REPO" 2>/dev/null || true
+
 if [ "$FORCE" = "1" ]; then
-    git remote add origin "$PUBLIC_REPO" 2>/dev/null || true
-    git push --force -u origin "$BRANCH"
-    echo "==> force-pushed branch '$BRANCH' to $PUBLIC_REPO (public-side history replaced)"
+    git push --force origin "$BRANCH"
+    echo "==> force-pushed '$BRANCH' to $PUBLIC_REPO (rule change; public history replaced)"
     exit 0
 fi
 
-MIRROR_CLONE="${SCRATCH}-mirror"
-rm -rf "$MIRROR_CLONE"
-if ! git clone --quiet "$PUBLIC_REPO" "$MIRROR_CLONE" 2>/dev/null; then
-    echo "==> public repository is empty: seeding it with the filtered history"
-    git remote add origin "$PUBLIC_REPO"
-    git push -u origin "$BRANCH"
-    echo "==> pushed branch '$BRANCH' to $PUBLIC_REPO"
-    exit 0
-fi
-
-cd "$MIRROR_CLONE"
-git checkout --quiet "$BRANCH" 2>/dev/null || git checkout --quiet -b "$BRANCH"
-git remote add filtered "$SCRATCH"
-git fetch --quiet filtered "$BRANCH"
-if git merge-base --is-ancestor "filtered/$BRANCH" HEAD; then
+# nothing new to publish? compare the filtered tree with the public master tree
+git fetch --quiet "$PUBLIC_REPO" master 2>/dev/null || true
+if git rev-parse --verify --quiet FETCH_HEAD >/dev/null && git diff --quiet FETCH_HEAD "$BRANCH"; then
     echo "==> public repository is already up to date (nothing to publish)"
     exit 0
 fi
-git merge --no-ff --no-edit -m "chore: mirror sync from the private repository
 
-Code-only sync: match data (artifacts/, dataset/) and the data-mining material
-(references/research/) are filtered out of the private history before it lands
-here — see docs/PUBLISHING.md." "filtered/$BRANCH"
-git push --quiet origin "$BRANCH"
-echo "==> merged the filtered history into $PUBLIC_REPO ($BRANCH)"
+git push --force origin "$BRANCH:$HEAD_BRANCH"
+echo "==> pushed the filtered history as branch '$HEAD_BRANCH'"
+
+PR_URL="$(gh pr list --repo "$PUBLIC_REPO" --head "$HEAD_BRANCH" --state open --json url --jq '.[0].url' 2>/dev/null || true)"
+if [ -n "$PR_URL" ]; then
+    echo "==> pull request updated: $PR_URL"
+else
+    PR_URL="$(gh pr create --repo "$PUBLIC_REPO" --base master --head "$HEAD_BRANCH" \
+        --title "chore: mirror sync from the private repository ($(date +%Y-%m-%d))" \
+        --body "Code-only sync of the private working repository (source of truth).
+
+Filtered with \`git filter-repo\`: match data (\`artifacts/\`, \`dataset/\`) and the
+data-mining material (\`references/research/\`) never enter this history — see
+docs/PUBLISHING.md.
+
+The pull request exists because \`master\` is protected (pull request + review + CI,
+no direct pushes). Merging it with a merge commit keeps the filtered commits as
+ancestors, so later syncs only contain what actually changed.")"
+    echo "==> pull request opened: $PR_URL"
+fi
+echo
+echo "    next: review and merge it (merge commit). CI must be green first:"
+echo "      gh pr checks --repo $PUBLIC_REPO"
+echo "      gh pr merge --repo $PUBLIC_REPO --merge $PR_URL"

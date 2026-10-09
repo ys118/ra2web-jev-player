@@ -62,9 +62,10 @@ the checkout you are in); the public repository
 1. Branch → pull request → merge **here first**; match data and dataset rebuilds
    only ever happen here.
 2. Then publish the same change to the public repository:
-   `scripts/publish_public.sh` (mirror, fast-forward) and, when a public review
-   record is wanted, `scripts/publish_public.sh --branch <name>` followed by a pull
-   request on the public repository.
+   `scripts/publish_public.sh` filters the history and opens a `mirror/sync` pull
+   request against the protected `master` (PR + review + CI required; merge commit
+   only). Merge it there to land the change; `--branch <name>` does the same for a
+   feature branch when a public review record is wanted.
 3. The publish merges the filtered history into the public `master` (so public
    pull-request merges stay reachable). A pull request merged *only* on the public
    repository must be pulled back here (`git fetch public && git merge public/master`)
