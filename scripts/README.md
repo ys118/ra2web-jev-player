@@ -20,6 +20,7 @@
 | Script | Purpose |
 |---|---|
 | `build_dataset.py` | Training-data builder (idempotent): backfills the 1-65 match history and incrementally folds each match's run directory into `dataset/` — a run terminated externally (no `report.json`) is folded in as `tier: partial` instead of being dropped. `--check` only reports; `--skip-legacy` folds in new matches only. See `dataset/README.md` |
+| `export_training.py` | Post-training exporter: turns the run archives into training-ready files under `dataset/export/` (gitignored, derived) — SFT prompt-completion JSONL split by run, RL trajectories with terminal rewards, DPO pairs from the shadow-eval disagreements, plus `stats.json`. Era (`--era jev|clef`) and confidence filters; `--check` only reports. See `docs/TRAINING.md` |
 | `shadow_eval.py` | Shadow eval: replays historical decision tuples to the local clef-flash and compares them against the Jev answers on file (never calls the remote endpoint). Results in `artifacts/shadow_eval/` |
 | `bench_opening.py` + `bench_watch.sh` | Opening-build micro-benchmark (measured in match 67 on the refinery-first chain): runs automatically after site recovery; results in `artifacts/bench/` |
 | `dbg-st.json` | One state snapshot from early debugging (historical archive) |
