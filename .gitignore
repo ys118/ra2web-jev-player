@@ -10,6 +10,10 @@ dist/
 .ruff_cache/
 .mypy_cache/
 
+# 后训练导出（scripts/export_training.py 生成）：派生数据，随时可重建，勿提交
+# （原始语料仍在 artifacts/games/ 里随 git 持久化）
+dataset/export/
+
 # 注意：artifacts/ 与 dataset/ 是数据资产。在本库（数据仓）它们随 git 持久化，
 # 因此**不在此忽略**；公开代码库由 scripts/publish_public.sh 追加忽略规则
 # （见 AGENTS.md 与 docs/PUBLISHING.md）。
