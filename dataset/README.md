@@ -69,6 +69,10 @@ path for any consumer, for the whole history:
    **These overlap**: matches 45–65 appear in both zones (same `run`), so de-duplicate by `run` /
    `review_no` before summing tuples or counting matches.
 4. `game-events` (23–44) has events only; `game-legacy` (1–22) has metadata only.
+5. For **post-training exports** (trainer-ready SFT / RL / DPO files) do not hand-roll a walker:
+   `scripts/export_training.py` reads the run archives, applies the era/confidence filters, splits
+   train/val by run and writes to `dataset/export/` (derived data, gitignored — regenerate, never
+   commit). Contract, caveats and the training recipe: `docs/TRAINING.md`.
 
 ## Numbering (read this before joining data)
 

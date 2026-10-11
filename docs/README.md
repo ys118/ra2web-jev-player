@@ -21,6 +21,7 @@ Two kinds of documents live here, deliberately in two languages:
 | [ENGINEERING-NOTES.md](ENGINEERING-NOTES.md) | Chinese | Engine, browser and environment pitfalls: page lifecycle, throttling, eval transport limits, daemon hangs. |
 | [JEV-INTEGRATION.md](JEV-INTEGRATION.md) | Chinese | Decision-model integration: request contract, question shapes, confidence gates, parameter-iteration mechanism. |
 | [CLEF-LOCAL.md](CLEF-LOCAL.md) | Chinese | Dossier for running the decision model locally (llama.cpp + clef-flash): contract parity, shadow-evaluation numbers, thresholds, switch-over manual. |
+| [TRAINING.md](TRAINING.md) | Chinese | Post-training manual: the corpus → SFT/RL/DPO export contract, the exporter (`scripts/export_training.py`), measured caveats, the first training recipe, and the shadow-evaluation gate. |
 | [knowledge/](knowledge/README.md) | Chinese | Game knowledge base: `RA2-BIBLE.md` (full strategy guide), `AI-OPERATING-CARD.md` (condensed operating manual fed to the model), `RA2-UNITS.json` (unit/building/warhead ground truth from `rules.ini`), `doctrine.json` (tuned thresholds, audited in git). |
 
 Related material outside `docs/`:
